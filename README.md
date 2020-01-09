@@ -10,9 +10,7 @@ If you want to pitch in, take a look at the issues currently filed, which should
 
 MVP API
 --
-There is a current MVP API made available at: https://mvpapi.portal.azure-api.net/.
-
-It exposes methods for the following:
+There is a current MVP API made available at: https://mvpapi.portal.azure-api.net/. I'm sure there are wrappers out there already or maybe we could roll our own. It exposes methods for the following:
 
 - `GET` GetContributionAreas
 - `GET` GetContributionById
