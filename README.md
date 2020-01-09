@@ -50,3 +50,5 @@ So, who's with me?
 --
 
 As far as scopes this seems fairly simple, but since this is what we have to work with I think it could also be a really nice little app to build as a community! And maybe even more importantly, help MVPs across to globe!
+
+![](https://raw.githubusercontent.com/sthewissen/MVP/master/concept.png)
