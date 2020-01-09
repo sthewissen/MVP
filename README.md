@@ -39,7 +39,6 @@ From this the following basic functionalities can be distilled:
 
 - Manage contributions (delete, update, add)
 - Manage your online identities
-- Search for other MVPs
 - View your own profile (not edit unfortunately)
 - Save or submit answers to MVP renewal questions
 
