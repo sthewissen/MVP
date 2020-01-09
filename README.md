@@ -44,7 +44,7 @@ From this the following basic functionalities can be distilled:
 
 Some other nice to haves we could come up with:
 - Local reminder notifications to fill in your contributions
-- ...
+- Recognize URIs on clipboard and ask to instantly make a contribution out of it
 
 So, who's with me?
 --
