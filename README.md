@@ -1,3 +1,5 @@
+![](mvp.png)
+
 # MVP
 
 There has always been the need for Microsoft MVPs to manage their community activities in an easier way. The online portal works fine, but having a similar thing in your pocket to create activities on the fly is what we really need. Which is what this project is for!
