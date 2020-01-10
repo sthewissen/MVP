@@ -8,6 +8,14 @@ How do I contribute?
 --
 First of all, let's discuss things! I've made issues for a lot of the features I would personally like to see within the realm of current possibilities. However, my opinions should not be leading here! Feel free to discuss in the existing isses, make new issues/features etc. etc. If you want to pitch in with code, simply take a look at the issues currently filed, which should contain some of the basic functionalities the app should be able to perform. Does one of them appeal to you? Go ahead and pick it up, let us know and submit a PR when you're done!
 
+## Resources
+
+- API definition: https://mvpapi.portal.azure-api.net/
+- Current official MVP app in the store: https://github.com/microsoft/mvp
+- Potential API wrappers
+   - https://github.com/daronyondem/mvp-api-dot-net
+   - https://github.com/jamesmcroft/MS-MVP-API-PCL
+
 MVP API
 --
 There is a current MVP API made available at: https://mvpapi.portal.azure-api.net/. I'm sure there are wrappers out there already or maybe we could roll our own simple one. It exposes methods for the following:
