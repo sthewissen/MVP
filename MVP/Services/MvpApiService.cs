@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Collections.ObjectModel;
 using System.Diagnostics;
-using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Net.Http.Headers;
@@ -1095,48 +1093,6 @@ namespace MVP.Services
             }
 
             return false;
-        }
-
-        #endregion
-
-        #region Utilities
-
-        public async Task<string> ExportContributionsAsync()
-        {
-            try
-            {
-                var ping = await GetContributionsAsync(0, 1);
-
-                var totalContributions = ping.TotalContributions;
-
-                if (totalContributions != null)
-                {
-                    var allContributions = await GetContributionsAsync(0, (int)totalContributions);
-
-                    return JsonConvert.SerializeObject(allContributions);
-                }
-                else
-                {
-                    return "";
-                }
-            }
-            catch
-            {
-                return "";
-            }
-        }
-
-        public async Task<string> ExportOnlineIdentitiesAsync()
-        {
-            try
-            {
-                var onlineIdentities = await GetOnlineIdentitiesAsync();
-                return JsonConvert.SerializeObject(onlineIdentities);
-            }
-            catch
-            {
-                return "";
-            }
         }
 
         #endregion
