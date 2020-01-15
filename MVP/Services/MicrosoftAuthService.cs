@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using System.Web;
 using MVP.Services.Interfaces;
 using Newtonsoft.Json;
+using Xamarin.Essentials;
 using Xamarin.Forms;
 
 namespace MVP.Services
@@ -22,7 +23,7 @@ namespace MVP.Services
         /// <summary>
         /// Signin with your Microsoft account.
         /// </summary>
-        public async Task SignInAsync(bool isRefresh = false)
+        public async Task<string> SignInAsync(bool isRefresh = false)
         {
             try
             {
@@ -36,12 +37,12 @@ namespace MVP.Services
                     {
                         // Construct the Form content, this is where we add the OAuth token (could be access token or refresh token)
                         var postContent = new FormUrlEncodedContent(new List<KeyValuePair<string, string>>
-                    {
-                        new KeyValuePair<string, string>("client_id", ClientID),
-                        new KeyValuePair<string, string>("grant_type", isRefresh ? "refresh_token" : "authorization_code"),
-                        new KeyValuePair<string, string>(isRefresh ? "refresh_token" : "code", code),
-                        new KeyValuePair<string, string>("redirect_uri", RedirectUri)
-                    });
+                        {
+                            new KeyValuePair<string, string>("client_id", ClientID),
+                            new KeyValuePair<string, string>("grant_type", isRefresh ? "refresh_token" : "authorization_code"),
+                            new KeyValuePair<string, string>(isRefresh ? "refresh_token" : "code", code),
+                            new KeyValuePair<string, string>("redirect_uri", RedirectUri)
+                        });
 
                         // Variable to hold the response data
                         var responseTxt = "";
@@ -58,25 +59,28 @@ namespace MVP.Services
 
                         if (tokenData.ContainsKey("access_token"))
                         {
-                            //TODO: STORE tokenData["access_token"]);
-                            //TODO: STORE tokenData["refresh_token"]);
+                            await SecureStorage.SetAsync("access_token", tokenData["access_token"]);
+                            await SecureStorage.SetAsync("refresh_token", tokenData["refresh_token"]);
 
                             var tokenType = tokenData["token_type"];
                             var cleanedAccessToken = tokenData["access_token"].Split('&')[0];
 
                             // set public property that is "returned"
-                            // TODO: STORE $"{tokenType} {cleanedAccessToken}";
+                            return $"{tokenType} {cleanedAccessToken}";
                         }
+
+                        return string.Empty;
                     }
                 }
                 else
                 {
                     // TODO: What to do here?
+                    return string.Empty;
                 }
             }
             catch (Exception ex)
             {
-
+                return string.Empty;
             }
         }
 
@@ -96,6 +100,8 @@ namespace MVP.Services
                     if (!string.IsNullOrEmpty(code))
                     {
                         // Logout the user.
+                        SecureStorage.Remove("access_token");
+                        SecureStorage.Remove("refresh_token");
                     }
                 }
                 else
