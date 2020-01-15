@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Windows.Input;
-
+using MVP.Services;
 using Xamarin.Forms;
 
 namespace MVP.ViewModels
@@ -11,9 +11,19 @@ namespace MVP.ViewModels
         {
             Title = "About";
 
-            OpenWebCommand = new Command(() => Device.OpenUri(new Uri("https://xamarin.com/platform")));
+            SignInCommand = new Command(async () =>
+            {
+                var auth = new MicrosoftAuthService();
+                await auth.SignInAsync();
+            });
+            SignOutCommand = new Command(async () =>
+            {
+                var auth = new MicrosoftAuthService();
+                await auth.SignOutAsync();
+            });
         }
 
-        public ICommand OpenWebCommand { get; }
+        public ICommand SignInCommand { get; }
+        public ICommand SignOutCommand { get; }
     }
 }
