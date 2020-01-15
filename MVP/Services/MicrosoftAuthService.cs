@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Net.Http;
 using System.Threading.Tasks;
 using System.Web;
+using MVP.Services.Helpers;
 using MVP.Services.Interfaces;
 using Newtonsoft.Json;
 using Xamarin.Essentials;
@@ -68,18 +69,14 @@ namespace MVP.Services
                             // set public property that is "returned"
                             return $"{tokenType} {cleanedAccessToken}";
                         }
-
-                        return string.Empty;
                     }
                 }
-                else
-                {
-                    // TODO: What to do here?
-                    return string.Empty;
-                }
+
+                return string.Empty;
             }
             catch (Exception ex)
             {
+                ex.LogException();
                 return string.Empty;
             }
         }
@@ -87,7 +84,7 @@ namespace MVP.Services
         /// <summary>
         /// Sign out with your Microsoft account.
         /// </summary>
-        public async Task SignOutAsync()
+        public async Task<bool> SignOutAsync()
         {
             try
             {
@@ -102,16 +99,17 @@ namespace MVP.Services
                         // Logout the user.
                         SecureStorage.Remove("access_token");
                         SecureStorage.Remove("refresh_token");
+
+                        return true;
                     }
                 }
-                else
-                {
-                    // TODO: What?
-                }
+
+                return false;
             }
             catch (Exception ex)
             {
-
+                ex.LogException();
+                return false;
             }
         }
     }
