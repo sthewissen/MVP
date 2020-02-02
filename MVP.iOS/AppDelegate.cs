@@ -1,5 +1,6 @@
 ﻿using System;
 using Foundation;
+using Microsoft.Identity.Client;
 using UIKit;
 
 namespace MVP.iOS
@@ -10,11 +11,12 @@ namespace MVP.iOS
     [Register("AppDelegate")]
     public partial class AppDelegate : global::Xamarin.Forms.Platform.iOS.FormsApplicationDelegate
     {
-        public static Action<string> CallbackHandler { get; set; }
-
         public override bool FinishedLaunching(UIApplication app, NSDictionary options)
         {
+            global::Xamarin.Forms.Forms.SetFlags("CarouselView_Experimental");
             global::Xamarin.Forms.Forms.SetFlags("CollectionView_Experimental");
+            global::Xamarin.Forms.Forms.SetFlags("IndicatorView_Experimental");
+
             global::Xamarin.Forms.Forms.Init();
 
             LoadApplication(new App());
@@ -24,8 +26,7 @@ namespace MVP.iOS
 
         public override bool OpenUrl(UIApplication app, NSUrl url, NSDictionary options)
         {
-            CallbackHandler(url.AbsoluteString);
-            CallbackHandler = null;
+            AuthenticationContinuationHelper.SetAuthenticationContinuationEventArgs(url);
             return true;
         }
     }

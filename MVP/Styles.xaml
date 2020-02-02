@@ -1,0 +1,66 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ResourceDictionary xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="MVP.Styles">
+    <?xaml-comp compile="true" ?>
+
+    <OnPlatform x:TypeArguments="x:String" x:Key="SegoeUI">
+        <On Platform="iOS" Value="SegoeUI"/>
+        <On Platform="Android" Value="SegoeUI.ttf#Normal"/>
+    </OnPlatform>
+    <OnPlatform x:TypeArguments="x:String" x:Key="SegoeUIBold">
+        <On Platform="iOS" Value="SegoeUI-Bold"/>
+        <On Platform="Android" Value="SegoeUIBold.ttf#Gras"/>
+    </OnPlatform>
+
+    <Color x:Key="msblue">#0178D4</Color>
+    <Color x:Key="white">#FFFFFF</Color>
+
+    <Style TargetType="{x:Type StackLayout}">
+        <Setter Property="Spacing" Value="0" />
+    </Style>
+
+    <Style TargetType="{x:Type Grid}">
+        <Setter Property="ColumnSpacing" Value="0" />
+        <Setter Property="RowSpacing" Value="0" />
+    </Style>
+
+    <Style TargetType="{x:Type Label}">
+        <Setter Property="FontSize" Value="14" />
+    </Style>
+
+    <Style TargetType="{x:Type Button}">
+        <Setter Property="FontSize" Value="14" />
+    </Style>
+
+    <Style x:Key="heading_h1" TargetType="{x:Type Label}">
+        <Setter Property="FontSize" Value="28" />
+        <Setter Property="FontAttributes" Value="Bold" />
+        <Setter Property="TextColor" Value="{StaticResource white}" />
+        <Setter Property="LineHeight" Value="1.2" />
+    </Style>
+
+    <Style x:Key="body_dark" TargetType="{x:Type Label}">
+        <Setter Property="FontSize" Value="14" />
+        <Setter Property="TextColor" Value="Black" />
+    </Style>
+
+    <Style x:Key="tagline" TargetType="{x:Type Label}">
+        <Setter Property="BackgroundColor" Value="{StaticResource white}" />
+        <Setter Property="HorizontalOptions" Value="Start" />
+        <Setter Property="FontSize" Value="14" />
+        <Setter Property="FontAttributes" Value="Bold" />
+        <Setter Property="TextColor" Value="{StaticResource msblue}" />
+        <Setter Property="Padding" Value="10" />
+    </Style>
+
+    <Style x:Key="body_light" TargetType="{x:Type Label}">
+        <Setter Property="FontSize" Value="15" />
+        <Setter Property="TextColor" Value="{StaticResource white}" />
+        <Setter Property="LineHeight" Value="1.3" />
+    </Style>
+
+    <Style x:Key="button_white" TargetType="{x:Type Button}">
+        <Setter Property="BackgroundColor" Value="{StaticResource white}" />
+        <Setter Property="FontSize" Value="14" />
+        <Setter Property="TextColor" Value="{StaticResource msblue}" />
+    </Style>
+</ResourceDictionary>
