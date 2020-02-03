@@ -1,6 +1,6 @@
 name: CI on Pull Request
 
-on: [pull_request]
+on: [push, pull_request]
 
 jobs:   
   Android:
@@ -20,4 +20,4 @@ jobs:
     - name: iOS
       run: |
         nuget restore
-        msbuild MVP.iOS/MVP.iOS.csproj /verbosity:normal /t:Rebuild /p:Platform=iPhone /p:Configuration=Debug
+        msbuild MVP.iOS/MVP.iOS.csproj /verbosity:normal /t:Rebuild /p:Platform=iPhoneSimulator /p:Configuration=Debug
