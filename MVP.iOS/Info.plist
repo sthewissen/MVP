@@ -32,8 +32,6 @@
 	<string>LaunchScreen</string>
 	<key>CFBundleName</key>
 	<string>MVP</string>
-	<key>XSAppIconAssets</key>
-	<string>Assets.xcassets/AppIcon.appiconset</string>
 	<key>CFBundleURLTypes</key>
 	<array>
 		<dict>
@@ -52,5 +50,7 @@
 		<string>SegoeUIBold.ttf</string>
 		<string>SegoeUI.ttf</string>
 	</array>
+	<key>XSAppIconAssets</key>
+	<string>Assets.xcassets/AppIcon.appiconset</string>
 </dict>
 </plist>
