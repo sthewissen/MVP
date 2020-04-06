@@ -12,7 +12,6 @@ using Newtonsoft.Json;
 
 namespace MVP.Services
 {
-
     public class MvpApiService : IDisposable
     {
         private readonly HttpClient _client;
@@ -36,6 +35,10 @@ namespace MVP.Services
             _client = new HttpClient(handler);
             _client.BaseAddress = new Uri("https://mvpapi.azure-api.net/mvp/api/");
             _client.DefaultRequestHeaders.Add("Ocp-Apim-Subscription-Key", Constants.OcpApimSubscriptionKey);
+
+            if (!authorizationHeaderContent.StartsWith(Constants.AuthType))
+                authorizationHeaderContent = $"{Constants.AuthType} {authorizationHeaderContent}";
+
             _client.DefaultRequestHeaders.Add("Authorization", authorizationHeaderContent);
         }
 
@@ -98,7 +101,7 @@ namespace MVP.Services
             try
             {
                 // the result is Detected mime type: image/jpeg; charset=binary
-                using (var response = await _client.GetAsync("https://mvpapi.azure-api.net/mvp/api/profile/photo"))
+                using (var response = await _client.GetAsync("profile/photo"))
                 {
                     if (response.IsSuccessStatusCode)
                     {

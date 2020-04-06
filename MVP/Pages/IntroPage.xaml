@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage BackgroundColor="{StaticResource white}"
+             xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
+             ios:Page.UseSafeArea="true"
+             NavigationPage.HasNavigationBar="False"
+             xmlns:viewModels="clr-namespace:MVP.PageModels"
+             xmlns:custom="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
+             x:Class="MVP.Pages.IntroPage"
+             x:DataType="{x:Type viewModels:IntroPageModel}">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+
+        <StackLayout Padding="40" VerticalOptions="Center">
+
+            <custom:PancakeView Style="{StaticResource tagline_box}" >
+                <Label Text="Welcome MVP!" Style="{StaticResource tagline}" />
+            </custom:PancakeView>
+
+            <Label Text="Manage all of your community activities from the palm of your hand"
+                   Style="{StaticResource heading_h1}" Margin="0,30" />
+
+            <Label Style="{StaticResource body_dark}" Text="This app allows you to keep track of all your contributions and your renewal questions. It will also give you friendly reminders about the deadlines for these if you would like it to.&#x0a;&#x0a;However, to get started we will first need you to sign in using the Microsoft account associated with your MVP profile." />
+
+        </StackLayout>
+
+        <StackLayout Grid.Row="1" Padding="40,20,40,40">
+            <Button Text="Get started" Style="{StaticResource button_blue}" Command="{Binding SignInCommand}" />
+        </StackLayout>
+    </Grid>
+</ContentPage>

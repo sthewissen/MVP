@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 using Xamarin.Forms;
 
-namespace MVP.Views
+namespace MVP.Pages
 {
     public partial class ContributionsPage : ContentPage
     {

@@ -1,13 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
-
 using Xamarin.Forms;
 
-namespace MVP
+namespace MVP.Styles
 {
-    public partial class AppShell : Xamarin.Forms.Shell
+    public partial class StyleGuide
     {
-        public AppShell()
+        public StyleGuide()
         {
             InitializeComponent();
         }

@@ -1,0 +1,117 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ResourceDictionary xmlns="http://xamarin.com/schemas/2014/forms"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                    xmlns:custom="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
+                    xmlns:ff="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
+                    x:Class="MVP.Styles.StyleGuide">
+
+    <?xaml-comp compile="true" ?>
+
+    <OnPlatform x:TypeArguments="x:String" x:Key="SegoeUI">
+        <On Platform="iOS" Value="SegoeUI"/>
+        <On Platform="Android" Value="SegoeUI.ttf#Normal"/>
+    </OnPlatform>
+
+    <OnPlatform x:TypeArguments="x:String" x:Key="SegoeUIBold">
+        <On Platform="iOS" Value="SegoeUI-Bold"/>
+        <On Platform="Android" Value="SegoeUIBold.ttf#Gras"/>
+    </OnPlatform>
+
+    <Color x:Key="msblue">#0178D4</Color>
+    <Color x:Key="white">#FFFFFF</Color>
+    <Color x:Key="dark_gray">#404040</Color>
+
+    <Style TargetType="{x:Type StackLayout}">
+        <Setter Property="Spacing" Value="0" />
+    </Style>
+
+    <Style TargetType="{x:Type Grid}">
+        <Setter Property="ColumnSpacing" Value="0" />
+        <Setter Property="RowSpacing" Value="0" />
+    </Style>
+
+    <Style TargetType="{x:Type Label}">
+        <Setter Property="FontSize" Value="16" />
+        <Setter Property="FontFamily" Value="{StaticResource SegoeUI}"/>
+    </Style>
+
+    <Style TargetType="{x:Type Button}">
+        <Setter Property="FontFamily" Value="{StaticResource SegoeUI}"/>
+        <Setter Property="FontSize" Value="16" />
+    </Style>
+
+    <Style x:Key="heading_h1" TargetType="{x:Type Label}">
+        <Setter Property="FontSize" Value="24" />
+        <Setter Property="FontFamily" Value="{StaticResource SegoeUIBold}"/>
+        <Setter Property="TextColor" Value="{StaticResource dark_gray}" />
+        <Setter Property="LineHeight" Value="1" />
+    </Style>
+
+    <Style x:Key="body_dark" TargetType="{x:Type Label}">
+        <Setter Property="FontSize" Value="16" />
+        <Setter Property="TextColor" Value="Black" />
+    </Style>
+
+    <Style x:Key="tagline_box" TargetType="custom:PancakeView">
+        <Setter Property="Elevation" Value="4"/>
+        <Setter Property="Padding" Value="8"/>
+        <Setter Property="HorizontalOptions" Value="Start"/>
+        <Setter Property="BackgroundColor" Value="{StaticResource msblue}"/>
+    </Style>
+
+    <Style x:Key="tagline" TargetType="{x:Type Label}">
+        <Setter Property="FontSize" Value="16" />
+        <Setter Property="FontFamily" Value="{StaticResource SegoeUIBold}"/>
+        <Setter Property="TextColor" Value="{StaticResource white}" />
+        <Setter Property="VerticalOptions" Value="Center" />
+        <Setter Property="VerticalTextAlignment" Value="Center" />
+    </Style>
+
+    <Style x:Key="body_light" TargetType="{x:Type Label}">
+        <Setter Property="FontSize" Value="16" />
+        <Setter Property="TextColor" Value="{StaticResource white}" />
+        <Setter Property="LineHeight" Value="1.1" />
+    </Style>
+
+    <Style x:Key="button_blue" TargetType="{x:Type Button}">
+        <Setter Property="BackgroundColor" Value="{StaticResource msblue}" />
+        <Setter Property="FontSize" Value="16" />
+        <Setter Property="TextColor" Value="{StaticResource white}" />
+    </Style>
+
+    <Style x:Key="button_white" TargetType="{x:Type Button}">
+        <Setter Property="BackgroundColor" Value="{StaticResource white}" />
+        <Setter Property="FontSize" Value="16" />
+        <Setter Property="TextColor" Value="{StaticResource msblue}" />
+    </Style>
+
+    <Style x:Key="contribution_date" TargetType="Label">
+        <Setter Property="LineBreakMode" Value="TailTruncation"/>
+        <Setter Property="TextColor" Value="{StaticResource white}"/>
+        <Setter Property="FontFamily" Value="{StaticResource SegoeUI}"/>
+        <Setter Property="FontSize" Value="12"/>
+    </Style>
+
+    <Style x:Key="contribution_title" TargetType="Label">
+        <Setter Property="LineBreakMode" Value="TailTruncation"/>
+        <Setter Property="TextColor" Value="{StaticResource white}"/>
+        <Setter Property="FontFamily" Value="{StaticResource SegoeUIBold}"/>
+        <Setter Property="FontSize" Value="14"/>
+        <Setter Property="MaxLines" Value="2"/>
+    </Style>
+
+    <Style x:Key="contribution_image" TargetType="ff:CachedImage">
+        <Setter Property="Aspect" Value="AspectFill"/>
+        <Setter Property="HorizontalOptions" Value="Center"/>
+        <Setter Property="Margin" Value="0,0,16,0"/>
+        <Setter Property="VerticalOptions" Value="Center"/>
+        <Setter Property="BackgroundColor" Value="White"/>
+        <Setter Property="HeightRequest" Value="64"/>
+        <Setter Property="WidthRequest" Value="72"/>
+    </Style>
+
+    <Style x:Key="contribution_list_container" TargetType="custom:PancakeView">
+        <Setter Property="CornerRadius" Value="8"/>
+        <Setter Property="BackgroundColor" Value="{StaticResource msblue}"/>
+    </Style>
+</ResourceDictionary>

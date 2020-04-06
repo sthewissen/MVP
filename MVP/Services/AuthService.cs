@@ -9,6 +9,10 @@ namespace MVP.Services
 {
     public class AuthService
     {
+        readonly IPublicClientApplication _pca;
+
+        // The redirect URI defines how the external browser window can
+        // callback into our app after authentication has happened.
         string RedirectUri
         {
             get
@@ -21,9 +25,6 @@ namespace MVP.Services
                 return string.Empty;
             }
         }
-
-        readonly string[] Scopes = { "wl.signin", "wl.emails" };
-        readonly IPublicClientApplication _pca;
 
         // Android uses this to determine which activity to use to show
         // the login screen dialog from.
@@ -44,10 +45,10 @@ namespace MVP.Services
             {
                 var accounts = await _pca.GetAccountsAsync();
                 var firstAccount = accounts.FirstOrDefault();
-                var authResult = await _pca.AcquireTokenSilent(Scopes, firstAccount).ExecuteAsync();
+                var authResult = await _pca.AcquireTokenSilent(Constants.AuthScopes, firstAccount).ExecuteAsync();
 
                 // Store the access token securely for later use.
-                await SecureStorage.SetAsync("AccessToken", authResult?.AccessToken);
+                await SecureStorage.SetAsync("AccessToken", $"{Constants.AuthType} {authResult?.AccessToken}");
 
                 return true;
             }
@@ -63,10 +64,10 @@ namespace MVP.Services
             {
                 var accounts = await _pca.GetAccountsAsync();
                 var firstAccount = accounts.FirstOrDefault();
-                var authResult = await _pca.AcquireTokenSilent(Scopes, firstAccount).ExecuteAsync();
+                var authResult = await _pca.AcquireTokenSilent(Constants.AuthScopes, firstAccount).ExecuteAsync();
 
                 // Store the access token securely for later use.
-                await SecureStorage.SetAsync("AccessToken", authResult?.AccessToken);
+                await SecureStorage.SetAsync("AccessToken", $"{Constants.AuthType} {authResult?.AccessToken}");
 
                 return true;
             }
@@ -75,13 +76,13 @@ namespace MVP.Services
                 try
                 {
                     // This means we need to login again through the MSAL window.
-                    var authResult = await _pca.AcquireTokenInteractive(Scopes)
+                    var authResult = await _pca.AcquireTokenInteractive(Constants.AuthScopes)
                                                 .WithParentActivityOrWindow(ParentWindow)
                                                 .WithUseEmbeddedWebView(true)
                                                 .ExecuteAsync();
 
                     // Store the access token securely for later use.
-                    await SecureStorage.SetAsync("AccessToken", authResult?.AccessToken);
+                    await SecureStorage.SetAsync("AccessToken", $"{Constants.AuthType} {authResult?.AccessToken}");
 
                     return true;
                 }
