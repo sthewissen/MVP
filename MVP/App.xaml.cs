@@ -2,77 +2,68 @@
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using MVP.Services;
-using MVP.Views;
 using Xamarin.Essentials;
 using System.Threading.Tasks;
+using MVP.PageModels;
+using FreshMvvm;
+using MVP.Services.Helpers;
 
 namespace MVP
 {
     public partial class App : Application
     {
-        readonly AuthService _authService;
-        bool _isIntroAlreadyShown;
+        public static MvpApiService MvpApiService { get; set; }
 
         public App()
         {
             InitializeComponent();
 
-            // TODO: Inject/resolve?
-            _authService = new AuthService();
+            // Device.SetFlags(new[] { });
 
-            // By default show the main screen, we will update accordingly.
-            MainPage = new AppShell();
-
-            // Ideally we also check here for a token in SecureStorage to set the correct
-            // initial page of the app. If no token exists, we HAVE to log in anyway.
-            _authService.SignInSilentAsync().ContinueWith(t =>
+            if (VersionTracking.IsFirstLaunchEver)
             {
-                if (!t.IsFaulted && t.Result)
-                {
-                    // We could auth, so show our main screen.
-                    MainPage = new AppShell();
-                }
-                else
-                {
-                    MainPage = new IntroPage();
-                    _isIntroAlreadyShown = true;
-                }
-            });
-        }
-
-        protected async override void OnStart()
-        {
-            await VerifyAuthentication();
-        }
-
-        protected override void OnSleep()
-        {
-            // Handle when your app sleeps
-        }
-
-        protected async override void OnResume()
-        {
-            // Handle when your app resumes
-            await VerifyAuthentication();
-        }
-
-        async Task VerifyAuthentication()
-        {
-            // If the intro is shown already we can skip this check.
-            if (!_isIntroAlreadyShown)
-            {
-                var isAuthenticated = await _authService.SignInSilentAsync();
-
-                if (isAuthenticated)
-                {
-                    MainPage = new AppShell();
-                }
-                else
-                {
-                    // Something went wrong using refresh token, so show the intro + interactive login.
-                    MainPage = new IntroPage();
-                }
+                // Upon first launch, show the intro!
+                MainPage = FreshPageModelResolver.ResolvePageModel<IntroPageModel>();
             }
+            else
+            {
+                // By default show the main screen, we will update accordingly.
+                SwitchToRootNavigation();
+            }
+        }
+
+        public void SwitchToRootNavigation()
+        {
+            var nav = new FreshNavigationContainer(FreshPageModelResolver.ResolvePageModel<ContributionsPageModel>(), "MainNavigation");
+            MainPage = nav;
+        }
+
+        public async Task InitializeMvpService()
+        {
+            // Grab the auth token and set it to the MVP service.
+            var token = await SecureStorage.GetAsync("AccessToken").ConfigureAwait(false);
+            var service = new MvpApiService(token);
+
+            if (MvpApiService != null)
+            {
+                MvpApiService.AccessTokenExpired -= MvpApiService_AccessTokenExpired;
+                MvpApiService.RequestErrorOccurred -= MvpApiService_RequestErrorOccurred;
+            }
+
+            service.AccessTokenExpired += MvpApiService_AccessTokenExpired;
+            service.RequestErrorOccurred += MvpApiService_RequestErrorOccurred;
+
+            MvpApiService = service;
+        }
+
+        private static void MvpApiService_RequestErrorOccurred(object sender, ApiServiceEventArgs e)
+        {
+            // throw new NotImplementedException();
+        }
+
+        private static void MvpApiService_AccessTokenExpired(object sender, ApiServiceEventArgs e)
+        {
+            // throw new NotImplementedException();
         }
     }
 }

@@ -13,11 +13,10 @@ namespace MVP.iOS
     {
         public override bool FinishedLaunching(UIApplication app, NSDictionary options)
         {
-            global::Xamarin.Forms.Forms.SetFlags("CarouselView_Experimental");
-            global::Xamarin.Forms.Forms.SetFlags("CollectionView_Experimental");
-            global::Xamarin.Forms.Forms.SetFlags("IndicatorView_Experimental");
-
             global::Xamarin.Forms.Forms.Init();
+
+            // Init plugins
+            FFImageLoading.Forms.Platform.CachedImageRenderer.Init();
 
             LoadApplication(new App());
 

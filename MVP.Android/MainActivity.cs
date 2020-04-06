@@ -20,13 +20,12 @@ namespace MVP.Droid
 
             base.OnCreate(savedInstanceState);
 
-            global::Xamarin.Forms.Forms.SetFlags("CarouselView_Experimental");
-            global::Xamarin.Forms.Forms.SetFlags("IndicatorView_Experimental");
-            global::Xamarin.Forms.Forms.SetFlags("CollectionView_Experimental");
-
             CrossCurrentActivity.Current.Init(this, savedInstanceState);
             Xamarin.Essentials.Platform.Init(this, savedInstanceState);
             global::Xamarin.Forms.Forms.Init(this, savedInstanceState);
+
+            // Init plugins
+            FFImageLoading.Forms.Platform.CachedImageRenderer.Init(enableFastRenderer: true);
 
             LoadApplication(new App());
 

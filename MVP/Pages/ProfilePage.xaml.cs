@@ -1,12 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
+
 using Xamarin.Forms;
 
-namespace MVP
+namespace MVP.Pages
 {
-    public partial class Styles
+    public partial class ProfilePage : ContentPage
     {
-        public Styles()
+        public ProfilePage()
         {
             InitializeComponent();
         }
