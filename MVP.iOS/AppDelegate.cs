@@ -1,4 +1,5 @@
 ﻿using System;
+using FormsToolkit.iOS;
 using Foundation;
 using Microsoft.Identity.Client;
 using UIKit;
@@ -17,6 +18,7 @@ namespace MVP.iOS
 
             // Init plugins
             FFImageLoading.Forms.Platform.CachedImageRenderer.Init();
+            Toolkit.Init();
 
             LoadApplication(new App());
 

@@ -9,13 +9,10 @@ namespace MVP.PageModels
 {
     public class IntroPageModel : BasePageModel
     {
-        readonly AuthService _authService;
-
         public IAsyncCommand SignInCommand { get; set; }
 
-        public IntroPageModel(AuthService authService)
+        public IntroPageModel()
         {
-            _authService = authService;
             SignInCommand = new AsyncCommand(SignIn);
         }
 
@@ -24,7 +21,7 @@ namespace MVP.PageModels
             try
             {
                 // Pop a sign in request up for the user.
-                if (await _authService.SignInAsync().ConfigureAwait(false))
+                if (await App.AuthService.SignInAsync().ConfigureAwait(false))
                 {
                     // Init the MVP service.
                     await (App.Current as App).InitializeMvpService();

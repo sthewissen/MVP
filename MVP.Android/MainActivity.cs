@@ -7,6 +7,7 @@ using Microsoft.Identity.Client;
 using Android.Content;
 using MVP.Services;
 using Plugin.CurrentActivity;
+using FormsToolkit.Droid;
 
 namespace MVP.Droid
 {
@@ -26,6 +27,7 @@ namespace MVP.Droid
 
             // Init plugins
             FFImageLoading.Forms.Platform.CachedImageRenderer.Init(enableFastRenderer: true);
+            Toolkit.Init();
 
             LoadApplication(new App());
 

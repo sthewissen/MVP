@@ -14,4 +14,10 @@ namespace MVP
     {
         public const string HasSeenIntro = "HasSeenIntro";
     }
+
+    public class Messaging
+    {
+        public const string InvalidAuth = "InvalidAuth";
+        public const string AppOffline = "AppOffline";
+    }
 }
