@@ -10,5 +10,89 @@
              ios:Page.UseSafeArea="true"
              x:Class="MVP.Pages.ContributionsPage">
     <ContentPage.Content>
+        <Grid ColumnSpacing="16" Margin="0,16,0,0">
+            <RefreshView Command="{Binding RefreshDataCommand}" IsRefreshing="{Binding IsRefreshing}">
+                <CollectionView ItemsSource="{Binding Contributions}" IsGrouped="True">
+                    <CollectionView.ItemsLayout>
+                        <LinearItemsLayout Orientation="Vertical" ItemSpacing="8" />
+                    </CollectionView.ItemsLayout>
+                    <CollectionView.Header>
+                        <Grid Padding="0,16,0,32" ColumnSpacing="16">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="28" />
+                                <RowDefinition Height="28" />
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="64" />
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+                            <ff:CachedImage Grid.RowSpan="2" Margin="24,0,0,0" Source="{Binding ProfileImage}"
+                                        VerticalOptions="Center" HorizontalOptions="Center" WidthRequest="40" HeightRequest="40" Aspect="AspectFill">
+                                <ff:CachedImage.GestureRecognizers>
+                                    <TapGestureRecognizer Command="{Binding OpenProfileCommand}" />
+                                </ff:CachedImage.GestureRecognizers>
+                                <ff:CachedImage.Transformations>
+                                    <transformations:CircleTransformation />
+                                </ff:CachedImage.Transformations>
+                            </ff:CachedImage>
+                            <Label Grid.Column="1" Grid.Row="0" Text="Hey {NAME}" Style="{StaticResource heading_h1}" LineBreakMode="TailTruncation" />
+                            <Label Grid.Column="1" Grid.Row="1" Text="What awesome thing did you do today?" Style="{StaticResource body_dark}" LineBreakMode="TailTruncation" />
+                        </Grid>
+                    </CollectionView.Header>
+                    <CollectionView.GroupHeaderTemplate>
+                        <DataTemplate>
+                            <Grid Padding="24">
+                                <Label Grid.Column="0" FontSize="15" TextColor="{StaticResource dark_gray}" FontFamily="{StaticResource SegoeUIBold}">
+                                    <Label.Triggers>
+                                        <DataTrigger TargetType="Label" Binding="{Binding Key}" Value="0">
+                                            <Setter Property="Text" Value="Current award period" />
+                                        </DataTrigger>
+                                        <DataTrigger TargetType="Label" Binding="{Binding Key}" Value="1">
+                                            <Setter Property="Text" Value="Previous award period" />
+                                        </DataTrigger>
+                                    </Label.Triggers>
+                                </Label>
+                                <Label Grid.Column="1" FontSize="12" TextColor="{StaticResource dark_gray}" VerticalTextAlignment="Center" Text="{Binding Items.Count, StringFormat='{0} activities'}" HorizontalOptions="End" />
+                            </Grid>
+                        </DataTemplate>
+                    </CollectionView.GroupHeaderTemplate>
+                    <CollectionView.Footer>
+                        <BoxView HeightRequest="40" />
+                    </CollectionView.Footer>
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate>
+                            <StackLayout Padding="24,0">
+                                <custom:PancakeView Style="{StaticResource contribution_list_container}" >
+                                    <Grid Padding="12" >
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="*" />
+                                            <RowDefinition Height="20" />
+                                        </Grid.RowDefinitions>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="Auto" />
+                                            <ColumnDefinition Width="*" />
+                                        </Grid.ColumnDefinitions>
+
+                                        <ff:CachedImage Style="{StaticResource contribution_image}" Grid.RowSpan="2">
+                                            <ff:CachedImage.Transformations>
+                                                <transformations:CornersTransformation CornersTransformType="AllRounded"
+                                                                                   BottomLeftCornerSize="8"
+                                                                                   BottomRightCornerSize="8" 
+                                                                                   TopLeftCornerSize="8" 
+                                                                                   TopRightCornerSize="8" />
+                                            </ff:CachedImage.Transformations>
+                                        </ff:CachedImage>
+
+                                        <Label Style="{StaticResource contribution_title}" Grid.Column="1" Grid.Row="0" Text="{Binding Title}" />
+
+                                        <Label Style="{StaticResource contribution_date}" Grid.Column="1" Grid.Row="1" Text="{Binding StartDate, StringFormat='Activity date: {0:d}'}" />
+                                    </Grid>
+                                </custom:PancakeView>
+                            </StackLayout>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                </CollectionView>
+            </RefreshView>
+        </Grid>
     </ContentPage.Content>
 </ContentPage>

@@ -14,20 +14,46 @@ namespace MVP.PageModels
 {
     public class ContributionsPageModel : BasePageModel
     {
+        public IList<Grouping<int, Contribution>> Contributions { get; set; }
+        public Profile Profile { get; set; }
+        public ImageSource ProfileImage { get; set; }
+
         public IAsyncCommand OpenProfileCommand { get; set; }
+        public IAsyncCommand RefreshDataCommand { get; set; }
         public IAsyncCommand<Contribution> OpenContributionCommand { get; set; }
         public IAsyncCommand OpenAddContributionCommand { get; set; }
+
+        public bool IsRefreshing { get; set; }
 
         public ContributionsPageModel()
         {
             OpenProfileCommand = new AsyncCommand(OpenProfile);
             OpenContributionCommand = new AsyncCommand<Contribution>(OpenContribution);
             OpenAddContributionCommand = new AsyncCommand(OpenAddContribution);
+            RefreshDataCommand = new AsyncCommand(RefreshData);
         }
 
-        public async override void Init(object initData)
+        async Task RefreshData()
         {
-            base.Init(initData);
+            if (Connectivity.NetworkAccess == NetworkAccess.Internet && App.MvpApiService != null)
+            {
+                var contributionsList = await App.MvpApiService.GetAllContributionsAsync().ConfigureAwait(false);
+
+                if (contributionsList != null)
+                {
+                    Contributions = contributionsList.ToGroupedContributions();
+                }
+
+                var image = await App.MvpApiService.GetProfileImageAsync();
+
+                if (image != null)
+                {
+                    var imageStream = new MemoryStream(image);
+                    ProfileImage = ImageSource.FromStream(() => imageStream);
+                }
+
+                IsRefreshing = false;
+            }
         }
 
         async Task OpenProfile()
