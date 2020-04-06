@@ -7,7 +7,6 @@ using MVP.Extensions;
 using MVP.Models;
 using MVP.Services;
 using MvvmHelpers;
-using Refit;
 using Xamarin.Essentials;
 using Xamarin.Forms;
 
