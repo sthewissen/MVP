@@ -9,24 +9,23 @@ using Xamarin.Essentials;
 
 namespace MVP.PageModels
 {
-    public class IntroPageModel : BasePageModel
+    public class SplashScreenPageModel : BasePageModel
     {
         readonly AuthService _authService;
 
-        public IAsyncCommand SignInCommand { get; set; }
+        public IAsyncCommand CheckAuthorizationCommand { get; set; }
 
-        public IntroPageModel(AuthService authService)
+        public SplashScreenPageModel(AuthService authService)
         {
             _authService = authService;
-            SignInCommand = new AsyncCommand(SignIn);
+            CheckAuthorizationCommand = new AsyncCommand(CheckAuthorization);
         }
 
-        async Task SignIn()
+        async Task CheckAuthorization()
         {
             try
             {
-                // Pop a sign in request up for the user.
-                if (await _authService.SignInAsync().ConfigureAwait(false))
+                if (await _authService.SignInSilentAsync())
                 {
                     MessagingService.Current.SendMessage<bool>(Messaging.AuthorizationComplete, true);
                 }
@@ -38,9 +37,14 @@ namespace MVP.PageModels
             catch (Exception e)
             {
                 e.LogException();
-
                 MessagingService.Current.SendMessage<bool>(Messaging.AuthorizationComplete, false);
             }
+        }
+
+        protected override void ViewIsAppearing(object sender, EventArgs e)
+        {
+            base.ViewIsAppearing(sender, e);
+            CheckAuthorizationCommand.Execute(null);
         }
     }
 }

@@ -22,8 +22,11 @@ namespace MVP.Extensions
             var thisPeriod = list.Contributions.Where(x => x.StartDate >= periodStart).OrderByDescending(x => x.StartDate);
             var lastPeriod = list.Contributions.Where(x => x.StartDate < periodStart).OrderByDescending(x => x.StartDate);
 
-            result.Add(new Grouping<int, Contribution>(0, thisPeriod));
-            result.Add(new Grouping<int, Contribution>(1, lastPeriod));
+            if (thisPeriod.Any())
+                result.Add(new Grouping<int, Contribution>(0, thisPeriod));
+
+            if (lastPeriod.Any())
+                result.Add(new Grouping<int, Contribution>(1, lastPeriod));
 
             return result;
         }

@@ -93,9 +93,6 @@
         <AndroidResource Include="Resources\mipmap-xhdpi\icon.png" />
         <AndroidResource Include="Resources\mipmap-xxhdpi\icon.png" />
         <AndroidResource Include="Resources\mipmap-xxxhdpi\icon.png" />
-        <AndroidResource Include="Resources\drawable\xamarin_logo.png" />
-        <AndroidResource Include="Resources\drawable\tab_about.png" />
-        <AndroidResource Include="Resources\drawable\tab_feed.png" />
         <AndroidResource Include="Resources\xml\auto_backup_rules.xml">
             <SubType>
             </SubType>

@@ -1,22 +1,19 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
-<ContentPage BackgroundColor="{StaticResource white}"
-             xmlns="http://xamarin.com/schemas/2014/forms"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
-             ios:Page.UseSafeArea="true"
-             NavigationPage.HasNavigationBar="False"
-             xmlns:viewModels="clr-namespace:MVP.PageModels"
+<ContentPage BackgroundColor="{StaticResource white}" 
+             xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             NavigationPage.HasNavigationBar="False" xmlns:vm="clr-namespace:MVP.PageModels" 
              xmlns:custom="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
-             x:Class="MVP.Pages.IntroPage"
-             x:DataType="{x:Type viewModels:IntroPageModel}">
+             xmlns:ff="clr-namespace:FFImageLoading.Svg.Forms;assembly=FFImageLoading.Svg.Forms"
+             x:Class="MVP.Pages.IntroPage" x:DataType="{x:Type vm:IntroPageModel}">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="*" />
             <RowDefinition Height="Auto" />
         </Grid.RowDefinitions>
 
-        <StackLayout Padding="40" VerticalOptions="Center">
+        <ff:SvgCachedImage Source="Resource://background.svg" Grid.RowSpan="2" Aspect="AspectFill" HorizontalOptions="Fill" VerticalOptions="Fill" />
 
+        <StackLayout Padding="40" VerticalOptions="Center">
             <custom:PancakeView Style="{StaticResource tagline_box}" >
                 <Label Text="Welcome MVP!" Style="{StaticResource tagline}" />
             </custom:PancakeView>
