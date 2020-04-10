@@ -7,7 +7,7 @@ using Xamarin.Essentials;
 
 namespace MVP.Services
 {
-    public class AuthService
+    public class AuthService : IAuthService
     {
         readonly IPublicClientApplication _pca;
 

@@ -1,5 +1,4 @@
-﻿using System;
-namespace MVP
+﻿namespace MVP
 {
     public class Constants
     {
@@ -10,14 +9,8 @@ namespace MVP
         public const string OcpApimSubscriptionKey = "cd3b2e5d2edc43718ae46a4dfd627323";
     }
 
-    public class Settings
-    {
-        public const string HasSeenIntro = "HasSeenIntro";
-    }
-
     public class Messaging
     {
-        public const string InvalidAuth = "InvalidAuth";
-        public const string AppOffline = "AppOffline";
+        public const string AuthorizationComplete = "AuthorizationComplete";
     }
 }

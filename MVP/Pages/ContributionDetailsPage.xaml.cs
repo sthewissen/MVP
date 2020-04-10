@@ -2,9 +2,9 @@
 
 namespace MVP.Pages
 {
-    public partial class ContributionsPage : ContentPage
+    public partial class ContributionDetailsPage : ContentPage
     {
-        public ContributionsPage()
+        public ContributionDetailsPage()
         {
             InitializeComponent();
         }
