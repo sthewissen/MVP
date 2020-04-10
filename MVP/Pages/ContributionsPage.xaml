@@ -8,7 +8,6 @@
              xmlns:effect="clr-namespace:MVP.Effects" xmlns:models="clr-namespace:MVP.Models"
              NavigationPage.HasNavigationBar="False" ios:Page.UseSafeArea="false" x:Class="MVP.Pages.ContributionsPage"
              xmlns:ffsvg="clr-namespace:FFImageLoading.Svg.Forms;assembly=FFImageLoading.Svg.Forms">
-
     <Grid ColumnSpacing="16">
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto" />
@@ -40,9 +39,7 @@
                 <Label FontSize="13" Text="What awesome thing did you do today?" Style="{StaticResource body_dark}" LineBreakMode="TailTruncation" />
             </StackLayout>
         </Grid>
-        <CollectionView Grid.Row="1" x:Name="collectionView" ItemsUpdatingScrollMode="KeepScrollOffset" ItemsSource="{Binding Contributions}"
-                            IsGrouped="True" SelectionChangedCommand="{Binding OpenContributionCommand}" SelectionMode="Single"
-                            SelectionChangedCommandParameter="{Binding SelectedItem, Source={x:Reference collectionView}}">
+        <CollectionView Grid.Row="1" x:Name="collectionView" ItemsUpdatingScrollMode="KeepScrollOffset" ItemsSource="{Binding Contributions}" IsGrouped="True">
             <CollectionView.ItemsLayout>
                 <LinearItemsLayout Orientation="Vertical" ItemSpacing="8" />
             </CollectionView.ItemsLayout>
@@ -69,30 +66,24 @@
             <CollectionView.ItemTemplate>
                 <DataTemplate x:DataType="models:Contribution">
                     <StackLayout Padding="24,0">
+                        <StackLayout.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding Path=BindingContext.OpenContributionCommand, Source={x:Reference page}}" />
+                        </StackLayout.GestureRecognizers>
                         <custom:PancakeView Style="{StaticResource contribution_list_container}" >
-                            <Grid Padding="12" >
-                                <Grid.RowDefinitions>
-                                    <RowDefinition Height="*" />
-                                    <RowDefinition Height="20" />
-                                </Grid.RowDefinitions>
+                            <Grid>
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition Width="Auto" />
                                     <ColumnDefinition Width="*" />
                                 </Grid.ColumnDefinitions>
 
-                                <ff:CachedImage Style="{StaticResource contribution_image}" Grid.RowSpan="2">
-                                    <ff:CachedImage.Transformations>
-                                        <transformations:CornersTransformation CornersTransformType="AllRounded"
-                                                                                   BottomLeftCornerSize="8"
-                                                                                   BottomRightCornerSize="8" 
-                                                                                   TopLeftCornerSize="8" 
-                                                                                   TopRightCornerSize="8" />
-                                    </ff:CachedImage.Transformations>
-                                </ff:CachedImage>
+                                <!-- Want to scrape images using OpenGraph -->
+                                <ff:CachedImage Style="{StaticResource contribution_image}" />
 
-                                <Label Style="{StaticResource contribution_title}" Grid.Column="1" Grid.Row="0" Text="{Binding Title}" />
+                                <StackLayout Padding="0,12,16,12" Grid.Column="1" VerticalOptions="Center">
+                                    <Label Style="{StaticResource contribution_title}" Text="{Binding Title}" />
 
-                                <Label Style="{StaticResource contribution_date}" Grid.Column="1" Grid.Row="1" Text="{Binding StartDate, StringFormat='Activity date: {0:d}'}" />
+                                    <Label Style="{StaticResource contribution_date}" Text="{Binding StartDate, StringFormat='Activity date: {0:d}'}" />
+                                </StackLayout>
                             </Grid>
                         </custom:PancakeView>
                     </StackLayout>

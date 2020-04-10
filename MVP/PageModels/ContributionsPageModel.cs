@@ -40,14 +40,11 @@ namespace MVP.PageModels
             RefreshDataCommand = new AsyncCommand(RefreshContributions);
         }
 
-        protected async override void ViewIsAppearing(object sender, EventArgs e)
+        public async override void Init(object initData)
         {
-            base.ViewIsAppearing(sender, e);
+            base.Init(initData);
 
-            if (Contributions == null)
-            {
-                await RefreshData().ConfigureAwait(false);
-            }
+            await RefreshData().ConfigureAwait(false);
         }
 
         async Task RefreshData()
