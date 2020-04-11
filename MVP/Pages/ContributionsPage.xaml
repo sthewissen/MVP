@@ -6,6 +6,7 @@
              xmlns:ff="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
              xmlns:transformations="clr-namespace:FFImageLoading.Transformations;assembly=FFImageLoading.Transformations"
              xmlns:effect="clr-namespace:MVP.Effects" xmlns:models="clr-namespace:MVP.Models"
+             xmlns:icons="clr-namespace:MVP.Styles"
              NavigationPage.HasNavigationBar="False" ios:Page.UseSafeArea="false" x:Class="MVP.Pages.ContributionsPage"
              xmlns:ffsvg="clr-namespace:FFImageLoading.Svg.Forms;assembly=FFImageLoading.Svg.Forms">
     <Grid ColumnSpacing="16">
@@ -39,7 +40,7 @@
                 <Label FontSize="13" Text="What awesome thing did you do today?" Style="{StaticResource body_dark}" LineBreakMode="TailTruncation" />
             </StackLayout>
         </Grid>
-        <CollectionView Grid.Row="1" x:Name="collectionView" ItemsUpdatingScrollMode="KeepScrollOffset"
+        <CollectionView Grid.Row="1" x:Name="collectionView" ItemsUpdatingScrollMode="KeepScrollOffset" Scrolled="CollectionView_Scrolled"
                         ItemsSource="{Binding Contributions}" IsGrouped="True" RemainingItemsThreshold="{Binding ItemThreshold}"
                         RemainingItemsThresholdReachedCommand="{Binding LoadMoreCommand}">
             <CollectionView.ItemsLayout>
@@ -48,7 +49,7 @@
             <CollectionView.GroupHeaderTemplate>
                 <DataTemplate>
                     <Grid Padding="24">
-                        <Label Grid.Column="0" FontSize="15" TextColor="{StaticResource dark_gray}" FontFamily="{StaticResource SegoeUIBold}">
+                        <Label FontSize="15" TextColor="{StaticResource dark_gray}" FontFamily="SegoeUI-Bold">
                             <Label.Triggers>
                                 <DataTrigger TargetType="Label" Binding="{Binding Key}" Value="0">
                                     <Setter Property="Text" Value="Current award period" />
@@ -58,7 +59,6 @@
                                 </DataTrigger>
                             </Label.Triggers>
                         </Label>
-                        <Label Grid.Column="1" FontSize="12" TextColor="{StaticResource dark_gray}" VerticalTextAlignment="Center" Text="{Binding Items.Count, StringFormat='{0} activities'}" HorizontalOptions="End" />
                     </Grid>
                 </DataTemplate>
             </CollectionView.GroupHeaderTemplate>
@@ -91,5 +91,9 @@
                 </DataTemplate>
             </CollectionView.ItemTemplate>
         </CollectionView>
+
+        <custom:PancakeView x:Name="fab" HorizontalOptions="End" Elevation="8" BackgroundColor="{StaticResource msblue}" Grid.RowSpan="2" WidthRequest="56" HeightRequest="56" CornerRadius="28" VerticalOptions="End" Margin="0,0,24,24">
+            <Button  Margin="0,0,0,4" Text="{x:Static icons:Icons.add}" Command="{Binding OpenAddContributionCommand}" BackgroundColor="{StaticResource msblue}"  FontFamily="mvpicons" FontSize="28" TextColor="{StaticResource white}" />
+        </custom:PancakeView>
     </Grid>
 </ContentPage>

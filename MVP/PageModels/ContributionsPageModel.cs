@@ -1,17 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.IO;
+﻿using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using AsyncAwaitBestPractices.MVVM;
-using FormsToolkit;
 using MVP.Extensions;
 using MVP.Models;
 using MVP.Services;
 using MvvmHelpers;
 using Xamarin.Essentials;
-using Xamarin.Forms;
-using Xamarin.Forms.StateSquid;
 
 namespace MVP.PageModels
 {
@@ -20,7 +15,7 @@ namespace MVP.PageModels
         readonly MvpApiService _mvpApiService;
         readonly List<Contribution> _contributions = new List<Contribution>();
 
-        int _pageSize = 25;
+        int _pageSize = 10;
         bool _isLoadingMore;
 
         public IList<Grouping<int, Contribution>> Contributions { get; set; } = new List<Grouping<int, Contribution>>();
@@ -31,7 +26,6 @@ namespace MVP.PageModels
         public IAsyncCommand OpenProfileCommand { get; set; }
         public IAsyncCommand RefreshDataCommand { get; set; }
         public IAsyncCommand<Contribution> OpenContributionCommand { get; set; }
-        public IAsyncCommand HackTokenCommand { get; set; }
         public IAsyncCommand OpenAddContributionCommand { get; set; }
         public IAsyncCommand LoadMoreCommand { get; set; }
 
@@ -126,7 +120,7 @@ namespace MVP.PageModels
 
         async Task OpenAddContribution()
         {
-            await CoreMethods.PushPageModel<ProfilePageModel>().ConfigureAwait(false);
+            await CoreMethods.PushPageModel<AddContributionPageModel>().ConfigureAwait(false);
         }
 
         async Task OpenContribution(Contribution contribution)
