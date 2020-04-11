@@ -29,19 +29,11 @@
 
             <ScrollView Grid.Row="1">
                 <StackLayout Spacing="16" Padding="40">
-                    <Label Text="{Binding Contribution.Title}" Style="{StaticResource heading_h1}" Margin="0,0,0,24" />
+                    <custom:PancakeView Elevation="2" HorizontalOptions="Start" VerticalOptions="Center" Style="{StaticResource pill_box}" >
+                        <Label LineBreakMode="TailTruncation" Text="{Binding Contribution.ContributionType.EnglishName}" HorizontalTextAlignment="End" MaxLines="2" Style="{StaticResource pill_label}" />
+                    </custom:PancakeView>
 
-                    <Grid>
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="Auto"/>
-                            <ColumnDefinition Width="*"/>
-                        </Grid.ColumnDefinitions>
-                        <Label Text="Activity type" Style="{StaticResource field_header}" />
-                        <custom:PancakeView Grid.Column="1" HorizontalOptions="End" VerticalOptions="Center" Style="{StaticResource pill_box}" >
-                            <Label Text="{Binding Contribution.ContributionType.EnglishName}" Style="{StaticResource pill_label}" />
-                        </custom:PancakeView>
-                        <!--<Label Grid.Column="1" Text="{Binding Contribution.ContributionType.EnglishName}" Style="{StaticResource field_value}" />-->
-                    </Grid>
+                    <Label Text="{Binding Contribution.Title}" Style="{StaticResource heading_h1}" Margin="0,0,0,24" />
 
                     <Grid>
                         <Grid.ColumnDefinitions>
