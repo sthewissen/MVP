@@ -69,7 +69,8 @@
                 <DataTemplate x:DataType="models:Contribution">
                     <StackLayout Padding="24,0">
                         <StackLayout.GestureRecognizers>
-                            <TapGestureRecognizer Command="{Binding Path=BindingContext.OpenContributionCommand, Source={x:Reference page}}" />
+                            <TapGestureRecognizer Command="{Binding Path=BindingContext.OpenContributionCommand, Source={x:Reference page}}"
+                                                  CommandParameter="{Binding .}"/>
                         </StackLayout.GestureRecognizers>
                         <custom:PancakeView Style="{StaticResource contribution_list_container}" >
                             <Grid>
@@ -92,8 +93,8 @@
             </CollectionView.ItemTemplate>
         </CollectionView>
 
-        <custom:PancakeView x:Name="fab" HorizontalOptions="End" Elevation="8" BackgroundColor="{StaticResource msblue}" Grid.RowSpan="2" WidthRequest="56" HeightRequest="56" CornerRadius="28" VerticalOptions="End" Margin="0,0,24,24">
-            <Button  Margin="0,0,0,4" Text="{x:Static icons:Icons.add}" Command="{Binding OpenAddContributionCommand}" BackgroundColor="{StaticResource msblue}"  FontFamily="mvpicons" FontSize="28" TextColor="{StaticResource white}" />
+        <custom:PancakeView Style="{StaticResource fab_button_container}" x:Name="fab" Grid.RowSpan="2">
+            <Button Style="{StaticResource fab_button}" Text="{x:Static icons:Icons.add}" Command="{Binding OpenAddContributionCommand}" />
         </custom:PancakeView>
     </Grid>
 </ContentPage>

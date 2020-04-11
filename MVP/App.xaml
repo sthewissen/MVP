@@ -4,6 +4,7 @@
     <Application.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
+                <styles:Converters />
                 <styles:StyleGuide />
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>

@@ -25,7 +25,7 @@
         <Setter Property="ios:Page.ModalPresentationStyle" Value="FormSheet" />
     </Style>
 
-    <Style TargetType="{x:Type Label}">
+    <Style TargetType="Label">
         <Setter Property="FontSize" Value="16" />
         <Setter Property="FontFamily" Value="SegoeUI-Regular"/>
     </Style>
@@ -35,16 +35,50 @@
         <Setter Property="FontSize" Value="16" />
     </Style>
 
-    <Style x:Key="heading_h1" TargetType="{x:Type Label}">
+    <Style x:Key="heading_h1" TargetType="Label">
         <Setter Property="FontSize" Value="24" />
         <Setter Property="FontFamily" Value="SegoeUI-Bold"/>
         <Setter Property="TextColor" Value="{StaticResource dark_gray}" />
         <Setter Property="LineHeight" Value="1" />
     </Style>
 
-    <Style x:Key="body_dark" TargetType="{x:Type Label}">
+    <Style x:Key="field_header" TargetType="Label">
+        <Setter Property="FontSize" Value="16" />
+        <Setter Property="FontFamily" Value="SegoeUI-Bold"/>
+        <Setter Property="TextColor" Value="{StaticResource dark_gray}" />
+        <Setter Property="LineHeight" Value="1" />
+        <Setter Property="HorizontalOptions" Value="Start" />
+        <Setter Property="VerticalOptions" Value="Start" />
+        <Setter Property="VerticalTextAlignment" Value="Center" />
+    </Style>
+
+    <Style x:Key="field_value" TargetType="Label">
+        <Setter Property="FontSize" Value="16" />
+        <Setter Property="FontFamily" Value="SegoeUI"/>
+        <Setter Property="TextColor" Value="{StaticResource dark_gray}" />
+        <Setter Property="LineHeight" Value="1" />
+        <Setter Property="HorizontalOptions" Value="End" />
+        <Setter Property="HorizontalTextAlignment" Value="End" />
+        <Setter Property="VerticalOptions" Value="Start" />
+        <Setter Property="VerticalTextAlignment" Value="Center" />
+    </Style>
+
+    <Style x:Key="body_dark" TargetType="Label">
         <Setter Property="FontSize" Value="16" />
         <Setter Property="TextColor" Value="Black" />
+    </Style>
+
+    <Style x:Key="pill_box" TargetType="custom:PancakeView">
+        <Setter Property="Padding" Value="6"/>
+        <Setter Property="BackgroundColor" Value="{StaticResource msblue}"/>
+    </Style>
+
+    <Style x:Key="pill_label" TargetType="Label">
+        <Setter Property="FontSize" Value="14" />
+        <Setter Property="FontFamily" Value="SegoeUI"/>
+        <Setter Property="TextColor" Value="{StaticResource white}" />
+        <Setter Property="VerticalOptions" Value="Center" />
+        <Setter Property="VerticalTextAlignment" Value="Center" />
     </Style>
 
     <Style x:Key="tagline_box" TargetType="custom:PancakeView">
@@ -54,7 +88,7 @@
         <Setter Property="BackgroundColor" Value="{StaticResource msblue}"/>
     </Style>
 
-    <Style x:Key="tagline" TargetType="{x:Type Label}">
+    <Style x:Key="tagline" TargetType="Label">
         <Setter Property="FontSize" Value="16" />
         <Setter Property="FontFamily" Value="SegoeUI-Bold"/>
         <Setter Property="TextColor" Value="{StaticResource white}" />
@@ -62,19 +96,19 @@
         <Setter Property="VerticalTextAlignment" Value="Center" />
     </Style>
 
-    <Style x:Key="body_light" TargetType="{x:Type Label}">
+    <Style x:Key="body_light" TargetType="Label">
         <Setter Property="FontSize" Value="16" />
         <Setter Property="TextColor" Value="{StaticResource white}" />
         <Setter Property="LineHeight" Value="1.1" />
     </Style>
 
-    <Style x:Key="button_blue" TargetType="{x:Type Button}">
+    <Style x:Key="button_blue" TargetType="Button">
         <Setter Property="BackgroundColor" Value="{StaticResource msblue}" />
         <Setter Property="FontSize" Value="16" />
         <Setter Property="TextColor" Value="{StaticResource white}" />
     </Style>
 
-    <Style x:Key="button_white" TargetType="{x:Type Button}">
+    <Style x:Key="button_white" TargetType="Button">
         <Setter Property="BackgroundColor" Value="{StaticResource white}" />
         <Setter Property="FontSize" Value="16" />
         <Setter Property="TextColor" Value="{StaticResource msblue}" />
@@ -109,4 +143,24 @@
         <Setter Property="Elevation" Value="4" />
         <Setter Property="BackgroundColor" Value="{StaticResource white}"/>
     </Style>
+
+    <Style x:Key="fab_button_container" TargetType="custom:PancakeView">
+        <Setter Property="CornerRadius" Value="28"/>
+        <Setter Property="Elevation" Value="8"/>
+        <Setter Property="HorizontalOptions" Value="End"/>
+        <Setter Property="Margin" Value="0,0,24,24"/>
+        <Setter Property="VerticalOptions" Value="End"/>
+        <Setter Property="BackgroundColor" Value="{StaticResource msblue}"/>
+        <Setter Property="HeightRequest" Value="56"/>
+        <Setter Property="WidthRequest" Value="56"/>
+    </Style>
+
+    <Style x:Key="fab_button" TargetType="Button">
+        <Setter Property="TextColor" Value="{StaticResource white}"/>
+        <Setter Property="FontFamily" Value="mvpicons"/>
+        <Setter Property="FontSize" Value="28"/>
+        <Setter Property="Margin" Value="0,0,0,4"/>
+        <Setter Property="BackgroundColor" Value="{StaticResource msblue}"/>
+    </Style>
+
 </ResourceDictionary>

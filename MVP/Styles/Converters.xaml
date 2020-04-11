@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ResourceDictionary xmlns="http://xamarin.com/schemas/2014/forms"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                    xmlns:converters="clr-namespace:MVP.Converters" 
+					x:Class="MVP.Styles.Converters">
+    <?xaml-comp compile="true" ?>
+    <converters:VisibilityNotNullOrEmptyConverter x:Key="VisibilityNotNullOrEmptyConverter" />
+    <converters:VisibilityNullOrEmptyConverter x:Key="VisibilityNullOrEmptyConverter" />
+    <converters:VisibilityNotNullConverter x:Key="VisibilityNotNullConverter" />
+    <converters:VisibilityNullConverter x:Key="VisibilityNullConverter" />
+</ResourceDictionary>

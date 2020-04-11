@@ -7,7 +7,7 @@
     <Grid BackgroundColor="{StaticResource msblue}">
 
         <ff:SvgCachedImage x:Name="logo" Source="Resource://mvp_logo.svg" VerticalOptions="Center"
-                        HorizontalOptions="Center" WidthRequest="200" HeightRequest="200"
+                        HorizontalOptions="Center" WidthRequest="148" HeightRequest="148"
                         DownsampleToViewSize="False"  />
     </Grid>
 

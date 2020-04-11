@@ -2,7 +2,7 @@ using System;
 
 namespace MVP.Styles
 {
-    static class Icons
+    public static class Icons
     {
         public const string replay = "\ue900";
         public const string add = "\ue901";
