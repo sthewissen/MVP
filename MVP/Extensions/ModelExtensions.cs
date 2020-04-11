@@ -8,7 +8,7 @@ namespace MVP.Extensions
 {
     public static class ModelExtensions
     {
-        public static IList<Grouping<int, Contribution>> ToGroupedContributions(this ContributionList list)
+        public static IList<Grouping<int, Contribution>> ToGroupedContributions(this IList<Contribution> list)
         {
             var result = new List<Grouping<int, Contribution>>();
             DateTime periodStart = new DateTime(DateTime.Now.Year, 4, 1);
@@ -19,8 +19,8 @@ namespace MVP.Extensions
                 periodStart = periodStart.AddYears(-1);
             }
 
-            var thisPeriod = list.Contributions.Where(x => x.StartDate >= periodStart).OrderByDescending(x => x.StartDate);
-            var lastPeriod = list.Contributions.Where(x => x.StartDate < periodStart).OrderByDescending(x => x.StartDate);
+            var thisPeriod = list.Where(x => x.StartDate >= periodStart).OrderByDescending(x => x.StartDate);
+            var lastPeriod = list.Where(x => x.StartDate < periodStart).OrderByDescending(x => x.StartDate);
 
             if (thisPeriod.Any())
                 result.Add(new Grouping<int, Contribution>(0, thisPeriod));

@@ -116,7 +116,7 @@
 
     <Style x:Key="contribution_list_container" TargetType="custom:PancakeView">
         <Setter Property="CornerRadius" Value="8"/>
-        <Setter Property="Elevation" Value="8" />
+        <Setter Property="Elevation" Value="4" />
         <Setter Property="BackgroundColor" Value="{StaticResource white}"/>
     </Style>
 </ResourceDictionary>

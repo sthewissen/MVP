@@ -39,7 +39,9 @@
                 <Label FontSize="13" Text="What awesome thing did you do today?" Style="{StaticResource body_dark}" LineBreakMode="TailTruncation" />
             </StackLayout>
         </Grid>
-        <CollectionView Grid.Row="1" x:Name="collectionView" ItemsUpdatingScrollMode="KeepScrollOffset" ItemsSource="{Binding Contributions}" IsGrouped="True">
+        <CollectionView Grid.Row="1" x:Name="collectionView" ItemsUpdatingScrollMode="KeepScrollOffset"
+                        ItemsSource="{Binding Contributions}" IsGrouped="True" RemainingItemsThreshold="{Binding ItemThreshold}"
+                        RemainingItemsThresholdReachedCommand="{Binding LoadMoreCommand}">
             <CollectionView.ItemsLayout>
                 <LinearItemsLayout Orientation="Vertical" ItemSpacing="8" />
             </CollectionView.ItemsLayout>
@@ -81,7 +83,6 @@
 
                                 <StackLayout Padding="0,12,16,12" Grid.Column="1" VerticalOptions="Center">
                                     <Label Style="{StaticResource contribution_title}" Text="{Binding Title}" />
-
                                     <Label Style="{StaticResource contribution_date}" Text="{Binding StartDate, StringFormat='Activity date: {0:d}'}" />
                                 </StackLayout>
                             </Grid>
