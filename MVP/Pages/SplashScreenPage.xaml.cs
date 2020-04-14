@@ -42,7 +42,8 @@ namespace MVP.Pages
 
         async void HandleAuthorizationComplete(bool isAuthorizationSuccessful)
         {
-            await MainThread.InvokeOnMainThreadAsync(AnimateTransition);
+            // To at least show the pulse animation. Give a feeling that we're loading the app.
+            await Task.Delay(2500);
 
             // Depending on what the result of the silent sign in is we can
             // show the intro or the main screen of the app.
@@ -56,23 +57,13 @@ namespace MVP.Pages
             }
         }
 
-        async Task AnimateTransition()
-        {
-            // To at least show the pulse animation. Give a feeling that we're loading the app.
-            await Task.Delay(2500);
-
-            // Explode the logo and fade to white, which is what the incoming page comes up as.
-            var explodeImageTask = Task.WhenAll(Content.ScaleTo(100, 500, Easing.CubicOut), Content.FadeTo(0, 250, Easing.CubicInOut));
-            BackgroundColor = Color.White;
-            await explodeImageTask;
-        }
-
         void NavigateToContributionsPage()
         {
             MainThread.BeginInvokeOnMainThread(() =>
             {
                 var page = FreshMvvm.FreshPageModelResolver.ResolvePageModel<ContributionsPageModel>();
-                var navigation = new FreshMvvm.FreshNavigationContainer(page);
+                var navigation = new FreshMvvm.FreshNavigationContainer(page) { BarTextColor = Color.White };
+
                 Application.Current.MainPage = navigation;
             });
         }
