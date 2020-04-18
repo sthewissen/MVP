@@ -18,7 +18,7 @@ namespace MVP.PageModels
         public SplashScreenPageModel(AuthService authService)
         {
             _authService = authService;
-            CheckAuthorizationCommand = new AsyncCommand(CheckAuthorization);
+            CheckAuthorizationCommand = new AsyncCommand(() => CheckAuthorization());
         }
 
         async Task CheckAuthorization()

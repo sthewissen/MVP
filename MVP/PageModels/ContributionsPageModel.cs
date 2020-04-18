@@ -35,11 +35,11 @@ namespace MVP.PageModels
         {
             _mvpApiService = mvpApiService;
 
-            OpenProfileCommand = new AsyncCommand(OpenProfile);
-            OpenContributionCommand = new AsyncCommand<Contribution>(OpenContribution);
-            OpenAddContributionCommand = new AsyncCommand(OpenAddContribution);
-            RefreshDataCommand = new AsyncCommand(RefreshContributions);
-            LoadMoreCommand = new AsyncCommand(LoadMoreContributions);
+            OpenProfileCommand = new AsyncCommand(() => OpenProfile());
+            OpenContributionCommand = new AsyncCommand<Contribution>((Contribution c) => OpenContribution(c));
+            OpenAddContributionCommand = new AsyncCommand(() => OpenAddContribution());
+            RefreshDataCommand = new AsyncCommand(() => RefreshContributions());
+            LoadMoreCommand = new AsyncCommand(() => LoadMoreContributions());
         }
 
         public async override void Init(object initData)

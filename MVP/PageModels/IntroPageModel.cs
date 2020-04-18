@@ -18,7 +18,7 @@ namespace MVP.PageModels
         public IntroPageModel(AuthService authService)
         {
             _authService = authService;
-            SignInCommand = new AsyncCommand(SignIn);
+            SignInCommand = new AsyncCommand(() => SignIn());
         }
 
         async Task SignIn()
