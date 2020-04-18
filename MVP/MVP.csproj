@@ -37,6 +37,7 @@
         <Folder Include="Services\Interfaces\" />
         <Folder Include="Resources\Fonts\" />
         <Folder Include="Converters\" />
+        <Folder Include="Templates\" />
     </ItemGroup>
     <ItemGroup>
         <None Remove="Resources\mvp_logo.svg" />

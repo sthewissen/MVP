@@ -9,6 +9,27 @@
              xmlns:icons="clr-namespace:MVP.Styles"
              NavigationPage.HasNavigationBar="False" ios:Page.UseSafeArea="false" x:Class="MVP.Pages.ContributionsPage"
              xmlns:ffsvg="clr-namespace:FFImageLoading.Svg.Forms;assembly=FFImageLoading.Svg.Forms">
+    <ContentPage.Resources>
+        <!--
+            Force CollectionView selected item color to Transparant
+            Note for Android: https://github.com/xamarin/Xamarin.Forms/issues/5622#issuecomment-549287986
+        -->
+        <Style TargetType="StackLayout">
+            <Setter Property="VisualStateManager.VisualStateGroups">
+                <VisualStateGroupList>
+                    <VisualStateGroup x:Name="CommonStates">
+                        <VisualState x:Name="Normal" />
+                        <VisualState x:Name="Selected">
+                            <VisualState.Setters>
+                                <Setter Property="BackgroundColor"
+                                        Value="Transparent" />
+                            </VisualState.Setters>
+                        </VisualState>
+                    </VisualStateGroup>
+                </VisualStateGroupList>
+            </Setter>
+        </Style>
+    </ContentPage.Resources>
     <Grid ColumnSpacing="16">
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto" />
@@ -42,55 +63,17 @@
         </Grid>
         <CollectionView Grid.Row="1" x:Name="collectionView" ItemsUpdatingScrollMode="KeepScrollOffset" Scrolled="CollectionView_Scrolled"
                         ItemsSource="{Binding Contributions}" IsGrouped="True" RemainingItemsThreshold="{Binding ItemThreshold}"
-                        RemainingItemsThresholdReachedCommand="{Binding LoadMoreCommand}">
+                        RemainingItemsThresholdReachedCommand="{Binding LoadMoreCommand}"
+                        GroupHeaderTemplate="{StaticResource ContributionsGroupHeaderTemplate}"
+                        ItemTemplate="{StaticResource ContributionsItemTemplate}"
+                        SelectedItem="{Binding SelectedContribution}"
+                        SelectionMode="Single">
             <CollectionView.ItemsLayout>
                 <LinearItemsLayout Orientation="Vertical" ItemSpacing="8" />
             </CollectionView.ItemsLayout>
-            <CollectionView.GroupHeaderTemplate>
-                <DataTemplate>
-                    <Grid Padding="24">
-                        <Label FontSize="15" TextColor="{StaticResource dark_gray}" FontFamily="SegoeUI-Bold">
-                            <Label.Triggers>
-                                <DataTrigger TargetType="Label" Binding="{Binding Key}" Value="0">
-                                    <Setter Property="Text" Value="Current award period" />
-                                </DataTrigger>
-                                <DataTrigger TargetType="Label" Binding="{Binding Key}" Value="1">
-                                    <Setter Property="Text" Value="Previous award period" />
-                                </DataTrigger>
-                            </Label.Triggers>
-                        </Label>
-                    </Grid>
-                </DataTemplate>
-            </CollectionView.GroupHeaderTemplate>
             <CollectionView.Footer>
                 <BoxView HeightRequest="40" />
             </CollectionView.Footer>
-            <CollectionView.ItemTemplate>
-                <DataTemplate x:DataType="models:Contribution">
-                    <StackLayout Padding="24,0">
-                        <StackLayout.GestureRecognizers>
-                            <TapGestureRecognizer Command="{Binding Path=BindingContext.OpenContributionCommand, Source={x:Reference page}}"
-                                                  CommandParameter="{Binding .}"/>
-                        </StackLayout.GestureRecognizers>
-                        <custom:PancakeView Style="{StaticResource contribution_list_container}" >
-                            <Grid>
-                                <Grid.ColumnDefinitions>
-                                    <ColumnDefinition Width="Auto" />
-                                    <ColumnDefinition Width="*" />
-                                </Grid.ColumnDefinitions>
-
-                                <!-- Want to scrape images using OpenGraph -->
-                                <ff:CachedImage Style="{StaticResource contribution_image}" />
-
-                                <StackLayout Padding="0,12,16,12" Grid.Column="1" VerticalOptions="Center">
-                                    <Label Style="{StaticResource contribution_title}" Text="{Binding Title}" />
-                                    <Label Style="{StaticResource contribution_date}" Text="{Binding StartDate, StringFormat='Activity date: {0:d}'}" />
-                                </StackLayout>
-                            </Grid>
-                        </custom:PancakeView>
-                    </StackLayout>
-                </DataTemplate>
-            </CollectionView.ItemTemplate>
         </CollectionView>
 
         <custom:PancakeView Style="{StaticResource fab_button_container}" x:Name="fab" Grid.RowSpan="2">

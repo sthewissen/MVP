@@ -17,11 +17,23 @@ namespace MVP.PageModels
 
         int _pageSize = 10;
         bool _isLoadingMore;
+        Contribution _selectedContribution;
 
         public IList<Grouping<int, Contribution>> Contributions { get; set; } = new List<Grouping<int, Contribution>>();
         public Profile Profile { get; set; }
         public string ProfileImage { get; set; }
         public string Name { get; set; }
+
+        public Contribution SelectedContribution
+        {
+            get => _selectedContribution;
+            set
+            {
+                _selectedContribution = value;
+                if (value != null)
+                    OpenContributionCommand.Execute(value);
+            }
+        }
 
         public IAsyncCommand OpenProfileCommand { get; set; }
         public IAsyncCommand RefreshDataCommand { get; set; }
