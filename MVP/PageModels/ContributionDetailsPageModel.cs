@@ -18,7 +18,7 @@ namespace MVP.PageModels
 
         public ContributionDetailsPageModel()
         {
-            BackCommand = new AsyncCommand(Back);
+            BackCommand = new AsyncCommand(() => Back());
         }
 
         public override void Init(object initData)

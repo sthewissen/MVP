@@ -16,7 +16,7 @@ namespace MVP.PageModels
         public ProfilePageModel(AuthService authService)
         {
             _authService = authService;
-            LogoutCommand = new AsyncCommand(Logout);
+            LogoutCommand = new AsyncCommand(() => Logout());
         }
 
         async Task Logout()
