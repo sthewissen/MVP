@@ -19,7 +19,7 @@ namespace MVP.PageModels
         bool _isLoadingMore;
         Contribution _selectedContribution;
 
-        public IList<Grouping<int, Contribution>> Contributions { get; set; } = new List<Grouping<int, Contribution>>();
+        public IList<Grouping<int, Contribution>> GroupedContributions { get; set; } = new List<Grouping<int, Contribution>>();
         public Profile Profile { get; set; }
         public string ProfileImage { get; set; }
         public string Name { get; set; }
@@ -61,6 +61,16 @@ namespace MVP.PageModels
             await RefreshData().ConfigureAwait(false);
         }
 
+        public async override void ReverseInit(object returnedData)
+        {
+            base.ReverseInit(returnedData);
+
+            if (returnedData is bool refreshData && refreshData)
+            {
+                await RefreshContributions().ConfigureAwait(false);
+            }
+        }
+
         async Task RefreshData()
         {
             await Task.WhenAll(RefreshContributions(), RefreshProfileData()).ConfigureAwait(false);
@@ -70,14 +80,15 @@ namespace MVP.PageModels
         {
             if (Connectivity.NetworkAccess == NetworkAccess.Internet)
             {
-                Contributions.Clear();
+                GroupedContributions.Clear();
+                _contributions.Clear();
 
                 var contributionsList = await _mvpApiService.GetContributionsAsync(0, _pageSize, true).ConfigureAwait(false);
 
                 if (contributionsList != null)
                 {
                     _contributions.AddRange(contributionsList.Contributions);
-                    Contributions = _contributions.ToGroupedContributions();
+                    GroupedContributions = _contributions.ToGroupedContributions();
                 }
             }
         }
@@ -112,7 +123,7 @@ namespace MVP.PageModels
                     {
                         // Add the contributions and regroup the lot.
                         _contributions.AddRange(contributionsList.Contributions);
-                        Contributions = _contributions.ToGroupedContributions();
+                        GroupedContributions = _contributions.ToGroupedContributions();
                     }
                     else if (contributionsList.TotalContributions != contributionsList.PagingIndex)
                     {

@@ -10,6 +10,7 @@ namespace MVP
             InitializeComponent();
 
             // Device.SetFlags(new[] { });
+            AppContainer.Build();
 
             MainPage = FreshMvvm.FreshPageModelResolver.ResolvePageModel<SplashScreenPageModel>();
         }

@@ -103,6 +103,9 @@
                         <Label Grid.Column="1" Text="{Binding Contribution.AnnualReach}" Style="{StaticResource field_value}" />
                     </Grid>
 
+                    <Button Text="Delete contribution" Command="{Binding DeleteContributionCommand}" HorizontalOptions="Start"/>
+
+                    <Button Text="Edit contribution" Command="{Binding EditContributionCommand}" HorizontalOptions="Start"/>
                 </StackLayout>
             </ScrollView>
         </Grid>

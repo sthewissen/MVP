@@ -9,6 +9,14 @@
         public const string OcpApimSubscriptionKey = "cd3b2e5d2edc43718ae46a4dfd627323";
     }
 
+    public class Alerts
+    {
+        public const string OK = "OK";
+        public const string Cancel = "Cancel";
+        public const string HoldOn = "Hold on...";
+        public const string Error = "That's not good";
+    }
+
     public class Messaging
     {
         public const string AuthorizationComplete = "AuthorizationComplete";
