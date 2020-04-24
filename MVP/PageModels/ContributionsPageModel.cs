@@ -54,11 +54,11 @@ namespace MVP.PageModels
             LoadMoreCommand = new AsyncCommand(() => LoadMoreContributions());
         }
 
-        public async override void Init(object initData)
+        public override void Init(object initData)
         {
             base.Init(initData);
 
-            await RefreshData().ConfigureAwait(false);
+            RefreshData().SafeFireAndForget();
         }
 
         public async override void ReverseInit(object returnedData)
@@ -83,7 +83,7 @@ namespace MVP.PageModels
                 GroupedContributions.Clear();
                 _contributions.Clear();
 
-                var contributionsList = await _mvpApiService.GetContributionsAsync(0, _pageSize, true).ConfigureAwait(false);
+                var contributionsList = await _mvpApiService.GetContributionsAsync(0, _pageSize).ConfigureAwait(false);
 
                 if (contributionsList != null)
                 {
@@ -115,7 +115,7 @@ namespace MVP.PageModels
 
             if (Connectivity.NetworkAccess == NetworkAccess.Internet)
             {
-                var contributionsList = await _mvpApiService.GetContributionsAsync(_contributions.Count, _pageSize, true).ConfigureAwait(false);
+                var contributionsList = await _mvpApiService.GetContributionsAsync(_contributions.Count, _pageSize).ConfigureAwait(false);
 
                 if (contributionsList != null)
                 {

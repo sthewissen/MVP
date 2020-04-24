@@ -15,7 +15,9 @@
             <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
 
-        <Grid Grid.RowSpan="2" HorizontalOptions="Fill" Padding="40" effects:SafeAreaPaddingEffect.HasTopSafeAreaPadding="True">
+        <Grid Grid.RowSpan="2" HorizontalOptions="Fill" Padding="40"
+              effects:SafeAreaPaddingEffect.HasSafeAreaPadding="True"
+              effects:SafeAreaPaddingEffect.HasTopSafeAreaPadding="True">
 
             <ff:CachedImage x:Name="phoneImage" Source="onboarding1.png" FadeAnimationEnabled="True" FadeAnimationForCachedImages="True" FadeAnimationDuration="500"
                             Aspect="AspectFit" HorizontalOptions="Fill" />

@@ -29,7 +29,7 @@ namespace MVP.iOS.Effects
                             _padding.Left + insets.Left,
                             _padding.Top + (SafeAreaPaddingEffect.GetHasTopSafeAreaPadding(element) ? insets.Top : 0),
                             _padding.Right + insets.Right,
-                            _padding.Bottom + (SafeAreaPaddingEffect.GetHasBottomSafeAreaPadding(element) ? insets.Top : 0)
+                            _padding.Bottom + (SafeAreaPaddingEffect.GetHasBottomSafeAreaPadding(element) ? insets.Bottom : 0)
                         );
 
                         return;

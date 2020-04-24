@@ -1,110 +1,114 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <ContentPage x:Name="page" xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
              x:Class="MVP.Pages.ContributionDetailsPage"
              xmlns:vm="clr-namespace:MVP.PageModels"
-             xmlns:ffsvg="clr-namespace:FFImageLoading.Svg.Forms;assembly=FFImageLoading.Svg.Forms"
              xmlns:effects="clr-namespace:MVP.Effects"
              xmlns:icons="clr-namespace:MVP.Styles"
              xmlns:custom="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
              xmlns:models="clr-namespace:MVP.Models"
-             NavigationPage.HasNavigationBar="False" ios:Page.UseSafeArea="false"
+             NavigationPage.HasNavigationBar="False"
              x:DataType="{x:Type vm:ContributionDetailsPageModel}">
-    <Grid>
-        <ffsvg:SvgCachedImage Source="Resource://background.svg" Aspect="AspectFill"
-                              HorizontalOptions="Fill" VerticalOptions="Fill" />
 
-        <Grid effects:SafeAreaPaddingEffect.HasBottomSafeAreaPadding="True" effects:SafeAreaPaddingEffect.HasTopSafeAreaPadding="True">
-            <Grid.RowDefinitions>
-                <RowDefinition Height="56" />
-                <RowDefinition Height="*" />
-            </Grid.RowDefinitions>
+    <Grid effects:SafeAreaPaddingEffect.HasSafeAreaPadding="True"
+          effects:SafeAreaPaddingEffect.HasTopSafeAreaPadding="True"
+          effects:SafeAreaPaddingEffect.HasBottomSafeAreaPadding="True">
 
-            <Button Margin="24,0,0,0" FontSize="28" Text="{x:Static icons:Icons.back}" BackgroundColor="Transparent" TextColor="{StaticResource dark_gray}"
-                   FontFamily="mvpicons" Command="{Binding BackCommand}" HorizontalOptions="Start"/>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="56" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
 
-            <ScrollView Grid.Row="1">
-                <StackLayout Spacing="16" Padding="40">
-                    <custom:PancakeView Elevation="2" HorizontalOptions="Start" VerticalOptions="Center" Style="{StaticResource pill_box}" >
-                        <Label LineBreakMode="TailTruncation" Text="{Binding Contribution.ContributionType.EnglishName}" HorizontalTextAlignment="End" MaxLines="2" Style="{StaticResource pill_label}" />
-                    </custom:PancakeView>
+        <Label FontSize="24" Text="{x:Static icons:Icons.back}" TextColor="{StaticResource black}" Margin="24,0"
+               FontFamily="mvpicons" HorizontalOptions="Start" VerticalOptions="Center" HorizontalTextAlignment="Start" Padding="0,12,12,12">
+            <Label.GestureRecognizers>
+                <TapGestureRecognizer Command="{Binding BackCommand}" />
+            </Label.GestureRecognizers>
+        </Label>
 
-                    <Label Text="{Binding Contribution.Title}" Style="{StaticResource heading_h1}" Margin="0,0,0,24" />
+        <ScrollView Grid.Row="1" Padding="24,0">
 
-                    <Grid>
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="Auto"/>
-                            <ColumnDefinition Width="*"/>
-                        </Grid.ColumnDefinitions>
-                        <Label Text="Primary contribution area" MaxLines="2" Style="{StaticResource field_header}" />
-                        <Label Grid.Column="1" Text="{Binding Contribution.ContributionTechnology.Name}" Style="{StaticResource field_value}" />
-                    </Grid>
+            <StackLayout Spacing="20">
 
-                    <Grid>
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="Auto"/>
-                            <ColumnDefinition Width="*"/>
-                        </Grid.ColumnDefinitions>
-                        <Grid.Triggers>
-                            <DataTrigger TargetType="Grid" Binding="{Binding Contribution.AdditionalTechnologies.Count}" Value="0">
-                                <Setter Property="IsVisible" Value="false"/>
-                            </DataTrigger>
-                        </Grid.Triggers>
-                        <Label Text="Additional contribution areas" MaxLines="2" Style="{StaticResource field_header}" />
-                        <StackLayout Grid.Column="1" BindableLayout.ItemsSource="{Binding Contribution.AdditionalTechnologies}">
-                            <BindableLayout.ItemTemplate>
-                                <DataTemplate x:DataType="models:ContributionTechnology">
-                                    <Label Text="{Binding Name}" Style="{StaticResource field_value}" />
-                                </DataTemplate>
-                            </BindableLayout.ItemTemplate>
-                        </StackLayout>
-                    </Grid>
+                <custom:PancakeView Style="{StaticResource pill_box}" Margin="0,16,0,0">
+                    <Label LineBreakMode="TailTruncation" Text="{Binding Contribution.ContributionType.EnglishName}" HorizontalTextAlignment="End"
+                           MaxLines="2" Style="{StaticResource pill_label}" />
+                </custom:PancakeView>
 
-                    <Grid>
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="Auto"/>
-                            <ColumnDefinition Width="*"/>
-                        </Grid.ColumnDefinitions>
-                        <Label Text="Activity date" Style="{StaticResource field_header}" />
-                        <Label Grid.Column="1" Text="{Binding Contribution.StartDate, StringFormat='{0:d}'}" Style="{StaticResource field_value}" />
-                    </Grid>
+                <Label Text="{Binding Contribution.Title}" Style="{StaticResource contributiondetail_title}" Margin="0,0,0,24" />
 
-                    <Label Text="Description" Style="{StaticResource field_header}" />
-                    <Label Text="{Binding Contribution.Description}" Style="{StaticResource field_value}" HorizontalTextAlignment="Start" />
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <Label Text="Primary contribution area" MaxLines="2" Style="{StaticResource field_header}" />
+                    <Label Grid.Column="1" Text="{Binding Contribution.ContributionTechnology.Name}" Style="{StaticResource field_value}" />
+                </Grid>
 
-                    <Grid IsVisible="{Binding AnnualQuantityHeader, Converter={StaticResource VisibilityNotNullOrEmptyConverter}}">
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="Auto"/>
-                            <ColumnDefinition Width="*"/>
-                        </Grid.ColumnDefinitions>
-                        <Label Text="{Binding AnnualQuantityHeader}" Style="{StaticResource field_header}" />
-                        <Label Grid.Column="1" Text="{Binding Contribution.AnnualQuantity}" Style="{StaticResource field_value}" />
-                    </Grid>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.Triggers>
+                        <DataTrigger TargetType="Grid" Binding="{Binding Contribution.AdditionalTechnologies.Count}" Value="0">
+                            <Setter Property="IsVisible" Value="false"/>
+                        </DataTrigger>
+                    </Grid.Triggers>
+                    <Label Text="Additional contribution areas" MaxLines="2" Style="{StaticResource field_header}" />
+                    <StackLayout Grid.Column="1" BindableLayout.ItemsSource="{Binding Contribution.AdditionalTechnologies}">
+                        <BindableLayout.ItemTemplate>
+                            <DataTemplate x:DataType="models:ContributionTechnology">
+                                <Label Text="{Binding Name}" Style="{StaticResource field_value}" />
+                            </DataTemplate>
+                        </BindableLayout.ItemTemplate>
+                    </StackLayout>
+                </Grid>
 
-                    <Grid IsVisible="{Binding SecondAnnualQuantityHeader, Converter={StaticResource VisibilityNotNullOrEmptyConverter}}">
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="Auto"/>
-                            <ColumnDefinition Width="*"/>
-                        </Grid.ColumnDefinitions>
-                        <Label Text="{Binding SecondAnnualQuantityHeader}" Style="{StaticResource field_header}" />
-                        <Label Grid.Column="1" Text="{Binding Contribution.SecondAnnualQuantity}" Style="{StaticResource field_value}" />
-                    </Grid>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <Label Text="Activity date" Style="{StaticResource field_header}" />
+                    <Label Grid.Column="1" Text="{Binding Contribution.StartDate, StringFormat='{0:d}'}" Style="{StaticResource field_value}" />
+                </Grid>
 
-                    <Grid IsVisible="{Binding AnnualReachHeader, Converter={StaticResource VisibilityNotNullOrEmptyConverter}}">
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="Auto"/>
-                            <ColumnDefinition Width="*"/>
-                        </Grid.ColumnDefinitions>
-                        <Label Text="{Binding AnnualReachHeader}" Style="{StaticResource field_header}" />
-                        <Label Grid.Column="1" Text="{Binding Contribution.AnnualReach}" Style="{StaticResource field_value}" />
-                    </Grid>
+                <Label Text="Description" Style="{StaticResource field_header}" />
+                <Label Text="{Binding Contribution.Description}" Style="{StaticResource field_value}" HorizontalTextAlignment="Start" />
 
-                    <Button Text="Delete contribution" Command="{Binding DeleteContributionCommand}" HorizontalOptions="Start"/>
+                <Grid IsVisible="{Binding AnnualQuantityHeader, Converter={StaticResource VisibilityNotNullOrEmptyConverter}}">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <Label Text="{Binding AnnualQuantityHeader}" Style="{StaticResource field_header}" />
+                    <Label Grid.Column="1" Text="{Binding Contribution.AnnualQuantity}" Style="{StaticResource field_value}" />
+                </Grid>
 
-                    <Button Text="Edit contribution" Command="{Binding EditContributionCommand}" HorizontalOptions="Start"/>
-                </StackLayout>
-            </ScrollView>
-        </Grid>
+                <Grid IsVisible="{Binding SecondAnnualQuantityHeader, Converter={StaticResource VisibilityNotNullOrEmptyConverter}}">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <Label Text="{Binding SecondAnnualQuantityHeader}" Style="{StaticResource field_header}" />
+                    <Label Grid.Column="1" Text="{Binding Contribution.SecondAnnualQuantity}" Style="{StaticResource field_value}" />
+                </Grid>
+
+                <Grid IsVisible="{Binding AnnualReachHeader, Converter={StaticResource VisibilityNotNullOrEmptyConverter}}">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <Label Text="{Binding AnnualReachHeader}" Style="{StaticResource field_header}" />
+                    <Label Grid.Column="1" Text="{Binding Contribution.AnnualReach}" Style="{StaticResource field_value}" />
+                </Grid>
+
+                <Button Text="Delete contribution" Command="{Binding DeleteContributionCommand}" />
+
+                <Button Text="Edit contribution" Command="{Binding EditContributionCommand}" HorizontalOptions="Start"/>
+            </StackLayout>
+        </ScrollView>
     </Grid>
 </ContentPage>

@@ -5,10 +5,12 @@
              xmlns:custom="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
              xmlns:ff="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
              xmlns:transformations="clr-namespace:FFImageLoading.Transformations;assembly=FFImageLoading.Transformations"
-             xmlns:effects="clr-namespace:MVP.Effects" xmlns:models="clr-namespace:MVP.Models"
+             xmlns:effects="clr-namespace:MVP.Effects"
+             xmlns:helpers="clr-namespace:MVP.Helpers"
+             helpers:StatusBar.StatusBarStyle="WhiteText"
              xmlns:icons="clr-namespace:MVP.Styles"
-             NavigationPage.HasNavigationBar="False" ios:Page.UseSafeArea="false" x:Class="MVP.Pages.ContributionsPage"
-             xmlns:ffsvg="clr-namespace:FFImageLoading.Svg.Forms;assembly=FFImageLoading.Svg.Forms">
+             NavigationPage.HasNavigationBar="False"
+             x:Class="MVP.Pages.ContributionsPage">
     <ContentPage.Resources>
         <!--
             Force CollectionView selected item color to Transparant
@@ -29,16 +31,14 @@
             </Setter>
         </Style>
     </ContentPage.Resources>
-    <Grid ColumnSpacing="16">
+    <Grid ColumnSpacing="16" BackgroundColor="{StaticResource background_gray}">
         <Grid.RowDefinitions>
-            <RowDefinition Height="Auto" />
             <RowDefinition Height="Auto" />
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
 
-        <ffsvg:SvgCachedImage Source="Resource://background.svg" Grid.RowSpan="2" Aspect="AspectFill" HorizontalOptions="Fill" VerticalOptions="Fill" />
-
-        <Grid Padding="0,32,0,0" ColumnSpacing="16" effects:SafeAreaPaddingEffect.HasBottomSafeAreaPadding="True" effects:SafeAreaPaddingEffect.HasTopSafeAreaPadding="True">
+        <Grid Padding="0,24" ColumnSpacing="16" effects:SafeAreaPaddingEffect.HasSafeAreaPadding="True"
+              effects:SafeAreaPaddingEffect.HasTopSafeAreaPadding="True">
             <Grid.GestureRecognizers>
                 <TapGestureRecognizer Command="{Binding OpenProfileCommand}" />
             </Grid.GestureRecognizers>
@@ -53,13 +53,12 @@
                 </ff:CachedImage.Transformations>
             </ff:CachedImage>
             <StackLayout Spacing="0" Grid.Column="1" VerticalOptions="Center" Margin="0,0,24,0">
-                <Label VerticalOptions="Start" Text="{Binding Name, StringFormat='Hey {0}'}" Style="{StaticResource heading_h1}" LineBreakMode="TailTruncation" />
-                <Label FontSize="13" Text="What awesome thing did you do today?" Style="{StaticResource body_dark}" LineBreakMode="TailTruncation" />
+                <Label VerticalOptions="Start" Text="{Binding Name, StringFormat='Hey {0}'}" Style="{StaticResource welcome_name}" LineBreakMode="TailTruncation" />
+                <Label Text="What awesome thing did you do today?" Style="{StaticResource welcome_subtitle}" LineBreakMode="TailTruncation" />
             </StackLayout>
         </Grid>
         <CollectionView Grid.Row="1" x:Name="collectionView" ItemsUpdatingScrollMode="KeepScrollOffset" Scrolled="CollectionView_Scrolled"
-                        ItemsSource="{Binding GroupedContributions}" IsGrouped="True" RemainingItemsThreshold="{Binding ItemThreshold}"
-                        RemainingItemsThresholdReachedCommand="{Binding LoadMoreCommand}"
+                        ItemsSource="{Binding GroupedContributions}" IsGrouped="True"
                         GroupHeaderTemplate="{StaticResource ContributionsGroupHeaderTemplate}"
                         ItemTemplate="{StaticResource ContributionsItemTemplate}"
                         SelectedItem="{Binding SelectedContribution}"

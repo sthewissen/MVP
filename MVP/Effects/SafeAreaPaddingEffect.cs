@@ -5,11 +5,25 @@ namespace MVP.Effects
 {
     public static class SafeAreaPaddingEffect
     {
+        public static readonly BindableProperty HasSafeAreaPaddingProperty =
+            BindableProperty.CreateAttached("HasSafeAreaPadding", typeof(bool), typeof(SafeAreaPaddingEffect), false,
+                propertyChanged: OnHasSafeAreaPaddingChanged);
+
         public static readonly BindableProperty HasTopSafeAreaPaddingProperty =
-          BindableProperty.CreateAttached("HasTopSafeAreaPadding", typeof(bool), typeof(SafeAreaPaddingEffect), false, propertyChanged: OnHasSafeAreaPaddingChanged);
+          BindableProperty.CreateAttached("HasTopSafeAreaPadding", typeof(bool), typeof(SafeAreaPaddingEffect), false);
 
         public static readonly BindableProperty HasBottomSafeAreaPaddingProperty =
-          BindableProperty.CreateAttached("HasBottomSafeAreaPadding", typeof(bool), typeof(SafeAreaPaddingEffect), false, propertyChanged: OnHasSafeAreaPaddingChanged);
+          BindableProperty.CreateAttached("HasBottomSafeAreaPadding", typeof(bool), typeof(SafeAreaPaddingEffect), false);
+
+        public static bool GetHasSafeAreaPadding(BindableObject view)
+        {
+            return (bool)view.GetValue(HasSafeAreaPaddingProperty);
+        }
+
+        public static void SetHasSafeAreaPadding(BindableObject view, bool value)
+        {
+            view.SetValue(HasSafeAreaPaddingProperty, value);
+        }
 
         public static bool GetHasTopSafeAreaPadding(BindableObject view)
         {
