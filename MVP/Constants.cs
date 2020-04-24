@@ -14,7 +14,8 @@
         public const string OK = "OK";
         public const string Cancel = "Cancel";
         public const string HoldOn = "Hold on...";
-        public const string Error = "That's not good";
+        public const string Error = "That's not good...";
+        public const string UnexpectedError = "Something went wrong that we didn't expect. An error has been logged and we will look into it as soon as possible.";
     }
 
     public class Messaging

@@ -4,6 +4,10 @@
                     xmlns:converters="clr-namespace:MVP.Converters" 
 					x:Class="MVP.Styles.Converters">
     <?xaml-comp compile="true" ?>
+    <converters:OutsideAwardPeriodConverter x:Key="OutsideAwardPeriodConverter" />
+    <converters:ResourceToHexStringConverter x:Key="ResourceToHexStringConverter" />
+    <converters:StringToColorResourceConverter x:Key="StringToColorResourceConverter" />
+    <converters:InsideAwardPeriodConverter x:Key="InsideAwardPeriodConverter" />
     <converters:VisibilityNotNullOrEmptyConverter x:Key="VisibilityNotNullOrEmptyConverter" />
     <converters:VisibilityNullOrEmptyConverter x:Key="VisibilityNullOrEmptyConverter" />
     <converters:VisibilityNotNullConverter x:Key="VisibilityNotNullConverter" />

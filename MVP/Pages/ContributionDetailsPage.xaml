@@ -5,7 +5,7 @@
              x:Class="MVP.Pages.ContributionDetailsPage"
              xmlns:vm="clr-namespace:MVP.PageModels"
              xmlns:ffsvg="clr-namespace:FFImageLoading.Svg.Forms;assembly=FFImageLoading.Svg.Forms"
-             xmlns:effect="clr-namespace:MVP.Effects"
+             xmlns:effects="clr-namespace:MVP.Effects"
              xmlns:icons="clr-namespace:MVP.Styles"
              xmlns:custom="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
              xmlns:models="clr-namespace:MVP.Models"
@@ -15,14 +15,11 @@
         <ffsvg:SvgCachedImage Source="Resource://background.svg" Aspect="AspectFill"
                               HorizontalOptions="Fill" VerticalOptions="Fill" />
 
-        <Grid>
+        <Grid effects:SafeAreaPaddingEffect.HasBottomSafeAreaPadding="True" effects:SafeAreaPaddingEffect.HasTopSafeAreaPadding="True">
             <Grid.RowDefinitions>
                 <RowDefinition Height="56" />
                 <RowDefinition Height="*" />
             </Grid.RowDefinitions>
-            <Grid.Effects>
-                <effect:SafeAreaPaddingEffect />
-            </Grid.Effects>
 
             <Button Margin="24,0,0,0" FontSize="28" Text="{x:Static icons:Icons.back}" BackgroundColor="Transparent" TextColor="{StaticResource dark_gray}"
                    FontFamily="mvpicons" Command="{Binding BackCommand}" HorizontalOptions="Start"/>

@@ -80,8 +80,8 @@ namespace MVP.PageModels
             }
             catch (Exception ex)
             {
-                await _dialogService.AlertAsync("Something went wrong that we didn't expect. An error has been logged and we will look into it as soon as possible.", Alerts.Error, Alerts.OK);
                 _analyticsService.Report(ex);
+                await _dialogService.AlertAsync(Alerts.UnexpectedError, Alerts.Error, Alerts.OK);
             }
         }
 

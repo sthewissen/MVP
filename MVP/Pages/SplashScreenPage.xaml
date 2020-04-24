@@ -2,9 +2,11 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms" x:Class="MVP.Pages.SplashScreenPage"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:ff="clr-namespace:FFImageLoading.Svg.Forms;assembly=FFImageLoading.Svg.Forms"
+             xmlns:helpers="clr-namespace:MVP.Helpers"
+             helpers:StatusBar.StatusBarStyle="WhiteText"
              xmlns:vm="clr-namespace:MVP.PageModels" x:DataType="{x:Type vm:SplashScreenPageModel}">
 
-    <Grid BackgroundColor="{StaticResource msblue}">
+    <Grid BackgroundColor="{StaticResource primary}">
 
         <ff:SvgCachedImage x:Name="logo" Source="Resource://mvp_logo.svg" VerticalOptions="Center"
                         HorizontalOptions="Center" WidthRequest="148" HeightRequest="148"

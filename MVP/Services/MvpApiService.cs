@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using MVP.Models;
 using MVP.Services.Helpers;
+using MVP.Services.Interfaces;
 using Newtonsoft.Json;
 using Xamarin.Essentials;
 
@@ -15,18 +16,21 @@ namespace MVP.Services
 {
     public class MvpApiService : IDisposable, IMvpApiService
     {
-        private readonly HttpClient _client;
-        private ContributionList _contributionsCachedResult;
-        private IReadOnlyList<ContributionType> _contributionTypesCachedResult;
-        private IReadOnlyList<ContributionCategory> _contributionAreasCachedResult;
-        private IReadOnlyList<Visibility> _visibilitiesCachedResult;
-        private IReadOnlyList<OnlineIdentity> _onlineIdentitiesCachedResult;
+        readonly HttpClient _client;
+        readonly IAnalyticsService _analyticsService;
+        ContributionList _contributionsCachedResult;
+        IReadOnlyList<ContributionType> _contributionTypesCachedResult;
+        IReadOnlyList<ContributionCategory> _contributionAreasCachedResult;
+        IReadOnlyList<Visibility> _visibilitiesCachedResult;
+        IReadOnlyList<OnlineIdentity> _onlineIdentitiesCachedResult;
 
         /// <summary>
         /// Service that interacts with the MVP API
         /// </summary>
-        public MvpApiService()
+        public MvpApiService(IAnalyticsService analyticsService)
         {
+            _analyticsService = analyticsService;
+
             var handler = new HttpClientHandler();
 
             if (handler.SupportsAutomaticDecompression)
@@ -76,7 +80,7 @@ namespace MVP.Services
             }
             catch (HttpRequestException e)
             {
-                await e.LogExceptionAsync();
+                _analyticsService.Report(e);
 
                 if (e.Message.Contains("500"))
                 {
@@ -87,7 +91,7 @@ namespace MVP.Services
             }
             catch (Exception e)
             {
-                await e.LogExceptionAsync();
+                _analyticsService.Report(e);
 
                 Debug.WriteLine($"GetProfileAsync Exception: {e}");
             }
@@ -129,7 +133,7 @@ namespace MVP.Services
             }
             catch (HttpRequestException e)
             {
-                await e.LogExceptionAsync();
+                _analyticsService.Report(e);
 
                 if (e.Message.Contains("500"))
                 {
@@ -140,7 +144,7 @@ namespace MVP.Services
             }
             catch (Exception e)
             {
-                await e.LogExceptionAsync();
+                _analyticsService.Report(e);
                 Debug.WriteLine($"GetProfileImageAsync Exception: {e}");
             }
 
@@ -194,7 +198,7 @@ namespace MVP.Services
                         }
                         catch (Exception e)
                         {
-                            await e.LogExceptionAsync();
+                            _analyticsService.Report(e);
                             Debug.WriteLine($"DownloadAndSaveProfileImage Exception: {e}");
                         }
                     }
@@ -214,7 +218,7 @@ namespace MVP.Services
             }
             catch (HttpRequestException e)
             {
-                await e.LogExceptionAsync();
+                _analyticsService.Report(e);
 
                 if (e.Message.Contains("500"))
                 {
@@ -225,7 +229,7 @@ namespace MVP.Services
             }
             catch (Exception e)
             {
-                await e.LogExceptionAsync();
+                _analyticsService.Report(e);
                 Debug.WriteLine($"GetProfileImageAsync Exception: {e}");
             }
 
@@ -267,7 +271,7 @@ namespace MVP.Services
             }
             catch (HttpRequestException e)
             {
-                await e.LogExceptionAsync();
+                _analyticsService.Report(e);
 
                 if (e.Message.Contains("500"))
                 {
@@ -278,7 +282,7 @@ namespace MVP.Services
             }
             catch (Exception e)
             {
-                await e.LogExceptionAsync();
+                _analyticsService.Report(e);
 
                 Debug.WriteLine($"GetContributionsAsync Exception: {e}");
             }
@@ -334,7 +338,7 @@ namespace MVP.Services
             }
             catch (HttpRequestException e)
             {
-                await e.LogExceptionAsync();
+                _analyticsService.Report(e);
 
                 if (e.Message.Contains("500"))
                 {
@@ -345,7 +349,7 @@ namespace MVP.Services
             }
             catch (Exception e)
             {
-                await e.LogExceptionAsync();
+                _analyticsService.Report(e);
 
                 Debug.WriteLine($"GetContributionsAsync Exception: {e}");
             }
@@ -394,7 +398,7 @@ namespace MVP.Services
             }
             catch (HttpRequestException e)
             {
-                await e.LogExceptionAsync();
+                _analyticsService.Report(e);
 
                 if (e.Message.Contains("500"))
                 {
@@ -405,7 +409,7 @@ namespace MVP.Services
             }
             catch (Exception e)
             {
-                await e.LogExceptionAsync();
+                _analyticsService.Report(e);
                 Debug.WriteLine($"SubmitContributionAsync Exception: {e}");
             }
 
@@ -453,7 +457,7 @@ namespace MVP.Services
             }
             catch (HttpRequestException e)
             {
-                await e.LogExceptionAsync();
+                _analyticsService.Report(e);
 
                 if (e.Message.Contains("500"))
                 {
@@ -465,7 +469,7 @@ namespace MVP.Services
             }
             catch (Exception e)
             {
-                await e.LogExceptionAsync();
+                _analyticsService.Report(e);
 
                 Debug.WriteLine($"GetProfileAsync Exception: {e}");
             }
@@ -505,7 +509,7 @@ namespace MVP.Services
             }
             catch (HttpRequestException e)
             {
-                await e.LogExceptionAsync();
+                _analyticsService.Report(e);
 
                 if (e.Message.Contains("500"))
                 {
@@ -517,7 +521,7 @@ namespace MVP.Services
             }
             catch (Exception e)
             {
-                await e.LogExceptionAsync();
+                _analyticsService.Report(e);
 
                 Debug.WriteLine($"GetProfileAsync Exception: {e}");
                 return null;
@@ -567,7 +571,7 @@ namespace MVP.Services
             }
             catch (HttpRequestException e)
             {
-                await e.LogExceptionAsync();
+                _analyticsService.Report(e);
 
                 if (e.Message.Contains("500"))
                 {
@@ -578,7 +582,7 @@ namespace MVP.Services
             }
             catch (Exception e)
             {
-                await e.LogExceptionAsync();
+                _analyticsService.Report(e);
 
                 Debug.WriteLine($"GetContributionTypesAsync Exception: {e}");
             }
@@ -627,7 +631,7 @@ namespace MVP.Services
             }
             catch (HttpRequestException e)
             {
-                await e.LogExceptionAsync();
+                _analyticsService.Report(e);
 
                 if (e.Message.Contains("500"))
                 {
@@ -638,7 +642,7 @@ namespace MVP.Services
             }
             catch (Exception e)
             {
-                await e.LogExceptionAsync();
+                _analyticsService.Report(e);
 
                 Debug.WriteLine($"GetContributionTechnologiesAsync Exception: {e}");
             }
@@ -687,7 +691,7 @@ namespace MVP.Services
             }
             catch (HttpRequestException e)
             {
-                await e.LogExceptionAsync();
+                _analyticsService.Report(e);
 
                 if (e.Message.Contains("500"))
                 {
@@ -698,7 +702,7 @@ namespace MVP.Services
             }
             catch (Exception e)
             {
-                await e.LogExceptionAsync();
+                _analyticsService.Report(e);
 
                 Debug.WriteLine($"GetVisibilitiesAsync Exception: {e}");
             }
@@ -747,7 +751,7 @@ namespace MVP.Services
             }
             catch (HttpRequestException e)
             {
-                await e.LogExceptionAsync();
+                _analyticsService.Report(e);
 
                 if (e.Message.Contains("500"))
                 {
@@ -758,7 +762,7 @@ namespace MVP.Services
             }
             catch (Exception e)
             {
-                await e.LogExceptionAsync();
+                _analyticsService.Report(e);
                 Debug.WriteLine($"GetOnlineIdentitiesAsync Exception: {e}");
             }
 
@@ -811,7 +815,7 @@ namespace MVP.Services
             }
             catch (HttpRequestException e)
             {
-                await e.LogExceptionAsync();
+                _analyticsService.Report(e);
 
                 if (e.Message.Contains("500"))
                 {
@@ -822,7 +826,7 @@ namespace MVP.Services
             }
             catch (Exception e)
             {
-                await e.LogExceptionAsync();
+                _analyticsService.Report(e);
 
                 Debug.WriteLine($"SubmitOnlineIdentitiesAsync Exception: {e}");
             }
@@ -857,7 +861,7 @@ namespace MVP.Services
             }
             catch (HttpRequestException e)
             {
-                await e.LogExceptionAsync();
+                _analyticsService.Report(e);
 
                 if (e.Message.Contains("500"))
                 {
@@ -868,7 +872,7 @@ namespace MVP.Services
             }
             catch (Exception e)
             {
-                await e.LogExceptionAsync();
+                _analyticsService.Report(e);
 
                 Debug.WriteLine($"SubmitOnlineIdentitiesAsync Exception: {e}");
             }
@@ -905,7 +909,7 @@ namespace MVP.Services
             }
             catch (HttpRequestException e)
             {
-                await e.LogExceptionAsync();
+                _analyticsService.Report(e);
 
                 if (e.Message.Contains("500"))
                 {
@@ -916,7 +920,7 @@ namespace MVP.Services
             }
             catch (Exception e)
             {
-                await e.LogExceptionAsync();
+                _analyticsService.Report(e);
                 Debug.WriteLine($"GetOnlineIdentitiesAsync Exception: {e}");
             }
 
@@ -952,7 +956,7 @@ namespace MVP.Services
             }
             catch (HttpRequestException e)
             {
-                await e.LogExceptionAsync();
+                _analyticsService.Report(e);
 
                 if (e.Message.Contains("500"))
                 {
@@ -963,7 +967,7 @@ namespace MVP.Services
             }
             catch (Exception e)
             {
-                await e.LogExceptionAsync();
+                _analyticsService.Report(e);
                 Debug.WriteLine($"GetOnlineIdentitiesAsync Exception: {e}");
             }
 
@@ -1014,7 +1018,7 @@ namespace MVP.Services
             }
             catch (HttpRequestException e)
             {
-                await e.LogExceptionAsync();
+                _analyticsService.Report(e);
 
                 if (e.Message.Contains("500"))
                 {
@@ -1025,7 +1029,7 @@ namespace MVP.Services
             }
             catch (Exception e)
             {
-                await e.LogExceptionAsync();
+                _analyticsService.Report(e);
                 Debug.WriteLine($"SubmitContributionAsync Exception: {e}");
             }
 
@@ -1069,7 +1073,7 @@ namespace MVP.Services
             }
             catch (HttpRequestException e)
             {
-                await e.LogExceptionAsync();
+                _analyticsService.Report(e);
 
                 if (e.Message.Contains("500"))
                 {
@@ -1080,7 +1084,7 @@ namespace MVP.Services
             }
             catch (Exception e)
             {
-                await e.LogExceptionAsync();
+                _analyticsService.Report(e);
                 Debug.WriteLine($"SubmitContributionAsync Exception: {e}");
             }
 

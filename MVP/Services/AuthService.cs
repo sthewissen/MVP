@@ -3,12 +3,14 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.Identity.Client;
 using MVP.Services.Helpers;
+using MVP.Services.Interfaces;
 using Xamarin.Essentials;
 
 namespace MVP.Services
 {
     public class AuthService : IAuthService
     {
+        readonly IAnalyticsService _analyticsService;
         readonly IPublicClientApplication _pca;
 
         // The redirect URI defines how the external browser window can
@@ -30,8 +32,9 @@ namespace MVP.Services
         // the login screen dialog from.
         public static object ParentWindow { get; set; }
 
-        public AuthService()
+        public AuthService(IAnalyticsService analyticsService)
         {
+            _analyticsService = analyticsService;
             _pca = PublicClientApplicationBuilder.Create(Constants.AuthClientId)
                 .WithIosKeychainSecurityGroup(AppInfo.PackageName)
                 .WithRedirectUri(RedirectUri)
@@ -88,13 +91,13 @@ namespace MVP.Services
                 }
                 catch (Exception ex)
                 {
-                    ex.LogException();
+                    _analyticsService.Report(ex);
                     return false;
                 }
             }
             catch (Exception ex)
             {
-                ex.LogException();
+                _analyticsService.Report(ex);
                 return false;
             }
         }
@@ -119,7 +122,7 @@ namespace MVP.Services
             }
             catch (Exception ex)
             {
-                ex.LogException();
+                _analyticsService.Report(ex);
                 return false;
             }
         }

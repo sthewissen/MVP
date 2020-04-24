@@ -1,0 +1,58 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="MVP.Pages.StyleGuidePage">
+    <ContentPage.Content>
+
+        <ScrollView>
+            <FlexLayout Wrap="Wrap" AlignItems="Center" JustifyContent="SpaceEvenly">
+                <BindableLayout.ItemsSource>
+                    <x:Array Type="{x:Type x:String}">
+                        <x:String>primary</x:String>
+                        <x:String>error</x:String>
+                        <x:String>warning</x:String>
+                        <x:String>light_primary</x:String>
+                        <x:String>light_error</x:String>
+                        <x:String>light_warning</x:String>
+                        <x:String>white</x:String>
+                        <x:String>black</x:String>
+                        <x:String>dark_gray</x:String>
+                        <x:String>background_gray</x:String>
+                        <x:String>gray</x:String>
+                        <x:String>light_gray</x:String>
+                        <x:String>background_light_gray</x:String>
+                        <x:String>border_light_gray</x:String>
+                        <x:String>monarch</x:String>
+                        <x:String>mexican_red</x:String>
+                        <x:String>persian_red</x:String>
+                        <x:String>tia_maria</x:String>
+                        <x:String>buttered_rum</x:String>
+                        <x:String>limeade</x:String>
+                        <x:String>blue_stone</x:String>
+                        <x:String>blue_lagoon</x:String>
+                        <x:String>lochmara</x:String>
+                        <x:String>cutty_sark</x:String>
+                        <x:String>nevada</x:String>
+                        <x:String>congress_blue</x:String>
+                        <x:String>royal_blue</x:String>
+                        <x:String>minsk</x:String>
+                        <x:String>seance</x:String>
+                        <x:String>fuchsia_pink</x:String>
+                        <x:String>hollywood_cerise</x:String>
+                        <x:String>quincy</x:String>
+                    </x:Array>
+                </BindableLayout.ItemsSource>
+                <BindableLayout.ItemTemplate>
+                    <DataTemplate>
+                        <Frame HasShadow="False" WidthRequest="120" HeightRequest="120" BackgroundColor="{StaticResource white}"
+                               Margin="5" BorderColor="#CCCCCC" CornerRadius="0" Padding="0">
+                            <StackLayout>
+                                <BoxView BackgroundColor="{Binding ., Converter={x:StaticResource StringToColorResourceConverter}}" />
+                                <Label Margin="8,4" Text="{Binding .}" FontFamily="{StaticResource font_bold}" FontSize="Caption" />
+                                <Label Margin="8,4" Text="{Binding ., Converter={x:StaticResource ResourceToHexStringConverter}}" FontSize="Caption" TextColor="{StaticResource dark_gray}"/>
+                            </StackLayout>
+                        </Frame>
+                    </DataTemplate>
+                </BindableLayout.ItemTemplate>
+            </FlexLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

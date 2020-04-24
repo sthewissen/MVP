@@ -1,32 +1,55 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
-<ContentPage BackgroundColor="{StaticResource white}" 
+<ContentPage BackgroundColor="{StaticResource light_primary}" 
              xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             NavigationPage.HasNavigationBar="False" xmlns:vm="clr-namespace:MVP.PageModels" 
+             NavigationPage.HasNavigationBar="False" xmlns:vm="clr-namespace:MVP.PageModels"
+             xmlns:effects="clr-namespace:MVP.Effects"
+             xmlns:ff="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms" 
              xmlns:custom="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
-             xmlns:ff="clr-namespace:FFImageLoading.Svg.Forms;assembly=FFImageLoading.Svg.Forms"
+             xmlns:models="clr-namespace:MVP.Models"
+             xmlns:helpers="clr-namespace:MVP.Helpers"
+             helpers:StatusBar.StatusBarStyle="DarkText"
              x:Class="MVP.Pages.IntroPage" x:DataType="{x:Type vm:IntroPageModel}">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="*" />
-            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
 
-        <ff:SvgCachedImage Source="Resource://background.svg" Grid.RowSpan="2" Aspect="AspectFill" HorizontalOptions="Fill" VerticalOptions="Fill" />
+        <Grid Grid.RowSpan="2" HorizontalOptions="Fill" Padding="40" effects:SafeAreaPaddingEffect.HasTopSafeAreaPadding="True">
 
-        <StackLayout Padding="40" VerticalOptions="Center">
-            <custom:PancakeView Style="{StaticResource tagline_box}" >
-                <Label Text="Welcome MVP!" Style="{StaticResource tagline}" />
+            <ff:CachedImage x:Name="phoneImage" Source="onboarding1.png" FadeAnimationEnabled="True" FadeAnimationForCachedImages="True" FadeAnimationDuration="500"
+                            Aspect="AspectFit" HorizontalOptions="Fill" />
+
+            <custom:PancakeView x:Name="pillbox" Style="{StaticResource pill_box}">
+                <Label Text="Welcome MVP!" Style="{StaticResource pill_label}" />
             </custom:PancakeView>
+        </Grid>
 
-            <Label Text="Manage all of your community activities from the palm of your hand"
-                   Style="{StaticResource heading_h1}" Margin="0,30" />
-
-            <Label Style="{StaticResource body_dark}" Text="This app allows you to keep track of all your contributions and your renewal questions. It will also give you friendly reminders about the deadlines for these if you would like it to.&#x0a;&#x0a;However, to get started we will first need you to sign in using the Microsoft account associated with your MVP profile." />
-
-        </StackLayout>
-
-        <StackLayout Grid.Row="1" Padding="40,20,40,40">
-            <Button Text="Get started" Style="{StaticResource button_blue}" Command="{Binding SignInCommand}" />
-        </StackLayout>
+        <CarouselView x:Name="carousel" IndicatorView="indicator" IsBounceEnabled="False" ItemsSource="{Binding OnboardingItems}"
+                      HorizontalScrollBarVisibility="Never" VerticalScrollBarVisibility="Never" PositionChanged="CarouselView_PositionChanged">
+            <CarouselView.ItemTemplate>
+                <DataTemplate x:DataType="models:OnboardingItem">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="3*" />
+                            <RowDefinition Height="*"/>
+                        </Grid.RowDefinitions>
+                        <StackLayout HeightRequest="100" Spacing="12" Padding="40" Grid.Row="1" VerticalOptions="End" BackgroundColor="{StaticResource white}">
+                            <Label Text="{Binding Title}" Style="{StaticResource intro_heading}" />
+                            <Label Text="{Binding Description}" Style="{StaticResource intro_text}" />
+                        </StackLayout>
+                    </Grid>
+                </DataTemplate>
+            </CarouselView.ItemTemplate>
+        </CarouselView>
+        <Grid HorizontalOptions="Fill" Grid.Row="1" effects:SafeAreaPaddingEffect.HasBottomSafeAreaPadding="true" RowSpacing="8" Padding="20" BackgroundColor="{StaticResource white}">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="2*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <IndicatorView Grid.Row="0" Grid.Column="1" x:Name="indicator" Opacity=".5" IndicatorColor="{StaticResource gray}" SelectedIndicatorColor="{StaticResource primary}"  />
+            <Button Grid.Row="1" Grid.Column="1" Text="Get started" Style="{StaticResource button_blue}" Command="{Binding SignInCommand}" />
+        </Grid>
     </Grid>
 </ContentPage>

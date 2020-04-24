@@ -42,13 +42,13 @@
         <Folder Include="Resources\Fonts\" />
         <Folder Include="Converters\" />
         <Folder Include="Templates\" />
+        <Folder Include="Helpers\" />
     </ItemGroup>
     <ItemGroup>
         <None Remove="Resources\mvp_logo.svg" />
         <None Remove="Resources\background.svg" />
-        <None Remove="Resources\Fonts\segoeui.ttf" />
-        <None Remove="Resources\Fonts\segoeuib.ttf" />
         <None Remove="Resources\Fonts\mvpicons.ttf" />
+        <None Remove="Resources\iphone.svg" />
     </ItemGroup>
     <ItemGroup>
         <EmbeddedResource Include="Resources\mvp_logo.svg">
@@ -57,12 +57,9 @@
         <EmbeddedResource Include="Resources\background.svg">
             <LogicalName>background.svg</LogicalName>
         </EmbeddedResource>
-        <EmbeddedResource Include="Resources\Fonts\segoeui.ttf">
-            <LogicalName>segoeui.ttf</LogicalName>
-        </EmbeddedResource>
-        <EmbeddedResource Include="Resources\Fonts\segoeuib.ttf">
-            <LogicalName>segoeuib.ttf</LogicalName>
-        </EmbeddedResource>
         <EmbeddedResource Include="Resources\Fonts\mvpicons.ttf" />
+        <EmbeddedResource Include="Resources\iphone.svg">
+            <LogicalName>iphone.svg</LogicalName>
+        </EmbeddedResource>
     </ItemGroup>
 </Project>

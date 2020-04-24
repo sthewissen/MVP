@@ -6,6 +6,7 @@ using FormsToolkit;
 using MVP.Services;
 using MVP.Services.Helpers;
 using Xamarin.Essentials;
+using Xamarin.Forms;
 
 namespace MVP.PageModels
 {
@@ -27,17 +28,35 @@ namespace MVP.PageModels
             {
                 if (await _authService.SignInSilentAsync())
                 {
-                    MessagingService.Current.SendMessage<bool>(Messaging.AuthorizationComplete, true);
+                    // Fixed delay to show the animation on the frontend :$
+                    await Task.Delay(2500);
+
+                    MainThread.BeginInvokeOnMainThread(() =>
+                    {
+                        var page = FreshMvvm.FreshPageModelResolver.ResolvePageModel<ContributionsPageModel>();
+                        var navigation = new FreshMvvm.FreshNavigationContainer(page) { BarTextColor = Color.Black };
+                        Application.Current.MainPage = navigation;
+                    });
                 }
                 else
                 {
-                    MessagingService.Current.SendMessage<bool>(Messaging.AuthorizationComplete, false);
+                    // Fixed delay to show the animation on the frontend :$
+                    await Task.Delay(2500);
+
+                    MainThread.BeginInvokeOnMainThread(() =>
+                    {
+                        Application.Current.MainPage = FreshMvvm.FreshPageModelResolver.ResolvePageModel<IntroPageModel>();
+                    });
                 }
             }
             catch (Exception e)
             {
-                e.LogException();
-                MessagingService.Current.SendMessage<bool>(Messaging.AuthorizationComplete, false);
+                _analyticsService.Report(e);
+
+                MainThread.BeginInvokeOnMainThread(() =>
+                {
+                    Application.Current.MainPage = FreshMvvm.FreshPageModelResolver.ResolvePageModel<IntroPageModel>();
+                });
             }
         }
 

@@ -8,9 +8,68 @@
 
     <?xaml-comp compile="true" ?>
 
-    <Color x:Key="msblue">#0178D4</Color>
+    <!-- Primary colors -->
+    <Color x:Key="primary">#0178D4</Color>
+    <Color x:Key="error">#E8484C</Color>
+    <Color x:Key="warning">#574305</Color>
+    <Color x:Key="light_primary">#E1EFFA</Color>
+    <Color x:Key="light_error">#FFF3F4</Color>
+    <Color x:Key="light_warning">#E2DDCC</Color>
+
+    <!-- Accent colors -->
     <Color x:Key="white">#FFFFFF</Color>
-    <Color x:Key="dark_gray">#404040</Color>
+    <Color x:Key="black">#222222</Color>
+    <Color x:Key="dark_gray">#777777</Color>
+    <Color x:Key="background_gray">#f1f1f1</Color>
+    <Color x:Key="gray">#8E8E93</Color>
+    <Color x:Key="light_gray">#A8A8AC</Color>
+    <Color x:Key="background_light_gray">#C8C8C8</Color>
+    <Color x:Key="border_light_gray">#E1E1E1</Color>
+
+    <!-- Special colors -->
+    <Color x:Key="monarch">#750B1C</Color>
+    <Color x:Key="mexican_red">#A4262C</Color>
+    <Color x:Key="persian_red">#D13438</Color>
+    <Color x:Key="tia_maria">#CA5010</Color>
+    <Color x:Key="buttered_rum">#986F0B</Color>
+    <Color x:Key="limeade">#498205</Color>
+    <Color x:Key="blue_stone">#005E50</Color>
+    <Color x:Key="blue_lagoon">#038387</Color>
+    <Color x:Key="lochmara">#0078d4</Color>
+    <Color x:Key="cutty_sark">#567C73</Color>
+    <Color x:Key="nevada">#69797E</Color>
+    <Color x:Key="congress_blue">#004E8C</Color>
+    <Color x:Key="royal_blue">#4F6BED</Color>
+    <Color x:Key="minsk">#373277</Color>
+    <Color x:Key="seance">#881798</Color>
+    <Color x:Key="fuchsia_pink">#C239B3</Color>
+    <Color x:Key="hollywood_cerise">#E3008C</Color>
+    <Color x:Key="quincy">#603D30</Color>
+
+    <OnPlatform x:TypeArguments="x:String" x:Key="font_bold">
+        <On Platform="iOS" Value=".SFUIText-Bold"/>
+        <On Platform="Android" Value="sans-serif"/>
+    </OnPlatform>
+
+    <OnPlatform x:TypeArguments="x:String" x:Key="font_semibold">
+        <On Platform="iOS" Value=".SFUIText-Semibold"/>
+        <On Platform="Android" Value="sans-serif-medium"/>
+    </OnPlatform>
+
+    <OnPlatform x:TypeArguments="x:String" x:Key="font_medium">
+        <On Platform="iOS" Value=".SFUIText-Medium"/>
+        <On Platform="Android" Value="sans-serif-medium"/>
+    </OnPlatform>
+
+    <OnPlatform x:TypeArguments="x:String" x:Key="font_regular">
+        <On Platform="iOS" Value=".SFUIText"/>
+        <On Platform="Android" Value="sans-serif"/>
+    </OnPlatform>
+
+    <!--
+    Try to use as many of these named font sizes as we can:
+    https://docs.microsoft.com/nl-nl/xamarin/xamarin-forms/user-interface/text/fonts#named-font-sizes
+    -->
 
     <Style TargetType="StackLayout">
         <Setter Property="Spacing" Value="0" />
@@ -25,26 +84,68 @@
         <Setter Property="ios:Page.ModalPresentationStyle" Value="FormSheet" />
     </Style>
 
-    <Style TargetType="Label">
-        <Setter Property="FontSize" Value="16" />
-        <Setter Property="FontFamily" Value="SegoeUI-Regular"/>
+    <Style x:Key="intro_heading" TargetType="Label">
+        <Setter Property="FontSize" Value="{OnPlatform Android=Medium, iOS=Subtitle}" />
+        <Setter Property="FontFamily" Value="{StaticResource font_bold}" />
+        <Setter Property="FontAttributes" Value="Bold" />
+        <Setter Property="HorizontalOptions" Value="Center" />
+        <Setter Property="HorizontalTextAlignment" Value="Center" />
+        <Setter Property="TextColor" Value="{StaticResource black}" />
+        <Setter Property="LineHeight" Value="1" />
     </Style>
 
-    <Style TargetType="{x:Type Button}">
-        <Setter Property="FontFamily" Value="SegoeUI-Regular"/>
-        <Setter Property="FontSize" Value="16" />
+    <Style x:Key="intro_text" TargetType="Label">
+        <Setter Property="FontSize" Value="{OnPlatform Android=Small, iOS=Body}" />
+        <Setter Property="FontFamily" Value="{StaticResource font_regular}" />
+        <Setter Property="HorizontalOptions" Value="Center" />
+        <Setter Property="HorizontalTextAlignment" Value="Center" />
+        <Setter Property="TextColor" Value="{StaticResource black}" />
+        <Setter Property="LineHeight" Value="1.2" />
     </Style>
+
+    <Style x:Key="button_blue" TargetType="Button">
+        <Setter Property="BackgroundColor" Value="{StaticResource primary}" />
+        <Setter Property="FontFamily" Value="{StaticResource font_regular}" />
+        <Setter Property="FontAttributes" Value="Bold" />
+        <Setter Property="TextColor" Value="{StaticResource white}" />
+        <Setter Property="HeightRequest" Value="40" />
+        <Setter Property="Padding">
+            <OnPlatform x:TypeArguments="Thickness">
+                <On Platform="iOS" Value="20,0" />
+                <On Platform="Android" Value="5"/>
+            </OnPlatform>
+        </Setter>
+    </Style>
+
+    <Style x:Key="pill_box" TargetType="custom:PancakeView">
+        <Setter Property="Padding" Value="6"/>
+        <Setter Property="CornerRadius" Value="4"/>
+        <Setter Property="VerticalOptions" Value="Start"/>
+        <Setter Property="HorizontalOptions" Value="Start"/>
+        <Setter Property="BackgroundColor" Value="{StaticResource primary}"/>
+
+        <Setter Property="HasShadow" Value="True" />
+    </Style>
+
+    <Style x:Key="pill_label" TargetType="Label">
+        <Setter Property="FontSize" Value="Small" />
+        <Setter Property="TextColor" Value="{StaticResource white}" />
+        <Setter Property="FontFamily" Value="{StaticResource font_bold}" />
+        <Setter Property="FontAttributes" Value="Bold" />
+        <Setter Property="VerticalOptions" Value="Center" />
+        <Setter Property="VerticalTextAlignment" Value="Center" />
+    </Style>
+
+    <!-- SPECIFIC STYLES BELOW HERE NEED TO BE REFACTORED -->
 
     <Style x:Key="heading_h1" TargetType="Label">
         <Setter Property="FontSize" Value="24" />
-        <Setter Property="FontFamily" Value="SegoeUI-Bold"/>
         <Setter Property="TextColor" Value="{StaticResource dark_gray}" />
         <Setter Property="LineHeight" Value="1" />
     </Style>
 
     <Style x:Key="field_header" TargetType="Label">
         <Setter Property="FontSize" Value="16" />
-        <Setter Property="FontFamily" Value="SegoeUI-Bold"/>
         <Setter Property="TextColor" Value="{StaticResource dark_gray}" />
         <Setter Property="LineHeight" Value="1" />
         <Setter Property="HorizontalOptions" Value="Start" />
@@ -54,7 +155,6 @@
 
     <Style x:Key="field_value" TargetType="Label">
         <Setter Property="FontSize" Value="16" />
-        <Setter Property="FontFamily" Value="SegoeUI"/>
         <Setter Property="TextColor" Value="{StaticResource dark_gray}" />
         <Setter Property="LineHeight" Value="1" />
         <Setter Property="HorizontalOptions" Value="End" />
@@ -68,29 +168,15 @@
         <Setter Property="TextColor" Value="Black" />
     </Style>
 
-    <Style x:Key="pill_box" TargetType="custom:PancakeView">
-        <Setter Property="Padding" Value="6"/>
-        <Setter Property="BackgroundColor" Value="{StaticResource msblue}"/>
-    </Style>
-
-    <Style x:Key="pill_label" TargetType="Label">
-        <Setter Property="FontSize" Value="14" />
-        <Setter Property="FontFamily" Value="SegoeUI"/>
-        <Setter Property="TextColor" Value="{StaticResource white}" />
-        <Setter Property="VerticalOptions" Value="Center" />
-        <Setter Property="VerticalTextAlignment" Value="Center" />
-    </Style>
-
     <Style x:Key="tagline_box" TargetType="custom:PancakeView">
         <Setter Property="Elevation" Value="4"/>
         <Setter Property="Padding" Value="8"/>
         <Setter Property="HorizontalOptions" Value="Start"/>
-        <Setter Property="BackgroundColor" Value="{StaticResource msblue}"/>
+        <Setter Property="BackgroundColor" Value="{StaticResource primary}"/>
     </Style>
 
     <Style x:Key="tagline" TargetType="Label">
         <Setter Property="FontSize" Value="16" />
-        <Setter Property="FontFamily" Value="SegoeUI-Bold"/>
         <Setter Property="TextColor" Value="{StaticResource white}" />
         <Setter Property="VerticalOptions" Value="Center" />
         <Setter Property="VerticalTextAlignment" Value="Center" />
@@ -102,29 +188,21 @@
         <Setter Property="LineHeight" Value="1.1" />
     </Style>
 
-    <Style x:Key="button_blue" TargetType="Button">
-        <Setter Property="BackgroundColor" Value="{StaticResource msblue}" />
-        <Setter Property="FontSize" Value="16" />
-        <Setter Property="TextColor" Value="{StaticResource white}" />
-    </Style>
-
     <Style x:Key="button_white" TargetType="Button">
         <Setter Property="BackgroundColor" Value="{StaticResource white}" />
-        <Setter Property="FontSize" Value="16" />
-        <Setter Property="TextColor" Value="{StaticResource msblue}" />
+        <Setter Property="FontSize" Value="Medium" />
+        <Setter Property="TextColor" Value="{StaticResource primary}" />
     </Style>
 
     <Style x:Key="contribution_date" TargetType="Label">
         <Setter Property="LineBreakMode" Value="TailTruncation"/>
         <Setter Property="TextColor" Value="{StaticResource dark_gray}"/>
-        <Setter Property="FontFamily" Value="SegoeUI-Regular"/>
         <Setter Property="FontSize" Value="12"/>
     </Style>
 
     <Style x:Key="contribution_title" TargetType="Label">
         <Setter Property="LineBreakMode" Value="TailTruncation"/>
         <Setter Property="TextColor" Value="{StaticResource dark_gray}"/>
-        <Setter Property="FontFamily" Value="SegoeUI-Bold"/>
         <Setter Property="FontSize" Value="14"/>
         <Setter Property="MaxLines" Value="2"/>
     </Style>
@@ -150,7 +228,7 @@
         <Setter Property="HorizontalOptions" Value="End"/>
         <Setter Property="Margin" Value="0,0,24,24"/>
         <Setter Property="VerticalOptions" Value="End"/>
-        <Setter Property="BackgroundColor" Value="{StaticResource msblue}"/>
+        <Setter Property="BackgroundColor" Value="{StaticResource primary}"/>
         <Setter Property="HeightRequest" Value="56"/>
         <Setter Property="WidthRequest" Value="56"/>
     </Style>
@@ -160,7 +238,7 @@
         <Setter Property="FontFamily" Value="mvpicons"/>
         <Setter Property="FontSize" Value="28"/>
         <Setter Property="Margin" Value="0,0,0,4"/>
-        <Setter Property="BackgroundColor" Value="{StaticResource msblue}"/>
+        <Setter Property="BackgroundColor" Value="{StaticResource primary}"/>
     </Style>
 
 </ResourceDictionary>

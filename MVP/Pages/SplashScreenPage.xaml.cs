@@ -17,7 +17,6 @@ namespace MVP.Pages
         public SplashScreenPage()
         {
             InitializeComponent();
-            MessagingService.Current.Subscribe<bool>(Messaging.AuthorizationComplete, (service, success) => HandleAuthorizationComplete(success));
         }
 
         protected override void OnAppearing()
@@ -37,42 +36,6 @@ namespace MVP.Pages
             Device.BeginInvokeOnMainThread(() =>
             {
                 logo.Animate("Pulse", animation, 16, 1000, repeat: () => true);
-            });
-        }
-
-        async void HandleAuthorizationComplete(bool isAuthorizationSuccessful)
-        {
-            // To at least show the pulse animation. Give a feeling that we're loading the app.
-            await Task.Delay(2500);
-
-            // Depending on what the result of the silent sign in is we can
-            // show the intro or the main screen of the app.
-            if (!isAuthorizationSuccessful)
-            {
-                NavigateToIntroPage();
-            }
-            else
-            {
-                NavigateToContributionsPage();
-            }
-        }
-
-        void NavigateToContributionsPage()
-        {
-            MainThread.BeginInvokeOnMainThread(() =>
-            {
-                var page = FreshMvvm.FreshPageModelResolver.ResolvePageModel<ContributionsPageModel>();
-                var navigation = new FreshMvvm.FreshNavigationContainer(page) { BarTextColor = Color.White };
-
-                Application.Current.MainPage = navigation;
-            });
-        }
-
-        void NavigateToIntroPage()
-        {
-            MainThread.BeginInvokeOnMainThread(() =>
-            {
-                Application.Current.MainPage = FreshMvvm.FreshPageModelResolver.ResolvePageModel<IntroPageModel>();
             });
         }
     }

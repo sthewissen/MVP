@@ -9,7 +9,8 @@ namespace MVP
         {
             InitializeComponent();
 
-            // Device.SetFlags(new[] { });
+            Device.SetFlags(new[] { "IndicatorView_Experimental" });
+
             AppContainer.Build();
 
             MainPage = FreshMvvm.FreshPageModelResolver.ResolvePageModel<SplashScreenPageModel>();

@@ -10,12 +10,8 @@ namespace MVP
         public static void Build()
         {
             FreshTinyIoCContainer.Current.AutoRegister(new[] { typeof(App).Assembly },
-                t => t.FullName.StartsWith("MVP.Services", StringComparison.Ordinal) && t.Name.EndsWith("Service", StringComparison.Ordinal));
-
-            //Register<IAnalyticsService, AnalyticsService>();
-            //Register<IAuthService, AuthService>();
-            //Register<IDialogService, DialogService>();
-            //Register<IMvpApiService, MvpApiService>();
+                t => t.FullName.StartsWith("MVP.Services", StringComparison.Ordinal) &&
+                t.Name.EndsWith("Service", StringComparison.Ordinal));
         }
 
         public static void Register<T>()

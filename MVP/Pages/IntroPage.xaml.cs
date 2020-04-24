@@ -1,4 +1,6 @@
-﻿using FormsToolkit;
+﻿using FFImageLoading;
+using FormsToolkit;
+using MVP.Models;
 using MVP.PageModels;
 using Xamarin.Essentials;
 using Xamarin.Forms;
@@ -10,32 +12,19 @@ namespace MVP.Pages
         public IntroPage()
         {
             InitializeComponent();
-
-            MessagingService.Current.Subscribe<bool>(Messaging.AuthorizationComplete, (service, success) => HandleAuthorizationComplete(success));
         }
 
-        void HandleAuthorizationComplete(bool isAuthorizationSuccessful)
+        protected override void OnAppearing()
         {
-            // Depending on what the result of the silent sign in is we can show the intro or
-            // the main screen of the app.
-            if (isAuthorizationSuccessful)
-            {
-                // TODO: SHOW MESSAGE
-            }
-            else
-            {
-                NavigateToContributionsPage();
-            }
+            base.OnAppearing();
+
+            pillbox.Margin = new Thickness(-20, phoneImage.Height / 5, 0, 0);
         }
 
-        void NavigateToContributionsPage()
+        void CarouselView_PositionChanged(System.Object sender, Xamarin.Forms.PositionChangedEventArgs e)
         {
-            MainThread.BeginInvokeOnMainThread(() =>
-            {
-                var page = FreshMvvm.FreshPageModelResolver.ResolvePageModel<ContributionsPageModel>();
-                var navigation = new FreshMvvm.FreshNavigationContainer(page);
-                Application.Current.MainPage = navigation;
-            });
+            var item = carousel.CurrentItem as OnboardingItem;
+            phoneImage.Source = item.ImageName;
         }
     }
 }
