@@ -28,5 +28,6 @@ namespace MVP.Styles
         public const string chevron_back = "\ue915";
         public const string chevron_forward = "\ue916";
         public const string history = "\ue917";
+        public const string save = "\ue918";
     }
 }

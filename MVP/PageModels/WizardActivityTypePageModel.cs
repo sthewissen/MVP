@@ -31,7 +31,11 @@ namespace MVP.PageModels
                 {
                     // This is where we init a new contribution that we will pass through
                     // this wizard like thing all the way to getting it saved hopefully!
-                    var contribution = new Contribution { ContributionType = value };
+                    var contribution = new Contribution
+                    {
+                        ContributionType = value
+                    };
+
                     NextCommand.Execute(contribution);
                 }
             }

@@ -3,18 +3,20 @@ using System.Threading.Tasks;
 using AsyncAwaitBestPractices.MVVM;
 using MVP.Extensions;
 using MVP.Models;
+using MVP.Services;
 
 namespace MVP.PageModels
 {
     public class WizardAmountsPageModel : BasePageModel
     {
+        readonly IMvpApiService _mvpApiService;
         Contribution _contribution;
         int? _annualQuantity;
         int? _secondAnnualQuantity;
         int? _annualReach;
 
         public IAsyncCommand BackCommand { get; set; }
-        public IAsyncCommand NextCommand { get; set; }
+        public IAsyncCommand SaveCommand { get; set; }
 
         public int? AnnualQuantity
         {
@@ -48,10 +50,12 @@ namespace MVP.PageModels
 
         public ContributionTypeConfig ContributionTypeConfig { get; set; }
 
-        public WizardAmountsPageModel()
+        public WizardAmountsPageModel(IMvpApiService mvpApiService)
         {
+            _mvpApiService = mvpApiService;
+
             BackCommand = new AsyncCommand(() => Back());
-            NextCommand = new AsyncCommand(() => Next());
+            SaveCommand = new AsyncCommand(() => Save());
         }
 
         public override void Init(object initData)
@@ -78,9 +82,38 @@ namespace MVP.PageModels
             await CoreMethods.PopPageModel(modal: false, animate: false).ConfigureAwait(false);
         }
 
-        async Task Next()
+        async Task Save()
         {
-            //await CoreMethods.PushPageModel<WizardUrlPageModel>(data: _contribution, modal: false, animate: false).ConfigureAwait(false);
+            _contribution.AnnualQuantity = AnnualQuantity;
+            _contribution.AnnualReach = AnnualReach;
+            _contribution.SecondAnnualQuantity = SecondAnnualQuantity;
+
+            if (_contribution.ContributionId.HasValue)
+            {
+                var result = await _mvpApiService.UpdateContributionAsync(_contribution);
+
+                if (result ?? false)
+                {
+                    await CoreMethods.PopModalNavigationService(true);
+                }
+                else
+                {
+                    // TODO: Message
+                }
+            }
+            else
+            {
+                var result = await _mvpApiService.SubmitContributionAsync(_contribution);
+
+                if (result != null)
+                {
+                    await CoreMethods.PopModalNavigationService(true);
+                }
+                else
+                {
+                    // TODO: Message
+                }
+            }
         }
     }
 }

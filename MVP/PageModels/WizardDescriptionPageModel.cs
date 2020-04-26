@@ -51,7 +51,7 @@ namespace MVP.PageModels
 
         async Task Next()
         {
-            await CoreMethods.PushPageModel<WizardAmountsPageModel>(data: _contribution, modal: false, animate: false).ConfigureAwait(false);
+            await CoreMethods.PushPageModel<WizardVisibilityPageModel>(data: _contribution, modal: false, animate: false).ConfigureAwait(false);
         }
     }
 }

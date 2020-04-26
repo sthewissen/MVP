@@ -370,9 +370,8 @@ namespace MVP.Services
             try
             {
                 var serializedContribution = JsonConvert.SerializeObject(contribution);
-                byte[] byteData = Encoding.UTF8.GetBytes(serializedContribution);
 
-                using (var content = new ByteArrayContent(byteData))
+                using (var content = new StringContent(serializedContribution))
                 {
                     content.Headers.ContentType = new MediaTypeHeaderValue("application/json");
 

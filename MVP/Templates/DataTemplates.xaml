@@ -51,6 +51,14 @@
         </StackLayout>
     </DataTemplate>
 
+    <DataTemplate x:Key="VisibilityItemTemplate" x:DataType="models:Visibility">
+        <StackLayout Padding="24,8">
+            <custom:PancakeView  CornerRadius="8" Padding="16" BackgroundColor="White">
+                <Label Text="{Binding Description}" FontFamily="{StaticResource font_bold}" FontAttributes="Bold" FontSize="14" />
+            </custom:PancakeView>
+        </StackLayout>
+    </DataTemplate>
+
     <DataTemplate x:Key="ContributionTypeItemTemplate" x:DataType="models:ContributionType">
         <StackLayout Padding="24,8">
             <custom:PancakeView  CornerRadius="8" Padding="16" BackgroundColor="White">

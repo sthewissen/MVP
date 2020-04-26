@@ -1,13 +1,12 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-              x:Class="MVP.Pages.WizardAmountsPage"
+             x:Class="MVP.Pages.WizardVisibilityPage"   
              NavigationPage.HasNavigationBar="False"
              xmlns:vm="clr-namespace:MVP.PageModels"
              xmlns:effects="clr-namespace:MVP.Effects"
              xmlns:icons="clr-namespace:MVP.Styles"
-             xmlns:custom="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
-             x:DataType="vm:WizardAmountsPageModel">
+             x:DataType="vm:WizardVisibilityPageModel">
 
     <Grid effects:SafeAreaPaddingEffect.HasSafeAreaPadding="True"
           effects:SafeAreaPaddingEffect.HasTopSafeAreaPadding="True"
@@ -27,15 +26,13 @@
 
         <StackLayout Spacing="20" Grid.Row="1">
 
-            <Label Text="And finally, do you have additional data related to this activity?" Style="{StaticResource contributiondetail_title}" Margin="24" />
+            <Label Text="Who should be able to see this activity?" Style="{StaticResource contributiondetail_title}" Margin="24" />
 
-            <Entry Placeholder="{Binding ContributionTypeConfig.AnnualQuantityHeader}" Text="{Binding AnnualQuantity}" IsVisible="{Binding ContributionTypeConfig.HasAnnualQuantity}" />
-            <Entry Placeholder="{Binding ContributionTypeConfig.SecondAnnualQuantityHeader}" Text="{Binding SecondAnnualQuantity}" IsVisible="{Binding ContributionTypeConfig.HasSecondAnnualQuantity}" />
-            <Entry Placeholder="{Binding ContributionTypeConfig.AnnualReachHeader}" Text="{Binding AnnualReach}" IsVisible="{Binding ContributionTypeConfig.HasAnnualReach}" />
+            <CollectionView ItemsSource="{Binding Visibilities}"
+                        SelectedItem="{Binding SelectedVisibility}"
+                        SelectionMode="Single"
+                        ItemTemplate="{StaticResource VisibilityItemTemplate}" />
+
         </StackLayout>
-
-        <custom:PancakeView Style="{StaticResource fab_button_container}" x:Name="fab" Grid.RowSpan="2">
-            <Button Style="{StaticResource fab_button}" Text="{x:Static icons:Icons.save}" Command="{Binding SaveCommand}" />
-        </custom:PancakeView>
     </Grid>
 </ContentPage>
