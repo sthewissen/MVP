@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using AsyncAwaitBestPractices.MVVM;
-using FormsToolkit;
 using MVP.Models;
 using MVP.Services;
 using Xamarin.Essentials;

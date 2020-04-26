@@ -2,6 +2,7 @@
 using System.Linq;
 using System.Threading.Tasks;
 using AsyncAwaitBestPractices.MVVM;
+using FreshMvvm;
 using MVP.Extensions;
 using MVP.Models;
 using MVP.Services;
@@ -143,12 +144,14 @@ namespace MVP.PageModels
 
         async Task OpenAddContribution()
         {
-            await CoreMethods.PushPageModel<AddContributionPageModel>().ConfigureAwait(false);
+            var page = FreshPageModelResolver.ResolvePageModel<WizardActivityTypePageModel>();
+            var basicNavContainer = new FreshNavigationContainer(page, nameof(WizardActivityTypePageModel));
+            await CoreMethods.PushNewNavigationServiceModal(basicNavContainer, page.GetModel(), true).ConfigureAwait(false);
         }
 
         async Task OpenContribution(Contribution contribution)
         {
-            await CoreMethods.PushPageModel<ContributionDetailsPageModel>(contribution).ConfigureAwait(false);
+            await CoreMethods.PushPageModel<ContributionDetailsPageModel>(data: contribution).ConfigureAwait(false);
         }
     }
 }

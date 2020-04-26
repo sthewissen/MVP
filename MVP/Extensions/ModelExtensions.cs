@@ -31,146 +31,140 @@ namespace MVP.Extensions
             return result;
         }
 
-        public static Tuple<string, string, string, bool> GetContributionTypeRequirements(this Guid contributionType)
+        public static ContributionTypeConfig GetContributionTypeRequirements(this Guid contributionType)
         {
-            var annualQuantityHeader = "";
-            var secondAnnualQuantityHeader = "";
-            var annualReachHeader = "";
-            bool isUrlRequired = false;
+            var config = new ContributionTypeConfig();
 
             var guidString = contributionType.ToString();
 
             switch (guidString)
             {
                 case "e36464de-179a-e411-bbc8-6c3be5a82b68": // "EnglishName": "Article"
-                    annualQuantityHeader = "Number of Articles";
-                    secondAnnualQuantityHeader = "";
-                    annualReachHeader = "Number of Views";
+                    config.AnnualQuantityHeader = "Number of Articles";
+                    config.AnnualReachHeader = "Number of Views";
+                    config.HasAnnualReach = true;
                     break;
                 case "df6464de-179a-e411-bbc8-6c3be5a82b68": // "EnglishName": "Blog/Website Post"
-                    annualQuantityHeader = "Number of Posts";
-                    secondAnnualQuantityHeader = "Number of Subscribers";
-                    annualReachHeader = "Annual Unique Visitors";
-                    isUrlRequired = true;
+                    config.AnnualQuantityHeader = "Number of Posts";
+                    config.SecondAnnualQuantityHeader = "Number of Subscribers";
+                    config.AnnualReachHeader = "Annual Unique Visitors";
+                    config.IsUrlRequired = true;
+                    config.HasAnnualReach = true;
+                    config.HasSecondAnnualQuantity = true;
                     break;
                 case "db6464de-179a-e411-bbc8-6c3be5a82b68": // "EnglishName": "Book (Author)"
-                    annualQuantityHeader = "Number of Books";
-                    secondAnnualQuantityHeader = "";
-                    annualReachHeader = "Copies Sold";
+                    config.AnnualQuantityHeader = "Number of Books";
+                    config.AnnualReachHeader = "Copies Sold";
+                    config.HasAnnualReach = true;
                     break;
                 case "dd6464de-179a-e411-bbc8-6c3be5a82b68": // "EnglishName": "Book (Co-Author)"
-                    annualQuantityHeader = "Number of Books";
-                    secondAnnualQuantityHeader = "";
-                    annualReachHeader = "Copies Sold";
+                    config.AnnualQuantityHeader = "Number of Books";
+                    config.AnnualReachHeader = "Copies Sold";
+                    config.HasAnnualReach = true;
                     break;
                 case "f16464de-179a-e411-bbc8-6c3be5a82b68": // "EnglishName": "Conference (Staffing)"
-                    annualQuantityHeader = "Number of Conferences";
-                    secondAnnualQuantityHeader = "";
-                    annualReachHeader = "Number of Visitors";
+                    config.AnnualQuantityHeader = "Number of Conferences";
+                    config.AnnualReachHeader = "Number of Visitors";
+                    config.HasAnnualReach = true;
                     break;
                 case "0ce0dc15-0304-e911-8171-3863bb2bca60": // "EnglishName": "Docs.Microsoft.com Contribution"
-                    annualQuantityHeader = "Pull Requests/Issues/Submissions";
-                    secondAnnualQuantityHeader = "";
-                    annualReachHeader = "";
+                    config.AnnualQuantityHeader = "Pull Requests/Issues/Submissions";
                     break;
                 case "f96464de-179a-e411-bbc8-6c3be5a82b68": // "EnglishName": "Forum Moderator"
-                    annualQuantityHeader = "Number of Threads moderated";
-                    secondAnnualQuantityHeader = "";
-                    annualReachHeader = "";
+                    config.AnnualQuantityHeader = "Number of Threads moderated";
                     break;
                 case "d96464de-179a-e411-bbc8-6c3be5a82b68": // "EnglishName": "Forum Participation (3rd Party forums)"
-                    annualQuantityHeader = "Number of Answers";
-                    secondAnnualQuantityHeader = "Number of Posts";
-                    annualReachHeader = "Views of Answers";
-                    isUrlRequired = true;
+                    config.AnnualQuantityHeader = "Number of Answers";
+                    config.SecondAnnualQuantityHeader = "Number of Posts";
+                    config.AnnualReachHeader = "Views of Answers";
+                    config.IsUrlRequired = true;
+                    config.IsSecondAnnualQuantityRequired = true;
+                    config.HasAnnualReach = true;
+                    config.HasSecondAnnualQuantity = true;
                     break;
                 case "d76464de-179a-e411-bbc8-6c3be5a82b68": // "EnglishName": "Forum Participation (Microsoft Forums)"
-                    annualQuantityHeader = "Number of Answers";
-                    secondAnnualQuantityHeader = "Number of Posts";
-                    annualReachHeader = "Views of Answers";
-                    isUrlRequired = true;
+                    config.AnnualQuantityHeader = "Number of Answers";
+                    config.SecondAnnualQuantityHeader = "Number of Posts";
+                    config.AnnualReachHeader = "Views of Answers";
+                    config.IsUrlRequired = true;
+                    config.HasAnnualReach = true;
+                    config.HasSecondAnnualQuantity = true;
                     break;
                 case "f76464de-179a-e411-bbc8-6c3be5a82b68": // "EnglishName": "Mentorship"
-                    annualQuantityHeader = "Number of Mentorship Activity";
-                    secondAnnualQuantityHeader = "";
-                    annualReachHeader = "Number of Mentees";
+                    config.AnnualQuantityHeader = "Number of Mentorship Activity";
+                    config.AnnualReachHeader = "Number of Mentees";
+                    config.HasAnnualReach = true;
                     break;
                 case "d2d96407-0304-e911-8171-3863bb2bca60": // "EnglishName": "Microsoft Open Source Projects"
-                    annualQuantityHeader = "Number of Projects";
-                    secondAnnualQuantityHeader = "";
-                    annualReachHeader = "";
+                    config.AnnualQuantityHeader = "Number of Projects";
                     break;
                 case "414bcf30-e889-e511-8110-c4346bac0abc": // "EnglishName": "Non-Microsoft Open Source Projects"
-                    annualQuantityHeader = "Project(s)";
-                    secondAnnualQuantityHeader = "";
-                    annualReachHeader = "Contributions";
+                    config.AnnualQuantityHeader = "Project(s)";
+                    config.AnnualReachHeader = "Contributions";
+                    config.HasAnnualReach = true;
                     break;
                 case "fd6464de-179a-e411-bbc8-6c3be5a82b68": // "EnglishName": "Organizer (User Group/Meetup/Local Events)"
-                    annualQuantityHeader = "Meetings";
-                    secondAnnualQuantityHeader = "";
-                    annualReachHeader = "Members";
+                    config.AnnualQuantityHeader = "Meetings";
+                    config.AnnualReachHeader = "Members";
+                    config.HasAnnualReach = true;
                     break;
                 case "ef6464de-179a-e411-bbc8-6c3be5a82b68": // "EnglishName": "Organizer of Conference"
-                    annualQuantityHeader = "Number of Conferences";
-                    secondAnnualQuantityHeader = "";
-                    annualReachHeader = "Number of Attendees";
+                    config.AnnualQuantityHeader = "Number of Conferences";
+                    config.AnnualReachHeader = "Number of Attendees";
+                    config.HasAnnualReach = true;
                     break;
                 case "ff6464de-179a-e411-bbc8-6c3be5a82b68": // "EnglishName": "Other"
-                    annualQuantityHeader = "Annual Quantity";
-                    secondAnnualQuantityHeader = "";
-                    annualReachHeader = "Annual Reach";
+                    config.AnnualQuantityHeader = "Annual Quantity";
+                    config.AnnualReachHeader = "Annual Reach";
+                    config.HasAnnualReach = true;
                     break;
                 case "016564de-179a-e411-bbc8-6c3be5a82b68": // "EnglishName": "Product Group Feedback (General)"
-                    annualQuantityHeader = "Number of Events Participated";
-                    secondAnnualQuantityHeader = "";
-                    annualReachHeader = "Number of Feedbacks Provided";
+                    config.AnnualQuantityHeader = "Number of Events Participated";
+                    config.AnnualReachHeader = "Number of Feedbacks Provided";
+                    config.HasAnnualReach = true;
                     break;
                 case "e96464de-179a-e411-bbc8-6c3be5a82b68": // "EnglishName": "Sample Code/Projects/Tools"
-                    annualQuantityHeader = "Number of Samples";
-                    secondAnnualQuantityHeader = "";
-                    annualReachHeader = "Number of Downloads";
-                    isUrlRequired = true;
+                    config.AnnualQuantityHeader = "Number of Samples";
+                    config.AnnualReachHeader = "Number of Downloads";
+                    config.HasAnnualReach = true;
+                    config.IsUrlRequired = true;
                     break;
                 case "fb6464de-179a-e411-bbc8-6c3be5a82b68": // "EnglishName": "Site Owner"
-                    annualQuantityHeader = "Number of Sites";
-                    secondAnnualQuantityHeader = "";
-                    annualReachHeader = "Number of Visitors";
+                    config.AnnualQuantityHeader = "Number of Sites";
+                    config.AnnualReachHeader = "Number of Visitors";
+                    config.HasAnnualReach = true;
                     break;
                 case "d16464de-179a-e411-bbc8-6c3be5a82b68": // "EnglishName": "Speaking (Conference)"
-                    annualQuantityHeader = "Number of Talks";
-                    secondAnnualQuantityHeader = "";
-                    annualReachHeader = "Attendees of Talks";
+                    config.AnnualQuantityHeader = "Number of Talks";
+                    config.SecondAnnualQuantityHeader = "";
+                    config.AnnualReachHeader = "Attendees of Talks";
                     break;
                 case "d56464de-179a-e411-bbc8-6c3be5a82b68": // "EnglishName": "Speaking (User Group/Meetup/Local events)"
-                    annualQuantityHeader = "Number of Talks";
-                    secondAnnualQuantityHeader = "";
-                    annualReachHeader = "Attendees of Talks";
+                    config.AnnualQuantityHeader = "Number of Talks";
+                    config.AnnualReachHeader = "Attendees of Talks";
+                    config.HasAnnualReach = true;
                     break;
                 case "eb6464de-179a-e411-bbc8-6c3be5a82b68": // "EnglishName": "Technical Social Media (Twitter, Facebook, LinkedIn...)"
-                    annualQuantityHeader = "Number of Talks";
-                    secondAnnualQuantityHeader = "";
-                    annualReachHeader = "Number of Followers";
-                    isUrlRequired = true;
+                    config.AnnualQuantityHeader = "Number of Talks";
+                    config.AnnualReachHeader = "Number of Followers";
+                    config.HasAnnualReach = true;
+                    config.IsUrlRequired = true;
                     break;
                 case "056564de-179a-e411-bbc8-6c3be5a82b68": // "EnglishName": "Translation Review, Feedback and Editing"
-                    annualQuantityHeader = "Annual Quantity";
-                    secondAnnualQuantityHeader = "";
-                    annualReachHeader = "";
+                    config.AnnualQuantityHeader = "Annual Quantity";
                     break;
                 case "e56464de-179a-e411-bbc8-6c3be5a82b68": // "EnglishName": "Video/Webcast/Podcast"
-                    annualQuantityHeader = "Number of Videos";
-                    secondAnnualQuantityHeader = "";
-                    annualReachHeader = "Number of Views";
-                    isUrlRequired = true;
+                    config.AnnualQuantityHeader = "Number of Videos";
+                    config.AnnualReachHeader = "Number of Views";
+                    config.HasAnnualReach = true;
+                    config.IsUrlRequired = true;
                     break;
                 case "0ee0dc15-0304-e911-8171-3863bb2bca60": // "EnglishName": "Workshop/Volunteer/Proctor"
-                    annualQuantityHeader = "Number of Events";
-                    secondAnnualQuantityHeader = "";
-                    annualReachHeader = "";
+                    config.AnnualQuantityHeader = "Number of Events";
                     break;
             }
 
-            return new Tuple<string, string, string, bool>(annualQuantityHeader, secondAnnualQuantityHeader, annualReachHeader, isUrlRequired);
+            return config;
         }
     }
 }

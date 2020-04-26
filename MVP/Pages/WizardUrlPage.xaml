@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             NavigationPage.HasNavigationBar="False"
+             xmlns:vm="clr-namespace:MVP.PageModels"
+             xmlns:effects="clr-namespace:MVP.Effects"
+             xmlns:icons="clr-namespace:MVP.Styles" xmlns:custom="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
+             x:Class="MVP.Pages.WizardUrlPage"
+             x:DataType="vm:WizardUrlPageModel">
+
+    <Grid effects:SafeAreaPaddingEffect.HasSafeAreaPadding="True"
+          effects:SafeAreaPaddingEffect.HasTopSafeAreaPadding="True"
+          effects:SafeAreaPaddingEffect.HasBottomSafeAreaPadding="True">
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="56" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+
+        <Label FontSize="24" Text="{x:Static icons:Icons.chevron_back}" TextColor="{StaticResource black}" Margin="24,0"
+               FontFamily="mvpicons" HorizontalOptions="Start" VerticalOptions="Center" HorizontalTextAlignment="Start" Padding="0,12,12,12">
+            <Label.GestureRecognizers>
+                <TapGestureRecognizer Command="{Binding BackCommand}" />
+            </Label.GestureRecognizers>
+        </Label>
+
+        <StackLayout Spacing="20" Grid.Row="1">
+
+            <Label Text="Do you have a URL where we can learn more about it?" Style="{StaticResource contributiondetail_title}" Margin="24" />
+
+            <Entry Text="{Binding Url}" />
+        </StackLayout>
+
+        <custom:PancakeView Style="{StaticResource fab_button_container}" x:Name="fab" Grid.RowSpan="2">
+            <Button Style="{StaticResource fab_button}" Text="{x:Static icons:Icons.arrow_forward}" Command="{Binding NextCommand}" />
+        </custom:PancakeView>
+    </Grid>
+</ContentPage>

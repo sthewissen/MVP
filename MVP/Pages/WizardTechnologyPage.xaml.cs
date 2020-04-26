@@ -5,9 +5,9 @@ using Xamarin.Forms;
 
 namespace MVP.Pages
 {
-    public partial class AddContributionPage : ContentPage
+    public partial class WizardTechnologyPage : ContentPage
     {
-        public AddContributionPage()
+        public WizardTechnologyPage()
         {
             InitializeComponent();
         }

@@ -6,6 +6,7 @@
                     xmlns:ff="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
                     xmlns:icons="clr-namespace:MVP.Styles"
 					x:Class="MVP.Templates.DataTemplates">
+
     <DataTemplate x:Key="ContributionsGroupHeaderTemplate">
         <Grid Padding="24,24,24,16">
             <Grid.ColumnDefinitions>
@@ -24,8 +25,8 @@
                 </Label.Triggers>
             </Label>
 
-            <Label Grid.Column="1" HorizontalTextAlignment="End" Padding="10" FontSize="16" VerticalOptions="Center" Text="{x:Static icons:Icons.equalizer}" 
-                    TextColor="{StaticResource dark_gray}" FontFamily="mvpicons" HorizontalOptions="End"/>
+            <Label Grid.Column="1" HorizontalTextAlignment="End" Padding="10" FontSize="16" VerticalOptions="Center"
+                   Text="{x:Static icons:Icons.graphic_eq}" TextColor="{StaticResource dark_gray}" FontFamily="mvpicons" HorizontalOptions="End"/>
         </Grid>
     </DataTemplate>
 
@@ -48,5 +49,27 @@
                 </Grid>
             </custom:PancakeView>
         </StackLayout>
+    </DataTemplate>
+
+    <DataTemplate x:Key="ContributionTypeItemTemplate" x:DataType="models:ContributionType">
+        <StackLayout Padding="24,8">
+            <custom:PancakeView  CornerRadius="8" Padding="16" BackgroundColor="White">
+                <Label Text="{Binding Name}" FontFamily="{StaticResource font_bold}" FontAttributes="Bold" FontSize="14" />
+            </custom:PancakeView>
+        </StackLayout>
+    </DataTemplate>
+
+    <DataTemplate x:Key="ContributionTechnologyItemTemplate" x:DataType="models:ContributionTechnology">
+        <StackLayout Padding="24,8">
+            <custom:PancakeView  CornerRadius="8" Padding="16" BackgroundColor="White" BorderColor="{StaticResource gray}" BorderThickness="2">
+                <Label Text="{Binding Name}" FontFamily="{StaticResource font_bold}" FontAttributes="Bold" FontSize="14" />
+            </custom:PancakeView>
+        </StackLayout>
+    </DataTemplate>
+
+    <DataTemplate x:Key="ContributionTechnologyGroupHeaderTemplate">
+        <Grid Padding="24,24,24,16">
+            <Label Style="{StaticResource contribution_list_group_header}" Text="{Binding Key}" />
+        </Grid>
     </DataTemplate>
 </ResourceDictionary>

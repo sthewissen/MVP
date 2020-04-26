@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Threading.Tasks;
 using AsyncAwaitBestPractices.MVVM;
+using FreshMvvm;
 using MVP.Extensions;
 using MVP.Models;
 using MVP.Services;
@@ -12,22 +13,20 @@ namespace MVP.PageModels
         private readonly MvpApiService _mvpApiService;
 
         public Contribution Contribution { get; set; }
-
-        public string AnnualQuantityHeader { get; set; } = "Annual quantity";
-        public string SecondAnnualQuantityHeader { get; set; } = "Second annual quantity";
-        public string AnnualReachHeader { get; set; } = "Annual reach";
+        public bool CanBeEdited => Contribution != null && Contribution.StartDate.IsWithinCurrentAwardPeriod();
 
         public IAsyncCommand DeleteContributionCommand { get; set; }
         public IAsyncCommand EditContributionCommand { get; set; }
 
         public IAsyncCommand BackCommand { get; set; }
+        public ContributionTypeConfig ContributionTypeConfig { get; set; }
 
         public ContributionDetailsPageModel(MvpApiService mvpApiService)
         {
             _mvpApiService = mvpApiService;
             BackCommand = new AsyncCommand(() => Back());
             DeleteContributionCommand = new AsyncCommand(() => DeleteContribution());
-            EditContributionCommand = new AsyncCommand(() => EditContribution());
+            EditContributionCommand = new AsyncCommand(() => EditContribution(), (x) => CanBeEdited);
         }
 
         public override void Init(object initData)
@@ -38,20 +37,28 @@ namespace MVP.PageModels
             {
                 Contribution = contribution;
 
+                RaisePropertyChanged(nameof(CanBeEdited));
+                EditContributionCommand.RaiseCanExecuteChanged();
+
                 if (contribution.ContributionType.Id.HasValue)
                 {
-                    var fieldNames = contribution.ContributionType.Id.Value.GetContributionTypeRequirements();
-
-                    AnnualQuantityHeader = fieldNames.Item1;
-                    SecondAnnualQuantityHeader = fieldNames.Item2;
-                    AnnualReachHeader = fieldNames.Item3;
+                    ContributionTypeConfig = contribution.ContributionType.Id.Value.GetContributionTypeRequirements();
                 }
             }
         }
 
         async Task EditContribution()
         {
-
+            if (Contribution.StartDate.IsWithinCurrentAwardPeriod())
+            {
+                var page = FreshPageModelResolver.ResolvePageModel<WizardTechnologyPageModel>(Contribution);
+                var basicNavContainer = new FreshNavigationContainer(page, nameof(WizardTechnologyPageModel));
+                await CoreMethods.PushNewNavigationServiceModal(basicNavContainer, page.GetModel(), true).ConfigureAwait(false);
+            }
+            else
+            {
+                // TODO: Message
+            }
         }
 
         async Task DeleteContribution()

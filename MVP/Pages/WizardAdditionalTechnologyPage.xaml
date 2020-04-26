@@ -1,0 +1,49 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"             
+             NavigationPage.HasNavigationBar="False"
+             xmlns:vm="clr-namespace:MVP.PageModels"
+             xmlns:effects="clr-namespace:MVP.Effects"
+             xmlns:icons="clr-namespace:MVP.Styles" xmlns:custom="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
+             x:Class="MVP.Pages.WizardAdditionalTechnologyPage"
+             x:DataType="vm:WizardAdditionalTechnologyPageModel">
+
+    <Grid effects:SafeAreaPaddingEffect.HasSafeAreaPadding="True"
+          effects:SafeAreaPaddingEffect.HasTopSafeAreaPadding="True"
+          effects:SafeAreaPaddingEffect.HasBottomSafeAreaPadding="True">
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="56" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+
+        <Label FontSize="24" Text="{x:Static icons:Icons.chevron_back}" TextColor="{StaticResource black}" Margin="24,0"
+               FontFamily="mvpicons" HorizontalOptions="Start" VerticalOptions="Center" HorizontalTextAlignment="Start" Padding="0,12,12,12">
+            <Label.GestureRecognizers>
+                <TapGestureRecognizer Command="{Binding BackCommand}" />
+            </Label.GestureRecognizers>
+        </Label>
+
+        <StackLayout Spacing="20" Grid.Row="1">
+
+            <Label Text="Any additional technology areas that also apply to this activity?"
+                   Style="{StaticResource contributiondetail_title}" Margin="24" />
+
+            <CollectionView x:Name="technologies" ItemsSource="{Binding GroupedContributionTechnologies}"
+                        SelectionChangedCommand="{Binding SelectionChangedCommand}"
+                        SelectionChangedCommandParameter="{Binding SelectedItems, Source={x:Reference technologies}}"
+                        SelectedItems="{Binding SelectedContributionTechnologies}"
+                        SelectionMode="Multiple"
+                        IsGrouped="true"
+                        ItemTemplate="{StaticResource ContributionTechnologyItemTemplate}"
+                        GroupHeaderTemplate="{StaticResource ContributionTechnologyGroupHeaderTemplate}" />
+
+        </StackLayout>
+
+        <custom:PancakeView Style="{StaticResource fab_button_container}" x:Name="fab" Grid.RowSpan="2">
+            <Button Style="{StaticResource fab_button}" Text="{x:Static icons:Icons.arrow_forward}" Command="{Binding NextCommand}" />
+        </custom:PancakeView>
+
+    </Grid>
+
+</ContentPage>

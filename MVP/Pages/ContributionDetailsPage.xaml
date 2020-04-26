@@ -78,36 +78,36 @@
                 <Label Text="Description" Style="{StaticResource field_header}" />
                 <Label Text="{Binding Contribution.Description}" Style="{StaticResource field_value}" HorizontalTextAlignment="Start" />
 
-                <Grid IsVisible="{Binding AnnualQuantityHeader, Converter={StaticResource VisibilityNotNullOrEmptyConverter}}">
+                <Grid IsVisible="{Binding ContributionTypeConfig.HasAnnualQuantity}">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="Auto"/>
                         <ColumnDefinition Width="*"/>
                     </Grid.ColumnDefinitions>
-                    <Label Text="{Binding AnnualQuantityHeader}" Style="{StaticResource field_header}" />
+                    <Label Text="{Binding ContributionTypeConfig.AnnualQuantityHeader}" Style="{StaticResource field_header}" />
                     <Label Grid.Column="1" Text="{Binding Contribution.AnnualQuantity}" Style="{StaticResource field_value}" />
                 </Grid>
 
-                <Grid IsVisible="{Binding SecondAnnualQuantityHeader, Converter={StaticResource VisibilityNotNullOrEmptyConverter}}">
+                <Grid IsVisible="{Binding ContributionTypeConfig.HasSecondAnnualQuantity}">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="Auto"/>
                         <ColumnDefinition Width="*"/>
                     </Grid.ColumnDefinitions>
-                    <Label Text="{Binding SecondAnnualQuantityHeader}" Style="{StaticResource field_header}" />
+                    <Label Text="{Binding ContributionTypeConfig.SecondAnnualQuantityHeader}" Style="{StaticResource field_header}" />
                     <Label Grid.Column="1" Text="{Binding Contribution.SecondAnnualQuantity}" Style="{StaticResource field_value}" />
                 </Grid>
 
-                <Grid IsVisible="{Binding AnnualReachHeader, Converter={StaticResource VisibilityNotNullOrEmptyConverter}}">
+                <Grid IsVisible="{Binding ContributionTypeConfig.HasAnnualReach}">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="Auto"/>
                         <ColumnDefinition Width="*"/>
                     </Grid.ColumnDefinitions>
-                    <Label Text="{Binding AnnualReachHeader}" Style="{StaticResource field_header}" />
+                    <Label Text="{Binding ContributionTypeConfig.AnnualReachHeader}" Style="{StaticResource field_header}" />
                     <Label Grid.Column="1" Text="{Binding Contribution.AnnualReach}" Style="{StaticResource field_value}" />
                 </Grid>
 
                 <Button Text="Delete contribution" Command="{Binding DeleteContributionCommand}" />
 
-                <Button Text="Edit contribution" Command="{Binding EditContributionCommand}" HorizontalOptions="Start"/>
+                <Button Text="Edit contribution" IsVisible="{Binding CanBeEdited}" Command="{Binding EditContributionCommand}" HorizontalOptions="Start"/>
             </StackLayout>
         </ScrollView>
     </Grid>
