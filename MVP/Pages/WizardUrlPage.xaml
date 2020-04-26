@@ -28,7 +28,7 @@
 
             <Label Text="Do you have a URL where we can learn more about it?" Style="{StaticResource contributiondetail_title}" Margin="24" />
 
-            <Entry Text="{Binding Url}" />
+            <Entry Text="{Binding Url}" Keyboard="Url" />
         </StackLayout>
 
         <custom:PancakeView Style="{StaticResource fab_button_container}" x:Name="fab" Grid.RowSpan="2">

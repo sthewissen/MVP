@@ -74,7 +74,7 @@ namespace MVP.PageModels
                 {
                     var isDeleted = await _mvpApiService.DeleteContributionAsync(Contribution);
 
-                    if (isDeleted ?? false)
+                    if (isDeleted)
                     {
                         // Pass back true to indicate it needs to refresh.
                         await CoreMethods.PopPageModel(true, false, true);

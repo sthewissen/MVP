@@ -23,7 +23,7 @@ namespace MVP.Services
         Task<List<AwardConsiderationAnswer>> SaveAwardConsiderationAnswerAsync(IEnumerable<AwardConsiderationAnswer> answers);
         Task<bool> SubmitAwardConsiderationAnswerAsync();
 
-        Task<bool?> DeleteContributionAsync(Contribution contribution);
+        Task<bool> DeleteContributionAsync(Contribution contribution);
         Task<ContributionList> GetAllContributionsAsync(bool forceRefresh = false);
         Task<ContributionList> GetContributionsAsync(int? offset, int limit, bool forceRefresh = false);
         Task<Contribution> SubmitContributionAsync(Contribution contribution);

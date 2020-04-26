@@ -6,30 +6,38 @@ using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Text;
 using System.Threading.Tasks;
+using MVP.Helpers;
 using MVP.Models;
 using MVP.Services.Helpers;
 using MVP.Services.Interfaces;
 using Newtonsoft.Json;
+using Refit;
 using Xamarin.Essentials;
 
 namespace MVP.Services
 {
     public class MvpApiService : IDisposable, IMvpApiService
     {
+        readonly IMvpApi _api;
         readonly HttpClient _client;
         readonly IAnalyticsService _analyticsService;
+
         ContributionList _contributionsCachedResult;
         IReadOnlyList<ContributionType> _contributionTypesCachedResult;
         IReadOnlyList<ContributionCategory> _contributionAreasCachedResult;
         IReadOnlyList<Visibility> _visibilitiesCachedResult;
         IReadOnlyList<OnlineIdentity> _onlineIdentitiesCachedResult;
 
-        /// <summary>
-        /// Service that interacts with the MVP API
-        /// </summary>
         public MvpApiService(IAnalyticsService analyticsService)
         {
             _analyticsService = analyticsService;
+
+            _api = RestService.For<IMvpApi>(new HttpClient(new AuthenticatedHttpClientHandler(GetToken))
+            {
+                BaseAddress = new Uri("https://mvpapi.azure-api.net/mvp/api/")
+            });
+
+            // ↓↓↓↓ THIS CLIENT CODE CAN BE REMOVED HOPEFULL ONCE FULLY SHIFTED TO REFIT. ↓↓↓↓
 
             var handler = new HttpClientHandler();
 
@@ -49,6 +57,14 @@ namespace MVP.Services
             }
 
             _client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue(Constants.AuthType, authorizationHeaderContent);
+
+            // ↑↑↑↑ THIS CLIENT CODE CAN BE REMOVED HOPEFULL ONCE FULLY SHIFTED TO REFIT. ↑↑↑↑
+        }
+
+        async Task<string> GetToken()
+        {
+            var token = await SecureStorage.GetAsync("AccessToken");
+            return token;
         }
 
         /// <summary>
@@ -481,52 +497,47 @@ namespace MVP.Services
         /// </summary>
         /// <param name="contribution">Item to delete</param>
         /// <returns>Success or failure</returns>
-        public async Task<bool?> DeleteContributionAsync(Contribution contribution)
+        public async Task<bool> DeleteContributionAsync(Contribution contribution)
         {
             if (contribution == null)
                 throw new NullReferenceException("The contribution parameter was null.");
 
             try
             {
-                using (var response = await _client.DeleteAsync($"contributions?id={contribution.ContributionId}"))
-                {
-                    if (response.IsSuccessStatusCode)
-                    {
-                        return true;
-                    }
+                await _api.DeleteContribution(contribution.ContributionId ?? 0);
 
-                    if (response.StatusCode == HttpStatusCode.Unauthorized || response.StatusCode == HttpStatusCode.Forbidden)
-                    {
-                        HandleAccessTokenExpired();
-                    }
-                    else if (response.StatusCode == HttpStatusCode.BadRequest)
-                    {
-                        var message = await response.Content.ReadAsStringAsync();
-                        HandleRequestErrorOccurred(message, isBadRequest: true);
-                    }
-                }
+                return true;
+
+                //using (var response = await _client.DeleteAsync($"contributions?id={contribution.ContributionId}"))
+                //{
+                //    if (response.IsSuccessStatusCode)
+                //    {
+                //        return true;
+                //    }
+
+                //    if (response.StatusCode == HttpStatusCode.Unauthorized || response.StatusCode == HttpStatusCode.Forbidden)
+                //    {
+                //        HandleAccessTokenExpired();
+                //    }
+                //    else if (response.StatusCode == HttpStatusCode.BadRequest)
+                //    {
+                //        var message = await response.Content.ReadAsStringAsync();
+                //        HandleRequestErrorOccurred(message, isBadRequest: true);
+                //    }
+                //}
             }
-            catch (HttpRequestException e)
+            catch (ApiException e)
             {
-                _analyticsService.Report(e);
-
-                if (e.Message.Contains("500"))
-                {
-                    HandleRequestErrorOccurred(string.Empty, isServerError: true);
-                }
-
-                Debug.WriteLine($"UpdateContributionAsync HttpRequestException: {e}");
-                return null;
+                HandleApiException(e);
+                return false;
             }
             catch (Exception e)
             {
                 _analyticsService.Report(e);
 
                 Debug.WriteLine($"GetProfileAsync Exception: {e}");
-                return null;
+                return false;
             }
-
-            return null;
         }
 
         /// <summary>
@@ -1104,6 +1115,26 @@ namespace MVP.Services
         void HandleAccessTokenExpired()
         {
             AccessTokenExpired?.Invoke(this, new ApiServiceEventArgs { IsTokenRefreshNeeded = true });
+        }
+
+        void HandleApiException(ApiException e)
+        {
+            _analyticsService.Report(e);
+
+            if (e.StatusCode == HttpStatusCode.InternalServerError)
+            {
+                HandleRequestErrorOccurred(string.Empty, isServerError: true);
+            }
+            else if (e.StatusCode == HttpStatusCode.Unauthorized || e.StatusCode == HttpStatusCode.Forbidden)
+            {
+                HandleAccessTokenExpired();
+            }
+            else if (e.StatusCode == HttpStatusCode.BadRequest)
+            {
+                HandleRequestErrorOccurred(e.Content, isBadRequest: true);
+            }
+
+            Debug.WriteLine($"{e.RequestMessage.RequestUri} HttpRequestException: {e}");
         }
 
         /// <summary>
