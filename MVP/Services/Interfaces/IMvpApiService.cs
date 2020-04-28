@@ -24,9 +24,8 @@ namespace MVP.Services
         Task<bool> SubmitAwardConsiderationAnswerAsync();
 
         Task<bool> DeleteContributionAsync(Contribution contribution);
-        Task<ContributionList> GetAllContributionsAsync(bool forceRefresh = false);
-        Task<ContributionList> GetContributionsAsync(int? offset, int limit, bool forceRefresh = false);
+        Task<ContributionList> GetContributionsAsync(int offset = 0, int limit = 0, bool forceRefresh = false);
         Task<Contribution> SubmitContributionAsync(Contribution contribution);
-        Task<bool?> UpdateContributionAsync(Contribution contribution);
+        Task<bool> UpdateContributionAsync(Contribution contribution);
     }
 }

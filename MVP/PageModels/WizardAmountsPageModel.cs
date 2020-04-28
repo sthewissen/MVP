@@ -92,7 +92,7 @@ namespace MVP.PageModels
             {
                 var result = await _mvpApiService.UpdateContributionAsync(_contribution);
 
-                if (result ?? false)
+                if (result)
                 {
                     await CoreMethods.PopModalNavigationService(true);
                 }

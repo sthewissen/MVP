@@ -16,49 +16,21 @@ using Xamarin.Essentials;
 
 namespace MVP.Services
 {
-    public class MvpApiService : IDisposable, IMvpApiService
+    public class MvpApiService : IMvpApiService
     {
         readonly IMvpApi _api;
-        readonly HttpClient _client;
         readonly IAnalyticsService _analyticsService;
-
-        ContributionList _contributionsCachedResult;
-        IReadOnlyList<ContributionType> _contributionTypesCachedResult;
-        IReadOnlyList<ContributionCategory> _contributionAreasCachedResult;
-        IReadOnlyList<Visibility> _visibilitiesCachedResult;
-        IReadOnlyList<OnlineIdentity> _onlineIdentitiesCachedResult;
 
         public MvpApiService(IAnalyticsService analyticsService)
         {
             _analyticsService = analyticsService;
-
             _api = RestService.For<IMvpApi>(new HttpClient(new AuthenticatedHttpClientHandler(GetToken))
             {
                 BaseAddress = new Uri("https://mvpapi.azure-api.net/mvp/api/")
             });
-
-            // ↓↓↓↓ THIS CLIENT CODE CAN BE REMOVED HOPEFULL ONCE FULLY SHIFTED TO REFIT. ↓↓↓↓
-
-            var handler = new HttpClientHandler();
-
-            if (handler.SupportsAutomaticDecompression)
-                handler.AutomaticDecompression = DecompressionMethods.Deflate | DecompressionMethods.GZip;
-
-            _client = new HttpClient(handler);
-            _client.BaseAddress = new Uri("https://mvpapi.azure-api.net/mvp/api/");
-            _client.DefaultRequestHeaders.Add("Ocp-Apim-Subscription-Key", Constants.OcpApimSubscriptionKey);
-
-            // TODO: Improve, because I'm not too proud of this.
-            var authorizationHeaderContent = SecureStorage.GetAsync("AccessToken").GetAwaiter().GetResult();
-
-            if (authorizationHeaderContent.StartsWith(Constants.AuthType))
             {
                 authorizationHeaderContent = authorizationHeaderContent.Replace($"{Constants.AuthType} ", string.Empty);
             }
-
-            _client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue(Constants.AuthType, authorizationHeaderContent);
-
-            // ↑↑↑↑ THIS CLIENT CODE CAN BE REMOVED HOPEFULL ONCE FULLY SHIFTED TO REFIT. ↑↑↑↑
         }
 
         async Task<string> GetToken()
@@ -77,42 +49,20 @@ namespace MVP.Services
             {
                 using (var response = await _client.GetAsync("profile"))
                 {
-                    if (response.IsSuccessStatusCode)
-                    {
-                        var json = await response.Content.ReadAsStringAsync();
-                        return JsonConvert.DeserializeObject<Profile>(json);
-                    }
-
-                    if (response.StatusCode == HttpStatusCode.Unauthorized || response.StatusCode == HttpStatusCode.Forbidden)
                     {
                         HandleAccessTokenExpired();
-                    }
-                    else if (response.StatusCode == HttpStatusCode.BadRequest)
-                    {
-                        var message = await response.Content.ReadAsStringAsync();
-                        HandleRequestErrorOccurred(message, isBadRequest: true);
-                    }
-                }
+                return await _api.GetProfile();
             }
-            catch (HttpRequestException e)
+            catch (ApiException e)
             {
-                _analyticsService.Report(e);
-
-                if (e.Message.Contains("500"))
-                {
-                    HandleRequestErrorOccurred(string.Empty, isServerError: true);
-                }
-
-                Debug.WriteLine($"GetProfileAsync HttpRequestException: {e}");
+                HandleApiException(e);
+                return null;
             }
             catch (Exception e)
             {
                 _analyticsService.Report(e);
-
-                Debug.WriteLine($"GetProfileAsync Exception: {e}");
+                return null;
             }
-
-            return null;
         }
 
         /// <summary>
@@ -123,48 +73,21 @@ namespace MVP.Services
         {
             try
             {
-                // the result is Detected mime type: image/jpeg; charset=binary
-                using (var response = await _client.GetAsync("profile/photo"))
-                {
-                    if (response.IsSuccessStatusCode)
-                    {
-                        var base64String = await response.Content.ReadAsStringAsync();
-                        base64String = base64String.TrimStart('"').TrimEnd('"');
+                var image = await _api.GetProfileImage();
+                image = image.TrimStart('"').TrimEnd('"');
 
-                        return $"data:image/png;base64,{base64String}";
-                    }
-                    else
-                    {
-                        if (response.StatusCode == HttpStatusCode.Unauthorized || response.StatusCode == HttpStatusCode.Forbidden)
-                        {
-                            HandleAccessTokenExpired();
-                        }
-                        else if (response.StatusCode == HttpStatusCode.BadRequest)
-                        {
-                            var message = await response.Content.ReadAsStringAsync();
-                            HandleRequestErrorOccurred(message, isBadRequest: true);
-                        }
-                    }
-                }
+                return $"data:image/png;base64,{image}";
             }
-            catch (HttpRequestException e)
+            catch (ApiException e)
             {
-                _analyticsService.Report(e);
-
-                if (e.Message.Contains("500"))
-                {
-                    HandleRequestErrorOccurred(string.Empty, isServerError: true);
-                }
-
-                Debug.WriteLine($"GetProfileImageAsync HttpRequestException: {e}");
+                HandleApiException(e);
+                return null;
             }
             catch (Exception e)
             {
                 _analyticsService.Report(e);
-                Debug.WriteLine($"GetProfileImageAsync Exception: {e}");
+                return null;
             }
-
-            return null;
         }
 
         /// <summary>
@@ -175,135 +98,23 @@ namespace MVP.Services
         {
             try
             {
-                // the result is Detected mime type: image/jpeg; charset=binary
-                using (var response = await _client.GetAsync("profile/photo"))
-                {
-                    if (response.IsSuccessStatusCode)
-                    {
-                        var base64String = await response.Content.ReadAsStringAsync();
+                var image = await _api.GetProfileImage();
+                image = image.TrimStart('"').TrimEnd('"');
 
-                        try
-                        {
-                            if (string.IsNullOrEmpty(base64String))
-                            {
-                                return null;
-                            }
+                // TODO: Cache image locally
 
-                            base64String = base64String.TrimStart('"').TrimEnd('"');
-
-                            // determine file type
-                            var data = base64String.Substring(0, 5);
-
-                            var fileExtension = string.Empty;
-
-                            switch (data.ToUpper())
-                            {
-                                case "IVBOR":
-                                    fileExtension = "png";
-                                    break;
-                                case "/9J/4":
-                                    fileExtension = "jpg";
-                                    break;
-                            }
-
-                            var imgBytes = Convert.FromBase64String(base64String);
-
-                            // TODO: Fix storing the image.
-                            // var filePath = StorageHelpers.Instance.SaveImage(imgBytes, $"ProfilePicture.{fileExtension}");
-                            // return filePath;
-                        }
-                        catch (Exception e)
-                        {
-                            _analyticsService.Report(e);
-                            Debug.WriteLine($"DownloadAndSaveProfileImage Exception: {e}");
-                        }
-                    }
-                    else
-                    {
-                        if (response.StatusCode == HttpStatusCode.Unauthorized || response.StatusCode == HttpStatusCode.Forbidden)
-                        {
-                            HandleAccessTokenExpired();
-                        }
-                        else if (response.StatusCode == HttpStatusCode.BadRequest)
-                        {
-                            var message = await response.Content.ReadAsStringAsync();
-                            HandleRequestErrorOccurred(message, isBadRequest: true);
-                        }
-                    }
-                }
+                return $"data:image/png;base64,{image}";
             }
-            catch (HttpRequestException e)
+            catch (ApiException e)
             {
-                _analyticsService.Report(e);
-
-                if (e.Message.Contains("500"))
-                {
-                    HandleRequestErrorOccurred(string.Empty, isServerError: true);
-                }
-
-                Debug.WriteLine($"GetProfileImageAsync HttpRequestException: {e}");
+                HandleApiException(e);
+                return null;
             }
             catch (Exception e)
             {
                 _analyticsService.Report(e);
-                Debug.WriteLine($"GetProfileImageAsync Exception: {e}");
+                return null;
             }
-
-            return null;
-        }
-
-        /// <summary>
-        /// Gets all the MVP's activities.
-        /// </summary>
-        /// <param name="forceRefresh">The result is cached in a backing list by default which prevents unnecessary fetches. If you want the cache refreshed, set this to true</param>
-        /// <returns>A list of the MVP's contributions</returns>
-        public async Task<ContributionList> GetAllContributionsAsync(bool forceRefresh = false)
-        {
-            if (_contributionsCachedResult != null && !forceRefresh)
-            {
-                // Return the cached result by default.
-                return _contributionsCachedResult;
-            }
-
-            try
-            {
-                int totalCount = 0;
-
-                // The first fetch gets the total count, which we need to do the full fetch
-                using (var response = await _client.GetAsync($"contributions/0/0"))
-                {
-                    if (response.IsSuccessStatusCode)
-                    {
-                        var json = await response.Content.ReadAsStringAsync();
-                        var deserializedResult = JsonConvert.DeserializeObject<ContributionList>(json);
-
-                        // Read the total
-                        totalCount = Convert.ToInt32(deserializedResult.TotalContributions);
-                    }
-                }
-
-                // Using the total count, we can now fetch all the items and cache them
-                return await GetContributionsAsync(0, totalCount, true);
-            }
-            catch (HttpRequestException e)
-            {
-                _analyticsService.Report(e);
-
-                if (e.Message.Contains("500"))
-                {
-                    HandleRequestErrorOccurred(string.Empty, isServerError: true);
-                }
-
-                Debug.WriteLine($"GetContributionsAsync HttpRequestException: {e}");
-            }
-            catch (Exception e)
-            {
-                _analyticsService.Report(e);
-
-                Debug.WriteLine($"GetContributionsAsync Exception: {e}");
-            }
-
-            return null;
         }
 
         /// <summary>
@@ -313,64 +124,24 @@ namespace MVP.Services
         /// <param name="limit">number of items for the page</param>
         /// <param name="forceRefresh">The result is cached in a backing list by default which prevents unnecessary fetches. If you want the cache refreshed, set this to true</param>
         /// <returns>A list of the MVP's contributions</returns>
-        public async Task<ContributionList> GetContributionsAsync(int? offset, int limit, bool forceRefresh = false)
+        public async Task<ContributionList> GetContributionsAsync(int offset = 0, int limit = 0, bool forceRefresh = false)
         {
-            if (_contributionsCachedResult != null && !forceRefresh)
-            {
-                // Return the cached result by default.
-                return _contributionsCachedResult;
-            }
-
-            if (offset == null)
-            {
-                offset = 0;
-            }
-
             try
             {
-                using (var response = await _client.GetAsync($"contributions/{offset}/{limit}"))
-                {
-                    if (response.IsSuccessStatusCode)
-                    {
-                        var json = await response.Content.ReadAsStringAsync();
-                        var deserializedResult = JsonConvert.DeserializeObject<ContributionList>(json);
+                // TODO: Do something with caching.
 
-                        // Update the cached result.
-                        _contributionsCachedResult = deserializedResult;
-
-                        return _contributionsCachedResult;
-                    }
-
-                    if (response.StatusCode == HttpStatusCode.Unauthorized || response.StatusCode == HttpStatusCode.Forbidden)
-                    {
-                        HandleAccessTokenExpired();
-                    }
-                    else if (response.StatusCode == HttpStatusCode.BadRequest)
-                    {
-                        var message = await response.Content.ReadAsStringAsync();
-                        HandleRequestErrorOccurred(message, isBadRequest: true);
-                    }
-                }
+                return await _api.GetContributions(offset, limit);
             }
-            catch (HttpRequestException e)
+            catch (ApiException e)
             {
-                _analyticsService.Report(e);
-
-                if (e.Message.Contains("500"))
-                {
-                    HandleRequestErrorOccurred(string.Empty, isServerError: true);
-                }
-
-                Debug.WriteLine($"GetContributionsAsync HttpRequestException: {e}");
+                HandleApiException(e);
+                return null;
             }
             catch (Exception e)
             {
                 _analyticsService.Report(e);
-
-                Debug.WriteLine($"GetContributionsAsync Exception: {e}");
+                return null;
             }
-
-            return null;
         }
 
         /// <summary>
@@ -381,54 +152,22 @@ namespace MVP.Services
         public async Task<Contribution> SubmitContributionAsync(Contribution contribution)
         {
             if (contribution == null)
-                throw new NullReferenceException("The contribution parameter was null.");
+                throw new NullReferenceException($"The {nameof(contribution)} parameter was null.");
 
             try
             {
-                var serializedContribution = JsonConvert.SerializeObject(contribution);
-
-                using (var content = new StringContent(serializedContribution))
-                {
-                    content.Headers.ContentType = new MediaTypeHeaderValue("application/json");
-
-                    using (var response = await _client.PostAsync("contributions?", content))
-                    {
-                        if (response.IsSuccessStatusCode)
-                        {
-                            var json = await response.Content.ReadAsStringAsync();
-                            return JsonConvert.DeserializeObject<Contribution>(json);
-                        }
-
-                        if (response.StatusCode == HttpStatusCode.Unauthorized || response.StatusCode == HttpStatusCode.Forbidden)
-                        {
-                            HandleAccessTokenExpired();
-                        }
-                        else if (response.StatusCode == HttpStatusCode.BadRequest)
-                        {
-                            var message = await response.Content.ReadAsStringAsync();
-                            HandleRequestErrorOccurred(message, isBadRequest: true);
-                        }
-                    }
-                }
+                return await _api.AddContribution(contribution);
             }
-            catch (HttpRequestException e)
+            catch (ApiException e)
             {
-                _analyticsService.Report(e);
-
-                if (e.Message.Contains("500"))
-                {
-                    HandleRequestErrorOccurred(string.Empty, isServerError: true);
-                }
-
-                Debug.WriteLine($"SubmitContributionAsync HttpRequestException: {e}");
+                HandleApiException(e);
+                return null;
             }
             catch (Exception e)
             {
                 _analyticsService.Report(e);
-                Debug.WriteLine($"SubmitContributionAsync Exception: {e}");
+                return null;
             }
-
-            return null;
         }
 
         /// <summary>
@@ -436,60 +175,26 @@ namespace MVP.Services
         /// </summary>
         /// <param name="contribution">Contribution to be updated</param>
         /// <returns>Bool to denote update success or failure</returns>
-        public async Task<bool?> UpdateContributionAsync(Contribution contribution)
+        public async Task<bool> UpdateContributionAsync(Contribution contribution)
         {
             if (contribution == null)
-                throw new NullReferenceException("The contribution parameter was null.");
+                throw new NullReferenceException($"The {nameof(contribution)} parameter was null.");
 
             try
             {
-                // Request body
-                var serializedContribution = JsonConvert.SerializeObject(contribution);
-                byte[] byteData = Encoding.UTF8.GetBytes(serializedContribution);
-
-                using (var content = new ByteArrayContent(byteData))
-                {
-                    content.Headers.ContentType = new MediaTypeHeaderValue("application/json");
-
-                    using (var response = await _client.PutAsync("contributions?", content))
-                    {
-                        if (response.IsSuccessStatusCode)
-                        {
-                            return true;
-                        }
-
-                        if (response.StatusCode == HttpStatusCode.Unauthorized || response.StatusCode == HttpStatusCode.Forbidden)
-                        {
-                            HandleAccessTokenExpired();
-                        }
-                        else if (response.StatusCode == HttpStatusCode.BadRequest)
-                        {
-                            var message = await response.Content.ReadAsStringAsync();
-                            HandleRequestErrorOccurred(message, isBadRequest: true);
-                        }
-                    }
-                }
+                await _api.UpdateContribution(contribution);
+                return true;
             }
-            catch (HttpRequestException e)
+            catch (ApiException e)
             {
-                _analyticsService.Report(e);
-
-                if (e.Message.Contains("500"))
-                {
-                    HandleRequestErrorOccurred(string.Empty, isServerError: true);
-                }
-
-                Debug.WriteLine($"UpdateContributionAsync HttpRequestException: {e}");
-                return null;
+                HandleApiException(e);
+                return false;
             }
             catch (Exception e)
             {
                 _analyticsService.Report(e);
-
-                Debug.WriteLine($"GetProfileAsync Exception: {e}");
+                return false;
             }
-
-            return null;
         }
 
         /// <summary>
@@ -500,31 +205,13 @@ namespace MVP.Services
         public async Task<bool> DeleteContributionAsync(Contribution contribution)
         {
             if (contribution == null)
-                throw new NullReferenceException("The contribution parameter was null.");
+                throw new NullReferenceException($"The {nameof(contribution)} parameter was null.");
 
             try
             {
                 await _api.DeleteContribution(contribution.ContributionId ?? 0);
 
                 return true;
-
-                //using (var response = await _client.DeleteAsync($"contributions?id={contribution.ContributionId}"))
-                //{
-                //    if (response.IsSuccessStatusCode)
-                //    {
-                //        return true;
-                //    }
-
-                //    if (response.StatusCode == HttpStatusCode.Unauthorized || response.StatusCode == HttpStatusCode.Forbidden)
-                //    {
-                //        HandleAccessTokenExpired();
-                //    }
-                //    else if (response.StatusCode == HttpStatusCode.BadRequest)
-                //    {
-                //        var message = await response.Content.ReadAsStringAsync();
-                //        HandleRequestErrorOccurred(message, isBadRequest: true);
-                //    }
-                //}
             }
             catch (ApiException e)
             {
@@ -534,8 +221,6 @@ namespace MVP.Services
             catch (Exception e)
             {
                 _analyticsService.Report(e);
-
-                Debug.WriteLine($"GetProfileAsync Exception: {e}");
                 return false;
             }
         }
@@ -547,57 +232,21 @@ namespace MVP.Services
         /// <returns>List of contributions types</returns>
         public async Task<IReadOnlyList<ContributionType>> GetContributionTypesAsync(bool forceRefresh = false)
         {
-            if (_contributionTypesCachedResult?.Count == 0 && !forceRefresh)
-            {
-                // Return the cached result by default.
-                return _contributionTypesCachedResult;
-            }
-
+            // TODO: CACHING
             try
             {
-                using (var response = await _client.GetAsync("contributions/contributiontypes"))
-                {
-                    if (response.IsSuccessStatusCode)
-                    {
-                        var json = await response.Content.ReadAsStringAsync();
-                        var deserializedResult = JsonConvert.DeserializeObject<IReadOnlyList<ContributionType>>(json);
-
-                        // Update the cached result.
-                        _contributionTypesCachedResult = new List<ContributionType>(deserializedResult);
-
-                        return _contributionTypesCachedResult;
-                    }
-
-                    if (response.StatusCode == HttpStatusCode.Unauthorized || response.StatusCode == HttpStatusCode.Forbidden)
-                    {
-                        HandleAccessTokenExpired();
-                    }
-                    else if (response.StatusCode == HttpStatusCode.BadRequest)
-                    {
-                        var message = await response.Content.ReadAsStringAsync();
-                        HandleRequestErrorOccurred(message, isBadRequest: true);
-                    }
-                }
+                return await _api.GetContributionTypes();
             }
-            catch (HttpRequestException e)
+            catch (ApiException e)
             {
-                _analyticsService.Report(e);
-
-                if (e.Message.Contains("500"))
-                {
-                    HandleRequestErrorOccurred(string.Empty, isServerError: true);
-                }
-
-                Debug.WriteLine($"GetContributionTypesAsync HttpRequestException: {e}");
+                HandleApiException(e);
+                return null;
             }
             catch (Exception e)
             {
                 _analyticsService.Report(e);
-
-                Debug.WriteLine($"GetContributionTypesAsync Exception: {e}");
+                return null;
             }
-
-            return null;
         }
 
         /// <summary>
@@ -607,57 +256,21 @@ namespace MVP.Services
         /// <returns>A list of available contribution areas</returns>
         public async Task<IReadOnlyList<ContributionCategory>> GetContributionAreasAsync(bool forceRefresh = false)
         {
-            if (_contributionAreasCachedResult?.Count == 0 && !forceRefresh)
-            {
-                // Return the cached result by default.
-                return _contributionAreasCachedResult;
-            }
-
+            // TODO: CACHING
             try
             {
-                using (var response = await _client.GetAsync("contributions/contributionareas"))
-                {
-                    if (response.IsSuccessStatusCode)
-                    {
-                        var json = await response.Content.ReadAsStringAsync();
-                        var deserializedResult = JsonConvert.DeserializeObject<IReadOnlyList<ContributionCategory>>(json);
-
-                        // Update the cached result.
-                        _contributionAreasCachedResult = new List<ContributionCategory>(deserializedResult);
-
-                        return _contributionAreasCachedResult;
-                    }
-
-                    if (response.StatusCode == HttpStatusCode.Unauthorized || response.StatusCode == HttpStatusCode.Forbidden)
-                    {
-                        HandleAccessTokenExpired();
-                    }
-                    else if (response.StatusCode == HttpStatusCode.BadRequest)
-                    {
-                        var message = await response.Content.ReadAsStringAsync();
-                        HandleRequestErrorOccurred(message, isBadRequest: true);
-                    }
-                }
+                return await _api.GetContributionAreas();
             }
-            catch (HttpRequestException e)
+            catch (ApiException e)
             {
-                _analyticsService.Report(e);
-
-                if (e.Message.Contains("500"))
-                {
-                    HandleRequestErrorOccurred(string.Empty, isServerError: true);
-                }
-
-                Debug.WriteLine($"GetContributionTechnologiesAsync HttpRequestException: {e}");
+                HandleApiException(e);
+                return null;
             }
             catch (Exception e)
             {
                 _analyticsService.Report(e);
-
-                Debug.WriteLine($"GetContributionTechnologiesAsync Exception: {e}");
+                return null;
             }
-
-            return null;
         }
 
         /// <summary>
@@ -667,57 +280,21 @@ namespace MVP.Services
         /// <returns>A list of available visibilities</returns>
         public async Task<IReadOnlyList<Visibility>> GetVisibilitiesAsync(bool forceRefresh = false)
         {
-            if (_visibilitiesCachedResult?.Count == 0 && !forceRefresh)
-            {
-                // Return the cached result by default.
-                return _visibilitiesCachedResult;
-            }
-
+            // TODO: CACHING
             try
             {
-                using (var response = await _client.GetAsync("contributions/sharingpreferences"))
-                {
-                    if (response.IsSuccessStatusCode)
-                    {
-                        var json = await response.Content.ReadAsStringAsync();
-
-                        var deserializedResult = JsonConvert.DeserializeObject<IReadOnlyList<Visibility>>(json);
-
-                        // Update the cached result.
-                        _visibilitiesCachedResult = new List<Visibility>(deserializedResult);
-
-                        return _visibilitiesCachedResult;
-                    }
-
-                    if (response.StatusCode == HttpStatusCode.Unauthorized || response.StatusCode == HttpStatusCode.Forbidden)
-                    {
-                        HandleAccessTokenExpired();
-                    }
-                    else if (response.StatusCode == HttpStatusCode.BadRequest)
-                    {
-                        RequestErrorOccurred?.Invoke(this, new ApiServiceEventArgs { IsBadRequest = true, Message = "Bad Request Error - If this continues to happen, please open a GitHub issue so we can fix this immediately (go to the About page for a direct link)." });
-                    }
-                }
+                return await _api.GetVisibilities();
             }
-            catch (HttpRequestException e)
+            catch (ApiException e)
             {
-                _analyticsService.Report(e);
-
-                if (e.Message.Contains("500"))
-                {
-                    HandleRequestErrorOccurred(string.Empty, isServerError: true);
-                }
-
-                Debug.WriteLine($"GetVisibilitiesAsync HttpRequestException: {e}");
+                HandleApiException(e);
+                return null;
             }
             catch (Exception e)
             {
                 _analyticsService.Report(e);
-
-                Debug.WriteLine($"GetVisibilitiesAsync Exception: {e}");
+                return null;
             }
-
-            return null;
         }
 
         /// <summary>
@@ -727,56 +304,21 @@ namespace MVP.Services
         /// <returns></returns>
         public async Task<IReadOnlyList<OnlineIdentity>> GetOnlineIdentitiesAsync(bool forceRefresh = false)
         {
-            if (_contributionTypesCachedResult?.Count == 0 && !forceRefresh)
-            {
-                // Return the cached result by default.
-                return _onlineIdentitiesCachedResult;
-            }
-
+            // TODO: CACHING
             try
             {
-                using (var response = await _client.GetAsync("onlineidentities"))
-                {
-                    if (response.IsSuccessStatusCode)
-                    {
-                        var json = await response.Content.ReadAsStringAsync();
-                        var deserializedResult = JsonConvert.DeserializeObject<IReadOnlyList<OnlineIdentity>>(json);
-
-                        // Update the cached result.
-                        _onlineIdentitiesCachedResult = new List<OnlineIdentity>(deserializedResult);
-
-                        return _onlineIdentitiesCachedResult;
-                    }
-
-                    if (response.StatusCode == HttpStatusCode.Unauthorized || response.StatusCode == HttpStatusCode.Forbidden)
-                    {
-                        HandleAccessTokenExpired();
-                    }
-                    else if (response.StatusCode == HttpStatusCode.BadRequest)
-                    {
-                        var message = await response.Content.ReadAsStringAsync();
-                        HandleRequestErrorOccurred(message, isBadRequest: true);
-                    }
-                }
+                return await _api.GetOnlineIdentities();
             }
-            catch (HttpRequestException e)
+            catch (ApiException e)
             {
-                _analyticsService.Report(e);
-
-                if (e.Message.Contains("500"))
-                {
-                    HandleRequestErrorOccurred(string.Empty, isServerError: true);
-                }
-
-                Debug.WriteLine($"GetOnlineIdentitiesAsync HttpRequestException: {e}");
+                HandleApiException(e);
+                return null;
             }
             catch (Exception e)
             {
                 _analyticsService.Report(e);
-                Debug.WriteLine($"GetOnlineIdentitiesAsync Exception: {e}");
+                return null;
             }
-
-            return null;
         }
 
         /// <summary>
@@ -787,107 +329,44 @@ namespace MVP.Services
         public async Task<OnlineIdentity> SubmitOnlineIdentityAsync(OnlineIdentity onlineIdentity)
         {
             if (onlineIdentity == null)
-                throw new NullReferenceException("The OnlineIdentity parameter was null.");
+                throw new NullReferenceException($"The {nameof(onlineIdentity)} parameter was null.");
 
             try
             {
-                var serializedOnlineIdentity = JsonConvert.SerializeObject(onlineIdentity);
-                byte[] byteData = Encoding.UTF8.GetBytes(serializedOnlineIdentity);
-
-                using (var content = new ByteArrayContent(byteData))
-                {
-                    content.Headers.ContentType = new MediaTypeHeaderValue("application/json");
-
-                    using (var response = await _client.PostAsync("onlineidentities?", content))
-                    {
-                        if (response.IsSuccessStatusCode)
-                        {
-                            var json = await response.Content.ReadAsStringAsync();
-                            Debug.WriteLine($"OnlineIdentity Save JSON: {json}");
-
-                            var result = JsonConvert.DeserializeObject<OnlineIdentity>(json);
-                            Debug.WriteLine($"OnlineIdentity Save Result: ID {result.PrivateSiteId}");
-
-                            return result;
-                        }
-
-                        if (response.StatusCode == HttpStatusCode.Unauthorized || response.StatusCode == HttpStatusCode.Forbidden)
-                        {
-                            HandleAccessTokenExpired();
-                        }
-                        else if (response.StatusCode == HttpStatusCode.BadRequest)
-                        {
-                            var message = await response.Content.ReadAsStringAsync();
-                            HandleRequestErrorOccurred(message, isBadRequest: true);
-                        }
-                    }
-                }
+                return await _api.AddOnlineIdentity(onlineIdentity);
             }
-            catch (HttpRequestException e)
+            catch (ApiException e)
             {
-                _analyticsService.Report(e);
-
-                if (e.Message.Contains("500"))
-                {
-                    HandleRequestErrorOccurred(string.Empty, isServerError: true);
-                }
-
-                Debug.WriteLine($"SubmitOnlineIdentitiesAsync HttpRequestException: {e}");
+                HandleApiException(e);
+                return null;
             }
             catch (Exception e)
             {
                 _analyticsService.Report(e);
-
-                Debug.WriteLine($"SubmitOnlineIdentitiesAsync Exception: {e}");
+                return null;
             }
-
-            return null;
         }
 
         public async Task<bool> DeleteOnlineIdentityAsync(OnlineIdentity onlineIdentity)
         {
             if (onlineIdentity == null)
-                throw new NullReferenceException("The OnlineIdentity parameter was null.");
+                throw new NullReferenceException($"The {nameof(onlineIdentity)} parameter was null.");
 
             try
             {
-                using (var response = await _client.DeleteAsync($"onlineidentities?id={onlineIdentity.PrivateSiteId}"))
-                {
-                    if (response.IsSuccessStatusCode)
-                    {
-                        return true;
-                    }
-
-                    if (response.StatusCode == HttpStatusCode.Unauthorized || response.StatusCode == HttpStatusCode.Forbidden)
-                    {
-                        HandleAccessTokenExpired();
-                    }
-                    else if (response.StatusCode == HttpStatusCode.BadRequest)
-                    {
-                        var message = await response.Content.ReadAsStringAsync();
-                        HandleRequestErrorOccurred(message, isBadRequest: true);
-                    }
-                }
+                await _api.DeleteOnlineIdentity(onlineIdentity.PrivateSiteId ?? 0);
+                return true;
             }
-            catch (HttpRequestException e)
+            catch (ApiException e)
             {
-                _analyticsService.Report(e);
-
-                if (e.Message.Contains("500"))
-                {
-                    HandleRequestErrorOccurred(string.Empty, isServerError: true);
-                }
-
-                Debug.WriteLine($"SubmitOnlineIdentitiesAsync HttpRequestException: {e}");
+                HandleApiException(e);
+                return false;
             }
             catch (Exception e)
             {
                 _analyticsService.Report(e);
-
-                Debug.WriteLine($"SubmitOnlineIdentitiesAsync Exception: {e}");
+                return false;
             }
-
-            return false;
         }
 
         /// <summary>
@@ -898,43 +377,18 @@ namespace MVP.Services
         {
             try
             {
-                using (var response = await _client.GetAsync("awardconsideration/getcurrentquestions"))
-                {
-                    if (response.IsSuccessStatusCode)
-                    {
-                        var json = await response.Content.ReadAsStringAsync();
-                        return JsonConvert.DeserializeObject<IReadOnlyList<AwardConsiderationQuestion>>(json);
-                    }
-
-                    if (response.StatusCode == HttpStatusCode.Unauthorized || response.StatusCode == HttpStatusCode.Forbidden)
-                    {
-                        HandleAccessTokenExpired();
-                    }
-                    else if (response.StatusCode == HttpStatusCode.BadRequest)
-                    {
-                        var message = await response.Content.ReadAsStringAsync();
-                        HandleRequestErrorOccurred(message, isBadRequest: true);
-                    }
-                }
+                return await _api.GetAwardConsiderationQuestions();
             }
-            catch (HttpRequestException e)
+            catch (ApiException e)
             {
-                _analyticsService.Report(e);
-
-                if (e.Message.Contains("500"))
-                {
-                    HandleRequestErrorOccurred(string.Empty, isServerError: true);
-                }
-
-                Debug.WriteLine($"GetOnlineIdentitiesAsync HttpRequestException: {e}");
+                HandleApiException(e);
+                return null;
             }
             catch (Exception e)
             {
                 _analyticsService.Report(e);
-                Debug.WriteLine($"GetOnlineIdentitiesAsync Exception: {e}");
+                return null;
             }
-
-            return null;
         }
 
         /// <summary>
@@ -945,43 +399,18 @@ namespace MVP.Services
         {
             try
             {
-                using (var response = await _client.GetAsync("awardconsideration/GetAnswers"))
-                {
-                    if (response.IsSuccessStatusCode)
-                    {
-                        var json = await response.Content.ReadAsStringAsync();
-                        return JsonConvert.DeserializeObject<IReadOnlyList<AwardConsiderationAnswer>>(json);
-                    }
-
-                    if (response.StatusCode == HttpStatusCode.Unauthorized || response.StatusCode == HttpStatusCode.Forbidden)
-                    {
-                        HandleAccessTokenExpired();
-                    }
-                    else if (response.StatusCode == HttpStatusCode.BadRequest)
-                    {
-                        var message = await response.Content.ReadAsStringAsync();
-                        HandleRequestErrorOccurred(message, isBadRequest: true);
-                    }
-                }
+                return await _api.GetAwardConsiderationAnswers();
             }
-            catch (HttpRequestException e)
+            catch (ApiException e)
             {
-                _analyticsService.Report(e);
-
-                if (e.Message.Contains("500"))
-                {
-                    HandleRequestErrorOccurred(string.Empty, isServerError: true);
-                }
-
-                Debug.WriteLine($"GetOnlineIdentitiesAsync HttpRequestException: {e}");
+                HandleApiException(e);
+                return null;
             }
             catch (Exception e)
             {
                 _analyticsService.Report(e);
-                Debug.WriteLine($"GetOnlineIdentitiesAsync Exception: {e}");
+                return null;
             }
-
-            return null;
         }
 
         /// <summary>
@@ -995,55 +424,22 @@ namespace MVP.Services
         public async Task<List<AwardConsiderationAnswer>> SaveAwardConsiderationAnswerAsync(IEnumerable<AwardConsiderationAnswer> answers)
         {
             if (answers == null)
-                throw new NullReferenceException("The contribution parameter was null.");
+                throw new NullReferenceException($"The {nameof(answers)} parameter was null.");
 
             try
             {
-                var serializedContribution = JsonConvert.SerializeObject(answers);
-                byte[] byteData = Encoding.UTF8.GetBytes(serializedContribution);
-
-                using (var content = new ByteArrayContent(byteData))
-                {
-                    content.Headers.ContentType = new MediaTypeHeaderValue("application/json");
-
-                    using (var response = await _client.PostAsync("awardconsideration/saveanswers?", content))
-                    {
-                        if (response.IsSuccessStatusCode)
-                        {
-                            var json = await response.Content.ReadAsStringAsync();
-                            return JsonConvert.DeserializeObject<List<AwardConsiderationAnswer>>(json);
-                        }
-
-                        if (response.StatusCode == HttpStatusCode.Unauthorized || response.StatusCode == HttpStatusCode.Forbidden)
-                        {
-                            HandleAccessTokenExpired();
-                        }
-                        else if (response.StatusCode == HttpStatusCode.BadRequest)
-                        {
-                            var message = await response.Content.ReadAsStringAsync();
-                            HandleRequestErrorOccurred(message, isBadRequest: true);
-                        }
-                    }
-                }
+                return await _api.SaveAwardConsiderationAnswers(answers);
             }
-            catch (HttpRequestException e)
+            catch (ApiException e)
             {
-                _analyticsService.Report(e);
-
-                if (e.Message.Contains("500"))
-                {
-                    HandleRequestErrorOccurred(string.Empty, isServerError: true);
-                }
-
-                Debug.WriteLine($"SubmitContributionAsync HttpRequestException: {e}");
+                HandleApiException(e);
+                return null;
             }
             catch (Exception e)
             {
                 _analyticsService.Report(e);
-                Debug.WriteLine($"SubmitContributionAsync Exception: {e}");
+                return null;
             }
-
-            return null;
         }
 
         /// <summary>
@@ -1055,50 +451,19 @@ namespace MVP.Services
         {
             try
             {
-                var serializedContribution = JsonConvert.SerializeObject(string.Empty);
-                byte[] byteData = Encoding.UTF8.GetBytes(serializedContribution);
-
-                using (var content = new ByteArrayContent(byteData))
-                {
-                    content.Headers.ContentType = new MediaTypeHeaderValue("application/json");
-
-                    using (var response = await _client.PostAsync("awardconsideration/SubmitAnswers?", content))
-                    {
-                        if (response.IsSuccessStatusCode)
-                        {
-                            return true;
-                        }
-
-                        if (response.StatusCode == HttpStatusCode.Unauthorized || response.StatusCode == HttpStatusCode.Forbidden)
-                        {
-                            HandleAccessTokenExpired();
-                        }
-                        else if (response.StatusCode == HttpStatusCode.BadRequest)
-                        {
-                            var message = await response.Content.ReadAsStringAsync();
-                            HandleRequestErrorOccurred(message, isBadRequest: true);
-                        }
-                    }
-                }
+                await _api.SubmitAwardConsiderationAnswers();
+                return true;
             }
-            catch (HttpRequestException e)
+            catch (ApiException e)
             {
-                _analyticsService.Report(e);
-
-                if (e.Message.Contains("500"))
-                {
-                    HandleRequestErrorOccurred(e.Message, isServerError: true);
-                }
-
-                Debug.WriteLine($"SubmitContributionAsync HttpRequestException: {e}");
+                HandleApiException(e);
+                return false;
             }
             catch (Exception e)
             {
                 _analyticsService.Report(e);
-                Debug.WriteLine($"SubmitContributionAsync Exception: {e}");
+                return false;
             }
-
-            return false;
         }
 
         void HandleRequestErrorOccurred(string message, bool isServerError = false, bool isBadRequest = false, bool isTokenRefreshNeeded = false)
@@ -1133,8 +498,6 @@ namespace MVP.Services
             {
                 HandleRequestErrorOccurred(e.Content, isBadRequest: true);
             }
-
-            Debug.WriteLine($"{e.RequestMessage.RequestUri} HttpRequestException: {e}");
         }
 
         /// <summary>
@@ -1147,10 +510,5 @@ namespace MVP.Services
         /// This event fires when the API call results in a HttpStatusCode 500 result is obtained.
         /// </summary>
         public event EventHandler<ApiServiceEventArgs> RequestErrorOccurred;
-
-        public void Dispose()
-        {
-            _client?.Dispose();
-        }
     }
 }
