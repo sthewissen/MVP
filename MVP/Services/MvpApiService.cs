@@ -28,9 +28,6 @@ namespace MVP.Services
             {
                 BaseAddress = new Uri("https://mvpapi.azure-api.net/mvp/api/")
             });
-            {
-                authorizationHeaderContent = authorizationHeaderContent.Replace($"{Constants.AuthType} ", string.Empty);
-            }
         }
 
         async Task<string> GetToken()
@@ -47,10 +44,6 @@ namespace MVP.Services
         {
             try
             {
-                using (var response = await _client.GetAsync("profile"))
-                {
-                    {
-                        HandleAccessTokenExpired();
                 return await _api.GetProfile();
             }
             catch (ApiException e)
