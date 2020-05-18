@@ -51,7 +51,7 @@
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
             <IndicatorView Grid.Row="0" Grid.Column="1" x:Name="indicator" Opacity=".5" IndicatorColor="{StaticResource gray}" SelectedIndicatorColor="{StaticResource primary}"  />
-            <Button Grid.Row="1" Grid.Column="1" Text="Get started" Style="{StaticResource button_blue}" Command="{Binding SignInCommand}" />
+            <Button Grid.Row="1" Grid.Column="1" Text="Get started" Style="{StaticResource button_blue}" Command="{Binding SignInCommand}" Margin="0,0,0,24" />
         </Grid>
     </Grid>
 </ContentPage>
