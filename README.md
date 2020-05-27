@@ -14,9 +14,6 @@ First of all, let's discuss things! I've made issues for a lot of the features I
 
 - API definition: https://mvpapi.portal.azure-api.net/
 - Current official MVP app in the store: https://github.com/microsoft/mvp
-- Potential API wrappers
-   - https://github.com/daronyondem/mvp-api-dot-net
-   - https://github.com/jamesmcroft/MS-MVP-API-PCL
 
 MVP API
 --
