@@ -111,6 +111,9 @@
     <PackageReference Include="Microsoft.AppCenter.Crashes">
       <Version>3.2.1</Version>
     </PackageReference>
+    <PackageReference Include="akavache">
+      <Version>6.10.20</Version>
+    </PackageReference>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
   <ItemGroup>

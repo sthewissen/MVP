@@ -1,8 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Net;
 using System.Net.Http;
+using System.Reactive.Linq;
 using System.Threading.Tasks;
+using Akavache;
 using MVP.Helpers;
 using MVP.Models;
 using MVP.Services.Helpers;
@@ -40,8 +43,37 @@ namespace MVP.Services
         {
             try
             {
-                // TODO: Caching
+                // Get rid of cached data.
+                if (forceRefresh)
+                    await BlobCache.LocalMachine.InvalidateObject<Profile>("profile");
 
+                // Grab cached data and return immediately + fetch new data in background if needed.
+                var cachedProfile = BlobCache.LocalMachine.GetAndFetchLatest("profile", GetRemoteProfileAsync,
+                    offset =>
+                    {
+                        TimeSpan elapsed = DateTimeOffset.Now - offset;
+                        return elapsed > new TimeSpan(days: 1, hours: 0, minutes: 0, seconds: 0);
+                    });
+
+                var profile = await cachedProfile.FirstOrDefaultAsync();
+
+                return profile;
+            }
+            catch (Exception e)
+            {
+                _analyticsService.Report(e);
+                return null;
+            }
+        }
+
+        /// <summary>
+        /// Returns the latest profile data from the API.
+        /// </summary>
+        /// <returns></returns>
+        async Task<Profile> GetRemoteProfileAsync()
+        {
+            try
+            {
                 return await _api.GetProfile();
             }
             catch (ApiException e)
@@ -64,12 +96,40 @@ namespace MVP.Services
         {
             try
             {
+                // Get rid of cached data.
+                if (forceRefresh)
+                    await BlobCache.LocalMachine.InvalidateObject<string>("avatar");
+
+                // Grab cached data and return immediately + fetch new data in background if needed.
+                var cachedProfileImage = BlobCache.LocalMachine.GetAndFetchLatest("avatar", GetRemoteProfileImageAsync,
+                    offset =>
+                    {
+                        TimeSpan elapsed = DateTimeOffset.Now - offset;
+                        return elapsed > new TimeSpan(days: 7, hours: 0, minutes: 0, seconds: 0);
+                    });
+
+                var image = await cachedProfileImage.FirstOrDefaultAsync();
+                return $"data:image/png;base64,{image}";
+            }
+            catch (Exception e)
+            {
+                _analyticsService.Report(e);
+                return null;
+            }
+        }
+
+        /// <summary>
+        /// Returns the latest profile image from the API.
+        /// </summary>
+        /// <returns></returns>
+        async Task<string> GetRemoteProfileImageAsync()
+        {
+            try
+            {
                 var image = await _api.GetProfileImage();
                 image = image.TrimStart('"').TrimEnd('"');
 
-                // TODO: Cache image locally
-
-                return $"data:image/png;base64,{image}";
+                return image;
             }
             catch (ApiException e)
             {
@@ -94,8 +154,37 @@ namespace MVP.Services
         {
             try
             {
-                // TODO: Do something with caching.
+                // Get rid of cached data.
+                if (forceRefresh)
+                    await BlobCache.LocalMachine.InvalidateObject<ContributionList>("contributions");
 
+                // Grab cached data and return immediately + fetch new data in background if needed.
+                var cachedContributions = BlobCache.LocalMachine.GetAndFetchLatest("contributions", () => GetRemoteContributionsAsync(offset, limit),
+                    cacheOffset =>
+                    {
+                        TimeSpan elapsed = DateTimeOffset.Now - cacheOffset;
+                        return elapsed > new TimeSpan(days: 1, hours: 0, minutes: 0, seconds: 0);
+                    });
+
+                var contributions = await cachedContributions.FirstOrDefaultAsync();
+
+                return contributions;
+            }
+            catch (Exception e)
+            {
+                _analyticsService.Report(e);
+                return null;
+            }
+        }
+
+        /// <summary>
+        /// Returns the latest contributions from the API.
+        /// </summary>
+        /// <returns></returns>
+        async Task<ContributionList> GetRemoteContributionsAsync(int offset = 0, int limit = 0)
+        {
+            try
+            {
                 return await _api.GetContributions(offset, limit);
             }
             catch (ApiException e)
@@ -198,7 +287,35 @@ namespace MVP.Services
         /// <returns>List of contributions types</returns>
         public async Task<IReadOnlyList<ContributionType>> GetContributionTypesAsync(bool forceRefresh = false)
         {
-            // TODO: CACHING
+            try
+            {
+                // Get rid of cached data.
+                if (forceRefresh)
+                    await BlobCache.LocalMachine.InvalidateObject<IReadOnlyList<ContributionType>>("contributiontypes");
+
+                // Grab our data from cache.
+                var cachedContributionTypes = await BlobCache.LocalMachine
+                    .GetOrCreateObject<IReadOnlyList<ContributionType>>("contributiontypes", () => null, DateTimeOffset.Now.AddYears(1));
+
+                // If the data was in cache, return it.
+                if (cachedContributionTypes != null)
+                    return cachedContributionTypes;
+
+                // If not, grab it from remote, add to cache and return.
+                var remoteContributionTypes = await GetRemoteContributionTypesAsync();
+                await BlobCache.LocalMachine.InsertObject("contributiontypes", remoteContributionTypes);
+
+                return remoteContributionTypes;
+            }
+            catch (Exception e)
+            {
+                _analyticsService.Report(e);
+                return null;
+            }
+        }
+
+        async Task<IReadOnlyList<ContributionType>> GetRemoteContributionTypesAsync()
+        {
             try
             {
                 return await _api.GetContributionTypes();
@@ -222,7 +339,35 @@ namespace MVP.Services
         /// <returns>A list of available contribution areas</returns>
         public async Task<IReadOnlyList<ContributionCategory>> GetContributionAreasAsync(bool forceRefresh = false)
         {
-            // TODO: CACHING
+            try
+            {
+                // Get rid of cached data.
+                if (forceRefresh)
+                    await BlobCache.LocalMachine.InvalidateObject<IReadOnlyList<ContributionCategory>>("contributionareas");
+
+                // Grab our data from cache.
+                var cachedContributionAreas = await BlobCache.LocalMachine
+                    .GetOrCreateObject<IReadOnlyList<ContributionCategory>>("contributionareas", () => null, DateTimeOffset.Now.AddYears(1));
+
+                // If the data was in cache, return it.
+                if (cachedContributionAreas != null)
+                    return cachedContributionAreas;
+
+                // If not, grab it from remote, add to cache and return.
+                var remoteContributionAreas = await GetRemoteContributionAreasAsync();
+                await BlobCache.LocalMachine.InsertObject("contributionareas", remoteContributionAreas);
+
+                return remoteContributionAreas;
+            }
+            catch (Exception e)
+            {
+                _analyticsService.Report(e);
+                return null;
+            }
+        }
+
+        async Task<IReadOnlyList<ContributionCategory>> GetRemoteContributionAreasAsync()
+        {
             try
             {
                 return await _api.GetContributionAreas();
@@ -246,7 +391,35 @@ namespace MVP.Services
         /// <returns>A list of available visibilities</returns>
         public async Task<IReadOnlyList<Visibility>> GetVisibilitiesAsync(bool forceRefresh = false)
         {
-            // TODO: CACHING
+            try
+            {
+                // Get rid of cached data.
+                if (forceRefresh)
+                    await BlobCache.LocalMachine.InvalidateObject<IReadOnlyList<Visibility>>("visibilities");
+
+                // Grab our data from cache.
+                var cachedVisibilities = await BlobCache.LocalMachine
+                    .GetOrCreateObject<IReadOnlyList<Visibility>>("visibilities", () => null, DateTimeOffset.Now.AddYears(1));
+
+                // If the data was in cache, return it.
+                if (cachedVisibilities != null)
+                    return cachedVisibilities;
+
+                // If not, grab it from remote, add to cache and return.
+                var remoteVisibility = await GetRemoteVisibilitiesAsync();
+                await BlobCache.LocalMachine.InsertObject("visibilities", remoteVisibility);
+
+                return remoteVisibility;
+            }
+            catch (Exception e)
+            {
+                _analyticsService.Report(e);
+                return null;
+            }
+        }
+
+        async Task<IReadOnlyList<Visibility>> GetRemoteVisibilitiesAsync()
+        {
             try
             {
                 return await _api.GetVisibilities();

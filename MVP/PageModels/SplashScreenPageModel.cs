@@ -12,24 +12,35 @@ namespace MVP.PageModels
 {
     public class SplashScreenPageModel : BasePageModel
     {
-        readonly AuthService _authService;
+        readonly IAuthService _authService;
+        readonly IMvpApiService _mvpApiService;
 
-        public IAsyncCommand CheckAuthorizationCommand { get; set; }
+        public IAsyncCommand PrefetchDataCommand { get; set; }
 
-        public SplashScreenPageModel(AuthService authService)
+        public string FetchText { get; set; }
+
+        public SplashScreenPageModel(IAuthService authService, IMvpApiService mvpApiService)
         {
             _authService = authService;
-            CheckAuthorizationCommand = new AsyncCommand(() => CheckAuthorization());
+            _mvpApiService = mvpApiService;
+
+            PrefetchDataCommand = new AsyncCommand(() => PrefetchData());
         }
 
-        async Task CheckAuthorization()
+        async Task PrefetchData()
         {
             try
             {
                 if (await _authService.SignInSilentAsync())
                 {
-                    // Fixed delay to show the animation on the frontend :$
-                    await Task.Delay(2500);
+                    FetchText = "Grabbing the contribution areas...";
+                    await _mvpApiService.GetContributionAreasAsync();
+
+                    FetchText = "Syncing the contribution types...";
+                    await _mvpApiService.GetContributionTypesAsync();
+
+                    FetchText = "Putting visibilities in place...";
+                    await _mvpApiService.GetVisibilitiesAsync();
 
                     MainThread.BeginInvokeOnMainThread(() =>
                     {
@@ -63,7 +74,7 @@ namespace MVP.PageModels
         protected override void ViewIsAppearing(object sender, EventArgs e)
         {
             base.ViewIsAppearing(sender, e);
-            CheckAuthorizationCommand.Execute(null);
+            PrefetchDataCommand.Execute(null);
         }
     }
 }

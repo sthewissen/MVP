@@ -21,8 +21,9 @@ namespace MVP
             _analyticsService = analyticsService;
 
             Device.SetFlags(new[] { "IndicatorView_Experimental" });
-
             AppContainer.Build();
+
+            Akavache.Registrations.Start(Constants.AppName);
 
             MainPage = FreshMvvm.FreshPageModelResolver.ResolvePageModel<SplashScreenPageModel>();
 
