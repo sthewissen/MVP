@@ -2,6 +2,7 @@
 using FormsToolkit.iOS;
 using Foundation;
 using Microsoft.Identity.Client;
+using MVP.Services.Interfaces;
 using UIKit;
 
 namespace MVP.iOS
@@ -20,7 +21,10 @@ namespace MVP.iOS
             FFImageLoading.Forms.Platform.CachedImageRenderer.Init();
             Toolkit.Init();
 
-            LoadApplication(new App());
+            // Inject analytics service
+            AppContainer.Build();
+            var analyticsService = AppContainer.Resolve<IAnalyticsService>();
+            LoadApplication(new App(analyticsService));
 
             return base.FinishedLaunching(app, options);
         }

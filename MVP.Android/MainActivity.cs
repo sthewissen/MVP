@@ -9,6 +9,7 @@ using MVP.Services;
 using Plugin.CurrentActivity;
 using FormsToolkit.Droid;
 using Acr.UserDialogs;
+using MVP.Services.Interfaces;
 
 namespace MVP.Droid
 {
@@ -22,16 +23,18 @@ namespace MVP.Droid
 
             base.OnCreate(savedInstanceState);
 
+            // Init plugins
             CrossCurrentActivity.Current.Init(this, savedInstanceState);
             Xamarin.Essentials.Platform.Init(this, savedInstanceState);
             global::Xamarin.Forms.Forms.Init(this, savedInstanceState);
 
-            // Init plugins
             FFImageLoading.Forms.Platform.CachedImageRenderer.Init(enableFastRenderer: true);
             Toolkit.Init();
             UserDialogs.Init(this);
 
-            LoadApplication(new App());
+            // Inject analytics service
+            var analyticsService = AppContainer.Resolve<IAnalyticsService>();
+            LoadApplication(new App(analyticsService));
 
             // Set the current activity so the AuthService knows where to start.
             AuthService.ParentWindow = CrossCurrentActivity.Current.Activity;

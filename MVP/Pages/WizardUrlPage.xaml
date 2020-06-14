@@ -29,6 +29,22 @@
             <Label Text="Do you have a URL where we can learn more about it?" Style="{StaticResource contributiondetail_title}" Margin="24" />
 
             <Entry Text="{Binding Url}" Keyboard="Url" />
+
+            <Grid Margin="24,0" ColumnSpacing="12">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="120" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+
+                <Image Grid.RowSpan="2" Aspect="AspectFill" Source="{Binding ImageUrl}" />
+
+                <Label Grid.Column="1" Text="{Binding Title}" Style="{StaticResource contribution_list_item_title}" />
+                <Label Grid.Column="1" Grid.Row="1" Text="{Binding Description}" Style="{StaticResource field_value}" HorizontalTextAlignment="Start" />
+            </Grid>
         </StackLayout>
 
         <custom:PancakeView Style="{StaticResource fab_button_container}" x:Name="fab" Grid.RowSpan="2">

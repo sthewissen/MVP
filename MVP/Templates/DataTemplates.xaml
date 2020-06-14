@@ -40,7 +40,7 @@
                     </Grid.ColumnDefinitions>
 
                     <!-- Want to scrape images using OpenGraph -->
-                    <ff:CachedImage Style="{StaticResource contribution_list_item_image}" />
+                    <ff:CachedImage Source="{Binding ImageUrl}" Style="{StaticResource contribution_list_item_image}" />
 
                     <StackLayout Padding="0,12,16,12" Grid.Column="1" Spacing="4" VerticalOptions="Center">
                         <Label Style="{StaticResource contribution_list_item_title}" Text="{Binding Title}" />

@@ -29,6 +29,7 @@
         <PackageReference Include="Microsoft.AppCenter.Analytics" Version="3.2.1" />
         <PackageReference Include="Microsoft.AppCenter.Crashes" Version="3.2.1" />
         <PackageReference Include="Refit" Version="5.1.67" />
+        <PackageReference Include="HtmlAgilityPack" Version="1.11.23" />
     </ItemGroup>
     <ItemGroup>
         <Folder Include="Models\" />

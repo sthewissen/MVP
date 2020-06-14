@@ -1,5 +1,7 @@
 ﻿using System;
 using FreshTinyIoC;
+using MVP.Services;
+using MVP.Services.Interfaces;
 
 namespace MVP
 {
@@ -9,9 +11,10 @@ namespace MVP
 
         public static void Build()
         {
-            FreshTinyIoCContainer.Current.AutoRegister(new[] { typeof(App).Assembly },
-                t => t.FullName.StartsWith("MVP.Services", StringComparison.Ordinal) &&
-                t.Name.EndsWith("Service", StringComparison.Ordinal));
+            FreshTinyIoCContainer.Current.Register<IAnalyticsService, AnalyticsService>();
+            FreshTinyIoCContainer.Current.Register<IAuthService, AuthService>();
+            FreshTinyIoCContainer.Current.Register<IDialogService, DialogService>();
+            FreshTinyIoCContainer.Current.Register<IMvpApiService, MvpApiService>();
         }
 
         public static void Register<T>()

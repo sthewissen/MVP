@@ -1,20 +1,64 @@
 ﻿using Xamarin.Forms;
 using MVP.PageModels;
+using Xamarin.Forms.PlatformConfiguration;
+using Xamarin.Forms.PlatformConfiguration.iOSSpecific;
+using MVP.Services.Interfaces;
+using System;
+using AsyncAwaitBestPractices;
+using Akavache;
 
 namespace MVP
 {
-    public partial class App : Application
+    public partial class App : Xamarin.Forms.Application
     {
-        public App()
+        readonly WeakEventManager _resumedEventManager = new WeakEventManager();
+        readonly IAnalyticsService _analyticsService;
+
+        public App(IAnalyticsService analyticsService)
         {
             InitializeComponent();
+
+            _analyticsService = analyticsService;
 
             Device.SetFlags(new[] { "IndicatorView_Experimental" });
 
             AppContainer.Build();
 
             MainPage = FreshMvvm.FreshPageModelResolver.ResolvePageModel<SplashScreenPageModel>();
+
+            On<iOS>().SetHandleControlUpdatesOnMainThread(true);
         }
+
+        public event EventHandler Resumed
+        {
+            add => _resumedEventManager.AddEventHandler(value);
+            remove => _resumedEventManager.RemoveEventHandler(value);
+        }
+
+        protected override void OnStart()
+        {
+            base.OnStart();
+
+            _analyticsService.Track("App Started");
+        }
+
+        protected override void OnResume()
+        {
+            base.OnResume();
+
+            OnResumed();
+
+            _analyticsService.Track("App Resumed");
+        }
+
+        protected override void OnSleep()
+        {
+            base.OnSleep();
+
+            _analyticsService.Track("App Backgrounded");
+        }
+
+        void OnResumed() => _resumedEventManager.HandleEvent(this, EventArgs.Empty, nameof(Resumed));
 
         //public void SwitchToRootNavigation()
         //{
