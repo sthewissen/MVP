@@ -14,9 +14,6 @@ First of all, let's discuss things! I've made issues for a lot of the features I
 
 - API definition: https://mvpapi.portal.azure-api.net/
 - Current official MVP app in the store: https://github.com/microsoft/mvp
-- Potential API wrappers
-   - https://github.com/daronyondem/mvp-api-dot-net
-   - https://github.com/jamesmcroft/MS-MVP-API-PCL
 
 MVP API
 --
@@ -53,10 +50,3 @@ From this the following basic functionalities can be distilled:
 Some other nice to haves we could come up with:
 - Local reminder notifications to fill in your contributions
 - Recognize URIs on clipboard and ask to instantly make a contribution out of it
-
-So, who's with me?
---
-
-As far as scopes this seems fairly simple, but since this is what we have to work with I think it could also be a really nice little app to build as a community! And maybe even more importantly, help MVPs across to globe!
-
-![](https://raw.githubusercontent.com/sthewissen/MVP/master/concept.png)
