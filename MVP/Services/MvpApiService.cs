@@ -67,33 +67,6 @@ namespace MVP.Services
                 var image = await _api.GetProfileImage();
                 image = image.TrimStart('"').TrimEnd('"');
 
-                return $"data:image/png;base64,{image}";
-            }
-            catch (ApiException e)
-            {
-                HandleApiException(e);
-                return null;
-            }
-            catch (Exception e)
-            {
-                _analyticsService.Report(e);
-                return null;
-            }
-        }
-
-        /// <summary>
-        /// </summary>
-        /// <param name="offset">page to return</param>
-        /// <param name="limit">number of items for the page</param>
-        /// <param name="forceRefresh">The result is cached in a backing list by default which prevents unnecessary fetches. If you want the cache refreshed, set this to true</param>
-        /// <returns>A list of the MVP's contributions</returns>
-        public async Task<ContributionList> GetContributionsAsync(int offset = 0, int limit = 0, bool forceRefresh = false)
-        {
-            try
-            {
-                var image = await _api.GetProfileImage();
-                image = image.TrimStart('"').TrimEnd('"');
-
                 // TODO: Cache image locally
 
                 return $"data:image/png;base64,{image}";
