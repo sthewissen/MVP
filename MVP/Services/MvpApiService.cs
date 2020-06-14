@@ -1,16 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Diagnostics;
 using System.Net;
 using System.Net.Http;
-using System.Net.Http.Headers;
-using System.Text;
 using System.Threading.Tasks;
 using MVP.Helpers;
 using MVP.Models;
 using MVP.Services.Helpers;
 using MVP.Services.Interfaces;
-using Newtonsoft.Json;
 using Refit;
 using Xamarin.Essentials;
 
@@ -40,10 +36,12 @@ namespace MVP.Services
         /// Returns the profile data of the currently signed in MVP
         /// </summary>
         /// <returns>The MVP's profile information</returns>
-        public async Task<Profile> GetProfileAsync()
+        public async Task<Profile> GetProfileAsync(bool forceRefresh = false)
         {
             try
             {
+                // TODO: Caching
+
                 return await _api.GetProfile();
             }
             catch (ApiException e)
@@ -62,7 +60,7 @@ namespace MVP.Services
         /// Get the profile picture of the currently signed in MVP
         /// </summary>
         /// <returns>JPG image byte array</returns>
-        public async Task<string> GetProfileImageAsync()
+        public async Task<string> GetProfileImageAsync(bool forceRefresh = false)
         {
             try
             {
@@ -84,10 +82,12 @@ namespace MVP.Services
         }
 
         /// <summary>
-        /// Downloads and saves the image file to LocalFolder
         /// </summary>
-        /// <returns>File path</returns>
-        public async Task<string> DownloadAndSaveProfileImage()
+        /// <param name="offset">page to return</param>
+        /// <param name="limit">number of items for the page</param>
+        /// <param name="forceRefresh">The result is cached in a backing list by default which prevents unnecessary fetches. If you want the cache refreshed, set this to true</param>
+        /// <returns>A list of the MVP's contributions</returns>
+        public async Task<ContributionList> GetContributionsAsync(int offset = 0, int limit = 0, bool forceRefresh = false)
         {
             try
             {

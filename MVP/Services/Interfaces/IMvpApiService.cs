@@ -10,9 +10,8 @@ namespace MVP.Services
         Task<IReadOnlyList<ContributionType>> GetContributionTypesAsync(bool forceRefresh = false);
         Task<IReadOnlyList<Visibility>> GetVisibilitiesAsync(bool forceRefresh = false);
 
-        Task<string> DownloadAndSaveProfileImage();
-        Task<Profile> GetProfileAsync();
-        Task<string> GetProfileImageAsync();
+        Task<Profile> GetProfileAsync(bool forceRefresh = false);
+        Task<string> GetProfileImageAsync(bool forceRefresh = false);
 
         Task<bool> DeleteOnlineIdentityAsync(OnlineIdentity onlineIdentity);
         Task<IReadOnlyList<OnlineIdentity>> GetOnlineIdentitiesAsync(bool forceRefresh = false);
