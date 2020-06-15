@@ -287,31 +287,11 @@ namespace MVP.Services
         /// <returns>List of contributions types</returns>
         public async Task<IReadOnlyList<ContributionType>> GetContributionTypesAsync(bool forceRefresh = false)
         {
-            try
-            {
-                // Get rid of cached data.
-                if (forceRefresh)
-                    await BlobCache.LocalMachine.InvalidateObject<IReadOnlyList<ContributionType>>("contributiontypes");
-
-                // Grab our data from cache.
-                var cachedContributionTypes = await BlobCache.LocalMachine
-                    .GetOrCreateObject<IReadOnlyList<ContributionType>>("contributiontypes", () => null, DateTimeOffset.Now.AddYears(1));
-
-                // If the data was in cache, return it.
-                if (cachedContributionTypes != null)
-                    return cachedContributionTypes;
-
-                // If not, grab it from remote, add to cache and return.
-                var remoteContributionTypes = await GetRemoteContributionTypesAsync();
-                await BlobCache.LocalMachine.InsertObject("contributiontypes", remoteContributionTypes);
-
-                return remoteContributionTypes;
-            }
-            catch (Exception e)
-            {
-                _analyticsService.Report(e);
-                return null;
-            }
+            return await GetFromCacheOrRemote(
+                "contributiontypes",
+                GetRemoteContributionTypesAsync,
+                DateTimeOffset.Now.AddYears(1)
+            );
         }
 
         async Task<IReadOnlyList<ContributionType>> GetRemoteContributionTypesAsync()
@@ -339,31 +319,11 @@ namespace MVP.Services
         /// <returns>A list of available contribution areas</returns>
         public async Task<IReadOnlyList<ContributionCategory>> GetContributionAreasAsync(bool forceRefresh = false)
         {
-            try
-            {
-                // Get rid of cached data.
-                if (forceRefresh)
-                    await BlobCache.LocalMachine.InvalidateObject<IReadOnlyList<ContributionCategory>>("contributionareas");
-
-                // Grab our data from cache.
-                var cachedContributionAreas = await BlobCache.LocalMachine
-                    .GetOrCreateObject<IReadOnlyList<ContributionCategory>>("contributionareas", () => null, DateTimeOffset.Now.AddYears(1));
-
-                // If the data was in cache, return it.
-                if (cachedContributionAreas != null)
-                    return cachedContributionAreas;
-
-                // If not, grab it from remote, add to cache and return.
-                var remoteContributionAreas = await GetRemoteContributionAreasAsync();
-                await BlobCache.LocalMachine.InsertObject("contributionareas", remoteContributionAreas);
-
-                return remoteContributionAreas;
-            }
-            catch (Exception e)
-            {
-                _analyticsService.Report(e);
-                return null;
-            }
+            return await GetFromCacheOrRemote(
+                "contributionareas",
+                GetRemoteContributionAreasAsync,
+                DateTimeOffset.Now.AddYears(1)
+            );
         }
 
         async Task<IReadOnlyList<ContributionCategory>> GetRemoteContributionAreasAsync()
@@ -391,31 +351,11 @@ namespace MVP.Services
         /// <returns>A list of available visibilities</returns>
         public async Task<IReadOnlyList<Visibility>> GetVisibilitiesAsync(bool forceRefresh = false)
         {
-            try
-            {
-                // Get rid of cached data.
-                if (forceRefresh)
-                    await BlobCache.LocalMachine.InvalidateObject<IReadOnlyList<Visibility>>("visibilities");
-
-                // Grab our data from cache.
-                var cachedVisibilities = await BlobCache.LocalMachine
-                    .GetOrCreateObject<IReadOnlyList<Visibility>>("visibilities", () => null, DateTimeOffset.Now.AddYears(1));
-
-                // If the data was in cache, return it.
-                if (cachedVisibilities != null)
-                    return cachedVisibilities;
-
-                // If not, grab it from remote, add to cache and return.
-                var remoteVisibility = await GetRemoteVisibilitiesAsync();
-                await BlobCache.LocalMachine.InsertObject("visibilities", remoteVisibility);
-
-                return remoteVisibility;
-            }
-            catch (Exception e)
-            {
-                _analyticsService.Report(e);
-                return null;
-            }
+            return await GetFromCacheOrRemote(
+                "visibilities",
+                GetRemoteVisibilitiesAsync,
+                DateTimeOffset.Now.AddYears(1)
+            );
         }
 
         async Task<IReadOnlyList<Visibility>> GetRemoteVisibilitiesAsync()
@@ -649,5 +589,38 @@ namespace MVP.Services
         /// This event fires when the API call results in a HttpStatusCode 500 result is obtained.
         /// </summary>
         public event EventHandler<ApiServiceEventArgs> RequestErrorOccurred;
+
+        /// <summary>
+        /// Grabs a piece of data from the cache or from remote depending on whether or not it exists.
+        /// </summary>
+        async Task<T> GetFromCacheOrRemote<T>(string key, Func<Task<T>> fetch, DateTimeOffset cacheDuration, bool forceRefresh = false)
+        {
+            try
+            {
+                // Get rid of cached data.
+                if (forceRefresh)
+                    await BlobCache.LocalMachine.InvalidateObject<T>(key);
+
+                // Grab our data from cache.
+                var cachedData = await BlobCache.LocalMachine
+                    .GetOrCreateObject<T>(key, () => default(T), cacheDuration);
+
+                // If the data was in cache, return it.
+                if (cachedData != null)
+                    return cachedData;
+
+                // If not, grab it from remote, add to cache and return.
+                var remoteData = await fetch();
+                await BlobCache.LocalMachine.InsertObject(key, remoteData);
+
+                return remoteData;
+            }
+            catch (Exception e)
+            {
+                _analyticsService.Report(e);
+                return default(T);
+            }
+        }
+
     }
 }
