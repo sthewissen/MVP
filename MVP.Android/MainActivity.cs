@@ -34,7 +34,11 @@ namespace MVP.Droid
 
             // Inject analytics service
             var analyticsService = AppContainer.Resolve<IAnalyticsService>();
-            LoadApplication(new App(analyticsService));
+            var apiService = AppContainer.Resolve<IMvpApiService>();
+            var authService = AppContainer.Resolve<IAuthService>();
+            var dialogService = AppContainer.Resolve<IDialogService>();
+
+            LoadApplication(new App(analyticsService, apiService, authService, dialogService));
 
             // Set the current activity so the AuthService knows where to start.
             AuthService.ParentWindow = CrossCurrentActivity.Current.Activity;

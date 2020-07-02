@@ -1,9 +1,12 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using System.Web;
 using AsyncAwaitBestPractices.MVVM;
 using FreshMvvm;
 using MVP.Extensions;
+using MVP.Helpers;
 using MVP.Models;
 using MVP.Services;
 using MvvmHelpers;
@@ -13,10 +16,9 @@ namespace MVP.PageModels
 {
     public class ContributionsPageModel : BasePageModel
     {
-        readonly MvpApiService _mvpApiService;
         readonly List<Contribution> _contributions = new List<Contribution>();
+        readonly int _pageSize = 10;
 
-        int _pageSize = 10;
         bool _isLoadingMore;
         Contribution _selectedContribution;
 
@@ -31,6 +33,7 @@ namespace MVP.PageModels
             set
             {
                 _selectedContribution = value;
+
                 if (value != null)
                     OpenContributionCommand.Execute(value);
             }
@@ -42,17 +45,20 @@ namespace MVP.PageModels
         public IAsyncCommand OpenAddContributionCommand { get; set; }
         public IAsyncCommand LoadMoreCommand { get; set; }
 
-        public int ItemThreshold { get; set; } = 1;
-
-        public ContributionsPageModel(MvpApiService mvpApiService)
+        public ContributionsPageModel()
         {
-            _mvpApiService = mvpApiService;
-
             OpenProfileCommand = new AsyncCommand(() => OpenProfile());
             OpenContributionCommand = new AsyncCommand<Contribution>((Contribution c) => OpenContribution(c));
             OpenAddContributionCommand = new AsyncCommand(() => OpenAddContribution());
             RefreshDataCommand = new AsyncCommand(() => RefreshContributions());
             LoadMoreCommand = new AsyncCommand(() => LoadMoreContributions());
+
+            ((App)Xamarin.Forms.Application.Current).Resumed += App_Resumed;
+        }
+
+        async void App_Resumed(object sender, System.EventArgs e)
+        {
+            await MainThread.InvokeOnMainThreadAsync(CheckForClipboardUrl);
         }
 
         public override void Init(object initData)
@@ -74,36 +80,55 @@ namespace MVP.PageModels
 
         async Task RefreshData()
         {
-            await Task.WhenAll(RefreshContributions(), RefreshProfileData()).ConfigureAwait(false);
+            await Task.WhenAll(
+                RefreshContributions(),
+                RefreshProfileData(),
+                RefreshProfileImage()
+            ).ConfigureAwait(false);
         }
 
         async Task RefreshContributions()
         {
-            if (Connectivity.NetworkAccess == NetworkAccess.Internet)
+            GroupedContributions.Clear();
+            _contributions.Clear();
+
+            var contributionsList = await MvpApiService.GetContributionsAsync(0, _pageSize).ConfigureAwait(false);
+
+            if (contributionsList == null)
+                return;
+
+            _contributions.AddRange(contributionsList.Contributions);
+
+            foreach (var item in _contributions)
             {
-                GroupedContributions.Clear();
-                _contributions.Clear();
-
-                var contributionsList = await _mvpApiService.GetContributionsAsync(0, _pageSize).ConfigureAwait(false);
-
-                if (contributionsList != null)
+                if (!string.IsNullOrEmpty(item.ReferenceUrl))
                 {
-                    _contributions.AddRange(contributionsList.Contributions);
-                    GroupedContributions = _contributions.ToGroupedContributions();
+                    var og = await OpenGraph.ParseUrlAsync(item.ReferenceUrl);
+                    item.ImageUrl = og.Image.AbsoluteUri;
                 }
             }
+
+            GroupedContributions = _contributions.ToGroupedContributions();
+        }
+
+        async Task RefreshProfileImage()
+        {
+            var image = await MvpApiService.GetProfileImageAsync().ConfigureAwait(false);
+
+            if (image == null)
+                return;
+
+            ProfileImage = image;
         }
 
         async Task RefreshProfileData()
         {
-            if (Connectivity.NetworkAccess == NetworkAccess.Internet)
-            {
-                var profile = await _mvpApiService.GetProfileAsync().ConfigureAwait(false);
-                var image = await _mvpApiService.GetProfileImageAsync().ConfigureAwait(false);
+            var profile = await MvpApiService.GetProfileAsync().ConfigureAwait(false);
 
-                Name = profile.FullName;
-                ProfileImage = image;
-            }
+            if (profile == null)
+                return;
+
+            Name = profile.FullName;
         }
 
         async Task LoadMoreContributions()
@@ -116,7 +141,7 @@ namespace MVP.PageModels
 
             if (Connectivity.NetworkAccess == NetworkAccess.Internet)
             {
-                var contributionsList = await _mvpApiService.GetContributionsAsync(_contributions.Count, _pageSize).ConfigureAwait(false);
+                var contributionsList = await MvpApiService.GetContributionsAsync(_contributions.Count, _pageSize).ConfigureAwait(false);
 
                 if (contributionsList != null)
                 {
@@ -129,7 +154,7 @@ namespace MVP.PageModels
                     else if (contributionsList.TotalContributions != contributionsList.PagingIndex)
                     {
                         // Stop loading more, because there's no contributions anymore and we're at the end.
-                        ItemThreshold = -1;
+                        //ItemThreshold = -1;
                     }
                 }
             }
@@ -137,14 +162,57 @@ namespace MVP.PageModels
             _isLoadingMore = false;
         }
 
+        async Task CheckForClipboardUrl()
+        {
+            if (!Clipboard.HasText)
+                return;
+
+            var text = await Clipboard.GetTextAsync();
+
+            if (!text.StartsWith("http://") && !text.StartsWith("https://"))
+                return;
+
+            var shouldCreateActivity = await _dialogService.ConfirmAsync(
+                "We notice a URL on your clipboard. Do you want us to pre-fill an activity out of that?",
+                "That looks cool!",
+                "Yes",
+                "No"
+            );
+
+            if (!shouldCreateActivity)
+                return;
+
+            var ogData = await OpenGraph.ParseUrlAsync(text);
+
+            if (ogData == null)
+                return;
+
+            DateTime? dateTime = null;
+
+            if (ogData.Metadata.ContainsKey("article:published_time") &&
+                DateTime.TryParse(ogData.Metadata["article:published_time"].Value(), out var activityDate))
+            {
+                dateTime = activityDate;
+            }
+
+            await OpenAddContribution(new Contribution
+            {
+                Title = HttpUtility.HtmlDecode(ogData.Title),
+                ReferenceUrl = ogData.Url.AbsoluteUri,
+                Description = ogData.Metadata.ContainsKey("og:description") ? HttpUtility.HtmlDecode(ogData.Metadata["og:description"].Value()) : string.Empty,
+                StartDate = dateTime
+            });
+        }
+
         async Task OpenProfile()
         {
             await CoreMethods.PushPageModel<ProfilePageModel>().ConfigureAwait(false);
         }
 
-        async Task OpenAddContribution()
+        async Task OpenAddContribution(Contribution prefilledData = null)
         {
-            var page = FreshPageModelResolver.ResolvePageModel<WizardActivityTypePageModel>();
+            var page = FreshPageModelResolver.ResolvePageModel<WizardActivityTypePageModel>(prefilledData);
+
             var basicNavContainer = new FreshNavigationContainer(page, nameof(WizardActivityTypePageModel));
             await CoreMethods.PushNewNavigationServiceModal(basicNavContainer, page.GetModel(), true).ConfigureAwait(false);
         }

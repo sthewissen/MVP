@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Linq;
 using System.Threading.Tasks;
+using System.Web;
 using AsyncAwaitBestPractices.MVVM;
 using MVP.Helpers;
 using MVP.Models;
@@ -65,10 +66,10 @@ namespace MVP.PageModels
             var openGraphData = await OpenGraph.ParseUrlAsync(Url);
 
             if (openGraphData.Metadata.ContainsKey("og:title"))
-                Title = openGraphData.Metadata["og:title"].Value();
+                Title = HttpUtility.HtmlDecode(openGraphData.Metadata["og:title"].Value());
 
             if (openGraphData.Metadata.ContainsKey("og:description"))
-                Description = openGraphData.Metadata["og:description"].Value();
+                Description = HttpUtility.HtmlDecode(openGraphData.Metadata["og:description"].Value());
 
             if (openGraphData.Metadata.ContainsKey("og:image"))
                 ImageUrl = openGraphData.Metadata["og:image"].First().Value;

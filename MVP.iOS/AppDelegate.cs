@@ -2,6 +2,7 @@
 using FormsToolkit.iOS;
 using Foundation;
 using Microsoft.Identity.Client;
+using MVP.Services;
 using MVP.Services.Interfaces;
 using UIKit;
 
@@ -23,8 +24,13 @@ namespace MVP.iOS
 
             // Inject analytics service
             AppContainer.Build();
+
             var analyticsService = AppContainer.Resolve<IAnalyticsService>();
-            LoadApplication(new App(analyticsService));
+            var apiService = AppContainer.Resolve<IMvpApiService>();
+            var authService = AppContainer.Resolve<IAuthService>();
+            var dialogService = AppContainer.Resolve<IDialogService>();
+
+            LoadApplication(new App(analyticsService, apiService, authService, dialogService));
 
             return base.FinishedLaunching(app, options);
         }

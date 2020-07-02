@@ -1,10 +1,7 @@
 ﻿using System;
 using System.Threading.Tasks;
-using AsyncAwaitBestPractices;
 using AsyncAwaitBestPractices.MVVM;
-using FormsToolkit;
 using MVP.Services;
-using MVP.Services.Helpers;
 using Xamarin.Essentials;
 using Xamarin.Forms;
 
@@ -13,17 +10,13 @@ namespace MVP.PageModels
     public class SplashScreenPageModel : BasePageModel
     {
         readonly IAuthService _authService;
-        readonly IMvpApiService _mvpApiService;
 
         public IAsyncCommand PrefetchDataCommand { get; set; }
-
         public string FetchText { get; set; }
 
-        public SplashScreenPageModel(IAuthService authService, IMvpApiService mvpApiService)
+        public SplashScreenPageModel(IAuthService authService)
         {
             _authService = authService;
-            _mvpApiService = mvpApiService;
-
             PrefetchDataCommand = new AsyncCommand(() => PrefetchData());
         }
 
@@ -34,13 +27,13 @@ namespace MVP.PageModels
                 if (await _authService.SignInSilentAsync())
                 {
                     FetchText = "Grabbing the contribution areas...";
-                    await _mvpApiService.GetContributionAreasAsync();
+                    await MvpApiService.GetContributionAreasAsync();
 
                     FetchText = "Syncing the contribution types...";
-                    await _mvpApiService.GetContributionTypesAsync();
+                    await MvpApiService.GetContributionTypesAsync();
 
                     FetchText = "Putting visibilities in place...";
-                    await _mvpApiService.GetVisibilitiesAsync();
+                    await MvpApiService.GetVisibilitiesAsync();
 
                     MainThread.BeginInvokeOnMainThread(() =>
                     {
@@ -52,6 +45,7 @@ namespace MVP.PageModels
                 else
                 {
                     // Fixed delay to show the animation on the frontend :$
+                    FetchText = "Getting things ready...";
                     await Task.Delay(2500);
 
                     MainThread.BeginInvokeOnMainThread(() =>
@@ -63,9 +57,10 @@ namespace MVP.PageModels
             catch (Exception e)
             {
                 _analyticsService.Report(e);
-
                 MainThread.BeginInvokeOnMainThread(() =>
                 {
+                    // TODO: Inform the user of this.
+
                     Application.Current.MainPage = FreshMvvm.FreshPageModelResolver.ResolvePageModel<IntroPageModel>();
                 });
             }

@@ -15,7 +15,6 @@ namespace MVP.PageModels
 {
     public class WizardAdditionalTechnologyPageModel : BasePageModel
     {
-        readonly MvpApiService _mvpApiService;
         IList<ContributionTechnology> _selectedContributionTechnologies;
         Contribution _contribution;
 
@@ -31,9 +30,8 @@ namespace MVP.PageModels
 
         public IList<MvvmHelpers.Grouping<string, ContributionTechnology>> GroupedContributionTechnologies { get; set; } = new List<MvvmHelpers.Grouping<string, ContributionTechnology>>();
 
-        public WizardAdditionalTechnologyPageModel(MvpApiService mvpApiService)
+        public WizardAdditionalTechnologyPageModel()
         {
-            _mvpApiService = mvpApiService;
             BackCommand = new AsyncCommand(() => Back());
             NextCommand = new AsyncCommand(() => Next());
             SelectionChangedCommand = new Command<IList<object>>((list) => SelectionChanged(list));
@@ -65,7 +63,7 @@ namespace MVP.PageModels
         {
             if (Connectivity.NetworkAccess == NetworkAccess.Internet)
             {
-                var categories = await _mvpApiService.GetContributionAreasAsync().ConfigureAwait(false);
+                var categories = await MvpApiService.GetContributionAreasAsync().ConfigureAwait(false);
 
                 if (categories != null)
                 {

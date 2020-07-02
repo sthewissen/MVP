@@ -6,6 +6,9 @@ using MVP.Services.Interfaces;
 using System;
 using AsyncAwaitBestPractices;
 using Akavache;
+using MVP.Services;
+using Xamarin.Essentials;
+using System.Threading.Tasks;
 
 namespace MVP
 {
@@ -13,21 +16,68 @@ namespace MVP
     {
         readonly WeakEventManager _resumedEventManager = new WeakEventManager();
         readonly IAnalyticsService _analyticsService;
+        readonly IAuthService _authService;
+        readonly IDialogService _dialogService;
 
-        public App(IAnalyticsService analyticsService)
+        public static IMvpApiService MvpApiService { get; set; }
+
+        public App(IAnalyticsService analyticsService, IMvpApiService mvpApiService,
+            IAuthService authService, IDialogService dialogService)
         {
             InitializeComponent();
 
             _analyticsService = analyticsService;
+            _authService = authService;
+            _dialogService = dialogService;
+
+            mvpApiService.AccessTokenExpired += MvpApiService_AccessTokenExpired;
+            mvpApiService.RequestErrorOccurred += MvpApiService_RequestErrorOccurred;
+
+            MvpApiService = mvpApiService;
 
             Device.SetFlags(new[] { "IndicatorView_Experimental" });
-            AppContainer.Build();
 
+            AppContainer.Build();
             Akavache.Registrations.Start(Constants.AppName);
 
             MainPage = FreshMvvm.FreshPageModelResolver.ResolvePageModel<SplashScreenPageModel>();
 
             On<iOS>().SetHandleControlUpdatesOnMainThread(true);
+        }
+
+        async void MvpApiService_RequestErrorOccurred(object sender, Services.Helpers.ApiServiceEventArgs e)
+        {
+            if (e.IsBadRequest)
+            {
+                await _dialogService.AlertAsync(
+                    "That request wasn't quite right. Try again later.",
+                    "Oh boy, that's not good!",
+                    "OK");
+            }
+            else if (e.IsServerError)
+            {
+                await _dialogService.AlertAsync(
+                    "The MVP API messed something up. Couldn't grab that data right now.",
+                    "Oh boy, that's not good!",
+                    "OK");
+            }
+        }
+
+        async void MvpApiService_AccessTokenExpired(object sender, Services.Helpers.ApiServiceEventArgs e)
+        {
+            // Log in again.
+            var result = await _authService.SignInAsync();
+
+            if (!result)
+            {
+                // Show a message that data could not be refreshed.
+                // Also forward the user back to getting started, telling the user that
+                // a logout has occurred.
+                await _dialogService.AlertAsync(
+                    "Your credentials have expired. We needed to log you out. Please login again to continue.",
+                    "Oh boy, that's not good!",
+                    "OK");
+            }
         }
 
         public event EventHandler Resumed
@@ -60,95 +110,6 @@ namespace MVP
         }
 
         void OnResumed() => _resumedEventManager.HandleEvent(this, EventArgs.Empty, nameof(Resumed));
-
-        //public void SwitchToRootNavigation()
-        //{
-        //    var nav = new FreshNavigationContainer(FreshPageModelResolver.ResolvePageModel<ContributionsPageModel>());
-        //    MainPage = nav;
-        //}
-
-        //protected async override void OnStart()
-        //{
-        //    base.OnStart();
-
-        //    // If we have internet and you've seen the intro.
-        //    if (Connectivity.NetworkAccess == NetworkAccess.Internet)
-        //    {
-        //        // If the intro hasn't been shown yet, the login is handled through there.
-        //        if (Preferences.Get(Settings.HasSeenIntro, false))
-        //        {
-        //            await SignInAsync().ConfigureAwait(false);
-        //        }
-        //    }
-        //    else
-        //    {
-        //        // TODO: No internet means no signing in :(
-        //        MessagingService.Current.SendMessage(Messaging.AppOffline);
-        //    }
-        //}
-
-        //async Task SignInAsync()
-        //{
-        //    // Get the token to see if there is one.
-        //    var refreshToken = await SecureStorage.GetAsync("AccessToken").ConfigureAwait(false);
-
-        //    // If refresh token is available, the user has previously been logged in and we can get a refreshed access token immediately
-        //    if (!string.IsNullOrEmpty(refreshToken))
-        //    {
-        //        // Try to login without the user's interference.
-        //        if (await AuthService.SignInSilentAsync().ConfigureAwait(false))
-        //        {
-        //            await InitializeMvpService().ConfigureAwait(false);
-        //            MessagingService.Current.SendMessage(Messaging.SuccessfulAuth);
-        //        }
-        //        else
-        //        {
-        //            // Couldn't log in, have to force the user to provide new credentials.
-        //            if (await AuthService.SignInAsync().ConfigureAwait(false))
-        //            {
-        //                await InitializeMvpService().ConfigureAwait(false);
-        //                MessagingService.Current.SendMessage(Messaging.SuccessfulAuth);
-        //            }
-        //            else
-        //            {
-        //                // TODO: User wasn't logged in.
-        //                MessagingService.Current.SendMessage(Messaging.InvalidAuth);
-        //            }
-        //        }
-        //    }
-        //    else
-        //    {
-        //        // No stored credentials, use login workflow
-        //        if (await AuthService.SignInAsync().ConfigureAwait(false))
-        //        {
-        //            await InitializeMvpService().ConfigureAwait(false);
-        //            MessagingService.Current.SendMessage(Messaging.SuccessfulAuth);
-        //        }
-        //        else
-        //        {
-        //            // TODO: User wasn't logged in.
-        //            MessagingService.Current.SendMessage(Messaging.InvalidAuth);
-        //        }
-        //    }
-        //}
-
-        //public async Task InitializeMvpService()
-        //{
-        //    // Grab the auth token and set it to the MVP service.
-        //    var token = await SecureStorage.GetAsync("AccessToken").ConfigureAwait(false);
-        //    var service = new MvpApiService(token);
-
-        //    if (MvpApiService != null)
-        //    {
-        //        MvpApiService.AccessTokenExpired -= MvpApiService_AccessTokenExpired;
-        //        MvpApiService.RequestErrorOccurred -= MvpApiService_RequestErrorOccurred;
-        //    }
-
-        //    service.AccessTokenExpired += MvpApiService_AccessTokenExpired;
-        //    service.RequestErrorOccurred += MvpApiService_RequestErrorOccurred;
-
-        //    MvpApiService = service;
-        //}
 
         //private void MvpApiService_RequestErrorOccurred(object sender, ApiServiceEventArgs e)
         //{

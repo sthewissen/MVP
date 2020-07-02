@@ -12,7 +12,6 @@ namespace MVP.PageModels
 {
     public class WizardTechnologyPageModel : BasePageModel
     {
-        readonly MvpApiService _mvpApiService;
         ContributionTechnology _selectedContributionTechnology;
         Contribution _contribution;
 
@@ -36,9 +35,8 @@ namespace MVP.PageModels
             }
         }
 
-        public WizardTechnologyPageModel(MvpApiService mvpApiService)
+        public WizardTechnologyPageModel()
         {
-            _mvpApiService = mvpApiService;
             BackCommand = new AsyncCommand(() => Back());
             NextCommand = new AsyncCommand<Contribution>((contribution) => Next(contribution));
         }
@@ -59,7 +57,7 @@ namespace MVP.PageModels
         {
             if (Connectivity.NetworkAccess == NetworkAccess.Internet)
             {
-                var categories = await _mvpApiService.GetContributionAreasAsync().ConfigureAwait(false);
+                var categories = await MvpApiService.GetContributionAreasAsync().ConfigureAwait(false);
 
                 if (categories != null)
                 {

@@ -12,7 +12,6 @@ namespace MVP.PageModels
 {
     public class WizardVisibilityPageModel : BasePageModel
     {
-        readonly MvpApiService _mvpApiService;
         Visibility _selectedVisibility;
         Contribution _contribution;
 
@@ -36,9 +35,8 @@ namespace MVP.PageModels
             }
         }
 
-        public WizardVisibilityPageModel(MvpApiService mvpApiService)
+        public WizardVisibilityPageModel()
         {
-            _mvpApiService = mvpApiService;
             BackCommand = new AsyncCommand(() => Back());
             NextCommand = new AsyncCommand<Contribution>((contribution) => Next(contribution));
         }
@@ -59,7 +57,7 @@ namespace MVP.PageModels
         {
             if (Connectivity.NetworkAccess == NetworkAccess.Internet)
             {
-                var result = await _mvpApiService.GetVisibilitiesAsync().ConfigureAwait(false);
+                var result = await MvpApiService.GetVisibilitiesAsync().ConfigureAwait(false);
 
                 if (result != null)
                 {

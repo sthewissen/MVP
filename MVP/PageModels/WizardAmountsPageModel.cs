@@ -9,7 +9,6 @@ namespace MVP.PageModels
 {
     public class WizardAmountsPageModel : BasePageModel
     {
-        readonly IMvpApiService _mvpApiService;
         Contribution _contribution;
         int? _annualQuantity;
         int? _secondAnnualQuantity;
@@ -50,10 +49,8 @@ namespace MVP.PageModels
 
         public ContributionTypeConfig ContributionTypeConfig { get; set; }
 
-        public WizardAmountsPageModel(IMvpApiService mvpApiService)
+        public WizardAmountsPageModel()
         {
-            _mvpApiService = mvpApiService;
-
             BackCommand = new AsyncCommand(() => Back());
             SaveCommand = new AsyncCommand(() => Save());
         }
@@ -90,7 +87,7 @@ namespace MVP.PageModels
 
             if (_contribution.ContributionId.HasValue)
             {
-                var result = await _mvpApiService.UpdateContributionAsync(_contribution);
+                var result = await MvpApiService.UpdateContributionAsync(_contribution);
 
                 if (result)
                 {
@@ -103,7 +100,7 @@ namespace MVP.PageModels
             }
             else
             {
-                var result = await _mvpApiService.SubmitContributionAsync(_contribution);
+                var result = await MvpApiService.SubmitContributionAsync(_contribution);
 
                 if (result != null)
                 {

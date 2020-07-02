@@ -10,8 +10,6 @@ namespace MVP.PageModels
 {
     public class ContributionDetailsPageModel : BasePageModel
     {
-        private readonly MvpApiService _mvpApiService;
-
         public Contribution Contribution { get; set; }
         public bool CanBeEdited => Contribution != null && Contribution.StartDate.IsWithinCurrentAwardPeriod();
 
@@ -21,9 +19,8 @@ namespace MVP.PageModels
         public IAsyncCommand BackCommand { get; set; }
         public ContributionTypeConfig ContributionTypeConfig { get; set; }
 
-        public ContributionDetailsPageModel(MvpApiService mvpApiService)
+        public ContributionDetailsPageModel()
         {
-            _mvpApiService = mvpApiService;
             BackCommand = new AsyncCommand(() => Back());
             DeleteContributionCommand = new AsyncCommand(() => DeleteContribution());
             EditContributionCommand = new AsyncCommand(() => EditContribution(), (x) => CanBeEdited);
@@ -49,6 +46,8 @@ namespace MVP.PageModels
 
         async Task EditContribution()
         {
+            // TODO: Change this check to block people if current time is between April 1 and July 1 and the
+            // contribution is before April 1st.
             if (Contribution.StartDate.IsWithinCurrentAwardPeriod())
             {
                 var page = FreshPageModelResolver.ResolvePageModel<WizardTechnologyPageModel>(Contribution);
@@ -72,7 +71,7 @@ namespace MVP.PageModels
                 // Ask for confirmation before deletion.
                 if (await _dialogService.ConfirmAsync("Are you sure you want to delete this contribution? You cannot undo this.", Alerts.HoldOn, Alerts.OK, Alerts.Cancel))
                 {
-                    var isDeleted = await _mvpApiService.DeleteContributionAsync(Contribution);
+                    var isDeleted = await MvpApiService.DeleteContributionAsync(Contribution);
 
                     if (isDeleted)
                     {

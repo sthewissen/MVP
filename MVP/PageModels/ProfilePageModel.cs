@@ -9,11 +9,11 @@ namespace MVP.PageModels
 {
     public class ProfilePageModel : BasePageModel
     {
-        readonly AuthService _authService;
+        readonly IAuthService _authService;
 
         public IAsyncCommand LogoutCommand { get; set; }
 
-        public ProfilePageModel(AuthService authService)
+        public ProfilePageModel(IAuthService authService)
         {
             _authService = authService;
             LogoutCommand = new AsyncCommand(() => Logout());
@@ -23,6 +23,7 @@ namespace MVP.PageModels
         {
             if (await _authService.SignOutAsync())
             {
+                await MvpApiService.ClearAllLocalData();
                 Application.Current.MainPage = FreshPageModelResolver.ResolvePageModel<IntroPageModel>();
             }
         }

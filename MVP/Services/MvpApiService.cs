@@ -36,28 +36,24 @@ namespace MVP.Services
         }
 
         /// <summary>
+        /// Clears all locally stored data.
+        /// </summary>
+        /// <returns></returns>
+        public async Task ClearAllLocalData()
+        {
+            await BlobCache.LocalMachine.Invalidate("profile");
+            await BlobCache.LocalMachine.Invalidate("avatar");
+        }
+
+        /// <summary>
         /// Returns the profile data of the currently signed in MVP
         /// </summary>
         /// <returns>The MVP's profile information</returns>
-        public async Task<Profile> GetProfileAsync(bool forceRefresh = false)
+        public Task<Profile> GetProfileAsync(bool forceRefresh = false)
         {
             try
             {
-                // Get rid of cached data.
-                if (forceRefresh)
-                    await BlobCache.LocalMachine.InvalidateObject<Profile>("profile");
-
-                // Grab cached data and return immediately + fetch new data in background if needed.
-                var cachedProfile = BlobCache.LocalMachine.GetAndFetchLatest("profile", GetRemoteProfileAsync,
-                    offset =>
-                    {
-                        TimeSpan elapsed = DateTimeOffset.Now - offset;
-                        return elapsed > new TimeSpan(days: 1, hours: 0, minutes: 0, seconds: 0);
-                    });
-
-                var profile = await cachedProfile.FirstOrDefaultAsync();
-
-                return profile;
+                return GetFromCacheAndGetLatest("profile", GetRemoteProfileAsync, new TimeSpan(1, 0, 0, 0), forceRefresh);
             }
             catch (Exception e)
             {
@@ -383,7 +379,6 @@ namespace MVP.Services
         /// <returns></returns>
         public async Task<IReadOnlyList<OnlineIdentity>> GetOnlineIdentitiesAsync(bool forceRefresh = false)
         {
-            // TODO: CACHING
             try
             {
                 return await _api.GetOnlineIdentities();
@@ -493,7 +488,7 @@ namespace MVP.Services
         }
 
         /// <summary>
-        /// Saves the MVP's answers to the Aware Consideration questions.
+        /// Saves the MVP's answers to the Award Consideration questions.
         /// IMPORTANT NOTE:
         /// This does NOT submit them for review by the MVP award team, it is intended to be used to save the answers.
         /// To submit the questions, call SubmitAwardConsiderationAnswerAsync after saving the answers.
@@ -622,5 +617,34 @@ namespace MVP.Services
             }
         }
 
+        /// <summary>
+        /// Grabs a piece of data from the cache and subsequently starts a fetch from remote depending on whether or not it is still valid.
+        /// </summary>
+        async Task<T> GetFromCacheAndGetLatest<T>(string key, Func<Task<T>> fetch, TimeSpan cacheTimeSpan, bool forceRefresh)
+        {
+            try
+            {
+                // Get rid of cached data.
+                if (forceRefresh)
+                    await BlobCache.LocalMachine.InvalidateObject<T>(key);
+
+                // Grab cached data and return immediately + fetch new data in background if needed.
+                var cachedData = BlobCache.LocalMachine.GetAndFetchLatest(key, fetch,
+                    offset =>
+                    {
+                        TimeSpan elapsed = DateTimeOffset.Now - offset;
+                        return elapsed > cacheTimeSpan;
+                    });
+
+                var data = await cachedData.FirstOrDefaultAsync();
+
+                return data;
+            }
+            catch (Exception e)
+            {
+                _analyticsService.Report(e);
+                return default;
+            }
+        }
     }
 }
