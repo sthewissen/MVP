@@ -94,6 +94,12 @@
         <PackageReference Include="XamarinCommunityToolkit">
           <Version>1.0.0-preview1001</Version>
         </PackageReference>
+        <PackageReference Include="TinyMvvm.Forms">
+          <Version>2.3.1</Version>
+        </PackageReference>
+        <PackageReference Include="TinyMvvm.Autofac">
+          <Version>2.3.1</Version>
+        </PackageReference>
     </ItemGroup>
     <ItemGroup>
         <Compile Include="MainActivity.cs" />

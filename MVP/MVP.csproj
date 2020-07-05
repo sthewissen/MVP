@@ -28,6 +28,8 @@
         <PackageReference Include="HtmlAgilityPack" Version="1.11.24" />
         <PackageReference Include="akavache" Version="6.10.20" />
         <PackageReference Include="XamarinCommunityToolkit" Version="1.0.0-preview1001" />
+        <PackageReference Include="TinyMvvm.Forms" Version="2.3.1" />
+        <PackageReference Include="TinyMvvm.Autofac" Version="2.3.1" />
     </ItemGroup>
     <ItemGroup>
         <Folder Include="Models\" />
@@ -82,11 +84,5 @@
         <Compile Remove="Pages\WizardTechnologyPage.xaml.cs" />
         <Compile Remove="Pages\ContributionDetailsPage.xaml.cs" />
         <Compile Remove="Pages\ProfilePage.xaml.cs" />
-    </ItemGroup>
-    <ItemGroup>
-      <ProjectReference Include="..\..\..\..\Downloads\TinyMvvm-master\src\TinyMvvm\TinyMvvm.csproj" />
-      <ProjectReference Include="..\..\..\..\Downloads\TinyMvvm-master\src\TinyMvvm.Autofac\TinyMvvm.Autofac.csproj" />
-      <ProjectReference Include="..\..\..\..\Downloads\TinyMvvm-master\src\TinyMvvm.Forms\TinyMvvm.Forms.csproj" />
-      <ProjectReference Include="..\..\..\..\Downloads\TinyMvvm-master\TinyNavigationHelper\src\TinyNavigationHelper.Abstraction\TinyNavigationHelper.Abstraction.csproj" />
     </ItemGroup>
 </Project>

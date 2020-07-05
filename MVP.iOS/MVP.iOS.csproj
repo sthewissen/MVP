@@ -120,28 +120,18 @@
         <PackageReference Include="XamarinCommunityToolkit">
           <Version>1.0.0-preview1001</Version>
         </PackageReference>
+        <PackageReference Include="TinyMvvm.Forms">
+          <Version>2.3.1</Version>
+        </PackageReference>
+        <PackageReference Include="TinyMvvm.Autofac">
+          <Version>2.3.1</Version>
+        </PackageReference>
     </ItemGroup>
     <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
     <ItemGroup>
         <ProjectReference Include="..\MVP\MVP.csproj">
             <Project>{670022BB-F73F-4C87-A92C-D8011E30D658}</Project>
             <Name>MVP</Name>
-        </ProjectReference>
-        <ProjectReference Include="..\..\..\..\Downloads\TinyMvvm-master\src\TinyMvvm\TinyMvvm.csproj">
-          <Project>{0D24BBD6-3EBD-4D11-92ED-D3942D8A64E7}</Project>
-          <Name>TinyMvvm</Name>
-        </ProjectReference>
-        <ProjectReference Include="..\..\..\..\Downloads\TinyMvvm-master\src\TinyMvvm.Autofac\TinyMvvm.Autofac.csproj">
-          <Project>{0EC5BC4D-D718-4BE4-9B11-CE22835B813C}</Project>
-          <Name>TinyMvvm.Autofac</Name>
-        </ProjectReference>
-        <ProjectReference Include="..\..\..\..\Downloads\TinyMvvm-master\src\TinyMvvm.Forms\TinyMvvm.Forms.csproj">
-          <Project>{FA212832-38DB-483D-9719-F4565027B753}</Project>
-          <Name>TinyMvvm.Forms</Name>
-        </ProjectReference>
-        <ProjectReference Include="..\..\..\..\Downloads\TinyMvvm-master\TinyNavigationHelper\src\TinyNavigationHelper.Abstraction\TinyNavigationHelper.Abstraction.csproj">
-          <Project>{1AD07B36-5643-4A19-80BF-FF7B4DC3C443}</Project>
-          <Name>TinyNavigationHelper.Abstraction</Name>
         </ProjectReference>
     </ItemGroup>
     <ItemGroup>
