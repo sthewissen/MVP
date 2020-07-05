@@ -1,9 +1,12 @@
 ﻿using System;
+using Autofac;
 using FormsToolkit.iOS;
 using Foundation;
 using Microsoft.Identity.Client;
+using MVP.Pages;
 using MVP.Services;
 using MVP.Services.Interfaces;
+using MVP.ViewModels;
 using UIKit;
 
 namespace MVP.iOS
@@ -22,13 +25,12 @@ namespace MVP.iOS
             FFImageLoading.Forms.Platform.CachedImageRenderer.Init();
             Toolkit.Init();
 
-            // Inject analytics service
-            AppContainer.Build();
-
-            var analyticsService = AppContainer.Resolve<IAnalyticsService>();
-            var apiService = AppContainer.Resolve<IMvpApiService>();
-            var authService = AppContainer.Resolve<IAuthService>();
-            var dialogService = AppContainer.Resolve<IDialogService>();
+            // Inject our dependencies
+            using var scope = ContainerService.Container.BeginLifetimeScope();
+            var analyticsService = scope.Resolve<IAnalyticsService>();
+            var apiService = scope.Resolve<IMvpApiService>();
+            var authService = scope.Resolve<IAuthService>();
+            var dialogService = scope.Resolve<IDialogService>();
 
             LoadApplication(new App(analyticsService, apiService, authService, dialogService));
 

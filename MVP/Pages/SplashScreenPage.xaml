@@ -1,11 +1,15 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" x:Class="MVP.Pages.SplashScreenPage"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:ff="clr-namespace:FFImageLoading.Svg.Forms;assembly=FFImageLoading.Svg.Forms"
-             xmlns:helpers="clr-namespace:MVP.Helpers"
-             BackgroundColor="{StaticResource primary}"
-             helpers:StatusBar.StatusBarStyle="WhiteText"
-             xmlns:vm="clr-namespace:MVP.PageModels" x:DataType="{x:Type vm:SplashScreenPageModel}">
+<pages:BaseContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+                       x:Class="MVP.Pages.SplashScreenPage"
+                       xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                       xmlns:ff="clr-namespace:FFImageLoading.Svg.Forms;assembly=FFImageLoading.Svg.Forms"
+                       xmlns:helpers="clr-namespace:MVP.Helpers"
+                       xmlns:pages="clr-namespace:MVP.Pages"
+                       x:TypeArguments="vm:SplashScreenViewModel"
+                       x:DataType="vm:SplashScreenViewModel"
+                       BackgroundColor="{StaticResource primary}"
+                       helpers:StatusBar.StatusBarStyle="WhiteText"
+                       xmlns:vm="clr-namespace:MVP.ViewModels">
 
     <StackLayout VerticalOptions="Center" HorizontalOptions="Center" Spacing="16">
 
@@ -17,4 +21,4 @@
 
     </StackLayout>
 
-</ContentPage>
+</pages:BaseContentPage>

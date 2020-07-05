@@ -3,6 +3,7 @@
     <PropertyGroup>
         <TargetFramework>netstandard2.1</TargetFramework>
         <ProduceReferenceAssembly>true</ProduceReferenceAssembly>
+        <LangVersion>8.0</LangVersion>
     </PropertyGroup>
     <ItemGroup>
         <PackageReference Include="Xamarin.Forms" Version="4.7.0.1080" />
@@ -11,17 +12,12 @@
         <PackageReference Include="Refractored.MvvmHelpers" Version="1.6.2" />
         <PackageReference Include="Microsoft.Identity.Client" Version="4.15.0" />
         <PackageReference Include="Xamarin.Forms.PancakeView" Version="1.4.2" />
-        <PackageReference Include="FreshMvvm" Version="3.0.0" />
         <PackageReference Include="Xamarin.FFImageLoading.Forms" Version="2.4.11.982" />
         <PackageReference Include="Xamarin.FFImageLoading.Transformations" Version="2.4.11.982" />
         <PackageReference Include="AsyncAwaitBestPractices.MVVM" Version="4.1.1" />
         <PackageReference Include="AsyncAwaitBestPractices" Version="4.1.1" />
         <PackageReference Include="FormsToolkit" Version="2.0.1" />
         <PackageReference Include="PropertyChanged.Fody" Version="3.2.8" />
-        <PackageReference Include="Fody" Version="6.2.0">
-            <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
-            <PrivateAssets>all</PrivateAssets>
-        </PackageReference>
         <PackageReference Include="Xamarin.Forms.StateSquid" Version="1.1.3" />
         <PackageReference Include="Xamarin.FFImageLoading.Svg.Forms" Version="2.4.11.982" />
         <PackageReference Include="Acr.UserDialogs" Version="7.1.0.446" />
@@ -31,6 +27,7 @@
         <PackageReference Include="Refit" Version="5.1.67" />
         <PackageReference Include="HtmlAgilityPack" Version="1.11.24" />
         <PackageReference Include="akavache" Version="6.10.20" />
+        <PackageReference Include="XamarinCommunityToolkit" Version="1.0.0-preview1001" />
     </ItemGroup>
     <ItemGroup>
         <Folder Include="Models\" />
@@ -38,22 +35,58 @@
         <Folder Include="Styles\" />
         <Folder Include="Extensions\" />
         <Folder Include="Effects\" />
-        <Folder Include="PageModels\Base\" />
         <Folder Include="Resources\" />
         <Folder Include="Services\Interfaces\" />
         <Folder Include="Resources\Fonts\" />
         <Folder Include="Converters\" />
         <Folder Include="Templates\" />
         <Folder Include="Helpers\" />
+        <Folder Include="Pages\Base\" />
+        <Folder Include="ViewModels\" />
+        <Folder Include="ViewModels\Base\" />
     </ItemGroup>
     <ItemGroup>
         <None Remove="Resources\mvp_logo.svg" />
         <None Remove="Resources\Fonts\mvpicons.ttf" />
     </ItemGroup>
     <ItemGroup>
+        <EmbeddedResource Remove="Pages\StyleGuidePage.xaml" />
+        <EmbeddedResource Remove="Pages\WizardActivityTypePage.xaml" />
+        <EmbeddedResource Remove="Pages\WizardDescriptionPage.xaml" />
+        <EmbeddedResource Remove="Pages\WizardAmountsPage.xaml" />
+        <EmbeddedResource Remove="Pages\WizardTitlePage.xaml" />
+        <EmbeddedResource Remove="Pages\WizardDatePage.xaml" />
+        <EmbeddedResource Remove="Pages\WizardAdditionalTechnologyPage.xaml" />
+        <EmbeddedResource Remove="Pages\WizardTechnologyPage.xaml" />
+        <EmbeddedResource Remove="Pages\WizardVisibilityPage.xaml" />
+        <EmbeddedResource Remove="Pages\WizardUrlPage.xaml" />
+        <EmbeddedResource Remove="Pages\ContributionDetailsPage.xaml" />
+        <EmbeddedResource Remove="Pages\ProfilePage.xaml" />
+    </ItemGroup>
+    <ItemGroup>
         <EmbeddedResource Include="Resources\mvp_logo.svg">
             <LogicalName>mvp_logo.svg</LogicalName>
         </EmbeddedResource>
         <EmbeddedResource Include="Resources\Fonts\mvpicons.ttf" />
+    </ItemGroup>
+    <ItemGroup>
+        <Compile Remove="Pages\StyleGuidePage.xaml.cs" />
+        <Compile Remove="Pages\WizardActivityTypePage.xaml.cs" />
+        <Compile Remove="Pages\WizardAdditionalTechnologyPage.xaml.cs" />
+        <Compile Remove="Pages\WizardDatePage.xaml.cs" />
+        <Compile Remove="Pages\WizardDescriptionPage.xaml.cs" />
+        <Compile Remove="Pages\WizardTitlePage.xaml.cs" />
+        <Compile Remove="Pages\WizardUrlPage.xaml.cs" />
+        <Compile Remove="Pages\WizardVisibilityPage.xaml.cs" />
+        <Compile Remove="Pages\WizardAmountsPage.xaml.cs" />
+        <Compile Remove="Pages\WizardTechnologyPage.xaml.cs" />
+        <Compile Remove="Pages\ContributionDetailsPage.xaml.cs" />
+        <Compile Remove="Pages\ProfilePage.xaml.cs" />
+    </ItemGroup>
+    <ItemGroup>
+      <ProjectReference Include="..\..\..\..\Downloads\TinyMvvm-master\src\TinyMvvm\TinyMvvm.csproj" />
+      <ProjectReference Include="..\..\..\..\Downloads\TinyMvvm-master\src\TinyMvvm.Autofac\TinyMvvm.Autofac.csproj" />
+      <ProjectReference Include="..\..\..\..\Downloads\TinyMvvm-master\src\TinyMvvm.Forms\TinyMvvm.Forms.csproj" />
+      <ProjectReference Include="..\..\..\..\Downloads\TinyMvvm-master\TinyNavigationHelper\src\TinyNavigationHelper.Abstraction\TinyNavigationHelper.Abstraction.csproj" />
     </ItemGroup>
 </Project>

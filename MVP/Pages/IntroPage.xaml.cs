@@ -1,27 +1,26 @@
-﻿using FFImageLoading;
-using FormsToolkit;
-using MVP.Models;
-using MVP.PageModels;
-using Xamarin.Essentials;
+﻿using MVP.Models;
+using MVP.Services.Interfaces;
+using MVP.ViewModels;
 using Xamarin.Forms;
 
 namespace MVP.Pages
 {
-    public partial class IntroPage : ContentPage
+    /// <summary>
+    /// This page contains the carousel used for onboarding the user to the app
+    /// and the features it offers. 
+    /// </summary>
+    public partial class IntroPage
     {
-        public IntroPage()
-        {
-            InitializeComponent();
-        }
+        public IntroPage(IAnalyticsService analyticsService)
+            : base(analyticsService) => InitializeComponent();
 
         protected override void OnAppearing()
         {
             base.OnAppearing();
-
             pillbox.Margin = new Thickness(-20, phoneImage.Height / 5, 0, 0);
         }
 
-        void CarouselView_PositionChanged(System.Object sender, Xamarin.Forms.PositionChangedEventArgs e)
+        void CarouselView_PositionChanged(object sender, PositionChangedEventArgs e)
         {
             var item = carousel.CurrentItem as OnboardingItem;
             phoneImage.Source = item.ImageName;

@@ -1,6 +1,14 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
-<ContentPage x:Name="page" xmlns="http://xamarin.com/schemas/2014/forms"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+<pages:BaseContentPage  xmlns:pages="clr-namespace:MVP.Pages"
+                        x:Name="page"
+                        xmlns="http://xamarin.com/schemas/2014/forms"
+                        xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                        x:Class="MVP.Pages.ContributionsPage"
+                        xmlns:vm="clr-namespace:MVP.ViewModels"
+                        x:TypeArguments="vm:ContributionsViewModel"
+                        x:DataType="vm:ContributionsViewModel">
+
+    <!--
              xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
              xmlns:custom="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
              xmlns:ff="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
@@ -10,7 +18,6 @@
              helpers:StatusBar.StatusBarStyle="DarkText"
              xmlns:icons="clr-namespace:MVP.Styles"
              NavigationPage.HasNavigationBar="False"
-             x:Class="MVP.Pages.ContributionsPage">
 
     <Grid ColumnSpacing="16" BackgroundColor="{StaticResource background_gray}">
 
@@ -64,5 +71,5 @@
             <Button Style="{StaticResource fab_button}" Text="{x:Static icons:Icons.add}" Command="{Binding OpenAddContributionCommand}" />
         </custom:PancakeView>
 
-    </Grid>
-</ContentPage>
+    </Grid>-->
+</pages:BaseContentPage>

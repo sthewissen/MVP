@@ -10,6 +10,9 @@ using Plugin.CurrentActivity;
 using FormsToolkit.Droid;
 using Acr.UserDialogs;
 using MVP.Services.Interfaces;
+using MVP.Pages;
+using MVP.ViewModels;
+using Autofac;
 
 namespace MVP.Droid
 {
@@ -27,16 +30,16 @@ namespace MVP.Droid
             CrossCurrentActivity.Current.Init(this, savedInstanceState);
             Xamarin.Essentials.Platform.Init(this, savedInstanceState);
             global::Xamarin.Forms.Forms.Init(this, savedInstanceState);
-
             FFImageLoading.Forms.Platform.CachedImageRenderer.Init(enableFastRenderer: true);
             Toolkit.Init();
             UserDialogs.Init(this);
 
             // Inject analytics service
-            var analyticsService = AppContainer.Resolve<IAnalyticsService>();
-            var apiService = AppContainer.Resolve<IMvpApiService>();
-            var authService = AppContainer.Resolve<IAuthService>();
-            var dialogService = AppContainer.Resolve<IDialogService>();
+            using var scope = ContainerService.Container.BeginLifetimeScope();
+            var analyticsService = scope.Resolve<IAnalyticsService>();
+            var apiService = scope.Resolve<IMvpApiService>();
+            var authService = scope.Resolve<IAuthService>();
+            var dialogService = scope.Resolve<IDialogService>();
 
             LoadApplication(new App(analyticsService, apiService, authService, dialogService));
 
