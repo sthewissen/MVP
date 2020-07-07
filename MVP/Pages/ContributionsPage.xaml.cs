@@ -1,17 +1,17 @@
-﻿using Xamarin.Forms;
+﻿using MVP.Services.Interfaces;
+using MVP.ViewModels;
+using Xamarin.Forms;
 
 namespace MVP.Pages
 {
-    public partial class ContributionsPage : ContentPage
+    public partial class ContributionsPage
     {
         public bool _fabIsOutOfView;
 
-        public ContributionsPage()
-        {
-            InitializeComponent();
-        }
+        public ContributionsPage(IAnalyticsService analyticsService)
+            : base(analyticsService) => InitializeComponent();
 
-        async void CollectionView_Scrolled(System.Object sender, Xamarin.Forms.ItemsViewScrolledEventArgs e)
+        async void CollectionView_Scrolled(object sender, ItemsViewScrolledEventArgs e)
         {
             if (!_fabIsOutOfView && e.VerticalOffset > 0)
             {

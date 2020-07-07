@@ -1,15 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-
-using Xamarin.Forms;
+﻿using MVP.Services.Interfaces;
 
 namespace MVP.Pages
 {
-    public partial class ProfilePage : ContentPage
+    public partial class ProfilePage
     {
-        public ProfilePage()
-        {
-            InitializeComponent();
-        }
+        public ProfilePage(IAnalyticsService analyticsService)
+            : base(analyticsService) => InitializeComponent();
     }
 }

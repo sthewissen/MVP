@@ -1,14 +1,15 @@
 ﻿using System;
 using System.Threading.Tasks;
 using AsyncAwaitBestPractices.MVVM;
-using FreshMvvm;
 using MVP.Extensions;
 using MVP.Models;
-using MVP.Services;
+using MVP.Pages;
+using MVP.Services.Interfaces;
+using TinyNavigationHelper;
 
-namespace MVP.PageModels
+namespace MVP.ViewModels
 {
-    public class ContributionDetailsPageModel : BasePageModel
+    public class ContributionDetailsViewModel : BaseViewModel
     {
         public Contribution Contribution { get; set; }
         public bool CanBeEdited => Contribution != null && Contribution.StartDate.IsWithinCurrentAwardPeriod();
@@ -19,18 +20,19 @@ namespace MVP.PageModels
         public IAsyncCommand BackCommand { get; set; }
         public ContributionTypeConfig ContributionTypeConfig { get; set; }
 
-        public ContributionDetailsPageModel()
+        public ContributionDetailsViewModel(IAnalyticsService analyticsService, IAuthService authService, IDialogService dialogService, INavigationHelper navigationHelper)
+            : base(analyticsService, authService, dialogService, navigationHelper)
         {
             BackCommand = new AsyncCommand(() => Back());
             DeleteContributionCommand = new AsyncCommand(() => DeleteContribution());
             EditContributionCommand = new AsyncCommand(() => EditContribution(), (x) => CanBeEdited);
         }
 
-        public override void Init(object initData)
+        public async override Task Initialize()
         {
-            base.Init(initData);
+            await base.Initialize();
 
-            if (initData is Contribution contribution)
+            if (NavigationParameter is Contribution contribution)
             {
                 Contribution = contribution;
 
@@ -50,9 +52,7 @@ namespace MVP.PageModels
             // contribution is before April 1st.
             if (Contribution.StartDate.IsWithinCurrentAwardPeriod())
             {
-                var page = FreshPageModelResolver.ResolvePageModel<WizardTechnologyPageModel>(Contribution);
-                var basicNavContainer = new FreshNavigationContainer(page, nameof(WizardTechnologyPageModel));
-                await CoreMethods.PushNewNavigationServiceModal(basicNavContainer, page.GetModel(), true).ConfigureAwait(false);
+                await NavigationHelper.OpenModalAsync(nameof(WizardTechnologyPage), Contribution, true).ConfigureAwait(false);
             }
             else
             {
@@ -69,31 +69,33 @@ namespace MVP.PageModels
                     return;
 
                 // Ask for confirmation before deletion.
-                if (await _dialogService.ConfirmAsync("Are you sure you want to delete this contribution? You cannot undo this.", Alerts.HoldOn, Alerts.OK, Alerts.Cancel))
-                {
-                    var isDeleted = await MvpApiService.DeleteContributionAsync(Contribution);
+                var confirm = await DialogService.ConfirmAsync("Are you sure you want to delete this contribution? You cannot undo this.", Alerts.HoldOn, Alerts.OK, Alerts.Cancel);
 
-                    if (isDeleted)
-                    {
-                        // Pass back true to indicate it needs to refresh.
-                        await CoreMethods.PopPageModel(true, false, true);
-                    }
-                    else
-                    {
-                        await _dialogService.AlertAsync("Your contribution could not be deleted. Perhaps it was already deleted, or it took place in the previous award period?", Alerts.Error, Alerts.OK);
-                    }
+                if (!confirm)
+                    return;
+
+                var isDeleted = await MvpApiService.DeleteContributionAsync(Contribution);
+
+                if (isDeleted)
+                {
+                    // TODO: Pass back true to indicate it needs to refresh.
+                    await NavigationHelper.BackAsync().ConfigureAwait(false);
+                }
+                else
+                {
+                    await DialogService.AlertAsync("Your contribution could not be deleted. Perhaps it was already deleted, or it took place in the previous award period?", Alerts.Error, Alerts.OK);
                 }
             }
             catch (Exception ex)
             {
-                _analyticsService.Report(ex);
-                await _dialogService.AlertAsync(Alerts.UnexpectedError, Alerts.Error, Alerts.OK);
+                AnalyticsService.Report(ex);
+                await DialogService.AlertAsync(Alerts.UnexpectedError, Alerts.Error, Alerts.OK).ConfigureAwait(false);
             }
         }
 
         async Task Back()
         {
-            await CoreMethods.PopPageModel();
+            await NavigationHelper.BackAsync().ConfigureAwait(false);
         }
     }
 }

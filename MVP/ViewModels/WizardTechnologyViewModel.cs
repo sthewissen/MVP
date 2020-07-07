@@ -1,19 +1,20 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using AsyncAwaitBestPractices;
 using AsyncAwaitBestPractices.MVVM;
 using MVP.Models;
-using MVP.Services;
+using MVP.Pages;
+using MVP.Services.Interfaces;
+using TinyNavigationHelper;
 using Xamarin.Essentials;
 
-namespace MVP.PageModels
+namespace MVP.ViewModels
 {
-    public class WizardTechnologyPageModel : BasePageModel
+    public class WizardTechnologyViewModel : BaseViewModel
     {
-        ContributionTechnology _selectedContributionTechnology;
-        Contribution _contribution;
+        ContributionTechnology selectedContributionTechnology;
+        Contribution contribution;
 
         public IAsyncCommand BackCommand { get; set; }
         public IAsyncCommand<Contribution> NextCommand { get; set; }
@@ -22,32 +23,33 @@ namespace MVP.PageModels
 
         public ContributionTechnology SelectedContributionTechnology
         {
-            get => _selectedContributionTechnology;
+            get => selectedContributionTechnology;
             set
             {
-                _selectedContributionTechnology = value;
+                selectedContributionTechnology = value;
 
                 if (value != null)
                 {
-                    _contribution.ContributionTechnology = value;
-                    NextCommand.Execute(_contribution);
+                    contribution.ContributionTechnology = value;
+                    NextCommand.Execute(contribution);
                 }
             }
         }
 
-        public WizardTechnologyPageModel()
+        public WizardTechnologyViewModel(IAnalyticsService analyticsService, IAuthService authService, IDialogService dialogService, INavigationHelper navigationHelper)
+            : base(analyticsService, authService, dialogService, navigationHelper)
         {
             BackCommand = new AsyncCommand(() => Back());
             NextCommand = new AsyncCommand<Contribution>((contribution) => Next(contribution));
         }
 
-        public override void Init(object initData)
+        public async override Task Initialize()
         {
-            base.Init(initData);
+            await base.Initialize();
 
-            if (initData is Contribution contribution)
+            if (NavigationParameter is Contribution contribution)
             {
-                _contribution = contribution;
+                this.contribution = contribution;
             }
 
             LoadContributionAreas().SafeFireAndForget();
@@ -71,11 +73,11 @@ namespace MVP.PageModels
                     GroupedContributionTechnologies = result;
 
                     // Editing mode
-                    if (_contribution.ContributionTechnology != null)
+                    if (contribution.ContributionTechnology != null)
                     {
-                        _selectedContributionTechnology = result
+                        selectedContributionTechnology = result
                             .SelectMany(x => x)
-                            .FirstOrDefault(x => x.Id == _contribution.ContributionTechnology.Id);
+                            .FirstOrDefault(x => x.Id == contribution.ContributionTechnology.Id);
 
                         RaisePropertyChanged(nameof(SelectedContributionTechnology));
                     }
@@ -85,21 +87,21 @@ namespace MVP.PageModels
 
         async Task Back()
         {
-            if (_contribution.ContributionId.HasValue)
+            if (contribution.ContributionId.HasValue)
             {
                 // Pop the entire modal stack instead of just going back one screen.
                 // This means it's editing mode and there is no way to go back and change activity type.
-                await CoreMethods.PopModalNavigationService(animate: true).ConfigureAwait(false);
+                await NavigationHelper.CloseModalAsync().ConfigureAwait(false);
             }
             else
             {
-                await CoreMethods.PopPageModel(modal: false, animate: false).ConfigureAwait(false);
+                await NavigationHelper.BackAsync();
             }
         }
 
         async Task Next(Contribution contribution)
         {
-            await CoreMethods.PushPageModel<WizardAdditionalTechnologyPageModel>(data: contribution, modal: false, animate: false).ConfigureAwait(false);
+            await NavigationHelper.NavigateToAsync(nameof(WizardAdditionalTechnologyPage), contribution).ConfigureAwait(false);
         }
     }
 }

@@ -3,6 +3,7 @@ using Xamarin.Forms;
 
 namespace MVP.Effects
 {
+    // TODO: This will be in XamarinCommunityToolkit, so replace once that has a release.
     public static class SafeAreaPaddingEffect
     {
         public static readonly BindableProperty HasSafeAreaPaddingProperty =

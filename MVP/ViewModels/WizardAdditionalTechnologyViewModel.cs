@@ -7,16 +7,19 @@ using System.Windows.Input;
 using AsyncAwaitBestPractices;
 using AsyncAwaitBestPractices.MVVM;
 using MVP.Models;
+using MVP.Pages;
 using MVP.Services;
+using MVP.Services.Interfaces;
+using TinyNavigationHelper;
 using Xamarin.Essentials;
 using Xamarin.Forms;
 
-namespace MVP.PageModels
+namespace MVP.ViewModels
 {
-    public class WizardAdditionalTechnologyPageModel : BasePageModel
+    public class WizardAdditionalTechnologyViewModel : BaseViewModel
     {
-        IList<ContributionTechnology> _selectedContributionTechnologies;
-        Contribution _contribution;
+        IList<ContributionTechnology> selectedContributionTechnologies;
+        Contribution contribution;
 
         public IAsyncCommand BackCommand { get; set; }
         public IAsyncCommand NextCommand { get; set; }
@@ -24,26 +27,27 @@ namespace MVP.PageModels
 
         public IList<ContributionTechnology> SelectedContributionTechnologies
         {
-            get { return _selectedContributionTechnologies; }
-            set { _selectedContributionTechnologies = value; }
+            get { return selectedContributionTechnologies; }
+            set { selectedContributionTechnologies = value; }
         }
 
         public IList<MvvmHelpers.Grouping<string, ContributionTechnology>> GroupedContributionTechnologies { get; set; } = new List<MvvmHelpers.Grouping<string, ContributionTechnology>>();
 
-        public WizardAdditionalTechnologyPageModel()
+        public WizardAdditionalTechnologyViewModel(IAnalyticsService analyticsService, IAuthService authService, IDialogService dialogService, INavigationHelper navigationHelper)
+            : base(analyticsService, authService, dialogService, navigationHelper)
         {
             BackCommand = new AsyncCommand(() => Back());
             NextCommand = new AsyncCommand(() => Next());
             SelectionChangedCommand = new Command<IList<object>>((list) => SelectionChanged(list));
         }
 
-        public override void Init(object initData)
+        public async override Task Initialize()
         {
-            base.Init(initData);
+            await base.Initialize();
 
-            if (initData is Contribution contribution)
+            if (NavigationParameter is Contribution contribution)
             {
-                _contribution = contribution;
+                this.contribution = contribution;
             }
 
             LoadContributionAreas().SafeFireAndForget();
@@ -56,7 +60,7 @@ namespace MVP.PageModels
                 obj.Remove(obj.FirstOrDefault());
             }
 
-            _selectedContributionTechnologies = obj.Select(x => x as ContributionTechnology).ToList();
+            selectedContributionTechnologies = obj.Select(x => x as ContributionTechnology).ToList();
         }
 
         async Task LoadContributionAreas()
@@ -78,11 +82,11 @@ namespace MVP.PageModels
                     GroupedContributionTechnologies = result;
 
                     // Editing mode
-                    if (_contribution.AdditionalTechnologies != null && _contribution.AdditionalTechnologies.Any())
+                    if (contribution.AdditionalTechnologies != null && contribution.AdditionalTechnologies.Any())
                     {
-                        var selectedValues = _contribution.AdditionalTechnologies.Select(x => x.Id).ToList();
+                        var selectedValues = contribution.AdditionalTechnologies.Select(x => x.Id).ToList();
 
-                        _selectedContributionTechnologies = result
+                        selectedContributionTechnologies = result
                             .SelectMany(x => x)
                             .Where(x => selectedValues.Contains(x.Id))
                             .ToList();
@@ -95,17 +99,17 @@ namespace MVP.PageModels
 
         async Task Back()
         {
-            await CoreMethods.PopPageModel(modal: false, animate: false).ConfigureAwait(false);
+            await NavigationHelper.BackAsync().ConfigureAwait(false);
         }
 
         async Task Next()
         {
-            if (_selectedContributionTechnologies != null && _selectedContributionTechnologies.Any())
+            if (selectedContributionTechnologies != null && selectedContributionTechnologies.Any())
             {
-                _contribution.AdditionalTechnologies = new ObservableCollection<ContributionTechnology>(_selectedContributionTechnologies);
+                contribution.AdditionalTechnologies = new ObservableCollection<ContributionTechnology>(selectedContributionTechnologies);
             }
 
-            await CoreMethods.PushPageModel<WizardDatePageModel>(data: _contribution, modal: false, animate: false).ConfigureAwait(false);
+            await NavigationHelper.NavigateToAsync(nameof(WizardDatePage), contribution).ConfigureAwait(false);
         }
     }
 }

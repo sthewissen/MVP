@@ -5,15 +5,18 @@ using System.Threading.Tasks;
 using AsyncAwaitBestPractices;
 using AsyncAwaitBestPractices.MVVM;
 using MVP.Models;
+using MVP.Pages;
 using MVP.Services;
+using MVP.Services.Interfaces;
+using TinyNavigationHelper;
 using Xamarin.Essentials;
 
-namespace MVP.PageModels
+namespace MVP.ViewModels
 {
-    public class WizardVisibilityPageModel : BasePageModel
+    public class WizardVisibilityViewModel : BaseViewModel
     {
-        Visibility _selectedVisibility;
-        Contribution _contribution;
+        Visibility selectedVisibility;
+        Contribution contribution;
 
         public IAsyncCommand BackCommand { get; set; }
         public IAsyncCommand<Contribution> NextCommand { get; set; }
@@ -22,32 +25,33 @@ namespace MVP.PageModels
 
         public Visibility SelectedVisibility
         {
-            get => _selectedVisibility;
+            get => selectedVisibility;
             set
             {
-                _selectedVisibility = value;
+                selectedVisibility = value;
 
-                if (value != null)
+                if (value != null && contribution != null)
                 {
-                    _contribution.Visibility = value;
-                    NextCommand.Execute(_contribution);
+                    contribution.Visibility = value;
+                    NextCommand.Execute(contribution);
                 }
             }
         }
 
-        public WizardVisibilityPageModel()
+        public WizardVisibilityViewModel(IAnalyticsService analyticsService, IAuthService authService, IDialogService dialogService, INavigationHelper navigationHelper)
+            : base(analyticsService, authService, dialogService, navigationHelper)
         {
             BackCommand = new AsyncCommand(() => Back());
             NextCommand = new AsyncCommand<Contribution>((contribution) => Next(contribution));
         }
 
-        public override void Init(object initData)
+        public async override Task Initialize()
         {
-            base.Init(initData);
+            await base.Initialize();
 
-            if (initData is Contribution contribution)
+            if (NavigationParameter is Contribution contrib)
             {
-                _contribution = contribution;
+                contribution = contrib;
             }
 
             LoadVisibilities().SafeFireAndForget();
@@ -64,10 +68,10 @@ namespace MVP.PageModels
                     Visibilities = result.ToList();
 
                     // Editing mode
-                    if (_contribution.Visibility != null)
+                    if (contribution.Visibility != null)
                     {
-                        _selectedVisibility = result
-                            .FirstOrDefault(x => x.Id == _contribution.Visibility.Id);
+                        selectedVisibility = result
+                            .FirstOrDefault(x => x.Id == contribution.Visibility.Id);
 
                         RaisePropertyChanged(nameof(SelectedVisibility));
                     }
@@ -77,12 +81,12 @@ namespace MVP.PageModels
 
         async Task Back()
         {
-            await CoreMethods.PopPageModel(modal: false, animate: false).ConfigureAwait(false);
+            await NavigationHelper.BackAsync().ConfigureAwait(false);
         }
 
         async Task Next(Contribution contribution)
         {
-            await CoreMethods.PushPageModel<WizardAmountsPageModel>(data: contribution, modal: false, animate: false).ConfigureAwait(false);
+            await NavigationHelper.NavigateToAsync(nameof(WizardAmountsPage), contribution).ConfigureAwait(false);
         }
     }
 }

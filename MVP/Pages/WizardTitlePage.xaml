@@ -1,12 +1,15 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             NavigationPage.HasNavigationBar="False"
-             xmlns:vm="clr-namespace:MVP.PageModels"
-             xmlns:effects="clr-namespace:MVP.Effects"
-             xmlns:icons="clr-namespace:MVP.Styles" xmlns:custom="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
-             x:Class="MVP.Pages.WizardTitlePage"
-             x:DataType="vm:WizardTitlePageModel">
+<pages:BaseContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+                       xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                       NavigationPage.HasNavigationBar="False"
+                       xmlns:vm="clr-namespace:MVP.ViewModels"
+                       xmlns:effects="clr-namespace:MVP.Effects"
+                       xmlns:icons="clr-namespace:MVP.Styles"
+                       xmlns:pages="clr-namespace:MVP.Pages"
+                       xmlns:custom="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
+                       x:Class="MVP.Pages.WizardTitlePage"
+                       x:TypeArguments="vm:WizardTitleViewModel"
+                       x:DataType="vm:WizardTitleViewModel">
 
     <Grid effects:SafeAreaPaddingEffect.HasSafeAreaPadding="True"
           effects:SafeAreaPaddingEffect.HasTopSafeAreaPadding="True"
@@ -34,5 +37,7 @@
         <custom:PancakeView Style="{StaticResource fab_button_container}" x:Name="fab" Grid.RowSpan="2">
             <Button Style="{StaticResource fab_button}" Text="{x:Static icons:Icons.arrow_forward}" Command="{Binding NextCommand}" />
         </custom:PancakeView>
+
     </Grid>
-</ContentPage>
+
+</pages:BaseContentPage>

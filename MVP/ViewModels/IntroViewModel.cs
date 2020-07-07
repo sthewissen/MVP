@@ -3,23 +3,21 @@ using System.Collections.Generic;
 using System.Threading.Tasks;
 using AsyncAwaitBestPractices.MVVM;
 using MVP.Models;
-using MVP.Services;
+using MVP.Pages;
+using MVP.Services.Interfaces;
+using TinyNavigationHelper;
 using Xamarin.Essentials;
-using Xamarin.Forms;
 
-namespace MVP.PageModels
+namespace MVP.ViewModels
 {
-    public class IntroPageModel : BasePageModel
+    public class IntroViewModel : BaseViewModel
     {
-        readonly AuthService _authService;
-
         public IAsyncCommand SignInCommand { get; set; }
         public List<OnboardingItem> OnboardingItems { get; }
 
-        public IntroPageModel(AuthService authService)
+        public IntroViewModel(IAnalyticsService analyticsService, IAuthService authService, IDialogService dialogService, INavigationHelper navigationHelper)
+            : base(analyticsService, authService, dialogService, navigationHelper)
         {
-            _authService = authService;
-
             SignInCommand = new AsyncCommand(() => SignIn());
 
             OnboardingItems = new List<OnboardingItem> {
@@ -34,24 +32,22 @@ namespace MVP.PageModels
             try
             {
                 // Pop a sign in request up for the user.
-                if (await _authService.SignInAsync().ConfigureAwait(false))
+                if (await AuthService.SignInAsync().ConfigureAwait(false))
                 {
                     MainThread.BeginInvokeOnMainThread(() =>
                     {
-                        var page = FreshMvvm.FreshPageModelResolver.ResolvePageModel<ContributionsPageModel>();
-                        var navigation = new FreshMvvm.FreshNavigationContainer(page);
-                        Application.Current.MainPage = navigation;
+                        NavigationHelper.SetRootView(nameof(ContributionsPage));
                     });
                 }
                 else
                 {
-                    await _dialogService.AlertAsync("Couldn't authenticate you using the provided credentials. Are you sure you are using the account associated to your MVP ID?", Alerts.Error, Alerts.OK);
+                    await DialogService.AlertAsync("Couldn't authenticate you using the provided credentials. Are you sure you are using the account associated to your MVP ID?", Alerts.Error, Alerts.OK);
                 }
             }
             catch (Exception e)
             {
-                _analyticsService.Report(e);
-                await _dialogService.AlertAsync(Alerts.UnexpectedError, Alerts.Error, Alerts.OK);
+                AnalyticsService.Report(e);
+                await DialogService.AlertAsync(Alerts.UnexpectedError, Alerts.Error, Alerts.OK);
             }
         }
     }

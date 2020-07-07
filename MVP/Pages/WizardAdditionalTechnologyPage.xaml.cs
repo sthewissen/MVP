@@ -1,15 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
-
+using MVP.Services.Interfaces;
 using Xamarin.Forms;
 
 namespace MVP.Pages
 {
-    public partial class WizardAdditionalTechnologyPage : ContentPage
+    public partial class WizardAdditionalTechnologyPage
     {
-        public WizardAdditionalTechnologyPage()
-        {
-            InitializeComponent();
-        }
+        public WizardAdditionalTechnologyPage(IAnalyticsService analyticsService)
+            : base(analyticsService) => InitializeComponent();
     }
 }

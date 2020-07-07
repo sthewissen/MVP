@@ -1,12 +1,14 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             NavigationPage.HasNavigationBar="False"
-             xmlns:vm="clr-namespace:MVP.PageModels"
-             xmlns:effects="clr-namespace:MVP.Effects"
-             xmlns:icons="clr-namespace:MVP.Styles"
-             x:Class="MVP.Pages.WizardActivityTypePage"
-             x:DataType="vm:WizardActivityTypePageModel">
+<pages:BaseContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+                       xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                       NavigationPage.HasNavigationBar="False"
+                       xmlns:vm="clr-namespace:MVP.ViewModels"
+                       xmlns:pages="clr-namespace:MVP.Pages"
+                       xmlns:effects="clr-namespace:MVP.Effects"
+                       xmlns:icons="clr-namespace:MVP.Styles"
+                       x:Class="MVP.Pages.WizardActivityTypePage"
+                       x:TypeArguments="vm:WizardActivityTypeViewModel"
+                       x:DataType="vm:WizardActivityTypeViewModel">
 
     <Grid effects:SafeAreaPaddingEffect.HasSafeAreaPadding="True"
           effects:SafeAreaPaddingEffect.HasTopSafeAreaPadding="True"
@@ -34,4 +36,4 @@
                         ItemTemplate="{StaticResource ContributionTypeItemTemplate}" />
         </StackLayout>
     </Grid>
-</ContentPage>
+</pages:BaseContentPage>

@@ -4,6 +4,7 @@ using Xamarin.Forms;
 
 namespace MVP.Converters
 {
+    // TODO: This will be in XamarinCommunityToolkit, so replace once that has a release.
     public class VisibilityNullOrEmptyConverter : IValueConverter
     {
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)

@@ -3,6 +3,7 @@
     <PropertyGroup>
         <TargetFramework>netstandard2.1</TargetFramework>
         <ProduceReferenceAssembly>true</ProduceReferenceAssembly>
+        <LangVersion>8.0</LangVersion>
     </PropertyGroup>
     <ItemGroup>
         <PackageReference Include="Xamarin.Forms" Version="4.7.0.1080" />
@@ -11,26 +12,24 @@
         <PackageReference Include="Refractored.MvvmHelpers" Version="1.6.2" />
         <PackageReference Include="Microsoft.Identity.Client" Version="4.15.0" />
         <PackageReference Include="Xamarin.Forms.PancakeView" Version="1.4.2" />
-        <PackageReference Include="FreshMvvm" Version="3.0.0" />
         <PackageReference Include="Xamarin.FFImageLoading.Forms" Version="2.4.11.982" />
         <PackageReference Include="Xamarin.FFImageLoading.Transformations" Version="2.4.11.982" />
         <PackageReference Include="AsyncAwaitBestPractices.MVVM" Version="4.1.1" />
         <PackageReference Include="AsyncAwaitBestPractices" Version="4.1.1" />
         <PackageReference Include="FormsToolkit" Version="2.0.1" />
         <PackageReference Include="PropertyChanged.Fody" Version="3.2.8" />
-        <PackageReference Include="Fody" Version="6.2.0">
-            <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
-            <PrivateAssets>all</PrivateAssets>
-        </PackageReference>
         <PackageReference Include="Xamarin.Forms.StateSquid" Version="1.1.3" />
         <PackageReference Include="Xamarin.FFImageLoading.Svg.Forms" Version="2.4.11.982" />
         <PackageReference Include="Acr.UserDialogs" Version="7.1.0.446" />
-        <PackageReference Include="Microsoft.AppCenter" Version="3.2.2" />
-        <PackageReference Include="Microsoft.AppCenter.Analytics" Version="3.2.2" />
-        <PackageReference Include="Microsoft.AppCenter.Crashes" Version="3.2.2" />
+        <PackageReference Include="Microsoft.AppCenter" Version="3.3.0" />
+        <PackageReference Include="Microsoft.AppCenter.Analytics" Version="3.3.0" />
+        <PackageReference Include="Microsoft.AppCenter.Crashes" Version="3.3.0" />
         <PackageReference Include="Refit" Version="5.1.67" />
         <PackageReference Include="HtmlAgilityPack" Version="1.11.24" />
         <PackageReference Include="akavache" Version="6.10.20" />
+        <PackageReference Include="XamarinCommunityToolkit" Version="1.0.0-preview1001" />
+        <PackageReference Include="TinyMvvm.Forms" Version="2.3.4" />
+        <PackageReference Include="TinyMvvm.Autofac" Version="2.3.4" />
     </ItemGroup>
     <ItemGroup>
         <Folder Include="Models\" />
@@ -38,13 +37,15 @@
         <Folder Include="Styles\" />
         <Folder Include="Extensions\" />
         <Folder Include="Effects\" />
-        <Folder Include="PageModels\Base\" />
         <Folder Include="Resources\" />
         <Folder Include="Services\Interfaces\" />
         <Folder Include="Resources\Fonts\" />
         <Folder Include="Converters\" />
         <Folder Include="Templates\" />
         <Folder Include="Helpers\" />
+        <Folder Include="Pages\Base\" />
+        <Folder Include="ViewModels\" />
+        <Folder Include="ViewModels\Base\" />
     </ItemGroup>
     <ItemGroup>
         <None Remove="Resources\mvp_logo.svg" />

@@ -4,14 +4,17 @@ using System.Threading.Tasks;
 using AsyncAwaitBestPractices;
 using AsyncAwaitBestPractices.MVVM;
 using MVP.Models;
+using MVP.Pages;
+using MVP.Services.Interfaces;
+using TinyNavigationHelper;
 using Xamarin.Essentials;
 
-namespace MVP.PageModels
+namespace MVP.ViewModels
 {
-    public class WizardActivityTypePageModel : BasePageModel
+    public class WizardActivityTypeViewModel : BaseViewModel
     {
-        ContributionType _selectedContribution;
-        Contribution _contribution = new Contribution();
+        ContributionType selectedContribution;
+        Contribution contribution = new Contribution();
 
         public IAsyncCommand BackCommand { get; set; }
         public IAsyncCommand NextCommand { get; set; }
@@ -20,34 +23,35 @@ namespace MVP.PageModels
 
         public ContributionType SelectedContributionType
         {
-            get => _selectedContribution;
+            get => selectedContribution;
             set
             {
-                _selectedContribution = value;
+                selectedContribution = value;
 
                 if (value != null)
                 {
-                    _contribution.ContributionType = value;
-                    NextCommand.Execute(_contribution);
+                    contribution.ContributionType = value;
+                    NextCommand.Execute(contribution);
                 }
             }
         }
 
-        public WizardActivityTypePageModel()
+        public WizardActivityTypeViewModel(IAnalyticsService analyticsService, IAuthService authService, IDialogService dialogService, INavigationHelper navigationHelper)
+            : base(analyticsService, authService, dialogService, navigationHelper)
         {
             BackCommand = new AsyncCommand(() => Back());
             NextCommand = new AsyncCommand(() => Next());
         }
 
-        public override void Init(object initData)
+        public async override Task Initialize()
         {
-            base.Init(initData);
+            await base.Initialize();
 
             // If a new contribution is coming in, the user created one from the URL
             // they had on the clipboard.
-            if (initData is Contribution contribution)
+            if (NavigationHelper is Contribution contribution)
             {
-                _contribution = contribution;
+                this.contribution = contribution;
             }
 
             LoadContributionTypes().SafeFireAndForget();
@@ -69,12 +73,12 @@ namespace MVP.PageModels
         async Task Back()
         {
             // Pop the entire modal stack instead of just going back one screen.
-            await CoreMethods.PopModalNavigationService(animate: true).ConfigureAwait(false);
+            await NavigationHelper.CloseModalAsync().ConfigureAwait(false);
         }
 
         async Task Next()
         {
-            await CoreMethods.PushPageModel<WizardTechnologyPageModel>(data: _contribution, modal: false, animate: false).ConfigureAwait(false);
+            await NavigationHelper.NavigateToAsync(nameof(WizardTechnologyPage), contribution).ConfigureAwait(false);
         }
     }
 }

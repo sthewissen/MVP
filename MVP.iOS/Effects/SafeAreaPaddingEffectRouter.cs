@@ -5,6 +5,7 @@ using UIKit;
 using Xamarin.Forms;
 using Xamarin.Forms.Platform.iOS;
 
+// TODO: This will be in XamarinCommunityToolkit, so replace once that has a release.
 [assembly: ResolutionGroupName("MVP")]
 [assembly: ExportEffect(typeof(SafeAreaPaddingEffectRouter), nameof(SafeAreaPaddingEffectRouter))]
 namespace MVP.iOS.Effects

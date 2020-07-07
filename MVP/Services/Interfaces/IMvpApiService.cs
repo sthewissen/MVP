@@ -4,7 +4,7 @@ using System.Threading.Tasks;
 using MVP.Models;
 using MVP.Services.Helpers;
 
-namespace MVP.Services
+namespace MVP.Services.Interfaces
 {
     public interface IMvpApiService
     {

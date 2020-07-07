@@ -1,19 +1,19 @@
-﻿using System;
-using System.Linq;
+﻿using System.Linq;
 using System.Threading.Tasks;
 using System.Web;
 using AsyncAwaitBestPractices.MVVM;
 using MVP.Helpers;
 using MVP.Models;
-using MVP.Services;
+using MVP.Pages;
 using MVP.Services.Interfaces;
+using TinyNavigationHelper;
 
-namespace MVP.PageModels
+namespace MVP.ViewModels
 {
-    public class WizardUrlPageModel : BasePageModel
+    public class WizardUrlViewModel : BaseViewModel
     {
-        Contribution _contribution;
-        string _url;
+        Contribution contribution;
+        string url;
 
         public IAsyncCommand BackCommand { get; set; }
         public IAsyncCommand NextCommand { get; set; }
@@ -21,18 +21,18 @@ namespace MVP.PageModels
 
         public string Url
         {
-            get => _url;
+            get => url;
             set
             {
-                _url = value;
+                url = value;
 
                 if (value != null)
                 {
                     // HACK: Remove after
-                    if (_contribution == null)
-                        _contribution = new Contribution();
+                    if (contribution == null)
+                        contribution = new Contribution();
 
-                    _contribution.ReferenceUrl = value;
+                    contribution.ReferenceUrl = value;
 
                     GetOpenGraphDataCommand.Execute(value);
                 }
@@ -43,21 +43,22 @@ namespace MVP.PageModels
         public string Description { get; set; }
         public string ImageUrl { get; set; }
 
-        public WizardUrlPageModel()
+        public WizardUrlViewModel(IAnalyticsService analyticsService, IAuthService authService, IDialogService dialogService, INavigationHelper navigationHelper)
+            : base(analyticsService, authService, dialogService, navigationHelper)
         {
             BackCommand = new AsyncCommand(() => Back());
             NextCommand = new AsyncCommand(() => Next());
             GetOpenGraphDataCommand = new AsyncCommand(() => GetOpenGraphData());
         }
 
-        public override void Init(object initData)
+        public async override Task Initialize()
         {
-            base.Init(initData);
+            await base.Initialize();
 
-            if (initData is Contribution contribution)
+            if (NavigationParameter is Contribution contrib)
             {
-                _contribution = contribution;
-                Url = _contribution.ReferenceUrl;
+                contribution = contrib;
+                Url = contribution.ReferenceUrl;
             }
         }
 
@@ -77,12 +78,12 @@ namespace MVP.PageModels
 
         async Task Back()
         {
-            await CoreMethods.PopPageModel(modal: false, animate: false).ConfigureAwait(false);
+            await NavigationHelper.BackAsync().ConfigureAwait(false);
         }
 
         async Task Next()
         {
-            await CoreMethods.PushPageModel<WizardDescriptionPageModel>(data: _contribution, modal: false, animate: false).ConfigureAwait(false);
+            await NavigationHelper.NavigateToAsync(nameof(WizardDescriptionPage), contribution).ConfigureAwait(false);
         }
     }
 }

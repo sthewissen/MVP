@@ -10,8 +10,8 @@ namespace MVP.Services
 {
     public class AuthService : IAuthService
     {
-        readonly IAnalyticsService _analyticsService;
-        readonly IPublicClientApplication _pca;
+        readonly IAnalyticsService analyticsService;
+        readonly IPublicClientApplication pca;
 
         // The redirect URI defines how the external browser window can
         // callback into our app after authentication has happened.
@@ -34,8 +34,8 @@ namespace MVP.Services
 
         public AuthService(IAnalyticsService analyticsService)
         {
-            _analyticsService = analyticsService;
-            _pca = PublicClientApplicationBuilder.Create(Constants.AuthClientId)
+            this.analyticsService = analyticsService;
+            pca = PublicClientApplicationBuilder.Create(Constants.AuthClientId)
                 .WithIosKeychainSecurityGroup(AppInfo.PackageName)
                 .WithRedirectUri(RedirectUri)
                 .WithAuthority("https://login.microsoftonline.com/common")
@@ -46,9 +46,9 @@ namespace MVP.Services
         {
             try
             {
-                var accounts = await _pca.GetAccountsAsync();
+                var accounts = await pca.GetAccountsAsync();
                 var firstAccount = accounts.FirstOrDefault();
-                var authResult = await _pca.AcquireTokenSilent(Constants.AuthScopes, firstAccount).ExecuteAsync();
+                var authResult = await pca.AcquireTokenSilent(Constants.AuthScopes, firstAccount).ExecuteAsync();
 
                 // Store the access token securely for later use.
                 await SecureStorage.SetAsync("AccessToken", $"{Constants.AuthType} {authResult?.AccessToken}");
@@ -65,9 +65,9 @@ namespace MVP.Services
         {
             try
             {
-                var accounts = await _pca.GetAccountsAsync();
+                var accounts = await pca.GetAccountsAsync();
                 var firstAccount = accounts.FirstOrDefault();
-                var authResult = await _pca.AcquireTokenSilent(Constants.AuthScopes, firstAccount).ExecuteAsync();
+                var authResult = await pca.AcquireTokenSilent(Constants.AuthScopes, firstAccount).ExecuteAsync();
 
                 // Store the access token securely for later use.
                 await SecureStorage.SetAsync("AccessToken", $"{Constants.AuthType} {authResult?.AccessToken}");
@@ -79,7 +79,7 @@ namespace MVP.Services
                 try
                 {
                     // This means we need to login again through the MSAL window.
-                    var authResult = await _pca.AcquireTokenInteractive(Constants.AuthScopes)
+                    var authResult = await pca.AcquireTokenInteractive(Constants.AuthScopes)
                                                 .WithParentActivityOrWindow(ParentWindow)
                                                 .WithUseEmbeddedWebView(true)
                                                 .ExecuteAsync();
@@ -91,13 +91,13 @@ namespace MVP.Services
                 }
                 catch (Exception ex)
                 {
-                    _analyticsService.Report(ex);
+                    analyticsService.Report(ex);
                     return false;
                 }
             }
             catch (Exception ex)
             {
-                _analyticsService.Report(ex);
+                analyticsService.Report(ex);
                 return false;
             }
         }
@@ -106,13 +106,13 @@ namespace MVP.Services
         {
             try
             {
-                var accounts = await _pca.GetAccountsAsync();
+                var accounts = await pca.GetAccountsAsync();
 
                 // Go through all accounts and remove them.
                 while (accounts.Any())
                 {
-                    await _pca.RemoveAsync(accounts.FirstOrDefault());
-                    accounts = await _pca.GetAccountsAsync();
+                    await pca.RemoveAsync(accounts.FirstOrDefault());
+                    accounts = await pca.GetAccountsAsync();
                 }
 
                 // Clear our access token from secure storage.
@@ -122,7 +122,7 @@ namespace MVP.Services
             }
             catch (Exception ex)
             {
-                _analyticsService.Report(ex);
+                analyticsService.Report(ex);
                 return false;
             }
         }

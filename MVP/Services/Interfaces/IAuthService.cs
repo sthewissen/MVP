@@ -1,6 +1,6 @@
 ﻿using System.Threading.Tasks;
 
-namespace MVP.Services
+namespace MVP.Services.Interfaces
 {
     public interface IAuthService
     {
