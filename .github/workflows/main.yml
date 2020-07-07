@@ -6,6 +6,8 @@ jobs:
   Android:
     runs-on: macos-latest
     steps:
+    - name: Setup NuGet Sources
+      run: nuget sources add -name "XamarinCommunityToolkit" -Source "https://pkgs.dev.azure.com/xamarin/public/_packaging/XamarinCommunityToolkitNightly/nuget/v3/index.json"
     - uses: actions/checkout@v1
     - name: Android
       run: |
