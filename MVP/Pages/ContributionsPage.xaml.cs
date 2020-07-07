@@ -13,16 +13,16 @@ namespace MVP.Pages
 
         async void CollectionView_Scrolled(object sender, ItemsViewScrolledEventArgs e)
         {
-            //if (!_fabIsOutOfView && e.VerticalOffset > 0)
-            //{
-            //    await fab.TranslateTo(0, 100, 250, Easing.CubicInOut).ConfigureAwait(false);
-            //    _fabIsOutOfView = true;
-            //}
-            //else if (_fabIsOutOfView && e.VerticalOffset < 40)
-            //{
-            //    await fab.TranslateTo(0, 0, 250, Easing.CubicInOut).ConfigureAwait(false);
-            //    _fabIsOutOfView = false;
-            //}
+            if (!_fabIsOutOfView && e.VerticalOffset > 0)
+            {
+                await fab.TranslateTo(0, 100, 250, Easing.CubicInOut).ConfigureAwait(false);
+                _fabIsOutOfView = true;
+            }
+            else if (_fabIsOutOfView && e.VerticalOffset < 40)
+            {
+                await fab.TranslateTo(0, 0, 250, Easing.CubicInOut).ConfigureAwait(false);
+                _fabIsOutOfView = false;
+            }
         }
     }
 }

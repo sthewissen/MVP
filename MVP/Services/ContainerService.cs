@@ -24,7 +24,7 @@ namespace MVP.Services
 
             // Set up TinyMVVM
             var currentAssembly = Assembly.GetExecutingAssembly();
-            var navigationHelper = new TinyNavigationHelper.Forms.FormsNavigationHelper();
+            var navigationHelper = new FormsNavigationHelper();
 
             navigationHelper.RegisterViewsInAssembly(currentAssembly);
             builder.RegisterInstance<INavigationHelper>(navigationHelper);

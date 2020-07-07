@@ -5,19 +5,16 @@
                         xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
                         x:Class="MVP.Pages.ContributionsPage"
                         xmlns:vm="clr-namespace:MVP.ViewModels"
+                        xmlns:custom="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
+                        xmlns:ff="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
+                        xmlns:transformations="clr-namespace:FFImageLoading.Transformations;assembly=FFImageLoading.Transformations"
+                        xmlns:effects="clr-namespace:MVP.Effects"
+                        xmlns:helpers="clr-namespace:MVP.Helpers"
+                        helpers:StatusBar.StatusBarStyle="DarkText"
+                        xmlns:icons="clr-namespace:MVP.Styles"
+                        NavigationPage.HasNavigationBar="False"
                         x:TypeArguments="vm:ContributionsViewModel"
                         x:DataType="vm:ContributionsViewModel">
-
-    <!--
-             xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
-             xmlns:custom="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
-             xmlns:ff="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
-             xmlns:transformations="clr-namespace:FFImageLoading.Transformations;assembly=FFImageLoading.Transformations"
-             xmlns:effects="clr-namespace:MVP.Effects"
-             xmlns:helpers="clr-namespace:MVP.Helpers"
-             helpers:StatusBar.StatusBarStyle="DarkText"
-             xmlns:icons="clr-namespace:MVP.Styles"
-             NavigationPage.HasNavigationBar="False"
 
     <Grid ColumnSpacing="16" BackgroundColor="{StaticResource background_gray}">
 
@@ -71,5 +68,5 @@
             <Button Style="{StaticResource fab_button}" Text="{x:Static icons:Icons.add}" Command="{Binding OpenAddContributionCommand}" />
         </custom:PancakeView>
 
-    </Grid>-->
+    </Grid>
 </pages:BaseContentPage>

@@ -3,12 +3,10 @@ using System.Collections.Generic;
 using System.Threading.Tasks;
 using AsyncAwaitBestPractices.MVVM;
 using MVP.Models;
-using MVP.Services;
+using MVP.Pages;
 using MVP.Services.Interfaces;
-using MVP.ViewModels;
 using TinyNavigationHelper;
 using Xamarin.Essentials;
-using Xamarin.Forms;
 
 namespace MVP.ViewModels
 {
@@ -36,12 +34,10 @@ namespace MVP.ViewModels
                 // Pop a sign in request up for the user.
                 if (await AuthService.SignInAsync().ConfigureAwait(false))
                 {
-                    //MainThread.BeginInvokeOnMainThread(() =>
-                    //{
-                    //    var page = FreshMvvm.FreshPageModelResolver.ResolvePageModel<ContributionsPageModel>();
-                    //    var navigation = new FreshMvvm.FreshNavigationContainer(page);
-                    //    Application.Current.MainPage = navigation;
-                    //});
+                    MainThread.BeginInvokeOnMainThread(() =>
+                    {
+                        NavigationHelper.SetRootView(nameof(ContributionsPage));
+                    });
                 }
                 else
                 {

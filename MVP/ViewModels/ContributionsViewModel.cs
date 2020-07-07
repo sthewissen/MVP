@@ -7,6 +7,7 @@ using AsyncAwaitBestPractices.MVVM;
 using MVP.Extensions;
 using MVP.Helpers;
 using MVP.Models;
+using MVP.Pages;
 using MVP.Services;
 using MVP.Services.Interfaces;
 using MvvmHelpers;
@@ -63,12 +64,12 @@ namespace MVP.ViewModels
             await MainThread.InvokeOnMainThreadAsync(CheckForClipboardUrl);
         }
 
-        //public override void Init(object initData)
-        //{
-        //    base.Init(initData);
+        public async override Task Initialize()
+        {
+            await base.Initialize();
 
-        //    RefreshData().SafeFireAndForget();
-        //}
+            RefreshData().SafeFireAndForget();
+        }
 
         //public async override void ReverseInit(object returnedData)
         //{
@@ -99,18 +100,7 @@ namespace MVP.ViewModels
             if (contributionsList == null)
                 return;
 
-            contributions.AddRange(contributionsList.Contributions);
-
-            foreach (var item in contributions)
-            {
-                if (!string.IsNullOrEmpty(item.ReferenceUrl))
-                {
-                    var og = await OpenGraph.ParseUrlAsync(item.ReferenceUrl);
-                    item.ImageUrl = og.Image.AbsoluteUri;
-                }
-            }
-
-            GroupedContributions = contributions.ToGroupedContributions();
+            GroupedContributions = contributionsList.Contributions.ToGroupedContributions();
         }
 
         async Task RefreshProfileImage()
@@ -208,20 +198,17 @@ namespace MVP.ViewModels
 
         async Task OpenProfile()
         {
-            //await CoreMethods.PushPageModel<ProfilePageModel>().ConfigureAwait(false);
+            await NavigationHelper.NavigateToAsync(nameof(ProfilePage)).ConfigureAwait(false);
         }
 
         async Task OpenAddContribution(Contribution prefilledData = null)
         {
-            //var page = FreshPageModelResolver.ResolvePageModel<WizardActivityTypePageModel>(prefilledData);
-
-            //var basicNavContainer = new FreshNavigationContainer(page, nameof(WizardActivityTypePageModel));
-            //await CoreMethods.PushNewNavigationServiceModal(basicNavContainer, page.GetModel(), true).ConfigureAwait(false);
+            await NavigationHelper.OpenModalAsync(nameof(WizardActivityTypePage), prefilledData, true).ConfigureAwait(false);
         }
 
         async Task OpenContribution(Contribution contribution)
         {
-            //await CoreMethods.PushPageModel<ContributionDetailsPageModel>(data: contribution).ConfigureAwait(false);
+            await NavigationHelper.NavigateToAsync(nameof(ContributionDetailsPage), contribution).ConfigureAwait(false);
         }
     }
 }

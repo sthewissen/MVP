@@ -1,12 +1,10 @@
-﻿using Xamarin.Forms;
+﻿using MVP.Services.Interfaces;
 
 namespace MVP.Pages
 {
-    public partial class ContributionDetailsPage : ContentPage
+    public partial class ContributionDetailsPage
     {
-        public ContributionDetailsPage()
-        {
-            InitializeComponent();
-        }
+        public ContributionDetailsPage(IAnalyticsService analyticsService)
+            : base(analyticsService) => InitializeComponent();
     }
 }

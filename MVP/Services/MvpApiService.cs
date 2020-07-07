@@ -17,13 +17,13 @@ namespace MVP.Services
 {
     public class MvpApiService : IMvpApiService
     {
-        readonly IMvpApi _api;
-        readonly IAnalyticsService _analyticsService;
+        readonly IMvpApi api;
+        readonly IAnalyticsService analyticsService;
 
         public MvpApiService(IAnalyticsService analyticsService)
         {
-            _analyticsService = analyticsService;
-            _api = RestService.For<IMvpApi>(new HttpClient(new AuthenticatedHttpClientHandler(GetToken))
+            this.analyticsService = analyticsService;
+            api = RestService.For<IMvpApi>(new HttpClient(new AuthenticatedHttpClientHandler(GetToken))
             {
                 BaseAddress = new Uri("https://mvpapi.azure-api.net/mvp/api/")
             });
@@ -57,7 +57,7 @@ namespace MVP.Services
             }
             catch (Exception e)
             {
-                _analyticsService.Report(e);
+                analyticsService.Report(e);
                 return null;
             }
         }
@@ -70,7 +70,7 @@ namespace MVP.Services
         {
             try
             {
-                return await _api.GetProfile();
+                return await api.GetProfile();
             }
             catch (ApiException e)
             {
@@ -79,7 +79,7 @@ namespace MVP.Services
             }
             catch (Exception e)
             {
-                _analyticsService.Report(e);
+                analyticsService.Report(e);
                 return null;
             }
         }
@@ -100,7 +100,7 @@ namespace MVP.Services
                 var cachedProfileImage = BlobCache.LocalMachine.GetAndFetchLatest("avatar", GetRemoteProfileImageAsync,
                     offset =>
                     {
-                        TimeSpan elapsed = DateTimeOffset.Now - offset;
+                        var elapsed = DateTimeOffset.Now - offset;
                         return elapsed > new TimeSpan(days: 7, hours: 0, minutes: 0, seconds: 0);
                     });
 
@@ -109,7 +109,7 @@ namespace MVP.Services
             }
             catch (Exception e)
             {
-                _analyticsService.Report(e);
+                analyticsService.Report(e);
                 return null;
             }
         }
@@ -122,7 +122,7 @@ namespace MVP.Services
         {
             try
             {
-                var image = await _api.GetProfileImage();
+                var image = await api.GetProfileImage();
                 image = image.TrimStart('"').TrimEnd('"');
 
                 return image;
@@ -134,7 +134,7 @@ namespace MVP.Services
             }
             catch (Exception e)
             {
-                _analyticsService.Report(e);
+                analyticsService.Report(e);
                 return null;
             }
         }
@@ -158,7 +158,7 @@ namespace MVP.Services
                 var cachedContributions = BlobCache.LocalMachine.GetAndFetchLatest("contributions", () => GetRemoteContributionsAsync(offset, limit),
                     cacheOffset =>
                     {
-                        TimeSpan elapsed = DateTimeOffset.Now - cacheOffset;
+                        var elapsed = DateTimeOffset.Now - cacheOffset;
                         return elapsed > new TimeSpan(days: 1, hours: 0, minutes: 0, seconds: 0);
                     });
 
@@ -168,7 +168,7 @@ namespace MVP.Services
             }
             catch (Exception e)
             {
-                _analyticsService.Report(e);
+                analyticsService.Report(e);
                 return null;
             }
         }
@@ -181,7 +181,7 @@ namespace MVP.Services
         {
             try
             {
-                return await _api.GetContributions(offset, limit);
+                return await api.GetContributions(offset, limit);
             }
             catch (ApiException e)
             {
@@ -190,7 +190,7 @@ namespace MVP.Services
             }
             catch (Exception e)
             {
-                _analyticsService.Report(e);
+                analyticsService.Report(e);
                 return null;
             }
         }
@@ -207,7 +207,7 @@ namespace MVP.Services
 
             try
             {
-                return await _api.AddContribution(contribution);
+                return await api.AddContribution(contribution);
             }
             catch (ApiException e)
             {
@@ -216,7 +216,7 @@ namespace MVP.Services
             }
             catch (Exception e)
             {
-                _analyticsService.Report(e);
+                analyticsService.Report(e);
                 return null;
             }
         }
@@ -233,7 +233,7 @@ namespace MVP.Services
 
             try
             {
-                await _api.UpdateContribution(contribution);
+                await api.UpdateContribution(contribution);
                 return true;
             }
             catch (ApiException e)
@@ -243,7 +243,7 @@ namespace MVP.Services
             }
             catch (Exception e)
             {
-                _analyticsService.Report(e);
+                analyticsService.Report(e);
                 return false;
             }
         }
@@ -260,7 +260,7 @@ namespace MVP.Services
 
             try
             {
-                await _api.DeleteContribution(contribution.ContributionId ?? 0);
+                await api.DeleteContribution(contribution.ContributionId ?? 0);
 
                 return true;
             }
@@ -271,7 +271,7 @@ namespace MVP.Services
             }
             catch (Exception e)
             {
-                _analyticsService.Report(e);
+                analyticsService.Report(e);
                 return false;
             }
         }
@@ -294,7 +294,7 @@ namespace MVP.Services
         {
             try
             {
-                return await _api.GetContributionTypes();
+                return await api.GetContributionTypes();
             }
             catch (ApiException e)
             {
@@ -303,7 +303,7 @@ namespace MVP.Services
             }
             catch (Exception e)
             {
-                _analyticsService.Report(e);
+                analyticsService.Report(e);
                 return null;
             }
         }
@@ -326,7 +326,7 @@ namespace MVP.Services
         {
             try
             {
-                return await _api.GetContributionAreas();
+                return await api.GetContributionAreas();
             }
             catch (ApiException e)
             {
@@ -335,7 +335,7 @@ namespace MVP.Services
             }
             catch (Exception e)
             {
-                _analyticsService.Report(e);
+                analyticsService.Report(e);
                 return null;
             }
         }
@@ -358,7 +358,7 @@ namespace MVP.Services
         {
             try
             {
-                return await _api.GetVisibilities();
+                return await api.GetVisibilities();
             }
             catch (ApiException e)
             {
@@ -367,7 +367,7 @@ namespace MVP.Services
             }
             catch (Exception e)
             {
-                _analyticsService.Report(e);
+                analyticsService.Report(e);
                 return null;
             }
         }
@@ -381,7 +381,7 @@ namespace MVP.Services
         {
             try
             {
-                return await _api.GetOnlineIdentities();
+                return await api.GetOnlineIdentities();
             }
             catch (ApiException e)
             {
@@ -390,7 +390,7 @@ namespace MVP.Services
             }
             catch (Exception e)
             {
-                _analyticsService.Report(e);
+                analyticsService.Report(e);
                 return null;
             }
         }
@@ -407,7 +407,7 @@ namespace MVP.Services
 
             try
             {
-                return await _api.AddOnlineIdentity(onlineIdentity);
+                return await api.AddOnlineIdentity(onlineIdentity);
             }
             catch (ApiException e)
             {
@@ -416,7 +416,7 @@ namespace MVP.Services
             }
             catch (Exception e)
             {
-                _analyticsService.Report(e);
+                analyticsService.Report(e);
                 return null;
             }
         }
@@ -428,7 +428,7 @@ namespace MVP.Services
 
             try
             {
-                await _api.DeleteOnlineIdentity(onlineIdentity.PrivateSiteId ?? 0);
+                await api.DeleteOnlineIdentity(onlineIdentity.PrivateSiteId ?? 0);
                 return true;
             }
             catch (ApiException e)
@@ -438,7 +438,7 @@ namespace MVP.Services
             }
             catch (Exception e)
             {
-                _analyticsService.Report(e);
+                analyticsService.Report(e);
                 return false;
             }
         }
@@ -451,7 +451,7 @@ namespace MVP.Services
         {
             try
             {
-                return await _api.GetAwardConsiderationQuestions();
+                return await api.GetAwardConsiderationQuestions();
             }
             catch (ApiException e)
             {
@@ -460,7 +460,7 @@ namespace MVP.Services
             }
             catch (Exception e)
             {
-                _analyticsService.Report(e);
+                analyticsService.Report(e);
                 return null;
             }
         }
@@ -473,7 +473,7 @@ namespace MVP.Services
         {
             try
             {
-                return await _api.GetAwardConsiderationAnswers();
+                return await api.GetAwardConsiderationAnswers();
             }
             catch (ApiException e)
             {
@@ -482,7 +482,7 @@ namespace MVP.Services
             }
             catch (Exception e)
             {
-                _analyticsService.Report(e);
+                analyticsService.Report(e);
                 return null;
             }
         }
@@ -502,7 +502,7 @@ namespace MVP.Services
 
             try
             {
-                return await _api.SaveAwardConsiderationAnswers(answers);
+                return await api.SaveAwardConsiderationAnswers(answers);
             }
             catch (ApiException e)
             {
@@ -511,7 +511,7 @@ namespace MVP.Services
             }
             catch (Exception e)
             {
-                _analyticsService.Report(e);
+                analyticsService.Report(e);
                 return null;
             }
         }
@@ -525,7 +525,7 @@ namespace MVP.Services
         {
             try
             {
-                await _api.SubmitAwardConsiderationAnswers();
+                await api.SubmitAwardConsiderationAnswers();
                 return true;
             }
             catch (ApiException e)
@@ -535,7 +535,7 @@ namespace MVP.Services
             }
             catch (Exception e)
             {
-                _analyticsService.Report(e);
+                analyticsService.Report(e);
                 return false;
             }
         }
@@ -558,7 +558,7 @@ namespace MVP.Services
 
         void HandleApiException(ApiException e)
         {
-            _analyticsService.Report(e);
+            analyticsService.Report(e);
 
             if (e.StatusCode == HttpStatusCode.InternalServerError)
             {
@@ -612,7 +612,7 @@ namespace MVP.Services
             }
             catch (Exception e)
             {
-                _analyticsService.Report(e);
+                analyticsService.Report(e);
                 return default(T);
             }
         }
@@ -642,7 +642,7 @@ namespace MVP.Services
             }
             catch (Exception e)
             {
-                _analyticsService.Report(e);
+                analyticsService.Report(e);
                 return default;
             }
         }

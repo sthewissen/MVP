@@ -13,19 +13,19 @@ namespace MVP.Services
     {
 
 #if AppStore
-        const string _iOSKey = "d93d1cb9-8a66-494a-8478-b73ac5f0516d";
-        const string _androidKey = "3aa628e6-2d4e-428a-b064-88a2d358763e";
+        const string iOSKey = "d93d1cb9-8a66-494a-8478-b73ac5f0516d";
+        const string androidKey = "3aa628e6-2d4e-428a-b064-88a2d358763e";
 #else
-        const string _iOSKey = "71df115f-45d9-49da-bf13-de09ff4a3aff";
-        const string _androidKey = "36d4c425-d4b8-4712-baa3-681cc6586c14";
+        const string iOSKey = "71df115f-45d9-49da-bf13-de09ff4a3aff";
+        const string androidKey = "36d4c425-d4b8-4712-baa3-681cc6586c14";
 #endif
 
         public AnalyticsService() => AppCenter.Start(ApiKey, typeof(Analytics), typeof(Crashes));
 
         string ApiKey => Xamarin.Forms.Device.RuntimePlatform switch
         {
-            Xamarin.Forms.Device.iOS => _iOSKey,
-            Xamarin.Forms.Device.Android => _androidKey,
+            Xamarin.Forms.Device.iOS => iOSKey,
+            Xamarin.Forms.Device.Android => androidKey,
             _ => throw new NotSupportedException()
         };
 
@@ -74,24 +74,24 @@ namespace MVP.Services
 
         public class TimedEvent : ITimedEvent
         {
-            readonly Stopwatch _stopwatch;
-            readonly string _trackIdentifier;
+            readonly Stopwatch stopwatch;
+            readonly string trackIdentifier;
 
-            public TimedEvent(string trackIdentifier, IDictionary<string, string>? dictionary)
+            public TimedEvent(string trackId, IDictionary<string, string>? dictionary)
             {
                 Data = dictionary ?? new Dictionary<string, string>();
-                _trackIdentifier = trackIdentifier;
-                _stopwatch = new Stopwatch();
-                _stopwatch.Start();
+                trackIdentifier = trackId;
+                stopwatch = new Stopwatch();
+                stopwatch.Start();
             }
 
             public IDictionary<string, string> Data { get; }
 
             public void Dispose()
             {
-                _stopwatch.Stop();
-                Data.Add("Timed Event", $"{_stopwatch.Elapsed:ss\\.fff}s");
-                Analytics.TrackEvent($"{_trackIdentifier} [Timed Event]", Data);
+                stopwatch.Stop();
+                Data.Add("Timed Event", $"{stopwatch.Elapsed:ss\\.fff}s");
+                Analytics.TrackEvent($"{trackIdentifier} [Timed Event]", Data);
             }
         }
 

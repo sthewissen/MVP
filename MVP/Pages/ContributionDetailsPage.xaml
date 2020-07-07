@@ -1,14 +1,18 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
-<ContentPage x:Name="page" xmlns="http://xamarin.com/schemas/2014/forms"
+<pages:BaseContentPage x:Name="page" xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="MVP.Pages.ContributionDetailsPage"
              xmlns:effects="clr-namespace:MVP.Effects"
              xmlns:icons="clr-namespace:MVP.Styles"
+             xmlns:pages="clr-namespace:MVP.Pages"
              xmlns:custom="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
              xmlns:models="clr-namespace:MVP.Models"
-             NavigationPage.HasNavigationBar="False">
+             NavigationPage.HasNavigationBar="False"
+             xmlns:vm="clr-namespace:MVP.ViewModels"
+             x:TypeArguments="vm:ContributionDetailsViewModel"
+             x:DataType="vm:ContributionDetailsViewModel">
 
-    <!--<Grid effects:SafeAreaPaddingEffect.HasSafeAreaPadding="True"
+    <Grid effects:SafeAreaPaddingEffect.HasSafeAreaPadding="True"
           effects:SafeAreaPaddingEffect.HasTopSafeAreaPadding="True"
           effects:SafeAreaPaddingEffect.HasBottomSafeAreaPadding="True">
 
@@ -108,6 +112,6 @@
                 <Button Text="Edit contribution" IsVisible="{Binding CanBeEdited}" Command="{Binding EditContributionCommand}" HorizontalOptions="Start"/>
             </StackLayout>
         </ScrollView>
-    </Grid>-->
+    </Grid>
 
-</ContentPage>
+</pages:BaseContentPage>

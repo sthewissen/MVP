@@ -67,14 +67,12 @@ namespace MVP.ViewModels
                 if (isAuthenticated)
                 {
                     AnalyticsService.Track("");
-                    NavigationHelper.SetRootView(nameof(IntroPage), true);
-                    //Application.Current.MainPage = new BaseNavigationPage(new ContributionsPage());
+                    NavigationHelper.SetRootView(nameof(ContributionsPage), true);
                 }
                 else
                 {
                     AnalyticsService.Track("");
                     NavigationHelper.SetRootView(nameof(IntroPage));
-                    //Application.Current.MainPage = new BaseNavigationPage(new IntroPage());
                 }
             });
         }

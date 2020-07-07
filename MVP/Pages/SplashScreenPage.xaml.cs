@@ -1,7 +1,9 @@
-﻿using MVP.Services.Interfaces;
+﻿using System.Diagnostics;
+using MVP.Services.Interfaces;
 using MVP.ViewModels;
 using Xamarin.Essentials;
 using Xamarin.Forms;
+using Xamarin.Forms.Shapes;
 
 namespace MVP.Pages
 {

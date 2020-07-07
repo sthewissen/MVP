@@ -36,7 +36,7 @@ namespace MVP
             mvpApiService.RequestErrorOccurred += MvpApiService_RequestErrorOccurred;
             MvpApiService = mvpApiService;
 
-            Device.SetFlags(new[] { "IndicatorView_Experimental" });
+            Device.SetFlags(new[] { "IndicatorView_Experimental", "Shapes_Experimental" });
 
             // Initialize TinyMvvm
             Resolver.SetResolver(new AutofacResolver(ContainerService.Container));
