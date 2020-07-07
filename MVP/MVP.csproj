@@ -10,7 +10,7 @@
         <PackageReference Include="Xamarin.Essentials" Version="1.5.3.2" />
         <PackageReference Include="Newtonsoft.Json" Version="12.0.3" />
         <PackageReference Include="Refractored.MvvmHelpers" Version="1.6.2" />
-        <PackageReference Include="Microsoft.Identity.Client" Version="4.15.0" />
+        <PackageReference Include="Microsoft.Identity.Client" Version="4.16.0" />
         <PackageReference Include="Xamarin.Forms.PancakeView" Version="1.4.2" />
         <PackageReference Include="Xamarin.FFImageLoading.Forms" Version="2.4.11.982" />
         <PackageReference Include="Xamarin.FFImageLoading.Transformations" Version="2.4.11.982" />
@@ -27,7 +27,7 @@
         <PackageReference Include="Refit" Version="5.1.67" />
         <PackageReference Include="HtmlAgilityPack" Version="1.11.24" />
         <PackageReference Include="akavache" Version="6.10.20" />
-        <PackageReference Include="XamarinCommunityToolkit" Version="1.0.0-preview1001" />
+        <PackageReference Include="XamarinCommunityToolkit" Version="1.0.0-preview1004" />
         <PackageReference Include="TinyMvvm.Forms" Version="2.3.4" />
         <PackageReference Include="TinyMvvm.Autofac" Version="2.3.4" />
     </ItemGroup>
@@ -36,7 +36,6 @@
         <Folder Include="Services\Helpers\" />
         <Folder Include="Styles\" />
         <Folder Include="Extensions\" />
-        <Folder Include="Effects\" />
         <Folder Include="Resources\" />
         <Folder Include="Services\Interfaces\" />
         <Folder Include="Resources\Fonts\" />

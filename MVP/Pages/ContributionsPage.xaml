@@ -1,20 +1,20 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
-<pages:BaseContentPage  xmlns:pages="clr-namespace:MVP.Pages"
-                        x:Name="page"
-                        xmlns="http://xamarin.com/schemas/2014/forms"
-                        xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-                        x:Class="MVP.Pages.ContributionsPage"
-                        xmlns:vm="clr-namespace:MVP.ViewModels"
-                        xmlns:custom="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
-                        xmlns:ff="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
-                        xmlns:transformations="clr-namespace:FFImageLoading.Transformations;assembly=FFImageLoading.Transformations"
-                        xmlns:effects="clr-namespace:MVP.Effects"
-                        xmlns:helpers="clr-namespace:MVP.Helpers"
-                        helpers:StatusBar.StatusBarStyle="DarkText"
-                        xmlns:icons="clr-namespace:MVP.Styles"
-                        NavigationPage.HasNavigationBar="False"
-                        x:TypeArguments="vm:ContributionsViewModel"
-                        x:DataType="vm:ContributionsViewModel">
+<pages:BaseContentPage xmlns:pages="clr-namespace:MVP.Pages"
+                       x:Name="page"
+                       xmlns="http://xamarin.com/schemas/2014/forms"
+                       xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                       x:Class="MVP.Pages.ContributionsPage"
+                       xmlns:vm="clr-namespace:MVP.ViewModels"
+                       xmlns:custom="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
+                       xmlns:ff="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
+                       xmlns:xct="clr-namespace:XamarinCommunityToolkit.Effects;assembly=XamarinCommunityToolkit"
+                       xmlns:transformations="clr-namespace:FFImageLoading.Transformations;assembly=FFImageLoading.Transformations"
+                       xmlns:helpers="clr-namespace:MVP.Helpers"
+                       helpers:StatusBar.StatusBarStyle="DarkText"
+                       xmlns:icons="clr-namespace:MVP.Styles"
+                       NavigationPage.HasNavigationBar="False"
+                       x:TypeArguments="vm:ContributionsViewModel"
+                       x:DataType="vm:ContributionsViewModel">
 
     <Grid ColumnSpacing="16" BackgroundColor="{StaticResource background_gray}">
 
@@ -23,8 +23,7 @@
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
 
-        <Grid Padding="0,24" ColumnSpacing="16" effects:SafeAreaPaddingEffect.HasSafeAreaPadding="True"
-              effects:SafeAreaPaddingEffect.HasTopSafeAreaPadding="True">
+        <Grid Padding="0,24" ColumnSpacing="16" xct:SafeAreaEffect.SafeArea="False,True">
 
             <Grid.GestureRecognizers>
                 <TapGestureRecognizer Command="{Binding OpenProfileCommand}" />

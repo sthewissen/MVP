@@ -9,6 +9,7 @@ using MVP.Pages;
 using MVP.ViewModels;
 using TinyMvvm.Autofac;
 using TinyMvvm.IoC;
+using TinyNavigationHelper;
 
 namespace MVP
 {
@@ -31,24 +32,25 @@ namespace MVP
             this.authService = authService;
             this.dialogService = dialogService;
 
-            // Add handling of errors coming from the MVP API.
+            // We add exception handling here, because the MVP API is shared
+            // through this app class with every page. Errors in it need to handled
+            // generically through here as well.
             mvpApiService.AccessTokenExpired += MvpApiService_AccessTokenExpired;
             mvpApiService.RequestErrorOccurred += MvpApiService_RequestErrorOccurred;
+
             MvpApiService = mvpApiService;
 
-            Device.SetFlags(new[] { "IndicatorView_Experimental", "Shapes_Experimental" });
+            Device.SetFlags(new[] { "IndicatorView_Experimental" });
 
-            // Initialize TinyMvvm
             Resolver.SetResolver(new AutofacResolver(ContainerService.Container));
             TinyMvvm.Forms.TinyMvvm.Initialize();
-
-            // Initialize Akavache.
             Akavache.Registrations.Start(Constants.AppName);
-
-            // Set our start page.
-            MainPage = new SplashScreenPage(analyticsService);
-
             On<iOS>().SetHandleControlUpdatesOnMainThread(true);
+
+            // Set our start page to the splash screen, as that is what we want
+            // everyone to see first. It's glorious.
+            var navHelper = Resolver.Resolve<INavigationHelper>();
+            navHelper.SetRootView(nameof(SplashScreenPage));
         }
 
         async void MvpApiService_RequestErrorOccurred(object sender, Services.Helpers.ApiServiceEventArgs e)
@@ -71,7 +73,8 @@ namespace MVP
 
         async void MvpApiService_AccessTokenExpired(object sender, Services.Helpers.ApiServiceEventArgs e)
         {
-            // Log in again.
+            // If the access token expired, we need to sign in again,
+            // because we might've lost our auth.
             var result = await authService.SignInAsync();
 
             if (!result)
@@ -85,7 +88,9 @@ namespace MVP
 
                 // Move the user over to Getting Started.
                 await authService.SignOutAsync();
-                //MainPage = FreshMvvm.FreshPageModelResolver.ResolvePageModel<IntroViewModel>();
+
+                var navHelper = Resolver.Resolve<INavigationHelper>();
+                navHelper.SetRootView(nameof(IntroPage));
             }
         }
 

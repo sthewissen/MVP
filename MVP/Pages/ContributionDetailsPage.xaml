@@ -1,20 +1,19 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
-<pages:BaseContentPage x:Name="page" xmlns="http://xamarin.com/schemas/2014/forms"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="MVP.Pages.ContributionDetailsPage"
-             xmlns:effects="clr-namespace:MVP.Effects"
-             xmlns:icons="clr-namespace:MVP.Styles"
-             xmlns:pages="clr-namespace:MVP.Pages"
-             xmlns:custom="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
-             xmlns:models="clr-namespace:MVP.Models"
-             NavigationPage.HasNavigationBar="False"
-             xmlns:vm="clr-namespace:MVP.ViewModels"
-             x:TypeArguments="vm:ContributionDetailsViewModel"
-             x:DataType="vm:ContributionDetailsViewModel">
+<pages:BaseContentPage x:Name="page"
+                       xmlns="http://xamarin.com/schemas/2014/forms"
+                       xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                       x:Class="MVP.Pages.ContributionDetailsPage"
+                       xmlns:icons="clr-namespace:MVP.Styles"
+                       xmlns:pages="clr-namespace:MVP.Pages"
+                       xmlns:models="clr-namespace:MVP.Models"
+                       xmlns:custom="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
+                       xmlns:xct="clr-namespace:XamarinCommunityToolkit.Effects;assembly=XamarinCommunityToolkit"
+                       NavigationPage.HasNavigationBar="False"
+                       xmlns:vm="clr-namespace:MVP.ViewModels"
+                       x:TypeArguments="vm:ContributionDetailsViewModel"
+                       x:DataType="vm:ContributionDetailsViewModel">
 
-    <Grid effects:SafeAreaPaddingEffect.HasSafeAreaPadding="True"
-          effects:SafeAreaPaddingEffect.HasTopSafeAreaPadding="True"
-          effects:SafeAreaPaddingEffect.HasBottomSafeAreaPadding="True">
+    <Grid xct:SafeAreaEffect.SafeArea="False,True">
 
         <Grid.RowDefinitions>
             <RowDefinition Height="56" />

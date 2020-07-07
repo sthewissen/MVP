@@ -6,6 +6,7 @@ namespace MVP.ViewModels
 {
     public abstract class BaseViewModel : ViewModelBase
     {
+        protected MVP.App CurrentApp => ((App)Xamarin.Forms.Application.Current);
         protected IMvpApiService MvpApiService => (MVP.App.MvpApiService);
         protected IAnalyticsService AnalyticsService { get; }
         protected IAuthService AuthService { get; }

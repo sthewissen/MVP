@@ -3,17 +3,15 @@
                        xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
                        NavigationPage.HasNavigationBar="False"
                        xmlns:vm="clr-namespace:MVP.ViewModels"
-                       xmlns:effects="clr-namespace:MVP.Effects"
                        xmlns:icons="clr-namespace:MVP.Styles"
                        xmlns:pages="clr-namespace:MVP.Pages"
+                       xmlns:xct="clr-namespace:XamarinCommunityToolkit.Effects;assembly=XamarinCommunityToolkit"
                        xmlns:custom="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
                        x:Class="MVP.Pages.WizardAdditionalTechnologyPage"
                        x:TypeArguments="vm:WizardAdditionalTechnologyViewModel"
                        x:DataType="vm:WizardAdditionalTechnologyViewModel">
 
-    <Grid effects:SafeAreaPaddingEffect.HasSafeAreaPadding="True"
-          effects:SafeAreaPaddingEffect.HasTopSafeAreaPadding="True"
-          effects:SafeAreaPaddingEffect.HasBottomSafeAreaPadding="True">
+    <Grid xct:SafeAreaEffect.SafeArea="False,True">
 
         <Grid.RowDefinitions>
             <RowDefinition Height="56" />

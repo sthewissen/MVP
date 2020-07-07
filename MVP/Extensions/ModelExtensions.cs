@@ -11,7 +11,7 @@ namespace MVP.Extensions
         public static IList<Grouping<int, Contribution>> ToGroupedContributions(this IList<Contribution> list)
         {
             var result = new List<Grouping<int, Contribution>>();
-            DateTime periodStart = new DateTime(DateTime.Now.Year, 4, 1);
+            var periodStart = new DateTime(DateTime.Now.Year, 4, 1);
 
             // If we are before the 1st of April, the period start is last year's.
             if (DateTime.Now < periodStart)

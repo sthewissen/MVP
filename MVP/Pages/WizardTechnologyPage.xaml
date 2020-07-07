@@ -4,15 +4,13 @@
                        NavigationPage.HasNavigationBar="False"
                        xmlns:vm="clr-namespace:MVP.ViewModels"
                        xmlns:pages="clr-namespace:MVP.Pages"
-                       xmlns:effects="clr-namespace:MVP.Effects"
+                       xmlns:xct="clr-namespace:XamarinCommunityToolkit.Effects;assembly=XamarinCommunityToolkit"
                        xmlns:icons="clr-namespace:MVP.Styles"
                        x:Class="MVP.Pages.WizardTechnologyPage"
                        x:TypeArguments="vm:WizardTechnologyViewModel"
                        x:DataType="vm:WizardTechnologyViewModel">
 
-    <Grid effects:SafeAreaPaddingEffect.HasSafeAreaPadding="True"
-          effects:SafeAreaPaddingEffect.HasTopSafeAreaPadding="True"
-          effects:SafeAreaPaddingEffect.HasBottomSafeAreaPadding="True">
+    <Grid xct:SafeAreaEffect.SafeArea="False,True">
 
         <Grid.RowDefinitions>
             <RowDefinition Height="56" />

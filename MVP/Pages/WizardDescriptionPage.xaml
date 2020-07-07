@@ -4,16 +4,14 @@
                        NavigationPage.HasNavigationBar="False"
                        xmlns:vm="clr-namespace:MVP.ViewModels"
                        xmlns:pages="clr-namespace:MVP.Pages"
-                       xmlns:effects="clr-namespace:MVP.Effects"
+                       xmlns:xct="clr-namespace:XamarinCommunityToolkit.Effects;assembly=XamarinCommunityToolkit"
                        xmlns:icons="clr-namespace:MVP.Styles"
                        xmlns:custom="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
                        x:DataType="vm:WizardDescriptionViewModel"
                        x:TypeArguments="vm:WizardDescriptionViewModel"
                        x:Class="MVP.Pages.WizardDescriptionPage">
 
-    <Grid effects:SafeAreaPaddingEffect.HasSafeAreaPadding="True"
-          effects:SafeAreaPaddingEffect.HasTopSafeAreaPadding="True"
-          effects:SafeAreaPaddingEffect.HasBottomSafeAreaPadding="True">
+    <Grid xct:SafeAreaEffect.SafeArea="False,True">
 
         <Grid.RowDefinitions>
             <RowDefinition Height="56" />

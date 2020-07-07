@@ -56,7 +56,7 @@ namespace MVP.ViewModels
             RefreshDataCommand = new AsyncCommand(() => RefreshContributions());
             LoadMoreCommand = new AsyncCommand(() => LoadMoreContributions());
 
-            ((App)Xamarin.Forms.Application.Current).Resumed += App_Resumed;
+            CurrentApp.Resumed += App_Resumed;
         }
 
         async void App_Resumed(object sender, System.EventArgs e)
@@ -67,7 +67,6 @@ namespace MVP.ViewModels
         public async override Task Initialize()
         {
             await base.Initialize();
-
             RefreshData().SafeFireAndForget();
         }
 
