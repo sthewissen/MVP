@@ -56,13 +56,13 @@ namespace MVP.ViewModels
             RefreshDataCommand = new AsyncCommand(() => RefreshContributions());
             LoadMoreCommand = new AsyncCommand(() => LoadMoreContributions());
 
-            CurrentApp.Resumed += App_Resumed;
+            //CurrentApp.Resumed += App_Resumed;
         }
 
-        async void App_Resumed(object sender, System.EventArgs e)
-        {
-            await MainThread.InvokeOnMainThreadAsync(CheckForClipboardUrl);
-        }
+        //async void App_Resumed(object sender, System.EventArgs e)
+        //{
+        //    await MainThread.InvokeOnMainThreadAsync(CheckForClipboardUrl);
+        //}
 
         public async override Task Initialize()
         {
@@ -153,15 +153,15 @@ namespace MVP.ViewModels
             isLoadingMore = false;
         }
 
-        async Task CheckForClipboardUrl()
+        async Task<bool> CheckForClipboardUrl()
         {
             if (!Clipboard.HasText)
-                return;
+                return false;
 
             var text = await Clipboard.GetTextAsync();
 
             if (!text.StartsWith("http://") && !text.StartsWith("https://"))
-                return;
+                return false;
 
             var shouldCreateActivity = await DialogService.ConfirmAsync(
                 "We notice a URL on your clipboard. Do you want us to pre-fill an activity out of that?",
@@ -171,12 +171,12 @@ namespace MVP.ViewModels
             );
 
             if (!shouldCreateActivity)
-                return;
+                return false;
 
             var ogData = await OpenGraph.ParseUrlAsync(text);
 
             if (ogData == null)
-                return;
+                return false;
 
             DateTime? dateTime = null;
 
@@ -186,13 +186,19 @@ namespace MVP.ViewModels
                 dateTime = activityDate;
             }
 
-            await OpenAddContribution(new Contribution
+            var contrib = new Contribution
             {
                 Title = HttpUtility.HtmlDecode(ogData.Title),
                 ReferenceUrl = ogData.Url.AbsoluteUri,
-                Description = ogData.Metadata.ContainsKey("og:description") ? HttpUtility.HtmlDecode(ogData.Metadata["og:description"].Value()) : string.Empty,
+                Description = ogData.Metadata.ContainsKey("og:description")
+                    ? HttpUtility.HtmlDecode(ogData.Metadata["og:description"].Value())
+                    : string.Empty,
                 StartDate = dateTime
-            });
+            };
+
+            await NavigationHelper.OpenModalAsync(nameof(WizardActivityTypePage), contrib, true).ConfigureAwait(false);
+
+            return true;
         }
 
         async Task OpenProfile()
@@ -202,7 +208,10 @@ namespace MVP.ViewModels
 
         async Task OpenAddContribution(Contribution prefilledData = null)
         {
-            await NavigationHelper.OpenModalAsync(nameof(WizardActivityTypePage), prefilledData, true).ConfigureAwait(false);
+            if (!await CheckForClipboardUrl())
+            {
+                await NavigationHelper.OpenModalAsync(nameof(WizardActivityTypePage), prefilledData, true).ConfigureAwait(false);
+            }
         }
 
         async Task OpenContribution(Contribution contribution)

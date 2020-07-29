@@ -5,7 +5,7 @@
                        xmlns:vm="clr-namespace:MVP.ViewModels"
                        xmlns:icons="clr-namespace:MVP.Styles"
                        xmlns:pages="clr-namespace:MVP.Pages"
-                       xmlns:xct="clr-namespace:XamarinCommunityToolkit.Effects;assembly=XamarinCommunityToolkit"
+                       xmlns:xct="clr-namespace:Microsoft.Toolkit.Xamarin.Forms.Effects;assembly=Microsoft.Toolkit.Xamarin.Forms"
                        xmlns:custom="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
                        x:Class="MVP.Pages.WizardAdditionalTechnologyPage"
                        x:TypeArguments="vm:WizardAdditionalTechnologyViewModel"

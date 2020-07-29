@@ -5,7 +5,7 @@
                        NavigationPage.HasNavigationBar="False"
                        xmlns:vm="clr-namespace:MVP.ViewModels"
                        xmlns:pages="clr-namespace:MVP.Pages"
-                       xmlns:xct="clr-namespace:XamarinCommunityToolkit.Effects;assembly=XamarinCommunityToolkit"
+                       xmlns:xct="clr-namespace:Microsoft.Toolkit.Xamarin.Forms.Effects;assembly=Microsoft.Toolkit.Xamarin.Forms"
                        xmlns:icons="clr-namespace:MVP.Styles"
                        x:DataType="vm:WizardVisibilityViewModel"
                        x:TypeArguments="vm:WizardVisibilityViewModel">

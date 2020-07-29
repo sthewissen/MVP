@@ -4,7 +4,7 @@
                        xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
                        NavigationPage.HasNavigationBar="False"
                        xmlns:vm="clr-namespace:MVP.ViewModels"
-                       xmlns:xct="clr-namespace:XamarinCommunityToolkit.Effects;assembly=XamarinCommunityToolkit"
+                       xmlns:xct="clr-namespace:Microsoft.Toolkit.Xamarin.Forms.Effects;assembly=Microsoft.Toolkit.Xamarin.Forms"
                        xmlns:ff="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
                        xmlns:custom="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
                        xmlns:models="clr-namespace:MVP.Models"
@@ -48,14 +48,14 @@
                 </DataTemplate>
             </CarouselView.ItemTemplate>
         </CarouselView>
-        <Grid HorizontalOptions="Fill" Grid.Row="1" xct:SafeAreaEffect.SafeArea="false,false,false,true" RowSpacing="8" Padding="20" BackgroundColor="{StaticResource white}">
+        <Grid HorizontalOptions="Fill" Grid.Row="1" RowSpacing="8" BackgroundColor="{StaticResource white}">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="2*"/>
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
             <IndicatorView Grid.Row="0" Grid.Column="1" x:Name="indicator" Opacity=".5" IndicatorColor="{StaticResource gray}" SelectedIndicatorColor="{StaticResource primary}"  />
-            <Button Grid.Row="1" Grid.Column="1" Text="Get started" Style="{StaticResource button_blue}" Command="{Binding SignInCommand}" Margin="0,0,0,24" />
+            <Button Grid.Row="1" Grid.Column="1" Text="Get started" Style="{StaticResource button_blue}" Command="{Binding SignInCommand}" Margin="0,0,0,24" xct:SafeAreaEffect.SafeArea="false,false,false,true" />
         </Grid>
     </Grid>
 

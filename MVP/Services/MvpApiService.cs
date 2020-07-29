@@ -560,15 +560,11 @@ namespace MVP.Services
         {
             analyticsService.Report(e);
 
-            if (e.StatusCode == HttpStatusCode.InternalServerError)
-            {
-                HandleRequestErrorOccurred(string.Empty, isServerError: true);
-            }
-            else if (e.StatusCode == HttpStatusCode.Unauthorized || e.StatusCode == HttpStatusCode.Forbidden)
+            if (e.StatusCode == HttpStatusCode.Unauthorized || e.StatusCode == HttpStatusCode.Forbidden)
             {
                 HandleAccessTokenExpired();
             }
-            else if (e.StatusCode == HttpStatusCode.BadRequest)
+            else
             {
                 HandleRequestErrorOccurred(e.Content, isBadRequest: true);
             }

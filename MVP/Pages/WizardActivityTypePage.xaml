@@ -6,7 +6,7 @@
                        xmlns:pages="clr-namespace:MVP.Pages"
                        xmlns:effects="clr-namespace:MVP.Effects"
                        xmlns:icons="clr-namespace:MVP.Styles"                       
-                       xmlns:xct="clr-namespace:XamarinCommunityToolkit.Effects;assembly=XamarinCommunityToolkit"
+                       xmlns:xct="clr-namespace:Microsoft.Toolkit.Xamarin.Forms.Effects;assembly=Microsoft.Toolkit.Xamarin.Forms"
                        x:Class="MVP.Pages.WizardActivityTypePage"
                        x:TypeArguments="vm:WizardActivityTypeViewModel"
                        x:DataType="vm:WizardActivityTypeViewModel">

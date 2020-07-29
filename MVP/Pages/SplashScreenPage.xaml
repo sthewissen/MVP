@@ -8,6 +8,7 @@
                        x:TypeArguments="vm:SplashScreenViewModel"
                        x:DataType="vm:SplashScreenViewModel"
                        BackgroundColor="{StaticResource primary}"
+                       NavigationPage.HasNavigationBar="False"
                        helpers:StatusBar.StatusBarStyle="WhiteText"
                        xmlns:vm="clr-namespace:MVP.ViewModels">
 

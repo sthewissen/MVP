@@ -7,18 +7,13 @@
                        xmlns:pages="clr-namespace:MVP.Pages"
                        xmlns:models="clr-namespace:MVP.Models"
                        xmlns:custom="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
-                       xmlns:xct="clr-namespace:XamarinCommunityToolkit.Effects;assembly=XamarinCommunityToolkit"
+                       xmlns:xct="clr-namespace:Microsoft.Toolkit.Xamarin.Forms.Effects;assembly=Microsoft.Toolkit.Xamarin.Forms"
                        NavigationPage.HasNavigationBar="False"
                        xmlns:vm="clr-namespace:MVP.ViewModels"
                        x:TypeArguments="vm:ContributionDetailsViewModel"
                        x:DataType="vm:ContributionDetailsViewModel">
 
-    <Grid xct:SafeAreaEffect.SafeArea="False,True">
-
-        <Grid.RowDefinitions>
-            <RowDefinition Height="56" />
-            <RowDefinition Height="*" />
-        </Grid.RowDefinitions>
+    <Grid xct:SafeAreaEffect.SafeArea="False,True" RowDefinitions="56,*">
 
         <Label FontSize="24" Text="{x:Static icons:Icons.back}" TextColor="{StaticResource black}" Margin="24,0"
                FontFamily="mvpicons" HorizontalOptions="Start" VerticalOptions="Center" HorizontalTextAlignment="Start" Padding="0,12,12,12">
@@ -38,20 +33,12 @@
 
                 <Label Text="{Binding Contribution.Title}" Style="{StaticResource contributiondetail_title}" Margin="0,0,0,24" />
 
-                <Grid>
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="Auto"/>
-                        <ColumnDefinition Width="*"/>
-                    </Grid.ColumnDefinitions>
+                <Grid ColumnDefinitions="Auto, *">
                     <Label Text="Primary contribution area" MaxLines="2" Style="{StaticResource field_header}" />
                     <Label Grid.Column="1" Text="{Binding Contribution.ContributionTechnology.Name}" Style="{StaticResource field_value}" />
                 </Grid>
 
-                <Grid>
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="Auto"/>
-                        <ColumnDefinition Width="*"/>
-                    </Grid.ColumnDefinitions>
+                <Grid ColumnDefinitions="Auto, *">
                     <Grid.Triggers>
                         <DataTrigger TargetType="Grid" Binding="{Binding Contribution.AdditionalTechnologies.Count}" Value="0">
                             <Setter Property="IsVisible" Value="false"/>

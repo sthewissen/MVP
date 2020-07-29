@@ -49,7 +49,7 @@ namespace MVP.ViewModels
 
             // If a new contribution is coming in, the user created one from the URL
             // they had on the clipboard.
-            if (NavigationHelper is Contribution contribution)
+            if (NavigationParameter is Contribution contribution)
             {
                 this.contribution = contribution;
             }

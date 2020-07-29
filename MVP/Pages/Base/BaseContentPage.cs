@@ -13,6 +13,7 @@ namespace MVP.Pages
         public BaseContentPage(in IAnalyticsService analyticsService)
         {
             AnalyticsService = analyticsService;
+            On<iOS>().SetUseSafeArea(false);
             On<iOS>().SetModalPresentationStyle(UIModalPresentationStyle.FormSheet);
         }
 

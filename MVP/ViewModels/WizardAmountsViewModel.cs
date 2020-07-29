@@ -84,9 +84,9 @@ namespace MVP.ViewModels
 
         async Task Save()
         {
-            contribution.AnnualQuantity = AnnualQuantity;
-            contribution.AnnualReach = AnnualReach;
-            contribution.SecondAnnualQuantity = SecondAnnualQuantity;
+            contribution.AnnualQuantity = AnnualQuantity ?? 0;
+            contribution.AnnualReach = AnnualReach ?? 0;
+            contribution.SecondAnnualQuantity = SecondAnnualQuantity ?? 0;
 
             if (contribution.ContributionId.HasValue)
             {
