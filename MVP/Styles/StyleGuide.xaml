@@ -25,6 +25,7 @@
     <Color x:Key="light_gray">#A8A8AC</Color>
     <Color x:Key="background_light_gray">#C8C8C8</Color>
     <Color x:Key="border_light_gray">#E1E1E1</Color>
+    <Color x:Key="light_blue">#EBEDF5</Color>
 
     <!-- Special colors -->
     <Color x:Key="monarch">#750B1C</Color>
@@ -47,23 +48,23 @@
     <Color x:Key="quincy">#603D30</Color>
 
     <OnPlatform x:TypeArguments="x:String" x:Key="font_bold">
-        <On Platform="iOS" Value=".SFUIText-Bold"/>
-        <On Platform="Android" Value="sans-serif"/>
-    </OnPlatform>
-
-    <OnPlatform x:TypeArguments="x:String" x:Key="font_semibold">
-        <On Platform="iOS" Value=".SFUIText-Semibold"/>
-        <On Platform="Android" Value="sans-serif-medium"/>
-    </OnPlatform>
-
-    <OnPlatform x:TypeArguments="x:String" x:Key="font_medium">
-        <On Platform="iOS" Value=".SFUIText-Medium"/>
-        <On Platform="Android" Value="sans-serif-medium"/>
+        <On Platform="iOS" Value="NunitoSans-Bold"/>
+        <On Platform="Android" Value="NunitoSans-Bold"/>
     </OnPlatform>
 
     <OnPlatform x:TypeArguments="x:String" x:Key="font_regular">
-        <On Platform="iOS" Value=".SFUIText"/>
-        <On Platform="Android" Value="sans-serif"/>
+        <On Platform="iOS" Value="NunitoSans-Regular"/>
+        <On Platform="Android" Value="NunitoSans-Regular"/>
+    </OnPlatform>
+
+    <OnPlatform x:TypeArguments="x:String" x:Key="font_extrabold">
+        <On Platform="iOS" Value="NunitoSans-ExtraBold"/>
+        <On Platform="Android" Value="NunitoSans-ExtraBold"/>
+    </OnPlatform>
+
+    <OnPlatform x:TypeArguments="x:String" x:Key="font_icon">
+        <On Platform="iOS" Value="MVPBuzz"/>
+        <On Platform="Android" Value="MVPBuzz"/>
     </OnPlatform>
 
     <!--
@@ -93,6 +94,7 @@
     </Style>
 
     <Style TargetType="ContentPage" ApplyToDerivedTypes="True">
+        <Setter Property="BackgroundColor" Value="{StaticResource white}" />
         <Setter Property="ios:Page.ModalPresentationStyle" Value="FormSheet" />
     </Style>
 
@@ -130,7 +132,7 @@
     </Style>
 
     <Style x:Key="pill_box" TargetType="custom:PancakeView">
-        <Setter Property="Padding" Value="6"/>
+        <Setter Property="Padding" Value="8,4"/>
         <Setter Property="CornerRadius" Value="4"/>
         <Setter Property="VerticalOptions" Value="Start"/>
         <Setter Property="HorizontalOptions" Value="Start"/>
@@ -138,28 +140,31 @@
     </Style>
 
     <Style x:Key="pill_label" TargetType="Label">
-        <Setter Property="FontSize" Value="Small" />
+        <Setter Property="FontSize" Value="10" />
         <Setter Property="TextColor" Value="{StaticResource white}" />
         <Setter Property="FontFamily" Value="{StaticResource font_bold}" />
-        <Setter Property="FontAttributes" Value="Bold" />
         <Setter Property="VerticalOptions" Value="Center" />
         <Setter Property="VerticalTextAlignment" Value="Center" />
     </Style>
 
     <Style x:Key="welcome_name" TargetType="Label">
-        <Setter Property="FontSize" Value="Medium" />
+        <Setter Property="FontSize" Value="15" />
         <Setter Property="TextColor" Value="{StaticResource black}" />
-        <Setter Property="FontFamily" Value="{StaticResource font_bold}" />
-        <Setter Property="FontAttributes" Value="Bold" />
+        <Setter Property="FontFamily" Value="{StaticResource font_regular}" />
         <Setter Property="VerticalOptions" Value="Center" />
         <Setter Property="VerticalTextAlignment" Value="Center" />
+        <Setter Property="HorizontalOptions" Value="Center" />
+        <Setter Property="HorizontalTextAlignment" Value="Center" />
     </Style>
 
     <Style x:Key="welcome_subtitle" TargetType="Label">
-        <Setter Property="FontSize" Value="Caption" />
+        <Setter Property="FontSize" Value="23" />
+        <Setter Property="FontFamily" Value="{StaticResource font_bold}" />
         <Setter Property="TextColor" Value="{StaticResource black}" />
         <Setter Property="VerticalOptions" Value="Center" />
         <Setter Property="VerticalTextAlignment" Value="Center" />
+        <Setter Property="HorizontalOptions" Value="Center" />
+        <Setter Property="HorizontalTextAlignment" Value="Center" />
     </Style>
 
     <Style x:Key="contribution_list_group_header" TargetType="Label">
@@ -172,33 +177,27 @@
     </Style>
 
     <Style x:Key="contribution_list_item_title" TargetType="Label">
-        <Setter Property="FontSize" Value="Small" />
+        <Setter Property="FontSize" Value="14" />
         <Setter Property="TextColor" Value="{StaticResource black}" />
-        <Setter Property="FontFamily" Value="{StaticResource font_bold}" />
-        <Setter Property="FontAttributes" Value="Bold" />
+        <Setter Property="FontFamily" Value="{StaticResource font_extrabold}" />
         <Setter Property="VerticalOptions" Value="Center" />
         <Setter Property="VerticalTextAlignment" Value="Center" />
     </Style>
 
     <Style x:Key="contribution_list_item_date" TargetType="Label">
-        <Setter Property="FontSize" Value="Caption" />
-        <Setter Property="TextColor" Value="{StaticResource black}" />
+        <Setter Property="FontSize" Value="12" />
+        <Setter Property="FontFamily" Value="{StaticResource font_regular}" />
+        <Setter Property="TextColor" Value="{StaticResource dark_gray}" />
         <Setter Property="VerticalOptions" Value="Center" />
         <Setter Property="VerticalTextAlignment" Value="Center" />
     </Style>
 
     <Style x:Key="contribution_list_item_image" TargetType="ff:CachedImage">
         <Setter Property="Aspect" Value="AspectFill"/>
-        <Setter Property="Margin" Value="0,0,16,0"/>
-        <Setter Property="VerticalOptions" Value="Fill"/>
-        <Setter Property="BackgroundColor" Value="{StaticResource border_light_gray}"/>
+        <Setter Property="VerticalOptions" Value="Center"/>
+        <Setter Property="BackgroundColor" Value="{StaticResource light_blue}"/>
         <Setter Property="WidthRequest" Value="84"/>
-        <Setter Property="HeightRequest" Value="88"/>
-    </Style>
-
-    <Style x:Key="contribution_list_container" TargetType="custom:PancakeView">
-        <Setter Property="CornerRadius" Value="8"/>
-        <Setter Property="BackgroundColor" Value="{StaticResource white}"/>
+        <Setter Property="HeightRequest" Value="84"/>
     </Style>
 
     <Style x:Key="contributiondetail_title" TargetType="Label">
@@ -223,8 +222,8 @@
 
     <Style x:Key="fab_button" TargetType="Button">
         <Setter Property="TextColor" Value="{StaticResource white}"/>
-        <Setter Property="FontFamily" Value="mvpicons"/>
-        <Setter Property="FontSize" Value="28"/>
+        <Setter Property="FontFamily" Value="{StaticResource font_icon}"/>
+        <Setter Property="FontSize" Value="22"/>
         <Setter Property="Margin" Value="0,0,0,4"/>
         <Setter Property="BackgroundColor" Value="{StaticResource primary}"/>
     </Style>

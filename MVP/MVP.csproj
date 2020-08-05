@@ -29,7 +29,7 @@
         <PackageReference Include="akavache" Version="6.10.20" />
         <PackageReference Include="TinyMvvm.Forms" Version="2.4.10" />
         <PackageReference Include="TinyMvvm.Autofac" Version="2.4.10" />
-        <PackageReference Include="Microsoft.Toolkit.Xamarin.Forms" Version="1.0.0-preview1015" />
+        <PackageReference Include="Microsoft.Toolkit.Xamarin.Forms" Version="1.0.0-preview1018" />
     </ItemGroup>
     <ItemGroup>
         <Folder Include="Models\" />
@@ -49,11 +49,19 @@
     <ItemGroup>
         <None Remove="Resources\mvp_logo.svg" />
         <None Remove="Resources\Fonts\mvpicons.ttf" />
+        <None Remove="Resources\Fonts\NunitoSans-Bold.ttf" />
+        <None Remove="Resources\Fonts\NunitoSans-Regular.ttf" />
+        <None Remove="Resources\Fonts\NunitoSans-ExtraBold.ttf" />
+        <None Remove="Resources\Fonts\mvpbuzz.ttf" />
     </ItemGroup>
     <ItemGroup>
         <EmbeddedResource Include="Resources\mvp_logo.svg">
             <LogicalName>mvp_logo.svg</LogicalName>
         </EmbeddedResource>
         <EmbeddedResource Include="Resources\Fonts\mvpicons.ttf" />
+        <EmbeddedResource Include="Resources\Fonts\NunitoSans-Bold.ttf" />
+        <EmbeddedResource Include="Resources\Fonts\NunitoSans-Regular.ttf" />
+        <EmbeddedResource Include="Resources\Fonts\NunitoSans-ExtraBold.ttf" />
+        <EmbeddedResource Include="Resources\Fonts\mvpbuzz.ttf" />
     </ItemGroup>
 </Project>

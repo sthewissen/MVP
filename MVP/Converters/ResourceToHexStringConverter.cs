@@ -12,8 +12,7 @@ namespace MVP.Converters
             if (value == null)
                 return Color.Default;
 
-            string valueAsString = value.ToString();
-            Debug.WriteLine(valueAsString);
+            var valueAsString = value.ToString();
 
             switch (valueAsString)
             {
@@ -21,7 +20,7 @@ namespace MVP.Converters
                     return string.Empty;
                 default:
                     var c = LookupColor(valueAsString);
-                    return $"{ c.ToHex().ToString() }";
+                    return $"{ c.ToHex()}";
             }
         }
 

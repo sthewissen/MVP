@@ -43,6 +43,8 @@ namespace MVP.Extensions
                     config.AnnualQuantityHeader = "Number of Articles";
                     config.AnnualReachHeader = "Number of Views";
                     config.HasAnnualReach = true;
+                    config.TypeColor = "monarch";
+                    config.TextColor = "white";
                     break;
                 case "df6464de-179a-e411-bbc8-6c3be5a82b68": // "EnglishName": "Blog/Website Post"
                     config.AnnualQuantityHeader = "Number of Posts";
@@ -51,27 +53,39 @@ namespace MVP.Extensions
                     config.IsUrlRequired = true;
                     config.HasAnnualReach = true;
                     config.HasSecondAnnualQuantity = true;
+                    config.TypeColor = "mexican_red";
+                    config.TextColor = "white";
                     break;
                 case "db6464de-179a-e411-bbc8-6c3be5a82b68": // "EnglishName": "Book (Author)"
                     config.AnnualQuantityHeader = "Number of Books";
                     config.AnnualReachHeader = "Copies Sold";
                     config.HasAnnualReach = true;
+                    config.TypeColor = "persian_red";
+                    config.TextColor = "white";
                     break;
                 case "dd6464de-179a-e411-bbc8-6c3be5a82b68": // "EnglishName": "Book (Co-Author)"
                     config.AnnualQuantityHeader = "Number of Books";
                     config.AnnualReachHeader = "Copies Sold";
                     config.HasAnnualReach = true;
+                    config.TypeColor = "tia_maria";
+                    config.TextColor = "white";
                     break;
                 case "f16464de-179a-e411-bbc8-6c3be5a82b68": // "EnglishName": "Conference (Staffing)"
                     config.AnnualQuantityHeader = "Number of Conferences";
                     config.AnnualReachHeader = "Number of Visitors";
                     config.HasAnnualReach = true;
+                    config.TypeColor = "buttered_rum";
+                    config.TextColor = "white";
                     break;
                 case "0ce0dc15-0304-e911-8171-3863bb2bca60": // "EnglishName": "Docs.Microsoft.com Contribution"
                     config.AnnualQuantityHeader = "Pull Requests/Issues/Submissions";
+                    config.TypeColor = "limeade";
+                    config.TextColor = "white";
                     break;
                 case "f96464de-179a-e411-bbc8-6c3be5a82b68": // "EnglishName": "Forum Moderator"
                     config.AnnualQuantityHeader = "Number of Threads moderated";
+                    config.TypeColor = "blue_stone";
+                    config.TextColor = "white";
                     break;
                 case "d96464de-179a-e411-bbc8-6c3be5a82b68": // "EnglishName": "Forum Participation (3rd Party forums)"
                     config.AnnualQuantityHeader = "Number of Answers";
@@ -81,6 +95,8 @@ namespace MVP.Extensions
                     config.IsSecondAnnualQuantityRequired = true;
                     config.HasAnnualReach = true;
                     config.HasSecondAnnualQuantity = true;
+                    config.TypeColor = "blue_lagoon";
+                    config.TextColor = "white";
                     break;
                 case "d76464de-179a-e411-bbc8-6c3be5a82b68": // "EnglishName": "Forum Participation (Microsoft Forums)"
                     config.AnnualQuantityHeader = "Number of Answers";
@@ -89,78 +105,110 @@ namespace MVP.Extensions
                     config.IsUrlRequired = true;
                     config.HasAnnualReach = true;
                     config.HasSecondAnnualQuantity = true;
+                    config.TypeColor = "lochmara";
+                    config.TextColor = "white";
                     break;
                 case "f76464de-179a-e411-bbc8-6c3be5a82b68": // "EnglishName": "Mentorship"
                     config.AnnualQuantityHeader = "Number of Mentorship Activity";
                     config.AnnualReachHeader = "Number of Mentees";
                     config.HasAnnualReach = true;
+                    config.TypeColor = "cutty_sark";
+                    config.TextColor = "white";
                     break;
                 case "d2d96407-0304-e911-8171-3863bb2bca60": // "EnglishName": "Microsoft Open Source Projects"
                     config.AnnualQuantityHeader = "Number of Projects";
+                    config.TypeColor = "nevada";
+                    config.TextColor = "white";
                     break;
                 case "414bcf30-e889-e511-8110-c4346bac0abc": // "EnglishName": "Non-Microsoft Open Source Projects"
                     config.AnnualQuantityHeader = "Project(s)";
                     config.AnnualReachHeader = "Contributions";
                     config.HasAnnualReach = true;
+                    config.TypeColor = "congress_blue";
+                    config.TextColor = "white";
                     break;
                 case "fd6464de-179a-e411-bbc8-6c3be5a82b68": // "EnglishName": "Organizer (User Group/Meetup/Local Events)"
                     config.AnnualQuantityHeader = "Meetings";
                     config.AnnualReachHeader = "Members";
                     config.HasAnnualReach = true;
+                    config.TypeColor = "royal_blue";
+                    config.TextColor = "white";
                     break;
                 case "ef6464de-179a-e411-bbc8-6c3be5a82b68": // "EnglishName": "Organizer of Conference"
                     config.AnnualQuantityHeader = "Number of Conferences";
                     config.AnnualReachHeader = "Number of Attendees";
                     config.HasAnnualReach = true;
+                    config.TypeColor = "persian_red";
+                    config.TextColor = "white";
                     break;
                 case "ff6464de-179a-e411-bbc8-6c3be5a82b68": // "EnglishName": "Other"
                     config.AnnualQuantityHeader = "Annual Quantity";
                     config.AnnualReachHeader = "Annual Reach";
                     config.HasAnnualReach = true;
+                    config.TypeColor = "minsk";
+                    config.TextColor = "white";
                     break;
                 case "016564de-179a-e411-bbc8-6c3be5a82b68": // "EnglishName": "Product Group Feedback (General)"
                     config.AnnualQuantityHeader = "Number of Events Participated";
                     config.AnnualReachHeader = "Number of Feedbacks Provided";
                     config.HasAnnualReach = true;
+                    config.TypeColor = "seance";
+                    config.TextColor = "white";
                     break;
                 case "e96464de-179a-e411-bbc8-6c3be5a82b68": // "EnglishName": "Sample Code/Projects/Tools"
                     config.AnnualQuantityHeader = "Number of Samples";
                     config.AnnualReachHeader = "Number of Downloads";
                     config.HasAnnualReach = true;
                     config.IsUrlRequired = true;
+                    config.TypeColor = "fuchsia_pink";
+                    config.TextColor = "white";
                     break;
                 case "fb6464de-179a-e411-bbc8-6c3be5a82b68": // "EnglishName": "Site Owner"
                     config.AnnualQuantityHeader = "Number of Sites";
                     config.AnnualReachHeader = "Number of Visitors";
                     config.HasAnnualReach = true;
+                    config.TypeColor = "hollywood_cerise";
+                    config.TextColor = "white";
                     break;
                 case "d16464de-179a-e411-bbc8-6c3be5a82b68": // "EnglishName": "Speaking (Conference)"
                     config.AnnualQuantityHeader = "Number of Talks";
                     config.SecondAnnualQuantityHeader = "";
                     config.AnnualReachHeader = "Attendees of Talks";
+                    config.TypeColor = "quincy";
+                    config.TextColor = "white";
                     break;
                 case "d56464de-179a-e411-bbc8-6c3be5a82b68": // "EnglishName": "Speaking (User Group/Meetup/Local events)"
                     config.AnnualQuantityHeader = "Number of Talks";
                     config.AnnualReachHeader = "Attendees of Talks";
                     config.HasAnnualReach = true;
+                    config.TypeColor = "persian_red";
+                    config.TextColor = "white";
                     break;
                 case "eb6464de-179a-e411-bbc8-6c3be5a82b68": // "EnglishName": "Technical Social Media (Twitter, Facebook, LinkedIn...)"
                     config.AnnualQuantityHeader = "Number of Talks";
                     config.AnnualReachHeader = "Number of Followers";
                     config.HasAnnualReach = true;
                     config.IsUrlRequired = true;
+                    config.TypeColor = "persian_red";
+                    config.TextColor = "white";
                     break;
                 case "056564de-179a-e411-bbc8-6c3be5a82b68": // "EnglishName": "Translation Review, Feedback and Editing"
                     config.AnnualQuantityHeader = "Annual Quantity";
+                    config.TypeColor = "persian_red";
+                    config.TextColor = "white";
                     break;
                 case "e56464de-179a-e411-bbc8-6c3be5a82b68": // "EnglishName": "Video/Webcast/Podcast"
                     config.AnnualQuantityHeader = "Number of Videos";
                     config.AnnualReachHeader = "Number of Views";
                     config.HasAnnualReach = true;
                     config.IsUrlRequired = true;
+                    config.TypeColor = "limeade";
+                    config.TextColor = "white";
                     break;
                 case "0ee0dc15-0304-e911-8171-3863bb2bca60": // "EnglishName": "Workshop/Volunteer/Proctor"
                     config.AnnualQuantityHeader = "Number of Events";
+                    config.TypeColor = "persian_red";
+                    config.TextColor = "white";
                     break;
             }
 

@@ -98,7 +98,7 @@
           <Version>2.4.10</Version>
         </PackageReference>
         <PackageReference Include="Microsoft.Toolkit.Xamarin.Forms">
-          <Version>1.0.0-preview1015</Version>
+          <Version>1.0.0-preview1018</Version>
         </PackageReference>
     </ItemGroup>
     <ItemGroup>

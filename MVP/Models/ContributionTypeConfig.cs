@@ -11,6 +11,9 @@ namespace MVP.Models
         public bool HasSecondAnnualQuantity { get; set; }
         public bool HasAnnualReach { get; set; }
 
+        public string TypeColor { get; set; }
+        public string TextColor { get; set; }
+
         public bool IsUrlRequired { get; set; }
         public bool IsAnnualQuantityRequired { get; set; } = true; // This is always required.
         public bool IsSecondAnnualQuantityRequired { get; set; }

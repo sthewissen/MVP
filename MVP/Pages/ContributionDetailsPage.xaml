@@ -27,8 +27,10 @@
             <StackLayout Spacing="20">
 
                 <custom:PancakeView Style="{StaticResource pill_box}" Margin="0,16,0,0">
-                    <Label LineBreakMode="TailTruncation" Text="{Binding Contribution.ContributionType.EnglishName}" HorizontalTextAlignment="End"
-                           MaxLines="2" Style="{StaticResource pill_label}" />
+
+                    <Label LineBreakMode="TailTruncation" Text="{Binding Contribution.ContributionType.EnglishName}"
+                           HorizontalTextAlignment="End" MaxLines="2" Style="{StaticResource pill_label}" />
+
                 </custom:PancakeView>
 
                 <Label Text="{Binding Contribution.Title}" Style="{StaticResource contributiondetail_title}" Margin="0,0,0,24" />

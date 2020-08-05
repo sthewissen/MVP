@@ -49,5 +49,7 @@
 	<false/>
 	<key>UIStatusBarStyle</key>
 	<string>UIStatusBarStyleLightContent</string>
+	<key>UIApplicationSceneManifest</key>
+	<dict/>
 </dict>
 </plist>

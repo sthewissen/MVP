@@ -12,7 +12,7 @@ namespace MVP.Converters
             if (value == null)
                 return Color.Default;
 
-            string valueAsString = value.ToString();
+            var valueAsString = value.ToString();
             Debug.WriteLine(valueAsString);
 
             switch (valueAsString)

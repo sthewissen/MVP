@@ -8,7 +8,9 @@
     <!--<converters:OutsideAwardPeriodConverter x:Key="OutsideAwardPeriodConverter" />-->
     <converters:ResourceToHexStringConverter x:Key="ResourceToHexStringConverter" />
     <converters:StringToColorResourceConverter x:Key="StringToColorResourceConverter" />
+    <converters:ContributionTypeToTypeColorConverter x:Key="ContributionTypeToTypeColorConverter" />
     <!--<converters:InsideAwardPeriodConverter x:Key="InsideAwardPeriodConverter" />-->
     <xct:IsNotNullOrEmptyConverter x:Key="VisibilityNotNullOrEmptyConverter" />
     <xct:IsNullOrEmptyConverter x:Key="VisibilityNullOrEmptyConverter" />
+    <xct:MultiConverter x:Key="MultiConverter" />
 </ResourceDictionary>

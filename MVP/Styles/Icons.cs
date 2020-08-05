@@ -30,4 +30,11 @@ namespace MVP.Styles
         public const string history = "\ue917";
         public const string save = "\ue918";
     }
+
+    public static class NewIcons
+    {
+        public const string IconEdit = "\ue900";
+        public const string IconPicture = "\ue901";
+        public const string IconSearch = "\ue902";
+    }
 }
