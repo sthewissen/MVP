@@ -22,7 +22,8 @@
                            FontSize="16" TextColor="{StaticResource dark_gray}" />
 
                     <Entry Text="{Binding Url}" FontFamily="{StaticResource font_semibold}" Keyboard="Url"
-                           Margin="16,0" FontSize="16" HeightRequest="96" x:Name="entry" />
+                           Margin="16,0" FontSize="16" HeightRequest="96" x:Name="entry"
+                           Placeholder="Please enter a URL..." />
 
                     <BoxView BackgroundColor="{StaticResource light_blue}" Margin="0,-24,0,0" HeightRequest="1" />
 

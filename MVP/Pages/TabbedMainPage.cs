@@ -1,4 +1,5 @@
 ﻿using System;
+using MVP.Styles;
 using TinyMvvm.Forms;
 using TinyNavigationHelper.Abstraction;
 using TinyNavigationHelper.Forms;
@@ -18,14 +19,27 @@ namespace MVP.Pages
             var navigationMainPage = new NavigationPage(mainPage);
 
             BarBackgroundColor = Color.White;
-            //BarTextColor = Color.FromHex("#222222");
-            //SelectedTabColor = Color.FromHex("#0178D4");
+            SelectedTabColor = ((Color)Xamarin.Forms.Application.Current.Resources["primary"]);
+            BarTextColor = ((Color)Xamarin.Forms.Application.Current.Resources["black"]);
+            UnselectedTabColor = ((Color)Xamarin.Forms.Application.Current.Resources["black"]);
 
             On<Xamarin.Forms.PlatformConfiguration.Android>().SetToolbarPlacement(ToolbarPlacement.Bottom);
 
-            //navigationPage.IconImageSource = "";
-            navigationMainPage.Title = "Activities";
+            navigationMainPage.IconImageSource = new FontImageSource()
+            {
+                FontFamily = (OnPlatform<string>)Xamarin.Forms.Application.Current.Resources["font_icon"],
+                Glyph = Icons.home,
+                Size = 20
+            };
 
+            profilePage.IconImageSource = new FontImageSource()
+            {
+                FontFamily = (OnPlatform<string>)Xamarin.Forms.Application.Current.Resources["font_icon"],
+                Glyph = Icons.settings,
+                Size = 20
+            };
+
+            navigationMainPage.Title = "Activities";
             profilePage.Title = "Profile";
 
             Children.Add(navigationMainPage);

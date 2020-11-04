@@ -1,90 +1,96 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <pages:BaseContentPage x:Name="page"
-                       xmlns="http://xamarin.com/schemas/2014/forms"
-                       xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-                       x:Class="MVP.Pages.ContributionDetailsPage"
-                       xmlns:icons="clr-namespace:MVP.Styles"
-                       xmlns:pages="clr-namespace:MVP.Pages"
-                       xmlns:models="clr-namespace:MVP.Models"
-                       xmlns:custom="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
-                       xmlns:xct="clr-namespace:Xamarin.CommunityToolkit.Effects;assembly=Xamarin.CommunityToolkit"
-                       xmlns:vm="clr-namespace:MVP.ViewModels"
-                       x:TypeArguments="vm:ContributionDetailsViewModel"
-                       x:DataType="vm:ContributionDetailsViewModel">
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="MVP.Pages.ContributionDetailsPage"
+    xmlns:icons="clr-namespace:MVP.Styles"
+    xmlns:pages="clr-namespace:MVP.Pages"
+    xmlns:models="clr-namespace:MVP.Models"
+    xmlns:effects="clr-namespace:Xamarin.CommunityToolkit.Effects;assembly=Xamarin.CommunityToolkit"
+    xmlns:converters="clr-namespace:Xamarin.CommunityToolkit.Converters;assembly=Xamarin.CommunityToolkit"
+    xmlns:vm="clr-namespace:MVP.ViewModels"
+    xmlns:local="clr-namespace:MVP"
+    x:TypeArguments="vm:ContributionDetailsViewModel"
+    x:DataType="vm:ContributionDetailsViewModel">
 
-    <Grid xct:SafeAreaEffect.SafeArea="False,True" RowDefinitions="56,*">
+    <local:AppFrame x:Name="appFrame" Title="Activity details" effects:SafeAreaEffect.SafeArea="false,true,false,false"
+                    ShowBackButton="True">
+        <local:AppFrame.Content>
 
-        <Label FontSize="24" Text="{x:Static icons:Icons.arrow_left}" TextColor="{StaticResource black}" Margin="24,0"
-               HorizontalOptions="Start" VerticalOptions="Center"
-               HorizontalTextAlignment="Start" Padding="0,12,12,12">
-            <Label.GestureRecognizers>
-                <TapGestureRecognizer Command="{Binding BackCommand}" />
-            </Label.GestureRecognizers>
-        </Label>
+            <ScrollView Grid.Row="1" Padding="24,0">
 
-        <ScrollView Grid.Row="1" Padding="24,0">
+                <StackLayout Spacing="24" Padding="0,24">
 
-            <StackLayout Spacing="20">
+                    <Frame BackgroundColor="{Binding Contribution.ContributionType.Id, Converter={StaticResource ContributionTypeConverter}}"
+                           Style="{StaticResource contribution_item_category}">
 
-                <custom:PancakeView Margin="0,16,0,0">
+                        <Label LineBreakMode="TailTruncation" Text="{Binding Contribution.ContributionType.EnglishName, Converter={converters:TextCaseConverter Type=Upper}}"
+                               HorizontalTextAlignment="End" MaxLines="1" Style="{StaticResource contribution_item_category_label}"
+                               TextColor="{Binding Contribution.ContributionType.Id, Converter={StaticResource ContributionTypeTextConverter}}"/>
 
-                    <Label LineBreakMode="TailTruncation" Text="{Binding Contribution.ContributionType.EnglishName}"
+                    </Frame>
+
+                    <!--<custom:PancakeView Margin="0,16,0,0">
+
+                        <Label LineBreakMode="TailTruncation" Text="{Binding Contribution.ContributionType.EnglishName}"
                            HorizontalTextAlignment="End" MaxLines="2" />
 
-                </custom:PancakeView>
+                    </custom:PancakeView>-->
 
-                <Label Text="{Binding Contribution.Title}" Margin="0,0,0,24" />
+                    <Label Text="{Binding Contribution.Title}" Margin="0,0,0,24" />
 
-                <Grid ColumnDefinitions="Auto, *">
-                    <Label Text="Primary contribution area" MaxLines="2" />
-                    <Label Grid.Column="1" Text="{Binding Contribution.ContributionTechnology.Name}" />
-                </Grid>
+                    <Grid ColumnDefinitions="Auto, *">
+                        <Label Text="Primary contribution area" MaxLines="2" />
+                        <Label Grid.Column="1" Text="{Binding Contribution.ContributionTechnology.Name}" />
+                    </Grid>
 
-                <Grid ColumnDefinitions="Auto, *">
-                    <Grid.Triggers>
-                        <DataTrigger TargetType="Grid" Binding="{Binding Contribution.AdditionalTechnologies.Count}" Value="0">
-                            <Setter Property="IsVisible" Value="false"/>
-                        </DataTrigger>
-                    </Grid.Triggers>
-                    <Label Text="Additional contribution areas" MaxLines="2" />
-                    <StackLayout Grid.Column="1" BindableLayout.ItemsSource="{Binding Contribution.AdditionalTechnologies}">
-                        <BindableLayout.ItemTemplate>
-                            <DataTemplate x:DataType="models:ContributionTechnology">
-                                <Label Text="{Binding Name}" />
-                            </DataTemplate>
-                        </BindableLayout.ItemTemplate>
-                    </StackLayout>
-                </Grid>
+                    <Grid ColumnDefinitions="Auto, *">
+                        <Grid.Triggers>
+                            <DataTrigger TargetType="Grid" Binding="{Binding Contribution.AdditionalTechnologies.Count}" Value="0">
+                                <Setter Property="IsVisible" Value="false"/>
+                            </DataTrigger>
+                        </Grid.Triggers>
+                        <Label Text="Additional contribution areas" MaxLines="2" />
+                        <StackLayout Grid.Column="1" BindableLayout.ItemsSource="{Binding Contribution.AdditionalTechnologies}">
+                            <BindableLayout.ItemTemplate>
+                                <DataTemplate x:DataType="models:ContributionTechnology">
+                                    <Label Text="{Binding Name}" />
+                                </DataTemplate>
+                            </BindableLayout.ItemTemplate>
+                        </StackLayout>
+                    </Grid>
 
-                <Grid ColumnDefinitions="Auto, *">
-                    <Label Text="Activity date" />
-                    <Label Grid.Column="1" Text="{Binding Contribution.StartDate, StringFormat='{0:d}'}" />
-                </Grid>
+                    <Grid ColumnDefinitions="Auto, *">
+                        <Label Text="Activity date" />
+                        <Label Grid.Column="1" Text="{Binding Contribution.StartDate, StringFormat='{0:d}'}" />
+                    </Grid>
 
-                <Label Text="Description"  />
-                <Label Text="{Binding Contribution.Description}" HorizontalTextAlignment="Start" />
+                    <Label Text="Description"  />
+                    <Label Text="{Binding Contribution.Description}" HorizontalTextAlignment="Start" />
 
-                <Grid IsVisible="{Binding ContributionTypeConfig.HasAnnualQuantity}" ColumnDefinitions="Auto, *">
-                    <Label Text="{Binding ContributionTypeConfig.AnnualQuantityHeader}"  />
-                    <Label Grid.Column="1" Text="{Binding Contribution.AnnualQuantity}" />
-                </Grid>
+                    <Grid IsVisible="{Binding ContributionTypeConfig.HasAnnualQuantity}" ColumnDefinitions="Auto, *">
+                        <Label Text="{Binding ContributionTypeConfig.AnnualQuantityHeader}"  />
+                        <Label Grid.Column="1" Text="{Binding Contribution.AnnualQuantity}" />
+                    </Grid>
 
-                <Grid IsVisible="{Binding ContributionTypeConfig.HasSecondAnnualQuantity}" ColumnDefinitions="Auto, *">
-                    <Label Text="{Binding ContributionTypeConfig.SecondAnnualQuantityHeader}"  />
-                    <Label Grid.Column="1" Text="{Binding Contribution.SecondAnnualQuantity}" />
-                </Grid>
+                    <Grid IsVisible="{Binding ContributionTypeConfig.HasSecondAnnualQuantity}" ColumnDefinitions="Auto, *">
+                        <Label Text="{Binding ContributionTypeConfig.SecondAnnualQuantityHeader}"  />
+                        <Label Grid.Column="1" Text="{Binding Contribution.SecondAnnualQuantity}" />
+                    </Grid>
 
-                <Grid IsVisible="{Binding ContributionTypeConfig.HasAnnualReach}" ColumnDefinitions="Auto, *">
-                    <Label Text="{Binding ContributionTypeConfig.AnnualReachHeader}"  />
-                    <Label Grid.Column="1" Text="{Binding Contribution.AnnualReach}" />
-                </Grid>
+                    <Grid IsVisible="{Binding ContributionTypeConfig.HasAnnualReach}" ColumnDefinitions="Auto, *">
+                        <Label Text="{Binding ContributionTypeConfig.AnnualReachHeader}"  />
+                        <Label Grid.Column="1" Text="{Binding Contribution.AnnualReach}" />
+                    </Grid>
 
-                <Button Text="Delete contribution" Command="{Binding DeleteContributionCommand}" />
+                    <Button Text="Delete contribution" Command="{Binding DeleteContributionCommand}" />
 
-                <Button Text="Edit contribution" IsVisible="{Binding CanBeEdited}"
+                    <Button Text="Edit contribution" IsVisible="{Binding CanBeEdited}"
                         Command="{Binding EditContributionCommand}" HorizontalOptions="Start"/>
-            </StackLayout>
-        </ScrollView>
-    </Grid>
+                </StackLayout>
+            </ScrollView>
+
+        </local:AppFrame.Content>
+    </local:AppFrame>
 
 </pages:BaseContentPage>

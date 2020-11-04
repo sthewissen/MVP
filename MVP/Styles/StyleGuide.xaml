@@ -161,6 +161,12 @@
         <Setter Property="PlaceholderColor" Value="{StaticResource gray}" />
     </Style>
 
+    <Style TargetType="Editor">
+        <Setter Property="FontFamily" Value="{StaticResource font_regular}" />
+        <Setter Property="TextColor" Value="{StaticResource black}" />
+        <Setter Property="PlaceholderColor" Value="{StaticResource gray}" />
+    </Style>
+
     <!--Implicit stylings-->
 
     <Style TargetType="Label" x:Key="contribution_item_title">

@@ -18,13 +18,14 @@
                 <StackLayout Margin="24,0">
                     <Label Text="Tell us more" FontSize="28" FontFamily="{StaticResource font_bold}" />
 
-                    <Label Margin="0,0,0,16" Text="Could you describe the activity in a bit more detail?"
+                    <Label Margin="0,0,0,48" Text="Could you describe the activity in a bit more detail?"
                            FontSize="16" TextColor="{StaticResource dark_gray}" />
 
                     <Editor Text="{Binding Description}" FontFamily="{StaticResource font_semibold}"
-                           Margin="16,0" FontSize="16" AutoSize="TextChanges" />
+                            Margin="12,0,16,0" FontSize="16" AutoSize="TextChanges" x:Name="entry"
+                            Placeholder="Please enter a description..." />
 
-                    <BoxView BackgroundColor="{StaticResource light_blue}" Margin="0,16,0,0" HeightRequest="1" />
+                    <BoxView BackgroundColor="{StaticResource light_blue}" Margin="0,8,0,0" HeightRequest="1" />
                 </StackLayout>
 
                 <sh:Shadows CornerRadius="28" VerticalOptions="End" HorizontalOptions="End">

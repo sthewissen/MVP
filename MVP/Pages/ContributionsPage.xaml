@@ -5,7 +5,7 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     x:Class="MVP.Pages.ContributionsPage"
     xmlns:vm="clr-namespace:MVP.ViewModels"
-    xmlns:xct="clr-namespace:Xamarin.CommunityToolkit.Effects;assembly=Xamarin.CommunityToolkit"
+    xmlns:effects="clr-namespace:Xamarin.CommunityToolkit.Effects;assembly=Xamarin.CommunityToolkit"
     xmlns:helpers="clr-namespace:MVP.Helpers"
     helpers:StatusBar.StatusBarStyle="DarkText"
     xmlns:icons="clr-namespace:MVP.Styles"
@@ -13,7 +13,7 @@
     x:TypeArguments="vm:ContributionsViewModel"
     x:DataType="vm:ContributionsViewModel">
 
-    <local:AppFrame x:Name="appFrame" Title="Community activities" xct:SafeAreaEffect.SafeArea="false,true,false,false"
+    <local:AppFrame x:Name="appFrame" Title="Community activities" effects:SafeAreaEffect.SafeArea="false,true,false,false"
                     ShowSecondaryButton="True" SecondaryButtonIcon="{x:Static icons:Icons.plus}">
         <local:AppFrame.Content>
             <Grid>

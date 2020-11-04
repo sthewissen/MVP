@@ -73,6 +73,7 @@
         <Compile Include="Renderers\StatusBarRenderer.cs" />
         <Compile Include="Renderers\EntryBorderRenderer.cs" />
         <Compile Include="Renderers\BorderlessDatePickerRenderer.cs" />
+        <Compile Include="Renderers\ExtendedTabbedPageRenderer.cs" />
     </ItemGroup>
     <ItemGroup>
         <InterfaceDefinition Include="Resources\LaunchScreen.storyboard" />
