@@ -41,9 +41,8 @@ namespace MVP
             MvpApiService = mvpApiService;
 
             Device.SetFlags(new[] { "IndicatorView_Experimental" });
-
             Resolver.SetResolver(new AutofacResolver(ContainerService.Container));
-            TinyMvvm.Forms.TinyMvvm.Initialize();
+            Sharpnado.Shades.Initializer.Initialize(loggerEnable: false);
             Akavache.Registrations.Start(Constants.AppName);
             On<iOS>().SetHandleControlUpdatesOnMainThread(true);
 
@@ -95,7 +94,7 @@ namespace MVP
         }
 
         readonly WeakEventManager resumedEventManager = new WeakEventManager();
-        void OnResumed() => resumedEventManager.HandleEvent(this, System.EventArgs.Empty, nameof(Resumed));
+        void OnResumed() => resumedEventManager.RaiseEvent(this, System.EventArgs.Empty, nameof(Resumed));
 
         public event EventHandler Resumed
         {

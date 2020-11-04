@@ -6,16 +6,16 @@ namespace MVP.Helpers
 {
     public enum StatusBarStyle
     {
-        Default,
         // Will behave as normal. 
         // White text on black NavigationBar/in iOS Dark mode and 
         // Black text on white NavigationBar/in iOS Light mode
-        DarkText,
+        Default,
         // Will switch the color of content of StatusBar to black. 
-        WhiteText,
+        DarkText,
         // Will switch the color of content of StatusBar to white. 
-        Hidden
+        WhiteText,
         // Will hide the StatusBar
+        Hidden
     }
 
     public static class StatusBar
@@ -26,7 +26,11 @@ namespace MVP.Helpers
             typeof(Page),
             StatusBarStyle.Default);
 
-        public static void SetStatusBarStyle(BindableObject page, StatusBarStyle value) => page.SetValue(StatusBarStyleProperty, value);
+        public static void SetStatusBarStyle(BindableObject page, StatusBarStyle value)
+            => page.SetValue(StatusBarStyleProperty, value);
+
+        public static StatusBarStyle GetStatusBarStyle(BindableObject page)
+            => (StatusBarStyle)page.GetValue(StatusBarStyleProperty);
 
         public static IPlatformElementConfiguration<iOS, Page> SetStatusBarStyle(this IPlatformElementConfiguration<iOS, Page> config, StatusBarStyle value)
         {
@@ -34,7 +38,7 @@ namespace MVP.Helpers
             return config;
         }
 
-        public static StatusBarStyle GetStatusBarStyle(BindableObject page) => (StatusBarStyle)page.GetValue(StatusBarStyleProperty);
-        public static StatusBarStyle GetStatusBarStyle(this IPlatformElementConfiguration<iOS, Page> config) => GetStatusBarStyle(config.Element);
+        public static StatusBarStyle GetStatusBarStyle(this IPlatformElementConfiguration<iOS, Page> config)
+            => GetStatusBarStyle(config.Element);
     }
 }

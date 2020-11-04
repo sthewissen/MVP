@@ -1,107 +1,54 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <pages:BaseContentPage xmlns:pages="clr-namespace:MVP.Pages"
-                       x:Name="page"
-                       xmlns="http://xamarin.com/schemas/2014/forms"
-                       xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-                       x:Class="MVP.Pages.ContributionsPage"
-                       xmlns:vm="clr-namespace:MVP.ViewModels"
-                       xmlns:custom="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
-                       xmlns:ff="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
-                       xmlns:xct="clr-namespace:Microsoft.Toolkit.Xamarin.Forms.Effects;assembly=Microsoft.Toolkit.Xamarin.Forms"
-                       xmlns:transformations="clr-namespace:FFImageLoading.Transformations;assembly=FFImageLoading.Transformations"
-                       xmlns:helpers="clr-namespace:MVP.Helpers"
-                       helpers:StatusBar.StatusBarStyle="DarkText"
-                       xmlns:icons="clr-namespace:MVP.Styles"
-                       NavigationPage.HasNavigationBar="False"
-                       x:TypeArguments="vm:ContributionsViewModel"
-                       x:DataType="vm:ContributionsViewModel">
+    x:Name="page"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="MVP.Pages.ContributionsPage"
+    xmlns:vm="clr-namespace:MVP.ViewModels"
+    xmlns:xct="clr-namespace:Xamarin.CommunityToolkit.Effects;assembly=Xamarin.CommunityToolkit"
+    xmlns:helpers="clr-namespace:MVP.Helpers"
+    helpers:StatusBar.StatusBarStyle="DarkText"
+    xmlns:icons="clr-namespace:MVP.Styles"
+    xmlns:local="clr-namespace:MVP"
+    x:TypeArguments="vm:ContributionsViewModel"
+    x:DataType="vm:ContributionsViewModel">
 
-    <Grid ColumnSpacing="16" xct:SafeAreaEffect.SafeArea="False, True, False, False">
-
-        <!--<Grid Padding="0,24" ColumnSpacing="16" xct:SafeAreaEffect.SafeArea="False,True">
-
-                    <Grid.GestureRecognizers>
-                        <TapGestureRecognizer Command="{Binding OpenProfileCommand}" />
-                    </Grid.GestureRecognizers>
-
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="64" />
-                        <ColumnDefinition Width="*" />
-                    </Grid.ColumnDefinitions>
-
-                    <ff:CachedImage Margin="24,0,0,0" Source="{Binding ProfileImage}"
-                                    VerticalOptions="CenterAndExpand" HorizontalOptions="Center"
-                                    WidthRequest="40" HeightRequest="40" Aspect="AspectFill">
-                        <ff:CachedImage.Transformations>
-                            <transformations:CircleTransformation />
-                        </ff:CachedImage.Transformations>
-                    </ff:CachedImage>
-
-                    <StackLayout Spacing="0" Grid.Column="1" VerticalOptions="Center" Margin="0,0,24,0">
-                        <Label VerticalOptions="Start" Text="{Binding Name, StringFormat='Hey {0}'}" Style="{StaticResource welcome_name}" LineBreakMode="TailTruncation" />
-                        <Label Text="What awesome thing did you do today?" Style="{StaticResource welcome_subtitle}" LineBreakMode="TailTruncation" />
-                    </StackLayout>
-
-                </Grid>-->
-
-        <CollectionView x:Name="collectionView" ItemsUpdatingScrollMode="KeepScrollOffset"
+    <local:AppFrame x:Name="appFrame" Title="Community activities" xct:SafeAreaEffect.SafeArea="false,true,false,false"
+                    ShowSecondaryButton="True" SecondaryButtonIcon="{x:Static icons:Icons.plus}">
+        <local:AppFrame.Content>
+            <Grid>
+                <CollectionView x:Name="collectionView" ItemsUpdatingScrollMode="KeepScrollOffset"
                         Scrolled="CollectionView_Scrolled"
-                        ItemsSource="{Binding GroupedContributions}" IsGrouped="True"
-                        GroupHeaderTemplate="{StaticResource ContributionsGroupHeaderTemplate}"
-                        ItemTemplate="{StaticResource ContributionsItemTemplate}"
+                        ItemsSource="{Binding Contributions}"
+                        ItemTemplate="{StaticResource contribution_item}"
                         SelectedItem="{Binding SelectedContribution}"
                         SelectionMode="Single">
-            <CollectionView.ItemsLayout>
-                <LinearItemsLayout Orientation="Vertical" ItemSpacing="8" />
-            </CollectionView.ItemsLayout>
-            <CollectionView.Footer>
-                <BoxView HeightRequest="40" />
-            </CollectionView.Footer>
-            <CollectionView.Header>
-                <StackLayout Padding="16,24" xct:SafeAreaEffect.SafeArea="False,True">
 
-                    <custom:PancakeView CornerRadius="28" Padding="0" WidthRequest="80" HeightRequest="80"
-                           VerticalOptions="CenterAndExpand" HorizontalOptions="Center" Margin="0,0,0,12">
+                    <CollectionView.Footer>
+                        <BoxView HeightRequest="40" />
+                    </CollectionView.Footer>
 
-                        <ff:CachedImage Source="{Binding ProfileImage}"
-                                     Aspect="AspectFill" WidthRequest="80" HeightRequest="80">
+                    <CollectionView.Header>
+                        <StackLayout Padding="16,16,16,24">
+                            <Frame BackgroundColor="{StaticResource background_gray}" HeightRequest="48" CornerRadius="24">
 
-                            <ff:CachedImage.GestureRecognizers>
-                                <TapGestureRecognizer Command="{Binding OpenProfileCommand}" />
-                            </ff:CachedImage.GestureRecognizers>
+                                <Grid ColumnDefinitions="*,48" Padding="24,0" VerticalOptions="Center">
 
-                        </ff:CachedImage>
+                                    <Label Text="Search..." BackgroundColor="Transparent" FontSize="15" VerticalOptions="Center"
+                                           FontFamily="{StaticResource font_regular}" TextColor="{StaticResource gray}" />
 
-                    </custom:PancakeView>
+                                    <Label Grid.Column="1" Text="{x:Static icons:Icons.search}" HorizontalOptions="End"
+                                           HorizontalTextAlignment="End" FontFamily="{StaticResource font_icon}"
+                                           VerticalOptions="Center" VerticalTextAlignment="Center"
+                                           TextColor="{StaticResource gray}"/>
 
-                    <Label Text="{Binding Name, StringFormat='Hey {0}'}"
-                           Style="{StaticResource welcome_name}" LineBreakMode="TailTruncation" />
+                                </Grid>
+                            </Frame>
+                        </StackLayout>
+                    </CollectionView.Header>
+                </CollectionView>
 
-                    <Label Text="What have you been up to?" Margin="0,0,0,16"
-                           Style="{StaticResource welcome_subtitle}" LineBreakMode="TailTruncation" />
-
-                    <custom:PancakeView BackgroundColor="{StaticResource background_gray}" CornerRadius="8" Padding="16,12">
-
-                        <Grid ColumnDefinitions="*,48">
-
-                            <Entry Placeholder="Search..." BackgroundColor="Transparent" FontSize="15"
-                                   FontFamily="{StaticResource font_regular}" PlaceholderColor="{StaticResource gray}" />
-
-                            <Label Grid.Column="1" Text="{x:Static icons:NewIcons.IconSearch}" HorizontalOptions="End"
-                                   HorizontalTextAlignment="End" FontFamily="{StaticResource font_icon}"
-                                   TextColor="{StaticResource gray}"/>
-
-                        </Grid>
-
-                    </custom:PancakeView>
-                </StackLayout>
-            </CollectionView.Header>
-        </CollectionView>
-
-        <custom:PancakeView Style="{StaticResource fab_button_container}" x:Name="fab">
-            <Button Style="{StaticResource fab_button}" Text="{x:Static icons:NewIcons.IconEdit}"
-                    Command="{Binding OpenAddContributionCommand}" />
-        </custom:PancakeView>
-
-    </Grid>
+            </Grid>
+        </local:AppFrame.Content>
+    </local:AppFrame>
 </pages:BaseContentPage>

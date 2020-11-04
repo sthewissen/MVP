@@ -6,8 +6,7 @@ using Refit;
 
 namespace MVP.Services.Interfaces
 {
-    [Headers("User-Agent: MVP App",
-        "Authorization: Bearer",
+    [Headers("Authorization: Bearer",
         "Ocp-Apim-Subscription-Key: cd3b2e5d2edc43718ae46a4dfd627323",
         "Content-Type: application/json")]
     public interface IMvpApi
@@ -22,10 +21,10 @@ namespace MVP.Services.Interfaces
         Task<ContributionList> GetContributions(int offset, int limit);
 
         [Post("/contributions")]
-        Task<Contribution> AddContribution([Body]Contribution contribution);
+        Task<Contribution> AddContribution([Body] Contribution contribution);
 
         [Put("/contributions")]
-        Task UpdateContribution([Body]Contribution contribution);
+        Task UpdateContribution([Body] Contribution contribution);
 
         [Delete("/contributions")]
         Task DeleteContribution(int id);
@@ -43,7 +42,7 @@ namespace MVP.Services.Interfaces
         Task<List<OnlineIdentity>> GetOnlineIdentities();
 
         [Post("/onlineidentities")]
-        Task<OnlineIdentity> AddOnlineIdentity([Body]OnlineIdentity identity);
+        Task<OnlineIdentity> AddOnlineIdentity([Body] OnlineIdentity identity);
 
         [Delete("/onlineidentities")]
         Task DeleteOnlineIdentity(int id);

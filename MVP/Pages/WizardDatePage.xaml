@@ -1,41 +1,46 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <pages:BaseContentPage xmlns="http://xamarin.com/schemas/2014/forms"
-                       xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-                       x:Class="MVP.Pages.WizardDatePage"
-                       NavigationPage.HasNavigationBar="False"
-                       xmlns:vm="clr-namespace:MVP.ViewModels"
-                       xmlns:pages="clr-namespace:MVP.Pages"
-                       xmlns:xct="clr-namespace:Microsoft.Toolkit.Xamarin.Forms.Effects;assembly=Microsoft.Toolkit.Xamarin.Forms"
-                       xmlns:icons="clr-namespace:MVP.Styles"
-                       xmlns:custom="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
-                       x:TypeArguments="vm:WizardDateViewModel"
-                       x:DataType="vm:WizardDateViewModel">
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="MVP.Pages.WizardDatePage"
+    xmlns:vm="clr-namespace:MVP.ViewModels"
+    xmlns:pages="clr-namespace:MVP.Pages"
+    xmlns:effects="clr-namespace:Xamarin.CommunityToolkit.Effects;assembly=Xamarin.CommunityToolkit"
+    xmlns:icons="clr-namespace:MVP.Styles"    
+    x:TypeArguments="vm:WizardDateViewModel"
+    x:DataType="vm:WizardDateViewModel"
+    xmlns:local="clr-namespace:MVP"
+    xmlns:sh="clr-namespace:Sharpnado.Shades;assembly=Sharpnado.Shadows">
 
-    <Grid xct:SafeAreaEffect.SafeArea="False,True">
+    <local:AppFrame x:Name="appFrame" Title="Date of activity"
+                    effects:SafeAreaEffect.SafeArea="false,true,false,false" ShowBackButton="True">
+        <local:AppFrame.Content>
+            <Grid>
+                <StackLayout Margin="24,0">
+                    <Label Text="When was it?" FontSize="28" FontFamily="{StaticResource font_bold}" />
 
-        <Grid.RowDefinitions>
-            <RowDefinition Height="56" />
-            <RowDefinition Height="*" />
-        </Grid.RowDefinitions>
+                    <Label Margin="0,0,0,16" Text="When did the activity take place?"
+                           FontSize="16" TextColor="{StaticResource dark_gray}" />
 
-        <Label FontSize="24" Text="{x:Static icons:Icons.chevron_back}" TextColor="{StaticResource black}" Margin="24,0"
-               FontFamily="mvpicons" HorizontalOptions="Start" VerticalOptions="Center" HorizontalTextAlignment="Start" Padding="0,12,12,12">
-            <Label.GestureRecognizers>
-                <TapGestureRecognizer Command="{Binding BackCommand}" />
-            </Label.GestureRecognizers>
-        </Label>
+                    <DatePicker Date="{Binding StartDate}" FontFamily="{StaticResource font_semibold}"
+                                Format="D" Margin="16,32,16,16" FontSize="24" />
 
-        <StackLayout Spacing="20" Grid.Row="1">
+                    <BoxView BackgroundColor="{StaticResource light_blue}" HeightRequest="1" />
+                </StackLayout>
 
-            <Label Text="When did the activity take place?" Style="{StaticResource contributiondetail_title}" Margin="24" />
+                <sh:Shadows CornerRadius="28" VerticalOptions="End" HorizontalOptions="End">
+                    <sh:Shadows.Shades>
+                        <sh:ImmutableShades>
+                            <sh:Shade BlurRadius="6" Opacity="0.2" Offset="3,3" Color="{StaticResource black}" />
+                        </sh:ImmutableShades>
+                    </sh:Shadows.Shades>
 
-            <DatePicker Date="{Binding StartDate}" MinimumDate="{Binding MinDate}" />
-        </StackLayout>
-
-        <custom:PancakeView Style="{StaticResource fab_button_container}" x:Name="fab" Grid.RowSpan="2">
-            <Button Style="{StaticResource fab_button}" Text="{x:Static icons:Icons.arrow_forward}" Command="{Binding NextCommand}" />
-        </custom:PancakeView>
-
-    </Grid>
-
+                    <Button effects:SafeAreaEffect.SafeArea="false,false,false,true" Text="{x:Static icons:Icons.arrow_right}"
+                            Command="{Binding NextCommand}" BackgroundColor="{StaticResource primary}" CornerRadius="28"
+                            WidthRequest="56" HeightRequest="56" TextColor="{StaticResource white}" VerticalOptions="End"
+                            HorizontalOptions="End" Margin="0,0,24,24"
+                            FontFamily="{StaticResource font_icon}" FontSize="20"/>
+                </sh:Shadows>
+            </Grid>
+        </local:AppFrame.Content>
+    </local:AppFrame>
 </pages:BaseContentPage>

@@ -1,38 +1,62 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <pages:BaseContentPage xmlns="http://xamarin.com/schemas/2014/forms"
-                       xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-                       NavigationPage.HasNavigationBar="False"
-                       xmlns:vm="clr-namespace:MVP.ViewModels"
-                       xmlns:pages="clr-namespace:MVP.Pages"
-                       xmlns:effects="clr-namespace:MVP.Effects"
-                       xmlns:icons="clr-namespace:MVP.Styles"                       
-                       xmlns:xct="clr-namespace:Microsoft.Toolkit.Xamarin.Forms.Effects;assembly=Microsoft.Toolkit.Xamarin.Forms"
-                       x:Class="MVP.Pages.WizardActivityTypePage"
-                       x:TypeArguments="vm:WizardActivityTypeViewModel"
-                       x:DataType="vm:WizardActivityTypeViewModel">
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:vm="clr-namespace:MVP.ViewModels"
+    xmlns:pages="clr-namespace:MVP.Pages"
+    xmlns:local="clr-namespace:MVP"
+    xmlns:effects="clr-namespace:Xamarin.CommunityToolkit.Effects;assembly=Xamarin.CommunityToolkit"
+    xmlns:converters="clr-namespace:Xamarin.CommunityToolkit.Converters;assembly=Xamarin.CommunityToolkit"
+    xmlns:helpers="clr-namespace:MVP.Helpers"
+    x:Class="MVP.Pages.WizardActivityTypePage"
+    x:TypeArguments="vm:WizardActivityTypeViewModel"
+    helpers:StatusBar.StatusBarStyle="DarkText"
+    x:DataType="vm:WizardActivityTypeViewModel">
 
-    <Grid xct:SafeAreaEffect.SafeArea="False,True">
+    <local:AppFrame x:Name="appFrame" Title="Activity type" effects:SafeAreaEffect.SafeArea="false,true,false,false"
+                    ShowBackButton="True" IsModal="True">
+        <local:AppFrame.Content>
+            <Grid>
+                <CollectionView ItemsSource="{Binding ContributionTypes}"
+                                SelectedItem="{Binding SelectedContributionType}"
+                                SelectionMode="Single"
+                                ItemTemplate="{StaticResource contribution_type_item}"
+                                Scrolled="CollectionView_Scrolled">
+                    <CollectionView.Header>
+                        <StackLayout>
+                            <Label Margin="24,0" Text="Let's get started" FontSize="28" FontFamily="{StaticResource font_bold}" />
 
-        <Grid.RowDefinitions>
-            <RowDefinition Height="56" />
-            <RowDefinition Height="*" />
-        </Grid.RowDefinitions>
+                            <Label Margin="24,0,24,16" Text="What type of activity do you want to add?"
+                                   FontSize="16" TextColor="{StaticResource dark_gray}" />
 
-        <Label FontSize="24" Text="{x:Static icons:Icons.clear}" TextColor="{StaticResource black}" Margin="24,0"
-               FontFamily="mvpicons" HorizontalOptions="Start" VerticalOptions="Center" HorizontalTextAlignment="Start" Padding="0,12,12,12">
-            <Label.GestureRecognizers>
-                <TapGestureRecognizer Command="{Binding BackCommand}" />
-            </Label.GestureRecognizers>
-        </Label>
+                            <FlexLayout Direction="Row" Wrap="Wrap" Padding="24,0" Margin="0,0,0,16">
+                                <BindableLayout.ItemsSource>
+                                    <x:Array Type="{x:Type x:String}">
+                                        <x:String>Article</x:String>
+                                        <x:String>Video/Webcast/Podcast</x:String>
+                                        <x:String>Site Owner</x:String>
+                                        <x:String>Speaking (Conference)</x:String>
+                                        <x:String>Forum moderator</x:String>
+                                    </x:Array>
+                                </BindableLayout.ItemsSource>
+                                <BindableLayout.ItemTemplate>
+                                    <DataTemplate>
+                                        <StackLayout Margin="4">
+                                            <Frame BackgroundColor="{StaticResource light_primary}" Style="{StaticResource contribution_item_category}">
+                                                <Label Text="{Binding .,Converter={converters:TextCaseConverter Type=Upper}}"
+                                                       TextColor="{StaticResource primary}" Style="{StaticResource contribution_item_category_label}" />
+                                            </Frame>
+                                        </StackLayout>
+                                    </DataTemplate>
+                                </BindableLayout.ItemTemplate>
+                            </FlexLayout>
+                        </StackLayout>
+                    </CollectionView.Header>
+                    <CollectionView.Footer>
+                        <BoxView HeightRequest="40" />
+                    </CollectionView.Footer>
+                </CollectionView>
 
-        <StackLayout Spacing="20" Grid.Row="1">
-
-            <Label Text="What type of activity do you want to add?" Style="{StaticResource contributiondetail_title}" Margin="24" />
-
-            <CollectionView ItemsSource="{Binding ContributionTypes}"
-                        SelectedItem="{Binding SelectedContributionType}"
-                        SelectionMode="Single"
-                        ItemTemplate="{StaticResource ContributionTypeItemTemplate}" />
-        </StackLayout>
-    </Grid>
+            </Grid>
+        </local:AppFrame.Content>
+    </local:AppFrame>
 </pages:BaseContentPage>

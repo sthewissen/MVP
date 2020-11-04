@@ -5,100 +5,72 @@
                     xmlns:custom="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
                     xmlns:ff="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
                     xmlns:icons="clr-namespace:MVP.Styles"
-                    xmlns:xct="clr-namespace:Microsoft.Toolkit.Xamarin.Forms.Converters;assembly=Microsoft.Toolkit.Xamarin.Forms"
+                    xmlns:xct="clr-namespace:Xamarin.CommunityToolkit.Converters;assembly=Xamarin.CommunityToolkit"
                     xmlns:converters="clr-namespace:MVP.Converters"
 					x:Class="MVP.Templates.DataTemplates">
-
-    <DataTemplate x:Key="ContributionsGroupHeaderTemplate">
-        <Grid Padding="24,24,24,16">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="*" />
-                <ColumnDefinition Width="Auto" />
-            </Grid.ColumnDefinitions>
-
-            <Label Style="{StaticResource contribution_list_group_header}">
-                <Label.Triggers>
-                    <DataTrigger TargetType="Label" Binding="{Binding Key}" Value="0">
-                        <Setter Property="Text" Value="Current award period" />
-                    </DataTrigger>
-                    <DataTrigger TargetType="Label" Binding="{Binding Key}" Value="1">
-                        <Setter Property="Text" Value="Previous award period" />
-                    </DataTrigger>
-                </Label.Triggers>
-            </Label>
-
-            <Label Grid.Column="1" HorizontalTextAlignment="End" Padding="10" FontSize="16" VerticalOptions="Center"
-                   Text="{x:Static icons:Icons.graphic_eq}" TextColor="{StaticResource dark_gray}" FontFamily="mvpicons" HorizontalOptions="End"/>
-        </Grid>
-    </DataTemplate>
 
     <xct:MultiConverter x:Key="ContributionTypeConverter">
         <converters:ContributionTypeToTypeColorConverter />
         <converters:StringToColorResourceConverter />
     </xct:MultiConverter>
+
     <xct:MultiConverter x:Key="ContributionTypeTextConverter">
         <converters:ContributionTypeToTextColorConverter />
         <converters:StringToColorResourceConverter />
     </xct:MultiConverter>
 
-    <DataTemplate x:Key="ContributionsItemTemplate" x:DataType="models:Contribution">
-        <Grid Padding="24,6,24,0" ColumnSpacing="16" RowSpacing="12" ColumnDefinitions="Auto, *" RowDefinitions="Auto, 1">
+    <DataTemplate x:Key="contribution_item" x:DataType="models:Contribution">
+        <Grid Padding="16,0" RowDefinitions="Auto, 1">
+            <StackLayout Padding="16" Spacing="8" VerticalOptions="Center">
 
-            <!-- Want to scrape images using OpenGraph -->
-            <custom:PancakeView CornerRadius="8">
-                <ff:CachedImage Source="{Binding ImageUrl}" Aspect="AspectFill" Style="{StaticResource contribution_list_item_image}" />
-            </custom:PancakeView>
+                <Frame BackgroundColor="{Binding ContributionType.Id, Converter={StaticResource ContributionTypeConverter}}"
+                       Style="{StaticResource contribution_item_category}">
 
-            <Label FontFamily="{StaticResource font_icon}" Text="{x:Static icons:NewIcons.IconPicture}"
-                   VerticalOptions="Center" HorizontalOptions="Center" FontSize="32"
-                   TextColor="{StaticResource light_gray}" HorizontalTextAlignment="Center" />
-
-            <StackLayout Padding="0,12,16,12" Grid.Column="1" Spacing="4" VerticalOptions="Center">
-
-                <custom:PancakeView Style="{StaticResource pill_box}"
-                                    BackgroundColor="{Binding ContributionType.Id, Converter={StaticResource ContributionTypeConverter}}">
-
-                    <Label LineBreakMode="TailTruncation" Text="{Binding ContributionType.EnglishName}"
-                           HorizontalTextAlignment="End" MaxLines="2" Style="{StaticResource pill_label}"
+                    <Label LineBreakMode="TailTruncation" Text="{Binding ContributionType.EnglishName, Converter={xct:TextCaseConverter Type=Upper}}"
+                           HorizontalTextAlignment="End" MaxLines="1" Style="{StaticResource contribution_item_category_label}"
                            TextColor="{Binding ContributionType.Id, Converter={StaticResource ContributionTypeTextConverter}}"/>
 
-                </custom:PancakeView>
+                </Frame>
 
-                <Label Style="{StaticResource contribution_list_item_title}" Text="{Binding Title}" />
-                <Label Style="{StaticResource contribution_list_item_date}" Text="{Binding StartDate, StringFormat='Activity date: {0:d}'}" />
+                <Label Text="{Binding Title}" Style="{StaticResource contribution_item_title}" />
+                <Label Text="{Binding StartDate, StringFormat='ACTIVITY DATE: {0:d}'}"
+                       Style="{StaticResource contribution_item_date}" />
             </StackLayout>
 
-            <BoxView Grid.ColumnSpan="2" Grid.Row="1" BackgroundColor="{StaticResource light_blue}" />
+            <BoxView Grid.Row="1" BackgroundColor="{StaticResource light_blue}" />
         </Grid>
     </DataTemplate>
 
-    <DataTemplate x:Key="VisibilityItemTemplate" x:DataType="models:Visibility">
-        <StackLayout Padding="24,8">
-            <custom:PancakeView  CornerRadius="8" Padding="16" BackgroundColor="White">
-                <Label Text="{Binding Description}" FontFamily="{StaticResource font_bold}" FontAttributes="Bold" FontSize="14" />
-            </custom:PancakeView>
-        </StackLayout>
+    <DataTemplate x:Key="visibility_item" x:DataType="models:Visibility">
+        <Grid RowDefinitions="Auto, 1" Padding="16,0">
+            <Label Text="{Binding Description}" Style="{StaticResource list_item_title_label}" />
+            <BoxView Grid.Row="1" BackgroundColor="{StaticResource light_blue}" />
+        </Grid>
     </DataTemplate>
 
-    <DataTemplate x:Key="ContributionTypeItemTemplate" x:DataType="models:ContributionType">
-        <StackLayout Padding="24,8">
-            <custom:PancakeView  CornerRadius="8" Padding="16" BackgroundColor="White">
-                <Label Text="{Binding Name}" FontFamily="{StaticResource font_bold}" FontAttributes="Bold" FontSize="14" />
-            </custom:PancakeView>
-        </StackLayout>
+    <DataTemplate x:Key="contribution_type_item" x:DataType="models:ContributionType">
+        <Grid RowDefinitions="Auto, 1" ColumnDefinitions="*,Auto" Padding="16,0">
+            <Label Grid.Column="0" Text="{Binding Name}" Style="{StaticResource list_item_title_label}" />
+
+            <Label Grid.Column="1" VerticalOptions="Center" VerticalTextAlignment="Center"
+                   FontFamily="{StaticResource font_icon}" Margin="0,0,16,0" FontSize="20"
+                   Text="{x:Static icons:Icons.check}" TextColor="{StaticResource primary}" />
+
+            <BoxView Grid.Row="1" Grid.ColumnSpan="2" BackgroundColor="{StaticResource light_blue}" />
+        </Grid>
     </DataTemplate>
 
-    <DataTemplate x:Key="ContributionTechnologyItemTemplate" x:DataType="models:ContributionTechnology">
-        <StackLayout Padding="24,8">
-            <custom:PancakeView  CornerRadius="8" Padding="16" BackgroundColor="White" BorderColor="{StaticResource gray}" BorderThickness="2">
-                <Label Text="{Binding Name}" FontFamily="{StaticResource font_bold}" FontAttributes="Bold" FontSize="14" />
-            </custom:PancakeView>
-        </StackLayout>
+    <DataTemplate x:Key="contribution_technology_item" x:DataType="models:ContributionTechnology">
+        <Grid RowDefinitions="Auto, 1" Padding="16,0">
+            <Label Text="{Binding Name}" Style="{StaticResource list_item_title_label}" />
+
+            <BoxView Grid.Row="1" BackgroundColor="{StaticResource light_blue}" />
+        </Grid>
     </DataTemplate>
 
-    <DataTemplate x:Key="ContributionTechnologyGroupHeaderTemplate">
+    <DataTemplate x:Key="contribution_technology_group">
         <Grid Padding="24,24,24,16">
-            <Label Style="{StaticResource contribution_list_group_header}" Text="{Binding Key}" />
+            <Label Text="{Binding Key}" FontFamily="{StaticResource font_bold}" LineBreakMode="TailTruncation" />
         </Grid>
     </DataTemplate>
 </ResourceDictionary>

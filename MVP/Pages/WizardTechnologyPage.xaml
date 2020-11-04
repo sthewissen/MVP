@@ -1,40 +1,77 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <pages:BaseContentPage xmlns="http://xamarin.com/schemas/2014/forms"
-                       xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-                       NavigationPage.HasNavigationBar="False"
-                       xmlns:vm="clr-namespace:MVP.ViewModels"
-                       xmlns:pages="clr-namespace:MVP.Pages"
-                       xmlns:xct="clr-namespace:Microsoft.Toolkit.Xamarin.Forms.Effects;assembly=Microsoft.Toolkit.Xamarin.Forms"
-                       xmlns:icons="clr-namespace:MVP.Styles"
-                       x:Class="MVP.Pages.WizardTechnologyPage"
-                       x:TypeArguments="vm:WizardTechnologyViewModel"
-                       x:DataType="vm:WizardTechnologyViewModel">
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:vm="clr-namespace:MVP.ViewModels"
+    xmlns:pages="clr-namespace:MVP.Pages"
+    xmlns:effects="clr-namespace:Xamarin.CommunityToolkit.Effects;assembly=Xamarin.CommunityToolkit"
+    xmlns:converters="clr-namespace:Xamarin.CommunityToolkit.Converters;assembly=Xamarin.CommunityToolkit"
+    xmlns:local="clr-namespace:MVP"
+    x:Class="MVP.Pages.WizardTechnologyPage"
+    x:TypeArguments="vm:WizardTechnologyViewModel"
+    x:DataType="vm:WizardTechnologyViewModel" xmlns:icons="clr-namespace:MVP.Styles">
 
-    <Grid xct:SafeAreaEffect.SafeArea="False,True">
+    <local:AppFrame x:Name="appFrame" Title="Primary contribution area"
+                    effects:SafeAreaEffect.SafeArea="false,true,false,false" ShowBackButton="True">
+        <local:AppFrame.Content>
+            <Grid>
 
-        <Grid.RowDefinitions>
-            <RowDefinition Height="56" />
-            <RowDefinition Height="*" />
-        </Grid.RowDefinitions>
-
-        <Label FontSize="24" Text="{x:Static icons:Icons.chevron_back}" TextColor="{StaticResource black}" Margin="24,0"
-               FontFamily="mvpicons" HorizontalOptions="Start" VerticalOptions="Center" HorizontalTextAlignment="Start" Padding="0,12,12,12">
-            <Label.GestureRecognizers>
-                <TapGestureRecognizer Command="{Binding BackCommand}" />
-            </Label.GestureRecognizers>
-        </Label>
-
-        <StackLayout Spacing="20" Grid.Row="1">
-
-            <Label Text="What technology area is the primary focus of this activity?" Style="{StaticResource contributiondetail_title}" Margin="24" />
-
-            <CollectionView ItemsSource="{Binding GroupedContributionTechnologies}"
+                <CollectionView ItemsSource="{Binding GroupedContributionTechnologies}"
                         SelectedItem="{Binding SelectedContributionTechnology}"
-                        SelectionMode="Single"
-                        IsGrouped="true"
-                        ItemTemplate="{StaticResource ContributionTechnologyItemTemplate}"
-                        GroupHeaderTemplate="{StaticResource ContributionTechnologyGroupHeaderTemplate}" />
+                        SelectionMode="Single" IsGrouped="true"                                
+                        Scrolled="CollectionView_Scrolled"
+                        ItemTemplate="{StaticResource contribution_technology_item}"
+                        GroupHeaderTemplate="{StaticResource contribution_technology_group}">
+                    <CollectionView.Header>
+                        <StackLayout>
 
-        </StackLayout>
-    </Grid>
+                            <Label Margin="24,0" Text="What's it about?" FontSize="28" FontFamily="{StaticResource font_bold}" />
+
+                            <Label Margin="24,0,24,16" Text="What technology area is the primary focus of this activity?"
+                                   FontSize="16" TextColor="{StaticResource dark_gray}" />
+
+                            <Frame Margin="16,0,16,16" BackgroundColor="{StaticResource background_gray}" HeightRequest="48" CornerRadius="24">
+                                <Grid ColumnDefinitions="*,48" Padding="24,0" VerticalOptions="Center">
+
+                                    <Entry Placeholder="Search..." BackgroundColor="Transparent" FontSize="15" VerticalOptions="Center"
+                                           FontFamily="{StaticResource font_regular}" PlaceholderColor="{StaticResource gray}" />
+
+                                    <Label Grid.Column="1" Text="{x:Static icons:Icons.search}" HorizontalOptions="End"
+                                           HorizontalTextAlignment="End" FontFamily="{StaticResource font_icon}"
+                                           VerticalOptions="Center" VerticalTextAlignment="Center"
+                                           TextColor="{StaticResource gray}"/>
+
+                                </Grid>
+                            </Frame>
+
+                            <FlexLayout Direction="Row" Wrap="Wrap" Padding="24,0" Margin="0,0,0,16">
+                                <BindableLayout.ItemsSource>
+                                    <x:Array Type="{x:Type x:String}">
+                                        <x:String>Azure DevOps</x:String>
+                                        <x:String>Python</x:String>
+                                        <x:String>Chef/Puppet in Datacenter</x:String>
+                                        <x:String>SQL Server, Azure SQL Database and SQL Server on Linux</x:String>
+                                        <x:String>Endpoint Manager</x:String>
+                                    </x:Array>
+                                </BindableLayout.ItemsSource>
+                                <BindableLayout.ItemTemplate>
+                                    <DataTemplate>
+                                        <StackLayout Margin="4">
+                                            <Frame BackgroundColor="{StaticResource light_primary}" Style="{StaticResource contribution_item_category}">
+                                                <Label Text="{Binding .,Converter={converters:TextCaseConverter Type=Upper}}"
+                                                       TextColor="{StaticResource primary}" Style="{StaticResource contribution_item_category_label}" />
+                                            </Frame>
+                                        </StackLayout>
+                                    </DataTemplate>
+                                </BindableLayout.ItemTemplate>
+                            </FlexLayout>
+                        </StackLayout>
+                    </CollectionView.Header>
+                    <CollectionView.Footer>
+                        <BoxView HeightRequest="40" />
+                    </CollectionView.Footer>
+                </CollectionView>
+
+            </Grid>
+        </local:AppFrame.Content>
+    </local:AppFrame>
 </pages:BaseContentPage>

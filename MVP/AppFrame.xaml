@@ -1,0 +1,49 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Grid x:Name="appFrame" xmlns="http://xamarin.com/schemas/2014/forms"
+      xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+      xmlns:icons="clr-namespace:MVP.Styles"
+      x:Class="MVP.AppFrame"
+      RowDefinitions="56, *"
+      ColumnDefinitions="56,*,56">
+
+    <Button x:Name="BackButton" BackgroundColor="Transparent" VerticalOptions="Center"
+            HorizontalOptions="Center" IsVisible="{Binding Source={x:Reference appFrame}, Path=ShowBackButton}"
+            Grid.Column="0" Style="{StaticResource button_menu_icon}"
+            Command="{Binding BackCommand}">
+        <Button.Triggers>
+            <DataTrigger TargetType="Button" Binding="{Binding IsModal, Source={x:Reference appFrame}}" Value="true">
+                <Setter Property="Text" Value="{x:Static icons:Icons.x}" />
+            </DataTrigger>
+            <DataTrigger TargetType="Button" Binding="{Binding IsModal, Source={x:Reference appFrame}}" Value="false">
+                <Setter Property="Text" Value="{x:Static icons:Icons.arrow_left}" />
+            </DataTrigger>
+        </Button.Triggers>
+    </Button>
+
+    <Button x:Name="PrimaryButton" BackgroundColor="Transparent" VerticalOptions="Center"
+            HorizontalOptions="Center" IsVisible="{Binding Source={x:Reference appFrame}, Path=ShowPrimaryButton}"
+            Grid.Column="0" Style="{StaticResource button_menu_icon}"
+            Text="{Binding Source={x:Reference appFrame}, Path=PrimaryButtonIcon}"
+            Command="{Binding PrimaryCommand}" />
+
+    <Button x:Name="SecondaryButton" BackgroundColor="Transparent" VerticalOptions="Center"
+            HorizontalOptions="Center" IsVisible="{Binding Source={x:Reference appFrame}, Path=ShowSecondaryButton}"
+            Grid.Column="2" Style="{StaticResource button_menu_icon}"
+            Text="{Binding Source={x:Reference appFrame}, Path=SecondaryButtonIcon}"
+            Command="{Binding SecondaryCommand}" />
+
+    <Label Grid.Column="1" Text="{Binding Path=Title, Source={x:Reference appFrame}}" Grid.Row="0"
+           HorizontalOptions="Center" HorizontalTextAlignment="Center"
+           VerticalOptions="Center" VerticalTextAlignment="Center"
+           FontFamily="{StaticResource font_bold}" FontSize="18"
+           TextColor="{StaticResource black}"/>
+
+    <ContentView Grid.ColumnSpan="3" x:Name="ContentGrid" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" Grid.Row="1"
+                 Content="{Binding Path=Content,Source={x:Reference appFrame}}" />
+
+    <Image Source="shadow.png" Grid.ColumnSpan="3" VerticalOptions="Start" Grid.Row="1"
+           Opacity="{Binding ShadowOpacity, Source={x:Reference appFrame}}" Aspect="AspectFill" />
+
+    <Image Source="shadow.png" Rotation="180" Grid.ColumnSpan="3" VerticalOptions="End" Grid.Row="1" Aspect="AspectFill" />
+
+</Grid>

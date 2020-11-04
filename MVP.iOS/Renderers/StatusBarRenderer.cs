@@ -16,7 +16,7 @@ namespace MVP.iOS.Renderers
             SetStatusBarStyle(StatusBar.GetStatusBarStyle(Element));
         }
 
-        private void SetStatusBarStyle(StatusBarStyle statusBarStyle)
+        void SetStatusBarStyle(StatusBarStyle statusBarStyle)
         {
             switch (statusBarStyle)
             {

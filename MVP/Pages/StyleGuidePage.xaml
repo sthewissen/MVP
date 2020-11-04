@@ -25,24 +25,6 @@
                     <x:String>light_gray</x:String>
                     <x:String>background_light_gray</x:String>
                     <x:String>border_light_gray</x:String>
-                    <x:String>monarch</x:String>
-                    <x:String>mexican_red</x:String>
-                    <x:String>persian_red</x:String>
-                    <x:String>tia_maria</x:String>
-                    <x:String>buttered_rum</x:String>
-                    <x:String>limeade</x:String>
-                    <x:String>blue_stone</x:String>
-                    <x:String>blue_lagoon</x:String>
-                    <x:String>lochmara</x:String>
-                    <x:String>cutty_sark</x:String>
-                    <x:String>nevada</x:String>
-                    <x:String>congress_blue</x:String>
-                    <x:String>royal_blue</x:String>
-                    <x:String>minsk</x:String>
-                    <x:String>seance</x:String>
-                    <x:String>fuchsia_pink</x:String>
-                    <x:String>hollywood_cerise</x:String>
-                    <x:String>quincy</x:String>
                 </x:Array>
             </BindableLayout.ItemsSource>
             <BindableLayout.ItemTemplate>

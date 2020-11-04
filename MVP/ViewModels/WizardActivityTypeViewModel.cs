@@ -16,7 +16,6 @@ namespace MVP.ViewModels
         ContributionType selectedContribution;
         Contribution contribution = new Contribution();
 
-        public IAsyncCommand BackCommand { get; set; }
         public IAsyncCommand NextCommand { get; set; }
 
         public List<ContributionType> ContributionTypes { get; set; } = new List<ContributionType>();

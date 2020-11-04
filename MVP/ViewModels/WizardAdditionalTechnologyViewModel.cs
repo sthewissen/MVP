@@ -18,19 +18,12 @@ namespace MVP.ViewModels
 {
     public class WizardAdditionalTechnologyViewModel : BaseViewModel
     {
-        IList<ContributionTechnology> selectedContributionTechnologies;
         Contribution contribution;
 
-        public IAsyncCommand BackCommand { get; set; }
         public IAsyncCommand NextCommand { get; set; }
         public ICommand SelectionChangedCommand { get; set; }
 
-        public IList<ContributionTechnology> SelectedContributionTechnologies
-        {
-            get { return selectedContributionTechnologies; }
-            set { selectedContributionTechnologies = value; }
-        }
-
+        public IList<ContributionTechnology> SelectedContributionTechnologies { get; set; }
         public IList<MvvmHelpers.Grouping<string, ContributionTechnology>> GroupedContributionTechnologies { get; set; } = new List<MvvmHelpers.Grouping<string, ContributionTechnology>>();
 
         public WizardAdditionalTechnologyViewModel(IAnalyticsService analyticsService, IAuthService authService, IDialogService dialogService, INavigationHelper navigationHelper)
@@ -60,7 +53,7 @@ namespace MVP.ViewModels
                 obj.Remove(obj.FirstOrDefault());
             }
 
-            selectedContributionTechnologies = obj.Select(x => x as ContributionTechnology).ToList();
+            SelectedContributionTechnologies = obj.Select(x => x as ContributionTechnology).ToList();
         }
 
         async Task LoadContributionAreas()
@@ -86,7 +79,7 @@ namespace MVP.ViewModels
                     {
                         var selectedValues = contribution.AdditionalTechnologies.Select(x => x.Id).ToList();
 
-                        selectedContributionTechnologies = result
+                        SelectedContributionTechnologies = result
                             .SelectMany(x => x)
                             .Where(x => selectedValues.Contains(x.Id))
                             .ToList();
@@ -104,9 +97,9 @@ namespace MVP.ViewModels
 
         async Task Next()
         {
-            if (selectedContributionTechnologies != null && selectedContributionTechnologies.Any())
+            if (SelectedContributionTechnologies != null && SelectedContributionTechnologies.Any())
             {
-                contribution.AdditionalTechnologies = new ObservableCollection<ContributionTechnology>(selectedContributionTechnologies);
+                contribution.AdditionalTechnologies = new ObservableCollection<ContributionTechnology>(SelectedContributionTechnologies);
             }
 
             await NavigationHelper.NavigateToAsync(nameof(WizardDatePage), contribution).ConfigureAwait(false);

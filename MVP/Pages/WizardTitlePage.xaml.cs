@@ -6,5 +6,11 @@ namespace MVP.Pages
     {
         public WizardTitlePage(IAnalyticsService analyticsService)
             : base(analyticsService) => InitializeComponent();
+
+        protected override void OnAppearing()
+        {
+            base.OnAppearing();
+            entry.Focus();
+        }
     }
 }

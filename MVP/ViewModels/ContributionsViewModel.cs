@@ -24,7 +24,7 @@ namespace MVP.ViewModels
         bool isLoadingMore;
         Contribution selectedContribution;
 
-        public IList<Grouping<int, Contribution>> GroupedContributions { get; set; } = new List<Grouping<int, Contribution>>();
+        public IList<Contribution> Contributions { get; set; } = new List<Contribution>();
         public Profile Profile { get; set; }
         public string ProfileImage { get; set; }
         public string Name { get; set; }
@@ -50,11 +50,11 @@ namespace MVP.ViewModels
         public ContributionsViewModel(IAnalyticsService analyticsService, IAuthService authService, IDialogService dialogService, INavigationHelper navigationHelper)
             : base(analyticsService, authService, dialogService, navigationHelper)
         {
-            OpenProfileCommand = new AsyncCommand(() => OpenProfile());
+            //OpenProfileCommand = new AsyncCommand(() => OpenProfile());
             OpenContributionCommand = new AsyncCommand<Contribution>((Contribution c) => OpenContribution(c));
-            OpenAddContributionCommand = new AsyncCommand(() => OpenAddContribution());
+            SecondaryCommand = new AsyncCommand(() => OpenAddContribution());
             RefreshDataCommand = new AsyncCommand(() => RefreshContributions());
-            LoadMoreCommand = new AsyncCommand(() => LoadMoreContributions());
+            //LoadMoreCommand = new AsyncCommand(() => LoadMoreContributions());
 
             //CurrentApp.Resumed += App_Resumed;
         }
@@ -91,7 +91,7 @@ namespace MVP.ViewModels
 
         async Task RefreshContributions()
         {
-            GroupedContributions.Clear();
+            Contributions.Clear();
             contributions.Clear();
 
             var contributionsList = await MvpApiService.GetContributionsAsync(0, pageSize).ConfigureAwait(false);
@@ -99,7 +99,7 @@ namespace MVP.ViewModels
             if (contributionsList == null)
                 return;
 
-            GroupedContributions = contributionsList.Contributions.ToGroupedContributions();
+            Contributions = contributionsList.Contributions;
         }
 
         async Task RefreshProfileImage()
@@ -140,7 +140,7 @@ namespace MVP.ViewModels
                     {
                         // Add the contributions and regroup the lot.
                         contributions.AddRange(contributionsList.Contributions);
-                        GroupedContributions = contributions.ToGroupedContributions();
+                        Contributions = contributions;
                     }
                     else if (contributionsList.TotalContributions != contributionsList.PagingIndex)
                     {
@@ -160,7 +160,7 @@ namespace MVP.ViewModels
 
             var text = await Clipboard.GetTextAsync();
 
-            if (!text.StartsWith("http://") && !text.StartsWith("https://"))
+            if (string.IsNullOrEmpty(text) || (!text.StartsWith("http://") && !text.StartsWith("https://")))
                 return false;
 
             var shouldCreateActivity = await DialogService.ConfirmAsync(

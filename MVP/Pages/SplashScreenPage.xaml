@@ -18,7 +18,8 @@
                         HorizontalOptions="Center" WidthRequest="148" HeightRequest="148"
                         DownsampleToViewSize="False"  />
 
-        <Label Text="{Binding FetchText}" HorizontalOptions="Center" HorizontalTextAlignment="Center" TextColor="{StaticResource white}"/>
+        <Label Text="{Binding FetchText}" HorizontalOptions="Center" HorizontalTextAlignment="Center"
+               TextColor="{StaticResource white}"/>
 
     </StackLayout>
 

@@ -22,7 +22,8 @@ namespace MVP.ViewModels
             set => Set(ref fetchText, value);
         }
 
-        public SplashScreenViewModel(IAuthService authService, IAnalyticsService analyticsService, IDialogService dialogService, INavigationHelper navigationHelper)
+        public SplashScreenViewModel(IAuthService authService, IAnalyticsService analyticsService,
+            IDialogService dialogService, INavigationHelper navigationHelper)
             : base(analyticsService, authService, dialogService, navigationHelper)
         {
             PrefetchDataCommand = new AsyncCommand(() => PrefetchData());
@@ -67,7 +68,7 @@ namespace MVP.ViewModels
                 if (isAuthenticated)
                 {
                     AnalyticsService.Track("");
-                    NavigationHelper.SetRootView(nameof(ContributionsPage), true);
+                    NavigationHelper.SetRootView(nameof(TabbedMainPage), false);
                 }
                 else
                 {

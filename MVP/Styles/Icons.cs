@@ -4,37 +4,25 @@ namespace MVP.Styles
 {
     public static class Icons
     {
-        public const string replay = "\ue900";
-        public const string add = "\ue901";
-        public const string add_circle = "\ue902";
-        public const string add_circle_outline = "\ue903";
-        public const string clear = "\ue904";
-        public const string link = "\ue905";
-        public const string remove_circle = "\ue906";
-        public const string remove_circle_outline = "\ue907";
-        public const string back = "\ue908";
-        public const string add_a_photo = "\ue909";
-        public const string graphic_eq = "\ue90a";
-        public const string delete = "\ue90b";
-        public const string search = "\ue90c";
-        public const string sort_amount = "\ue90d";
-        public const string sort_alpha = "\ue90e";
-        public const string create = "\ue90f";
-        public const string forward = "\ue910";
-        public const string arrow_back = "\ue911";
-        public const string arrow_forward = "\ue912";
-        public const string arrow_upward = "\ue913";
-        public const string arrow_downward = "\ue914";
-        public const string chevron_back = "\ue915";
-        public const string chevron_forward = "\ue916";
-        public const string history = "\ue917";
-        public const string save = "\ue918";
-    }
-
-    public static class NewIcons
-    {
-        public const string IconEdit = "\ue900";
-        public const string IconPicture = "\ue901";
-        public const string IconSearch = "\ue902";
+        public const string arrow_right = "\ue900";
+        public const string arrow_left = "\ue901";
+        public const string search = "\ue902";
+        public const string arrow_down = "\ue903";
+        public const string arrow_up = "\ue904";
+        public const string share = "\ue905";
+        public const string send = "\ue906";
+        public const string save = "\ue907";
+        public const string settings = "\ue908";
+        public const string trash2 = "\ue909";
+        public const string trash = "\ue90a";
+        public const string home = "\ue90b";
+        public const string heart = "\ue90c";
+        public const string award = "\ue90d";
+        public const string activity = "\ue90e";
+        public const string user = "\ue90f";
+        public const string plus = "\ue910";
+        public const string copy = "\ue911";
+        public const string x = "\ue912";
+        public const string check = "\ue913";
     }
 }

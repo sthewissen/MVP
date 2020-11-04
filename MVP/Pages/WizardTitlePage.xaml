@@ -1,41 +1,46 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <pages:BaseContentPage xmlns="http://xamarin.com/schemas/2014/forms"
-                       xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-                       NavigationPage.HasNavigationBar="False"
-                       xmlns:vm="clr-namespace:MVP.ViewModels"
-                       xmlns:xct="clr-namespace:Microsoft.Toolkit.Xamarin.Forms.Effects;assembly=Microsoft.Toolkit.Xamarin.Forms"
-                       xmlns:icons="clr-namespace:MVP.Styles"
-                       xmlns:pages="clr-namespace:MVP.Pages"
-                       xmlns:custom="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
-                       x:Class="MVP.Pages.WizardTitlePage"
-                       x:TypeArguments="vm:WizardTitleViewModel"
-                       x:DataType="vm:WizardTitleViewModel">
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:vm="clr-namespace:MVP.ViewModels"
+    xmlns:effects="clr-namespace:Xamarin.CommunityToolkit.Effects;assembly=Xamarin.CommunityToolkit"
+    xmlns:icons="clr-namespace:MVP.Styles"
+    xmlns:pages="clr-namespace:MVP.Pages"
+    x:Class="MVP.Pages.WizardTitlePage"
+    x:TypeArguments="vm:WizardTitleViewModel"
+    x:DataType="vm:WizardTitleViewModel"
+    xmlns:local="clr-namespace:MVP"
+    xmlns:sh="clr-namespace:Sharpnado.Shades;assembly=Sharpnado.Shadows">
 
-    <Grid xct:SafeAreaEffect.SafeArea="False,True">
+    <local:AppFrame x:Name="appFrame" Title="Title of activity"
+                    effects:SafeAreaEffect.SafeArea="false,true,false,false" ShowBackButton="True">
+        <local:AppFrame.Content>
+            <Grid>
+                <StackLayout Margin="24,0">
+                    <Label Text="What was it?" FontSize="28" FontFamily="{StaticResource font_bold}" />
 
-        <Grid.RowDefinitions>
-            <RowDefinition Height="56" />
-            <RowDefinition Height="*" />
-        </Grid.RowDefinitions>
+                    <Label Margin="0,0,0,16" Text="What's the title of your activity?"
+                           FontSize="16" TextColor="{StaticResource dark_gray}" />
 
-        <Label FontSize="24" Text="{x:Static icons:Icons.chevron_back}" TextColor="{StaticResource black}" Margin="24,0"
-               FontFamily="mvpicons" HorizontalOptions="Start" VerticalOptions="Center" HorizontalTextAlignment="Start" Padding="0,12,12,12">
-            <Label.GestureRecognizers>
-                <TapGestureRecognizer Command="{Binding BackCommand}" />
-            </Label.GestureRecognizers>
-        </Label>
+                    <Entry Text="{Binding Title}" FontFamily="{StaticResource font_semibold}"
+                           Margin="16,0" FontSize="16" HeightRequest="96" x:Name="entry" />
 
-        <StackLayout Spacing="20" Grid.Row="1">
+                    <BoxView BackgroundColor="{StaticResource light_blue}" Margin="0,-24,0,0" HeightRequest="1" />
+                </StackLayout>
 
-            <Label Text="What's the title of your activity?" Style="{StaticResource contributiondetail_title}" Margin="24" />
+                <sh:Shadows CornerRadius="28" VerticalOptions="End" HorizontalOptions="End">
+                    <sh:Shadows.Shades>
+                        <sh:ImmutableShades>
+                            <sh:Shade BlurRadius="6" Opacity="0.2" Offset="3,3" Color="{StaticResource black}" />
+                        </sh:ImmutableShades>
+                    </sh:Shadows.Shades>
 
-            <Entry Text="{Binding Title}" />
-        </StackLayout>
-
-        <custom:PancakeView Style="{StaticResource fab_button_container}" x:Name="fab" Grid.RowSpan="2">
-            <Button Style="{StaticResource fab_button}" Text="{x:Static icons:Icons.arrow_forward}" Command="{Binding NextCommand}" />
-        </custom:PancakeView>
-
-    </Grid>
-
+                    <Button effects:SafeAreaEffect.SafeArea="false,false,false,true" Text="{x:Static icons:Icons.arrow_right}"
+                            Command="{Binding NextCommand}" BackgroundColor="{StaticResource primary}" CornerRadius="28"
+                            WidthRequest="56" HeightRequest="56" TextColor="{StaticResource white}" VerticalOptions="End"
+                            HorizontalOptions="End" Margin="0,0,24,24"
+                            FontFamily="{StaticResource font_icon}" FontSize="20"/>
+                </sh:Shadows>
+            </Grid>
+        </local:AppFrame.Content>
+    </local:AppFrame>
 </pages:BaseContentPage>

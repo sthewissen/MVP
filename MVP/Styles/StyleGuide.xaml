@@ -1,9 +1,7 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <ResourceDictionary xmlns="http://xamarin.com/schemas/2014/forms"
                     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-                    xmlns:custom="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
                     xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
-                    xmlns:ff="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
                     x:Class="MVP.Styles.StyleGuide">
 
     <?xaml-comp compile="true" ?>
@@ -28,38 +26,75 @@
     <Color x:Key="light_blue">#EBEDF5</Color>
 
     <!-- Special colors -->
-    <Color x:Key="monarch">#750B1C</Color>
-    <Color x:Key="mexican_red">#A4262C</Color>
-    <Color x:Key="persian_red">#D13438</Color>
-    <Color x:Key="tia_maria">#CA5010</Color>
-    <Color x:Key="buttered_rum">#986F0B</Color>
-    <Color x:Key="limeade">#498205</Color>
-    <Color x:Key="blue_stone">#005E50</Color>
-    <Color x:Key="blue_lagoon">#038387</Color>
-    <Color x:Key="lochmara">#0078d4</Color>
-    <Color x:Key="cutty_sark">#567C73</Color>
-    <Color x:Key="nevada">#69797E</Color>
-    <Color x:Key="congress_blue">#004E8C</Color>
-    <Color x:Key="royal_blue">#4F6BED</Color>
-    <Color x:Key="minsk">#373277</Color>
-    <Color x:Key="seance">#881798</Color>
-    <Color x:Key="fuchsia_pink">#C239B3</Color>
-    <Color x:Key="hollywood_cerise">#E3008C</Color>
-    <Color x:Key="quincy">#603D30</Color>
+    <Color x:Key="red_light">#E84C3D</Color>
+    <Color x:Key="red_dark">#C1392B</Color>
+    <Color x:Key="orange_light">#E77E23</Color>
+    <Color x:Key="orange_dark">#D35400</Color>
+    <Color x:Key="yellow_light">#FFCD02</Color>
+    <Color x:Key="yellow_dark">#FFA800</Color>
+    <Color x:Key="sand_light">#F0DFB4</Color>
+    <Color x:Key="sand_dark">#D5C395</Color>
+    <Color x:Key="navyblue_light">#34495E</Color>
+    <Color x:Key="navyblue_dark">#2D3E50</Color>
+    <Color x:Key="black_light">#2B2B2B</Color>
+    <Color x:Key="black_dark">#262626</Color>
+    <Color x:Key="magenta_light">#9B58B5</Color>
+    <Color x:Key="magenta_dark">#8F44AD</Color>
+    <Color x:Key="teal_light">#3A6F81</Color>
+    <Color x:Key="teal_dark">#346272</Color>
+    <Color x:Key="skyblue_light">#3598DB</Color>
+    <Color x:Key="skyblue_dark">#2A80B9</Color>
+    <Color x:Key="green_light">#2DCC70</Color>
+    <Color x:Key="green_dark">#27AE61</Color>
+    <Color x:Key="mint_light">#1BBC9B</Color>
+    <Color x:Key="mint_dark">#16A086</Color>
+    <Color x:Key="white_light">#ECF0F1</Color>
+    <Color x:Key="white_dark">#BEC3C7</Color>
+    <Color x:Key="gray_light">#95A5A5</Color>
+    <Color x:Key="gray_dark">#7E8C8D</Color>
+    <Color x:Key="forestgreen_light">#345F41</Color>
+    <Color x:Key="forestgreen_dark">#2E5037</Color>
+    <Color x:Key="purple_light">#745DC5</Color>
+    <Color x:Key="purple_dark">#5B48A2</Color>
+    <Color x:Key="brown_light">#5F4534</Color>
+    <Color x:Key="brown_dark">#513B2D</Color>
+    <Color x:Key="plum_light">#5E335E</Color>
+    <Color x:Key="plum_dark">#4F2B4F</Color>
+    <Color x:Key="watermelon_light">#EF727A</Color>
+    <Color x:Key="watermelon_dark">#D95459</Color>
+    <Color x:Key="lime_light">#A5C63B</Color>
+    <Color x:Key="lime_dark">#8FB021</Color>
+    <Color x:Key="pink_light">#F47CC3</Color>
+    <Color x:Key="pink_dark">#D45B9E</Color>
+    <Color x:Key="maroon_light">#79302A</Color>
+    <Color x:Key="maroon_dark">#662722</Color>
+    <Color x:Key="coffee_light">#A28671</Color>
+    <Color x:Key="coffee_dark">#8E725D</Color>
+    <Color x:Key="powderblue_light">#B8CAF2</Color>
+    <Color x:Key="powderblue_dark">#99AAD5</Color>
+    <Color x:Key="blue_light">#5165A2</Color>
+    <Color x:Key="blue_dark">#384C81</Color>
+
+    <!--Fonts-->
 
     <OnPlatform x:TypeArguments="x:String" x:Key="font_bold">
-        <On Platform="iOS" Value="NunitoSans-Bold"/>
-        <On Platform="Android" Value="NunitoSans-Bold"/>
+        <On Platform="iOS" Value="SourceSansPro-Bold"/>
+        <On Platform="Android" Value="SourceSansPro-Bold"/>
     </OnPlatform>
 
     <OnPlatform x:TypeArguments="x:String" x:Key="font_regular">
-        <On Platform="iOS" Value="NunitoSans-Regular"/>
-        <On Platform="Android" Value="NunitoSans-Regular"/>
+        <On Platform="iOS" Value="SourceSansPro-Regular"/>
+        <On Platform="Android" Value="SourceSansPro-Regular"/>
     </OnPlatform>
 
-    <OnPlatform x:TypeArguments="x:String" x:Key="font_extrabold">
-        <On Platform="iOS" Value="NunitoSans-ExtraBold"/>
-        <On Platform="Android" Value="NunitoSans-ExtraBold"/>
+    <OnPlatform x:TypeArguments="x:String" x:Key="font_semibold">
+        <On Platform="iOS" Value="SourceSansPro-SemiBold"/>
+        <On Platform="Android" Value="SourceSansPro-SemiBold"/>
+    </OnPlatform>
+
+    <OnPlatform x:TypeArguments="x:String" x:Key="font_light">
+        <On Platform="iOS" Value="SourceSansPro-Light"/>
+        <On Platform="Android" Value="SourceSansPro-Light"/>
     </OnPlatform>
 
     <OnPlatform x:TypeArguments="x:String" x:Key="font_icon">
@@ -67,10 +102,29 @@
         <On Platform="Android" Value="MVPBuzz"/>
     </OnPlatform>
 
-    <!--
-    Try to use as many of these named font sizes as we can:
-    https://docs.microsoft.com/nl-nl/xamarin/xamarin-forms/user-interface/text/fonts#named-font-sizes
-    -->
+    <!--Resets-->
+
+    <Style TargetType="Grid">
+        <Setter Property="ColumnSpacing" Value="0" />
+        <Setter Property="RowSpacing" Value="0" />
+        <Setter Property="VisualStateManager.VisualStateGroups">
+            <VisualStateGroupList>
+                <VisualStateGroup x:Name="CommonStates">
+                    <VisualState x:Name="Normal" />
+                    <VisualState x:Name="Selected">
+                        <VisualState.Setters>
+                            <Setter Property="BackgroundColor" Value="{StaticResource light_blue}" />
+                        </VisualState.Setters>
+                    </VisualState>
+                </VisualStateGroup>
+            </VisualStateGroupList>
+        </Setter>
+    </Style>
+
+    <Style TargetType="Frame">
+        <Setter Property="HasShadow" Value="false" />
+        <Setter Property="Padding" Value="0" />
+    </Style>
 
     <Style TargetType="StackLayout">
         <Setter Property="Spacing" Value="0" />
@@ -80,7 +134,7 @@
                     <VisualState x:Name="Normal" />
                     <VisualState x:Name="Selected">
                         <VisualState.Setters>
-                            <Setter Property="BackgroundColor" Value="Gray" />
+                            <Setter Property="BackgroundColor" Value="{StaticResource light_blue}" />
                         </VisualState.Setters>
                     </VisualState>
                 </VisualStateGroup>
@@ -88,165 +142,72 @@
         </Setter>
     </Style>
 
-    <Style TargetType="Grid">
-        <Setter Property="ColumnSpacing" Value="0" />
-        <Setter Property="RowSpacing" Value="0" />
-    </Style>
+    <!--Overall stylings-->
 
     <Style TargetType="ContentPage" ApplyToDerivedTypes="True">
         <Setter Property="BackgroundColor" Value="{StaticResource white}" />
         <Setter Property="ios:Page.ModalPresentationStyle" Value="FormSheet" />
+        <Setter Property="NavigationPage.HasNavigationBar" Value="False" />
     </Style>
 
-    <Style x:Key="intro_heading" TargetType="Label">
-        <Setter Property="FontSize" Value="{OnPlatform Android=Medium, iOS=Subtitle}" />
-        <Setter Property="FontFamily" Value="{StaticResource font_bold}" />
-        <Setter Property="FontAttributes" Value="Bold" />
-        <Setter Property="HorizontalOptions" Value="Center" />
-        <Setter Property="HorizontalTextAlignment" Value="Center" />
-        <Setter Property="TextColor" Value="{StaticResource black}" />
-        <Setter Property="LineHeight" Value="1" />
-    </Style>
-
-    <Style x:Key="intro_text" TargetType="Label">
-        <Setter Property="FontSize" Value="{OnPlatform Android=Small, iOS=Body}" />
+    <Style TargetType="Label">
         <Setter Property="FontFamily" Value="{StaticResource font_regular}" />
-        <Setter Property="HorizontalOptions" Value="Center" />
-        <Setter Property="HorizontalTextAlignment" Value="Center" />
         <Setter Property="TextColor" Value="{StaticResource black}" />
-        <Setter Property="LineHeight" Value="1.2" />
     </Style>
 
-    <Style x:Key="button_blue" TargetType="Button">
-        <Setter Property="BackgroundColor" Value="{StaticResource primary}" />
+    <Style TargetType="Entry">
         <Setter Property="FontFamily" Value="{StaticResource font_regular}" />
-        <Setter Property="FontAttributes" Value="Bold" />
-        <Setter Property="TextColor" Value="{StaticResource white}" />
-        <Setter Property="HeightRequest" Value="40" />
-        <Setter Property="Padding">
-            <OnPlatform x:TypeArguments="Thickness">
-                <On Platform="iOS" Value="20,0" />
-                <On Platform="Android" Value="5"/>
-            </OnPlatform>
-        </Setter>
-    </Style>
-
-    <Style x:Key="pill_box" TargetType="custom:PancakeView">
-        <Setter Property="Padding" Value="8,4"/>
-        <Setter Property="CornerRadius" Value="4"/>
-        <Setter Property="VerticalOptions" Value="Start"/>
-        <Setter Property="HorizontalOptions" Value="Start"/>
-        <Setter Property="BackgroundColor" Value="{StaticResource primary}"/>
-    </Style>
-
-    <Style x:Key="pill_label" TargetType="Label">
-        <Setter Property="FontSize" Value="10" />
-        <Setter Property="TextColor" Value="{StaticResource white}" />
-        <Setter Property="FontFamily" Value="{StaticResource font_bold}" />
-        <Setter Property="VerticalOptions" Value="Center" />
-        <Setter Property="VerticalTextAlignment" Value="Center" />
-    </Style>
-
-    <Style x:Key="welcome_name" TargetType="Label">
-        <Setter Property="FontSize" Value="15" />
         <Setter Property="TextColor" Value="{StaticResource black}" />
+        <Setter Property="PlaceholderColor" Value="{StaticResource gray}" />
+    </Style>
+
+    <!--Implicit stylings-->
+
+    <Style TargetType="Label" x:Key="contribution_item_title">
+        <Setter Property="FontFamily" Value="{StaticResource font_bold}" />
+        <Setter Property="FontSize" Value="16" />
+        <Setter Property="TextColor" Value="{StaticResource black}" />
+        <Setter Property="MaxLines" Value="2" />
+        <Setter Property="LineBreakMode" Value="TailTruncation" />
+    </Style>
+
+    <Style TargetType="Label" x:Key="contribution_item_date">
         <Setter Property="FontFamily" Value="{StaticResource font_regular}" />
-        <Setter Property="VerticalOptions" Value="Center" />
-        <Setter Property="VerticalTextAlignment" Value="Center" />
-        <Setter Property="HorizontalOptions" Value="Center" />
-        <Setter Property="HorizontalTextAlignment" Value="Center" />
-    </Style>
-
-    <Style x:Key="welcome_subtitle" TargetType="Label">
-        <Setter Property="FontSize" Value="23" />
-        <Setter Property="FontFamily" Value="{StaticResource font_bold}" />
-        <Setter Property="TextColor" Value="{StaticResource black}" />
-        <Setter Property="VerticalOptions" Value="Center" />
-        <Setter Property="VerticalTextAlignment" Value="Center" />
-        <Setter Property="HorizontalOptions" Value="Center" />
-        <Setter Property="HorizontalTextAlignment" Value="Center" />
-    </Style>
-
-    <Style x:Key="contribution_list_group_header" TargetType="Label">
-        <Setter Property="FontSize" Value="Medium" />
-        <Setter Property="TextColor" Value="{StaticResource black}" />
-        <Setter Property="FontFamily" Value="{StaticResource font_bold}" />
-        <Setter Property="FontAttributes" Value="Bold" />
-        <Setter Property="VerticalOptions" Value="Center" />
-        <Setter Property="VerticalTextAlignment" Value="Center" />
-    </Style>
-
-    <Style x:Key="contribution_list_item_title" TargetType="Label">
-        <Setter Property="FontSize" Value="14" />
-        <Setter Property="TextColor" Value="{StaticResource black}" />
-        <Setter Property="FontFamily" Value="{StaticResource font_extrabold}" />
-        <Setter Property="VerticalOptions" Value="Center" />
-        <Setter Property="VerticalTextAlignment" Value="Center" />
-    </Style>
-
-    <Style x:Key="contribution_list_item_date" TargetType="Label">
         <Setter Property="FontSize" Value="12" />
-        <Setter Property="FontFamily" Value="{StaticResource font_regular}" />
-        <Setter Property="TextColor" Value="{StaticResource dark_gray}" />
-        <Setter Property="VerticalOptions" Value="Center" />
-        <Setter Property="VerticalTextAlignment" Value="Center" />
+        <Setter Property="TextColor" Value="{StaticResource light_gray}" />
     </Style>
 
-    <Style x:Key="contribution_list_item_image" TargetType="ff:CachedImage">
-        <Setter Property="Aspect" Value="AspectFill"/>
-        <Setter Property="VerticalOptions" Value="Center"/>
-        <Setter Property="BackgroundColor" Value="{StaticResource light_blue}"/>
-        <Setter Property="WidthRequest" Value="84"/>
-        <Setter Property="HeightRequest" Value="84"/>
-    </Style>
-
-    <Style x:Key="contributiondetail_title" TargetType="Label">
-        <Setter Property="FontSize" Value="{OnPlatform Android=Large, iOS=Subtitle}" />
-        <Setter Property="TextColor" Value="{StaticResource black}" />
-        <Setter Property="FontFamily" Value="{StaticResource font_bold}" />
-        <Setter Property="FontAttributes" Value="Bold" />
-        <Setter Property="VerticalOptions" Value="Center" />
-        <Setter Property="VerticalTextAlignment" Value="Center" />
-    </Style>
-
-    <Style x:Key="fab_button_container" TargetType="custom:PancakeView">
-        <Setter Property="CornerRadius" Value="28"/>
-        <Setter Property="Elevation" Value="8"/>
-        <Setter Property="HorizontalOptions" Value="End"/>
-        <Setter Property="Margin" Value="0,0,24,24"/>
-        <Setter Property="VerticalOptions" Value="End"/>
-        <Setter Property="BackgroundColor" Value="{StaticResource primary}"/>
-        <Setter Property="HeightRequest" Value="56"/>
-        <Setter Property="WidthRequest" Value="56"/>
-    </Style>
-
-    <Style x:Key="fab_button" TargetType="Button">
-        <Setter Property="TextColor" Value="{StaticResource white}"/>
-        <Setter Property="FontFamily" Value="{StaticResource font_icon}"/>
-        <Setter Property="FontSize" Value="22"/>
-        <Setter Property="Margin" Value="0,0,0,4"/>
-        <Setter Property="BackgroundColor" Value="{StaticResource primary}"/>
-    </Style>
-
-    <Style x:Key="field_header" TargetType="Label">
-        <Setter Property="FontSize" Value="Small" />
-        <Setter Property="TextColor" Value="{StaticResource black}" />
-        <Setter Property="FontFamily" Value="{StaticResource font_bold}" />
-        <Setter Property="FontAttributes" Value="Bold" />
-        <Setter Property="LineHeight" Value="1" />
+    <Style TargetType="Frame" x:Key="contribution_item_category">
+        <Setter Property="CornerRadius" Value="4" />
         <Setter Property="HorizontalOptions" Value="Start" />
-        <Setter Property="VerticalOptions" Value="Start" />
-        <Setter Property="VerticalTextAlignment" Value="Center" />
+        <Setter Property="Padding" Value="8,4" />
     </Style>
 
-    <Style x:Key="field_value" TargetType="Label">
-        <Setter Property="FontSize" Value="Small" />
-        <Setter Property="TextColor" Value="{StaticResource dark_gray}" />
-        <Setter Property="LineHeight" Value="1" />
-        <Setter Property="HorizontalOptions" Value="End" />
-        <Setter Property="HorizontalTextAlignment" Value="End" />
-        <Setter Property="VerticalOptions" Value="Start" />
+    <Style TargetType="Label" x:Key="contribution_item_category_label">
+        <Setter Property="HorizontalOptions" Value="Center" />
+        <Setter Property="HorizontalTextAlignment" Value="Center" />
+        <Setter Property="FontFamily" Value="{StaticResource font_bold}" />
+        <Setter Property="FontSize" Value="11" />
+    </Style>
+
+    <Style TargetType="Label" x:Key="list_item_title_label">
+        <Setter Property="VerticalOptions" Value="Center" />
         <Setter Property="VerticalTextAlignment" Value="Center" />
+        <Setter Property="FontFamily" Value="{StaticResource font_semibold}" />
+        <Setter Property="FontSize" Value="14" />
+        <Setter Property="Padding" Value="16" />
+        <Setter Property="LineBreakMode" Value="TailTruncation" />
+    </Style>
+
+    <Style TargetType="Button" x:Key="button_menu_icon">
+        <Setter Property="BackgroundColor" Value="{StaticResource white}" />
+        <Setter Property="TextColor" Value="{StaticResource black}" />
+        <Setter Property="Padding" Value="0" />
+        <Setter Property="WidthRequest" Value="40" />
+        <Setter Property="HeightRequest" Value="40" />
+        <Setter Property="CornerRadius" Value="20" />
+        <Setter Property="FontSize" Value="22" />
+        <Setter Property="FontFamily" Value="{StaticResource font_icon}" />
     </Style>
 
 </ResourceDictionary>

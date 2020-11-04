@@ -1,6 +1,7 @@
 ﻿using MVP.Services.Interfaces;
 using TinyMvvm;
 using TinyMvvm.Forms;
+using TinyMvvm.IoC;
 using Xamarin.Forms.PlatformConfiguration;
 using Xamarin.Forms.PlatformConfiguration.iOSSpecific;
 
