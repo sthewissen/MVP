@@ -1,44 +1,51 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <pages:BaseContentPage xmlns="http://xamarin.com/schemas/2014/forms"
-    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-    x:Class="MVP.Pages.WizardDatePage"
-    xmlns:vm="clr-namespace:MVP.ViewModels"
-    xmlns:pages="clr-namespace:MVP.Pages"
-    xmlns:effects="clr-namespace:Xamarin.CommunityToolkit.Effects;assembly=Xamarin.CommunityToolkit"
-    xmlns:icons="clr-namespace:MVP.Styles"    
-    x:TypeArguments="vm:WizardDateViewModel"
-    x:DataType="vm:WizardDateViewModel"
-    xmlns:local="clr-namespace:MVP"
-    xmlns:sh="clr-namespace:Sharpnado.Shades;assembly=Sharpnado.Shadows">
+                       xmlns:icons="clr-namespace:MVP.Styles"
+                       xmlns:local="clr-namespace:MVP"
+                       xmlns:pages="clr-namespace:MVP.Pages"
+                       xmlns:sh="clr-namespace:Sharpnado.Shades;assembly=Sharpnado.Shadows"
+                       xmlns:vm="clr-namespace:MVP.ViewModels"
+                       xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                       x:Class="MVP.Pages.WizardDatePage"
+                       x:DataType="vm:WizardDateViewModel"
+                       x:TypeArguments="vm:WizardDateViewModel">
 
-    <local:AppFrame x:Name="appFrame" Title="Date of activity"
-                    effects:SafeAreaEffect.SafeArea="false,true,false,false" ShowBackButton="True">
+    <local:AppFrame ShowBackButton="True"
+                    Title="Date of activity"
+                    x:Name="appFrame">
         <local:AppFrame.Content>
             <Grid>
                 <StackLayout Margin="24,0">
-                    <Label Text="When was it?" FontSize="28" FontFamily="{StaticResource font_bold}" />
+                    <Label Style="{StaticResource wizard_title}"
+                           Text="When was it?"/>
 
-                    <Label Margin="0,0,0,16" Text="When did the activity take place?"
-                           FontSize="16" TextColor="{StaticResource dark_gray}" />
+                    <Label Margin="0,0,0,16"
+                           Style="{StaticResource wizard_subtitle}"
+                           Text="When did the activity take place?"/>
 
-                    <DatePicker Date="{Binding StartDate}" FontFamily="{StaticResource font_semibold}"
-                                Format="D" Margin="16,32,16,16" FontSize="24" />
+                    <DatePicker Date="{Binding StartDate}"
+                                FontFamily="{StaticResource font_semibold}"
+                                FontSize="24"
+                                Format="D"
+                                Margin="16,32,16,16"/>
 
-                    <BoxView BackgroundColor="{StaticResource light_blue}" HeightRequest="1" />
+                    <BoxView Style="{StaticResource separator}"/>
                 </StackLayout>
 
-                <sh:Shadows CornerRadius="28" VerticalOptions="End" HorizontalOptions="End">
+                <sh:Shadows CornerRadius="28"
+                            HorizontalOptions="End"
+                            VerticalOptions="End">
                     <sh:Shadows.Shades>
                         <sh:ImmutableShades>
-                            <sh:Shade BlurRadius="6" Opacity="0.2" Offset="3,3" Color="{StaticResource black}" />
+                            <sh:Shade BlurRadius="6"
+                                      Color="{StaticResource black}"
+                                      Offset="3,3"
+                                      Opacity="0.2"/>
                         </sh:ImmutableShades>
                     </sh:Shadows.Shades>
-
-                    <Button effects:SafeAreaEffect.SafeArea="false,false,false,true" Text="{x:Static icons:Icons.arrow_right}"
-                            Command="{Binding NextCommand}" BackgroundColor="{StaticResource primary}" CornerRadius="28"
-                            WidthRequest="56" HeightRequest="56" TextColor="{StaticResource white}" VerticalOptions="End"
-                            HorizontalOptions="End" Margin="0,0,24,24"
-                            FontFamily="{StaticResource font_icon}" FontSize="20"/>
+                    <Button Command="{Binding NextCommand}"
+                            Style="{StaticResource fab_button}"
+                            Text="{x:Static icons:Icons.arrow_right}"/>
                 </sh:Shadows>
             </Grid>
         </local:AppFrame.Content>

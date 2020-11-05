@@ -1,60 +1,87 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <pages:BaseContentPage xmlns="http://xamarin.com/schemas/2014/forms"
-    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-    xmlns:vm="clr-namespace:MVP.ViewModels"
-    xmlns:pages="clr-namespace:MVP.Pages"
-    xmlns:icons="clr-namespace:MVP.Styles"
-    xmlns:effects="clr-namespace:Xamarin.CommunityToolkit.Effects;assembly=Xamarin.CommunityToolkit"
-    x:Class="MVP.Pages.WizardUrlPage"
-    x:DataType="vm:WizardUrlViewModel"
-    x:TypeArguments="vm:WizardUrlViewModel"
-    xmlns:local="clr-namespace:MVP"
-    xmlns:sh="clr-namespace:Sharpnado.Shades;assembly=Sharpnado.Shadows">
+                       xmlns:icons="clr-namespace:MVP.Styles"
+                       xmlns:local="clr-namespace:MVP"
+                       xmlns:pages="clr-namespace:MVP.Pages"
+                       xmlns:sh="clr-namespace:Sharpnado.Shades;assembly=Sharpnado.Shadows"
+                       xmlns:vm="clr-namespace:MVP.ViewModels"
+                       xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                       x:Class="MVP.Pages.WizardUrlPage"
+                       x:DataType="vm:WizardUrlViewModel"
+                       x:TypeArguments="vm:WizardUrlViewModel">
 
-    <local:AppFrame x:Name="appFrame" Title="URL"
-                    effects:SafeAreaEffect.SafeArea="false,true,false,false" ShowBackButton="True">
+    <local:AppFrame ShowBackButton="True"
+                    Title="URL"
+                    x:Name="appFrame">
         <local:AppFrame.Content>
             <Grid>
                 <StackLayout Margin="24,0">
-                    <Label Text="So far, so good" FontSize="28" FontFamily="{StaticResource font_bold}" />
+                    <Label Style="{StaticResource wizard_title}"
+                           Text="So far, so good"/>
 
-                    <Label Margin="0,0,0,16" Text="Do you have a URL where we can learn more about it?"
-                           FontSize="16" TextColor="{StaticResource dark_gray}" />
+                    <Label Margin="0,0,0,16"
+                           Style="{StaticResource wizard_subtitle}"
+                           Text="Do you have a URL where we can learn more about it?"/>
 
-                    <Entry Text="{Binding Url}" FontFamily="{StaticResource font_semibold}" Keyboard="Url"
-                           Margin="16,0" FontSize="16" HeightRequest="96" x:Name="entry"
-                           Placeholder="Please enter a URL..." />
+                    <Entry FontFamily="{StaticResource font_semibold}"
+                           FontSize="16"
+                           HeightRequest="96"
+                           Keyboard="Url"
+                           Margin="16,0"
+                           Placeholder="Please enter a URL..."
+                           Text="{Binding Url}"
+                           x:Name="entry"/>
 
-                    <BoxView BackgroundColor="{StaticResource light_blue}" Margin="0,-24,0,0" HeightRequest="1" />
+                    <BoxView Style="{StaticResource separator}"
+                             Margin="0,-24,0,0"/>
 
-                    <Grid Margin="0,16" ColumnSpacing="8" ColumnDefinitions="120, *"
-                          RowDefinitions="Auto, Auto" IsVisible="{Binding HasValidUrl}">
-                        <Frame Grid.RowSpan="2" VerticalOptions="Start" HorizontalOptions="Center"
-                               CornerRadius="8" IsClippedToBounds="True">
+                    <Grid ColumnDefinitions="120, *"
+                          ColumnSpacing="8"
+                          IsVisible="{Binding HasValidUrl}"
+                          Margin="0,16"
+                          RowDefinitions="Auto, Auto">
 
-                            <Image Aspect="AspectFill" Source="{Binding ImageUrl}"
-                                   HeightRequest="80" WidthRequest="80" />
-
+                        <Frame CornerRadius="8"
+                               Grid.RowSpan="2"
+                               HorizontalOptions="Center"
+                               IsClippedToBounds="True"
+                               VerticalOptions="Start">
+                            <Image Aspect="AspectFill"
+                                   HeightRequest="80"
+                                   Source="{Binding ImageUrl}"
+                                   WidthRequest="80"/>
                         </Frame>
-                        <Label Grid.Column="1" Text="{Binding Title}" FontFamily="{StaticResource font_bold}" FontSize="14" />
-                        <Label Grid.Column="1" Grid.Row="1" FontSize="14" Text="{Binding Description}" HorizontalTextAlignment="Start" />
-                    </Grid>
 
-                    <BoxView BackgroundColor="{StaticResource light_blue}" IsVisible="{Binding HasValidUrl}" HeightRequest="1" />
+                        <Label FontFamily="{StaticResource font_bold}"
+                               FontSize="14"
+                               Grid.Column="1"
+                               Text="{Binding Title}"/>
+
+                        <Label FontSize="14"
+                               Grid.Column="1"
+                               Grid.Row="1"
+                               HorizontalTextAlignment="Start"
+                               Text="{Binding Description}"/>
+                    </Grid>
+                    <BoxView BackgroundColor="{StaticResource light_blue}"
+                             HeightRequest="1"
+                             IsVisible="{Binding HasValidUrl}"/>
                 </StackLayout>
 
-                <sh:Shadows CornerRadius="28" VerticalOptions="End" HorizontalOptions="End">
+                <sh:Shadows CornerRadius="28"
+                            HorizontalOptions="End"
+                            VerticalOptions="End">
                     <sh:Shadows.Shades>
                         <sh:ImmutableShades>
-                            <sh:Shade BlurRadius="6" Opacity="0.2" Offset="3,3" Color="{StaticResource black}" />
+                            <sh:Shade BlurRadius="6"
+                                      Color="{StaticResource black}"
+                                      Offset="3,3"
+                                      Opacity="0.2"/>
                         </sh:ImmutableShades>
                     </sh:Shadows.Shades>
-
-                    <Button effects:SafeAreaEffect.SafeArea="false,false,false,true" Text="{x:Static icons:Icons.arrow_right}"
-                            Command="{Binding NextCommand}" BackgroundColor="{StaticResource primary}" CornerRadius="28"
-                            WidthRequest="56" HeightRequest="56" TextColor="{StaticResource white}" VerticalOptions="End"
-                            HorizontalOptions="End" Margin="0,0,24,24"
-                            FontFamily="{StaticResource font_icon}" FontSize="20"/>
+                    <Button Command="{Binding NextCommand}"
+                            Style="{StaticResource fab_button}"
+                            Text="{x:Static icons:Icons.arrow_right}"/>
                 </sh:Shadows>
             </Grid>
         </local:AppFrame.Content>

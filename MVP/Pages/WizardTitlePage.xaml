@@ -1,45 +1,56 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <pages:BaseContentPage xmlns="http://xamarin.com/schemas/2014/forms"
-    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-    xmlns:vm="clr-namespace:MVP.ViewModels"
-    xmlns:effects="clr-namespace:Xamarin.CommunityToolkit.Effects;assembly=Xamarin.CommunityToolkit"
-    xmlns:icons="clr-namespace:MVP.Styles"
-    xmlns:pages="clr-namespace:MVP.Pages"
-    x:Class="MVP.Pages.WizardTitlePage"
-    x:TypeArguments="vm:WizardTitleViewModel"
-    x:DataType="vm:WizardTitleViewModel"
-    xmlns:local="clr-namespace:MVP"
-    xmlns:sh="clr-namespace:Sharpnado.Shades;assembly=Sharpnado.Shadows">
+                       xmlns:icons="clr-namespace:MVP.Styles"
+                       xmlns:local="clr-namespace:MVP"
+                       xmlns:pages="clr-namespace:MVP.Pages"
+                       xmlns:sh="clr-namespace:Sharpnado.Shades;assembly=Sharpnado.Shadows"
+                       xmlns:vm="clr-namespace:MVP.ViewModels"
+                       xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                       x:Class="MVP.Pages.WizardTitlePage"
+                       x:DataType="vm:WizardTitleViewModel"
+                       x:TypeArguments="vm:WizardTitleViewModel">
 
-    <local:AppFrame x:Name="appFrame" Title="Title of activity"
-                    effects:SafeAreaEffect.SafeArea="false,true,false,false" ShowBackButton="True">
+    <local:AppFrame ShowBackButton="True"
+                    Title="Title of activity"
+                    x:Name="appFrame">
         <local:AppFrame.Content>
             <Grid>
                 <StackLayout Margin="24,0">
-                    <Label Text="What was it?" FontSize="28" FontFamily="{StaticResource font_bold}" />
 
-                    <Label Margin="0,0,0,16" Text="What's the title of your activity?"
-                           FontSize="16" TextColor="{StaticResource dark_gray}" />
+                    <Label Style="{StaticResource wizard_title}"
+                           Text="What was it?"/>
 
-                    <Entry Text="{Binding Title}" FontFamily="{StaticResource font_semibold}"
-                           Margin="16,0" FontSize="16" HeightRequest="96" x:Name="entry"
-                           Placeholder="Please enter a title..." />
+                    <Label Margin="0,0,0,16"
+                           Style="{StaticResource wizard_subtitle}"
+                           Text="What's the title of your activity?"/>
 
-                    <BoxView BackgroundColor="{StaticResource light_blue}" Margin="0,-24,0,0" HeightRequest="1" />
+                    <Entry FontFamily="{StaticResource font_semibold}"
+                           FontSize="16"
+                           HeightRequest="96"
+                           Margin="16,0"
+                           Placeholder="Please enter a title..."
+                           Text="{Binding Title}"
+                           x:Name="entry"/>
+
+                    <BoxView Style="{StaticResource separator}" 
+                             Margin="0,-24,0,0"/>
+
                 </StackLayout>
 
-                <sh:Shadows CornerRadius="28" VerticalOptions="End" HorizontalOptions="End">
+                <sh:Shadows CornerRadius="28"
+                            HorizontalOptions="End"
+                            VerticalOptions="End">
                     <sh:Shadows.Shades>
                         <sh:ImmutableShades>
-                            <sh:Shade BlurRadius="6" Opacity="0.2" Offset="3,3" Color="{StaticResource black}" />
+                            <sh:Shade BlurRadius="6"
+                                      Color="{StaticResource black}"
+                                      Offset="3,3"
+                                      Opacity="0.2"/>
                         </sh:ImmutableShades>
                     </sh:Shadows.Shades>
-
-                    <Button effects:SafeAreaEffect.SafeArea="false,false,false,true" Text="{x:Static icons:Icons.arrow_right}"
-                            Command="{Binding NextCommand}" BackgroundColor="{StaticResource primary}" CornerRadius="28"
-                            WidthRequest="56" HeightRequest="56" TextColor="{StaticResource white}" VerticalOptions="End"
-                            HorizontalOptions="End" Margin="0,0,24,24"
-                            FontFamily="{StaticResource font_icon}" FontSize="20"/>
+                    <Button Command="{Binding NextCommand}"
+                            Style="{StaticResource fab_button}"
+                            Text="{x:Static icons:Icons.arrow_right}"/>
                 </sh:Shadows>
             </Grid>
         </local:AppFrame.Content>

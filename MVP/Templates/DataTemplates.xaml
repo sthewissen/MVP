@@ -1,76 +1,95 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <ResourceDictionary xmlns="http://xamarin.com/schemas/2014/forms"
-                    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-                    xmlns:models="clr-namespace:MVP.Models"
-                    xmlns:custom="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
-                    xmlns:ff="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
-                    xmlns:icons="clr-namespace:MVP.Styles"
-                    xmlns:xct="clr-namespace:Xamarin.CommunityToolkit.Converters;assembly=Xamarin.CommunityToolkit"
                     xmlns:converters="clr-namespace:MVP.Converters"
-					x:Class="MVP.Templates.DataTemplates">
+                    xmlns:icons="clr-namespace:MVP.Styles"
+                    xmlns:models="clr-namespace:MVP.Models"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                    xmlns:xct="clr-namespace:Xamarin.CommunityToolkit.Converters;assembly=Xamarin.CommunityToolkit"
+                    x:Class="MVP.Templates.DataTemplates">
 
     <xct:MultiConverter x:Key="ContributionTypeConverter">
-        <converters:ContributionTypeToTypeColorConverter />
-        <converters:StringToColorResourceConverter />
+        <converters:ContributionTypeToTypeColorConverter/>
+        <converters:StringToColorResourceConverter/>
     </xct:MultiConverter>
 
     <xct:MultiConverter x:Key="ContributionTypeTextConverter">
-        <converters:ContributionTypeToTextColorConverter />
-        <converters:StringToColorResourceConverter />
+        <converters:ContributionTypeToTextColorConverter/>
+        <converters:StringToColorResourceConverter/>
     </xct:MultiConverter>
 
-    <DataTemplate x:Key="contribution_item" x:DataType="models:Contribution">
-        <Grid Padding="16,0" RowDefinitions="Auto, 1">
-            <StackLayout Padding="16" Spacing="8" VerticalOptions="Center">
-
+    <DataTemplate x:DataType="models:Contribution"
+                  x:Key="contribution_item">
+        <Grid Padding="16,0"
+              RowDefinitions="Auto, 1">
+            <StackLayout Padding="16"
+                         Spacing="8"
+                         VerticalOptions="Center">
                 <Frame BackgroundColor="{Binding ContributionType.Id, Converter={StaticResource ContributionTypeConverter}}"
                        Style="{StaticResource contribution_item_category}">
-
-                    <Label LineBreakMode="TailTruncation" Text="{Binding ContributionType.EnglishName, Converter={xct:TextCaseConverter Type=Upper}}"
-                           HorizontalTextAlignment="End" MaxLines="1" Style="{StaticResource contribution_item_category_label}"
+                    <Label HorizontalTextAlignment="End"
+                           LineBreakMode="TailTruncation"
+                           MaxLines="1"
+                           Style="{StaticResource contribution_item_category_label}"
+                           Text="{Binding ContributionType.EnglishName, Converter={xct:TextCaseConverter Type=Upper}}"
                            TextColor="{Binding ContributionType.Id, Converter={StaticResource ContributionTypeTextConverter}}"/>
-
                 </Frame>
-
-                <Label Text="{Binding Title}" Style="{StaticResource contribution_item_title}" />
-                <Label Text="{Binding StartDate, StringFormat='ACTIVITY DATE: {0:d}'}"
-                       Style="{StaticResource contribution_item_date}" />
+                <Label Style="{StaticResource contribution_item_title}"
+                       Text="{Binding Title}"/>
+                <Label Style="{StaticResource contribution_item_date}"
+                       Text="{Binding StartDate, StringFormat='ACTIVITY DATE: {0:d}'}"/>
             </StackLayout>
-
-            <BoxView Grid.Row="1" BackgroundColor="{StaticResource light_blue}" />
+            <BoxView Style="{StaticResource separator}"
+                     Grid.Row="1"/>
         </Grid>
     </DataTemplate>
-
-    <DataTemplate x:Key="visibility_item" x:DataType="models:Visibility">
-        <Grid RowDefinitions="Auto, 1" Padding="16,0">
-            <Label Text="{Binding Description}" Style="{StaticResource list_item_title_label}" />
-            <BoxView Grid.Row="1" BackgroundColor="{StaticResource light_blue}" />
+    <DataTemplate x:DataType="models:Visibility"
+                  x:Key="visibility_item">
+        <Grid Padding="16,0"
+              RowDefinitions="Auto, 1">
+            <Label Style="{StaticResource list_item_title_label}"
+                   Text="{Binding Description}"/>
+            <BoxView Style="{StaticResource separator}"
+                     Grid.Row="1"/>
         </Grid>
     </DataTemplate>
+    <DataTemplate x:DataType="models:ContributionType"
+                  x:Key="contribution_type_item">
+        <Grid ColumnDefinitions="*,Auto"
+              Padding="16,0"
+              RowDefinitions="Auto, 1">
+            <Label Grid.Column="0"
+                   Style="{StaticResource list_item_title_label}"
+                   Text="{Binding Name}"/>
 
-    <DataTemplate x:Key="contribution_type_item" x:DataType="models:ContributionType">
-        <Grid RowDefinitions="Auto, 1" ColumnDefinitions="*,Auto" Padding="16,0">
-            <Label Grid.Column="0" Text="{Binding Name}" Style="{StaticResource list_item_title_label}" />
+            <Label FontFamily="{StaticResource font_icon}"
+                   FontSize="20"
+                   Grid.Column="1"
+                   Margin="0,0,16,0"
+                   Text="{x:Static icons:Icons.check}"
+                   TextColor="{StaticResource primary}"
+                   VerticalOptions="Center"
+                   VerticalTextAlignment="Center"/>
 
-            <Label Grid.Column="1" VerticalOptions="Center" VerticalTextAlignment="Center"
-                   FontFamily="{StaticResource font_icon}" Margin="0,0,16,0" FontSize="20"
-                   Text="{x:Static icons:Icons.check}" TextColor="{StaticResource primary}" />
-
-            <BoxView Grid.Row="1" Grid.ColumnSpan="2" BackgroundColor="{StaticResource light_blue}" />
+            <BoxView Style="{StaticResource separator}"
+                     Grid.ColumnSpan="2"
+                     Grid.Row="1"/>
         </Grid>
     </DataTemplate>
-
-    <DataTemplate x:Key="contribution_technology_item" x:DataType="models:ContributionTechnology">
-        <Grid RowDefinitions="Auto, 1" Padding="16,0">
-            <Label Text="{Binding Name}" Style="{StaticResource list_item_title_label}" />
-
-            <BoxView Grid.Row="1" BackgroundColor="{StaticResource light_blue}" />
+    <DataTemplate x:DataType="models:ContributionTechnology"
+                  x:Key="contribution_technology_item">
+        <Grid Padding="16,0"
+              RowDefinitions="Auto, 1">
+            <Label Style="{StaticResource list_item_title_label}"
+                   Text="{Binding Name}"/>
+            <BoxView Style="{StaticResource separator}"
+                     Grid.Row="1"/>
         </Grid>
     </DataTemplate>
-
     <DataTemplate x:Key="contribution_technology_group">
         <Grid Padding="24,24,24,16">
-            <Label Text="{Binding Key}" FontFamily="{StaticResource font_bold}" LineBreakMode="TailTruncation" />
+            <Label FontFamily="{StaticResource font_bold}"
+                   LineBreakMode="TailTruncation"
+                   Text="{Binding Key}"/>
         </Grid>
     </DataTemplate>
 </ResourceDictionary>

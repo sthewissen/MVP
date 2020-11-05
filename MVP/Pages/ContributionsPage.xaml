@@ -1,53 +1,55 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
-<pages:BaseContentPage xmlns:pages="clr-namespace:MVP.Pages"
-    x:Name="page"
-    xmlns="http://xamarin.com/schemas/2014/forms"
-    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-    x:Class="MVP.Pages.ContributionsPage"
-    xmlns:vm="clr-namespace:MVP.ViewModels"
-    xmlns:effects="clr-namespace:Xamarin.CommunityToolkit.Effects;assembly=Xamarin.CommunityToolkit"
-    xmlns:helpers="clr-namespace:MVP.Helpers"
-    helpers:StatusBar.StatusBarStyle="DarkText"
-    xmlns:icons="clr-namespace:MVP.Styles"
-    xmlns:local="clr-namespace:MVP"
-    x:TypeArguments="vm:ContributionsViewModel"
-    x:DataType="vm:ContributionsViewModel">
+<pages:BaseContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+                       xmlns:helpers="clr-namespace:MVP.Helpers"
+                       xmlns:icons="clr-namespace:MVP.Styles"
+                       xmlns:local="clr-namespace:MVP"
+                       xmlns:pages="clr-namespace:MVP.Pages"
+                       xmlns:vm="clr-namespace:MVP.ViewModels"
+                       xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                       helpers:StatusBar.StatusBarStyle="DarkText"
+                       x:Class="MVP.Pages.ContributionsPage"
+                       x:DataType="vm:ContributionsViewModel"
+                       x:Name="page"
+                       x:TypeArguments="vm:ContributionsViewModel">
 
-    <local:AppFrame x:Name="appFrame" Title="Community activities" effects:SafeAreaEffect.SafeArea="false,true,false,false"
-                    ShowSecondaryButton="True" SecondaryButtonIcon="{x:Static icons:Icons.plus}">
+    <local:AppFrame SecondaryButtonIcon="{x:Static icons:Icons.plus}"
+                    ShowSecondaryButton="True"
+                    Title="Community activities"
+                    x:Name="appFrame">
         <local:AppFrame.Content>
             <Grid>
-                <CollectionView x:Name="collectionView" ItemsUpdatingScrollMode="KeepScrollOffset"
-                        Scrolled="CollectionView_Scrolled"
-                        ItemsSource="{Binding Contributions}"
-                        ItemTemplate="{StaticResource contribution_item}"
-                        SelectedItem="{Binding SelectedContribution}"
-                        SelectionMode="Single">
-
+                <CollectionView ItemsSource="{Binding Contributions}"
+                                ItemsUpdatingScrollMode="KeepScrollOffset"
+                                ItemTemplate="{StaticResource contribution_item}"
+                                Scrolled="CollectionView_Scrolled"
+                                SelectedItem="{Binding SelectedContribution}"
+                                SelectionMode="Single"
+                                x:Name="collectionView">
                     <CollectionView.Footer>
-                        <BoxView HeightRequest="40" />
+                        <BoxView HeightRequest="40"/>
                     </CollectionView.Footer>
-
                     <CollectionView.Header>
                         <StackLayout Padding="16,16,16,24">
-                            <Frame BackgroundColor="{StaticResource background_gray}" HeightRequest="48" CornerRadius="24">
 
-                                <Grid ColumnDefinitions="*,48" Padding="24,0" VerticalOptions="Center">
+                            <Frame Style="{StaticResource search_frame}">
 
-                                    <Label Text="Search..." BackgroundColor="Transparent" FontSize="15" VerticalOptions="Center"
-                                           FontFamily="{StaticResource font_regular}" TextColor="{StaticResource gray}" />
+                                <Grid ColumnDefinitions="*,48"
+                                      Padding="24,0"
+                                      VerticalOptions="Center">
 
-                                    <Label Grid.Column="1" Text="{x:Static icons:Icons.search}" HorizontalOptions="End"
-                                           HorizontalTextAlignment="End" FontFamily="{StaticResource font_icon}"
-                                           VerticalOptions="Center" VerticalTextAlignment="Center"
-                                           TextColor="{StaticResource gray}"/>
+                                    <Label Style="{StaticResource search_text}"
+                                           Text="Search..."/>
 
+                                    <Label Grid.Column="1"
+                                           Style="{StaticResource search_icon}"
+                                           Text="{x:Static icons:Icons.search}"/>
                                 </Grid>
+
                             </Frame>
+
                         </StackLayout>
                     </CollectionView.Header>
                 </CollectionView>
-
             </Grid>
         </local:AppFrame.Content>
     </local:AppFrame>

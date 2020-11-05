@@ -13,13 +13,12 @@
     x:TypeArguments="vm:ContributionDetailsViewModel"
     x:DataType="vm:ContributionDetailsViewModel">
 
-    <local:AppFrame x:Name="appFrame" Title="Activity details" effects:SafeAreaEffect.SafeArea="false,true,false,false"
-                    ShowBackButton="True">
+    <local:AppFrame x:Name="appFrame" Title="Activity details" ShowBackButton="True">
         <local:AppFrame.Content>
 
-            <ScrollView Grid.Row="1" Padding="24,0">
+            <ScrollView Grid.Row="1">
 
-                <StackLayout Spacing="24" Padding="0,24">
+                <StackLayout Spacing="24" Padding="24">
 
                     <Frame BackgroundColor="{Binding Contribution.ContributionType.Id, Converter={StaticResource ContributionTypeConverter}}"
                            Style="{StaticResource contribution_item_category}">
@@ -29,13 +28,6 @@
                                TextColor="{Binding Contribution.ContributionType.Id, Converter={StaticResource ContributionTypeTextConverter}}"/>
 
                     </Frame>
-
-                    <!--<custom:PancakeView Margin="0,16,0,0">
-
-                        <Label LineBreakMode="TailTruncation" Text="{Binding Contribution.ContributionType.EnglishName}"
-                           HorizontalTextAlignment="End" MaxLines="2" />
-
-                    </custom:PancakeView>-->
 
                     <Label Text="{Binding Contribution.Title}" Margin="0,0,0,24" />
 

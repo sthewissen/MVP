@@ -1,73 +1,56 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <pages:BaseContentPage xmlns="http://xamarin.com/schemas/2014/forms"
-    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-    xmlns:vm="clr-namespace:MVP.ViewModels"
-    xmlns:pages="clr-namespace:MVP.Pages"
-    xmlns:effects="clr-namespace:Xamarin.CommunityToolkit.Effects;assembly=Xamarin.CommunityToolkit"
-    xmlns:icons="clr-namespace:MVP.Styles"
-    x:DataType="vm:WizardDescriptionViewModel"
-    x:TypeArguments="vm:WizardDescriptionViewModel"
-    x:Class="MVP.Pages.WizardDescriptionPage"
-    xmlns:local="clr-namespace:MVP"
-    xmlns:sh="clr-namespace:Sharpnado.Shades;assembly=Sharpnado.Shadows">
+                       xmlns:icons="clr-namespace:MVP.Styles"
+                       xmlns:local="clr-namespace:MVP"
+                       xmlns:pages="clr-namespace:MVP.Pages"
+                       xmlns:sh="clr-namespace:Sharpnado.Shades;assembly=Sharpnado.Shadows"
+                       xmlns:vm="clr-namespace:MVP.ViewModels"
+                       xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                       x:Class="MVP.Pages.WizardDescriptionPage"
+                       x:DataType="vm:WizardDescriptionViewModel"
+                       x:TypeArguments="vm:WizardDescriptionViewModel">
 
-    <local:AppFrame x:Name="appFrame" Title="Description"
-                    effects:SafeAreaEffect.SafeArea="false,true,false,false" ShowBackButton="True">
+    <local:AppFrame ShowBackButton="True"
+                    Title="Description"
+                    x:Name="appFrame">
         <local:AppFrame.Content>
             <Grid>
                 <StackLayout Margin="24,0">
-                    <Label Text="Tell us more" FontSize="28" FontFamily="{StaticResource font_bold}" />
+                    <Label Style="{StaticResource wizard_title}"
+                           Text="Tell us more"/>
 
-                    <Label Margin="0,0,0,48" Text="Could you describe the activity in a bit more detail?"
-                           FontSize="16" TextColor="{StaticResource dark_gray}" />
+                    <Label Margin="0,0,0,48"
+                           Style="{StaticResource wizard_subtitle}"
+                           Text="Could you describe the activity in a bit more detail?"/>
 
-                    <Editor Text="{Binding Description}" FontFamily="{StaticResource font_semibold}"
-                            Margin="12,0,16,0" FontSize="16" AutoSize="TextChanges" x:Name="entry"
-                            Placeholder="Please enter a description..." />
+                    <Editor AutoSize="TextChanges"
+                            FontFamily="{StaticResource font_semibold}"
+                            FontSize="16"
+                            Margin="12,0,16,0"
+                            Placeholder="Please enter a description..."
+                            Text="{Binding Description}"
+                            x:Name="entry"/>
 
-                    <BoxView BackgroundColor="{StaticResource light_blue}" Margin="0,8,0,0" HeightRequest="1" />
+                    <BoxView Style="{StaticResource separator}"
+                             Margin="0,8,0,0"/>
                 </StackLayout>
 
-                <sh:Shadows CornerRadius="28" VerticalOptions="End" HorizontalOptions="End">
+                <sh:Shadows CornerRadius="28"
+                            HorizontalOptions="End"
+                            VerticalOptions="End">
                     <sh:Shadows.Shades>
                         <sh:ImmutableShades>
-                            <sh:Shade BlurRadius="6" Opacity="0.2" Offset="3,3" Color="{StaticResource black}" />
+                            <sh:Shade BlurRadius="6"
+                                      Color="{StaticResource black}"
+                                      Offset="3,3"
+                                      Opacity="0.2"/>
                         </sh:ImmutableShades>
                     </sh:Shadows.Shades>
-
-                    <Button effects:SafeAreaEffect.SafeArea="false,false,false,true" Text="{x:Static icons:Icons.arrow_right}"
-                            Command="{Binding NextCommand}" BackgroundColor="{StaticResource primary}" CornerRadius="28"
-                            WidthRequest="56" HeightRequest="56" TextColor="{StaticResource white}" VerticalOptions="End"
-                            HorizontalOptions="End" Margin="0,0,24,24"
-                            FontFamily="{StaticResource font_icon}" FontSize="20"/>
+                    <Button Command="{Binding NextCommand}"
+                            Style="{StaticResource fab_button}"
+                            Text="{x:Static icons:Icons.arrow_right}"/>
                 </sh:Shadows>
             </Grid>
         </local:AppFrame.Content>
     </local:AppFrame>
-
-    <!--<Grid xct:SafeAreaEffect.SafeArea="False,True">
-
-        <Grid.RowDefinitions>
-            <RowDefinition Height="56" />
-            <RowDefinition Height="*" />
-        </Grid.RowDefinitions>
-
-        <Label FontSize="24" Text="{x:Static icons:Icons.arrow_left}" TextColor="{StaticResource black}" Margin="24,0"
-               HorizontalOptions="Start" VerticalOptions="Center" HorizontalTextAlignment="Start" Padding="0,12,12,12">
-            <Label.GestureRecognizers>
-                <TapGestureRecognizer Command="{Binding BackCommand}" />
-            </Label.GestureRecognizers>
-        </Label>
-
-        <StackLayout Spacing="20" Grid.Row="1">
-
-            <Label Text="Could you describe the activity in a bit more detail?" Style="{StaticResource contributiondetail_title}" Margin="24" />
-
-            <Editor Text="{Binding Description}" />
-        </StackLayout>
-
-        <custom:PancakeView Style="{StaticResource fab_button_container}" x:Name="fab" Grid.RowSpan="2">
-            <Button Style="{StaticResource fab_button}" Text="{x:Static icons:Icons.arrow_right}" Command="{Binding NextCommand}" />
-        </custom:PancakeView>
-    </Grid>-->
 </pages:BaseContentPage>

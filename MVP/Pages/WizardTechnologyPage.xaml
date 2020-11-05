@@ -1,49 +1,64 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <pages:BaseContentPage xmlns="http://xamarin.com/schemas/2014/forms"
-    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-    xmlns:vm="clr-namespace:MVP.ViewModels"
-    xmlns:pages="clr-namespace:MVP.Pages"
-    xmlns:effects="clr-namespace:Xamarin.CommunityToolkit.Effects;assembly=Xamarin.CommunityToolkit"
-    xmlns:converters="clr-namespace:Xamarin.CommunityToolkit.Converters;assembly=Xamarin.CommunityToolkit"
-    xmlns:local="clr-namespace:MVP"
-    x:Class="MVP.Pages.WizardTechnologyPage"
-    x:TypeArguments="vm:WizardTechnologyViewModel"
-    x:DataType="vm:WizardTechnologyViewModel" xmlns:icons="clr-namespace:MVP.Styles">
+                       xmlns:converters="clr-namespace:Xamarin.CommunityToolkit.Converters;assembly=Xamarin.CommunityToolkit"
+                       xmlns:icons="clr-namespace:MVP.Styles"
+                       xmlns:local="clr-namespace:MVP"
+                       xmlns:pages="clr-namespace:MVP.Pages"
+                       xmlns:vm="clr-namespace:MVP.ViewModels"
+                       xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                       x:Class="MVP.Pages.WizardTechnologyPage"
+                       x:DataType="vm:WizardTechnologyViewModel"
+                       x:TypeArguments="vm:WizardTechnologyViewModel">
 
-    <local:AppFrame x:Name="appFrame" Title="Primary contribution area"
-                    effects:SafeAreaEffect.SafeArea="false,true,false,false" ShowBackButton="True">
+    <local:AppFrame ShowBackButton="True"
+                    Title="Primary contribution area"
+                    x:Name="appFrame">
         <local:AppFrame.Content>
             <Grid>
-
-                <CollectionView ItemsSource="{Binding GroupedContributionTechnologies}"
-                        SelectedItem="{Binding SelectedContributionTechnology}"
-                        SelectionMode="Single" IsGrouped="true"                                
-                        Scrolled="CollectionView_Scrolled"
-                        ItemTemplate="{StaticResource contribution_technology_item}"
-                        GroupHeaderTemplate="{StaticResource contribution_technology_group}">
+                <CollectionView GroupHeaderTemplate="{StaticResource contribution_technology_group}"
+                                IsGrouped="true"
+                                ItemsSource="{Binding GroupedContributionTechnologies}"
+                                ItemTemplate="{StaticResource contribution_technology_item}"
+                                Scrolled="CollectionView_Scrolled"
+                                SelectedItem="{Binding SelectedContributionTechnology}"
+                                SelectionMode="Single">
                     <CollectionView.Header>
                         <StackLayout>
+                            <Label Margin="24,0"
+                                   Style="{StaticResource wizard_title}"
+                                   Text="What's it about?"/>
 
-                            <Label Margin="24,0" Text="What's it about?" FontSize="28" FontFamily="{StaticResource font_bold}" />
+                            <Label Style="{StaticResource wizard_subtitle}"
+                                   Text="What technology area is the primary focus of this activity?"/>
 
-                            <Label Margin="24,0,24,16" Text="What technology area is the primary focus of this activity?"
-                                   FontSize="16" TextColor="{StaticResource dark_gray}" />
+                            <Frame Style="{StaticResource search_frame}"
+                                   Margin="16,0,16,16">
+                                <Grid ColumnDefinitions="*,48"
+                                      Padding="24,0"
+                                      VerticalOptions="Center">
 
-                            <Frame Margin="16,0,16,16" BackgroundColor="{StaticResource background_gray}" HeightRequest="48" CornerRadius="24">
-                                <Grid ColumnDefinitions="*,48" Padding="24,0" VerticalOptions="Center">
+                                    <Entry BackgroundColor="Transparent"
+                                           FontFamily="{StaticResource font_regular}"
+                                           FontSize="15"
+                                           Placeholder="Search..."
+                                           PlaceholderColor="{StaticResource gray}"
+                                           VerticalOptions="Center"/>
 
-                                    <Entry Placeholder="Search..." BackgroundColor="Transparent" FontSize="15" VerticalOptions="Center"
-                                           FontFamily="{StaticResource font_regular}" PlaceholderColor="{StaticResource gray}" />
-
-                                    <Label Grid.Column="1" Text="{x:Static icons:Icons.search}" HorizontalOptions="End"
-                                           HorizontalTextAlignment="End" FontFamily="{StaticResource font_icon}"
-                                           VerticalOptions="Center" VerticalTextAlignment="Center"
-                                           TextColor="{StaticResource gray}"/>
+                                    <Label FontFamily="{StaticResource font_icon}"
+                                           Grid.Column="1"
+                                           HorizontalOptions="End"
+                                           HorizontalTextAlignment="End"
+                                           Text="{x:Static icons:Icons.search}"
+                                           TextColor="{StaticResource gray}"
+                                           VerticalOptions="Center"
+                                           VerticalTextAlignment="Center"/>
 
                                 </Grid>
                             </Frame>
-
-                            <FlexLayout Direction="Row" Wrap="Wrap" Padding="24,0" Margin="0,0,0,16">
+                            <FlexLayout Direction="Row"
+                                        Margin="0,0,0,16"
+                                        Padding="24,0"
+                                        Wrap="Wrap">
                                 <BindableLayout.ItemsSource>
                                     <x:Array Type="{x:Type x:String}">
                                         <x:String>Azure DevOps</x:String>
@@ -56,9 +71,11 @@
                                 <BindableLayout.ItemTemplate>
                                     <DataTemplate>
                                         <StackLayout Margin="4">
-                                            <Frame BackgroundColor="{StaticResource light_primary}" Style="{StaticResource contribution_item_category}">
-                                                <Label Text="{Binding .,Converter={converters:TextCaseConverter Type=Upper}}"
-                                                       TextColor="{StaticResource primary}" Style="{StaticResource contribution_item_category_label}" />
+                                            <Frame BackgroundColor="{StaticResource light_primary}"
+                                                   Style="{StaticResource contribution_item_category}">
+                                                <Label Style="{StaticResource contribution_item_category_label}"
+                                                       Text="{Binding .,Converter={converters:TextCaseConverter Type=Upper}}"
+                                                       TextColor="{StaticResource primary}"/>
                                             </Frame>
                                         </StackLayout>
                                     </DataTemplate>
@@ -67,10 +84,9 @@
                         </StackLayout>
                     </CollectionView.Header>
                     <CollectionView.Footer>
-                        <BoxView HeightRequest="40" />
+                        <BoxView HeightRequest="40"/>
                     </CollectionView.Footer>
                 </CollectionView>
-
             </Grid>
         </local:AppFrame.Content>
     </local:AppFrame>

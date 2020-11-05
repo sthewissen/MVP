@@ -1,26 +1,26 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
-<pages:BaseContentPage xmlns="http://xamarin.com/schemas/2014/forms"
-                       x:Class="MVP.Pages.SplashScreenPage"
-                       xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+<pages:BaseContentPage xmlns="http://xamarin.com/schemas/2014/forms"                       
                        xmlns:ff="clr-namespace:FFImageLoading.Svg.Forms;assembly=FFImageLoading.Svg.Forms"
                        xmlns:helpers="clr-namespace:MVP.Helpers"
                        xmlns:pages="clr-namespace:MVP.Pages"
-                       x:TypeArguments="vm:SplashScreenViewModel"
-                       x:DataType="vm:SplashScreenViewModel"
+                       xmlns:vm="clr-namespace:MVP.ViewModels"
+                       xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
                        BackgroundColor="{StaticResource primary}"
-                       NavigationPage.HasNavigationBar="False"
                        helpers:StatusBar.StatusBarStyle="WhiteText"
-                       xmlns:vm="clr-namespace:MVP.ViewModels">
+                       x:Class="MVP.Pages.SplashScreenPage"
+                       x:DataType="vm:SplashScreenViewModel"
+                       x:TypeArguments="vm:SplashScreenViewModel">
 
-    <StackLayout VerticalOptions="Center" HorizontalOptions="Center" Spacing="16">
+    <StackLayout HorizontalOptions="Center"
+                 Spacing="16"
+                 VerticalOptions="Center">
 
-        <ff:SvgCachedImage x:Name="logo" Source="Resource://mvp_logo.svg" VerticalOptions="Center"
-                        HorizontalOptions="Center" WidthRequest="148" HeightRequest="148"
-                        DownsampleToViewSize="False"  />
+        <ff:SvgCachedImage Source="Resource://mvp_logo.svg"
+                           Style="{StaticResource splash_image}"
+                           x:Name="logo"/>
 
-        <Label Text="{Binding FetchText}" HorizontalOptions="Center" HorizontalTextAlignment="Center"
-               TextColor="{StaticResource white}"/>
+        <Label Style="{StaticResource splash_description}"
+               Text="{Binding FetchText}"/>
 
     </StackLayout>
-
 </pages:BaseContentPage>

@@ -1,34 +1,40 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <pages:BaseContentPage xmlns="http://xamarin.com/schemas/2014/forms"
-    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-    xmlns:vm="clr-namespace:MVP.ViewModels"
-    xmlns:pages="clr-namespace:MVP.Pages"
-    xmlns:local="clr-namespace:MVP"
-    xmlns:effects="clr-namespace:Xamarin.CommunityToolkit.Effects;assembly=Xamarin.CommunityToolkit"
-    xmlns:converters="clr-namespace:Xamarin.CommunityToolkit.Converters;assembly=Xamarin.CommunityToolkit"
-    xmlns:helpers="clr-namespace:MVP.Helpers"
-    x:Class="MVP.Pages.WizardActivityTypePage"
-    x:TypeArguments="vm:WizardActivityTypeViewModel"
-    helpers:StatusBar.StatusBarStyle="DarkText"
-    x:DataType="vm:WizardActivityTypeViewModel">
+                       xmlns:converters="clr-namespace:Xamarin.CommunityToolkit.Converters;assembly=Xamarin.CommunityToolkit"
+                       xmlns:helpers="clr-namespace:MVP.Helpers"
+                       xmlns:local="clr-namespace:MVP"
+                       xmlns:pages="clr-namespace:MVP.Pages"
+                       xmlns:vm="clr-namespace:MVP.ViewModels"
+                       xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                       helpers:StatusBar.StatusBarStyle="DarkText"
+                       x:Class="MVP.Pages.WizardActivityTypePage"
+                       x:DataType="vm:WizardActivityTypeViewModel"
+                       x:TypeArguments="vm:WizardActivityTypeViewModel">
 
-    <local:AppFrame x:Name="appFrame" Title="Activity type" effects:SafeAreaEffect.SafeArea="false,true,false,false"
-                    ShowBackButton="True" IsModal="True">
+    <local:AppFrame IsModal="True"
+                    ShowBackButton="True"
+                    Title="Activity type"
+                    x:Name="appFrame">
         <local:AppFrame.Content>
             <Grid>
                 <CollectionView ItemsSource="{Binding ContributionTypes}"
-                                SelectedItem="{Binding SelectedContributionType}"
-                                SelectionMode="Single"
                                 ItemTemplate="{StaticResource contribution_type_item}"
-                                Scrolled="CollectionView_Scrolled">
+                                Scrolled="CollectionView_Scrolled"
+                                SelectedItem="{Binding SelectedContributionType}"
+                                SelectionMode="Single">
                     <CollectionView.Header>
                         <StackLayout>
-                            <Label Margin="24,0" Text="Let's get started" FontSize="28" FontFamily="{StaticResource font_bold}" />
+                            <Label Margin="24,0"
+                                   Style="{StaticResource wizard_title}"
+                                   Text="Let's get started"/>
 
-                            <Label Margin="24,0,24,16" Text="What type of activity do you want to add?"
-                                   FontSize="16" TextColor="{StaticResource dark_gray}" />
+                            <Label Style="{StaticResource wizard_subtitle}"
+                                   Text="What type of activity do you want to add?"/>
 
-                            <FlexLayout Direction="Row" Wrap="Wrap" Padding="24,0" Margin="0,0,0,16">
+                            <FlexLayout Direction="Row"
+                                        Margin="0,0,0,16"
+                                        Padding="24,0"
+                                        Wrap="Wrap">
                                 <BindableLayout.ItemsSource>
                                     <x:Array Type="{x:Type x:String}">
                                         <x:String>Article</x:String>
@@ -41,9 +47,12 @@
                                 <BindableLayout.ItemTemplate>
                                     <DataTemplate>
                                         <StackLayout Margin="4">
-                                            <Frame BackgroundColor="{StaticResource light_primary}" Style="{StaticResource contribution_item_category}">
-                                                <Label Text="{Binding .,Converter={converters:TextCaseConverter Type=Upper}}"
-                                                       TextColor="{StaticResource primary}" Style="{StaticResource contribution_item_category_label}" />
+                                            <Frame BackgroundColor="{StaticResource light_primary}"
+                                                   Style="{StaticResource contribution_item_category}">
+
+                                                <Label Style="{StaticResource contribution_item_category_label}"
+                                                       Text="{Binding .,Converter={converters:TextCaseConverter Type=Upper}}"
+                                                       TextColor="{StaticResource primary}"/>
                                             </Frame>
                                         </StackLayout>
                                     </DataTemplate>
@@ -52,10 +61,9 @@
                         </StackLayout>
                     </CollectionView.Header>
                     <CollectionView.Footer>
-                        <BoxView HeightRequest="40" />
+                        <BoxView HeightRequest="40"/>
                     </CollectionView.Footer>
                 </CollectionView>
-
             </Grid>
         </local:AppFrame.Content>
     </local:AppFrame>

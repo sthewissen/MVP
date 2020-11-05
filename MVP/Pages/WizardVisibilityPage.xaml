@@ -1,64 +1,39 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <pages:BaseContentPage xmlns="http://xamarin.com/schemas/2014/forms"
-    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-    x:Class="MVP.Pages.WizardVisibilityPage"
-    xmlns:vm="clr-namespace:MVP.ViewModels"
-    xmlns:pages="clr-namespace:MVP.Pages"
-    xmlns:effects="clr-namespace:Xamarin.CommunityToolkit.Effects;assembly=Xamarin.CommunityToolkit"
-    xmlns:icons="clr-namespace:MVP.Styles"
-    x:DataType="vm:WizardVisibilityViewModel"
-    x:TypeArguments="vm:WizardVisibilityViewModel"
-    xmlns:local="clr-namespace:MVP">
+                       xmlns:local="clr-namespace:MVP"
+                       xmlns:pages="clr-namespace:MVP.Pages"
+                       xmlns:vm="clr-namespace:MVP.ViewModels"
+                       xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                       x:Class="MVP.Pages.WizardVisibilityPage"
+                       x:DataType="vm:WizardVisibilityViewModel"
+                       x:TypeArguments="vm:WizardVisibilityViewModel">
 
-    <local:AppFrame x:Name="appFrame" Title="Visibility" effects:SafeAreaEffect.SafeArea="false,true,false,false"
-                    ShowBackButton="True" IsModal="False">
+    <local:AppFrame IsModal="False"
+                    ShowBackButton="True"
+                    Title="Visibility"
+                    x:Name="appFrame">
         <local:AppFrame.Content>
             <Grid>
                 <CollectionView ItemsSource="{Binding Visibilities}"
-                            SelectedItem="{Binding SelectedVisibility}"
-                            SelectionMode="Single"
-                            ItemTemplate="{StaticResource visibility_item}"
-                            Scrolled="CollectionView_Scrolled">
+                                ItemTemplate="{StaticResource visibility_item}"
+                                Scrolled="CollectionView_Scrolled"
+                                SelectedItem="{Binding SelectedVisibility}"
+                                SelectionMode="Single">
                     <CollectionView.Header>
                         <StackLayout>
-                            <Label Margin="24,0" Text="Almost done" FontSize="28" FontFamily="{StaticResource font_bold}" />
+                            <Label Margin="24,0"
+                                   Style="{StaticResource wizard_title}"
+                                   Text="Almost done"/>
 
-                            <Label Margin="24,0,24,16" Text="Who should be able to see this activity?"
-                                   FontSize="16" TextColor="{StaticResource dark_gray}" />
+                            <Label Style="{StaticResource wizard_subtitle}"
+                                   Text="Who should be able to see this activity?"/>
                         </StackLayout>
                     </CollectionView.Header>
                     <CollectionView.Footer>
-                        <BoxView HeightRequest="40" />
+                        <BoxView HeightRequest="40"/>
                     </CollectionView.Footer>
                 </CollectionView>
             </Grid>
         </local:AppFrame.Content>
     </local:AppFrame>
-
-    <!--<Grid xct:SafeAreaEffect.SafeArea="False,True">
-
-        <Grid.RowDefinitions>
-            <RowDefinition Height="56" />
-            <RowDefinition Height="*" />
-        </Grid.RowDefinitions>
-
-        <Label FontSize="24" Text="{x:Static icons:Icons.arrow_left}" TextColor="{StaticResource black}" Margin="24,0"
-               HorizontalOptions="Start" VerticalOptions="Center" HorizontalTextAlignment="Start" Padding="0,12,12,12">
-            <Label.GestureRecognizers>
-                <TapGestureRecognizer Command="{Binding BackCommand}" />
-            </Label.GestureRecognizers>
-        </Label>
-
-        <StackLayout Spacing="20" Grid.Row="1">
-
-            <Label Text="Who should be able to see this activity?" Style="{StaticResource contributiondetail_title}" Margin="24" />
-
-            <CollectionView ItemsSource="{Binding Visibilities}"
-                        SelectedItem="{Binding SelectedVisibility}"
-                        SelectionMode="Single"
-                        ItemTemplate="{StaticResource VisibilityItemTemplate}" />
-
-        </StackLayout>
-    </Grid>-->
-
 </pages:BaseContentPage>

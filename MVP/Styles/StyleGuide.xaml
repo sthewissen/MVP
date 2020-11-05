@@ -1,7 +1,10 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <ResourceDictionary xmlns="http://xamarin.com/schemas/2014/forms"
                     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                    xmlns:effects="clr-namespace:Xamarin.CommunityToolkit.Effects;assembly=Xamarin.CommunityToolkit"
                     xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
+                    xmlns:local="clr-namespace:MVP"                    
+                    xmlns:ff="clr-namespace:FFImageLoading.Svg.Forms;assembly=FFImageLoading.Svg.Forms"
                     x:Class="MVP.Styles.StyleGuide">
 
     <?xaml-comp compile="true" ?>
@@ -216,4 +219,74 @@
         <Setter Property="FontFamily" Value="{StaticResource font_icon}" />
     </Style>
 
+    <Style x:Key="wizard_title" TargetType="Label">
+        <Setter Property="FontFamily" Value="{StaticResource font_bold}"/>
+        <Setter Property="FontSize" Value="28"/>
+    </Style>
+
+    <Style x:Key="wizard_subtitle" TargetType="Label">
+        <Setter Property="TextColor" Value="{StaticResource dark_gray}"/>
+        <Setter Property="FontSize" Value="16"/>
+        <Setter Property="Margin" Value="24,0,24,16"/>
+    </Style>
+
+    <Style x:Key="fab_button" TargetType="Button">
+        <Setter Property="BackgroundColor" Value="{StaticResource primary}"/>
+        <Setter Property="CornerRadius" Value="28"/>
+        <Setter Property="HeightRequest" Value="56" />
+        <Setter Property="WidthRequest" Value="56"/>
+        <Setter Property="TextColor" Value="{StaticResource white}"/>
+        <Setter Property="VerticalOptions" Value="End"/>
+        <Setter Property="HorizontalOptions" Value="End"/>
+        <Setter Property="Margin" Value="0,0,24,24" />
+        <Setter Property="FontSize" Value="20" />
+        <Setter Property="FontFamily" Value="{StaticResource font_icon}" />
+        <Setter Property="effects:SafeAreaEffect.SafeArea" Value="false,false,false,true" />
+    </Style>
+
+    <Style x:Key="search_icon" TargetType="Label">
+        <Setter Property="HorizontalTextAlignment" Value="End"/>
+        <Setter Property="TextColor" Value="{StaticResource gray}"/>
+        <Setter Property="VerticalTextAlignment" Value="Center"/>
+        <Setter Property="FontFamily" Value="{StaticResource font_icon}"/>
+        <Setter Property="HorizontalOptions" Value="End"/>
+        <Setter Property="VerticalOptions" Value="Center"/>
+    </Style>
+
+    <Style x:Key="search_text" TargetType="Label">
+        <Setter Property="TextColor" Value="{StaticResource gray}"/>
+        <Setter Property="FontFamily" Value="{StaticResource font_regular}"/>
+        <Setter Property="FontSize" Value="15"/>
+        <Setter Property="VerticalOptions" Value="Center"/>
+        <Setter Property="BackgroundColor" Value="Transparent"/>
+    </Style>
+
+    <Style x:Key="search_frame" TargetType="Frame">
+        <Setter Property="CornerRadius" Value="24"/>
+        <Setter Property="BackgroundColor" Value="{StaticResource background_gray}"/>
+        <Setter Property="HeightRequest" Value="48"/>
+    </Style>
+
+    <Style TargetType="local:AppFrame">
+        <Setter Property="effects:SafeAreaEffect.SafeArea" Value="false,true,false,false" />
+    </Style>
+
+    <Style x:Key="splash_image" TargetType="ff:SvgCachedImage">
+        <Setter Property="DownsampleToViewSize" Value="False"/>
+        <Setter Property="HorizontalOptions" Value="Center"/>
+        <Setter Property="VerticalOptions" Value="Center"/>
+        <Setter Property="HeightRequest" Value="148"/>
+        <Setter Property="WidthRequest" Value="148"/>
+    </Style>
+
+    <Style x:Key="splash_description" TargetType="Label">
+        <Setter Property="HorizontalTextAlignment" Value="Center"/>
+        <Setter Property="TextColor" Value="{StaticResource white}"/>
+        <Setter Property="HorizontalOptions" Value="Center"/>
+    </Style>
+
+    <Style x:Key="separator" TargetType="BoxView">
+        <Setter Property="BackgroundColor" Value="{StaticResource light_blue}"/>
+        <Setter Property="HeightRequest" Value="1"/>
+    </Style>
 </ResourceDictionary>

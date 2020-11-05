@@ -1,56 +1,58 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <pages:BaseContentPage xmlns="http://xamarin.com/schemas/2014/forms"
-    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-    xmlns:vm="clr-namespace:MVP.ViewModels"
-    xmlns:pages="clr-namespace:MVP.Pages"
-    xmlns:effects="clr-namespace:Xamarin.CommunityToolkit.Effects;assembly=Xamarin.CommunityToolkit"
-    xmlns:local="clr-namespace:MVP"
-    xmlns:icons="clr-namespace:MVP.Styles"
-    xmlns:sh="http://sharpnado.com"
-    x:Class="MVP.Pages.WizardAdditionalTechnologyPage"
-    x:TypeArguments="vm:WizardAdditionalTechnologyViewModel"
-    x:DataType="vm:WizardAdditionalTechnologyViewModel">
+                       xmlns:icons="clr-namespace:MVP.Styles"
+                       xmlns:local="clr-namespace:MVP"
+                       xmlns:pages="clr-namespace:MVP.Pages"
+                       xmlns:sh="http://sharpnado.com"
+                       xmlns:vm="clr-namespace:MVP.ViewModels"
+                       xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                       x:Class="MVP.Pages.WizardAdditionalTechnologyPage"
+                       x:DataType="vm:WizardAdditionalTechnologyViewModel"
+                       x:TypeArguments="vm:WizardAdditionalTechnologyViewModel">
 
-    <local:AppFrame x:Name="appFrame" Title="Additional contribution areas"
-                    effects:SafeAreaEffect.SafeArea="false,true,false,false" ShowBackButton="True">
+    <local:AppFrame ShowBackButton="True"
+                    Title="Additional contribution areas"
+                    x:Name="appFrame">
         <local:AppFrame.Content>
             <Grid>
-
-                <CollectionView x:Name="technologies" ItemsSource="{Binding GroupedContributionTechnologies}"
-                        SelectionChangedCommand="{Binding SelectionChangedCommand}"
-                        SelectionChangedCommandParameter="{Binding SelectedItems, Source={x:Reference technologies}}"
-                        SelectedItems="{Binding SelectedContributionTechnologies}"
-                        SelectionMode="Multiple" IsGrouped="true" Scrolled="CollectionView_Scrolled"
-                        ItemTemplate="{StaticResource contribution_technology_item}"
-                        GroupHeaderTemplate="{StaticResource contribution_technology_group}">
+                <CollectionView GroupHeaderTemplate="{StaticResource contribution_technology_group}"
+                                IsGrouped="true"
+                                ItemsSource="{Binding GroupedContributionTechnologies}"
+                                ItemTemplate="{StaticResource contribution_technology_item}"
+                                Scrolled="CollectionView_Scrolled"
+                                SelectedItems="{Binding SelectedContributionTechnologies}"
+                                SelectionChangedCommand="{Binding SelectionChangedCommand}"
+                                SelectionChangedCommandParameter="{Binding SelectedItems, Source={x:Reference technologies}}"
+                                SelectionMode="Multiple"
+                                x:Name="technologies">
                     <CollectionView.Header>
                         <StackLayout>
-                            <Label Margin="24,0" Text="Anything else?" FontSize="28" FontFamily="{StaticResource font_bold}" />
+                            <Label Margin="24,0"
+                                   Style="{StaticResource wizard_title}"
+                                   Text="Anything else?"/>
 
-                            <Label Margin="24,0,24,16" Text="Any additional technology areas that also apply to this activity?"
-                                   FontSize="16" TextColor="{StaticResource dark_gray}" />
+                            <Label Style="{StaticResource wizard_subtitle}"
+                                   Text="Any additional technology areas that also apply to this activity?"/>
                         </StackLayout>
                     </CollectionView.Header>
                     <CollectionView.Footer>
-                        <BoxView HeightRequest="40" />
+                        <BoxView HeightRequest="40"/>
                     </CollectionView.Footer>
                 </CollectionView>
-
-                <!--<custom:PancakeView Style="{StaticResource fab_button_container}" x:Name="fab" Grid.RowSpan="2">
-                    <Button Style="{StaticResource fab_button}" Text="{x:Static icons:Icons.arrow_right}" Command="{Binding NextCommand}" />
-                </custom:PancakeView>-->
-
-                <sh:Shadows CornerRadius="28" VerticalOptions="End" HorizontalOptions="End">
+                <sh:Shadows CornerRadius="28"
+                            HorizontalOptions="End"
+                            VerticalOptions="End">
                     <sh:Shadows.Shades>
                         <sh:ImmutableShades>
-                            <sh:Shade BlurRadius="6" Opacity="0.2" Offset="3,3" Color="{StaticResource black}" />
+                            <sh:Shade BlurRadius="6"
+                                      Color="{StaticResource black}"
+                                      Offset="3,3"
+                                      Opacity="0.2"/>
                         </sh:ImmutableShades>
                     </sh:Shadows.Shades>
-                    <Button effects:SafeAreaEffect.SafeArea="false,false,false,true" Text="{x:Static icons:Icons.arrow_right}"
-                            Command="{Binding NextCommand}" BackgroundColor="{StaticResource primary}" CornerRadius="28"
-                            WidthRequest="56" HeightRequest="56" TextColor="{StaticResource white}" VerticalOptions="End"
-                            HorizontalOptions="End" Margin="0,0,24,24"
-                            FontFamily="{StaticResource font_icon}" FontSize="20"/>
+                    <Button Command="{Binding NextCommand}"
+                            Style="{StaticResource fab_button}"
+                            Text="{x:Static icons:Icons.arrow_right}"/>
                 </sh:Shadows>
             </Grid>
         </local:AppFrame.Content>
