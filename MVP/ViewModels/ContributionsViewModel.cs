@@ -3,15 +3,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Web;
-using AsyncAwaitBestPractices.MVVM;
-using MVP.Extensions;
 using MVP.Helpers;
 using MVP.Models;
 using MVP.Pages;
-using MVP.Services;
 using MVP.Services.Interfaces;
 using MvvmHelpers;
 using TinyNavigationHelper;
+using Xamarin.CommunityToolkit.ObjectModel;
 using Xamarin.Essentials;
 
 namespace MVP.ViewModels
@@ -155,50 +153,58 @@ namespace MVP.ViewModels
 
         async Task<bool> CheckForClipboardUrl()
         {
-            if (!Clipboard.HasText)
-                return false;
-
-            var text = await Clipboard.GetTextAsync();
-
-            if (string.IsNullOrEmpty(text) || (!text.StartsWith("http://") && !text.StartsWith("https://")))
-                return false;
-
-            var shouldCreateActivity = await DialogService.ConfirmAsync(
-                "We notice a URL on your clipboard. Do you want us to pre-fill an activity out of that?",
-                "That looks cool!",
-                "Yes",
-                "No"
-            );
-
-            if (!shouldCreateActivity)
-                return false;
-
-            var ogData = await OpenGraph.ParseUrlAsync(text);
-
-            if (ogData == null)
-                return false;
-
-            DateTime? dateTime = null;
-
-            if (ogData.Metadata.ContainsKey("article:published_time") &&
-                DateTime.TryParse(ogData.Metadata["article:published_time"].Value(), out var activityDate))
+            try
             {
-                dateTime = activityDate;
+                if (!Clipboard.HasText)
+                    return false;
+
+                var text = await Clipboard.GetTextAsync();
+
+                if (string.IsNullOrEmpty(text) || (!text.StartsWith("http://") && !text.StartsWith("https://")))
+                    return false;
+
+                var shouldCreateActivity = await DialogService.ConfirmAsync(
+                    "We notice a URL on your clipboard. Do you want us to pre-fill an activity out of that?",
+                    "That looks cool!",
+                    "Yes",
+                    "No"
+                );
+
+                if (!shouldCreateActivity)
+                    return false;
+
+                var ogData = await OpenGraph.ParseUrlAsync(text);
+
+                if (ogData == null)
+                    return false;
+
+                DateTime? dateTime = null;
+
+                if (ogData.Metadata.ContainsKey("article:published_time") &&
+                    DateTime.TryParse(ogData.Metadata["article:published_time"].Value(), out var activityDate))
+                {
+                    dateTime = activityDate;
+                }
+
+                var contrib = new Contribution
+                {
+                    Title = HttpUtility.HtmlDecode(ogData.Title),
+                    ReferenceUrl = ogData.Url.AbsoluteUri,
+                    Description = ogData.Metadata.ContainsKey("og:description")
+                        ? HttpUtility.HtmlDecode(ogData.Metadata["og:description"].Value())
+                        : string.Empty,
+                    StartDate = dateTime
+                };
+
+                await NavigationHelper.OpenModalAsync(nameof(WizardActivityTypePage), contrib, true).ConfigureAwait(false);
+
+                return true;
             }
-
-            var contrib = new Contribution
+            catch (Exception ex)
             {
-                Title = HttpUtility.HtmlDecode(ogData.Title),
-                ReferenceUrl = ogData.Url.AbsoluteUri,
-                Description = ogData.Metadata.ContainsKey("og:description")
-                    ? HttpUtility.HtmlDecode(ogData.Metadata["og:description"].Value())
-                    : string.Empty,
-                StartDate = dateTime
-            };
 
-            await NavigationHelper.OpenModalAsync(nameof(WizardActivityTypePage), contrib, true).ConfigureAwait(false);
-
-            return true;
+                return false;
+            }
         }
 
         async Task OpenProfile()

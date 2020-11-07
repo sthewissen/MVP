@@ -1,11 +1,11 @@
 ﻿using System;
 using System.Threading.Tasks;
-using AsyncAwaitBestPractices.MVVM;
 using MVP.Extensions;
 using MVP.Models;
 using MVP.Pages;
 using MVP.Services.Interfaces;
 using TinyNavigationHelper;
+using Xamarin.CommunityToolkit.ObjectModel;
 
 namespace MVP.ViewModels
 {
@@ -14,7 +14,6 @@ namespace MVP.ViewModels
         Contribution contribution;
         DateTime date;
 
-        public IAsyncCommand BackCommand { get; set; }
         public IAsyncCommand NextCommand { get; set; }
 
         public DateTime MinDate { get; set; } = DateTime.Now.CurrentAwardPeriodStartDate();

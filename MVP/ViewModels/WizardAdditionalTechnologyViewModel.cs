@@ -1,16 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Input;
-using AsyncAwaitBestPractices;
-using AsyncAwaitBestPractices.MVVM;
 using MVP.Models;
 using MVP.Pages;
-using MVP.Services;
 using MVP.Services.Interfaces;
+using MvvmHelpers;
 using TinyNavigationHelper;
+using Xamarin.CommunityToolkit.ObjectModel;
 using Xamarin.Essentials;
 using Xamarin.Forms;
 

@@ -1,12 +1,12 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using AsyncAwaitBestPractices;
-using AsyncAwaitBestPractices.MVVM;
 using MVP.Models;
 using MVP.Pages;
 using MVP.Services.Interfaces;
+using MvvmHelpers;
 using TinyNavigationHelper;
+using Xamarin.CommunityToolkit.ObjectModel;
 using Xamarin.Essentials;
 
 namespace MVP.ViewModels
@@ -16,7 +16,6 @@ namespace MVP.ViewModels
         ContributionTechnology selectedContributionTechnology;
         Contribution contribution;
 
-        public IAsyncCommand BackCommand { get; set; }
         public IAsyncCommand<Contribution> NextCommand { get; set; }
 
         public IList<MvvmHelpers.Grouping<string, ContributionTechnology>> GroupedContributionTechnologies { get; set; } = new List<MvvmHelpers.Grouping<string, ContributionTechnology>>();

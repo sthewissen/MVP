@@ -156,6 +156,7 @@
     <Style TargetType="Label">
         <Setter Property="FontFamily" Value="{StaticResource font_regular}" />
         <Setter Property="TextColor" Value="{StaticResource black}" />
+        <Setter Property="FontSize" Value="16" />
     </Style>
 
     <Style TargetType="Entry">
@@ -183,7 +184,7 @@
     <Style TargetType="Label" x:Key="contribution_item_date">
         <Setter Property="FontFamily" Value="{StaticResource font_regular}" />
         <Setter Property="FontSize" Value="12" />
-        <Setter Property="TextColor" Value="{StaticResource light_gray}" />
+        <Setter Property="TextColor" Value="{StaticResource gray}" />
     </Style>
 
     <Style TargetType="Frame" x:Key="contribution_item_category">
@@ -289,4 +290,18 @@
         <Setter Property="BackgroundColor" Value="{StaticResource light_blue}"/>
         <Setter Property="HeightRequest" Value="1"/>
     </Style>
+
+    <Style x:Key="field_label" TargetType="Label">
+        <Setter Property="TextColor" Value="{StaticResource gray}"/>
+        <Setter Property="FontFamily" Value="{StaticResource font_semibold}"/>
+        <Setter Property="FontSize" Value="14"/>
+    </Style>
+
+    <Style x:Key="contribution_detail_title" TargetType="Label">
+        <Setter Property="LineBreakMode" Value="TailTruncation"/>
+        <Setter Property="FontFamily" Value="{StaticResource font_bold}"/>
+        <Setter Property="FontSize" Value="20"/>
+        <Setter Property="MaxLines" Value="2"/>
+    </Style>
+
 </ResourceDictionary>

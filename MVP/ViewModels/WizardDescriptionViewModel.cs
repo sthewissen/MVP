@@ -1,10 +1,9 @@
-﻿using System;
-using System.Threading.Tasks;
-using AsyncAwaitBestPractices.MVVM;
+﻿using System.Threading.Tasks;
 using MVP.Models;
 using MVP.Pages;
 using MVP.Services.Interfaces;
 using TinyNavigationHelper;
+using Xamarin.CommunityToolkit.ObjectModel;
 
 namespace MVP.ViewModels
 {
@@ -13,7 +12,6 @@ namespace MVP.ViewModels
         Contribution contribution;
         string description;
 
-        public IAsyncCommand BackCommand { get; set; }
         public IAsyncCommand NextCommand { get; set; }
 
         public string Description

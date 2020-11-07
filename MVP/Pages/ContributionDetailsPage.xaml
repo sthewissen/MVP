@@ -1,88 +1,109 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
-<pages:BaseContentPage x:Name="page"
-    xmlns="http://xamarin.com/schemas/2014/forms"
-    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-    x:Class="MVP.Pages.ContributionDetailsPage"
-    xmlns:icons="clr-namespace:MVP.Styles"
-    xmlns:pages="clr-namespace:MVP.Pages"
-    xmlns:models="clr-namespace:MVP.Models"
-    xmlns:effects="clr-namespace:Xamarin.CommunityToolkit.Effects;assembly=Xamarin.CommunityToolkit"
-    xmlns:converters="clr-namespace:Xamarin.CommunityToolkit.Converters;assembly=Xamarin.CommunityToolkit"
-    xmlns:vm="clr-namespace:MVP.ViewModels"
-    xmlns:local="clr-namespace:MVP"
-    x:TypeArguments="vm:ContributionDetailsViewModel"
-    x:DataType="vm:ContributionDetailsViewModel">
+<pages:BaseContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+                       xmlns:converters="clr-namespace:Xamarin.CommunityToolkit.Converters;assembly=Xamarin.CommunityToolkit"
+                       xmlns:icons="clr-namespace:MVP.Styles"
+                       xmlns:local="clr-namespace:MVP"
+                       xmlns:models="clr-namespace:MVP.Models"
+                       xmlns:pages="clr-namespace:MVP.Pages"
+                       xmlns:vm="clr-namespace:MVP.ViewModels"
+                       xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                       x:Class="MVP.Pages.ContributionDetailsPage"
+                       x:DataType="vm:ContributionDetailsViewModel"
+                       x:Name="page"
+                       x:TypeArguments="vm:ContributionDetailsViewModel">
 
-    <local:AppFrame x:Name="appFrame" Title="Activity details" ShowBackButton="True">
+    <local:AppFrame ShowBackButton="True"
+                    ShowSecondaryButton="True"
+                    SecondaryButtonIcon="{x:Static icons:Icons.edit}"
+                    Title="Activity details"
+                    x:Name="appFrame">
         <local:AppFrame.Content>
+            <ScrollView Grid.Row="1"
+                        Scrolled="ScrollView_Scrolled">
 
-            <ScrollView Grid.Row="1">
-
-                <StackLayout Spacing="24" Padding="24">
+                <StackLayout Padding="24"
+                             Spacing="4">
 
                     <Frame BackgroundColor="{Binding Contribution.ContributionType.Id, Converter={StaticResource ContributionTypeConverter}}"
-                           Style="{StaticResource contribution_item_category}">
+                           Style="{StaticResource contribution_item_category}"
+                           Margin="0,0,0,8">
 
-                        <Label LineBreakMode="TailTruncation" Text="{Binding Contribution.ContributionType.EnglishName, Converter={converters:TextCaseConverter Type=Upper}}"
-                               HorizontalTextAlignment="End" MaxLines="1" Style="{StaticResource contribution_item_category_label}"
+                        <Label HorizontalTextAlignment="End"
+                               LineBreakMode="TailTruncation"
+                               MaxLines="1"
+                               Style="{StaticResource contribution_item_category_label}"
+                               Text="{Binding Contribution.ContributionType.EnglishName, Converter={converters:TextCaseConverter Type=Upper}}"
                                TextColor="{Binding Contribution.ContributionType.Id, Converter={StaticResource ContributionTypeTextConverter}}"/>
-
                     </Frame>
 
-                    <Label Text="{Binding Contribution.Title}" Margin="0,0,0,24" />
+                    <Label Style="{StaticResource contribution_detail_title}" 
+                           Margin="0,0,0,24"
+                           Text="{Binding Contribution.Title}"/>
 
-                    <Grid ColumnDefinitions="Auto, *">
-                        <Label Text="Primary contribution area" MaxLines="2" />
-                        <Label Grid.Column="1" Text="{Binding Contribution.ContributionTechnology.Name}" />
-                    </Grid>
+                    <Label Style="{StaticResource field_label}"  Text="PRIMARY CONTRIBUTION AREA"/>
 
-                    <Grid ColumnDefinitions="Auto, *">
-                        <Grid.Triggers>
-                            <DataTrigger TargetType="Grid" Binding="{Binding Contribution.AdditionalTechnologies.Count}" Value="0">
-                                <Setter Property="IsVisible" Value="false"/>
-                            </DataTrigger>
-                        </Grid.Triggers>
-                        <Label Text="Additional contribution areas" MaxLines="2" />
-                        <StackLayout Grid.Column="1" BindableLayout.ItemsSource="{Binding Contribution.AdditionalTechnologies}">
-                            <BindableLayout.ItemTemplate>
-                                <DataTemplate x:DataType="models:ContributionTechnology">
-                                    <Label Text="{Binding Name}" />
-                                </DataTemplate>
-                            </BindableLayout.ItemTemplate>
-                        </StackLayout>
-                    </Grid>
+                    <Label Text="{Binding Contribution.ContributionTechnology.Name}" Margin="0,0,0,16"/>
 
-                    <Grid ColumnDefinitions="Auto, *">
-                        <Label Text="Activity date" />
-                        <Label Grid.Column="1" Text="{Binding Contribution.StartDate, StringFormat='{0:d}'}" />
-                    </Grid>
 
-                    <Label Text="Description"  />
-                    <Label Text="{Binding Contribution.Description}" HorizontalTextAlignment="Start" />
+                    <Label IsVisible="{Binding Contribution.AdditionalTechnologies, Converter={converters:ListIsNotNullOrEmptyConverter}}"
+                           Style="{StaticResource field_label}"
+                           Text="ADDITIONAL CONTRIBUTION AREAS"/>
+                    <StackLayout BindableLayout.ItemsSource="{Binding Contribution.AdditionalTechnologies}"
+                                 IsVisible="{Binding Contribution.AdditionalTechnologies, Converter={converters:ListIsNotNullOrEmptyConverter}}"
+                                 Margin="0,0,0,16">
+                        <BindableLayout.ItemTemplate>
+                            <DataTemplate x:DataType="models:ContributionTechnology">
+                                <Label Text="{Binding Name}"/>
+                            </DataTemplate>
+                        </BindableLayout.ItemTemplate>
+                    </StackLayout>
 
-                    <Grid IsVisible="{Binding ContributionTypeConfig.HasAnnualQuantity}" ColumnDefinitions="Auto, *">
-                        <Label Text="{Binding ContributionTypeConfig.AnnualQuantityHeader}"  />
-                        <Label Grid.Column="1" Text="{Binding Contribution.AnnualQuantity}" />
-                    </Grid>
+                    <Label Style="{StaticResource field_label}"
+                           Text="ACTIVITY DATE"/>
 
-                    <Grid IsVisible="{Binding ContributionTypeConfig.HasSecondAnnualQuantity}" ColumnDefinitions="Auto, *">
-                        <Label Text="{Binding ContributionTypeConfig.SecondAnnualQuantityHeader}"  />
-                        <Label Grid.Column="1" Text="{Binding Contribution.SecondAnnualQuantity}" />
-                    </Grid>
+                    <Label Margin="0,0,0,16"
+                               Text="{Binding Contribution.StartDate, StringFormat='{0:D}'}"/>
 
-                    <Grid IsVisible="{Binding ContributionTypeConfig.HasAnnualReach}" ColumnDefinitions="Auto, *">
-                        <Label Text="{Binding ContributionTypeConfig.AnnualReachHeader}"  />
-                        <Label Grid.Column="1" Text="{Binding Contribution.AnnualReach}" />
-                    </Grid>
+                    <Label Style="{StaticResource field_label}"
+                           Text="DESCRIPTION" />
 
-                    <Button Text="Delete contribution" Command="{Binding DeleteContributionCommand}" />
+                    <Label Margin="0,0,0,16"
+                           Text="{Binding Contribution.Description}"/>
 
-                    <Button Text="Edit contribution" IsVisible="{Binding CanBeEdited}"
-                        Command="{Binding EditContributionCommand}" HorizontalOptions="Start"/>
+                    <Label IsVisible="{Binding Contribution.AnnualQuantity, Converter={converters:IsNotNullOrEmptyConverter}}"
+                           Style="{StaticResource field_label}"
+                           Text="{Binding ContributionTypeConfig.AnnualQuantityHeader, Converter={converters:TextCaseConverter Type=Upper}}"/>
+
+                    <Label IsVisible="{Binding Contribution.AnnualQuantity, Converter={converters:IsNotNullOrEmptyConverter}}"
+                           Margin="0,0,0,16"
+                           Text="{Binding Contribution.AnnualQuantity}"/>
+
+                    <Label IsVisible="{Binding Contribution.SecondAnnualQuantity, Converter={converters:IsNotNullOrEmptyConverter}}"
+                           Style="{StaticResource field_label}" 
+                           Text="{Binding ContributionTypeConfig.SecondAnnualQuantityHeader, Converter={converters:TextCaseConverter Type=Upper}}" />
+
+                    <Label IsVisible="{Binding Contribution.SecondAnnualQuantity, Converter={converters:IsNotNullOrEmptyConverter}}"
+                           Margin="0,0,0,16"
+                           Text="{Binding Contribution.SecondAnnualQuantity}"/>
+
+                    <Label IsVisible="{Binding Contribution.AnnualReach, Converter={converters:IsNotNullOrEmptyConverter}}"
+                           Style="{StaticResource field_label}"
+                           Text="{Binding ContributionTypeConfig.AnnualReachHeader, Converter={converters:TextCaseConverter Type=Upper}}"/>
+
+                    <Label IsVisible="{Binding Contribution.AnnualReach, Converter={converters:IsNotNullOrEmptyConverter}}"
+                           Margin="0,0,0,16"
+                           Text="{Binding Contribution.AnnualReach}"/>
+
+                    <BoxView Style="{StaticResource separator}" Margin="0,16" />
+
+                    <Button Command="{Binding DeleteContributionCommand}"
+                            FontFamily="{StaticResource font_semibold}"
+                            Text="Delete contribution"
+                            ImageSource="{FontImage FontFamily={StaticResource font_icon}, Color={StaticResource error}, Size=20, Glyph={x:Static icons:Icons.trash2}}"
+                            TextColor="{StaticResource error}" />
+
                 </StackLayout>
             </ScrollView>
-
         </local:AppFrame.Content>
     </local:AppFrame>
-
 </pages:BaseContentPage>

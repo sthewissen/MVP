@@ -1,8 +1,8 @@
 ﻿using System.Threading.Tasks;
-using AsyncAwaitBestPractices.MVVM;
 using MVP.Pages;
 using MVP.Services.Interfaces;
 using TinyNavigationHelper;
+using Xamarin.CommunityToolkit.ObjectModel;
 
 namespace MVP.ViewModels
 {

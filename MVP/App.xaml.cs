@@ -3,13 +3,12 @@ using Xamarin.Forms.PlatformConfiguration;
 using Xamarin.Forms.PlatformConfiguration.iOSSpecific;
 using MVP.Services.Interfaces;
 using System;
-using AsyncAwaitBestPractices;
 using MVP.Services;
 using MVP.Pages;
-using MVP.ViewModels;
 using TinyMvvm.Autofac;
 using TinyMvvm.IoC;
 using TinyNavigationHelper;
+using Xamarin.CommunityToolkit.Helpers;
 
 namespace MVP
 {

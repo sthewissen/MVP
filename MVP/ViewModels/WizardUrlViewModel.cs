@@ -1,12 +1,12 @@
 ﻿using System.Linq;
 using System.Threading.Tasks;
 using System.Web;
-using AsyncAwaitBestPractices.MVVM;
 using MVP.Helpers;
 using MVP.Models;
 using MVP.Pages;
 using MVP.Services.Interfaces;
 using TinyNavigationHelper;
+using Xamarin.CommunityToolkit.ObjectModel;
 
 namespace MVP.ViewModels
 {
@@ -15,7 +15,6 @@ namespace MVP.ViewModels
         Contribution contribution;
         string url;
 
-        public IAsyncCommand BackCommand { get; set; }
         public IAsyncCommand NextCommand { get; set; }
         public IAsyncCommand GetOpenGraphDataCommand { get; set; }
 

@@ -24,5 +24,12 @@ namespace MVP.Styles
         public const string copy = "\ue911";
         public const string x = "\ue912";
         public const string check = "\ue913";
+        public const string edit = "\ue914";
+        public const string logout = "\ue915";
+        public const string chevron_right = "\ue916";
+        public const string chevron_left = "\ue917";
+        public const string chevron_down = "\ue918";
+        public const string chevron_up = "\ue919";
+        public const string calendar = "\ue91a";
     }
 }

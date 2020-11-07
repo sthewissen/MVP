@@ -1,11 +1,9 @@
-﻿using System;
-using System.Threading.Tasks;
-using AsyncAwaitBestPractices.MVVM;
+﻿using System.Threading.Tasks;
 using MVP.Extensions;
 using MVP.Models;
-using MVP.Services;
 using MVP.Services.Interfaces;
 using TinyNavigationHelper;
+using Xamarin.CommunityToolkit.ObjectModel;
 
 namespace MVP.ViewModels
 {
@@ -16,7 +14,6 @@ namespace MVP.ViewModels
         int? secondAnnualQuantity;
         int? annualReach;
 
-        public IAsyncCommand BackCommand { get; set; }
         public IAsyncCommand SaveCommand { get; set; }
 
         public int? AnnualQuantity

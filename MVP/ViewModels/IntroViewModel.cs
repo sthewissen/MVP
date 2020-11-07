@@ -1,11 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
-using AsyncAwaitBestPractices.MVVM;
 using MVP.Models;
 using MVP.Pages;
 using MVP.Services.Interfaces;
 using TinyNavigationHelper;
+using Xamarin.CommunityToolkit.ObjectModel;
 using Xamarin.Essentials;
 
 namespace MVP.ViewModels
@@ -36,7 +36,7 @@ namespace MVP.ViewModels
                 {
                     MainThread.BeginInvokeOnMainThread(() =>
                     {
-                        NavigationHelper.SetRootView(nameof(ContributionsPage));
+                        NavigationHelper.SetRootView(nameof(TabbedMainPage), false);
                     });
                 }
                 else

@@ -40,7 +40,7 @@ namespace MVP.Pages
             };
 
             navigationMainPage.Title = "Activities";
-            profilePage.Title = "Profile";
+            profilePage.Title = "Settings";
 
             Children.Add(navigationMainPage);
             Children.Add(profilePage);

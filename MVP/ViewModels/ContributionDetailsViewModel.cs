@@ -1,11 +1,11 @@
 ﻿using System;
 using System.Threading.Tasks;
-using AsyncAwaitBestPractices.MVVM;
 using MVP.Extensions;
 using MVP.Models;
 using MVP.Pages;
 using MVP.Services.Interfaces;
 using TinyNavigationHelper;
+using Xamarin.CommunityToolkit.ObjectModel;
 
 namespace MVP.ViewModels
 {
@@ -15,9 +15,6 @@ namespace MVP.ViewModels
         public bool CanBeEdited => Contribution != null && Contribution.StartDate.IsWithinCurrentAwardPeriod();
 
         public IAsyncCommand DeleteContributionCommand { get; set; }
-        public IAsyncCommand EditContributionCommand { get; set; }
-
-        public IAsyncCommand BackCommand { get; set; }
         public ContributionTypeConfig ContributionTypeConfig { get; set; }
 
         public ContributionDetailsViewModel(IAnalyticsService analyticsService, IAuthService authService, IDialogService dialogService, INavigationHelper navigationHelper)
@@ -25,7 +22,7 @@ namespace MVP.ViewModels
         {
             BackCommand = new AsyncCommand(() => Back());
             DeleteContributionCommand = new AsyncCommand(() => DeleteContribution());
-            EditContributionCommand = new AsyncCommand(() => EditContribution(), (x) => CanBeEdited);
+            SecondaryCommand = new AsyncCommand(() => EditContribution(), (x) => CanBeEdited);
         }
 
         public async override Task Initialize()
@@ -37,7 +34,7 @@ namespace MVP.ViewModels
                 Contribution = contribution;
 
                 RaisePropertyChanged(nameof(CanBeEdited));
-                EditContributionCommand.RaiseCanExecuteChanged();
+                ((AsyncCommand)SecondaryCommand).RaiseCanExecuteChanged();
 
                 if (contribution.ContributionType.Id.HasValue)
                 {

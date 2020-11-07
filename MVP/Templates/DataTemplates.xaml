@@ -35,8 +35,15 @@
                 </Frame>
                 <Label Style="{StaticResource contribution_item_title}"
                        Text="{Binding Title}"/>
-                <Label Style="{StaticResource contribution_item_date}"
-                       Text="{Binding StartDate, StringFormat='ACTIVITY DATE: {0:d}'}"/>
+                <Label Style="{StaticResource contribution_item_date}">
+                    <Label.FormattedText>
+                        <FormattedString>
+                            <Span FontFamily="{StaticResource font_icon}" Text="{x:Static icons:Icons.calendar}" FontSize="12" />
+                            <Span Text="  " />
+                            <Span Text="{Binding StartDate, StringFormat='{0:D}'}" />
+                        </FormattedString>
+                    </Label.FormattedText>
+                </Label>
             </StackLayout>
             <BoxView Style="{StaticResource separator}"
                      Grid.Row="1"/>
