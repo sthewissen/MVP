@@ -7,6 +7,7 @@ using MVP.Pages;
 using MVP.Services;
 using MVP.Services.Interfaces;
 using MVP.ViewModels;
+using TouchEffect.iOS;
 using UIKit;
 
 namespace MVP.iOS
@@ -25,6 +26,7 @@ namespace MVP.iOS
             FFImageLoading.Forms.Platform.CachedImageRenderer.Init();
             Toolkit.Init();
             Sharpnado.Shades.iOS.iOSShadowsRenderer.Initialize();
+            TouchEffectPreserver.Preserve();
 
             // Inject our dependencies
             using var scope = ContainerService.Container.BeginLifetimeScope();

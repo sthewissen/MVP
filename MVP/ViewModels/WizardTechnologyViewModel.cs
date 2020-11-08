@@ -62,11 +62,11 @@ namespace MVP.ViewModels
 
                 if (categories != null)
                 {
-                    var result = new List<MvvmHelpers.Grouping<string, ContributionTechnology>>();
+                    var result = new List<Grouping<string, ContributionTechnology>>();
 
                     foreach (var item in categories.SelectMany(x => x.ContributionAreas))
                     {
-                        result.Add(new MvvmHelpers.Grouping<string, ContributionTechnology>(item.AwardName, item.ContributionTechnology));
+                        result.Add(new Grouping<string, ContributionTechnology>(item.AwardName, item.ContributionTechnology));
                     }
 
                     GroupedContributionTechnologies = result;

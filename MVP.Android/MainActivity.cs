@@ -13,6 +13,7 @@ using MVP.Services.Interfaces;
 using MVP.Pages;
 using MVP.ViewModels;
 using Autofac;
+using TouchEffect.Android;
 
 namespace MVP.Droid
 {
@@ -33,6 +34,7 @@ namespace MVP.Droid
             FFImageLoading.Forms.Platform.CachedImageRenderer.Init(enableFastRenderer: true);
             Toolkit.Init();
             UserDialogs.Init(this);
+            TouchEffectPreserver.Preserve();
 
             // Inject analytics service
             using var scope = ContainerService.Container.BeginLifetimeScope();

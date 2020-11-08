@@ -28,6 +28,7 @@
         <PackageReference Include="TinyMvvm.Autofac" Version="2.4.13" />
         <PackageReference Include="Xamarin.CommunityToolkit" Version="1.0.0-preview1085" />
         <PackageReference Include="Sharpnado.Shadows" Version="1.2.0" />
+        <PackageReference Include="TouchView" Version="4.1.92" />
     </ItemGroup>
     <ItemGroup>
         <Folder Include="Models\" />

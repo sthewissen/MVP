@@ -4,8 +4,11 @@
                        xmlns:icons="clr-namespace:MVP.Styles"
                        xmlns:local="clr-namespace:MVP"
                        xmlns:pages="clr-namespace:MVP.Pages"
+                       xmlns:models="clr-namespace:MVP.Models"
+                       xmlns:touch="clr-namespace:TouchEffect;assembly=TouchEffect"
                        xmlns:vm="clr-namespace:MVP.ViewModels"
                        xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                       xmlns:xct="clr-namespace:Xamarin.CommunityToolkit.Converters;assembly=Xamarin.CommunityToolkit"
                        helpers:StatusBar.StatusBarStyle="DarkText"
                        x:Class="MVP.Pages.ContributionsPage"
                        x:DataType="vm:ContributionsViewModel"
@@ -20,10 +23,9 @@
             <Grid>
                 <CollectionView ItemsSource="{Binding Contributions}"
                                 ItemsUpdatingScrollMode="KeepScrollOffset"
-                                ItemTemplate="{StaticResource contribution_item}"
                                 Scrolled="CollectionView_Scrolled"
-                                SelectedItem="{Binding SelectedContribution}"
-                                SelectionMode="Single"
+                                SelectionMode="None"
+                                ItemTemplate="{StaticResource contribution_item}"
                                 x:Name="collectionView">
                     <CollectionView.Footer>
                         <BoxView HeightRequest="40"/>

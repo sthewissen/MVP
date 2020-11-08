@@ -16,6 +16,8 @@ namespace MVP.Pages
 
             var mainPage = viewCreator.Create(typeof(ContributionsPage));
             var profilePage = viewCreator.Create(typeof(ProfilePage));
+            var badgesPage = viewCreator.Create(typeof(BadgesPage));
+            var statsPage = viewCreator.Create(typeof(StatisticsPage));
             var navigationMainPage = new NavigationPage(mainPage);
 
             BarBackgroundColor = Color.White;
@@ -39,10 +41,28 @@ namespace MVP.Pages
                 Size = 20
             };
 
+            statsPage.IconImageSource = new FontImageSource()
+            {
+                FontFamily = (OnPlatform<string>)Xamarin.Forms.Application.Current.Resources["font_icon"],
+                Glyph = Icons.activity,
+                Size = 20
+            };
+
+            badgesPage.IconImageSource = new FontImageSource()
+            {
+                FontFamily = (OnPlatform<string>)Xamarin.Forms.Application.Current.Resources["font_icon"],
+                Glyph = Icons.award,
+                Size = 20
+            };
+
             navigationMainPage.Title = "Activities";
+            statsPage.Title = "Statistics";
+            badgesPage.Title = "Badges";
             profilePage.Title = "Settings";
 
             Children.Add(navigationMainPage);
+            Children.Add(statsPage);
+            Children.Add(badgesPage);
             Children.Add(profilePage);
         }
     }

@@ -114,6 +114,11 @@
             <VisualStateGroupList>
                 <VisualStateGroup x:Name="CommonStates">
                     <VisualState x:Name="Normal" />
+                    <VisualState x:Name="Focused">
+                        <VisualState.Setters>
+                            <Setter Property="BackgroundColor" Value="{StaticResource light_blue}" />
+                        </VisualState.Setters>
+                    </VisualState>
                     <VisualState x:Name="Selected">
                         <VisualState.Setters>
                             <Setter Property="BackgroundColor" Value="{StaticResource light_blue}" />
@@ -133,8 +138,13 @@
         <Setter Property="Spacing" Value="0" />
         <Setter Property="VisualStateManager.VisualStateGroups">
             <VisualStateGroupList>
-                <VisualStateGroup x:Name="CommonStates">
+                <VisualStateGroup x:Name="CommonStates2">
                     <VisualState x:Name="Normal" />
+                    <VisualState x:Name="Focused">
+                        <VisualState.Setters>
+                            <Setter Property="BackgroundColor" Value="{StaticResource light_blue}" />
+                        </VisualState.Setters>
+                    </VisualState>
                     <VisualState x:Name="Selected">
                         <VisualState.Setters>
                             <Setter Property="BackgroundColor" Value="{StaticResource light_blue}" />

@@ -19,25 +19,7 @@ namespace MVP.ViewModels
         readonly List<Contribution> contributions = new List<Contribution>();
         readonly int pageSize = 10;
 
-        bool isLoadingMore;
-        Contribution selectedContribution;
-
         public IList<Contribution> Contributions { get; set; } = new List<Contribution>();
-        public Profile Profile { get; set; }
-        public string ProfileImage { get; set; }
-        public string Name { get; set; }
-
-        public Contribution SelectedContribution
-        {
-            get => selectedContribution;
-            set
-            {
-                selectedContribution = value;
-
-                if (value != null)
-                    OpenContributionCommand.Execute(value);
-            }
-        }
 
         public IAsyncCommand OpenProfileCommand { get; set; }
         public IAsyncCommand RefreshDataCommand { get; set; }
@@ -48,11 +30,9 @@ namespace MVP.ViewModels
         public ContributionsViewModel(IAnalyticsService analyticsService, IAuthService authService, IDialogService dialogService, INavigationHelper navigationHelper)
             : base(analyticsService, authService, dialogService, navigationHelper)
         {
-            //OpenProfileCommand = new AsyncCommand(() => OpenProfile());
             OpenContributionCommand = new AsyncCommand<Contribution>((Contribution c) => OpenContribution(c));
             SecondaryCommand = new AsyncCommand(() => OpenAddContribution());
             RefreshDataCommand = new AsyncCommand(() => RefreshContributions());
-            //LoadMoreCommand = new AsyncCommand(() => LoadMoreContributions());
 
             //CurrentApp.Resumed += App_Resumed;
         }
@@ -80,11 +60,7 @@ namespace MVP.ViewModels
 
         async Task RefreshData()
         {
-            await Task.WhenAll(
-                RefreshContributions(),
-                RefreshProfileData(),
-                RefreshProfileImage()
-            ).ConfigureAwait(false);
+            await RefreshContributions().ConfigureAwait(false);
         }
 
         async Task RefreshContributions()
@@ -100,56 +76,36 @@ namespace MVP.ViewModels
             Contributions = contributionsList.Contributions;
         }
 
-        async Task RefreshProfileImage()
-        {
-            var image = await MvpApiService.GetProfileImageAsync().ConfigureAwait(false);
+        //async Task LoadMoreContributions()
+        //{
+        //    // Don't load more when we're already doing that.
+        //    if (isLoadingMore)
+        //        return;
 
-            if (image == null)
-                return;
+        //    isLoadingMore = true;
 
-            ProfileImage = image;
-        }
+        //    if (Connectivity.NetworkAccess == NetworkAccess.Internet)
+        //    {
+        //        var contributionsList = await MvpApiService.GetContributionsAsync(contributions.Count, pageSize).ConfigureAwait(false);
 
-        async Task RefreshProfileData()
-        {
-            var profile = await MvpApiService.GetProfileAsync().ConfigureAwait(false);
+        //        if (contributionsList != null)
+        //        {
+        //            if (contributionsList.Contributions.Any())
+        //            {
+        //                // Add the contributions and regroup the lot.
+        //                contributions.AddRange(contributionsList.Contributions);
+        //                Contributions = contributions;
+        //            }
+        //            else if (contributionsList.TotalContributions != contributionsList.PagingIndex)
+        //            {
+        //                // Stop loading more, because there's no contributions anymore and we're at the end.
+        //                //ItemThreshold = -1;
+        //            }
+        //        }
+        //    }
 
-            if (profile == null)
-                return;
-
-            Name = profile.FullName;
-        }
-
-        async Task LoadMoreContributions()
-        {
-            // Don't load more when we're already doing that.
-            if (isLoadingMore)
-                return;
-
-            isLoadingMore = true;
-
-            if (Connectivity.NetworkAccess == NetworkAccess.Internet)
-            {
-                var contributionsList = await MvpApiService.GetContributionsAsync(contributions.Count, pageSize).ConfigureAwait(false);
-
-                if (contributionsList != null)
-                {
-                    if (contributionsList.Contributions.Any())
-                    {
-                        // Add the contributions and regroup the lot.
-                        contributions.AddRange(contributionsList.Contributions);
-                        Contributions = contributions;
-                    }
-                    else if (contributionsList.TotalContributions != contributionsList.PagingIndex)
-                    {
-                        // Stop loading more, because there's no contributions anymore and we're at the end.
-                        //ItemThreshold = -1;
-                    }
-                }
-            }
-
-            isLoadingMore = false;
-        }
+        //    isLoadingMore = false;
+        //}
 
         async Task<bool> CheckForClipboardUrl()
         {
@@ -202,14 +158,9 @@ namespace MVP.ViewModels
             }
             catch (Exception ex)
             {
-
+                AnalyticsService.Report(ex);
                 return false;
             }
-        }
-
-        async Task OpenProfile()
-        {
-            await NavigationHelper.NavigateToAsync(nameof(ProfilePage)).ConfigureAwait(false);
         }
 
         async Task OpenAddContribution(Contribution prefilledData = null)
@@ -220,9 +171,10 @@ namespace MVP.ViewModels
             }
         }
 
+        //async Task OpenProfile()
+        //    => await NavigationHelper.NavigateToAsync(nameof(ProfilePage)).ConfigureAwait(false);
+
         async Task OpenContribution(Contribution contribution)
-        {
-            await NavigationHelper.NavigateToAsync(nameof(ContributionDetailsPage), contribution).ConfigureAwait(false);
-        }
+            => await NavigationHelper.NavigateToAsync(nameof(ContributionDetailsPage), contribution).ConfigureAwait(false);
     }
 }

@@ -1,9 +1,12 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <pages:BaseContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+                       xmlns:icons="clr-namespace:MVP.Styles"
                        xmlns:local="clr-namespace:MVP"
                        xmlns:pages="clr-namespace:MVP.Pages"
                        xmlns:vm="clr-namespace:MVP.ViewModels"
                        xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                       xmlns:ff="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
+                       xmlns:fftransformations="clr-namespace:FFImageLoading.Transformations;assembly=FFImageLoading.Transformations"
                        x:Class="MVP.Pages.ProfilePage"
                        x:DataType="vm:ProfileViewModel"
                        x:TypeArguments="vm:ProfileViewModel">
@@ -11,10 +14,44 @@
     <local:AppFrame Title="Settings"
                     x:Name="appFrame">
         <local:AppFrame.Content>
+            <ScrollView Scrolled="ScrollView_Scrolled">
+                <StackLayout Padding="16">
+                    <Grid Padding="16,0" ColumnDefinitions="80,*" ColumnSpacing="16">
+                        <ff:CachedImage VerticalOptions="Center" Source="{Binding ProfileImage}" HeightRequest="80" WidthRequest="80">
+                            <ff:CachedImage.Transformations>
+                                <fftransformations:CircleTransformation />
+                            </ff:CachedImage.Transformations>
+                        </ff:CachedImage>
 
-            <Button Command="{Binding LogoutCommand}"
-                    Text="Logout"/>
+                        <StackLayout Grid.Column="1" VerticalOptions="CenterAndExpand">
+                            <Label Text="{Binding Profile.FullName}"
+                               FontSize="20" FontFamily="{StaticResource font_bold}" MaxLines="1" LineBreakMode="TailTruncation" />
+                            <Label Text="{Binding Profile.Headline}" FontSize="14" MaxLines="2" LineBreakMode="TailTruncation" TextColor="{StaticResource gray}" />
+                        </StackLayout>
+                    </Grid>
 
+                    <BoxView Style="{StaticResource separator}" Margin="0,16" />
+
+                    <Grid RowDefinitions="Auto, Auto" ColumnDefinitions="*, Auto" Padding="16,0" ColumnSpacing="16" RowSpacing="8">
+                        <Label Text="Create contribution from URL" 
+                               FontSize="16" FontFamily="{StaticResource font_semibold}" />
+                        <Label Text="If you have a valid URL on your clipboard while adding a contribution, you will be asked if metadata from that URL should be used to prefill your contribution."
+                               Grid.Row="1" FontSize="13" TextColor="{StaticResource gray}" />
+
+                        <Switch Grid.RowSpan="2" Grid.Column="1" VerticalOptions="Center"
+                                OnColor="{StaticResource primary}"/>
+                    </Grid>
+
+
+                    <BoxView Style="{StaticResource separator}" Margin="0,16" />
+
+                    <Button Command="{Binding LogoutCommand}"
+                        FontFamily="{StaticResource font_semibold}"
+                        Text="Logout"
+                        ImageSource="{FontImage FontFamily={StaticResource font_icon}, Color={StaticResource error}, Size=20, Glyph={x:Static icons:Icons.logout}}"
+                        TextColor="{StaticResource error}" />
+                </StackLayout>
+            </ScrollView>
         </local:AppFrame.Content>
     </local:AppFrame>
 </pages:BaseContentPage>
