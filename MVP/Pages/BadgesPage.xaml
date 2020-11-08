@@ -1,10 +1,18 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <pages:BaseContentPage xmlns="http://xamarin.com/schemas/2014/forms"
                        xmlns:pages="clr-namespace:MVP.Pages"
+                       xmlns:local="clr-namespace:MVP"
                        xmlns:vm="clr-namespace:MVP.ViewModels"
                        xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
                        x:Class="MVP.Pages.BadgesPage"
                        x:DataType="vm:StatisticsViewModel"
                        x:TypeArguments="vm:StatisticsViewModel">
+
+    <local:AppFrame Title="Badges"
+                    x:Name="appFrame">
+        <local:AppFrame.Content>
+            <Grid></Grid>
+        </local:AppFrame.Content>
+    </local:AppFrame>
 
 </pages:BaseContentPage>
