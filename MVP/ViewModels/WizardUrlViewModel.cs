@@ -86,7 +86,7 @@ namespace MVP.ViewModels
                 if (openGraphData.Metadata.ContainsKey("og:image"))
                     ImageUrl = openGraphData.Metadata["og:image"].First().Value;
 
-                HasValidUrl = true;
+                HasValidUrl = !string.IsNullOrEmpty(Title) || !string.IsNullOrEmpty(Description) || !string.IsNullOrEmpty(ImageUrl);
             }
             catch
             {

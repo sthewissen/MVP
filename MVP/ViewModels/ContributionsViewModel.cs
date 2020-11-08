@@ -121,10 +121,13 @@ namespace MVP.ViewModels
 
         async Task OpenAddContribution(Contribution prefilledData = null)
         {
-            if (!await CheckForClipboardUrl())
+            if (Preferences.Get(Settings.UseClipboardUrls, true))
             {
-                await NavigationHelper.OpenModalAsync(nameof(WizardActivityTypePage), prefilledData, true).ConfigureAwait(false);
+                if (await CheckForClipboardUrl())
+                    return;
             }
+
+            await NavigationHelper.OpenModalAsync(nameof(WizardActivityTypePage), prefilledData, true).ConfigureAwait(false);
         }
 
         async Task OpenContribution(Contribution contribution)
