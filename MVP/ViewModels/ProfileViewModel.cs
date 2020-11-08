@@ -4,6 +4,7 @@ using MVP.Pages;
 using MVP.Services.Interfaces;
 using TinyNavigationHelper;
 using Xamarin.CommunityToolkit.ObjectModel;
+using Xamarin.Essentials;
 
 namespace MVP.ViewModels
 {
@@ -13,7 +14,16 @@ namespace MVP.ViewModels
 
         public Profile Profile { get; set; }
         public string ProfileImage { get; set; }
-        public string Name { get; set; }
+
+        public bool UseClipboardUrls
+        {
+            get => Preferences.Get(Settings.UseClipboardUrls, true);
+            set
+            {
+                Preferences.Set(Settings.UseClipboardUrls, value);
+                Vibration.Vibrate(100);
+            }
+        }
 
         public ProfileViewModel(IAnalyticsService analyticsService, IAuthService authService, IDialogService dialogService, INavigationHelper navigationHelper)
             : base(analyticsService, authService, dialogService, navigationHelper)

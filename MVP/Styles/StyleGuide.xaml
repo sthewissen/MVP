@@ -314,4 +314,36 @@
         <Setter Property="MaxLines" Value="2"/>
     </Style>
 
+    <Style x:Key="destructive_button" TargetType="Button">
+        <Setter Property="TextColor" Value="{StaticResource error}"/>
+        <Setter Property="FontFamily" Value="{StaticResource font_semibold}"/>
+    </Style>
+
+    <Style TargetType="Switch">
+        <Setter Property="OnColor" Value="{StaticResource primary}"/>
+    </Style>
+
+    <Style x:Key="setting_description" TargetType="Label">
+        <Setter Property="TextColor" Value="{StaticResource gray}"/>
+        <Setter Property="FontSize" Value="13"/>
+    </Style>
+
+    <Style x:Key="setting_title" TargetType="Label">
+        <Setter Property="FontFamily" Value="{StaticResource font_semibold}"/>
+        <Setter Property="FontSize" Value="16"/>
+    </Style>
+
+    <Style x:Key="profile_subtitle" TargetType="Label">
+        <Setter Property="LineBreakMode" Value="TailTruncation"/>
+        <Setter Property="TextColor" Value="{StaticResource gray}"/>
+        <Setter Property="FontSize" Value="14"/>
+        <Setter Property="MaxLines" Value="2"/>
+    </Style>
+
+    <Style x:Key="profile_name" TargetType="Label">
+        <Setter Property="LineBreakMode" Value="TailTruncation"/>
+        <Setter Property="FontFamily" Value="{StaticResource font_bold}"/>
+        <Setter Property="FontSize" Value="20"/>
+        <Setter Property="MaxLines" Value="1"/>
+    </Style>
 </ResourceDictionary>

@@ -1,12 +1,12 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <pages:BaseContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+                       xmlns:ff="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
+                       xmlns:fftransformations="clr-namespace:FFImageLoading.Transformations;assembly=FFImageLoading.Transformations"
                        xmlns:icons="clr-namespace:MVP.Styles"
                        xmlns:local="clr-namespace:MVP"
                        xmlns:pages="clr-namespace:MVP.Pages"
                        xmlns:vm="clr-namespace:MVP.ViewModels"
                        xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-                       xmlns:ff="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
-                       xmlns:fftransformations="clr-namespace:FFImageLoading.Transformations;assembly=FFImageLoading.Transformations"
                        x:Class="MVP.Pages.ProfilePage"
                        x:DataType="vm:ProfileViewModel"
                        x:TypeArguments="vm:ProfileViewModel">
@@ -16,40 +16,60 @@
         <local:AppFrame.Content>
             <ScrollView Scrolled="ScrollView_Scrolled">
                 <StackLayout Padding="16">
-                    <Grid Padding="16,0" ColumnDefinitions="80,*" ColumnSpacing="16">
-                        <ff:CachedImage VerticalOptions="Center" Source="{Binding ProfileImage}" HeightRequest="80" WidthRequest="80">
+                    <Grid ColumnDefinitions="80,*"
+                          ColumnSpacing="16"
+                          Padding="16,0">
+
+                        <ff:CachedImage HeightRequest="80"
+                                        Source="{Binding ProfileImage}"
+                                        VerticalOptions="Center"
+                                        WidthRequest="80">
                             <ff:CachedImage.Transformations>
-                                <fftransformations:CircleTransformation />
+                                <fftransformations:CircleTransformation/>
                             </ff:CachedImage.Transformations>
                         </ff:CachedImage>
 
-                        <StackLayout Grid.Column="1" VerticalOptions="CenterAndExpand">
-                            <Label Text="{Binding Profile.FullName}"
-                               FontSize="20" FontFamily="{StaticResource font_bold}" MaxLines="1" LineBreakMode="TailTruncation" />
-                            <Label Text="{Binding Profile.Headline}" FontSize="14" MaxLines="2" LineBreakMode="TailTruncation" TextColor="{StaticResource gray}" />
+                        <StackLayout Grid.Column="1"
+                                     VerticalOptions="CenterAndExpand">
+
+                            <Label Style="{StaticResource profile_name}" 
+                                   Text="{Binding Profile.FullName}"/>
+
+                            <Label Style="{StaticResource profile_subtitle}" 
+                                   Text="{Binding Profile.Headline}"/>
+
                         </StackLayout>
                     </Grid>
 
-                    <BoxView Style="{StaticResource separator}" Margin="0,16" />
+                    <BoxView Margin="0,16"
+                             Style="{StaticResource separator}"/>
 
-                    <Grid RowDefinitions="Auto, Auto" ColumnDefinitions="*, Auto" Padding="16,0" ColumnSpacing="16" RowSpacing="8">
-                        <Label Text="Create contribution from URL" 
-                               FontSize="16" FontFamily="{StaticResource font_semibold}" />
-                        <Label Text="If you have a valid URL on your clipboard while adding a contribution, you will be asked if metadata from that URL should be used to prefill your contribution."
-                               Grid.Row="1" FontSize="13" TextColor="{StaticResource gray}" />
+                    <Grid ColumnDefinitions="*, Auto"
+                          ColumnSpacing="24"
+                          Padding="16,0"
+                          RowDefinitions="Auto, Auto"
+                          RowSpacing="8">
 
-                        <Switch Grid.RowSpan="2" Grid.Column="1" VerticalOptions="Center"
-                                OnColor="{StaticResource primary}"/>
+                        <Label Style="{StaticResource setting_title}" 
+                               Text="Create contribution from URL"/>
+
+                        <Label Style="{StaticResource setting_description}" 
+                               Grid.Row="1"
+                               Text="If you have a valid URL on your clipboard while adding a contribution, you will be asked if metadata from that URL should be used to prefill your contribution."/>
+
+                        <Switch Grid.Column="1"
+                                Grid.RowSpan="2"
+                                IsToggled="{Binding UseClipboardUrls}"
+                                VerticalOptions="Center"/>
                     </Grid>
 
+                    <BoxView Margin="0,16"
+                             Style="{StaticResource separator}"/>
 
-                    <BoxView Style="{StaticResource separator}" Margin="0,16" />
-
-                    <Button Command="{Binding LogoutCommand}"
-                        FontFamily="{StaticResource font_semibold}"
-                        Text="Logout"
-                        ImageSource="{FontImage FontFamily={StaticResource font_icon}, Color={StaticResource error}, Size=20, Glyph={x:Static icons:Icons.logout}}"
-                        TextColor="{StaticResource error}" />
+                    <Button Style="{StaticResource destructive_button}"
+                            Command="{Binding LogoutCommand}"
+                            ImageSource="{FontImage FontFamily={StaticResource font_icon}, Color={StaticResource error}, Size=20, Glyph={x:Static icons:Icons.logout}}"
+                            Text="Logout"/>
                 </StackLayout>
             </ScrollView>
         </local:AppFrame.Content>

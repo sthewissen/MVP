@@ -9,6 +9,11 @@
         public const string AppName = "MVPBuzz";
     }
 
+    public class Settings
+    {
+        public const string UseClipboardUrls = "use_clipboard_urls";
+    }
+
     public class Alerts
     {
         public const string OK = "OK";

@@ -96,11 +96,10 @@
 
                     <BoxView Style="{StaticResource separator}" Margin="0,16" />
 
-                    <Button Command="{Binding DeleteContributionCommand}"
-                            FontFamily="{StaticResource font_semibold}"
+                    <Button Style="{StaticResource destructive_button}"
+                            Command="{Binding DeleteContributionCommand}"
                             Text="Delete contribution"
-                            ImageSource="{FontImage FontFamily={StaticResource font_icon}, Color={StaticResource error}, Size=20, Glyph={x:Static icons:Icons.trash2}}"
-                            TextColor="{StaticResource error}" />
+                            ImageSource="{FontImage FontFamily={StaticResource font_icon}, Color={StaticResource error}, Size=20, Glyph={x:Static icons:Icons.trash2}}" />
 
                 </StackLayout>
             </ScrollView>
