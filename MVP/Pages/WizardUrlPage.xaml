@@ -1,5 +1,6 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <pages:BaseContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+                       xmlns:converters="clr-namespace:Xamarin.CommunityToolkit.Converters;assembly=Xamarin.CommunityToolkit"
                        xmlns:icons="clr-namespace:MVP.Styles"
                        xmlns:local="clr-namespace:MVP"
                        xmlns:pages="clr-namespace:MVP.Pages"
@@ -35,8 +36,8 @@
                     <BoxView Style="{StaticResource separator}"
                              Margin="0,-24,0,0"/>
 
-                    <Grid ColumnDefinitions="120, *"
-                          ColumnSpacing="8"
+                    <Grid ColumnDefinitions="Auto, *"
+                          ColumnSpacing="24"
                           IsVisible="{Binding HasValidUrl}"
                           Margin="0,16"
                           RowDefinitions="Auto, Auto">
@@ -45,7 +46,9 @@
                                Grid.RowSpan="2"
                                HorizontalOptions="Center"
                                IsClippedToBounds="True"
+                               IsVisible="{Binding ImageUrl, Converter={converters:IsNotNullOrEmptyConverter}}"
                                VerticalOptions="Start">
+
                             <Image Aspect="AspectFill"
                                    HeightRequest="80"
                                    Source="{Binding ImageUrl}"
