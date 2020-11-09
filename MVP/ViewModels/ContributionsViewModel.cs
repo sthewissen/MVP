@@ -25,6 +25,7 @@ namespace MVP.ViewModels
         public IAsyncCommand RefreshDataCommand { get; set; }
         public IAsyncCommand<Contribution> OpenContributionCommand { get; set; }
         public IAsyncCommand OpenAddContributionCommand { get; set; }
+        public IAsyncCommand SearchContributionCommand { get; set; }
         public IAsyncCommand LoadMoreCommand { get; set; }
 
         public ContributionsViewModel(IAnalyticsService analyticsService, IAuthService authService, IDialogService dialogService, INavigationHelper navigationHelper)
@@ -32,6 +33,7 @@ namespace MVP.ViewModels
         {
             OpenContributionCommand = new AsyncCommand<Contribution>((Contribution c) => OpenContribution(c));
             SecondaryCommand = new AsyncCommand(() => OpenAddContribution());
+            SearchContributionCommand = new AsyncCommand(() => OpenSearchContribution());
             RefreshDataCommand = new AsyncCommand(() => RefreshContributions());
 
             //CurrentApp.Resumed += App_Resumed;
@@ -132,5 +134,8 @@ namespace MVP.ViewModels
 
         async Task OpenContribution(Contribution contribution)
             => await NavigationHelper.NavigateToAsync(nameof(ContributionDetailsPage), contribution).ConfigureAwait(false);
+
+        async Task OpenSearchContribution()
+            => await NavigationHelper.NavigateToAsync(nameof(SearchContributionPage)).ConfigureAwait(false);
     }
 }

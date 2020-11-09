@@ -4,6 +4,7 @@
                        xmlns:icons="clr-namespace:MVP.Styles"
                        xmlns:local="clr-namespace:MVP"
                        xmlns:pages="clr-namespace:MVP.Pages"
+                       xmlns:touch="clr-namespace:TouchEffect;assembly=TouchEffect"
                        xmlns:vm="clr-namespace:MVP.ViewModels"
                        xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"                       
                        helpers:StatusBar.StatusBarStyle="DarkText"
@@ -30,7 +31,10 @@
                     <CollectionView.Header>
                         <StackLayout Padding="16,16,16,24">
 
-                            <Frame Style="{StaticResource search_frame}">
+                            <Frame Style="{StaticResource search_frame}"
+                                   touch:TouchEff.PressedBackgroundColor="{StaticResource border_light_gray}"
+                                   touch:TouchEff.RegularBackgroundColor="{StaticResource background_gray}"
+                                   touch:TouchEff.Command="{Binding Source={RelativeSource AncestorType={x:Type vm:ContributionsViewModel}}, Path=SearchContributionCommand}">
 
                                 <Grid ColumnDefinitions="*,48"
                                       Padding="24,0"

@@ -24,7 +24,7 @@
         <StackLayout>
             <StackLayout Padding="32,16"
                          Spacing="8"
-                         VerticalOptions="Center"                       
+                         VerticalOptions="Center"
                          touch:TouchEff.PressedBackgroundColor="{StaticResource light_blue}"
                          touch:TouchEff.RegularBackgroundColor="{StaticResource white}"
                          touch:TouchEff.Command="{Binding Source={RelativeSource AncestorType={x:Type vm:ContributionsViewModel}}, Path=OpenContributionCommand}"
