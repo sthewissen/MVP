@@ -10,7 +10,7 @@ namespace MVP.ViewModels
 {
     public class SplashScreenViewModel : BaseViewModel
     {
-        string fetchText = string.Empty;
+        string fetchText = " ";
 
         public IAsyncCommand PrefetchDataCommand { get; }
 

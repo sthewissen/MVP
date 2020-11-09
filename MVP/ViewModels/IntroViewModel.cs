@@ -21,9 +21,21 @@ namespace MVP.ViewModels
             SignInCommand = new AsyncCommand(() => SignIn());
 
             OnboardingItems = new List<OnboardingItem> {
-                new OnboardingItem{ ImageName="onboarding1", Title = "Simple and effective", Description = "Manage all of your community activities from the palm of your hand." },
-                new OnboardingItem{ ImageName="onboarding2", Title = "Gather insights", Description = "Gather additional insights through your activity statistics." },
-                new OnboardingItem{ ImageName="onboarding3", Title = "Quick Add", Description = "Create activities based on URLs in your clipboard data." }
+                new OnboardingItem {
+                    ImageName="onboarding1",
+                    Title = "Simple and effective",
+                    Description = "Manage all of your community activities from the palm of your hand."
+                },
+                new OnboardingItem {
+                    ImageName="onboarding2",
+                    Title = "Gather insights",
+                    Description = "Gather additional insights through your contribution statistics. When were you most active? What type of contributions are you favorite?"
+                },
+                new OnboardingItem {
+                    ImageName="onboarding3",
+                    Title = "Quick Add",
+                    Description = "Directly create contributions based on a URL on your clipboard. Pre-filling whatever we can for you allowing you to quickly add new contributions."
+                }
             };
         }
 
