@@ -53,7 +53,7 @@ namespace MVP.Services
         {
             try
             {
-                return GetFromCacheAndGetLatest("profile", GetRemoteProfileAsync, new TimeSpan(1, 0, 0, 0), forceRefresh);
+                return GetFromCacheAndGetLatest("profile", GetRemoteProfileAsync, new TimeSpan(14, 0, 0, 0), forceRefresh);
             }
             catch (Exception e)
             {
@@ -101,7 +101,7 @@ namespace MVP.Services
                     offset =>
                     {
                         var elapsed = DateTimeOffset.Now - offset;
-                        return elapsed > new TimeSpan(days: 7, hours: 0, minutes: 0, seconds: 0);
+                        return elapsed > new TimeSpan(days: 14, hours: 0, minutes: 0, seconds: 0);
                     });
 
                 var image = await cachedProfileImage.FirstOrDefaultAsync();

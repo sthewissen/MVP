@@ -1,10 +1,12 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <pages:BaseContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+                       xmlns:controls="clr-namespace:MVP.Controls"
                        xmlns:ff="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
                        xmlns:fftransformations="clr-namespace:FFImageLoading.Transformations;assembly=FFImageLoading.Transformations"
                        xmlns:icons="clr-namespace:MVP.Styles"
                        xmlns:local="clr-namespace:MVP"
                        xmlns:pages="clr-namespace:MVP.Pages"
+                       xmlns:state="clr-namespace:Xamarin.CommunityToolkit.UI.Views;assembly=Xamarin.CommunityToolkit"
                        xmlns:vm="clr-namespace:MVP.ViewModels"
                        xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
                        x:Class="MVP.Pages.ProfilePage"
@@ -18,7 +20,34 @@
                 <StackLayout Padding="16">
                     <Grid ColumnDefinitions="80,*"
                           ColumnSpacing="16"
-                          Padding="16,0">
+                          Padding="16,0"
+                          state:StateLayout.CurrentState="{Binding State}"
+                          state:StateLayout.AnimateStateChanges="False">
+                        <Grid.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding LoadProfileCommand}" />
+                        </Grid.GestureRecognizers>
+
+                        <state:StateLayout.StateViews>
+                            <state:StateView StateKey="Loading">
+                                <Grid ColumnDefinitions="80,*"
+                                      ColumnSpacing="16"
+                                      Grid.ColumnSpan="2">
+                                    <controls:SkeletonView HeightRequest="80"
+                                           CornerRadius="40"
+                                           BackgroundColor="{StaticResource border_light_gray}"
+                                           VerticalOptions="Center"
+                                           WidthRequest="80">
+                                    </controls:SkeletonView>
+
+                                    <StackLayout Grid.Column="1"
+                                                 Spacing="8"
+                                                 VerticalOptions="CenterAndExpand">
+                                        <controls:SkeletonView HeightRequest="24" BackgroundColor="{StaticResource border_light_gray}" />
+                                        <controls:SkeletonView HeightRequest="16" BackgroundColor="{StaticResource border_light_gray}" />
+                                    </StackLayout>
+                                </Grid>
+                            </state:StateView>
+                        </state:StateLayout.StateViews>
 
                         <ff:CachedImage HeightRequest="80"
                                         Source="{Binding ProfileImage}"

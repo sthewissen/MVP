@@ -4,6 +4,7 @@ using MVP.Pages;
 using MVP.Services.Interfaces;
 using TinyNavigationHelper;
 using Xamarin.CommunityToolkit.ObjectModel;
+using Xamarin.CommunityToolkit.UI.Views;
 using Xamarin.Essentials;
 
 namespace MVP.ViewModels
@@ -11,6 +12,7 @@ namespace MVP.ViewModels
     public class ProfileViewModel : BaseViewModel
     {
         public IAsyncCommand LogoutCommand { get; set; }
+        public IAsyncCommand LoadProfileCommand { get; set; }
 
         public Profile Profile { get; set; }
         public string ProfileImage { get; set; }
@@ -29,31 +31,54 @@ namespace MVP.ViewModels
             : base(analyticsService, authService, dialogService, navigationHelper)
         {
             LogoutCommand = new AsyncCommand(() => Logout());
+            LoadProfileCommand = new AsyncCommand(() => LoadProfile(true));
         }
 
         public override async Task Initialize()
         {
             await base.Initialize();
-
-            await Task.WhenAll(RefreshProfileData(), RefreshProfileImage());
+            await LoadProfile(false);
         }
 
-        async Task RefreshProfileImage()
+        async Task LoadProfile(bool force)
         {
-            var image = await MvpApiService.GetProfileImageAsync().ConfigureAwait(false);
+            State = LayoutState.Loading;
+            await Task.WhenAll(RefreshProfileData(force), RefreshProfileImage(force));
+            State = LayoutState.None;
+        }
+
+        async Task RefreshProfileImage(bool force)
+        {
+            var image = await MvpApiService.GetProfileImageAsync(force).ConfigureAwait(false);
+
+            if (image == null && force)
+                return;
 
             if (image == null)
-                return;
+            {
+                image = await MvpApiService.GetProfileImageAsync(true).ConfigureAwait(false);
+
+                if (image == null)
+                    return;
+            }
 
             ProfileImage = image;
         }
 
-        async Task RefreshProfileData()
+        async Task RefreshProfileData(bool force)
         {
-            var profile = await MvpApiService.GetProfileAsync().ConfigureAwait(false);
+            var profile = await MvpApiService.GetProfileAsync(force).ConfigureAwait(false);
+
+            if (profile == null && force)
+                return;
 
             if (profile == null)
-                return;
+            {
+                profile = await MvpApiService.GetProfileAsync(true).ConfigureAwait(false);
+
+                if (profile == null)
+                    return;
+            }
 
             Profile = profile;
         }
