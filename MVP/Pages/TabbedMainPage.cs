@@ -19,6 +19,7 @@ namespace MVP.Pages
             var badgesPage = viewCreator.Create(typeof(BadgesPage));
             var statsPage = viewCreator.Create(typeof(StatisticsPage));
             var navigationMainPage = new NavigationPage(mainPage);
+            var fontIcon = (string)Xamarin.Forms.Application.Current.Resources["font_icon"];
 
             BarBackgroundColor = Color.White;
             SelectedTabColor = ((Color)Xamarin.Forms.Application.Current.Resources["primary"]);
@@ -29,28 +30,28 @@ namespace MVP.Pages
 
             navigationMainPage.IconImageSource = new FontImageSource()
             {
-                FontFamily = (OnPlatform<string>)Xamarin.Forms.Application.Current.Resources["font_icon"],
+                FontFamily = fontIcon,
                 Glyph = Icons.home,
                 Size = 20
             };
 
             profilePage.IconImageSource = new FontImageSource()
             {
-                FontFamily = (OnPlatform<string>)Xamarin.Forms.Application.Current.Resources["font_icon"],
+                FontFamily = fontIcon,
                 Glyph = Icons.settings,
                 Size = 20
             };
 
             statsPage.IconImageSource = new FontImageSource()
             {
-                FontFamily = (OnPlatform<string>)Xamarin.Forms.Application.Current.Resources["font_icon"],
+                FontFamily = fontIcon,
                 Glyph = Icons.activity,
                 Size = 20
             };
 
             badgesPage.IconImageSource = new FontImageSource()
             {
-                FontFamily = (OnPlatform<string>)Xamarin.Forms.Application.Current.Resources["font_icon"],
+                FontFamily = fontIcon,
                 Glyph = Icons.award,
                 Size = 20
             };

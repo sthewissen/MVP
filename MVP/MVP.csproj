@@ -14,17 +14,17 @@
         <PackageReference Include="Xamarin.Forms.PancakeView" Version="2.1.0.714" />
         <PackageReference Include="Xamarin.FFImageLoading.Forms" Version="2.4.11.982" />
         <PackageReference Include="Xamarin.FFImageLoading.Transformations" Version="2.4.11.982" />
-        <PackageReference Include="PropertyChanged.Fody" Version="3.2.10" />
+        <PackageReference Include="PropertyChanged.Fody" Version="3.3.1" />
         <PackageReference Include="Xamarin.FFImageLoading.Svg.Forms" Version="2.4.11.982" />
         <PackageReference Include="Acr.UserDialogs" Version="7.1.0.466" />
         <PackageReference Include="Microsoft.AppCenter" Version="3.4.3" />
         <PackageReference Include="Microsoft.AppCenter.Analytics" Version="3.4.3" />
         <PackageReference Include="Microsoft.AppCenter.Crashes" Version="3.4.3" />
         <PackageReference Include="Refit" Version="5.2.1" />
-        <PackageReference Include="HtmlAgilityPack" Version="1.11.26" />
+        <PackageReference Include="HtmlAgilityPack" Version="1.11.27" />
         <PackageReference Include="akavache" Version="6.10.20" />
-        <PackageReference Include="TinyMvvm.Forms" Version="2.4.13" />
-        <PackageReference Include="TinyMvvm.Autofac" Version="2.4.13" />
+        <PackageReference Include="TinyMvvm.Forms" Version="2.4.14" />
+        <PackageReference Include="TinyMvvm.Autofac" Version="2.4.14" />
         <PackageReference Include="Xamarin.CommunityToolkit" Version="1.0.0-preview1085" />
         <PackageReference Include="Sharpnado.Shadows" Version="1.2.0" />
         <PackageReference Include="TouchView" Version="4.1.92" />

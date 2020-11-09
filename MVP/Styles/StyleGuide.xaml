@@ -1,6 +1,7 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <ResourceDictionary xmlns="http://xamarin.com/schemas/2014/forms"
                     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                    xmlns:controls="clr-namespace:MVP.Controls"
                     xmlns:effects="clr-namespace:Xamarin.CommunityToolkit.Effects;assembly=Xamarin.CommunityToolkit"
                     xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
                     xmlns:local="clr-namespace:MVP"                    
@@ -20,11 +21,8 @@
     <!-- Accent colors -->
     <Color x:Key="white">#FFFFFF</Color>
     <Color x:Key="black">#222222</Color>
-    <Color x:Key="dark_gray">#777777</Color>
     <Color x:Key="background_gray">#F1F1F1</Color>
     <Color x:Key="gray">#8E8E93</Color>
-    <Color x:Key="light_gray">#A8A8AC</Color>
-    <Color x:Key="background_light_gray">#C8C8C8</Color>
     <Color x:Key="border_light_gray">#E1E1E1</Color>
     <Color x:Key="light_blue">#EBEDF5</Color>
 
@@ -80,30 +78,11 @@
 
     <!--Fonts-->
 
-    <OnPlatform x:TypeArguments="x:String" x:Key="font_bold">
-        <On Platform="iOS" Value="SourceSansPro-Bold"/>
-        <On Platform="Android" Value="SourceSansPro-Bold"/>
-    </OnPlatform>
-
-    <OnPlatform x:TypeArguments="x:String" x:Key="font_regular">
-        <On Platform="iOS" Value="SourceSansPro-Regular"/>
-        <On Platform="Android" Value="SourceSansPro-Regular"/>
-    </OnPlatform>
-
-    <OnPlatform x:TypeArguments="x:String" x:Key="font_semibold">
-        <On Platform="iOS" Value="SourceSansPro-SemiBold"/>
-        <On Platform="Android" Value="SourceSansPro-SemiBold"/>
-    </OnPlatform>
-
-    <OnPlatform x:TypeArguments="x:String" x:Key="font_light">
-        <On Platform="iOS" Value="SourceSansPro-Light"/>
-        <On Platform="Android" Value="SourceSansPro-Light"/>
-    </OnPlatform>
-
-    <OnPlatform x:TypeArguments="x:String" x:Key="font_icon">
-        <On Platform="iOS" Value="MVPBuzz"/>
-        <On Platform="Android" Value="MVPBuzz"/>
-    </OnPlatform>
+    <x:String x:Key="font_bold">SourceSansPro-Bold</x:String>
+    <x:String x:Key="font_regular">SourceSansPro-Regular</x:String>
+    <x:String x:Key="font_semibold">SourceSansPro-SemiBold</x:String>
+    <x:String x:Key="font_light">SourceSansPro-Light</x:String>
+    <x:String x:Key="font_icon">MVPBuzz</x:String>
 
     <!--Resets-->
 
@@ -156,6 +135,10 @@
     </Style>
 
     <!--Overall stylings-->
+
+    <Style TargetType="controls:SkeletonView">
+        <Setter Property="BackgroundColor" Value="{StaticResource border_light_gray}"/>
+    </Style>
 
     <Style TargetType="ContentPage" ApplyToDerivedTypes="True">
         <Setter Property="BackgroundColor" Value="{StaticResource white}" />
@@ -236,7 +219,7 @@
     </Style>
 
     <Style x:Key="wizard_subtitle" TargetType="Label">
-        <Setter Property="TextColor" Value="{StaticResource dark_gray}"/>
+        <Setter Property="TextColor" Value="{StaticResource gray}"/>
         <Setter Property="FontSize" Value="16"/>
         <Setter Property="Margin" Value="24,0,24,16"/>
     </Style>

@@ -14,7 +14,9 @@
                        x:TypeArguments="vm:ProfileViewModel">
 
     <local:AppFrame Title="Settings"
-                    x:Name="appFrame">
+                    x:Name="appFrame"
+                    ShowSecondaryButton="True"
+                    SecondaryButtonIcon="{x:Static icons:Icons.info}">
         <local:AppFrame.Content>
             <ScrollView Scrolled="ScrollView_Scrolled">
                 <StackLayout Padding="16">
@@ -32,9 +34,8 @@
                                 <Grid ColumnDefinitions="80,*"
                                       ColumnSpacing="16"
                                       Grid.ColumnSpan="2">
-                                    <controls:SkeletonView HeightRequest="80"
+                                    <controls:SkeletonView  HeightRequest="80"
                                            CornerRadius="40"
-                                           BackgroundColor="{StaticResource border_light_gray}"
                                            VerticalOptions="Center"
                                            WidthRequest="80">
                                     </controls:SkeletonView>
@@ -42,8 +43,8 @@
                                     <StackLayout Grid.Column="1"
                                                  Spacing="8"
                                                  VerticalOptions="CenterAndExpand">
-                                        <controls:SkeletonView HeightRequest="24" BackgroundColor="{StaticResource border_light_gray}" />
-                                        <controls:SkeletonView HeightRequest="16" BackgroundColor="{StaticResource border_light_gray}" />
+                                        <controls:SkeletonView HeightRequest="24" />
+                                        <controls:SkeletonView HeightRequest="16" />
                                     </StackLayout>
                                 </Grid>
                             </state:StateView>

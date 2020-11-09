@@ -36,13 +36,13 @@ namespace MVP.iOS.Renderers
 
             item.SetTitleTextAttributes(new UITextAttributes()
             {
-                Font = UIFont.FromName((OnPlatform<string>)Xamarin.Forms.Application.Current.Resources["font_regular"], 13),
+                Font = UIFont.FromName((string)Xamarin.Forms.Application.Current.Resources["font_regular"], 13),
                 TextColor = ((Color)Xamarin.Forms.Application.Current.Resources["black"]).ToUIColor()
             }, UIControlState.Normal);
 
             item.SetTitleTextAttributes(new UITextAttributes()
             {
-                Font = UIFont.FromName((OnPlatform<string>)Xamarin.Forms.Application.Current.Resources["font_regular"], 13),
+                Font = UIFont.FromName((string)Xamarin.Forms.Application.Current.Resources["font_regular"], 13),
                 TextColor = ((Color)Xamarin.Forms.Application.Current.Resources["primary"]).ToUIColor()
             }, UIControlState.Selected);
         }
