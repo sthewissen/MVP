@@ -93,23 +93,6 @@
     <Style TargetType="Grid">
         <Setter Property="ColumnSpacing" Value="0" />
         <Setter Property="RowSpacing" Value="0" />
-        <Setter Property="VisualStateManager.VisualStateGroups">
-            <VisualStateGroupList>
-                <VisualStateGroup x:Name="CommonStates">
-                    <VisualState x:Name="Normal" />
-                    <VisualState x:Name="Focused">
-                        <VisualState.Setters>
-                            <Setter Property="BackgroundColor" Value="{StaticResource light_blue}" />
-                        </VisualState.Setters>
-                    </VisualState>
-                    <VisualState x:Name="Selected">
-                        <VisualState.Setters>
-                            <Setter Property="BackgroundColor" Value="{StaticResource light_blue}" />
-                        </VisualState.Setters>
-                    </VisualState>
-                </VisualStateGroup>
-            </VisualStateGroupList>
-        </Setter>
     </Style>
 
     <Style TargetType="Frame">
@@ -119,23 +102,6 @@
 
     <Style TargetType="StackLayout">
         <Setter Property="Spacing" Value="0" />
-        <Setter Property="VisualStateManager.VisualStateGroups">
-            <VisualStateGroupList>
-                <VisualStateGroup x:Name="CommonStates2">
-                    <VisualState x:Name="Normal" />
-                    <VisualState x:Name="Focused">
-                        <VisualState.Setters>
-                            <Setter Property="BackgroundColor" Value="{StaticResource light_blue}" />
-                        </VisualState.Setters>
-                    </VisualState>
-                    <VisualState x:Name="Selected">
-                        <VisualState.Setters>
-                            <Setter Property="BackgroundColor" Value="{StaticResource light_blue}" />
-                        </VisualState.Setters>
-                    </VisualState>
-                </VisualStateGroup>
-            </VisualStateGroupList>
-        </Setter>
     </Style>
 
     <!--Overall stylings-->
@@ -184,10 +150,6 @@
         <Setter Property="LineBreakMode" Value="TailTruncation" />
     </Style>
 
-    <Style x:Key="app_theme_title" BasedOn="{StaticResource contribution_item_title}" TargetType="Label">
-        <Setter Property="FontFamily" Value="{StaticResource font_regular}" />
-    </Style>
-
     <Style x:Key="contribution_item_date" TargetType="Label">
         <Setter Property="FontFamily" Value="{StaticResource font_regular}" />
         <Setter Property="FontSize" Value="12" />
@@ -212,7 +174,6 @@
         <Setter Property="VerticalTextAlignment" Value="Center" />
         <Setter Property="FontFamily" Value="{StaticResource font_semibold}" />
         <Setter Property="FontSize" Value="14" />
-        <Setter Property="Padding" Value="16" />
         <Setter Property="LineBreakMode" Value="TailTruncation" />
     </Style>
 

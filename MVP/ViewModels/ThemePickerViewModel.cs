@@ -53,6 +53,7 @@ namespace MVP.ViewModels
 
             AppThemes.FirstOrDefault(x => x.Key == Preferences.Get(Settings.AppTheme, Settings.AppThemeDefault)).IsSelected = true;
             RaisePropertyChanged(nameof(AppThemes));
+            HapticFeedback.Perform(HapticFeedbackType.Click);
         }
     }
 }

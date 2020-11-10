@@ -7,9 +7,9 @@
                        xmlns:vm="clr-namespace:MVP.ViewModels"
                        xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
                        helpers:StatusBar.StatusBarStyle="DarkText"
-                       x:Class="MVP.Pages.WizardActivityTypePage"
-                       x:DataType="vm:WizardActivityTypeViewModel"
-                       x:TypeArguments="vm:WizardActivityTypeViewModel">
+                       x:Class="MVP.Pages.WizardContributionTypePage"
+                       x:DataType="vm:WizardContributionTypeViewModel"
+                       x:TypeArguments="vm:WizardContributionTypeViewModel">
 
     <local:AppFrame IsModal="True"
                     ShowBackButton="True"
@@ -19,8 +19,7 @@
             <CollectionView ItemsSource="{Binding ContributionTypes}"
                                 ItemTemplate="{StaticResource contribution_type_item}"
                                 Scrolled="CollectionView_Scrolled"
-                                SelectedItem="{Binding SelectedContributionType}"
-                                SelectionMode="Single">
+                                SelectionMode="None">
                 <CollectionView.Header>
                     <StackLayout>
                         <Label Margin="24,0"
@@ -30,7 +29,7 @@
                         <Label Style="{StaticResource wizard_subtitle}"
                                    Text="What type of activity do you want to add?"/>
 
-                        <FlexLayout Direction="Row"
+                        <!--<FlexLayout Direction="Row"
                                         Margin="0,0,0,16"
                                         Padding="24,0"
                                         Wrap="Wrap">
@@ -56,7 +55,7 @@
                                     </StackLayout>
                                 </DataTemplate>
                             </BindableLayout.ItemTemplate>
-                        </FlexLayout>
+                        </FlexLayout>-->
                     </StackLayout>
                 </CollectionView.Header>
                 <CollectionView.Footer>

@@ -1,4 +1,5 @@
 ﻿using System.Threading.Tasks;
+using System.Windows.Input;
 using MVP.Models;
 using MVP.Pages;
 using MVP.Services.Interfaces;
@@ -6,6 +7,7 @@ using TinyNavigationHelper;
 using Xamarin.CommunityToolkit.ObjectModel;
 using Xamarin.CommunityToolkit.UI.Views;
 using Xamarin.Essentials;
+using Xamarin.Forms;
 
 namespace MVP.ViewModels
 {
@@ -14,6 +16,7 @@ namespace MVP.ViewModels
         public IAsyncCommand LogoutCommand { get; set; }
         public IAsyncCommand LoadProfileCommand { get; set; }
         public IAsyncCommand OpenThemePickerCommand { get; set; }
+        public ICommand ToggleUseClipboardUrlsCommand { get; set; }
 
         public Profile Profile { get; set; }
         public string ProfileImage { get; set; }
@@ -24,7 +27,7 @@ namespace MVP.ViewModels
             set
             {
                 Preferences.Set(Settings.UseClipboardUrls, value);
-                Vibration.Vibrate(100);
+                HapticFeedback.Perform(HapticFeedbackType.Click);
             }
         }
 
@@ -33,6 +36,7 @@ namespace MVP.ViewModels
         {
             LogoutCommand = new AsyncCommand(() => Logout());
             LoadProfileCommand = new AsyncCommand(() => LoadProfile(true));
+            ToggleUseClipboardUrlsCommand = new Command(() => UseClipboardUrls = !UseClipboardUrls);
             OpenThemePickerCommand = new AsyncCommand(() => OpenThemePicker());
         }
 

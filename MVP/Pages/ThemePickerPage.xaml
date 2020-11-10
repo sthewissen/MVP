@@ -15,9 +15,7 @@
             <CollectionView ItemsSource="{Binding AppThemes}"
                             ItemTemplate="{StaticResource app_theme_item}"
                             Scrolled="CollectionView_Scrolled"
-                            SelectionMode="None">
-
-            </CollectionView>
+                            SelectionMode="None" />
         </local:AppFrame.Content>
     </local:AppFrame>
 </pages:BaseContentPage>

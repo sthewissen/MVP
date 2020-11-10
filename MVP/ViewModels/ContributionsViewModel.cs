@@ -110,7 +110,7 @@ namespace MVP.ViewModels
                     StartDate = dateTime
                 };
 
-                await NavigationHelper.OpenModalAsync(nameof(WizardActivityTypePage), contrib, true).ConfigureAwait(false);
+                await NavigationHelper.OpenModalAsync(nameof(WizardContributionTypePage), contrib, true).ConfigureAwait(false);
 
                 return true;
             }
@@ -129,7 +129,7 @@ namespace MVP.ViewModels
                     return;
             }
 
-            await NavigationHelper.OpenModalAsync(nameof(WizardActivityTypePage), prefilledData, true).ConfigureAwait(false);
+            await NavigationHelper.OpenModalAsync(nameof(WizardContributionTypePage), prefilledData, true).ConfigureAwait(false);
         }
 
         async Task OpenContribution(Contribution contribution)

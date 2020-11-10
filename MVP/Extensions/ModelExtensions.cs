@@ -112,7 +112,7 @@ namespace MVP.Extensions
                     config.AnnualQuantityHeader = "Number of Mentorship Activity";
                     config.AnnualReachHeader = "Number of Mentees";
                     config.HasAnnualReach = true;
-                    config.TypeColor = "cutty_sark";
+                    config.TypeColor = "black_light";
                     config.TextColor = "white";
                     break;
                 case "d2d96407-0304-e911-8171-3863bb2bca60": // "EnglishName": "Microsoft Open Source Projects"
