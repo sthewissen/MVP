@@ -7,6 +7,7 @@
                        xmlns:local="clr-namespace:MVP"
                        xmlns:pages="clr-namespace:MVP.Pages"
                        xmlns:state="clr-namespace:Xamarin.CommunityToolkit.UI.Views;assembly=Xamarin.CommunityToolkit"
+                       xmlns:touch="clr-namespace:TouchEffect;assembly=TouchEffect"
                        xmlns:vm="clr-namespace:MVP.ViewModels"
                        xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
                        x:Class="MVP.Pages.ProfilePage"
@@ -19,10 +20,10 @@
                     SecondaryButtonIcon="{x:Static icons:Icons.info}">
         <local:AppFrame.Content>
             <ScrollView Scrolled="ScrollView_Scrolled">
-                <StackLayout Padding="16">
+                <StackLayout>
                     <Grid ColumnDefinitions="80,*"
                           ColumnSpacing="16"
-                          Padding="16,0"
+                          Padding="32,16,32,16"
                           state:StateLayout.CurrentState="{Binding State}"
                           state:StateLayout.AnimateStateChanges="False">
                         <Grid.GestureRecognizers>
@@ -71,12 +72,12 @@
                         </StackLayout>
                     </Grid>
 
-                    <BoxView Margin="0,16"
+                    <BoxView Margin="16"
                              Style="{StaticResource separator}"/>
 
                     <Grid ColumnDefinitions="*, Auto"
                           ColumnSpacing="24"
-                          Padding="16,0"
+                          Padding="32,0"
                           RowDefinitions="Auto, Auto"
                           RowSpacing="8">
 
@@ -93,7 +94,36 @@
                                 VerticalOptions="Center"/>
                     </Grid>
 
-                    <BoxView Margin="0,16"
+                    <BoxView Margin="16,16,16,0"
+                             Style="{StaticResource separator}"/>
+
+                    <Grid ColumnDefinitions="*, Auto"
+                          ColumnSpacing="24"
+                          Padding="32,16,16,16"
+                          RowDefinitions="Auto, Auto"
+                          RowSpacing="8"
+                          touch:TouchEff.PressedBackgroundColor="{AppThemeBinding Light={StaticResource light_blue}, Dark={StaticResource background_dark_gray_highlight}}"
+                          touch:TouchEff.RegularBackgroundColor="{AppThemeBinding Light={StaticResource white}, Dark={StaticResource black}}"
+                          touch:TouchEff.Command="{Binding OpenThemePickerCommand}">
+
+                        <Label Style="{StaticResource setting_title}" 
+                               Text="App theme"/>
+
+                        <Label Style="{StaticResource setting_description}" 
+                               Grid.Row="1"
+                               Text="This app can be used in both light and dark mode. By default it will pick whatever your device is set to. If either theme tickles your fancy you can also force a specific theme here."/>
+
+                        <Label FontFamily="{StaticResource font_icon}"
+                               FontSize="24"
+                               Grid.Column="1"
+                               Grid.RowSpan="2"
+                               Text="{x:Static icons:Icons.chevron_right}"
+                               TextColor="{AppThemeBinding Light={StaticResource primary}, Dark={StaticResource gray}}"
+                               VerticalOptions="Center"
+                               VerticalTextAlignment="Center"/>
+                    </Grid>
+
+                    <BoxView Margin="16,0"
                              Style="{StaticResource separator}"/>
 
                     <Button Style="{StaticResource destructive_button}"

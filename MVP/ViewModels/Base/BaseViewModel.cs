@@ -1,7 +1,9 @@
-﻿using System.Windows.Input;
+﻿using System.Threading.Tasks;
+using System.Windows.Input;
 using MVP.Services.Interfaces;
 using TinyMvvm;
 using TinyNavigationHelper;
+using Xamarin.CommunityToolkit.ObjectModel;
 using Xamarin.CommunityToolkit.UI.Views;
 
 namespace MVP.ViewModels
@@ -16,7 +18,7 @@ namespace MVP.ViewModels
         protected IDialogService DialogService { get; }
         protected INavigationHelper NavigationHelper { get; }
 
-        public virtual ICommand BackCommand { get; set; }
+        public virtual IAsyncCommand BackCommand { get; set; }
         public virtual ICommand PrimaryCommand { get; set; }
         public virtual ICommand SecondaryCommand { get; set; }
 
@@ -28,6 +30,13 @@ namespace MVP.ViewModels
             AuthService = authService;
             DialogService = dialogService;
             NavigationHelper = navigationHelper;
+
+            BackCommand = new AsyncCommand(() => Back());
+        }
+
+        public async virtual Task Back()
+        {
+            await NavigationHelper.BackAsync().ConfigureAwait(false);
         }
     }
 }

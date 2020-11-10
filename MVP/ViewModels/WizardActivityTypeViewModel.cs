@@ -38,7 +38,6 @@ namespace MVP.ViewModels
         public WizardActivityTypeViewModel(IAnalyticsService analyticsService, IAuthService authService, IDialogService dialogService, INavigationHelper navigationHelper)
             : base(analyticsService, authService, dialogService, navigationHelper)
         {
-            BackCommand = new AsyncCommand(() => Back());
             NextCommand = new AsyncCommand(() => Next());
         }
 
@@ -69,7 +68,7 @@ namespace MVP.ViewModels
             }
         }
 
-        async Task Back()
+        public async override Task Back()
         {
             // Pop the entire modal stack instead of just going back one screen.
             await NavigationHelper.CloseModalAsync().ConfigureAwait(false);

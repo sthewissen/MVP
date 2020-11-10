@@ -1,13 +1,11 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <pages:BaseContentPage xmlns="http://xamarin.com/schemas/2014/forms"
-                       xmlns:helpers="clr-namespace:MVP.Helpers"
                        xmlns:icons="clr-namespace:MVP.Styles"
                        xmlns:local="clr-namespace:MVP"
                        xmlns:pages="clr-namespace:MVP.Pages"
                        xmlns:touch="clr-namespace:TouchEffect;assembly=TouchEffect"
                        xmlns:vm="clr-namespace:MVP.ViewModels"
                        xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"                       
-                       helpers:StatusBar.StatusBarStyle="DarkText"
                        x:Class="MVP.Pages.ContributionsPage"
                        x:DataType="vm:ContributionsViewModel"
                        x:Name="page"
@@ -32,8 +30,6 @@
                         <StackLayout Padding="16,16,16,24">
 
                             <Frame Style="{StaticResource search_frame}"
-                                   touch:TouchEff.PressedBackgroundColor="{StaticResource border_light_gray}"
-                                   touch:TouchEff.RegularBackgroundColor="{StaticResource background_gray}"
                                    touch:TouchEff.Command="{Binding Source={RelativeSource AncestorType={x:Type vm:ContributionsViewModel}}, Path=SearchContributionCommand}">
 
                                 <Grid ColumnDefinitions="*,48"

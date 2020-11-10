@@ -13,7 +13,6 @@ namespace MVP.Converters
                 return Color.Default;
 
             var valueAsString = value.ToString();
-            Debug.WriteLine(valueAsString);
 
             switch (valueAsString)
             {

@@ -9,6 +9,7 @@ using TinyMvvm.Autofac;
 using TinyMvvm.IoC;
 using TinyNavigationHelper;
 using Xamarin.CommunityToolkit.Helpers;
+using Xamarin.Essentials;
 
 namespace MVP
 {
@@ -44,6 +45,9 @@ namespace MVP
             Sharpnado.Shades.Initializer.Initialize(loggerEnable: false);
             Akavache.Registrations.Start(Constants.AppName);
             On<iOS>().SetHandleControlUpdatesOnMainThread(true);
+
+            // Set the theme that the user has picked.
+            Current.UserAppTheme = (OSAppTheme)Preferences.Get(Settings.AppTheme, Settings.AppThemeDefault);
 
             // Set our start page to the splash screen, as that is what we want
             // everyone to see first. It's glorious.

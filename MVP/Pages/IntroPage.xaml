@@ -8,7 +8,7 @@
                        xmlns:models="clr-namespace:MVP.Models"
                        xmlns:helpers="clr-namespace:MVP.Helpers"
                        xmlns:pages="clr-namespace:MVP.Pages"
-                       helpers:StatusBar.StatusBarStyle="DarkText"
+                       helpers:StatusBar.StatusBarStyle="WhiteText"
                        x:Class="MVP.Pages.IntroPage"
                        x:TypeArguments="vm:IntroViewModel"
                        x:DataType="vm:IntroViewModel">

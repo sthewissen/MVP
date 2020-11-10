@@ -20,7 +20,6 @@ namespace MVP.ViewModels
         public ContributionDetailsViewModel(IAnalyticsService analyticsService, IAuthService authService, IDialogService dialogService, INavigationHelper navigationHelper)
             : base(analyticsService, authService, dialogService, navigationHelper)
         {
-            BackCommand = new AsyncCommand(() => Back());
             DeleteContributionCommand = new AsyncCommand(() => DeleteContribution());
             SecondaryCommand = new AsyncCommand(() => EditContribution(), (x) => CanBeEdited);
         }
@@ -88,11 +87,6 @@ namespace MVP.ViewModels
                 AnalyticsService.Report(ex);
                 await DialogService.AlertAsync(Alerts.UnexpectedError, Alerts.Error, Alerts.OK).ConfigureAwait(false);
             }
-        }
-
-        async Task Back()
-        {
-            await NavigationHelper.BackAsync().ConfigureAwait(false);
         }
     }
 }

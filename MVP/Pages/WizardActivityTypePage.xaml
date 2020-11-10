@@ -16,55 +16,53 @@
                     Title="Activity type"
                     x:Name="appFrame">
         <local:AppFrame.Content>
-            <Grid>
-                <CollectionView ItemsSource="{Binding ContributionTypes}"
+            <CollectionView ItemsSource="{Binding ContributionTypes}"
                                 ItemTemplate="{StaticResource contribution_type_item}"
                                 Scrolled="CollectionView_Scrolled"
                                 SelectedItem="{Binding SelectedContributionType}"
                                 SelectionMode="Single">
-                    <CollectionView.Header>
-                        <StackLayout>
-                            <Label Margin="24,0"
+                <CollectionView.Header>
+                    <StackLayout>
+                        <Label Margin="24,0"
                                    Style="{StaticResource wizard_title}"
                                    Text="Let's get started"/>
 
-                            <Label Style="{StaticResource wizard_subtitle}"
+                        <Label Style="{StaticResource wizard_subtitle}"
                                    Text="What type of activity do you want to add?"/>
 
-                            <FlexLayout Direction="Row"
+                        <FlexLayout Direction="Row"
                                         Margin="0,0,0,16"
                                         Padding="24,0"
                                         Wrap="Wrap">
-                                <BindableLayout.ItemsSource>
-                                    <x:Array Type="{x:Type x:String}">
-                                        <x:String>Article</x:String>
-                                        <x:String>Video/Webcast/Podcast</x:String>
-                                        <x:String>Site Owner</x:String>
-                                        <x:String>Speaking (Conference)</x:String>
-                                        <x:String>Forum moderator</x:String>
-                                    </x:Array>
-                                </BindableLayout.ItemsSource>
-                                <BindableLayout.ItemTemplate>
-                                    <DataTemplate>
-                                        <StackLayout Margin="4">
-                                            <Frame BackgroundColor="{StaticResource light_primary}"
+                            <BindableLayout.ItemsSource>
+                                <x:Array Type="{x:Type x:String}">
+                                    <x:String>Article</x:String>
+                                    <x:String>Video/Webcast/Podcast</x:String>
+                                    <x:String>Site Owner</x:String>
+                                    <x:String>Speaking (Conference)</x:String>
+                                    <x:String>Forum moderator</x:String>
+                                </x:Array>
+                            </BindableLayout.ItemsSource>
+                            <BindableLayout.ItemTemplate>
+                                <DataTemplate>
+                                    <StackLayout Margin="4">
+                                        <Frame BackgroundColor="{StaticResource light_primary}"
                                                    Style="{StaticResource contribution_item_category}">
 
-                                                <Label Style="{StaticResource contribution_item_category_label}"
+                                            <Label Style="{StaticResource contribution_item_category_label}"
                                                        Text="{Binding .,Converter={converters:TextCaseConverter Type=Upper}}"
                                                        TextColor="{StaticResource primary}"/>
-                                            </Frame>
-                                        </StackLayout>
-                                    </DataTemplate>
-                                </BindableLayout.ItemTemplate>
-                            </FlexLayout>
-                        </StackLayout>
-                    </CollectionView.Header>
-                    <CollectionView.Footer>
-                        <BoxView HeightRequest="40"/>
-                    </CollectionView.Footer>
-                </CollectionView>
-            </Grid>
+                                        </Frame>
+                                    </StackLayout>
+                                </DataTemplate>
+                            </BindableLayout.ItemTemplate>
+                        </FlexLayout>
+                    </StackLayout>
+                </CollectionView.Header>
+                <CollectionView.Footer>
+                    <BoxView HeightRequest="40"/>
+                </CollectionView.Footer>
+            </CollectionView>
         </local:AppFrame.Content>
     </local:AppFrame>
 </pages:BaseContentPage>

@@ -13,6 +13,7 @@ namespace MVP.ViewModels
     {
         public IAsyncCommand LogoutCommand { get; set; }
         public IAsyncCommand LoadProfileCommand { get; set; }
+        public IAsyncCommand OpenThemePickerCommand { get; set; }
 
         public Profile Profile { get; set; }
         public string ProfileImage { get; set; }
@@ -32,6 +33,7 @@ namespace MVP.ViewModels
         {
             LogoutCommand = new AsyncCommand(() => Logout());
             LoadProfileCommand = new AsyncCommand(() => LoadProfile(true));
+            OpenThemePickerCommand = new AsyncCommand(() => OpenThemePicker());
         }
 
         public override async Task Initialize()
@@ -85,11 +87,14 @@ namespace MVP.ViewModels
 
         async Task Logout()
         {
-            if (await AuthService.SignOutAsync())
-            {
-                await MvpApiService.ClearAllLocalData();
-                NavigationHelper.SetRootView(nameof(IntroPage));
-            }
+            if (!await AuthService.SignOutAsync())
+                return;
+
+            await MvpApiService.ClearAllLocalData();
+            NavigationHelper.SetRootView(nameof(IntroPage));
         }
+
+        async Task OpenThemePicker()
+            => await NavigationHelper.NavigateToAsync(nameof(ThemePickerPage)).ConfigureAwait(false);
     }
 }

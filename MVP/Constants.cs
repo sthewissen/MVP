@@ -12,6 +12,10 @@
     public class Settings
     {
         public const string UseClipboardUrls = "use_clipboard_urls";
+        public const bool UseClipboardUrlsDefault = true;
+
+        public const string AppTheme = "app_theme";
+        public const int AppThemeDefault = 0;
     }
 
     public class Alerts
