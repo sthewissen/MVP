@@ -33,6 +33,24 @@ namespace MVP
         public static readonly BindableProperty ShowBackButtonProperty =
             BindableProperty.Create(nameof(ShowBackButton), typeof(bool), typeof(AppFrame), default(bool), defaultBindingMode: BindingMode.OneWay);
 
+        public static readonly BindableProperty OverlayContentProperty =
+            BindableProperty.Create(nameof(OverlayContent), typeof(View), typeof(AppFrame));
+
+        public static readonly BindableProperty OverlayControlTemplateProperty =
+            BindableProperty.Create(nameof(OverlayControlTemplate), typeof(ControlTemplate), typeof(AppFrame));
+
+        public View OverlayContent
+        {
+            get => (View)GetValue(OverlayContentProperty);
+            set => SetValue(OverlayContentProperty, value);
+        }
+
+        public ControlTemplate OverlayControlTemplate
+        {
+            get => (ControlTemplate)GetValue(OverlayControlTemplateProperty);
+            set => SetValue(OverlayControlTemplateProperty, value);
+        }
+
         public string Title
         {
             get => (string)GetValue(TitleProperty);

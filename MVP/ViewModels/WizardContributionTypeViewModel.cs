@@ -24,7 +24,7 @@ namespace MVP.ViewModels
             IDialogService dialogService, INavigationHelper navigationHelper)
             : base(analyticsService, authService, dialogService, navigationHelper)
         {
-            SelectContributionTypeCommand = new AsyncCommand<ContributionTypeViewModel>((x) => SelectionContributionType(x));
+            SelectContributionTypeCommand = new AsyncCommand<ContributionTypeViewModel>((x) => SelectContributionType(x));
         }
 
         public async override Task Initialize()
@@ -59,7 +59,7 @@ namespace MVP.ViewModels
             }
         }
 
-        async Task SelectionContributionType(ContributionTypeViewModel vm)
+        async Task SelectContributionType(ContributionTypeViewModel vm)
         {
             if (vm == null)
                 return;

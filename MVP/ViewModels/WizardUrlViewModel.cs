@@ -46,7 +46,6 @@ namespace MVP.ViewModels
         public WizardUrlViewModel(IAnalyticsService analyticsService, IAuthService authService, IDialogService dialogService, INavigationHelper navigationHelper)
             : base(analyticsService, authService, dialogService, navigationHelper)
         {
-            BackCommand = new AsyncCommand(() => Back());
             NextCommand = new AsyncCommand(() => Next());
             GetOpenGraphDataCommand = new AsyncCommand(() => GetOpenGraphData());
         }

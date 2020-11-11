@@ -81,29 +81,54 @@
         </StackLayout>
     </DataTemplate>
 
-    <DataTemplate x:DataType="models:Visibility"
+    <DataTemplate x:DataType="vm:VisibilityViewModel"
                   x:Key="visibility_item">
-        <Grid Padding="16,0"
+        <StackLayout>
+            <StackLayout Orientation="Horizontal"
+                         Padding="32,0"
+                         Spacing="8"
+                         touch:TouchEff.PressedBackgroundColor="{AppThemeBinding Light={StaticResource light_blue}, Dark={StaticResource background_dark_gray_highlight}}"
+                         touch:TouchEff.RegularBackgroundColor="{AppThemeBinding Light={StaticResource white}, Dark={StaticResource black}}"
+                         touch:TouchEff.Command="{Binding Source={RelativeSource AncestorType={x:Type vm:WizardVisibilityViewModel}}, Path=SelectVisibilityCommand}"
+                         touch:TouchEff.CommandParameter="{Binding Source={RelativeSource Self}, Path=BindingContext}">
+                <Label Style="{StaticResource list_item_title_label}"
+                       Padding="0,16"
+                       Text="{Binding Visibility.Description}" />
+
+                <Label FontFamily="{StaticResource font_icon}"
+                       FontSize="20"
+                       HorizontalOptions="EndAndExpand"
+                       IsVisible="{Binding IsSelected}"
+                       Text="{x:Static icons:Icons.check}"
+                       TextColor="{AppThemeBinding Light={StaticResource primary}, Dark={StaticResource powderblue_light}}"
+                       VerticalOptions="Center"
+                       VerticalTextAlignment="Center"/>
+            </StackLayout>
+            <BoxView Style="{StaticResource separator}" Margin="16,0"/>
+        </StackLayout>
+
+        <!--<Grid Padding="16,0"
               RowDefinitions="Auto, 1">
             <Label Style="{StaticResource list_item_title_label}"
                    Text="{Binding Description}"/>
             <BoxView Style="{StaticResource separator}"
                      Grid.Row="1"/>
-        </Grid>
+        </Grid>-->
     </DataTemplate>
 
     <DataTemplate x:Key="contribution_type_item"
                   x:DataType="vm:ContributionTypeViewModel">
         <StackLayout>
             <StackLayout Orientation="Horizontal"
-                         Padding="32,16"
+                         Padding="32,0"
                          Spacing="8"
                          touch:TouchEff.PressedBackgroundColor="{AppThemeBinding Light={StaticResource light_blue}, Dark={StaticResource background_dark_gray_highlight}}"
                          touch:TouchEff.RegularBackgroundColor="{AppThemeBinding Light={StaticResource white}, Dark={StaticResource black}}"
                          touch:TouchEff.Command="{Binding Source={RelativeSource AncestorType={x:Type vm:WizardContributionTypeViewModel}}, Path=SelectContributionTypeCommand}"
                          touch:TouchEff.CommandParameter="{Binding Source={RelativeSource Self}, Path=BindingContext}">
                 <Label Style="{StaticResource list_item_title_label}"
-                       Text="{Binding ContributionType.Name}"/>
+                       Text="{Binding ContributionType.Name}"                       
+                       Padding="0,16"/>
 
                 <Label FontFamily="{StaticResource font_icon}"
                    FontSize="20"
@@ -117,16 +142,42 @@
             <BoxView Style="{StaticResource separator}" Margin="16,0"/>
         </StackLayout>
     </DataTemplate>
+
     <DataTemplate x:Key="contribution_technology_item"
-                  x:DataType="models:ContributionTechnology">
-        <Grid Padding="16,0"
+                  x:DataType="vm:ContributionTechnologyViewModel">
+        <StackLayout>
+            <StackLayout Orientation="Horizontal"
+                         Padding="32,0"
+                         Spacing="8"
+                         touch:TouchEff.PressedBackgroundColor="{AppThemeBinding Light={StaticResource light_blue}, Dark={StaticResource background_dark_gray_highlight}}"
+                         touch:TouchEff.RegularBackgroundColor="{AppThemeBinding Light={StaticResource white}, Dark={StaticResource black}}"
+                         touch:TouchEff.Command="{Binding Source={RelativeSource AncestorType={x:Type vm:BaseViewModel}}, Path=SelectContributionTechnologyCommand}"
+                         touch:TouchEff.CommandParameter="{Binding Source={RelativeSource Self}, Path=BindingContext}">
+                <Label Style="{StaticResource list_item_title_label}"
+                       Text="{Binding ContributionTechnology.Name}"                       
+                       Padding="0,16"/>
+
+                <Label FontFamily="{StaticResource font_icon}"
+                   FontSize="20"
+                   HorizontalOptions="EndAndExpand"
+                   IsVisible="{Binding IsSelected}"
+                   Text="{x:Static icons:Icons.check}"
+                   TextColor="{AppThemeBinding Light={StaticResource primary}, Dark={StaticResource powderblue_light}}"
+                   VerticalOptions="Center"
+                   VerticalTextAlignment="Center"/>
+            </StackLayout>
+            <BoxView Style="{StaticResource separator}" Margin="16,0"/>
+        </StackLayout>
+
+        <!--<Grid Padding="16,0"
               RowDefinitions="Auto, 1">
             <Label Style="{StaticResource list_item_title_label}"
                    Text="{Binding Name}"/>
             <BoxView Style="{StaticResource separator}"
                      Grid.Row="1"/>
-        </Grid>
+        </Grid>-->
     </DataTemplate>
+
     <DataTemplate x:Key="contribution_technology_group">
         <Grid Padding="24,24,24,16">
             <Label FontFamily="{StaticResource font_bold}"

@@ -1,7 +1,10 @@
-﻿using MVP.Helpers;
+﻿using System.ComponentModel;
+using MVP.Helpers;
 using MVP.Services.Interfaces;
+using MVP.ViewModels;
 using TinyMvvm;
 using TinyMvvm.Forms;
+using Xamarin.Forms;
 using Xamarin.Forms.PlatformConfiguration;
 using Xamarin.Forms.PlatformConfiguration.iOSSpecific;
 
@@ -17,14 +20,14 @@ namespace MVP.Pages
             On<iOS>().SetUseSafeArea(false);
             On<iOS>().SetModalPresentationStyle(UIModalPresentationStyle.FormSheet);
 
-            if (Xamarin.Forms.Application.Current.RequestedTheme == Xamarin.Forms.OSAppTheme.Light)
-            {
-                StatusBar.SetStatusBarStyle(this, StatusBarStyle.DarkText);
-            }
-            else
-            {
-                StatusBar.SetStatusBarStyle(this, StatusBarStyle.WhiteText);
-            }
+            //if (Xamarin.Forms.Application.Current.RequestedTheme == Xamarin.Forms.OSAppTheme.Light)
+            //{
+            //    StatusBar.SetStatusBarStyle(this, StatusBarStyle.DarkText);
+            //}
+            //else
+            //{
+            //    StatusBar.SetStatusBarStyle(this, StatusBarStyle.WhiteText);
+            //}
         }
 
         protected override void OnAppearing()

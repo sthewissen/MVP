@@ -20,10 +20,7 @@
                                 ItemsSource="{Binding GroupedContributionTechnologies}"
                                 ItemTemplate="{StaticResource contribution_technology_item}"
                                 Scrolled="CollectionView_Scrolled"
-                                SelectedItems="{Binding SelectedContributionTechnologies}"
-                                SelectionChangedCommand="{Binding SelectionChangedCommand}"
-                                SelectionChangedCommandParameter="{Binding SelectedItems, Source={x:Reference technologies}}"
-                                SelectionMode="Multiple"
+                                SelectionMode="None"
                                 x:Name="technologies">
                     <CollectionView.Header>
                         <StackLayout>
@@ -32,7 +29,7 @@
                                    Text="Anything else?"/>
 
                             <Label Style="{StaticResource wizard_subtitle}"
-                                   Text="Any additional technology areas that also apply to this activity?"/>
+                                   Text="Any additional technology areas that also apply to this activity? Please choose a maximum of 2 additional technologies."/>
                         </StackLayout>
                     </CollectionView.Header>
                     <CollectionView.Footer>

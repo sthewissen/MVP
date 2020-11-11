@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using MVP.Models;
@@ -13,33 +14,18 @@ namespace MVP.ViewModels
 {
     public class WizardTechnologyViewModel : BaseViewModel
     {
-        ContributionTechnology selectedContributionTechnology;
         Contribution contribution;
 
         public IAsyncCommand<Contribution> NextCommand { get; set; }
+        public IAsyncCommand<ContributionTechnologyViewModel> SelectContributionTechnologyCommand { get; set; }
 
-        public IList<MvvmHelpers.Grouping<string, ContributionTechnology>> GroupedContributionTechnologies { get; set; } = new List<MvvmHelpers.Grouping<string, ContributionTechnology>>();
-
-        public ContributionTechnology SelectedContributionTechnology
-        {
-            get => selectedContributionTechnology;
-            set
-            {
-                selectedContributionTechnology = value;
-
-                if (value != null)
-                {
-                    contribution.ContributionTechnology = value;
-                    NextCommand.Execute(contribution);
-                }
-            }
-        }
+        public IList<Grouping<string, ContributionTechnologyViewModel>> GroupedContributionTechnologies { get; set; } = new List<Grouping<string, ContributionTechnologyViewModel>>();
 
         public WizardTechnologyViewModel(IAnalyticsService analyticsService, IAuthService authService, IDialogService dialogService, INavigationHelper navigationHelper)
             : base(analyticsService, authService, dialogService, navigationHelper)
         {
-            BackCommand = new AsyncCommand(() => Back());
             NextCommand = new AsyncCommand<Contribution>((contribution) => Next(contribution));
+            SelectContributionTechnologyCommand = new AsyncCommand<ContributionTechnologyViewModel>((x) => SelectContributionTechnology(x));
         }
 
         public async override Task Initialize()
@@ -62,11 +48,17 @@ namespace MVP.ViewModels
 
                 if (categories != null)
                 {
-                    var result = new List<Grouping<string, ContributionTechnology>>();
+                    var result = new List<Grouping<string, ContributionTechnologyViewModel>>();
 
                     foreach (var item in categories.SelectMany(x => x.ContributionAreas))
                     {
-                        result.Add(new Grouping<string, ContributionTechnology>(item.AwardName, item.ContributionTechnology));
+                        result.Add(
+                            new Grouping<string, ContributionTechnologyViewModel>(item.AwardName,
+                            item.ContributionTechnology.Select(x => new ContributionTechnologyViewModel()
+                            {
+                                ContributionTechnology = x
+                            }))
+                        );
                     }
 
                     GroupedContributionTechnologies = result;
@@ -74,17 +66,17 @@ namespace MVP.ViewModels
                     // Editing mode
                     if (contribution.ContributionTechnology != null)
                     {
-                        selectedContributionTechnology = result
+                        var selected = result
                             .SelectMany(x => x)
-                            .FirstOrDefault(x => x.Id == contribution.ContributionTechnology.Id);
+                            .FirstOrDefault(x => x.ContributionTechnology.Id == contribution.ContributionTechnology.Id);
 
-                        RaisePropertyChanged(nameof(SelectedContributionTechnology));
+                        selected.IsSelected = true;
                     }
                 }
             }
         }
 
-        async Task Back()
+        public async override Task Back()
         {
             if (contribution.ContributionId.HasValue)
             {
@@ -94,8 +86,23 @@ namespace MVP.ViewModels
             }
             else
             {
+                contribution.ContributionTechnology = null;
                 await NavigationHelper.BackAsync();
             }
+        }
+
+        async Task SelectContributionTechnology(ContributionTechnologyViewModel vm)
+        {
+            if (vm == null)
+                return;
+
+            foreach (var item in GroupedContributionTechnologies)
+                foreach (var tech in item)
+                    tech.IsSelected = false;
+
+            vm.IsSelected = true;
+            contribution.ContributionTechnology = vm.ContributionTechnology;
+            await NavigationHelper.NavigateToAsync(nameof(WizardAdditionalTechnologyPage), contribution).ConfigureAwait(false);
         }
 
         async Task Next(Contribution contribution)

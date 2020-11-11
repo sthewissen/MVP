@@ -31,7 +31,6 @@ namespace MVP.ViewModels
         public WizardTitleViewModel(IAnalyticsService analyticsService, IAuthService authService, IDialogService dialogService, INavigationHelper navigationHelper)
             : base(analyticsService, authService, dialogService, navigationHelper)
         {
-            BackCommand = new AsyncCommand(() => Back());
             NextCommand = new AsyncCommand(() => Next());
         }
 

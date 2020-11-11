@@ -24,9 +24,7 @@
                            Style="{StaticResource wizard_subtitle}"
                            Text="Do you have a URL where we can learn more about it?"/>
 
-                    <Entry FontFamily="{StaticResource font_semibold}"
-                           FontSize="16"
-                           HeightRequest="96"
+                    <Entry HeightRequest="96"
                            Keyboard="Url"
                            Margin="16,0"
                            Placeholder="Please enter a URL..."

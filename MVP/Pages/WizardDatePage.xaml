@@ -24,8 +24,6 @@
                            Text="When did the activity take place?"/>
 
                     <DatePicker Date="{Binding StartDate}"
-                                FontFamily="{StaticResource font_semibold}"
-                                FontSize="24"
                                 Format="D"
                                 Margin="16,32,16,16"/>
 

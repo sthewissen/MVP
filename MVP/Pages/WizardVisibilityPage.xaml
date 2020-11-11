@@ -13,27 +13,24 @@
                     Title="Visibility"
                     x:Name="appFrame">
         <local:AppFrame.Content>
-            <Grid>
-                <CollectionView ItemsSource="{Binding Visibilities}"
-                                ItemTemplate="{StaticResource visibility_item}"
-                                Scrolled="CollectionView_Scrolled"
-                                SelectedItem="{Binding SelectedVisibility}"
-                                SelectionMode="Single">
-                    <CollectionView.Header>
-                        <StackLayout>
-                            <Label Margin="24,0"
-                                   Style="{StaticResource wizard_title}"
-                                   Text="Almost done"/>
+            <CollectionView ItemsSource="{Binding Visibilities}"
+                            ItemTemplate="{StaticResource visibility_item}"
+                            Scrolled="CollectionView_Scrolled"
+                            SelectionMode="None">
+                <CollectionView.Header>
+                    <StackLayout>
+                        <Label Margin="24,0"
+                               Style="{StaticResource wizard_title}"
+                               Text="Almost done"/>
 
-                            <Label Style="{StaticResource wizard_subtitle}"
-                                   Text="Who should be able to see this activity?"/>
-                        </StackLayout>
-                    </CollectionView.Header>
-                    <CollectionView.Footer>
-                        <BoxView HeightRequest="40"/>
-                    </CollectionView.Footer>
-                </CollectionView>
-            </Grid>
+                        <Label Style="{StaticResource wizard_subtitle}"
+                               Text="Who should be able to see this activity?"/>
+                    </StackLayout>
+                </CollectionView.Header>
+                <CollectionView.Footer>
+                    <BoxView HeightRequest="40"/>
+                </CollectionView.Footer>
+            </CollectionView>
         </local:AppFrame.Content>
     </local:AppFrame>
 </pages:BaseContentPage>

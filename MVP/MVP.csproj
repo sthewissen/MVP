@@ -44,6 +44,7 @@
         <Folder Include="ViewModels\" />
         <Folder Include="ViewModels\Base\" />
         <Folder Include="Controls\" />
+        <Folder Include="ViewModels\Data\" />
     </ItemGroup>
     <ItemGroup>
         <None Remove="Resources\mvp_logo.svg" />

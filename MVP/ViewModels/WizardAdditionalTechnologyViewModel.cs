@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
 using System.Threading.Tasks;
@@ -17,19 +18,18 @@ namespace MVP.ViewModels
     public class WizardAdditionalTechnologyViewModel : BaseViewModel
     {
         Contribution contribution;
+        IList<ContributionTechnologyViewModel> selectedTechnologies = new List<ContributionTechnologyViewModel>();
 
         public IAsyncCommand NextCommand { get; set; }
-        public ICommand SelectionChangedCommand { get; set; }
+        public ICommand SelectContributionTechnologyCommand { get; set; }
 
-        public IList<ContributionTechnology> SelectedContributionTechnologies { get; set; }
-        public IList<MvvmHelpers.Grouping<string, ContributionTechnology>> GroupedContributionTechnologies { get; set; } = new List<MvvmHelpers.Grouping<string, ContributionTechnology>>();
+        public IList<Grouping<string, ContributionTechnologyViewModel>> GroupedContributionTechnologies { get; set; } = new List<Grouping<string, ContributionTechnologyViewModel>>();
 
         public WizardAdditionalTechnologyViewModel(IAnalyticsService analyticsService, IAuthService authService, IDialogService dialogService, INavigationHelper navigationHelper)
             : base(analyticsService, authService, dialogService, navigationHelper)
         {
-            BackCommand = new AsyncCommand(() => Back());
             NextCommand = new AsyncCommand(() => Next());
-            SelectionChangedCommand = new Command<IList<object>>((list) => SelectionChanged(list));
+            SelectContributionTechnologyCommand = new Command<ContributionTechnologyViewModel>((x) => SelectContributionTechnology(x));
         }
 
         public async override Task Initialize()
@@ -44,14 +44,23 @@ namespace MVP.ViewModels
             LoadContributionAreas().SafeFireAndForget();
         }
 
-        void SelectionChanged(IList<object> obj)
+        void SelectContributionTechnology(ContributionTechnologyViewModel vm)
         {
-            if (obj.Count > 2)
+            // Max two allowed. Remove first from the selection if another is added.
+            if (selectedTechnologies.Count == 2)
             {
-                obj.Remove(obj.FirstOrDefault());
+                selectedTechnologies[0].IsSelected = false;
+                selectedTechnologies.RemoveAt(0);
             }
 
-            SelectedContributionTechnologies = obj.Select(x => x as ContributionTechnology).ToList();
+            selectedTechnologies.Add(vm);
+            vm.IsSelected = true;
+        }
+
+        public async override Task Back()
+        {
+            contribution.AdditionalTechnologies = null;
+            await NavigationHelper.BackAsync();
         }
 
         async Task LoadContributionAreas()
@@ -62,11 +71,12 @@ namespace MVP.ViewModels
 
                 if (categories != null)
                 {
-                    var result = new List<MvvmHelpers.Grouping<string, ContributionTechnology>>();
+                    var result = new List<Grouping<string, ContributionTechnologyViewModel>>();
 
                     foreach (var item in categories.SelectMany(x => x.ContributionAreas))
                     {
-                        result.Add(new MvvmHelpers.Grouping<string, ContributionTechnology>(item.AwardName, item.ContributionTechnology));
+                        result.Add(new Grouping<string, ContributionTechnologyViewModel>(item.AwardName,
+                            item.ContributionTechnology.Select(x => new ContributionTechnologyViewModel() { ContributionTechnology = x })));
 
                     }
 
@@ -77,28 +87,23 @@ namespace MVP.ViewModels
                     {
                         var selectedValues = contribution.AdditionalTechnologies.Select(x => x.Id).ToList();
 
-                        SelectedContributionTechnologies = result
+                        selectedTechnologies = result
                             .SelectMany(x => x)
-                            .Where(x => selectedValues.Contains(x.Id))
+                            .Where(x => selectedValues.Contains(x.ContributionTechnology.Id))
                             .ToList();
 
-                        RaisePropertyChanged(nameof(SelectedContributionTechnologies));
+                        foreach (var item in selectedTechnologies)
+                            item.IsSelected = true;
                     }
                 }
             }
         }
 
-        async Task Back()
-        {
-            await NavigationHelper.BackAsync().ConfigureAwait(false);
-        }
-
         async Task Next()
         {
-            if (SelectedContributionTechnologies != null && SelectedContributionTechnologies.Any())
-            {
-                contribution.AdditionalTechnologies = new ObservableCollection<ContributionTechnology>(SelectedContributionTechnologies);
-            }
+            // If additional tech is selected, add it to our root object.
+            if (selectedTechnologies.Any())
+                contribution.AdditionalTechnologies = new ObservableCollection<ContributionTechnology>(selectedTechnologies.Select(x => x.ContributionTechnology));
 
             await NavigationHelper.NavigateToAsync(nameof(WizardDatePage), contribution).ConfigureAwait(false);
         }

@@ -51,7 +51,6 @@ namespace MVP.ViewModels
         public WizardAmountsViewModel(IAnalyticsService analyticsService, IAuthService authService, IDialogService dialogService, INavigationHelper navigationHelper)
             : base(analyticsService, authService, dialogService, navigationHelper)
         {
-            BackCommand = new AsyncCommand(() => Back());
             SaveCommand = new AsyncCommand(() => Save());
         }
 

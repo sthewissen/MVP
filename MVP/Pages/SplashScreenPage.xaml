@@ -6,7 +6,6 @@
                        xmlns:vm="clr-namespace:MVP.ViewModels"
                        xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
                        BackgroundColor="{StaticResource primary}"
-                       helpers:StatusBar.StatusBarStyle="WhiteText"
                        x:Class="MVP.Pages.SplashScreenPage"
                        x:DataType="vm:SplashScreenViewModel"
                        x:TypeArguments="vm:SplashScreenViewModel">

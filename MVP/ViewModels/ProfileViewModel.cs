@@ -38,6 +38,7 @@ namespace MVP.ViewModels
             LoadProfileCommand = new AsyncCommand(() => LoadProfile(true));
             ToggleUseClipboardUrlsCommand = new Command(() => UseClipboardUrls = !UseClipboardUrls);
             OpenThemePickerCommand = new AsyncCommand(() => OpenThemePicker());
+            SecondaryCommand = new AsyncCommand(() => OpenAbout());
         }
 
         public override async Task Initialize()
@@ -100,5 +101,8 @@ namespace MVP.ViewModels
 
         async Task OpenThemePicker()
             => await NavigationHelper.NavigateToAsync(nameof(ThemePickerPage)).ConfigureAwait(false);
+
+        async Task OpenAbout()
+            => await NavigationHelper.NavigateToAsync(nameof(AboutPage)).ConfigureAwait(false);
     }
 }

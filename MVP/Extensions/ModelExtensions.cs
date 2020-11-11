@@ -138,8 +138,8 @@ namespace MVP.Extensions
                     config.AnnualQuantityHeader = "Number of Conferences";
                     config.AnnualReachHeader = "Number of Attendees";
                     config.HasAnnualReach = true;
-                    config.TypeColor = "watermelon_light";
-                    config.TextColor = "white";
+                    config.TypeColor = "white_light";
+                    config.TextColor = "black";
                     break;
                 case "ff6464de-179a-e411-bbc8-6c3be5a82b68": // "EnglishName": "Other"
                     config.AnnualQuantityHeader = "Annual Quantity";
@@ -202,8 +202,8 @@ namespace MVP.Extensions
                     config.AnnualReachHeader = "Number of Views";
                     config.HasAnnualReach = true;
                     config.IsUrlRequired = true;
-                    config.TypeColor = "white_light";
-                    config.TextColor = "black";
+                    config.TypeColor = "watermelon_light";
+                    config.TextColor = "white";
                     break;
                 case "0ee0dc15-0304-e911-8171-3863bb2bca60": // "EnglishName": "Workshop/Volunteer/Proctor"
                     config.AnnualQuantityHeader = "Number of Events";

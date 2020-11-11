@@ -24,20 +24,38 @@
                            Style="{StaticResource wizard_subtitle}"
                            Text="We just need to know if you have any additional data related to this activity?"/>
 
-                    <Entry IsVisible="{Binding ContributionTypeConfig.HasAnnualQuantity}"
+                    <Entry HeightRequest="96"
+                           Keyboard="Numeric"
+                           Margin="16,0"
+                           IsVisible="{Binding ContributionTypeConfig.HasAnnualQuantity}"
                            Placeholder="{Binding ContributionTypeConfig.AnnualQuantityHeader}"
                            Text="{Binding AnnualQuantity}"/>
 
-                    <Entry IsVisible="{Binding ContributionTypeConfig.HasSecondAnnualQuantity}"
+                    <BoxView Style="{StaticResource separator}"
+                             Margin="0,-24,0,0"
+                             IsVisible="{Binding ContributionTypeConfig.HasAnnualQuantity}" />
+
+                    <Entry HeightRequest="96"
+                           Keyboard="Numeric"
+                           Margin="16,0"
+                           IsVisible="{Binding ContributionTypeConfig.HasSecondAnnualQuantity}"
                            Placeholder="{Binding ContributionTypeConfig.SecondAnnualQuantityHeader}"
                            Text="{Binding SecondAnnualQuantity}"/>
 
-                    <Entry IsVisible="{Binding ContributionTypeConfig.HasAnnualReach}"
+                    <BoxView Style="{StaticResource separator}"
+                             Margin="0,-24,0,0"
+                             IsVisible="{Binding ContributionTypeConfig.HasSecondAnnualQuantity}" />
+
+                    <Entry HeightRequest="96"
+                           Keyboard="Numeric"
+                           Margin="16,0"
+                           IsVisible="{Binding ContributionTypeConfig.HasAnnualReach}"
                            Placeholder="{Binding ContributionTypeConfig.AnnualReachHeader}"
                            Text="{Binding AnnualReach}"/>
 
                     <BoxView Style="{StaticResource separator}"
-                             Margin="0,16,0,0"/>
+                             Margin="0,-24,0,0"
+                             IsVisible="{Binding ContributionTypeConfig.HasAnnualReach}" />
                 </StackLayout>
 
                 <sh:Shadows CornerRadius="28"

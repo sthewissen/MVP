@@ -14,48 +14,41 @@
                     Title="Primary contribution area"
                     x:Name="appFrame">
         <local:AppFrame.Content>
-            <Grid>
-                <CollectionView GroupHeaderTemplate="{StaticResource contribution_technology_group}"
+            <CollectionView GroupHeaderTemplate="{StaticResource contribution_technology_group}"
                                 IsGrouped="true"
                                 ItemsSource="{Binding GroupedContributionTechnologies}"
                                 ItemTemplate="{StaticResource contribution_technology_item}"
                                 Scrolled="CollectionView_Scrolled"
-                                SelectedItem="{Binding SelectedContributionTechnology}"
-                                SelectionMode="Single">
-                    <CollectionView.Header>
-                        <StackLayout>
-                            <Label Margin="24,0"
-                                   Style="{StaticResource wizard_title}"
-                                   Text="What's it about?"/>
+                                SelectionMode="None">
+                <CollectionView.Header>
+                    <StackLayout>
+                        <Label Margin="24,0"
+                                Style="{StaticResource wizard_title}"
+                                Text="What's it about?"/>
 
-                            <Label Style="{StaticResource wizard_subtitle}"
+                        <Label Style="{StaticResource wizard_subtitle}"
                                    Text="What technology area is the primary focus of this activity?"/>
 
-                            <Frame Style="{StaticResource search_frame}"
+                        <Frame Style="{StaticResource search_frame}"
                                    Margin="16,0,16,16">
-                                <Grid ColumnDefinitions="*,48"
+                            <Grid ColumnDefinitions="*,48"
                                       Padding="24,0"
                                       VerticalOptions="Center">
 
-                                    <Entry BackgroundColor="Transparent"
+                                <Entry BackgroundColor="Transparent"
                                            FontFamily="{StaticResource font_regular}"
                                            FontSize="15"
                                            Placeholder="Search..."
                                            PlaceholderColor="{StaticResource gray}"
                                            VerticalOptions="Center"/>
 
-                                    <Label FontFamily="{StaticResource font_icon}"
+                                <Label Style="{StaticResource search_icon}"
                                            Grid.Column="1"
-                                           HorizontalOptions="End"
-                                           HorizontalTextAlignment="End"
-                                           Text="{x:Static icons:Icons.search}"
-                                           TextColor="{StaticResource gray}"
-                                           VerticalOptions="Center"
-                                           VerticalTextAlignment="Center"/>
+                                           Text="{x:Static icons:Icons.search}"/>
 
-                                </Grid>
-                            </Frame>
-                            <FlexLayout Direction="Row"
+                            </Grid>
+                        </Frame>
+                        <!--<FlexLayout Direction="Row"
                                         Margin="0,0,0,16"
                                         Padding="24,0"
                                         Wrap="Wrap">
@@ -80,14 +73,13 @@
                                         </StackLayout>
                                     </DataTemplate>
                                 </BindableLayout.ItemTemplate>
-                            </FlexLayout>
-                        </StackLayout>
-                    </CollectionView.Header>
-                    <CollectionView.Footer>
-                        <BoxView HeightRequest="40"/>
-                    </CollectionView.Footer>
-                </CollectionView>
-            </Grid>
+                            </FlexLayout>-->
+                    </StackLayout>
+                </CollectionView.Header>
+                <CollectionView.Footer>
+                    <BoxView HeightRequest="40"/>
+                </CollectionView.Footer>
+            </CollectionView>
         </local:AppFrame.Content>
     </local:AppFrame>
 </pages:BaseContentPage>

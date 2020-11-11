@@ -7,6 +7,7 @@
         public const string AuthSignatureHash = "AvlqWgVzwpWojk8fpGXIZrw3oIQ%3D";
         public const string AuthType = "Bearer";
         public const string AppName = "MVPBuzz";
+        public const string SponsorUrl = "https://github.com/sponsors/sthewissen";
     }
 
     public class Settings
