@@ -94,6 +94,12 @@
                            Margin="0,0,0,16"
                            Text="{Binding Contribution.AnnualReach}"/>
 
+                    <Label Style="{StaticResource field_label}"
+                           Text="VISIBILITY"/>
+
+                    <Label Margin="0,0,0,16"
+                           Text="{Binding Contribution.Visibility.Description}"/>
+
                     <BoxView Style="{StaticResource separator}" Margin="0,16" />
 
                     <Button Style="{StaticResource destructive_button}"
