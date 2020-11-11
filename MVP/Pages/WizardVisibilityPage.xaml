@@ -6,31 +6,50 @@
                        xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
                        x:Class="MVP.Pages.WizardVisibilityPage"
                        x:DataType="vm:WizardVisibilityViewModel"
-                       x:TypeArguments="vm:WizardVisibilityViewModel">
+                       x:TypeArguments="vm:WizardVisibilityViewModel"
+                       xmlns:sh="clr-namespace:Sharpnado.Shades;assembly=Sharpnado.Shadows" xmlns:icons="clr-namespace:MVP.Styles">
 
     <local:AppFrame IsModal="False"
                     ShowBackButton="True"
                     Title="Visibility"
                     x:Name="appFrame">
         <local:AppFrame.Content>
-            <CollectionView ItemsSource="{Binding Visibilities}"
+            <Grid>
+                <CollectionView ItemsSource="{Binding Visibilities}"
                             ItemTemplate="{StaticResource visibility_item}"
                             Scrolled="CollectionView_Scrolled"
                             SelectionMode="None">
-                <CollectionView.Header>
-                    <StackLayout>
-                        <Label Margin="24,0"
+                    <CollectionView.Header>
+                        <StackLayout>
+                            <Label Margin="24,0"
                                Style="{StaticResource wizard_title}"
                                Text="Almost done"/>
 
-                        <Label Style="{StaticResource wizard_subtitle}"
+                            <Label Style="{StaticResource wizard_subtitle}"
                                Text="Who should be able to see this activity?"/>
-                    </StackLayout>
-                </CollectionView.Header>
-                <CollectionView.Footer>
-                    <BoxView HeightRequest="40"/>
-                </CollectionView.Footer>
-            </CollectionView>
+                        </StackLayout>
+                    </CollectionView.Header>
+                    <CollectionView.Footer>
+                        <BoxView HeightRequest="40"/>
+                    </CollectionView.Footer>
+                </CollectionView>
+                <sh:Shadows CornerRadius="28"
+                            HorizontalOptions="End"
+                            IsVisible="{Binding IsEditing}"
+                            VerticalOptions="End">
+                    <sh:Shadows.Shades>
+                        <sh:ImmutableShades>
+                            <sh:Shade BlurRadius="6"
+                                      Color="{StaticResource black}"
+                                      Offset="3,3"
+                                      Opacity="0.2"/>
+                        </sh:ImmutableShades>
+                    </sh:Shadows.Shades>
+                    <Button Command="{Binding NextCommand}"
+                            Style="{StaticResource fab_button}"
+                            Text="{x:Static icons:Icons.arrow_right}"/>
+                </sh:Shadows>
+            </Grid>
         </local:AppFrame.Content>
     </local:AppFrame>
 </pages:BaseContentPage>

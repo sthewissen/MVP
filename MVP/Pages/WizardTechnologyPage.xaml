@@ -8,47 +8,49 @@
                        xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
                        x:Class="MVP.Pages.WizardTechnologyPage"
                        x:DataType="vm:WizardTechnologyViewModel"
-                       x:TypeArguments="vm:WizardTechnologyViewModel">
+                       x:TypeArguments="vm:WizardTechnologyViewModel"
+                       xmlns:sh="clr-namespace:Sharpnado.Shades;assembly=Sharpnado.Shadows">
 
     <local:AppFrame ShowBackButton="True"
                     Title="Primary contribution area"
                     x:Name="appFrame">
         <local:AppFrame.Content>
-            <CollectionView GroupHeaderTemplate="{StaticResource contribution_technology_group}"
+            <Grid>
+                <CollectionView GroupHeaderTemplate="{StaticResource contribution_technology_group}"
                                 IsGrouped="true"
                                 ItemsSource="{Binding GroupedContributionTechnologies}"
                                 ItemTemplate="{StaticResource contribution_technology_item}"
                                 Scrolled="CollectionView_Scrolled"
                                 SelectionMode="None">
-                <CollectionView.Header>
-                    <StackLayout>
-                        <Label Margin="24,0"
+                    <CollectionView.Header>
+                        <StackLayout>
+                            <Label Margin="24,0"
                                 Style="{StaticResource wizard_title}"
                                 Text="What's it about?"/>
 
-                        <Label Style="{StaticResource wizard_subtitle}"
+                            <Label Style="{StaticResource wizard_subtitle}"
                                    Text="What technology area is the primary focus of this activity?"/>
 
-                        <Frame Style="{StaticResource search_frame}"
+                            <Frame Style="{StaticResource search_frame}"
                                    Margin="16,0,16,16">
-                            <Grid ColumnDefinitions="*,48"
+                                <Grid ColumnDefinitions="*,48"
                                       Padding="24,0"
                                       VerticalOptions="Center">
 
-                                <Entry BackgroundColor="Transparent"
+                                    <Entry BackgroundColor="Transparent"
                                            FontFamily="{StaticResource font_regular}"
                                            FontSize="15"
                                            Placeholder="Search..."
                                            PlaceholderColor="{StaticResource gray}"
                                            VerticalOptions="Center"/>
 
-                                <Label Style="{StaticResource search_icon}"
+                                    <Label Style="{StaticResource search_icon}"
                                            Grid.Column="1"
                                            Text="{x:Static icons:Icons.search}"/>
 
-                            </Grid>
-                        </Frame>
-                        <!--<FlexLayout Direction="Row"
+                                </Grid>
+                            </Frame>
+                            <!--<FlexLayout Direction="Row"
                                         Margin="0,0,0,16"
                                         Padding="24,0"
                                         Wrap="Wrap">
@@ -74,12 +76,29 @@
                                     </DataTemplate>
                                 </BindableLayout.ItemTemplate>
                             </FlexLayout>-->
-                    </StackLayout>
-                </CollectionView.Header>
-                <CollectionView.Footer>
-                    <BoxView HeightRequest="40"/>
-                </CollectionView.Footer>
-            </CollectionView>
+                        </StackLayout>
+                    </CollectionView.Header>
+                    <CollectionView.Footer>
+                        <BoxView HeightRequest="40"/>
+                    </CollectionView.Footer>
+                </CollectionView>
+                <sh:Shadows CornerRadius="28"
+                            HorizontalOptions="End"
+                            IsVisible="{Binding IsEditing}"
+                            VerticalOptions="End">
+                    <sh:Shadows.Shades>
+                        <sh:ImmutableShades>
+                            <sh:Shade BlurRadius="6"
+                                      Color="{StaticResource black}"
+                                      Offset="3,3"
+                                      Opacity="0.2"/>
+                        </sh:ImmutableShades>
+                    </sh:Shadows.Shades>
+                    <Button Command="{Binding NextCommand}"
+                            Style="{StaticResource fab_button}"
+                            Text="{x:Static icons:Icons.arrow_right}"/>
+                </sh:Shadows>
+            </Grid>
         </local:AppFrame.Content>
     </local:AppFrame>
 </pages:BaseContentPage>

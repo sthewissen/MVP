@@ -143,6 +143,10 @@
         <Setter Property="TextColor" Value="{AppThemeBinding Light={StaticResource black}, Dark={StaticResource white}}" />
     </Style>
 
+    <Style TargetType="Image">
+        <Setter Property="BackgroundColor" Value="{AppThemeBinding Light={StaticResource white}, Dark={StaticResource black}}"/>
+    </Style>
+
     <Style TargetType="Editor">
         <Setter Property="BackgroundColor" Value="{AppThemeBinding Light={StaticResource white}, Dark={StaticResource black}}"/>
         <Setter Property="FontFamily" Value="{StaticResource font_regular}" />

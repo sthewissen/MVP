@@ -16,7 +16,8 @@ namespace MVP.ViewModels
     {
         Contribution contribution;
 
-        public IAsyncCommand<Contribution> NextCommand { get; set; }
+        public bool IsEditing { get; set; }
+        public IAsyncCommand NextCommand { get; set; }
         public IAsyncCommand<ContributionTechnologyViewModel> SelectContributionTechnologyCommand { get; set; }
 
         public IList<Grouping<string, ContributionTechnologyViewModel>> GroupedContributionTechnologies { get; set; } = new List<Grouping<string, ContributionTechnologyViewModel>>();
@@ -24,7 +25,7 @@ namespace MVP.ViewModels
         public WizardTechnologyViewModel(IAnalyticsService analyticsService, IAuthService authService, IDialogService dialogService, INavigationHelper navigationHelper)
             : base(analyticsService, authService, dialogService, navigationHelper)
         {
-            NextCommand = new AsyncCommand<Contribution>((contribution) => Next(contribution));
+            NextCommand = new AsyncCommand(() => Next());
             SelectContributionTechnologyCommand = new AsyncCommand<ContributionTechnologyViewModel>((x) => SelectContributionTechnology(x));
         }
 
@@ -35,6 +36,7 @@ namespace MVP.ViewModels
             if (NavigationParameter is Contribution contribution)
             {
                 this.contribution = contribution;
+                IsEditing = contribution.ContributionId.HasValue && contribution.ContributionId.Value > 0;
             }
 
             LoadContributionAreas().SafeFireAndForget();
@@ -105,7 +107,7 @@ namespace MVP.ViewModels
             await NavigationHelper.NavigateToAsync(nameof(WizardAdditionalTechnologyPage), contribution).ConfigureAwait(false);
         }
 
-        async Task Next(Contribution contribution)
+        async Task Next()
         {
             await NavigationHelper.NavigateToAsync(nameof(WizardAdditionalTechnologyPage), contribution).ConfigureAwait(false);
         }

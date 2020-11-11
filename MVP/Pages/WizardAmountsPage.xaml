@@ -70,8 +70,9 @@
                         </sh:ImmutableShades>
                     </sh:Shadows.Shades>
                     <Button Command="{Binding SaveCommand}"
+                            BackgroundColor="{StaticResource green_light}"
                             Style="{StaticResource fab_button}"
-                            Text="{x:Static icons:Icons.save}"/>
+                            Text="{x:Static icons:Icons.check}" />
                 </sh:Shadows>
             </Grid>
         </local:AppFrame.Content>

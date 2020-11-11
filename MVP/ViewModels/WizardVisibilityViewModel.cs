@@ -15,7 +15,9 @@ namespace MVP.ViewModels
     {
         Contribution contribution;
 
-        public IAsyncCommand<Contribution> NextCommand { get; set; }
+        public bool IsEditing { get; set; }
+
+        public IAsyncCommand NextCommand { get; set; }
         public IAsyncCommand<VisibilityViewModel> SelectVisibilityCommand { get; }
 
         public IList<VisibilityViewModel> Visibilities { get; set; } = new List<VisibilityViewModel>();
@@ -23,7 +25,7 @@ namespace MVP.ViewModels
         public WizardVisibilityViewModel(IAnalyticsService analyticsService, IAuthService authService, IDialogService dialogService, INavigationHelper navigationHelper)
             : base(analyticsService, authService, dialogService, navigationHelper)
         {
-            NextCommand = new AsyncCommand<Contribution>((contribution) => Next(contribution));
+            NextCommand = new AsyncCommand(() => Next());
             SelectVisibilityCommand = new AsyncCommand<VisibilityViewModel>((x) => SelectVisibility(x));
         }
 
@@ -34,6 +36,7 @@ namespace MVP.ViewModels
             if (NavigationParameter is Contribution contrib)
             {
                 contribution = contrib;
+                IsEditing = contribution.ContributionId.HasValue && contribution.ContributionId.Value > 0;
             }
 
             LoadVisibilities().SafeFireAndForget();
@@ -78,7 +81,7 @@ namespace MVP.ViewModels
             await NavigationHelper.BackAsync().ConfigureAwait(false);
         }
 
-        async Task Next(Contribution contribution)
+        async Task Next()
         {
             await NavigationHelper.NavigateToAsync(nameof(WizardAmountsPage), contribution).ConfigureAwait(false);
         }

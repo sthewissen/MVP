@@ -45,11 +45,6 @@ namespace MVP.ViewModels
             }
         }
 
-        async Task Back()
-        {
-            await NavigationHelper.BackAsync().ConfigureAwait(false);
-        }
-
         async Task Next()
         {
             await NavigationHelper.NavigateToAsync(nameof(WizardUrlPage), contribution).ConfigureAwait(false);

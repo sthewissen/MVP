@@ -46,6 +46,13 @@ namespace MVP.ViewModels
 
         void SelectContributionTechnology(ContributionTechnologyViewModel vm)
         {
+            if (vm.IsSelected)
+            {
+                selectedTechnologies.Remove(vm);
+                vm.IsSelected = false;
+                return;
+            }
+
             // Max two allowed. Remove first from the selection if another is added.
             if (selectedTechnologies.Count == 2)
             {
