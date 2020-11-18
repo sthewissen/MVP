@@ -14,10 +14,10 @@
         <local:AppFrame.Content>
             <ScrollView Scrolled="ScrollView_Scrolled" Padding="32,16,32,32">
                 <StackLayout>
-                    <Label Text="Why did you build  this app?" FontSize="20" Margin="0,0,0,8" FontFamily="{StaticResource font_bold}" />
+                    <Label Text="Why did you build  this app?" FontSize="16" Margin="0,0,0,8" FontFamily="{StaticResource font_bold}" />
                     <Label Margin="0,0,0,32" Text="There has always been a need for Microsoft MVPs to manage their community activities in an easier way. The online portal works fine, but having a similar thing in your pocket to create activities on the fly is really cool. Which is what this project is for!" />
 
-                    <Label Text="Open source" FontSize="20" Margin="0,0,0,8" FontFamily="{StaticResource font_bold}" />
+                    <Label Text="Open source" FontSize="16" Margin="0,0,0,8" FontFamily="{StaticResource font_bold}" />
                     <Label Margin="0,0,0,24" Text="This app is completely open source. If you like the app, feel free to become a GitHub sponsor, buying me a digital cup of coffee a month ☕️" />
 
                     <Button Text="Become a sponsor"/>

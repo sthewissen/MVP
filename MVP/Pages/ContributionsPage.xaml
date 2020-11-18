@@ -3,9 +3,10 @@
                        xmlns:icons="clr-namespace:MVP.Styles"
                        xmlns:local="clr-namespace:MVP"
                        xmlns:pages="clr-namespace:MVP.Pages"
+                       xmlns:xct="clr-namespace:Xamarin.CommunityToolkit.Extensions;assembly=Xamarin.CommunityToolkit"
                        xmlns:touch="clr-namespace:TouchEffect;assembly=TouchEffect"
                        xmlns:vm="clr-namespace:MVP.ViewModels"
-                       xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"                       
+                       xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
                        x:Class="MVP.Pages.ContributionsPage"
                        x:DataType="vm:ContributionsViewModel"
                        x:Name="page"
@@ -13,43 +14,40 @@
 
     <local:AppFrame SecondaryButtonIcon="{x:Static icons:Icons.plus}"
                     ShowSecondaryButton="True"
-                    Title="Community activities"
+                    Title="{xct:Translate contributions_title}"
                     x:Name="appFrame">
         <local:AppFrame.Content>
-            <Grid>
-                <CollectionView ItemsSource="{Binding Contributions}"
-                                ItemsUpdatingScrollMode="KeepScrollOffset"
-                                Scrolled="CollectionView_Scrolled"
-                                SelectionMode="None"
-                                ItemTemplate="{StaticResource contribution_item}"
-                                x:Name="collectionView">
-                    <CollectionView.Footer>
-                        <BoxView HeightRequest="40"/>
-                    </CollectionView.Footer>
-                    <CollectionView.Header>
-                        <StackLayout Padding="16,16,16,24">
 
-                            <Frame Style="{StaticResource search_frame}"
-                                   touch:TouchEff.Command="{Binding Source={RelativeSource AncestorType={x:Type vm:ContributionsViewModel}}, Path=SearchContributionCommand}">
+            <CollectionView ItemsSource="{Binding Contributions}"
+                            ItemsUpdatingScrollMode="KeepScrollOffset"
+                            ItemTemplate="{StaticResource contribution_item}"
+                            Scrolled="CollectionView_Scrolled"
+                            SelectionMode="None"
+                            x:Name="collectionView">
 
-                                <Grid ColumnDefinitions="*,48"
-                                      Padding="24,0"
-                                      VerticalOptions="Center">
+                <CollectionView.Footer>
+                    <BoxView HeightRequest="40"/>
+                </CollectionView.Footer>
 
-                                    <Label Style="{StaticResource search_text}"
-                                           Text="Search..."/>
+                <CollectionView.Header>
+                    <StackLayout Padding="16,16,16,24">
+                        <Frame Style="{StaticResource search_frame}"
+                               touch:TouchEff.Command="{Binding Source={RelativeSource AncestorType={x:Type vm:ContributionsViewModel}}, Path=SearchContributionCommand}">
+                            <Grid ColumnDefinitions="*,48"
+                                  Padding="24,0"
+                                  VerticalOptions="Center">
+                                <Label Style="{StaticResource search_text}"
+                                       Text="{xct:Translate search_placeholder}"/>
+                                <Label Grid.Column="1"
+                                       Style="{StaticResource search_icon}"
+                                       Text="{x:Static icons:Icons.search}"/>
+                            </Grid>
+                        </Frame>
+                    </StackLayout>
+                </CollectionView.Header>
 
-                                    <Label Grid.Column="1"
-                                           Style="{StaticResource search_icon}"
-                                           Text="{x:Static icons:Icons.search}"/>
-                                </Grid>
+            </CollectionView>
 
-                            </Frame>
-
-                        </StackLayout>
-                    </CollectionView.Header>
-                </CollectionView>
-            </Grid>
         </local:AppFrame.Content>
     </local:AppFrame>
 </pages:BaseContentPage>

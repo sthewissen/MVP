@@ -5,6 +5,7 @@
                        xmlns:pages="clr-namespace:MVP.Pages"
                        xmlns:sh="http://sharpnado.com"
                        xmlns:vm="clr-namespace:MVP.ViewModels"
+                       xmlns:effects="clr-namespace:Xamarin.CommunityToolkit.Effects;assembly=Xamarin.CommunityToolkit"
                        xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
                        x:Class="MVP.Pages.WizardAdditionalTechnologyPage"
                        x:DataType="vm:WizardAdditionalTechnologyViewModel"
@@ -24,7 +25,7 @@
                                 x:Name="technologies">
                     <CollectionView.Header>
                         <StackLayout>
-                            <Label Margin="24,0"
+                            <Label Margin="24,24,24,0"
                                    Style="{StaticResource wizard_title}"
                                    Text="Anything else?"/>
 
@@ -51,6 +52,24 @@
                             Style="{StaticResource fab_button}"
                             Text="{x:Static icons:Icons.arrow_right}"/>
                 </sh:Shadows>
+                <!--<Image Aspect="AspectFill"
+                       Grid.Row="1"
+                       Rotation="180"
+                       Source="shadow.png"
+                       VerticalOptions="End"/>
+                <Frame HeightRequest="8" Grid.Row="0" Margin="16,0" IsClippedToBounds="True" CornerRadius="4" BackgroundColor="{StaticResource light_blue}">
+                    <BoxView WidthRequest="100" HorizontalOptions="Start" BackgroundColor="{StaticResource primary}" />
+                </Frame>
+                <Grid Grid.Row="2" Padding="16" BackgroundColor="White" effects:SafeAreaEffect.SafeArea="false,false,false,true">
+                    <Button HeightRequest="56" CornerRadius="28" Padding="16,0"
+                            VerticalOptions="Center" HorizontalOptions="Start"
+                            Text="Back" FontFamily="{StaticResource font_semibold}"
+                            BackgroundColor="{StaticResource light_blue}" TextColor="{StaticResource black}" />
+                    <Button HeightRequest="56" CornerRadius="28" Padding="16,0"
+                            VerticalOptions="Center" HorizontalOptions="End" Text="Next step"
+                            FontFamily="{StaticResource font_semibold}" BackgroundColor="{StaticResource primary}"
+                            TextColor="white" Grid.Column="1" />
+                </Grid>-->
             </Grid>
         </local:AppFrame.Content>
     </local:AppFrame>

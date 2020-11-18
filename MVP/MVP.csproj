@@ -6,12 +6,12 @@
         <LangVersion>8.0</LangVersion>
     </PropertyGroup>
     <ItemGroup>
-        <PackageReference Include="Xamarin.Forms" Version="4.8.0.1560" />
+        <PackageReference Include="Xamarin.Forms" Version="4.8.0.1687" />
         <PackageReference Include="Xamarin.Essentials" Version="1.6.0-pre3" />
         <PackageReference Include="Newtonsoft.Json" Version="12.0.3" />
         <PackageReference Include="Refractored.MvvmHelpers" Version="1.6.2" />
         <PackageReference Include="Microsoft.Identity.Client" Version="4.22.0" />
-        <PackageReference Include="Xamarin.Forms.PancakeView" Version="2.1.0.714" />
+        <PackageReference Include="Xamarin.Forms.PancakeView" Version="2.3.0.759" />
         <PackageReference Include="Xamarin.FFImageLoading.Forms" Version="2.4.11.982" />
         <PackageReference Include="Xamarin.FFImageLoading.Transformations" Version="2.4.11.982" />
         <PackageReference Include="PropertyChanged.Fody" Version="3.3.1" />
@@ -21,13 +21,13 @@
         <PackageReference Include="Microsoft.AppCenter.Analytics" Version="3.4.3" />
         <PackageReference Include="Microsoft.AppCenter.Crashes" Version="3.4.3" />
         <PackageReference Include="Refit" Version="5.2.1" />
-        <PackageReference Include="HtmlAgilityPack" Version="1.11.27" />
-        <PackageReference Include="akavache" Version="6.10.20" />
+        <PackageReference Include="HtmlAgilityPack" Version="1.11.28" />
+        <PackageReference Include="akavache" Version="7.1.1" />
         <PackageReference Include="TinyMvvm.Forms" Version="2.4.14" />
         <PackageReference Include="TinyMvvm.Autofac" Version="2.4.14" />
         <PackageReference Include="Xamarin.CommunityToolkit" Version="1.0.0-preview1085" />
         <PackageReference Include="Sharpnado.Shadows" Version="1.2.0" />
-        <PackageReference Include="TouchView" Version="4.1.92" />
+        <PackageReference Include="TouchView" Version="4.1.97" />
     </ItemGroup>
     <ItemGroup>
         <Folder Include="Models\" />
@@ -37,6 +37,7 @@
         <Folder Include="Resources\" />
         <Folder Include="Services\Interfaces\" />
         <Folder Include="Resources\Fonts\" />
+        <Folder Include="Resources\Translations\" />
         <Folder Include="Converters\" />
         <Folder Include="Templates\" />
         <Folder Include="Helpers\" />
@@ -63,5 +64,16 @@
         <EmbeddedResource Include="Resources\Fonts\SourceSansPro-SemiBold.ttf" />
         <EmbeddedResource Include="Resources\Fonts\SourceSansPro-Regular.ttf" />
         <EmbeddedResource Include="Resources\Fonts\MVPBuzz.ttf" />
+    </ItemGroup>
+    <ItemGroup>
+        <Compile Update="Resources\Translations\Resources.Designer.cs">
+            <DependentUpon>Resources.resx</DependentUpon>
+        </Compile>
+    </ItemGroup>
+    <ItemGroup>
+        <EmbeddedResource Update="Resources\Translations\Resources.resx">
+            <Generator>ResXFileCodeGenerator</Generator>
+            <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+        </EmbeddedResource>
     </ItemGroup>
 </Project>

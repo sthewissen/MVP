@@ -1,0 +1,54 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<pages:BaseContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+                       xmlns:local="clr-namespace:MVP"
+                       xmlns:pages="clr-namespace:MVP.Pages"
+                       xmlns:vm="clr-namespace:MVP.ViewModels"
+                       xmlns:icons="clr-namespace:MVP.Styles"
+                       xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                       x:Class="MVP.Pages.ContributionFormPage"
+                       x:DataType="vm:ContributionFormViewModel"
+                       x:TypeArguments="vm:ContributionFormViewModel"
+                       xmlns:xct="clr-namespace:Xamarin.CommunityToolkit.Extensions;assembly=Xamarin.CommunityToolkit">
+
+    <local:AppFrame ShowBackButton="True"
+                    ShowSecondaryButton="True"
+                    SecondaryButtonIcon="{x:Static icons:Icons.save}"
+                    IsModal="True"
+                    Title="{xct:Translate contributionform_title}"
+                    x:Name="appFrame">
+        <local:AppFrame.Content>
+            <StackLayout>
+                <Grid Padding="32,0"
+                      RowDefinitions="Auto, Auto"
+                      RowSpacing="8">
+
+                    <Label Style="{StaticResource field_title}" 
+                           Text="Activity type"/>
+
+                    <Label Style="{StaticResource field_description}" 
+                           Grid.Row="1" FontSize="16"
+                           Text="Video/Podcast/Webcast"/>
+                </Grid>
+
+                <BoxView Margin="16"
+                         Style="{StaticResource separator}"/>
+
+                <Grid Padding="32,0"
+                      RowDefinitions="Auto, Auto"
+                      RowSpacing="8">
+
+                    <Label Style="{StaticResource field_title}" 
+                           Text="Primary contribution area"/>
+
+                    <Label Style="{StaticResource field_description}" 
+                           Grid.Row="1" FontSize="16"
+                           Text="Xamarin"/>
+                </Grid>
+
+                <BoxView Margin="16,16,16,0"
+                         Style="{StaticResource separator}"/>
+            </StackLayout>
+        </local:AppFrame.Content>
+    </local:AppFrame>
+
+</pages:BaseContentPage>

@@ -24,9 +24,7 @@ namespace MVP.ViewModels
         public IAsyncCommand OpenProfileCommand { get; set; }
         public IAsyncCommand RefreshDataCommand { get; set; }
         public IAsyncCommand<Contribution> OpenContributionCommand { get; set; }
-        public IAsyncCommand OpenAddContributionCommand { get; set; }
         public IAsyncCommand SearchContributionCommand { get; set; }
-        public IAsyncCommand LoadMoreCommand { get; set; }
 
         public ContributionsViewModel(IAnalyticsService analyticsService, IAuthService authService, IDialogService dialogService, INavigationHelper navigationHelper)
             : base(analyticsService, authService, dialogService, navigationHelper)
@@ -129,7 +127,7 @@ namespace MVP.ViewModels
                     return;
             }
 
-            await NavigationHelper.OpenModalAsync(nameof(WizardContributionTypePage), prefilledData, true).ConfigureAwait(false);
+            await NavigationHelper.OpenModalAsync(nameof(ContributionFormPage), prefilledData, true).ConfigureAwait(false);
         }
 
         async Task OpenContribution(Contribution contribution)

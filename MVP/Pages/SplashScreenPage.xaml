@@ -1,7 +1,6 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <pages:BaseContentPage xmlns="http://xamarin.com/schemas/2014/forms"                       
                        xmlns:ff="clr-namespace:FFImageLoading.Svg.Forms;assembly=FFImageLoading.Svg.Forms"
-                       xmlns:helpers="clr-namespace:MVP.Helpers"
                        xmlns:pages="clr-namespace:MVP.Pages"
                        xmlns:vm="clr-namespace:MVP.ViewModels"
                        xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"

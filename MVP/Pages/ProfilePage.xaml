@@ -9,12 +9,13 @@
                        xmlns:state="clr-namespace:Xamarin.CommunityToolkit.UI.Views;assembly=Xamarin.CommunityToolkit"
                        xmlns:touch="clr-namespace:TouchEffect;assembly=TouchEffect"
                        xmlns:vm="clr-namespace:MVP.ViewModels"
+                       xmlns:xct="clr-namespace:Xamarin.CommunityToolkit.Extensions;assembly=Xamarin.CommunityToolkit"
                        xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
                        x:Class="MVP.Pages.ProfilePage"
                        x:DataType="vm:ProfileViewModel"
                        x:TypeArguments="vm:ProfileViewModel">
 
-    <local:AppFrame Title="Settings"
+    <local:AppFrame Title="{xct:Translate profile_title}"
                     x:Name="appFrame"
                     ShowSecondaryButton="True"
                     SecondaryButtonIcon="{x:Static icons:Icons.info}">
@@ -82,12 +83,12 @@
                           RowSpacing="8"
                           touch:TouchEff.Command="{Binding ToggleUseClipboardUrlsCommand}">
 
-                        <Label Style="{StaticResource setting_title}" 
-                               Text="Create contribution from URL"/>
+                        <Label Style="{StaticResource field_title}" 
+                               Text="{xct:Translate setting_contributionfromurl_title}"/>
 
-                        <Label Style="{StaticResource setting_description}" 
+                        <Label Style="{StaticResource field_description}" 
                                Grid.Row="1"
-                               Text="If you have a valid URL on your clipboard while adding a contribution, you will be asked if metadata from that URL should be used to prefill your contribution."/>
+                               Text="{xct:Translate setting_contributionfromurl_desc}"/>
 
                         <Switch Grid.Column="1"
                                 Grid.RowSpan="2"
@@ -107,12 +108,12 @@
                           touch:TouchEff.RegularBackgroundColor="{AppThemeBinding Light={StaticResource white}, Dark={StaticResource black}}"
                           touch:TouchEff.Command="{Binding OpenThemePickerCommand}">
 
-                        <Label Style="{StaticResource setting_title}" 
-                               Text="App theme"/>
+                        <Label Style="{StaticResource field_title}" 
+                               Text="{xct:Translate setting_apptheme_title}"/>
 
-                        <Label Style="{StaticResource setting_description}" 
+                        <Label Style="{StaticResource field_description}" 
                                Grid.Row="1"
-                               Text="This app can be used in both light and dark mode. By default it will pick whatever your device is set to. If either theme tickles your fancy you can also force a specific theme here."/>
+                               Text="{xct:Translate setting_apptheme_desc}"/>
 
                         <Label FontFamily="{StaticResource font_icon}"
                                FontSize="24"
@@ -131,7 +132,7 @@
                             Margin="0,16"
                             Command="{Binding LogoutCommand}"
                             ImageSource="{FontImage FontFamily={StaticResource font_icon}, Color={StaticResource error}, Size=20, Glyph={x:Static icons:Icons.logout}}"
-                            Text="Logout"/>
+                            Text="{xct:Translate button_logout}"/>
                 </StackLayout>
             </ScrollView>
         </local:AppFrame.Content>
