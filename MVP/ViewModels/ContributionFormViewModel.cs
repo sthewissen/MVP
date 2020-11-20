@@ -8,7 +8,7 @@ namespace MVP.ViewModels
 {
     public class ContributionFormViewModel : BaseViewModel
     {
-        Contribution contribution = new Contribution();
+        public Contribution Contribution { get; set; } = new Contribution();
 
         public bool IsEditing { get; set; }
 
@@ -24,18 +24,16 @@ namespace MVP.ViewModels
 
             if (NavigationParameter is Contribution contribution)
             {
-                this.contribution = contribution;
+                Contribution = contribution;
                 IsEditing = contribution.ContributionId.HasValue && contribution.ContributionId.Value > 0;
             }
 
             //LoadContributionAreas().SafeFireAndForget();
         }
 
+        // Pop the entire modal stack instead of just going back one screen.
+        // This means it's editing mode and there is no way to go back and change activity type.
         public async override Task Back()
-        {
-            // Pop the entire modal stack instead of just going back one screen.
-            // This means it's editing mode and there is no way to go back and change activity type.
-            await NavigationHelper.CloseModalAsync().ConfigureAwait(false);
-        }
+            => await NavigationHelper.CloseModalAsync().ConfigureAwait(false);
     }
 }

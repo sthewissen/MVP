@@ -37,7 +37,6 @@
         <Folder Include="Resources\" />
         <Folder Include="Services\Interfaces\" />
         <Folder Include="Resources\Fonts\" />
-        <Folder Include="Resources\Translations\" />
         <Folder Include="Converters\" />
         <Folder Include="Templates\" />
         <Folder Include="Helpers\" />
@@ -66,14 +65,21 @@
         <EmbeddedResource Include="Resources\Fonts\MVPBuzz.ttf" />
     </ItemGroup>
     <ItemGroup>
-        <Compile Update="Resources\Translations\Resources.Designer.cs">
-            <DependentUpon>Resources.resx</DependentUpon>
+        <Compile Update="Resources\Translations.Designer.cs">
+            <DependentUpon>Translations.resx</DependentUpon>
+        </Compile>
+        <Compile Update="Resources\Translations.nl.Designer.cs">
+          <DependentUpon>Translations.nl.resx</DependentUpon>
         </Compile>
     </ItemGroup>
     <ItemGroup>
-        <EmbeddedResource Update="Resources\Translations\Resources.resx">
+        <EmbeddedResource Update="Resources\Translations.resx">
             <Generator>ResXFileCodeGenerator</Generator>
-            <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+            <LastGenOutput>Translations.Designer.cs</LastGenOutput>
+        </EmbeddedResource>
+        <EmbeddedResource Update="Resources\Translations.nl.resx">
+          <Generator>ResXFileCodeGenerator</Generator>
+          <LastGenOutput>Translations.nl.Designer.cs</LastGenOutput>
         </EmbeddedResource>
     </ItemGroup>
 </Project>

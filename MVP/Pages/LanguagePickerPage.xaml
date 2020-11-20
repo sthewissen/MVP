@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<pages:BaseContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+                       xmlns:pages="clr-namespace:MVP.Pages"
+                       xmlns:vm="clr-namespace:MVP.ViewModels"
+                       xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                       xmlns:xct="clr-namespace:Xamarin.CommunityToolkit.Extensions;assembly=Xamarin.CommunityToolkit"
+                       xmlns:local="clr-namespace:MVP"
+                       x:Class="MVP.Pages.LanguagePickerPage"
+                       x:DataType="vm:LanguagePickerViewModel"
+                       x:TypeArguments="vm:LanguagePickerViewModel">
+
+    <local:AppFrame Title="{xct:Translate languagepicker_title}"
+                    ShowBackButton="True"
+                    x:Name="appFrame">
+        <local:AppFrame.Content>
+
+            <CollectionView ItemsSource="{Binding SupportedLanguages}"
+                            ItemTemplate="{StaticResource app_language_item}"
+                            Scrolled="CollectionView_Scrolled"
+                            SelectionMode="None" />
+
+        </local:AppFrame.Content>
+    </local:AppFrame>
+</pages:BaseContentPage>

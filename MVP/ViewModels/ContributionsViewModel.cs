@@ -108,7 +108,7 @@ namespace MVP.ViewModels
                     StartDate = dateTime
                 };
 
-                await NavigationHelper.OpenModalAsync(nameof(WizardContributionTypePage), contrib, true).ConfigureAwait(false);
+                await NavigationHelper.OpenModalAsync(nameof(ContributionFormPage), contrib, true).ConfigureAwait(false);
 
                 return true;
             }

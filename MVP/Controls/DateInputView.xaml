@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<StackLayout xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:xct="clr-namespace:Xamarin.CommunityToolkit.Converters;assembly=Xamarin.CommunityToolkit"
+             x:Class="MVP.Controls.DateInputView"
+             Spacing="8"
+             Padding="0,16,0,0"
+             x:Name="inputView">
+
+    <Label Margin="32,0"
+           Style="{StaticResource field_title}">
+        <Label.FormattedText>
+            <FormattedString>
+                <Span Text="{Binding Title, Source={x:Reference inputView}}" />
+                <Span Text="{Binding IsRequired, Source={x:Reference inputView}, Converter={xct:BoolToObjectConverter TrueObject=' *'}}" TextColor="{StaticResource error}" />
+            </FormattedString>
+        </Label.FormattedText>
+    </Label>
+
+    <Label Margin="32,0"
+           Style="{StaticResource field_description}"
+           Text="{Binding Description, Source={x:Reference inputView}}"/>
+
+    <Frame BorderColor="{StaticResource border_light_gray}"
+           Margin="24,0"
+           CornerRadius="8"
+           HeightRequest="52"
+           x:Name="framePicker">
+        <DatePicker BackgroundColor="Transparent"
+                    Focused="DatePicker_Focused"
+                    Unfocused="DatePicker_Unfocused"
+                    Margin="16,0"
+                    Format="D"
+                    Date="{Binding Value, Source={x:Reference inputView}}" />
+    </Frame>
+
+    <BoxView Margin="16,16,16,0"
+             Style="{StaticResource separator}"/>
+</StackLayout>

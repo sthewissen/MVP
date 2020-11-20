@@ -17,6 +17,9 @@
 
         public const string AppTheme = "app_theme";
         public const int AppThemeDefault = 0;
+
+        public const string AppLanguage = "app_language";
+        public const string AppLanguageDefault = "en";
     }
 
     public class Alerts

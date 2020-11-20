@@ -81,6 +81,32 @@
         </StackLayout>
     </DataTemplate>
 
+    <DataTemplate x:Key="app_language_item">
+        <StackLayout>
+            <StackLayout Orientation="Horizontal"
+                         Padding="32,0"
+                         Spacing="8"
+                         touch:TouchEff.PressedBackgroundColor="{AppThemeBinding Light={StaticResource light_blue}, Dark={StaticResource background_dark_gray_highlight}}"
+                         touch:TouchEff.RegularBackgroundColor="{AppThemeBinding Light={StaticResource white}, Dark={StaticResource black}}"
+                         touch:TouchEff.Command="{Binding Source={RelativeSource AncestorType={x:Type vm:LanguagePickerViewModel}}, Path=SetAppLanguageCommand}"
+                         touch:TouchEff.CommandParameter="{Binding Source={RelativeSource Self}, Path=BindingContext}">
+                <Label Style="{StaticResource list_item_title_label}"
+                       Padding="0,16"
+                       Text="{Binding Description}" />
+
+                <Label FontFamily="{StaticResource font_icon}"
+                       FontSize="20"
+                       HorizontalOptions="EndAndExpand"
+                       IsVisible="{Binding IsSelected}"
+                       Text="{x:Static icons:Icons.check}"
+                       TextColor="{AppThemeBinding Light={StaticResource primary}, Dark={StaticResource powderblue_light}}"
+                       VerticalOptions="Center"
+                       VerticalTextAlignment="Center"/>
+            </StackLayout>
+            <BoxView Style="{StaticResource separator}" Margin="16,0"/>
+        </StackLayout>
+    </DataTemplate>
+
     <DataTemplate x:DataType="vm:VisibilityViewModel"
                   x:Key="visibility_item">
         <StackLayout>
@@ -106,14 +132,6 @@
             </StackLayout>
             <BoxView Style="{StaticResource separator}" Margin="16,0"/>
         </StackLayout>
-
-        <!--<Grid Padding="16,0"
-              RowDefinitions="Auto, 1">
-            <Label Style="{StaticResource list_item_title_label}"
-                   Text="{Binding Description}"/>
-            <BoxView Style="{StaticResource separator}"
-                     Grid.Row="1"/>
-        </Grid>-->
     </DataTemplate>
 
     <DataTemplate x:Key="contribution_type_item"

@@ -128,6 +128,35 @@
                     <BoxView Margin="16,0"
                              Style="{StaticResource separator}"/>
 
+                    <Grid ColumnDefinitions="*, Auto"
+                          ColumnSpacing="24"
+                          Padding="32,16,16,16"
+                          RowDefinitions="Auto, Auto"
+                          RowSpacing="8"
+                          touch:TouchEff.PressedBackgroundColor="{AppThemeBinding Light={StaticResource light_blue}, Dark={StaticResource background_dark_gray_highlight}}"
+                          touch:TouchEff.RegularBackgroundColor="{AppThemeBinding Light={StaticResource white}, Dark={StaticResource black}}"
+                          touch:TouchEff.Command="{Binding OpenLanguagePickerCommand}">
+
+                        <Label Style="{StaticResource field_title}" 
+                               Text="Language"/>
+
+                        <Label Style="{StaticResource field_description}" 
+                               Grid.Row="1"
+                               Text="Don't like the language we picked for you? You can override it here."/>
+
+                        <Label FontFamily="{StaticResource font_icon}"
+                               FontSize="24"
+                               Grid.Column="1"
+                               Grid.RowSpan="2"
+                               Text="{x:Static icons:Icons.chevron_right}"
+                               TextColor="{AppThemeBinding Light={StaticResource gray}, Dark={StaticResource gray}}"
+                               VerticalOptions="Center"
+                               VerticalTextAlignment="Center"/>
+                    </Grid>
+
+                    <BoxView Margin="16,0"
+                             Style="{StaticResource separator}"/>
+
                     <Button Style="{StaticResource destructive_button}"
                             Margin="0,16"
                             Command="{Binding LogoutCommand}"

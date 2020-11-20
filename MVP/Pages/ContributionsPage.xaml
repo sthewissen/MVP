@@ -29,7 +29,7 @@
                     <BoxView HeightRequest="40"/>
                 </CollectionView.Footer>
 
-                <CollectionView.Header>
+                <!--<CollectionView.Header>
                     <StackLayout Padding="16,16,16,24">
                         <Frame Style="{StaticResource search_frame}"
                                touch:TouchEff.Command="{Binding Source={RelativeSource AncestorType={x:Type vm:ContributionsViewModel}}, Path=SearchContributionCommand}">
@@ -44,7 +44,7 @@
                             </Grid>
                         </Frame>
                     </StackLayout>
-                </CollectionView.Header>
+                </CollectionView.Header>-->
 
             </CollectionView>
 

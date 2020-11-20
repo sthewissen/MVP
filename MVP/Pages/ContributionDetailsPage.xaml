@@ -6,6 +6,7 @@
                        xmlns:models="clr-namespace:MVP.Models"
                        xmlns:pages="clr-namespace:MVP.Pages"
                        xmlns:vm="clr-namespace:MVP.ViewModels"
+                       xmlns:xct="clr-namespace:Xamarin.CommunityToolkit.Extensions;assembly=Xamarin.CommunityToolkit"
                        xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
                        x:Class="MVP.Pages.ContributionDetailsPage"
                        x:DataType="vm:ContributionDetailsViewModel"
@@ -15,7 +16,7 @@
     <local:AppFrame ShowBackButton="True"
                     ShowSecondaryButton="True"
                     SecondaryButtonIcon="{x:Static icons:Icons.edit}"
-                    Title="Activity details"
+                    Title="{xct:Translate contributiondetails_title}"
                     x:Name="appFrame">
         <local:AppFrame.Content>
             <ScrollView Grid.Row="1"
@@ -32,7 +33,7 @@
                                LineBreakMode="TailTruncation"
                                MaxLines="1"
                                Style="{StaticResource contribution_item_category_label}"
-                               Text="{Binding Contribution.ContributionType.EnglishName, Converter={converters:TextCaseConverter Type=Upper}}"
+                               Text="{Binding Contribution.ContributionType.EnglishName}"
                                TextColor="{Binding Contribution.ContributionType.Id, Converter={StaticResource ContributionTypeTextConverter}}"/>
                     </Frame>
 
@@ -40,71 +41,79 @@
                            Margin="0,0,0,24"
                            Text="{Binding Contribution.Title}"/>
 
-                    <Label Style="{StaticResource field_label}"  Text="PRIMARY CONTRIBUTION AREA"/>
+                    <Label Style="{StaticResource field_title}"
+                           Text="{xct:Translate field_primary_contribution_area}"/>
 
-                    <Label Text="{Binding Contribution.ContributionTechnology.Name}" Margin="0,0,0,16"/>
-
+                    <Label Text="{Binding Contribution.ContributionTechnology.Name}"
+                           Margin="0,0,0,16" />
 
                     <Label IsVisible="{Binding Contribution.AdditionalTechnologies, Converter={converters:ListIsNotNullOrEmptyConverter}}"
-                           Style="{StaticResource field_label}"
-                           Text="ADDITIONAL CONTRIBUTION AREAS"/>
+                           Style="{StaticResource field_title}"
+                           Text="{xct:Translate field_additional_contribution_areas}"/>
                     <StackLayout BindableLayout.ItemsSource="{Binding Contribution.AdditionalTechnologies}"
                                  IsVisible="{Binding Contribution.AdditionalTechnologies, Converter={converters:ListIsNotNullOrEmptyConverter}}"
                                  Margin="0,0,0,16">
                         <BindableLayout.ItemTemplate>
                             <DataTemplate x:DataType="models:ContributionTechnology">
-                                <Label Text="{Binding Name}"/>
+                                <Label Text="{Binding Name}"
+                                       />
                             </DataTemplate>
                         </BindableLayout.ItemTemplate>
                     </StackLayout>
 
-                    <Label Style="{StaticResource field_label}"
-                           Text="ACTIVITY DATE"/>
+                    <Label Style="{StaticResource field_title}"
+                           Text="{xct:Translate field_activity_date}"/>
 
                     <Label Margin="0,0,0,16"
-                               Text="{Binding Contribution.StartDate, StringFormat='{0:D}'}"/>
+                           
+                           Text="{Binding Contribution.StartDate, StringFormat='{0:D}'}"/>
 
-                    <Label Style="{StaticResource field_label}"
-                           Text="DESCRIPTION" />
+                    <Label Style="{StaticResource field_title}"
+                           Text="{xct:Translate field_description}" />
 
                     <Label Margin="0,0,0,16"
+                           
                            Text="{Binding Contribution.Description}"/>
 
-                    <Label IsVisible="{Binding Contribution.AnnualQuantity, Converter={converters:IsNotNullOrEmptyConverter}}"
-                           Style="{StaticResource field_label}"
-                           Text="{Binding ContributionTypeConfig.AnnualQuantityHeader, Converter={converters:TextCaseConverter Type=Upper}}"/>
+                    <Label IsVisible="{Binding ContributionTypeConfig.AnnualQuantityHeader, Converter={converters:IsNotNullOrEmptyConverter}}"
+                           Style="{StaticResource field_title}"
+                           Text="{Binding ContributionTypeConfig.AnnualQuantityHeader}"/>
 
-                    <Label IsVisible="{Binding Contribution.AnnualQuantity, Converter={converters:IsNotNullOrEmptyConverter}}"
+                    <Label IsVisible="{Binding ContributionTypeConfig.AnnualQuantityHeader, Converter={converters:IsNotNullOrEmptyConverter}}"
                            Margin="0,0,0,16"
+                           
                            Text="{Binding Contribution.AnnualQuantity}"/>
 
-                    <Label IsVisible="{Binding Contribution.SecondAnnualQuantity, Converter={converters:IsNotNullOrEmptyConverter}}"
-                           Style="{StaticResource field_label}" 
-                           Text="{Binding ContributionTypeConfig.SecondAnnualQuantityHeader, Converter={converters:TextCaseConverter Type=Upper}}" />
+                    <Label IsVisible="{Binding ContributionTypeConfig.SecondAnnualQuantityHeader, Converter={converters:IsNotNullOrEmptyConverter}}"
+                           Style="{StaticResource field_title}" 
+                           Text="{Binding ContributionTypeConfig.SecondAnnualQuantityHeader}" />
 
-                    <Label IsVisible="{Binding Contribution.SecondAnnualQuantity, Converter={converters:IsNotNullOrEmptyConverter}}"
+                    <Label IsVisible="{Binding ContributionTypeConfig.SecondAnnualQuantityHeader, Converter={converters:IsNotNullOrEmptyConverter}}"
                            Margin="0,0,0,16"
+                           
                            Text="{Binding Contribution.SecondAnnualQuantity}"/>
 
-                    <Label IsVisible="{Binding Contribution.AnnualReach, Converter={converters:IsNotNullOrEmptyConverter}}"
-                           Style="{StaticResource field_label}"
-                           Text="{Binding ContributionTypeConfig.AnnualReachHeader, Converter={converters:TextCaseConverter Type=Upper}}"/>
+                    <Label IsVisible="{Binding ContributionTypeConfig.AnnualReachHeader, Converter={converters:IsNotNullOrEmptyConverter}}"
+                           Style="{StaticResource field_title}"
+                           Text="{Binding ContributionTypeConfig.AnnualReachHeader}"/>
 
-                    <Label IsVisible="{Binding Contribution.AnnualReach, Converter={converters:IsNotNullOrEmptyConverter}}"
+                    <Label IsVisible="{Binding ContributionTypeConfig.AnnualReachHeader, Converter={converters:IsNotNullOrEmptyConverter}}"
                            Margin="0,0,0,16"
+                           
                            Text="{Binding Contribution.AnnualReach}"/>
 
-                    <Label Style="{StaticResource field_label}"
-                           Text="VISIBILITY"/>
+                    <Label Style="{StaticResource field_title}"
+                           Text="{xct:Translate field_visibility}"/>
 
                     <Label Margin="0,0,0,16"
+                           
                            Text="{Binding Contribution.Visibility.Description}"/>
 
                     <BoxView Style="{StaticResource separator}" Margin="0,16" />
 
                     <Button Style="{StaticResource destructive_button}"
                             Command="{Binding DeleteContributionCommand}"
-                            Text="Delete contribution"
+                            Text="{xct:Translate button_delete_contribution}"
                             ImageSource="{FontImage FontFamily={StaticResource font_icon}, Color={StaticResource error}, Size=20, Glyph={x:Static icons:Icons.trash2}}" />
 
                 </StackLayout>

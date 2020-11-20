@@ -125,7 +125,7 @@
     <Style TargetType="Label">
         <Setter Property="FontFamily" Value="{StaticResource font_regular}" />
         <Setter Property="TextColor" Value="{AppThemeBinding Light={StaticResource black}, Dark={StaticResource white}}" />
-        <Setter Property="FontSize" Value="16" />
+        <Setter Property="FontSize" Value="15" />
     </Style>
 
     <Style TargetType="Entry">
@@ -138,7 +138,7 @@
 
     <Style TargetType="DatePicker">
         <Setter Property="BackgroundColor" Value="{AppThemeBinding Light={StaticResource white}, Dark={StaticResource black}}"/>
-        <Setter Property="FontFamily" Value="{StaticResource font_semibold}" />
+        <Setter Property="FontFamily" Value="{StaticResource font_regular}" />
         <Setter Property="FontSize" Value="16" />
         <Setter Property="TextColor" Value="{AppThemeBinding Light={StaticResource black}, Dark={StaticResource white}}" />
     </Style>

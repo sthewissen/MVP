@@ -8,22 +8,29 @@ using Xamarin.Forms;
 using Xamarin.Forms.PlatformConfiguration;
 using Xamarin.Forms.PlatformConfiguration.iOSSpecific;
 using Xamarin.Forms.PlatformConfiguration.AndroidSpecific;
+using MVP.Resources;
 
 namespace MVP.Pages
 {
     public class TabbedMainPage : Xamarin.Forms.TabbedPage
     {
+        readonly Xamarin.Forms.Page mainPage;
+        readonly Xamarin.Forms.Page profilePage;
+        readonly Xamarin.Forms.Page badgesPage;
+        readonly Xamarin.Forms.Page statsPage;
+        readonly Xamarin.Forms.NavigationPage navigationMainPage;
+        readonly Xamarin.Forms.NavigationPage navigationProfilePage;
+
         public TabbedMainPage()
         {
             var viewCreator = (TinyMvvmViewCreator)((FormsNavigationHelper)NavigationHelper.Current).ViewCreator;
 
-            var mainPage = viewCreator.Create(typeof(ContributionsPage));
-            var profilePage = viewCreator.Create(typeof(ProfilePage));
-            var badgesPage = viewCreator.Create(typeof(BadgesPage));
-            var statsPage = viewCreator.Create(typeof(StatisticsPage));
-
-            var navigationMainPage = new Xamarin.Forms.NavigationPage(mainPage);
-            var navigationProfilePage = new Xamarin.Forms.NavigationPage(profilePage);
+            mainPage = viewCreator.Create(typeof(ContributionsPage));
+            profilePage = viewCreator.Create(typeof(ProfilePage));
+            badgesPage = viewCreator.Create(typeof(BadgesPage));
+            statsPage = viewCreator.Create(typeof(StatisticsPage));
+            navigationMainPage = new Xamarin.Forms.NavigationPage(mainPage);
+            navigationProfilePage = new Xamarin.Forms.NavigationPage(profilePage);
 
             var fontIcon = (string)Xamarin.Forms.Application.Current.Resources["font_icon"];
 
@@ -58,15 +65,23 @@ namespace MVP.Pages
                 Size = 20
             };
 
-            navigationMainPage.Title = "Activities";
-            statsPage.Title = "Statistics";
-            badgesPage.Title = "Badges";
-            navigationProfilePage.Title = "Settings";
+            navigationMainPage.Title = Translations.tabs_activities;
+            statsPage.Title = Translations.tabs_statistics;
+            badgesPage.Title = Translations.tabs_badges;
+            navigationProfilePage.Title = Translations.tabs_settings;
 
             Children.Add(navigationMainPage);
             Children.Add(statsPage);
             Children.Add(badgesPage);
             Children.Add(navigationProfilePage);
+        }
+
+        public void SetTitles()
+        {
+            navigationMainPage.Title = Translations.tabs_activities;
+            statsPage.Title = Translations.tabs_statistics;
+            badgesPage.Title = Translations.tabs_badges;
+            navigationProfilePage.Title = Translations.tabs_settings;
         }
     }
 }

@@ -1,0 +1,87 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>2.0</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <data name="contributions_title" xml:space="preserve">
+      <value>Activiteiten</value>
+    </data>
+    <data name="search_placeholder" xml:space="preserve">
+        <value>Zoeken...</value>
+    </data>
+    <data name="profile_title" xml:space="preserve">
+        <value>Instellingen</value>
+    </data>
+    <data name="setting_contributionfromurl_title" xml:space="preserve">
+        <value>Activiteit maken via klembord</value>
+    </data>
+    <data name="setting_contributionfromurl_desc" xml:space="preserve">
+        <value>Wanneer er zich een geldige URL op je klembord bevindt zodra je een activiteit gaat toevoegen, zal de app vragen of de metadata van deze URL gebruikt moet worden om je activiteit deels automatisch in te vullen.</value>
+    </data>
+    <data name="setting_apptheme_title" xml:space="preserve">
+        <value>Weergave</value>
+    </data>
+    <data name="setting_apptheme_desc" xml:space="preserve">
+        <value>Deze applicatie kan zowel in een lichte als een donkere weergave gebruikt worden. Standaard neemt de app de instelling van de telefoon over. Wanneer een van beide weergaves je voorkeur heeft kan deze hier ingesteld worden.</value>
+    </data>
+    <data name="button_logout" xml:space="preserve">
+        <value>Uitloggen</value>
+    </data>
+    <data name="tabs_activities" xml:space="preserve">
+        <value>Activiteiten</value>
+    </data>
+    <data name="tabs_statistics" xml:space="preserve">
+        <value>Statistieken</value>
+    </data>
+    <data name="tabs_badges" xml:space="preserve">
+        <value>Badges</value>
+    </data>
+    <data name="tabs_settings" xml:space="preserve">
+        <value>Instellingen</value>
+    </data>
+    <data name="contributionform_title" xml:space="preserve">
+        <value>Activiteit toevoegen</value>
+    </data>
+    <data name="language_english" xml:space="preserve">
+        <value>Engels</value>
+    </data>
+    <data name="language_dutch" xml:space="preserve">
+        <value>Nederlands</value>
+    </data>
+    <data name="languagepicker_title" xml:space="preserve">
+        <value>Taal</value>
+    </data>
+    <data name="contributiondetails_title" xml:space="preserve">
+        <value>Activity details</value>
+    </data>
+    <data name="field_activity_type" xml:space="preserve">
+        <value>Activity type</value>
+    </data>
+    <data name="field_primary_contribution_area" xml:space="preserve">
+        <value>Primary contribution area</value>
+    </data>
+    <data name="field_additional_contribution_areas" xml:space="preserve">
+        <value>Additional contribution areas</value>
+    </data>
+    <data name="field_activity_date" xml:space="preserve">
+        <value>Activity date</value>
+    </data>
+    <data name="field_description" xml:space="preserve">
+        <value>Description</value>
+    </data>
+    <data name="field_visibility" xml:space="preserve">
+        <value>Visibility</value>
+    </data>
+    <data name="button_delete_contribution" xml:space="preserve">
+        <value>Delete contribution</value>
+    </data>
+</root>

@@ -10,7 +10,7 @@ using TinyMvvm.IoC;
 using TinyNavigationHelper;
 using Xamarin.CommunityToolkit.Helpers;
 using Xamarin.Essentials;
-using MVP.Resources.Translations;
+using MVP.Resources;
 
 namespace MVP
 {
@@ -41,7 +41,7 @@ namespace MVP
 
             MvpApiService = mvpApiService;
 
-            LocalizationResourceManager.Current.Init(AppResources.ResourceManager);
+            LocalizationResourceManager.Current.Init(Translations.ResourceManager);
 
             Device.SetFlags(new[] { "IndicatorView_Experimental" });
             Resolver.SetResolver(new AutofacResolver(ContainerService.Container));

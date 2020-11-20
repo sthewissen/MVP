@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace MVP.Resources.Translations {
+namespace MVP.Resources {
     using System;
     using System.Reflection;
     
@@ -16,21 +16,21 @@ namespace MVP.Resources.Translations {
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "4.0.0.0")]
     [System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    internal class AppResources {
+    internal class Translations_nl {
         
         private static System.Resources.ResourceManager resourceMan;
         
         private static System.Globalization.CultureInfo resourceCulture;
         
         [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]
-        internal AppResources() {
+        internal Translations_nl() {
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
         internal static System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.Equals(null, resourceMan)) {
-                    System.Resources.ResourceManager temp = new System.Resources.ResourceManager("MVP.Resources.Translations.AppResources", typeof(AppResources).Assembly);
+                    System.Resources.ResourceManager temp = new System.Resources.ResourceManager("MVP.Resources.Translations.nl", typeof(Translations_nl).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;
@@ -122,6 +122,72 @@ namespace MVP.Resources.Translations {
         internal static string contributionform_title {
             get {
                 return ResourceManager.GetString("contributionform_title", resourceCulture);
+            }
+        }
+        
+        internal static string language_english {
+            get {
+                return ResourceManager.GetString("language_english", resourceCulture);
+            }
+        }
+        
+        internal static string language_dutch {
+            get {
+                return ResourceManager.GetString("language_dutch", resourceCulture);
+            }
+        }
+        
+        internal static string languagepicker_title {
+            get {
+                return ResourceManager.GetString("languagepicker_title", resourceCulture);
+            }
+        }
+        
+        internal static string contributiondetails_title {
+            get {
+                return ResourceManager.GetString("contributiondetails_title", resourceCulture);
+            }
+        }
+        
+        internal static string field_activity_type {
+            get {
+                return ResourceManager.GetString("field_activity_type", resourceCulture);
+            }
+        }
+        
+        internal static string field_primary_contribution_area {
+            get {
+                return ResourceManager.GetString("field_primary_contribution_area", resourceCulture);
+            }
+        }
+        
+        internal static string field_additional_contribution_areas {
+            get {
+                return ResourceManager.GetString("field_additional_contribution_areas", resourceCulture);
+            }
+        }
+        
+        internal static string field_activity_date {
+            get {
+                return ResourceManager.GetString("field_activity_date", resourceCulture);
+            }
+        }
+        
+        internal static string field_description {
+            get {
+                return ResourceManager.GetString("field_description", resourceCulture);
+            }
+        }
+        
+        internal static string field_visibility {
+            get {
+                return ResourceManager.GetString("field_visibility", resourceCulture);
+            }
+        }
+        
+        internal static string button_delete_contribution {
+            get {
+                return ResourceManager.GetString("button_delete_contribution", resourceCulture);
             }
         }
     }

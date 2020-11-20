@@ -156,4 +156,37 @@
     <data name="contributionform_title" xml:space="preserve">
         <value>Add contribution</value>
     </data>
+    <data name="language_english" xml:space="preserve">
+        <value>English</value>
+    </data>
+    <data name="language_dutch" xml:space="preserve">
+        <value>Dutch</value>
+    </data>
+    <data name="languagepicker_title" xml:space="preserve">
+        <value>Language</value>
+    </data>
+    <data name="contributiondetails_title" xml:space="preserve">
+        <value>Activity details</value>
+    </data>
+    <data name="field_activity_type" xml:space="preserve">
+        <value>Activity type</value>
+    </data>
+    <data name="field_primary_contribution_area" xml:space="preserve">
+        <value>Primary contribution area</value>
+    </data>
+    <data name="field_additional_contribution_areas" xml:space="preserve">
+        <value>Additional contribution areas</value>
+    </data>
+    <data name="field_activity_date" xml:space="preserve">
+        <value>Activity date</value>
+    </data>
+    <data name="field_description" xml:space="preserve">
+        <value>Description</value>
+    </data>
+    <data name="field_visibility" xml:space="preserve">
+        <value>Visibility</value>
+    </data>
+    <data name="button_delete_contribution" xml:space="preserve">
+        <value>Delete contribution</value>
+    </data>
 </root>

@@ -16,6 +16,7 @@ namespace MVP.ViewModels
         public IAsyncCommand LogoutCommand { get; set; }
         public IAsyncCommand LoadProfileCommand { get; set; }
         public IAsyncCommand OpenThemePickerCommand { get; set; }
+        public IAsyncCommand OpenLanguagePickerCommand { get; set; }
         public ICommand ToggleUseClipboardUrlsCommand { get; set; }
 
         public Profile Profile { get; set; }
@@ -38,6 +39,7 @@ namespace MVP.ViewModels
             LoadProfileCommand = new AsyncCommand(() => LoadProfile(true));
             ToggleUseClipboardUrlsCommand = new Command(() => UseClipboardUrls = !UseClipboardUrls);
             OpenThemePickerCommand = new AsyncCommand(() => OpenThemePicker());
+            OpenLanguagePickerCommand = new AsyncCommand(() => OpenLanguagePicker());
             SecondaryCommand = new AsyncCommand(() => OpenAbout());
         }
 
@@ -101,6 +103,9 @@ namespace MVP.ViewModels
 
         async Task OpenThemePicker()
             => await NavigationHelper.NavigateToAsync(nameof(ThemePickerPage)).ConfigureAwait(false);
+
+        async Task OpenLanguagePicker()
+            => await NavigationHelper.NavigateToAsync(nameof(LanguagePickerPage)).ConfigureAwait(false);
 
         async Task OpenAbout()
             => await NavigationHelper.NavigateToAsync(nameof(AboutPage)).ConfigureAwait(false);

@@ -8,46 +8,59 @@
                        x:Class="MVP.Pages.ContributionFormPage"
                        x:DataType="vm:ContributionFormViewModel"
                        x:TypeArguments="vm:ContributionFormViewModel"
-                       xmlns:xct="clr-namespace:Xamarin.CommunityToolkit.Extensions;assembly=Xamarin.CommunityToolkit">
+                       xmlns:xct="clr-namespace:Xamarin.CommunityToolkit.Extensions;assembly=Xamarin.CommunityToolkit"
+                       xmlns:controls="clr-namespace:MVP.Controls">
 
     <local:AppFrame ShowBackButton="True"
                     ShowSecondaryButton="True"
                     SecondaryButtonIcon="{x:Static icons:Icons.save}"
                     IsModal="True"
+                    ShadowOpacity="1"
                     Title="{xct:Translate contributionform_title}"
                     x:Name="appFrame">
         <local:AppFrame.Content>
-            <StackLayout>
-                <Grid Padding="32,0"
-                      RowDefinitions="Auto, Auto"
-                      RowSpacing="8">
+            <ScrollView>
+                <StackLayout Padding="0,32">
 
-                    <Label Style="{StaticResource field_title}" 
-                           Text="Activity type"/>
+                    <controls:PickerInputView Title="{xct:Translate field_activity_type}"
+                                              IsRequired="True"
+                                              Placeholder="Select the activtity type that best fits this activity." />
 
-                    <Label Style="{StaticResource field_description}" 
-                           Grid.Row="1" FontSize="16"
-                           Text="Video/Podcast/Webcast"/>
-                </Grid>
+                    <controls:PickerInputView Title="{xct:Translate field_primary_contribution_area}"
+                                              IsRequired="True"
+                                              Placeholder="Select the technology area that is the primary focus of this activity." />
 
-                <BoxView Margin="16"
-                         Style="{StaticResource separator}"/>
+                    <controls:PickerInputView Title="Additional contribution areas"
+                                              IsRequired="True"
+                                              Placeholder="Select up to 2 additional technology areas that may also apply to this activity." />
 
-                <Grid Padding="32,0"
-                      RowDefinitions="Auto, Auto"
-                      RowSpacing="8">
+                    <controls:DateInputView Title="Date of activity"
+                                            IsRequired="True"
+                                            Description="Your contribution submission for the July award cycle must be for community activities between April 1, 2020 to March 31, 2021. Community activities submitted from April 1st and beyond will be held for future consideration." />
 
-                    <Label Style="{StaticResource field_title}" 
-                           Text="Primary contribution area"/>
+                    <controls:InputView Title="Title of activity"
+                                        IsRequired="True" />
 
-                    <Label Style="{StaticResource field_description}" 
-                           Grid.Row="1" FontSize="16"
-                           Text="Xamarin"/>
-                </Grid>
+                    <controls:InputView Title="URL"
+                                        Keyboard="Url" />
 
-                <BoxView Margin="16,16,16,0"
-                         Style="{StaticResource separator}"/>
-            </StackLayout>
+                    <controls:InputView Title="Description"
+                                        IsMultiLine="True" />
+
+                    <controls:PickerInputView Title="Visibility"
+                                              Placeholder="Select the visibility level of this activity." />
+
+                    <controls:InputView Title="Number of 1"
+                                        IsRequired="True"
+                                        Keyboard="Numeric" />
+
+                    <controls:InputView Title="Number of 2"
+                                        Keyboard="Numeric" />
+
+                    <controls:InputView Title="Number of 3"
+                                        Keyboard="Numeric" />
+                </StackLayout>
+            </ScrollView>
         </local:AppFrame.Content>
     </local:AppFrame>
 
