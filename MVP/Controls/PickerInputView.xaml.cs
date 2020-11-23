@@ -8,22 +8,22 @@ namespace MVP.Controls
     public partial class PickerInputView : StackLayout
     {
         public static readonly BindableProperty TitleProperty =
-            BindableProperty.Create(nameof(Title), typeof(string), typeof(AppFrame), string.Empty, defaultBindingMode: BindingMode.OneTime);
+            BindableProperty.Create(nameof(Title), typeof(string), typeof(AppFrame), string.Empty, defaultBindingMode: BindingMode.OneWay);
 
         public static readonly BindableProperty ValueProperty =
-            BindableProperty.Create(nameof(Value), typeof(object), typeof(AppFrame), null, defaultBindingMode: BindingMode.TwoWay);
+            BindableProperty.Create(nameof(Value), typeof(string), typeof(AppFrame), string.Empty, defaultBindingMode: BindingMode.OneWay);
 
         public static readonly BindableProperty PlaceholderProperty =
-         BindableProperty.Create(nameof(Placeholder), typeof(string), typeof(AppFrame), string.Empty, defaultBindingMode: BindingMode.OneTime);
+         BindableProperty.Create(nameof(Placeholder), typeof(string), typeof(AppFrame), string.Empty, defaultBindingMode: BindingMode.OneWay);
 
         public static readonly BindableProperty DescriptionProperty =
-         BindableProperty.Create(nameof(Description), typeof(string), typeof(AppFrame), string.Empty, defaultBindingMode: BindingMode.OneTime);
+         BindableProperty.Create(nameof(Description), typeof(string), typeof(AppFrame), string.Empty, defaultBindingMode: BindingMode.OneWay);
 
         public static readonly BindableProperty PickerCommandProperty =
          BindableProperty.Create(nameof(PickerCommand), typeof(ICommand), typeof(AppFrame), null, defaultBindingMode: BindingMode.OneWay);
 
         public static readonly BindableProperty IsRequiredProperty =
-         BindableProperty.Create(nameof(IsRequired), typeof(bool), typeof(AppFrame), false, defaultBindingMode: BindingMode.OneTime);
+         BindableProperty.Create(nameof(IsRequired), typeof(bool), typeof(AppFrame), false, defaultBindingMode: BindingMode.OneWay);
 
         public string Title
         {
@@ -43,9 +43,9 @@ namespace MVP.Controls
             set => SetValue(PickerCommandProperty, value);
         }
 
-        public object Value
+        public string Value
         {
-            get => GetValue(ValueProperty);
+            get => (string)GetValue(ValueProperty);
             set => SetValue(ValueProperty, value);
         }
 

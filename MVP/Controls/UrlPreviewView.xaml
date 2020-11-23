@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Grid xmlns="http://xamarin.com/schemas/2014/forms"
+      xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+      xmlns:converters="clr-namespace:Xamarin.CommunityToolkit.Converters;assembly=Xamarin.CommunityToolkit"
+      ColumnDefinitions="Auto, *"
+      ColumnSpacing="24"
+      IsVisible="{Binding HasValidUrl, Source={x:Reference urlView}}"
+      Margin="0,16"
+      RowDefinitions="Auto, Auto"
+      x:Class="MVP.Controls.UrlPreviewView"
+      x:Name="urlView">
+
+    <Frame CornerRadius="8"
+           Grid.RowSpan="2"
+           HorizontalOptions="Center"
+           IsClippedToBounds="True"
+           IsVisible="{Binding ImageUrl, Converter={converters:IsNotNullOrEmptyConverter}, Source={x:Reference urlView}}"
+           VerticalOptions="Start">
+
+        <Image Aspect="AspectFill"
+               HeightRequest="80"
+               Source="{Binding ImageUrl, Source={x:Reference urlView}}"
+               WidthRequest="80"/>
+
+    </Frame>
+
+    <Label FontFamily="{StaticResource font_bold}"
+           FontSize="14"
+           Grid.Column="1"
+           Text="{Binding Title, Source={x:Reference urlView}}"/>
+
+    <Label FontSize="14"
+           Grid.Column="1"
+           Grid.Row="1"
+           MaxLines="2"
+           LineBreakMode="TailTruncation"
+           HorizontalTextAlignment="Start"
+           Text="{Binding Description, Source={x:Reference urlView}}"/>
+</Grid>

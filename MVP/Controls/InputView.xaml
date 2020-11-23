@@ -54,7 +54,4 @@
                 Margin="16,0" 
                 Text="{Binding Value, Source={x:Reference inputView}}" />
     </Frame>
-
-    <BoxView Margin="16,16,16,0"
-             Style="{StaticResource separator}"/>
 </StackLayout>

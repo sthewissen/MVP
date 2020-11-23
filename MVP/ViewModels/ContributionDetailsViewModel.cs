@@ -47,14 +47,14 @@ namespace MVP.ViewModels
         {
             // TODO: Change this check to block people if current time is between April 1 and July 1 and the
             // contribution is before April 1st.
-            if (Contribution.StartDate.IsWithinCurrentAwardPeriod())
-            {
-                await NavigationHelper.OpenModalAsync(nameof(WizardTechnologyPage), Contribution, true).ConfigureAwait(false);
-            }
-            else
-            {
-                // TODO: Message
-            }
+            //if (Contribution.StartDate.IsWithinCurrentAwardPeriod())
+            //{
+            await NavigationHelper.OpenModalAsync(nameof(ContributionFormPage), Contribution, true).ConfigureAwait(false);
+            //}
+            //else
+            //{
+            //    // TODO: Message
+            //}
         }
 
         async Task DeleteContribution()

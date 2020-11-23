@@ -1,16 +1,18 @@
 ﻿using System;
 using System.Threading.Tasks;
+using MVP.Extensions;
 using MVP.Models;
 using MVP.Services.Interfaces;
+using MVP.ViewModels.Data;
 using TinyNavigationHelper;
 
 namespace MVP.ViewModels
 {
     public class ContributionFormViewModel : BaseViewModel
     {
-        public Contribution Contribution { get; set; } = new Contribution();
-
+        public ContributionViewModel Contribution { get; set; } = new ContributionViewModel();
         public bool IsEditing { get; set; }
+        public ContributionTypeConfig ContributionTypeConfig { get; set; }
 
         public ContributionFormViewModel(IAnalyticsService analyticsService, IAuthService authService,
             IDialogService dialogService, INavigationHelper navigationHelper)
@@ -24,9 +26,17 @@ namespace MVP.ViewModels
 
             if (NavigationParameter is Contribution contribution)
             {
-                Contribution = contribution;
+                Contribution = contribution.ToContributionViewModel();
                 IsEditing = contribution.ContributionId.HasValue && contribution.ContributionId.Value > 0;
+
+                if (contribution.ContributionType != null && contribution.ContributionType.Id.HasValue)
+                {
+                    ContributionTypeConfig = contribution.ContributionType.Id.Value.GetContributionTypeRequirements();
+                }
             }
+
+            if (Contribution.StartDate == default)
+                Contribution.StartDate = DateTime.Now.Date;
 
             //LoadContributionAreas().SafeFireAndForget();
         }

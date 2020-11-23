@@ -1,17 +1,17 @@
-using System;
-using System.Collections.Generic;
+﻿using System;
 using System.Collections.ObjectModel;
+using MVP.Models;
+using Xamarin.CommunityToolkit.ObjectModel;
 
-namespace MVP.Models
+namespace MVP.ViewModels.Data
 {
-    public partial class Contribution
+    public class ContributionViewModel : ObservableObject
     {
         public int? ContributionId { get; set; }
-        public string ContributionTypeName { get; set; }
         public ContributionType ContributionType { get; set; }
         public ContributionTechnology ContributionTechnology { get; set; }
         public ObservableCollection<ContributionTechnology> AdditionalTechnologies { get; set; } = new ObservableCollection<ContributionTechnology>();
-        public DateTime? StartDate { get; set; }
+        public DateTime StartDate { get; set; }
         public string Title { get; set; }
         public string ReferenceUrl { get; set; }
         public Visibility Visibility { get; set; }

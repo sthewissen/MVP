@@ -7,25 +7,25 @@ namespace MVP.Controls
     public partial class InputView : StackLayout
     {
         public static readonly BindableProperty TitleProperty =
-            BindableProperty.Create(nameof(Title), typeof(string), typeof(AppFrame), string.Empty, defaultBindingMode: BindingMode.OneTime);
+            BindableProperty.Create(nameof(Title), typeof(string), typeof(AppFrame), string.Empty, defaultBindingMode: BindingMode.OneWay);
 
         public static readonly BindableProperty ValueProperty =
             BindableProperty.Create(nameof(Value), typeof(string), typeof(AppFrame), string.Empty, defaultBindingMode: BindingMode.TwoWay);
 
         public static readonly BindableProperty DescriptionProperty =
-         BindableProperty.Create(nameof(Description), typeof(string), typeof(AppFrame), string.Empty, defaultBindingMode: BindingMode.OneTime);
+         BindableProperty.Create(nameof(Description), typeof(string), typeof(AppFrame), string.Empty, defaultBindingMode: BindingMode.OneWay);
 
         public static readonly BindableProperty PlaceholderProperty =
-         BindableProperty.Create(nameof(Placeholder), typeof(string), typeof(AppFrame), string.Empty, defaultBindingMode: BindingMode.OneTime);
+         BindableProperty.Create(nameof(Placeholder), typeof(string), typeof(AppFrame), string.Empty, defaultBindingMode: BindingMode.OneWay);
 
         public static readonly BindableProperty IsRequiredProperty =
-         BindableProperty.Create(nameof(IsRequired), typeof(bool), typeof(AppFrame), false, defaultBindingMode: BindingMode.OneTime);
+         BindableProperty.Create(nameof(IsRequired), typeof(bool), typeof(AppFrame), false, defaultBindingMode: BindingMode.OneWay);
 
         public static readonly BindableProperty IsMultiLineProperty =
-         BindableProperty.Create(nameof(IsMultiLine), typeof(bool), typeof(AppFrame), false, defaultBindingMode: BindingMode.OneTime);
+         BindableProperty.Create(nameof(IsMultiLine), typeof(bool), typeof(AppFrame), false, defaultBindingMode: BindingMode.OneWay);
 
         public static readonly BindableProperty KeyboardProperty =
-         BindableProperty.Create(nameof(Keyboard), typeof(Keyboard), typeof(AppFrame), Keyboard.Default, defaultBindingMode: BindingMode.OneTime);
+         BindableProperty.Create(nameof(Keyboard), typeof(Keyboard), typeof(AppFrame), Keyboard.Default, defaultBindingMode: BindingMode.OneWay);
 
         public string Title
         {

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using MVP.Models;
+using MVP.ViewModels.Data;
 using MvvmHelpers;
 
 namespace MVP.Extensions
@@ -29,6 +30,28 @@ namespace MVP.Extensions
                 result.Add(new Grouping<int, Contribution>(1, lastPeriod));
 
             return result;
+        }
+
+        public static ContributionViewModel ToContributionViewModel(this Contribution contribution)
+        {
+            if (contribution == null)
+                return null;
+
+            return new ContributionViewModel
+            {
+                AdditionalTechnologies = contribution.AdditionalTechnologies,
+                AnnualQuantity = contribution.AnnualQuantity,
+                AnnualReach = contribution.AnnualReach,
+                ContributionId = contribution.ContributionId,
+                ContributionTechnology = contribution.ContributionTechnology,
+                ContributionType = contribution.ContributionType,
+                Description = contribution.Description,
+                ReferenceUrl = contribution.ReferenceUrl,
+                SecondAnnualQuantity = contribution.SecondAnnualQuantity,
+                StartDate = contribution.StartDate ?? DateTime.Now.Date,
+                Title = contribution.Title,
+                Visibility = contribution.Visibility
+            };
         }
 
         public static ContributionTypeConfig GetContributionTypeRequirements(this Guid contributionType)

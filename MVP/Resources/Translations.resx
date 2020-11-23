@@ -153,8 +153,11 @@
     <data name="tabs_settings" xml:space="preserve">
         <value>Settings</value>
     </data>
-    <data name="contributionform_title" xml:space="preserve">
+    <data name="contributionform_title_add" xml:space="preserve">
         <value>Add contribution</value>
+    </data>
+    <data name="contributionform_title_edit" xml:space="preserve">
+        <value>Edit contribution</value>
     </data>
     <data name="language_english" xml:space="preserve">
         <value>English</value>
@@ -170,6 +173,12 @@
     </data>
     <data name="field_activity_type" xml:space="preserve">
         <value>Activity type</value>
+    </data>
+    <data name="field_url" xml:space="preserve">
+        <value>URL</value>
+    </data>
+    <data name="field_title" xml:space="preserve">
+        <value>Title of activity</value>
     </data>
     <data name="field_primary_contribution_area" xml:space="preserve">
         <value>Primary contribution area</value>

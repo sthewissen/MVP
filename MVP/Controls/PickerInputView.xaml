@@ -4,16 +4,15 @@
              xmlns:xct="clr-namespace:Xamarin.CommunityToolkit.Converters;assembly=Xamarin.CommunityToolkit"
              xmlns:touch="clr-namespace:TouchEffect;assembly=TouchEffect"
              x:Class="MVP.Controls.PickerInputView"
-             Spacing="8"
              x:Name="inputView"
              xmlns:icons="clr-namespace:MVP.Styles"
              touch:TouchEff.PressedBackgroundColor="{AppThemeBinding Light={StaticResource light_blue}, Dark={StaticResource background_dark_gray_highlight}}"
              touch:TouchEff.RegularBackgroundColor="{AppThemeBinding Light={StaticResource white}, Dark={StaticResource black}}"
              touch:TouchEff.Command="{Binding PickerCommand, Source={x:Reference inputView}}">
 
-    <Grid Padding="32,16,32,0"
+    <Grid Padding="32,16"
           ColumnDefinitions="*, Auto"
-          RowDefinitions="Auto, Auto, Auto"
+          RowDefinitions="Auto, Auto"
           ColumnSpacing="24"
           RowSpacing="4">
 
@@ -27,11 +26,13 @@
             </Label.FormattedText>
         </Label>
 
-        <Label Grid.Row="2"
+        <Label Grid.Row="1"
+               FontSize="16"
+               TextColor="Black"
                IsVisible="{Binding Value, Source={x:Reference inputView}, Converter={xct:IsNotNullOrEmptyConverter}}"
-               Text="This is the value you picked" />
+               Text="{Binding Value, Source={x:Reference inputView}}" />
 
-        <Label Grid.Row="2"
+        <Label Grid.Row="1"
                TextColor="{StaticResource gray}"
                IsVisible="{Binding Value, Source={x:Reference inputView}, Converter={xct:IsNullOrEmptyConverter}}"
                Text="{Binding Placeholder, Source={x:Reference inputView}}" />
@@ -39,13 +40,10 @@
         <Label FontFamily="{StaticResource font_icon}"
                FontSize="24"
                Grid.Column="1"
-               Grid.RowSpan="3"
+               Grid.RowSpan="2"
                Text="{x:Static icons:Icons.chevron_right}"
                TextColor="{AppThemeBinding Light={StaticResource gray}, Dark={StaticResource gray}}"
                VerticalOptions="Center"
                VerticalTextAlignment="Center"/>
     </Grid>
-
-    <BoxView Margin="16,16,16,0"
-             Style="{StaticResource separator}"/>
 </StackLayout>

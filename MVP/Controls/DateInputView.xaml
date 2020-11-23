@@ -33,7 +33,4 @@
                     Format="D"
                     Date="{Binding Value, Source={x:Reference inputView}}" />
     </Frame>
-
-    <BoxView Margin="16,16,16,0"
-             Style="{StaticResource separator}"/>
 </StackLayout>

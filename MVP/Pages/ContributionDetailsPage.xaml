@@ -33,7 +33,7 @@
                                LineBreakMode="TailTruncation"
                                MaxLines="1"
                                Style="{StaticResource contribution_item_category_label}"
-                               Text="{Binding Contribution.ContributionType.EnglishName}"
+                               Text="{Binding Contribution.ContributionType.EnglishName, Converter={converters:TextCaseConverter Type=Upper}}"
                                TextColor="{Binding Contribution.ContributionType.Id, Converter={StaticResource ContributionTypeTextConverter}}"/>
                     </Frame>
 

@@ -71,8 +71,8 @@ namespace MVP.Pages
             navigationProfilePage.Title = Translations.tabs_settings;
 
             Children.Add(navigationMainPage);
-            Children.Add(statsPage);
-            Children.Add(badgesPage);
+            //Children.Add(statsPage);
+            //Children.Add(badgesPage);
             Children.Add(navigationProfilePage);
         }
 

@@ -191,6 +191,15 @@
         <Setter Property="LineBreakMode" Value="TailTruncation" />
     </Style>
 
+    <Style x:Key="list_item_subtitle_label" TargetType="Label">
+        <Setter Property="TextColor" Value="{StaticResource gray}" />
+        <Setter Property="VerticalOptions" Value="Center" />
+        <Setter Property="VerticalTextAlignment" Value="Center" />
+        <Setter Property="FontFamily" Value="{StaticResource font_regular}" />
+        <Setter Property="FontSize" Value="14" />
+        <Setter Property="LineBreakMode" Value="TailTruncation" />
+    </Style>
+
     <Style x:Key="button_menu_icon" TargetType="Button">
         <Setter Property="BackgroundColor" Value="{AppThemeBinding Light={StaticResource white}, Dark={StaticResource black}}" />
         <Setter Property="TextColor" Value="{AppThemeBinding Light={StaticResource black}, Dark={StaticResource white}}" />

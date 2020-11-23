@@ -119,9 +119,15 @@ namespace MVP.Resources {
             }
         }
         
-        internal static string contributionform_title {
+        internal static string contributionform_title_add {
             get {
-                return ResourceManager.GetString("contributionform_title", resourceCulture);
+                return ResourceManager.GetString("contributionform_title_add", resourceCulture);
+            }
+        }
+        
+        internal static string contributionform_title_edit {
+            get {
+                return ResourceManager.GetString("contributionform_title_edit", resourceCulture);
             }
         }
         
@@ -155,9 +161,21 @@ namespace MVP.Resources {
             }
         }
         
+        internal static string field_title {
+            get {
+                return ResourceManager.GetString("field_title", resourceCulture);
+            }
+        }
+        
         internal static string field_primary_contribution_area {
             get {
                 return ResourceManager.GetString("field_primary_contribution_area", resourceCulture);
+            }
+        }
+        
+        internal static string field_url {
+            get {
+                return ResourceManager.GetString("field_url", resourceCulture);
             }
         }
         
