@@ -88,7 +88,7 @@
 
                         <Label Style="{StaticResource field_description}" 
                                Grid.Row="1"
-                               Text="{xct:Translate setting_contributionfromurl_desc}"/>
+                               Text="{xct:Translate setting_contributionfromurl_description}"/>
 
                         <Switch Grid.Column="1"
                                 Grid.RowSpan="2"
@@ -113,7 +113,7 @@
 
                         <Label Style="{StaticResource field_description}" 
                                Grid.Row="1"
-                               Text="{xct:Translate setting_apptheme_desc}"/>
+                               Text="{xct:Translate setting_apptheme_description}"/>
 
                         <Label FontFamily="{StaticResource font_icon}"
                                FontSize="24"
@@ -138,11 +138,11 @@
                           touch:TouchEff.Command="{Binding OpenLanguagePickerCommand}">
 
                         <Label Style="{StaticResource field_title}" 
-                               Text="Language"/>
+                               Text="{xct:Translate setting_language_title}"/>
 
                         <Label Style="{StaticResource field_description}" 
                                Grid.Row="1"
-                               Text="Don't like the language we picked for you? You can override it here."/>
+                               Text="{xct:Translate setting_language_description}"/>
 
                         <Label FontFamily="{StaticResource font_icon}"
                                FontSize="24"

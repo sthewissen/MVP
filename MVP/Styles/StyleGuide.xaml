@@ -318,7 +318,7 @@
 
     <Style x:Key="field_description" TargetType="Label">
         <Setter Property="TextColor" Value="{StaticResource gray}"/>
-        <Setter Property="FontSize" Value="13"/>
+        <Setter Property="FontSize" Value="14"/>
     </Style>
 
     <Style x:Key="field_title" TargetType="Label">
@@ -338,5 +338,36 @@
         <Setter Property="FontFamily" Value="{StaticResource font_bold}"/>
         <Setter Property="FontSize" Value="20"/>
         <Setter Property="MaxLines" Value="1"/>
+    </Style>
+
+    <Style x:Key="input_multi_editor" TargetType="Editor">
+        <Setter Property="AutoSize" Value="TextChanges"/>
+        <Setter Property="FontFamily" Value="{StaticResource font_regular}"/>
+        <Setter Property="FontSize" Value="16"/>
+        <Setter Property="Margin" Value="16,0"/>
+        <Setter Property="BackgroundColor" Value="Transparent"/>
+    </Style>
+
+    <Style x:Key="input_multi_frame" TargetType="Frame">
+        <Setter Property="BackgroundColor" Value="{AppThemeBinding Light={StaticResource white}, Dark={StaticResource black}}" />
+        <Setter Property="BorderColor" Value="{StaticResource border_light_gray}"/>
+        <Setter Property="CornerRadius" Value="8"/>
+        <Setter Property="Padding" Value="0,8"/>
+        <Setter Property="Margin" Value="24,0"/>
+    </Style>
+
+    <Style x:Key="input_single_entry" TargetType="Entry">
+        <Setter Property="FontFamily" Value="{StaticResource font_regular}"/>
+        <Setter Property="FontSize" Value="16"/>
+        <Setter Property="Margin" Value="16,0"/>
+        <Setter Property="BackgroundColor" Value="Transparent"/>
+    </Style>
+
+    <Style x:Key="input_single_frame" TargetType="Frame">
+        <Setter Property="BackgroundColor" Value="{AppThemeBinding Light={StaticResource white}, Dark={StaticResource black}}" />
+        <Setter Property="BorderColor" Value="{StaticResource border_light_gray}"/>
+        <Setter Property="CornerRadius" Value="8"/>
+        <Setter Property="Margin" Value="24,0"/>
+        <Setter Property="HeightRequest" Value="52"/>
     </Style>
 </ResourceDictionary>

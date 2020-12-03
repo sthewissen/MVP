@@ -24,13 +24,13 @@
     <data name="setting_contributionfromurl_title" xml:space="preserve">
         <value>Activiteit maken via klembord</value>
     </data>
-    <data name="setting_contributionfromurl_desc" xml:space="preserve">
+    <data name="setting_contributionfromurl_description" xml:space="preserve">
         <value>Wanneer er zich een geldige URL op je klembord bevindt zodra je een activiteit gaat toevoegen, zal de app vragen of de metadata van deze URL gebruikt moet worden om je activiteit deels automatisch in te vullen.</value>
     </data>
     <data name="setting_apptheme_title" xml:space="preserve">
         <value>Weergave</value>
     </data>
-    <data name="setting_apptheme_desc" xml:space="preserve">
+    <data name="setting_apptheme_description" xml:space="preserve">
         <value>Deze applicatie kan zowel in een lichte als een donkere weergave gebruikt worden. Standaard neemt de app de instelling van de telefoon over. Wanneer een van beide weergaves je voorkeur heeft kan deze hier ingesteld worden.</value>
     </data>
     <data name="button_logout" xml:space="preserve">
@@ -92,5 +92,47 @@
     </data>
     <data name="button_delete_contribution" xml:space="preserve">
         <value>Delete contribution</value>
+    </data>
+    <data name="about_title" xml:space="preserve">
+        <value>About this app</value>
+    </data>
+    <data name="about_why_title" xml:space="preserve">
+        <value>Why did you build  this app?</value>
+    </data>
+    <data name="about_why_description" xml:space="preserve">
+        <value>There has always been a need for Microsoft MVPs to manage their community activities in an easier way. The online portal works fine, but having a similar thing in your pocket to create activities on the fly is really cool. Which is what this project is for!</value>
+    </data>
+    <data name="about_opensource_title" xml:space="preserve">
+        <value>Open source</value>
+    </data>
+    <data name="about_opensource_description" xml:space="preserve">
+        <value>This app is completely open source. If you like the app, feel free to become a GitHub sponsor, buying me a digital cup of coffee a month ☕️</value>
+    </data>
+    <data name="button_becomesponsor" xml:space="preserve">
+        <value>Become a sponsor</value>
+    </data>
+    <data name="contribution_form_timeframememo" xml:space="preserve">
+        <value>Your contribution submission for the July award cycle must be for community activities between April 1, 2020 to March 31, 2021. Community activities submitted from April 1st and beyond will be held for future consideration.</value>
+    </data>
+    <data name="contributionform_activitytype_placeholder" xml:space="preserve">
+        <value>Select the activity type that best fits this activity.</value>
+    </data>
+    <data name="contributionform_technologyarea_placeholder" xml:space="preserve">
+        <value>Select the technology area that is the primary focus of this activity.</value>
+    </data>
+    <data name="contributionform_additionaltechnologyarea_placeholder" xml:space="preserve">
+        <value>Select up to 2 additional technology areas that may also apply to this activity.</value>
+    </data>
+    <data name="contributionform_visibility_placeholder" xml:space="preserve">
+        <value>Select the visibility level of this activity.</value>
+    </data>
+    <data name="setting_language_title" xml:space="preserve">
+        <value>Language</value>
+    </data>
+    <data name="setting_language_description" xml:space="preserve">
+        <value>Don&apos;t like the language we picked for you? You can override it here.</value>
+    </data>
+    <data name="themepicker_title" xml:space="preserve">
+        <value>App theme</value>
     </data>
 </root>

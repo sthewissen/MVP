@@ -21,37 +21,63 @@
            Style="{StaticResource field_description}"
            Text="{Binding Description, Source={x:Reference inputView}}"/>
 
-    <Frame IsVisible="{Binding IsMultiLine, Converter={xct:InvertedBoolConverter}, Source={x:Reference inputView}}"
-           BorderColor="{StaticResource border_light_gray}"
-           Margin="24,0"
-           CornerRadius="8"
-           HeightRequest="52"
+    <Frame Style="{StaticResource input_single_frame}"
+           IsVisible="{Binding IsMultiLine, Converter={xct:InvertedBoolConverter}, Source={x:Reference inputView}}"
            x:Name="frameEntry">
-        <Entry BackgroundColor="Transparent"
+        <Frame.Triggers>
+            <DataTrigger TargetType="Frame"
+                         Binding="{Binding IsValid, Source={x:Reference inputView}}"
+                         Value="False">
+                <Setter Property="BorderColor"
+                        Value="{StaticResource error}" />
+            </DataTrigger>
+        </Frame.Triggers>
+        <Entry Style="{StaticResource input_single_entry}" 
                Focused="Entry_Focused"
                Unfocused="Entry_Unfocused"
-               FontFamily="{StaticResource font_regular}"
-               FontSize="16"
                Keyboard="{Binding Keyboard, Source={x:Reference inputView}}"
-               Margin="16,0"
                Placeholder="{Binding Placeholder, Source={x:Reference inputView}}"
-               Text="{Binding Value, Source={x:Reference inputView}}" />
+               Text="{Binding Value, Source={x:Reference inputView}}">
+            <Entry.Triggers>
+                <DataTrigger TargetType="Entry"
+                             Binding="{Binding IsValid, Source={x:Reference inputView}}"
+                             Value="False">
+                    <Setter Property="TextColor"
+                            Value="{StaticResource error}" />
+                </DataTrigger>
+            </Entry.Triggers>
+        </Entry>
     </Frame>
 
-    <Frame IsVisible="{Binding IsMultiLine, Source={x:Reference inputView}}"
-           BorderColor="{StaticResource border_light_gray}"
-           Margin="24,0"
-           CornerRadius="8"
-           Padding="0,8"
+    <Frame Style="{StaticResource input_multi_frame}"
+           IsVisible="{Binding IsMultiLine, Source={x:Reference inputView}}"
            x:Name="frameEditor">
-        <Editor BackgroundColor="Transparent"
+        <Frame.Triggers>
+            <DataTrigger TargetType="Frame"
+                         Binding="{Binding IsValid, Source={x:Reference inputView}}"
+                         Value="False">
+                <Setter Property="BorderColor"
+                        Value="{StaticResource error}" />
+            </DataTrigger>
+        </Frame.Triggers>
+        <Editor Style="{StaticResource input_multi_editor}" 
                 Focused="Entry_Focused"
                 Unfocused="Entry_Unfocused"
-                FontFamily="{StaticResource font_regular}"
-                FontSize="16"
-                AutoSize="TextChanges"
-                Placeholder="{Binding Placeholder, Source={x:Reference inputView}}"
-                Margin="16,0" 
-                Text="{Binding Value, Source={x:Reference inputView}}" />
+                Placeholder="{Binding Placeholder, Source={x:Reference inputView}}" 
+                Text="{Binding Value, Source={x:Reference inputView}}">
+            <Editor.Triggers>
+                <DataTrigger TargetType="Editor"
+                             Binding="{Binding IsValid, Source={x:Reference inputView}}"
+                             Value="False">
+                    <Setter Property="TextColor"
+                            Value="{StaticResource error}" />
+                </DataTrigger>
+            </Editor.Triggers>
+        </Editor>
     </Frame>
+
+    <Label Margin="32,0"
+           IsVisible="{Binding Errors, Converter={xct:IsNotNullOrEmptyConverter}, Source={x:Reference inputView}}"
+           Text="{Binding Errors, Source={x:Reference inputView}}"
+           TextColor="{StaticResource error}" />
 </StackLayout>

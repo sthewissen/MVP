@@ -35,7 +35,16 @@
         <Label Grid.Row="1"
                TextColor="{StaticResource gray}"
                IsVisible="{Binding Value, Source={x:Reference inputView}, Converter={xct:IsNullOrEmptyConverter}}"
-               Text="{Binding Placeholder, Source={x:Reference inputView}}" />
+               Text="{Binding Placeholder, Source={x:Reference inputView}}">
+            <Label.Triggers>
+                <DataTrigger TargetType="Label"
+                             Binding="{Binding IsValid, Source={x:Reference inputView}}"
+                             Value="False">
+                    <Setter Property="TextColor"
+                            Value="{StaticResource error}" />
+                </DataTrigger>
+            </Label.Triggers>
+        </Label>
 
         <Label FontFamily="{StaticResource font_icon}"
                FontSize="24"

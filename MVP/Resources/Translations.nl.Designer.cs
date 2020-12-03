@@ -71,9 +71,9 @@ namespace MVP.Resources {
             }
         }
         
-        internal static string setting_contributionfromurl_desc {
+        internal static string setting_contributionfromurl_description {
             get {
-                return ResourceManager.GetString("setting_contributionfromurl_desc", resourceCulture);
+                return ResourceManager.GetString("setting_contributionfromurl_description", resourceCulture);
             }
         }
         
@@ -83,9 +83,9 @@ namespace MVP.Resources {
             }
         }
         
-        internal static string setting_apptheme_desc {
+        internal static string setting_apptheme_description {
             get {
-                return ResourceManager.GetString("setting_apptheme_desc", resourceCulture);
+                return ResourceManager.GetString("setting_apptheme_description", resourceCulture);
             }
         }
         
@@ -206,6 +206,90 @@ namespace MVP.Resources {
         internal static string button_delete_contribution {
             get {
                 return ResourceManager.GetString("button_delete_contribution", resourceCulture);
+            }
+        }
+        
+        internal static string about_title {
+            get {
+                return ResourceManager.GetString("about_title", resourceCulture);
+            }
+        }
+        
+        internal static string about_why_title {
+            get {
+                return ResourceManager.GetString("about_why_title", resourceCulture);
+            }
+        }
+        
+        internal static string about_why_description {
+            get {
+                return ResourceManager.GetString("about_why_description", resourceCulture);
+            }
+        }
+        
+        internal static string about_opensource_title {
+            get {
+                return ResourceManager.GetString("about_opensource_title", resourceCulture);
+            }
+        }
+        
+        internal static string about_opensource_description {
+            get {
+                return ResourceManager.GetString("about_opensource_description", resourceCulture);
+            }
+        }
+        
+        internal static string button_becomesponsor {
+            get {
+                return ResourceManager.GetString("button_becomesponsor", resourceCulture);
+            }
+        }
+        
+        internal static string contribution_form_timeframememo {
+            get {
+                return ResourceManager.GetString("contribution_form_timeframememo", resourceCulture);
+            }
+        }
+        
+        internal static string contributionform_activitytype_placeholder {
+            get {
+                return ResourceManager.GetString("contributionform_activitytype_placeholder", resourceCulture);
+            }
+        }
+        
+        internal static string contributionform_technologyarea_placeholder {
+            get {
+                return ResourceManager.GetString("contributionform_technologyarea_placeholder", resourceCulture);
+            }
+        }
+        
+        internal static string contributionform_additionaltechnologyarea_placeholder {
+            get {
+                return ResourceManager.GetString("contributionform_additionaltechnologyarea_placeholder", resourceCulture);
+            }
+        }
+        
+        internal static string contributionform_visibility_placeholder {
+            get {
+                return ResourceManager.GetString("contributionform_visibility_placeholder", resourceCulture);
+            }
+        }
+        
+        internal static string setting_language_title {
+            get {
+                return ResourceManager.GetString("setting_language_title", resourceCulture);
+            }
+        }
+        
+        internal static string setting_language_description {
+            get {
+                return ResourceManager.GetString("setting_language_description", resourceCulture);
+            }
+        }
+        
+        internal static string themepicker_title {
+            get {
+                return ResourceManager.GetString("themepicker_title", resourceCulture);
             }
         }
     }

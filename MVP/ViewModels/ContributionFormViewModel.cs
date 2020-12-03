@@ -5,6 +5,7 @@ using MVP.Models;
 using MVP.Services.Interfaces;
 using MVP.ViewModels.Data;
 using TinyNavigationHelper;
+using Xamarin.Forms;
 
 namespace MVP.ViewModels
 {
@@ -18,6 +19,7 @@ namespace MVP.ViewModels
             IDialogService dialogService, INavigationHelper navigationHelper)
             : base(analyticsService, authService, dialogService, navigationHelper)
         {
+            SecondaryCommand = new Command(() => { if (Contribution.IsValid()) return; });
         }
 
         public async override Task Initialize()
@@ -27,6 +29,7 @@ namespace MVP.ViewModels
             if (NavigationParameter is Contribution contribution)
             {
                 Contribution = contribution.ToContributionViewModel();
+
                 IsEditing = contribution.ContributionId.HasValue && contribution.ContributionId.Value > 0;
 
                 if (contribution.ContributionType != null && contribution.ContributionType.Id.HasValue)
@@ -35,9 +38,7 @@ namespace MVP.ViewModels
                 }
             }
 
-            if (Contribution.StartDate == default)
-                Contribution.StartDate = DateTime.Now.Date;
-
+            Contribution.AddValidationRules();
             //LoadContributionAreas().SafeFireAndForget();
         }
 

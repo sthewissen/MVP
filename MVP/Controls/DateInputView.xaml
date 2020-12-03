@@ -21,11 +21,16 @@
            Style="{StaticResource field_description}"
            Text="{Binding Description, Source={x:Reference inputView}}"/>
 
-    <Frame BorderColor="{StaticResource border_light_gray}"
-           Margin="24,0"
-           CornerRadius="8"
-           HeightRequest="52"
+    <Frame Style="{StaticResource input_single_frame}"
            x:Name="framePicker">
+        <Frame.Triggers>
+            <DataTrigger TargetType="Frame"
+                         Binding="{Binding IsValid, Source={x:Reference inputView}}"
+                         Value="False">
+                <Setter Property="BorderColor"
+                        Value="{StaticResource error}" />
+            </DataTrigger>
+        </Frame.Triggers>
         <DatePicker BackgroundColor="Transparent"
                     Focused="DatePicker_Focused"
                     Unfocused="DatePicker_Unfocused"
@@ -33,4 +38,9 @@
                     Format="D"
                     Date="{Binding Value, Source={x:Reference inputView}}" />
     </Frame>
+
+    <Label Margin="32,0"
+           IsVisible="{Binding Errors, Converter={xct:IsNotNullOrEmptyConverter}, Source={x:Reference inputView}}"
+           Text="{Binding Errors, Source={x:Reference inputView}}"
+           TextColor="{StaticResource error}" />
 </StackLayout>

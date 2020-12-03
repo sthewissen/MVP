@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using MVP.Models;
+using MVP.Validation;
 using MVP.ViewModels.Data;
 using MvvmHelpers;
 
@@ -40,17 +41,17 @@ namespace MVP.Extensions
             return new ContributionViewModel
             {
                 AdditionalTechnologies = contribution.AdditionalTechnologies,
-                AnnualQuantity = contribution.AnnualQuantity,
-                AnnualReach = contribution.AnnualReach,
+                AnnualQuantity = new ValidatableObject<int?> { Value = contribution.AnnualQuantity },
+                AnnualReach = new ValidatableObject<int?> { Value = contribution.AnnualReach },
                 ContributionId = contribution.ContributionId,
-                ContributionTechnology = contribution.ContributionTechnology,
-                ContributionType = contribution.ContributionType,
+                ContributionTechnology = new ValidatableObject<ContributionTechnology> { Value = contribution.ContributionTechnology },
+                ContributionType = new ValidatableObject<ContributionType> { Value = contribution.ContributionType },
                 Description = contribution.Description,
-                ReferenceUrl = contribution.ReferenceUrl,
-                SecondAnnualQuantity = contribution.SecondAnnualQuantity,
+                ReferenceUrl = new ValidatableObject<string> { Value = contribution.ReferenceUrl },
+                SecondAnnualQuantity = new ValidatableObject<int?> { Value = contribution.SecondAnnualQuantity },
                 StartDate = contribution.StartDate ?? DateTime.Now.Date,
-                Title = contribution.Title,
-                Visibility = contribution.Visibility
+                Title = new ValidatableObject<string> { Value = contribution.Title },
+                Visibility = new ValidatableObject<Visibility> { Value = contribution.Visibility }
             };
         }
 

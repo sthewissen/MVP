@@ -30,50 +30,65 @@
             <ScrollView>
                 <StackLayout Padding="0,32">
 
+                    <Label Padding="32,0"
+                           TextColor="{StaticResource gray}"
+                           FontSize="13"
+                           Text="{xct:Translate contribution_form_timeframememo}" />
+
+                    <BoxView Margin="16,16,16,0"
+                             Style="{StaticResource separator}"/>
+
                     <controls:PickerInputView Title="{xct:Translate field_activity_type}"
                                               IsRequired="True"
-                                              Value="{Binding Contribution.ContributionType}"
-                                              Placeholder="Select the activity type that best fits this activity." />
+                                              IsValid="{Binding Contribution.ContributionType.IsValid}"
+                                              Errors="{Binding Contribution.ContributionType.Errors, Converter={converters:ListToStringConverter}}"
+                                              Value="{Binding Contribution.ContributionType.Value}"
+                                              Placeholder="{xct:Translate contributionform_activitytype_placeholder}" />
 
                     <BoxView Margin="16,0"
                              Style="{StaticResource separator}"/>
 
                     <controls:PickerInputView Title="{xct:Translate field_primary_contribution_area}"
                                               IsRequired="True"
-                                              Value="{Binding Contribution.ContributionTechnology}"
-                                              Placeholder="Select the technology area that is the primary focus of this activity." />
+                                              IsValid="{Binding Contribution.ContributionTechnology.IsValid}"
+                                              Errors="{Binding Contribution.ContributionTechnology.Errors, Converter={converters:ListToStringConverter}}"
+                                              Value="{Binding Contribution.ContributionTechnology.Value}"
+                                              Placeholder="{xct:Translate contributionform_technologyarea_placeholder}" />
 
                     <BoxView Margin="16,0"
                              Style="{StaticResource separator}"/>
 
                     <controls:PickerInputView Title="{xct:Translate field_additional_contribution_areas}"
                                               Value="{Binding Contribution.AdditionalTechnologies, Converter={converters:ListToStringConverter Separator=','}}"
-                                              Placeholder="Select up to 2 additional technology areas that may also apply to this activity." />
+                                              Placeholder="{xct:Translate contributionform_additionaltechnologyarea_placeholder}" />
 
                     <BoxView Margin="16,0"
                              Style="{StaticResource separator}"/>
 
                     <controls:DateInputView Title="{xct:Translate field_activity_date}"
                                             IsRequired="True"
-                                            Value="{Binding Contribution.StartDate}"
-                                            Description="Your contribution submission for the July award cycle must be for community activities between April 1, 2020 to March 31, 2021. Community activities submitted from April 1st and beyond will be held for future consideration." />
+                                            Value="{Binding Contribution.StartDate}" />
 
                     <BoxView Margin="16,16,16,0"
                              Style="{StaticResource separator}"/>
 
                     <controls:InputView Title="{xct:Translate field_title}"
                                         IsRequired="True"
-                                        Value="{Binding Contribution.Title}" />
+                                        IsValid="{Binding Contribution.Title.IsValid}"
+                                        Errors="{Binding Contribution.Title.Errors, Converter={converters:ListToStringConverter}}"
+                                        Value="{Binding Contribution.Title.Value}" />
 
                     <BoxView Margin="16,16,16,0"
                              Style="{StaticResource separator}"/>
 
                     <controls:InputView Title="{xct:Translate field_url}"
                                         IsRequired="{Binding ContributionTypeConfig.IsUrlRequired}"
-                                        Keyboard="Url"                                        
-                                        Value="{Binding Contribution.ReferenceUrl}" />
+                                        Keyboard="Url"
+                                        IsValid="{Binding Contribution.ReferenceUrl.IsValid}"
+                                        Errors="{Binding Contribution.ReferenceUrl.Errors, Converter={converters:ListToStringConverter}}"
+                                        Value="{Binding Contribution.ReferenceUrl.Value}" />
 
-                    <controls:UrlPreviewView Url="{Binding Contribution.ReferenceUrl}" Padding="32,0" />
+                    <controls:UrlPreviewView Url="{Binding Contribution.ReferenceUrl.Value}" Padding="32,0" />
 
                     <BoxView Margin="16,16,16,0"
                              Style="{StaticResource separator}"/>
@@ -86,18 +101,21 @@
                              Style="{StaticResource separator}"/>
 
                     <controls:PickerInputView Title="{xct:Translate field_visibility}"
-                                              Value="{Binding Contribution.Visibility}"
-                                              Placeholder="Select the visibility level of this activity." />
+                                              Value="{Binding Contribution.Visibility.Value}"
+                                              IsValid="{Binding Contribution.Visibility.IsValid}"
+                                              Placeholder="{xct:Translate contributionform_visibility_placeholder}" />
 
-                    <StackLayout IsVisible="{Binding Contribution.ContributionType, Converter={converters:IsNotNullOrEmptyConverter}}">
+                    <StackLayout IsVisible="{Binding Contribution.ContributionType.Value, Converter={converters:IsNotNullOrEmptyConverter}}">
                         <BoxView Margin="16,0"
                              Style="{StaticResource separator}"/>
 
                         <controls:InputView Title="{Binding ContributionTypeConfig.AnnualQuantityHeader}"
                                         IsRequired="{Binding ContributionTypeConfig.IsAnnualQuantityRequired}"
                                         IsVisible="{Binding ContributionTypeConfig.HasAnnualQuantity}"
+                                        IsValid="{Binding Contribution.AnnualQuantity.IsValid}"
+                                        Errors="{Binding Contribution.AnnualQuantity.Errors, Converter={converters:ListToStringConverter}}"
                                         Keyboard="Numeric"
-                                        Value="{Binding Contribution.AnnualQuantity}" />
+                                        Value="{Binding Contribution.AnnualQuantity.Value}" />
 
                         <BoxView Margin="16,16,16,0"
                              Style="{StaticResource separator}"
@@ -106,8 +124,10 @@
                         <controls:InputView Title="{Binding ContributionTypeConfig.SecondAnnualQuantityHeader}"
                                         IsRequired="{Binding ContributionTypeConfig.IsSecondAnnualQuantityRequired}"
                                         IsVisible="{Binding ContributionTypeConfig.HasSecondAnnualQuantity}"
+                                        IsValid="{Binding Contribution.SecondAnnualQuantity.IsValid}"
+                                        Errors="{Binding Contribution.SecondAnnualQuantity.Errors, Converter={converters:ListToStringConverter}}"
                                         Keyboard="Numeric"
-                                        Value="{Binding Contribution.SecondAnnualQuantity}" />
+                                        Value="{Binding Contribution.SecondAnnualQuantity.Value}" />
 
                         <BoxView Margin="16,16,16,0"
                              Style="{StaticResource separator}"
@@ -116,8 +136,10 @@
                         <controls:InputView Title="{Binding ContributionTypeConfig.AnnualReachHeader}"
                                         IsRequired="{Binding ContributionTypeConfig.IsAnnualReachRequired}"
                                         IsVisible="{Binding ContributionTypeConfig.HasAnnualReach}"
+                                        IsValid="{Binding Contribution.AnnualReach.IsValid}"
+                                        Errors="{Binding Contribution.AnnualReach.Errors, Converter={converters:ListToStringConverter}}"
                                         Keyboard="Numeric"
-                                        Value="{Binding Contribution.AnnualReach}" />
+                                        Value="{Binding Contribution.AnnualReach.Value}" />
                     </StackLayout>
                 </StackLayout>
             </ScrollView>

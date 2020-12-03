@@ -29,7 +29,8 @@
                     <BoxView HeightRequest="40"/>
                 </CollectionView.Footer>
 
-                <!--<CollectionView.Header>
+                <!-- No search, the API just isn't suited for it. Yet. Maybe one day.
+                <CollectionView.Header>
                     <StackLayout Padding="16,16,16,24">
                         <Frame Style="{StaticResource search_frame}"
                                touch:TouchEff.Command="{Binding Source={RelativeSource AncestorType={x:Type vm:ContributionsViewModel}}, Path=SearchContributionCommand}">

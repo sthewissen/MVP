@@ -12,19 +12,19 @@ namespace MVP.Controls
     public partial class UrlPreviewView : Grid
     {
         public static readonly BindableProperty UrlProperty =
-            BindableProperty.Create(nameof(Url), typeof(string), typeof(AppFrame), string.Empty, defaultBindingMode: BindingMode.OneWay, propertyChanged: Url_Changed);
+            BindableProperty.Create(nameof(Url), typeof(string), typeof(UrlPreviewView), string.Empty, defaultBindingMode: BindingMode.OneWay, propertyChanged: Url_Changed);
 
         public static readonly BindableProperty TitleProperty =
-            BindableProperty.Create(nameof(Title), typeof(string), typeof(AppFrame), string.Empty, defaultBindingMode: BindingMode.OneWay);
+            BindableProperty.Create(nameof(Title), typeof(string), typeof(UrlPreviewView), string.Empty, defaultBindingMode: BindingMode.OneWay);
 
         public static readonly BindableProperty DescriptionProperty =
-            BindableProperty.Create(nameof(Description), typeof(string), typeof(AppFrame), string.Empty, defaultBindingMode: BindingMode.OneWay);
+            BindableProperty.Create(nameof(Description), typeof(string), typeof(UrlPreviewView), string.Empty, defaultBindingMode: BindingMode.OneWay);
 
         public static readonly BindableProperty ImageUrlProperty =
-            BindableProperty.Create(nameof(ImageUrl), typeof(string), typeof(AppFrame), string.Empty, defaultBindingMode: BindingMode.OneWay);
+            BindableProperty.Create(nameof(ImageUrl), typeof(string), typeof(UrlPreviewView), string.Empty, defaultBindingMode: BindingMode.OneWay);
 
         public static readonly BindableProperty HasValidUrlProperty =
-            BindableProperty.Create(nameof(HasValidUrl), typeof(bool), typeof(AppFrame), false, defaultBindingMode: BindingMode.OneWay);
+            BindableProperty.Create(nameof(HasValidUrl), typeof(bool), typeof(UrlPreviewView), false, defaultBindingMode: BindingMode.OneWay);
 
         static void Url_Changed(BindableObject bindable, object oldValue, object newValue)
         {
