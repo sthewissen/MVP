@@ -10,7 +10,7 @@ namespace MVP.Models
         public string ContributionTypeName { get; set; }
         public ContributionType ContributionType { get; set; }
         public ContributionTechnology ContributionTechnology { get; set; }
-        public ObservableCollection<ContributionTechnology> AdditionalTechnologies { get; set; } = new ObservableCollection<ContributionTechnology>();
+        public IList<ContributionTechnology> AdditionalTechnologies { get; set; } = new List<ContributionTechnology>();
         public DateTime? StartDate { get; set; }
         public string Title { get; set; }
         public string ReferenceUrl { get; set; }

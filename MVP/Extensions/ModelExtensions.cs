@@ -5,6 +5,7 @@ using MVP.Models;
 using MVP.Validation;
 using MVP.ViewModels.Data;
 using MvvmHelpers;
+using Xamarin.CommunityToolkit.ObjectModel;
 
 namespace MVP.Extensions
 {
@@ -40,7 +41,7 @@ namespace MVP.Extensions
 
             return new ContributionViewModel
             {
-                AdditionalTechnologies = contribution.AdditionalTechnologies,
+                AdditionalTechnologies = new Xamarin.CommunityToolkit.ObjectModel.ObservableRangeCollection<ContributionTechnology>(contribution.AdditionalTechnologies),
                 AnnualQuantity = new ValidatableObject<int?> { Value = contribution.AnnualQuantity },
                 AnnualReach = new ValidatableObject<int?> { Value = contribution.AnnualReach },
                 ContributionId = contribution.ContributionId,

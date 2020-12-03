@@ -3,9 +3,9 @@ using Xamarin.Forms;
 
 namespace MVP.Pages
 {
-    public partial class WizardAdditionalTechnologyPage
+    public partial class AdditionalTechnologyPage
     {
-        public WizardAdditionalTechnologyPage(IAnalyticsService analyticsService)
+        public AdditionalTechnologyPage(IAnalyticsService analyticsService)
             : base(analyticsService) => InitializeComponent();
 
         void CollectionView_Scrolled(object sender, ItemsViewScrolledEventArgs e)

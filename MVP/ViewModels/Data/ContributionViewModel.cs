@@ -24,7 +24,7 @@ namespace MVP.ViewModels.Data
         }
 
         public ValidatableObject<ContributionTechnology> ContributionTechnology { get; set; } = new ValidatableObject<ContributionTechnology>();
-        public ObservableCollection<ContributionTechnology> AdditionalTechnologies { get; set; } = new ObservableCollection<ContributionTechnology>();
+        public ObservableRangeCollection<ContributionTechnology> AdditionalTechnologies { get; set; } = new ObservableRangeCollection<ContributionTechnology>();
         public DateTime StartDate { get; set; } = DateTime.Now;
         public ValidatableObject<string> Title { get; set; } = new ValidatableObject<string>();
         public ValidatableObject<string> ReferenceUrl { get; set; } = new ValidatableObject<string>();

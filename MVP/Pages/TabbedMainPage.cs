@@ -2,8 +2,7 @@
 using System.Collections.Specialized;
 using MVP.Styles;
 using TinyMvvm.Forms;
-using TinyNavigationHelper.Abstraction;
-using TinyNavigationHelper.Forms;
+using TinyMvvm;
 using Xamarin.Forms;
 using Xamarin.Forms.PlatformConfiguration;
 using Xamarin.Forms.PlatformConfiguration.iOSSpecific;

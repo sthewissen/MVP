@@ -60,7 +60,8 @@
 
                     <controls:PickerInputView Title="{xct:Translate field_additional_contribution_areas}"
                                               Value="{Binding Contribution.AdditionalTechnologies, Converter={converters:ListToStringConverter Separator=','}}"
-                                              Placeholder="{xct:Translate contributionform_additionaltechnologyarea_placeholder}" />
+                                              Placeholder="{xct:Translate contributionform_additionaltechnologyarea_placeholder}"
+                                              PickerCommand="{Binding PickAdditionalTechnologiesCommand}"/>
 
                     <BoxView Margin="16,0"
                              Style="{StaticResource separator}"/>

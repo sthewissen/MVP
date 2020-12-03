@@ -7,28 +7,28 @@ using System.Windows.Input;
 using MVP.Models;
 using MVP.Pages;
 using MVP.Services.Interfaces;
+using MVP.ViewModels.Data;
 using MvvmHelpers;
-using TinyNavigationHelper;
+using TinyMvvm;
 using Xamarin.CommunityToolkit.ObjectModel;
 using Xamarin.Essentials;
 using Xamarin.Forms;
 
 namespace MVP.ViewModels
 {
-    public class WizardAdditionalTechnologyViewModel : BaseViewModel
+    public class AdditionalTechnologyViewModel : BaseViewModel
     {
-        Contribution contribution;
+        ContributionViewModel contribution;
         IList<ContributionTechnologyViewModel> selectedTechnologies = new List<ContributionTechnologyViewModel>();
 
-        public IAsyncCommand NextCommand { get; set; }
         public ICommand SelectContributionTechnologyCommand { get; set; }
 
         public IList<Grouping<string, ContributionTechnologyViewModel>> GroupedContributionTechnologies { get; set; } = new List<Grouping<string, ContributionTechnologyViewModel>>();
 
-        public WizardAdditionalTechnologyViewModel(IAnalyticsService analyticsService, IAuthService authService, IDialogService dialogService, INavigationHelper navigationHelper)
+        public AdditionalTechnologyViewModel(IAnalyticsService analyticsService, IAuthService authService,
+            IDialogService dialogService, INavigationHelper navigationHelper)
             : base(analyticsService, authService, dialogService, navigationHelper)
         {
-            NextCommand = new AsyncCommand(() => Next());
             SelectContributionTechnologyCommand = new Command<ContributionTechnologyViewModel>((x) => SelectContributionTechnology(x));
         }
 
@@ -36,7 +36,7 @@ namespace MVP.ViewModels
         {
             await base.Initialize();
 
-            if (NavigationParameter is Contribution contribution)
+            if (NavigationParameter is ContributionViewModel contribution)
             {
                 this.contribution = contribution;
             }
@@ -66,7 +66,7 @@ namespace MVP.ViewModels
 
         public async override Task Back()
         {
-            contribution.AdditionalTechnologies = null;
+            contribution.AdditionalTechnologies.ReplaceRange(selectedTechnologies.Select(x => x.ContributionTechnology));
             await NavigationHelper.BackAsync();
         }
 
@@ -104,15 +104,6 @@ namespace MVP.ViewModels
                     }
                 }
             }
-        }
-
-        async Task Next()
-        {
-            // If additional tech is selected, add it to our root object.
-            if (selectedTechnologies.Any())
-                contribution.AdditionalTechnologies = new ObservableCollection<ContributionTechnology>(selectedTechnologies.Select(x => x.ContributionTechnology));
-
-            await NavigationHelper.NavigateToAsync(nameof(WizardDatePage), contribution).ConfigureAwait(false);
         }
     }
 }

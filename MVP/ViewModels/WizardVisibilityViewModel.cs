@@ -5,7 +5,7 @@ using MVP.Models;
 using MVP.Pages;
 using MVP.Services.Interfaces;
 using MvvmHelpers;
-using TinyNavigationHelper;
+using TinyMvvm;
 using Xamarin.CommunityToolkit.ObjectModel;
 using Xamarin.Essentials;
 
@@ -25,7 +25,6 @@ namespace MVP.ViewModels
         public WizardVisibilityViewModel(IAnalyticsService analyticsService, IAuthService authService, IDialogService dialogService, INavigationHelper navigationHelper)
             : base(analyticsService, authService, dialogService, navigationHelper)
         {
-            NextCommand = new AsyncCommand(() => Next());
             SelectVisibilityCommand = new AsyncCommand<VisibilityViewModel>((x) => SelectVisibility(x));
         }
 
@@ -52,7 +51,7 @@ namespace MVP.ViewModels
 
             vm.IsSelected = true;
             contribution.Visibility = vm.Visibility;
-            await NavigationHelper.NavigateToAsync(nameof(WizardAmountsPage), contribution).ConfigureAwait(false);
+            //await NavigationHelper.NavigateToAsync(nameof(WizardAmountsPage), contribution).ConfigureAwait(false);
         }
 
         async Task LoadVisibilities()
@@ -79,11 +78,6 @@ namespace MVP.ViewModels
         {
             contribution.Visibility = null;
             await NavigationHelper.BackAsync().ConfigureAwait(false);
-        }
-
-        async Task Next()
-        {
-            await NavigationHelper.NavigateToAsync(nameof(WizardAmountsPage), contribution).ConfigureAwait(false);
         }
     }
 }

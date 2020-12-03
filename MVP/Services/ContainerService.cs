@@ -1,13 +1,11 @@
-using System;
+﻿using System;
 using System.Linq;
 using System.Reflection;
 using Autofac;
-using MVP.Pages;
 using MVP.Services.Interfaces;
 using MVP.ViewModels;
 using TinyMvvm;
-using TinyNavigationHelper;
-using TinyNavigationHelper.Forms;
+using TinyMvvm.Forms;
 using Xamarin.Forms;
 
 namespace MVP.Services

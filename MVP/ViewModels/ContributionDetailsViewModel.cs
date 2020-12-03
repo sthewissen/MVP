@@ -4,7 +4,7 @@ using MVP.Extensions;
 using MVP.Models;
 using MVP.Pages;
 using MVP.Services.Interfaces;
-using TinyNavigationHelper;
+using TinyMvvm;
 using Xamarin.CommunityToolkit.ObjectModel;
 
 namespace MVP.ViewModels

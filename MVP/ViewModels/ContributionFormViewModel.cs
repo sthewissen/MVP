@@ -2,23 +2,28 @@
 using System.Threading.Tasks;
 using MVP.Extensions;
 using MVP.Models;
+using MVP.Pages;
 using MVP.Services.Interfaces;
 using MVP.ViewModels.Data;
-using TinyNavigationHelper;
+using TinyMvvm;
+using Xamarin.CommunityToolkit.ObjectModel;
 using Xamarin.Forms;
 
 namespace MVP.ViewModels
 {
     public class ContributionFormViewModel : BaseViewModel
     {
-        public ContributionViewModel Contribution { get; set; } = new ContributionViewModel();
         public bool IsEditing { get; set; }
+        public ContributionViewModel Contribution { get; set; } = new ContributionViewModel();
         public ContributionTypeConfig ContributionTypeConfig { get; set; }
+
+        public IAsyncCommand PickAdditionalTechnologiesCommand { get; set; }
 
         public ContributionFormViewModel(IAnalyticsService analyticsService, IAuthService authService,
             IDialogService dialogService, INavigationHelper navigationHelper)
             : base(analyticsService, authService, dialogService, navigationHelper)
         {
+            PickAdditionalTechnologiesCommand = new AsyncCommand(PickAdditionalTechnologies);
             SecondaryCommand = new Command(() => { if (Contribution.IsValid()) return; });
         }
 
@@ -46,5 +51,8 @@ namespace MVP.ViewModels
         // This means it's editing mode and there is no way to go back and change activity type.
         public async override Task Back()
             => await NavigationHelper.CloseModalAsync().ConfigureAwait(false);
+
+        async Task PickAdditionalTechnologies()
+            => await NavigationHelper.NavigateToAsync(nameof(AdditionalTechnologyPage), Contribution).ConfigureAwait(false);
     }
 }

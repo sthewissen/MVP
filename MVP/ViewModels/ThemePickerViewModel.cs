@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Windows.Input;
 using MVP.Services.Interfaces;
-using TinyNavigationHelper;
+using TinyMvvm;
 using Xamarin.Essentials;
 using Xamarin.Forms;
 

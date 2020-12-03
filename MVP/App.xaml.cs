@@ -7,7 +7,7 @@ using MVP.Services;
 using MVP.Pages;
 using TinyMvvm.Autofac;
 using TinyMvvm.IoC;
-using TinyNavigationHelper;
+using TinyMvvm;
 using Xamarin.CommunityToolkit.Helpers;
 using Xamarin.Essentials;
 using MVP.Resources;

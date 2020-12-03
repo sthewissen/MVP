@@ -6,7 +6,7 @@ using MVP.Models;
 using MVP.Pages;
 using MVP.Services.Interfaces;
 using MvvmHelpers;
-using TinyNavigationHelper;
+using TinyMvvm;
 using Xamarin.CommunityToolkit.ObjectModel;
 using Xamarin.Essentials;
 
@@ -104,12 +104,12 @@ namespace MVP.ViewModels
 
             vm.IsSelected = true;
             contribution.ContributionTechnology = vm.ContributionTechnology;
-            await NavigationHelper.NavigateToAsync(nameof(WizardAdditionalTechnologyPage), contribution).ConfigureAwait(false);
+            //await NavigationHelper.NavigateToAsync(nameof(WizardAdditionalTechnologyPage), contribution).ConfigureAwait(false);
         }
 
         async Task Next()
         {
-            await NavigationHelper.NavigateToAsync(nameof(WizardAdditionalTechnologyPage), contribution).ConfigureAwait(false);
+            //await NavigationHelper.NavigateToAsync(nameof(WizardAdditionalTechnologyPage), contribution).ConfigureAwait(false);
         }
     }
 }

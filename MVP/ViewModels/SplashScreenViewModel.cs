@@ -2,7 +2,7 @@
 using System.Threading.Tasks;
 using MVP.Pages;
 using MVP.Services.Interfaces;
-using TinyNavigationHelper;
+using TinyMvvm;
 using Xamarin.CommunityToolkit.ObjectModel;
 using Xamarin.Essentials;
 
