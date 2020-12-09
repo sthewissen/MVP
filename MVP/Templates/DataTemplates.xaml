@@ -27,7 +27,7 @@
                          VerticalOptions="Center"
                          touch:TouchEff.PressedBackgroundColor="{AppThemeBinding Light={StaticResource light_blue}, Dark={StaticResource background_dark_gray_highlight}}"
                          touch:TouchEff.RegularBackgroundColor="{AppThemeBinding Light={StaticResource white}, Dark={StaticResource black}}"
-                         touch:TouchEff.Command="{Binding Source={RelativeSource AncestorType={x:Type vm:ContributionsViewModel}}, Path=OpenContributionCommand}"
+                         touch:TouchEff.Command="{Binding Source={RelativeSource AncestorType={x:Type vm:BaseViewModel}}, Path=OpenContributionCommand}"
                          touch:TouchEff.CommandParameter="{Binding Source={RelativeSource Self}, Path=BindingContext}">
 
                 <Frame BackgroundColor="{Binding ContributionType.Id, Converter={StaticResource ContributionTypeConverter}}"
@@ -62,7 +62,7 @@
                          Spacing="8"
                          touch:TouchEff.PressedBackgroundColor="{AppThemeBinding Light={StaticResource light_blue}, Dark={StaticResource background_dark_gray_highlight}}"
                          touch:TouchEff.RegularBackgroundColor="{AppThemeBinding Light={StaticResource white}, Dark={StaticResource black}}"
-                         touch:TouchEff.Command="{Binding Source={RelativeSource AncestorType={x:Type vm:ThemePickerViewModel}}, Path=SetAppThemeCommand}"
+                         touch:TouchEff.Command="{Binding Source={RelativeSource AncestorType={x:Type vm:BaseViewModel}}, Path=SetAppThemeCommand}"
                          touch:TouchEff.CommandParameter="{Binding Source={RelativeSource Self}, Path=BindingContext}">
 
                 <Label Style="{StaticResource list_item_title_label}"
@@ -89,7 +89,7 @@
                          Spacing="8"
                          touch:TouchEff.PressedBackgroundColor="{AppThemeBinding Light={StaticResource light_blue}, Dark={StaticResource background_dark_gray_highlight}}"
                          touch:TouchEff.RegularBackgroundColor="{AppThemeBinding Light={StaticResource white}, Dark={StaticResource black}}"
-                         touch:TouchEff.Command="{Binding Source={RelativeSource AncestorType={x:Type vm:LanguagePickerViewModel}}, Path=SetAppLanguageCommand}"
+                         touch:TouchEff.Command="{Binding Source={RelativeSource AncestorType={x:Type vm:BaseViewModel}}, Path=SetAppLanguageCommand}"
                          touch:TouchEff.CommandParameter="{Binding Source={RelativeSource Self}, Path=BindingContext}">
 
                 <StackLayout Padding="0,16" Spacing="4">
@@ -121,7 +121,7 @@
                          Spacing="8"
                          touch:TouchEff.PressedBackgroundColor="{AppThemeBinding Light={StaticResource light_blue}, Dark={StaticResource background_dark_gray_highlight}}"
                          touch:TouchEff.RegularBackgroundColor="{AppThemeBinding Light={StaticResource white}, Dark={StaticResource black}}"
-                         touch:TouchEff.Command="{Binding Source={RelativeSource AncestorType={x:Type vm:WizardVisibilityViewModel}}, Path=SelectVisibilityCommand}"
+                         touch:TouchEff.Command="{Binding Source={RelativeSource AncestorType={x:Type vm:BaseViewModel}}, Path=SelectVisibilityCommand}"
                          touch:TouchEff.CommandParameter="{Binding Source={RelativeSource Self}, Path=BindingContext}">
                 <Label Style="{StaticResource list_item_title_label}"
                        Padding="0,16"
@@ -148,7 +148,7 @@
                          Spacing="8"
                          touch:TouchEff.PressedBackgroundColor="{AppThemeBinding Light={StaticResource light_blue}, Dark={StaticResource background_dark_gray_highlight}}"
                          touch:TouchEff.RegularBackgroundColor="{AppThemeBinding Light={StaticResource white}, Dark={StaticResource black}}"
-                         touch:TouchEff.Command="{Binding Source={RelativeSource AncestorType={x:Type vm:WizardContributionTypeViewModel}}, Path=SelectContributionTypeCommand}"
+                         touch:TouchEff.Command="{Binding Source={RelativeSource AncestorType={x:Type vm:BaseViewModel}}, Path=SelectContributionTypeCommand}"
                          touch:TouchEff.CommandParameter="{Binding Source={RelativeSource Self}, Path=BindingContext}">
                 <Label Style="{StaticResource list_item_title_label}"
                        Text="{Binding ContributionType.Name}"                       

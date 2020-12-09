@@ -292,5 +292,65 @@ namespace MVP.Resources {
                 return ResourceManager.GetString("themepicker_title", resourceCulture);
             }
         }
+        
+        internal static string contributiontypepicker_title {
+            get {
+                return ResourceManager.GetString("contributiontypepicker_title", resourceCulture);
+            }
+        }
+        
+        internal static string contributiontechnologypicker_title {
+            get {
+                return ResourceManager.GetString("contributiontechnologypicker_title", resourceCulture);
+            }
+        }
+        
+        internal static string splash_contributionareas {
+            get {
+                return ResourceManager.GetString("splash_contributionareas", resourceCulture);
+            }
+        }
+        
+        internal static string splash_contributiontypes {
+            get {
+                return ResourceManager.GetString("splash_contributiontypes", resourceCulture);
+            }
+        }
+        
+        internal static string splash_visibilities {
+            get {
+                return ResourceManager.GetString("splash_visibilities", resourceCulture);
+            }
+        }
+        
+        internal static string splash_gettingready {
+            get {
+                return ResourceManager.GetString("splash_gettingready", resourceCulture);
+            }
+        }
+        
+        internal static string theme_systemdefault {
+            get {
+                return ResourceManager.GetString("theme_systemdefault", resourceCulture);
+            }
+        }
+        
+        internal static string theme_light {
+            get {
+                return ResourceManager.GetString("theme_light", resourceCulture);
+            }
+        }
+        
+        internal static string theme_dark {
+            get {
+                return ResourceManager.GetString("theme_dark", resourceCulture);
+            }
+        }
+        
+        internal static string visibility_title {
+            get {
+                return ResourceManager.GetString("visibility_title", resourceCulture);
+            }
+        }
     }
 }

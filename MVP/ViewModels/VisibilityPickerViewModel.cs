@@ -1,47 +1,47 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using System.Windows.Input;
 using MVP.Models;
 using MVP.Pages;
 using MVP.Services.Interfaces;
+using MVP.ViewModels.Data;
 using MvvmHelpers;
 using TinyMvvm;
 using Xamarin.CommunityToolkit.ObjectModel;
 using Xamarin.Essentials;
+using Xamarin.Forms;
 
 namespace MVP.ViewModels
 {
-    public class WizardVisibilityViewModel : BaseViewModel
+    public class VisibilityPickerViewModel : BaseViewModel
     {
-        Contribution contribution;
+        ContributionViewModel contribution;
 
-        public bool IsEditing { get; set; }
-
-        public IAsyncCommand NextCommand { get; set; }
-        public IAsyncCommand<VisibilityViewModel> SelectVisibilityCommand { get; }
+        public ICommand SelectVisibilityCommand { get; }
 
         public IList<VisibilityViewModel> Visibilities { get; set; } = new List<VisibilityViewModel>();
 
-        public WizardVisibilityViewModel(IAnalyticsService analyticsService, IAuthService authService, IDialogService dialogService, INavigationHelper navigationHelper)
+        public VisibilityPickerViewModel(IAnalyticsService analyticsService, IAuthService authService,
+            IDialogService dialogService, INavigationHelper navigationHelper)
             : base(analyticsService, authService, dialogService, navigationHelper)
         {
-            SelectVisibilityCommand = new AsyncCommand<VisibilityViewModel>((x) => SelectVisibility(x));
+            SelectVisibilityCommand = new Command<VisibilityViewModel>((x) => SelectVisibility(x));
         }
 
         public async override Task Initialize()
         {
             await base.Initialize();
 
-            if (NavigationParameter is Contribution contrib)
+            if (NavigationParameter is ContributionViewModel contrib)
             {
                 contribution = contrib;
-                IsEditing = contribution.ContributionId.HasValue && contribution.ContributionId.Value > 0;
             }
 
             LoadVisibilities().SafeFireAndForget();
         }
 
-        async Task SelectVisibility(VisibilityViewModel vm)
+        void SelectVisibility(VisibilityViewModel vm)
         {
             if (vm == null)
                 return;
@@ -50,9 +50,10 @@ namespace MVP.ViewModels
                 item.IsSelected = false;
 
             vm.IsSelected = true;
-            contribution.Visibility = vm.Visibility;
-            //await NavigationHelper.NavigateToAsync(nameof(WizardAmountsPage), contribution).ConfigureAwait(false);
         }
+
+        public async override Task Back()
+            => await NavigationHelper.BackAsync(Visibilities.FirstOrDefault(x => x.IsSelected)?.Visibility);
 
         async Task LoadVisibilities()
         {
@@ -65,19 +66,13 @@ namespace MVP.ViewModels
                     Visibilities = result.Select(x => new VisibilityViewModel() { Visibility = x }).ToList();
 
                     // Editing mode
-                    if (contribution.Visibility != null)
+                    if (contribution.Visibility.Value != null)
                     {
-                        var selectedVisibility = Visibilities.FirstOrDefault(x => x.Visibility.Id == contribution.Visibility.Id);
+                        var selectedVisibility = Visibilities.FirstOrDefault(x => x.Visibility.Id == contribution.Visibility.Value.Id);
                         selectedVisibility.IsSelected = true;
                     }
                 }
             }
-        }
-
-        public async override Task Back()
-        {
-            contribution.Visibility = null;
-            await NavigationHelper.BackAsync().ConfigureAwait(false);
         }
     }
 }

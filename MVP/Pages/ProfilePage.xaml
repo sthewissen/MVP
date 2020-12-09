@@ -115,14 +115,10 @@
                                Grid.Row="1"
                                Text="{xct:Translate setting_apptheme_description}"/>
 
-                        <Label FontFamily="{StaticResource font_icon}"
-                               FontSize="24"
+                        <Label Style="{StaticResource chevron}"
                                Grid.Column="1"
                                Grid.RowSpan="2"
-                               Text="{x:Static icons:Icons.chevron_right}"
-                               TextColor="{AppThemeBinding Light={StaticResource gray}, Dark={StaticResource gray}}"
-                               VerticalOptions="Center"
-                               VerticalTextAlignment="Center"/>
+                               Text="{x:Static icons:Icons.chevron_right}"/>
                     </Grid>
 
                     <BoxView Margin="16,0"
@@ -144,14 +140,10 @@
                                Grid.Row="1"
                                Text="{xct:Translate setting_language_description}"/>
 
-                        <Label FontFamily="{StaticResource font_icon}"
-                               FontSize="24"
+                        <Label Style="{StaticResource chevron}"
                                Grid.Column="1"
                                Grid.RowSpan="2"
-                               Text="{x:Static icons:Icons.chevron_right}"
-                               TextColor="{AppThemeBinding Light={StaticResource gray}, Dark={StaticResource gray}}"
-                               VerticalOptions="Center"
-                               VerticalTextAlignment="Center"/>
+                               Text="{x:Static icons:Icons.chevron_right}" />
                     </Grid>
 
                     <BoxView Margin="16,0"

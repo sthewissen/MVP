@@ -130,9 +130,45 @@
         <value>Language</value>
     </data>
     <data name="setting_language_description" xml:space="preserve">
-        <value>Don&apos;t like the language we picked for you? You can override it here.</value>
+        <value>Don't like the language we picked for you? You can override it here.</value>
     </data>
     <data name="themepicker_title" xml:space="preserve">
         <value>App theme</value>
+    </data>
+    <data name="additionaltechnologypicker_title" xml:space="preserve">
+        <value>Additional contribution areas</value>
+    </data>
+    <data name="contributiontechnologypicker_title" xml:space="preserve">
+        <value>Primary contribution area</value>
+    </data>
+    <data name="search_placeholder" xml:space="preserve">
+        <value>Search...</value>
+    </data>
+    <data name="contributiontypepicker_title" xml:space="preserve">
+        <value>Activity type</value>
+    </data>
+    <data name="splash_contributionareas" xml:space="preserve">
+        <value>Grabbing the contribution areas...</value>
+    </data>
+    <data name="splash_contributiontypes" xml:space="preserve">
+        <value>Syncing the contribution types...</value>
+    </data>
+    <data name="splash_visibilities" xml:space="preserve">
+        <value>Putting visibilities in place...</value>
+    </data>
+    <data name="splash_gettingready" xml:space="preserve">
+        <value>Getting things ready...</value>
+    </data>
+    <data name="theme_systemdefault" xml:space="preserve">
+        <value>System Default</value>
+    </data>
+    <data name="theme_light" xml:space="preserve">
+        <value>Light</value>
+    </data>
+    <data name="theme_dark" xml:space="preserve">
+        <value>Dark</value>
+    </data>
+    <data name="visibility_title" xml:space="preserve">
+        <value>Visibility</value>
     </data>
 </root>

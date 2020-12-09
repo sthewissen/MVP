@@ -26,9 +26,8 @@
             </Label.FormattedText>
         </Label>
 
-        <Label Grid.Row="1"
-               FontSize="16"
-               TextColor="Black"
+        <Label Style="{StaticResource input_picker_label}"
+               Grid.Row="1"
                IsVisible="{Binding Value, Source={x:Reference inputView}, Converter={xct:IsNotNullOrEmptyConverter}}"
                Text="{Binding Value, Source={x:Reference inputView}}" />
 
@@ -46,13 +45,9 @@
             </Label.Triggers>
         </Label>
 
-        <Label FontFamily="{StaticResource font_icon}"
-               FontSize="24"
+        <Label Style="{StaticResource chevron}" 
                Grid.Column="1"
                Grid.RowSpan="2"
-               Text="{x:Static icons:Icons.chevron_right}"
-               TextColor="{AppThemeBinding Light={StaticResource gray}, Dark={StaticResource gray}}"
-               VerticalOptions="Center"
-               VerticalTextAlignment="Center"/>
+               Text="{x:Static icons:Icons.chevron_right}" />
     </Grid>
 </StackLayout>

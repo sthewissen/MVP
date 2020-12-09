@@ -106,6 +106,9 @@
         <PackageReference Include="TouchView">
           <Version>4.1.99</Version>
         </PackageReference>
+        <PackageReference Include="Com.Airbnb.Xamarin.Forms.Lottie">
+          <Version>4.0.7</Version>
+        </PackageReference>
     </ItemGroup>
     <ItemGroup>
         <Compile Include="MainActivity.cs" />

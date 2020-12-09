@@ -3,12 +3,12 @@ using Xamarin.Forms;
 
 namespace MVP.Pages
 {
-    public partial class AdditionalTechnologyPage
+    public partial class ContributionTechnologyPickerPage
     {
-        public AdditionalTechnologyPage(IAnalyticsService analyticsService)
+        public ContributionTechnologyPickerPage(IAnalyticsService analyticsService)
             : base(analyticsService) => InitializeComponent();
 
-        void CollectionView_Scrolled(object sender, ItemsViewScrolledEventArgs e)
+        public void CollectionView_Scrolled(object sender, ItemsViewScrolledEventArgs e)
         {
             appFrame.ShadowOpacity = e.VerticalOffset / 50 > 1 ? 1 : e.VerticalOffset / 50;
         }

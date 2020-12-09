@@ -12,9 +12,9 @@ namespace MVP.ViewModels
     public class ThemePickerViewModel : BaseViewModel
     {
         public IList<AppThemeViewModel> AppThemes { get; set; } = new List<AppThemeViewModel> {
-            new AppThemeViewModel() { Key = (int)OSAppTheme.Unspecified, Description = "System Default" },
-            new AppThemeViewModel() { Key = (int)OSAppTheme.Light, Description = "Light" },
-            new AppThemeViewModel() { Key = (int)OSAppTheme.Dark, Description = "Dark" }
+            new AppThemeViewModel() { Key = (int)OSAppTheme.Unspecified, Description = Resources.Translations.theme_systemdefault },
+            new AppThemeViewModel() { Key = (int)OSAppTheme.Light, Description = Resources.Translations.theme_light  },
+            new AppThemeViewModel() { Key = (int)OSAppTheme.Dark, Description = Resources.Translations.theme_dark  }
         };
 
         public ICommand SetAppThemeCommand { get; set; }

@@ -85,7 +85,6 @@
     <x:String x:Key="font_bold">SourceSansPro-Bold</x:String>
     <x:String x:Key="font_regular">SourceSansPro-Regular</x:String>
     <x:String x:Key="font_semibold">SourceSansPro-SemiBold</x:String>
-    <x:String x:Key="font_light">SourceSansPro-Light</x:String>
     <x:String x:Key="font_icon">MVPBuzz</x:String>
 
     <!--Resets-->
@@ -107,7 +106,7 @@
     <!--Overall stylings-->
 
     <Style TargetType="controls:SkeletonView">
-        <Setter Property="BackgroundColor" Value="{StaticResource border_light_gray}"/>
+        <Setter Property="BackgroundColor" Value="{AppThemeBinding Light={StaticResource border_light_gray}, Dark={StaticResource background_dark_gray}}"/>
     </Style>
 
     <Style TargetType="ContentPage" ApplyToDerivedTypes="True">
@@ -154,6 +153,10 @@
         <Setter Property="PlaceholderColor" Value="{StaticResource gray}" />
     </Style>
 
+    <Style TargetType="Switch">
+        <Setter Property="OnColor" Value="{StaticResource primary}"/>
+    </Style>
+
     <!--Implicit stylings-->
 
     <Style x:Key="contribution_item_title" TargetType="Label">
@@ -166,7 +169,7 @@
 
     <Style x:Key="contribution_item_date" TargetType="Label">
         <Setter Property="FontFamily" Value="{StaticResource font_regular}" />
-        <Setter Property="FontSize" Value="12" />
+        <Setter Property="FontSize" Value="13" />
         <Setter Property="TextColor" Value="{StaticResource gray}" />
     </Style>
 
@@ -312,8 +315,14 @@
         <Setter Property="FontFamily" Value="{StaticResource font_semibold}"/>
     </Style>
 
-    <Style TargetType="Switch">
-        <Setter Property="OnColor" Value="{StaticResource primary}"/>
+    <Style x:Key="about_title" TargetType="Label">
+        <Setter Property="FontFamily" Value="{StaticResource font_bold}"/>
+        <Setter Property="FontSize" Value="16"/>
+        <Setter Property="Margin" Value="0,0,0,8"/>
+    </Style>
+
+    <Style x:Key="about_description" TargetType="Label">
+        <Setter Property="TextColor" Value="{StaticResource gray}"/>
     </Style>
 
     <Style x:Key="field_description" TargetType="Label">
@@ -338,6 +347,11 @@
         <Setter Property="FontFamily" Value="{StaticResource font_bold}"/>
         <Setter Property="FontSize" Value="20"/>
         <Setter Property="MaxLines" Value="1"/>
+    </Style>
+
+    <Style x:Key="input_picker_label" TargetType="Label">
+        <Setter Property="TextColor" Value="{AppThemeBinding Light={StaticResource black}, Dark={StaticResource white}}"/>
+        <Setter Property="FontSize" Value="16"/>
     </Style>
 
     <Style x:Key="input_multi_editor" TargetType="Editor">
@@ -369,5 +383,13 @@
         <Setter Property="CornerRadius" Value="8"/>
         <Setter Property="Margin" Value="24,0"/>
         <Setter Property="HeightRequest" Value="52"/>
+    </Style>
+
+    <Style x:Key="chevron" TargetType="Label">
+        <Setter Property="TextColor" Value="{AppThemeBinding Light={StaticResource gray}, Dark={StaticResource gray}}"/>
+        <Setter Property="VerticalTextAlignment" Value="Center"/>
+        <Setter Property="FontFamily" Value="{StaticResource font_icon}"/>
+        <Setter Property="FontSize" Value="24"/>
+        <Setter Property="VerticalOptions" Value="Center"/>
     </Style>
 </ResourceDictionary>

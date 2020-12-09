@@ -43,7 +43,8 @@
                                               IsValid="{Binding Contribution.ContributionType.IsValid}"
                                               Errors="{Binding Contribution.ContributionType.Errors, Converter={converters:ListToStringConverter}}"
                                               Value="{Binding Contribution.ContributionType.Value}"
-                                              Placeholder="{xct:Translate contributionform_activitytype_placeholder}" />
+                                              Placeholder="{xct:Translate contributionform_activitytype_placeholder}" 
+                                              PickerCommand="{Binding PickContributionTypeCommand}" />
 
                     <BoxView Margin="16,0"
                              Style="{StaticResource separator}"/>
@@ -53,7 +54,8 @@
                                               IsValid="{Binding Contribution.ContributionTechnology.IsValid}"
                                               Errors="{Binding Contribution.ContributionTechnology.Errors, Converter={converters:ListToStringConverter}}"
                                               Value="{Binding Contribution.ContributionTechnology.Value}"
-                                              Placeholder="{xct:Translate contributionform_technologyarea_placeholder}" />
+                                              Placeholder="{xct:Translate contributionform_technologyarea_placeholder}"
+                                              PickerCommand="{Binding PickContributionTechnologyCommand}"  />
 
                     <BoxView Margin="16,0"
                              Style="{StaticResource separator}"/>
@@ -61,7 +63,7 @@
                     <controls:PickerInputView Title="{xct:Translate field_additional_contribution_areas}"
                                               Value="{Binding Contribution.AdditionalTechnologies, Converter={converters:ListToStringConverter Separator=','}}"
                                               Placeholder="{xct:Translate contributionform_additionaltechnologyarea_placeholder}"
-                                              PickerCommand="{Binding PickAdditionalTechnologiesCommand}"/>
+                                              PickerCommand="{Binding PickAdditionalTechnologiesCommand}" />
 
                     <BoxView Margin="16,0"
                              Style="{StaticResource separator}"/>
@@ -104,7 +106,9 @@
                     <controls:PickerInputView Title="{xct:Translate field_visibility}"
                                               Value="{Binding Contribution.Visibility.Value}"
                                               IsValid="{Binding Contribution.Visibility.IsValid}"
-                                              Placeholder="{xct:Translate contributionform_visibility_placeholder}" />
+                                              IsRequired="True"
+                                              Placeholder="{xct:Translate contributionform_visibility_placeholder}"
+                                              PickerCommand="{Binding PickVisibilityCommand}"  />
 
                     <StackLayout IsVisible="{Binding Contribution.ContributionType.Value, Converter={converters:IsNotNullOrEmptyConverter}}">
                         <BoxView Margin="16,0"

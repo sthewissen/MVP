@@ -20,20 +20,30 @@ namespace MVP.iOS.Renderers
             {
                 for (var i = 0; i < TabBar.Items.Length; i++)
                 {
-                    UpdateTabBarItem(TabBar.Items[i]);
+                    SetTitleAttributes(TabBar.Items[i]);
                 }
             }
 
             base.ViewWillAppear(animated);
         }
 
-        void UpdateTabBarItem(UITabBarItem item)
+        public override void ViewDidLayoutSubviews()
+        {
+            // Set the fonts here, again, because for some reason on language switch they get forgotten.
+            base.ViewDidLayoutSubviews();
+
+            foreach (var item in TabBar.Items)
+            {
+                SetTitleAttributes(item);
+            }
+        }
+
+        void SetTitleAttributes(UITabBarItem item)
         {
             if (item == null)
                 return;
 
             // Set the font for the title.
-
             item.SetTitleTextAttributes(new UITextAttributes()
             {
                 Font = UIFont.FromName((string)Xamarin.Forms.Application.Current.Resources["font_regular"], 13)

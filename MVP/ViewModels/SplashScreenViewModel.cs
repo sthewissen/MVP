@@ -33,13 +33,13 @@ namespace MVP.ViewModels
             {
                 if (await AuthService.SignInSilentAsync())
                 {
-                    FetchText = "Grabbing the contribution areas...";
+                    FetchText = Resources.Translations.splash_contributionareas;
                     await MvpApiService.GetContributionAreasAsync();
 
-                    FetchText = "Syncing the contribution types...";
+                    FetchText = Resources.Translations.splash_contributiontypes;
                     await MvpApiService.GetContributionTypesAsync();
 
-                    FetchText = "Putting visibilities in place...";
+                    FetchText = Resources.Translations.splash_visibilities;
                     await MvpApiService.GetVisibilitiesAsync();
 
                     await GoToNextPage(true);
@@ -47,7 +47,7 @@ namespace MVP.ViewModels
                 else
                 {
                     // Fixed delay to show the animation on the frontend :$
-                    FetchText = "Getting things ready...";
+                    FetchText = Resources.Translations.splash_gettingready;
                     await Task.Delay(2500);
                     await GoToNextPage(false);
                 }

@@ -28,6 +28,7 @@
         <PackageReference Include="Xamarin.CommunityToolkit" Version="1.0.0-preview1085" />
         <PackageReference Include="Sharpnado.Shadows" Version="1.2.0" />
         <PackageReference Include="TouchView" Version="4.1.99" />
+        <PackageReference Include="Com.Airbnb.Xamarin.Forms.Lottie" Version="4.0.7" />
     </ItemGroup>
     <ItemGroup>
         <Folder Include="Models\" />
@@ -50,27 +51,33 @@
     <ItemGroup>
         <None Remove="Resources\mvp_logo.svg" />
         <None Remove="Resources\Fonts\SourceSansPro-Bold.ttf" />
-        <None Remove="Resources\Fonts\SourceSansPro-Light.ttf" />
         <None Remove="Resources\Fonts\SourceSansPro-SemiBold.ttf" />
         <None Remove="Resources\Fonts\SourceSansPro-Regular.ttf" />
         <None Remove="Resources\Fonts\MVPBuzz.ttf" />
+        <None Remove="Resources\loading.json" />
+        <None Remove="Resources\loading_light.json" />
     </ItemGroup>
     <ItemGroup>
         <EmbeddedResource Include="Resources\mvp_logo.svg">
             <LogicalName>mvp_logo.svg</LogicalName>
         </EmbeddedResource>
         <EmbeddedResource Include="Resources\Fonts\SourceSansPro-Bold.ttf" />
-        <EmbeddedResource Include="Resources\Fonts\SourceSansPro-Light.ttf" />
         <EmbeddedResource Include="Resources\Fonts\SourceSansPro-SemiBold.ttf" />
         <EmbeddedResource Include="Resources\Fonts\SourceSansPro-Regular.ttf" />
         <EmbeddedResource Include="Resources\Fonts\MVPBuzz.ttf" />
+        <EmbeddedResource Include="Resources\loading.json">
+          <LogicalName>MVP.loading.json</LogicalName>
+        </EmbeddedResource>
+        <EmbeddedResource Include="Resources\loading_light.json">
+          <LogicalName>MVP.loading_light.json</LogicalName>
+        </EmbeddedResource>
     </ItemGroup>
     <ItemGroup>
         <Compile Update="Resources\Translations.Designer.cs">
             <DependentUpon>Translations.resx</DependentUpon>
         </Compile>
         <Compile Update="Resources\Translations.nl.Designer.cs">
-          <DependentUpon>Translations.nl.resx</DependentUpon>
+            <DependentUpon>Translations.nl.resx</DependentUpon>
         </Compile>
     </ItemGroup>
     <ItemGroup>
@@ -79,8 +86,8 @@
             <LastGenOutput>Translations.Designer.cs</LastGenOutput>
         </EmbeddedResource>
         <EmbeddedResource Update="Resources\Translations.nl.resx">
-          <Generator>ResXFileCodeGenerator</Generator>
-          <LastGenOutput>Translations.nl.Designer.cs</LastGenOutput>
+            <Generator>ResXFileCodeGenerator</Generator>
+            <LastGenOutput>Translations.nl.Designer.cs</LastGenOutput>
         </EmbeddedResource>
     </ItemGroup>
 </Project>

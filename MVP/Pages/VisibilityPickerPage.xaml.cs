@@ -5,9 +5,9 @@ using Xamarin.Forms;
 
 namespace MVP.Pages
 {
-    public partial class WizardContributionTypePage
+    public partial class VisibilityPickerPage
     {
-        public WizardContributionTypePage(IAnalyticsService analyticsService)
+        public VisibilityPickerPage(IAnalyticsService analyticsService)
             : base(analyticsService) => InitializeComponent();
 
         public void CollectionView_Scrolled(object sender, ItemsViewScrolledEventArgs e)

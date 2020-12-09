@@ -10,45 +10,55 @@
                        x:Class="MVP.Pages.ContributionsPage"
                        x:DataType="vm:ContributionsViewModel"
                        x:Name="page"
-                       x:TypeArguments="vm:ContributionsViewModel">
+                       x:TypeArguments="vm:ContributionsViewModel"
+                       xmlns:lottie="clr-namespace:Lottie.Forms;assembly=Lottie.Forms">
 
     <local:AppFrame SecondaryButtonIcon="{x:Static icons:Icons.plus}"
                     ShowSecondaryButton="True"
                     Title="{xct:Translate contributions_title}"
                     x:Name="appFrame">
         <local:AppFrame.Content>
+            <StackLayout>
+                <!--<lottie:AnimationView x:Name="animationView"
+                                      Animation="{AppThemeBinding Light='resource://loading.json?assembly=MVP', Dark='resource://loading_light.json?assembly=MVP'}"
+                                      AnimationSource="EmbeddedResource"
+                                      VerticalOptions="FillAndExpand"
+                                      HorizontalOptions="FillAndExpand"
+                                      AutoPlay="True"
+                                      RepeatMode="Infinite" />-->
 
-            <CollectionView ItemsSource="{Binding Contributions}"
+                <CollectionView ItemsSource="{Binding Contributions}"
                             ItemsUpdatingScrollMode="KeepScrollOffset"
                             ItemTemplate="{StaticResource contribution_item}"
                             Scrolled="CollectionView_Scrolled"
                             SelectionMode="None"
                             x:Name="collectionView">
 
-                <CollectionView.Footer>
-                    <BoxView HeightRequest="40"/>
-                </CollectionView.Footer>
+                    <CollectionView.Footer>
+                        <BoxView HeightRequest="40"/>
+                    </CollectionView.Footer>
 
-                <!-- No search, the API just isn't suited for it. Yet. Maybe one day.
-                <CollectionView.Header>
-                    <StackLayout Padding="16,16,16,24">
-                        <Frame Style="{StaticResource search_frame}"
-                               touch:TouchEff.Command="{Binding Source={RelativeSource AncestorType={x:Type vm:ContributionsViewModel}}, Path=SearchContributionCommand}">
-                            <Grid ColumnDefinitions="*,48"
-                                  Padding="24,0"
-                                  VerticalOptions="Center">
-                                <Label Style="{StaticResource search_text}"
-                                       Text="{xct:Translate search_placeholder}"/>
-                                <Label Grid.Column="1"
-                                       Style="{StaticResource search_icon}"
-                                       Text="{x:Static icons:Icons.search}"/>
-                            </Grid>
-                        </Frame>
-                    </StackLayout>
-                </CollectionView.Header>-->
+                    <!--No search, the API just isn't suited for it. Yet. Maybe one day.
+                    <CollectionView.Header>
+                        <StackLayout Padding="16,16,16,24">
+                            <Frame Style="{StaticResource search_frame}"
+                                   touch:TouchEff.Command="{Binding Source={RelativeSource AncestorType={x:Type vm:ContributionsViewModel}}, Path=SearchContributionCommand}">
+                                <Grid ColumnDefinitions="*,48"
+                                      Padding="24,0"
+                                      VerticalOptions="Center">
+                                    <Label Style="{StaticResource search_text}"
+                                           Text="{xct:Translate search_placeholder}"/>
+                                    <Label Grid.Column="1"
+                                           Style="{StaticResource search_icon}"
+                                           Text="{x:Static icons:Icons.search}"/>
+                                </Grid>
+                            </Frame>
+                        </StackLayout>
+                    </CollectionView.Header>
+                    -->
 
-            </CollectionView>
-
+                </CollectionView>
+            </StackLayout>
         </local:AppFrame.Content>
     </local:AppFrame>
 </pages:BaseContentPage>

@@ -4,12 +4,13 @@
                        xmlns:pages="clr-namespace:MVP.Pages"
                        xmlns:vm="clr-namespace:MVP.ViewModels"
                        xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-                       x:Class="MVP.Pages.AdditionalTechnologyPage"
-                       x:DataType="vm:AdditionalTechnologyViewModel"
-                       x:TypeArguments="vm:AdditionalTechnologyViewModel">
+                       x:Class="MVP.Pages.AdditionalTechnologyPickerPage"
+                       xmlns:xct="clr-namespace:Xamarin.CommunityToolkit.Extensions;assembly=Xamarin.CommunityToolkit"
+                       x:DataType="vm:AdditionalTechnologyPickerViewModel"
+                       x:TypeArguments="vm:AdditionalTechnologyPickerViewModel">
 
     <local:AppFrame ShowBackButton="True"
-                    Title="Additional contribution areas"
+                    Title="{xct:Translate additionaltechnologypicker_title}"
                     x:Name="appFrame">
         <local:AppFrame.Content>
             <Grid>

@@ -4,15 +4,15 @@
                        xmlns:icons="clr-namespace:MVP.Styles"
                        xmlns:local="clr-namespace:MVP"
                        xmlns:pages="clr-namespace:MVP.Pages"
+                       xmlns:xct="clr-namespace:Xamarin.CommunityToolkit.Extensions;assembly=Xamarin.CommunityToolkit"
                        xmlns:vm="clr-namespace:MVP.ViewModels"
                        xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-                       x:Class="MVP.Pages.WizardTechnologyPage"
-                       x:DataType="vm:WizardTechnologyViewModel"
-                       x:TypeArguments="vm:WizardTechnologyViewModel"
-                       xmlns:sh="clr-namespace:Sharpnado.Shades;assembly=Sharpnado.Shadows">
+                       x:Class="MVP.Pages.ContributionTechnologyPickerPage"
+                       x:DataType="vm:ContributionTechnologyPickerViewModel"
+                       x:TypeArguments="vm:ContributionTechnologyPickerViewModel">
 
     <local:AppFrame ShowBackButton="True"
-                    Title="Primary contribution area"
+                    Title="{xct:Translate contributiontechnologypicker_title}"
                     x:Name="appFrame">
         <local:AppFrame.Content>
             <Grid>
@@ -24,13 +24,6 @@
                                 SelectionMode="None">
                     <CollectionView.Header>
                         <StackLayout>
-                            <Label Margin="24,0"
-                                Style="{StaticResource wizard_title}"
-                                Text="What's it about?"/>
-
-                            <Label Style="{StaticResource wizard_subtitle}"
-                                   Text="What technology area is the primary focus of this activity?"/>
-
                             <Frame Style="{StaticResource search_frame}"
                                    Margin="16,0,16,16">
                                 <Grid ColumnDefinitions="*,48"
@@ -40,7 +33,7 @@
                                     <Entry BackgroundColor="Transparent"
                                            FontFamily="{StaticResource font_regular}"
                                            FontSize="15"
-                                           Placeholder="Search..."
+                                           Placeholder="{xct:Translate search_placeholder}"
                                            PlaceholderColor="{StaticResource gray}"
                                            VerticalOptions="Center"/>
 
@@ -50,7 +43,7 @@
 
                                 </Grid>
                             </Frame>
-                            <!--<FlexLayout Direction="Row"
+                            <FlexLayout Direction="Row"
                                         Margin="0,0,0,16"
                                         Padding="24,0"
                                         Wrap="Wrap">
@@ -75,29 +68,13 @@
                                         </StackLayout>
                                     </DataTemplate>
                                 </BindableLayout.ItemTemplate>
-                            </FlexLayout>-->
+                            </FlexLayout>
                         </StackLayout>
                     </CollectionView.Header>
                     <CollectionView.Footer>
                         <BoxView HeightRequest="40"/>
                     </CollectionView.Footer>
                 </CollectionView>
-                <sh:Shadows CornerRadius="28"
-                            HorizontalOptions="End"
-                            IsVisible="{Binding IsEditing}"
-                            VerticalOptions="End">
-                    <sh:Shadows.Shades>
-                        <sh:ImmutableShades>
-                            <sh:Shade BlurRadius="6"
-                                      Color="{StaticResource black}"
-                                      Offset="3,3"
-                                      Opacity="0.2"/>
-                        </sh:ImmutableShades>
-                    </sh:Shadows.Shades>
-                    <Button Command="{Binding NextCommand}"
-                            Style="{StaticResource fab_button}"
-                            Text="{x:Static icons:Icons.arrow_right}"/>
-                </sh:Shadows>
             </Grid>
         </local:AppFrame.Content>
     </local:AppFrame>

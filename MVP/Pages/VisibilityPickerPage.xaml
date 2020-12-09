@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<pages:BaseContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+                       xmlns:local="clr-namespace:MVP"
+                       xmlns:pages="clr-namespace:MVP.Pages"
+                       xmlns:vm="clr-namespace:MVP.ViewModels"
+                       xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                       xmlns:xct="clr-namespace:Xamarin.CommunityToolkit.Extensions;assembly=Xamarin.CommunityToolkit"
+                       x:Class="MVP.Pages.VisibilityPickerPage"
+                       x:DataType="vm:VisibilityPickerViewModel"
+                       x:TypeArguments="vm:VisibilityPickerViewModel">
+
+    <local:AppFrame IsModal="False"
+                    ShowBackButton="True"
+                    Title="{xct:Translate visibility_title}"
+                    x:Name="appFrame">
+        <local:AppFrame.Content>
+            <Grid>
+                <CollectionView ItemsSource="{Binding Visibilities}"
+                            ItemTemplate="{StaticResource visibility_item}"
+                            Scrolled="CollectionView_Scrolled"
+                            SelectionMode="None">
+                    <CollectionView.Footer>
+                        <BoxView HeightRequest="40"/>
+                    </CollectionView.Footer>
+                </CollectionView>
+            </Grid>
+        </local:AppFrame.Content>
+    </local:AppFrame>
+
+</pages:BaseContentPage>

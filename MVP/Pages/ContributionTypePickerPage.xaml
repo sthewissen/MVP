@@ -1,18 +1,16 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <pages:BaseContentPage xmlns="http://xamarin.com/schemas/2014/forms"
-                       xmlns:converters="clr-namespace:Xamarin.CommunityToolkit.Converters;assembly=Xamarin.CommunityToolkit"
-                       xmlns:helpers="clr-namespace:MVP.Helpers"
                        xmlns:local="clr-namespace:MVP"
                        xmlns:pages="clr-namespace:MVP.Pages"
                        xmlns:vm="clr-namespace:MVP.ViewModels"
+                       xmlns:xct="clr-namespace:Xamarin.CommunityToolkit.Extensions;assembly=Xamarin.CommunityToolkit"
                        xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-                       x:Class="MVP.Pages.WizardContributionTypePage"
-                       x:DataType="vm:WizardContributionTypeViewModel"
-                       x:TypeArguments="vm:WizardContributionTypeViewModel">
+                       x:Class="MVP.Pages.ContributionTypePickerPage"
+                       x:DataType="vm:ContributionTypePickerViewModel"
+                       x:TypeArguments="vm:ContributionTypePickerViewModel">
 
-    <local:AppFrame IsModal="True"
-                    ShowBackButton="True"
-                    Title="Activity type"
+    <local:AppFrame ShowBackButton="True"
+                    Title="{xct:Translate contributiontypepicker_title}"
                     x:Name="appFrame">
         <local:AppFrame.Content>
             <CollectionView ItemsSource="{Binding ContributionTypes}"
@@ -21,13 +19,6 @@
                                 SelectionMode="None">
                 <CollectionView.Header>
                     <StackLayout>
-                        <Label Margin="24,0"
-                                   Style="{StaticResource wizard_title}"
-                                   Text="Let's get started"/>
-
-                        <Label Style="{StaticResource wizard_subtitle}"
-                                   Text="What type of activity do you want to add?"/>
-
                         <!--<FlexLayout Direction="Row"
                                         Margin="0,0,0,16"
                                         Padding="24,0"
