@@ -10,9 +10,7 @@
                        x:DataType="vm:ContributionsViewModel"
                        x:Name="page"
                        x:TypeArguments="vm:ContributionsViewModel"
-                       xmlns:lottie="clr-namespace:Lottie.Forms;assembly=Lottie.Forms"
-                       xmlns:state="clr-namespace:Xamarin.CommunityToolkit.UI.Views;assembly=Xamarin.CommunityToolkit"
-                       xmlns:controls="clr-namespace:MVP.Controls">
+                       xmlns:state="clr-namespace:Xamarin.CommunityToolkit.UI.Views;assembly=Xamarin.CommunityToolkit">
 
     <local:AppFrame SecondaryButtonIcon="{x:Static icons:Icons.plus}"
                     ShowSecondaryButton="True"
@@ -25,14 +23,6 @@
                 <state:StateLayout.StateViews>
                     <state:StateView StateKey="Loading" RepeatCount="3" RepeatTemplate="{StaticResource contribution_item_loading}" />
                 </state:StateLayout.StateViews>
-
-                <!--<lottie:AnimationView x:Name="animationView"
-                                      Animation="{AppThemeBinding Light='resource://loading.json?assembly=MVP', Dark='resource://loading_light.json?assembly=MVP'}"
-                                      AnimationSource="EmbeddedResource"
-                                      VerticalOptions="FillAndExpand"
-                                      HorizontalOptions="FillAndExpand"
-                                      AutoPlay="True"
-                                      RepeatMode="Infinite" />-->
 
                 <CollectionView ItemsSource="{Binding Contributions}"
                             ItemsUpdatingScrollMode="KeepScrollOffset"

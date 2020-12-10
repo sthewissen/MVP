@@ -8,6 +8,7 @@ using MVP.Services.Interfaces;
 using MVP.ViewModels.Data;
 using TinyMvvm;
 using Xamarin.CommunityToolkit.ObjectModel;
+using Xamarin.CommunityToolkit.UI.Views;
 using Xamarin.Forms;
 
 namespace MVP.ViewModels
@@ -42,11 +43,11 @@ namespace MVP.ViewModels
         public ContributionFormViewModel(IAnalyticsService analyticsService, IDialogService dialogService, INavigationHelper navigationHelper)
             : base(analyticsService, dialogService, navigationHelper)
         {
-            PickAdditionalTechnologiesCommand = new AsyncCommand(PickAdditionalTechnologies);
-            PickContributionTypeCommand = new AsyncCommand(PickContributionType, (x) => !IsEditing);
-            PickVisibilityCommand = new AsyncCommand(PickVisibility);
+            PickAdditionalTechnologiesCommand = new AsyncCommand(() => PickAdditionalTechnologies());
+            PickContributionTypeCommand = new AsyncCommand(() => PickContributionType(), (x) => !IsEditing);
+            PickVisibilityCommand = new AsyncCommand(() => PickVisibility());
             PickContributionTechnologyCommand = new AsyncCommand(PickContributionTechnology);
-            SecondaryCommand = new Command(() => { if (Contribution.IsValid()) return; });
+            SecondaryCommand = new AsyncCommand(() => SaveContribution());
         }
 
         public async override Task Initialize()
@@ -58,11 +59,6 @@ namespace MVP.ViewModels
                 Contribution = contribution.ToContributionViewModel();
                 IsEditing = contribution.ContributionId.HasValue && contribution.ContributionId.Value > 0;
                 PickContributionTypeCommand.RaiseCanExecuteChanged();
-
-                //if (contribution.ContributionType != null && contribution.ContributionType.Id.HasValue)
-                //{
-                //    ContributionTypeConfig = contribution.ContributionType.Id.Value.GetContributionTypeRequirements();
-                //}
             }
 
             Contribution.AddValidationRules();
@@ -91,6 +87,42 @@ namespace MVP.ViewModels
         //         Contribution.ContributionTechnology.Value = tech;
         //     }
         // }
+
+        async Task SaveContribution()
+        {
+            try
+            {
+                if (!Contribution.IsValid())
+                    return;
+
+                State = LayoutState.Saving;
+
+                //await Task.Delay(5000);
+                if (IsEditing)
+                {
+                    var result = await MvpApiService.UpdateContributionAsync(Contribution.ToContribution());
+
+                    if (result)
+                    {
+                        await NavigationHelper.CloseModalAsync();
+                        await NavigationHelper.BackAsync();
+                    }
+                }
+                else
+                {
+                    var result = await MvpApiService.SubmitContributionAsync(Contribution.ToContribution());
+
+                    if (result != null)
+                    {
+                        await NavigationHelper.CloseModalAsync();
+                    }
+                }
+            }
+            finally
+            {
+                State = LayoutState.None;
+            }
+        }
 
         // Pop the entire modal stack instead of just going back one screen.
         // This means it's editing mode and there is no way to go back and change activity type.

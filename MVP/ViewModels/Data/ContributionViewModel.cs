@@ -46,9 +46,9 @@ namespace MVP.ViewModels.Data
         public void AddValidationRules()
         {
             Title.Validations.Add(new IsNotNullOrEmptyRule<string> { ValidationMessage = string.Format(Resources.Translations.validation_variablefield, Resources.Translations.field_title) });
-            ContributionTechnology.Validations.Add(new IsNotNullOrEmptyRule<ContributionTechnology> { ValidationMessage = string.Format(Resources.Translations.validation_variablefield, Resources.Translations.field_primary_contribution_area) });
-            Visibility.Validations.Add(new IsNotNullOrEmptyRule<Visibility> { ValidationMessage = string.Format(Resources.Translations.validation_variablefield, Resources.Translations.field_visibility) });
-            ContributionType.Validations.Add(new IsNotNullOrEmptyRule<ContributionType> { ValidationMessage = string.Format(Resources.Translations.validation_variablefield, Resources.Translations.field_activity_type) });
+            ContributionTechnology.Validations.Add(new IsNotNullRule<ContributionTechnology> { ValidationMessage = string.Format(Resources.Translations.validation_variablefield, Resources.Translations.field_primary_contribution_area) });
+            Visibility.Validations.Add(new IsNotNullRule<Visibility> { ValidationMessage = string.Format(Resources.Translations.validation_variablefield, Resources.Translations.field_visibility) });
+            ContributionType.Validations.Add(new IsNotNullRule<ContributionType> { ValidationMessage = string.Format(Resources.Translations.validation_variablefield, Resources.Translations.field_activity_type) });
         }
 
         void AddVariableValidationRules(ValidatableObject<ContributionType> value)
@@ -65,13 +65,13 @@ namespace MVP.ViewModels.Data
                 ReferenceUrl.Validations.Add(new IsNotNullOrEmptyRule<string> { ValidationMessage = string.Format(Resources.Translations.validation_variablefield, Resources.Translations.field_url) });
 
             if (Requirements.IsAnnualQuantityRequired)
-                AnnualQuantity.Validations.Add(new IsNotNullOrEmptyRule<int?> { ValidationMessage = string.Format(Resources.Translations.validation_variablefield, Requirements.AnnualQuantityHeader) });
+                AnnualQuantity.Validations.Add(new IsValidNumberRule<int?> { ValidationMessage = string.Format(Resources.Translations.validation_variablefield, Requirements.AnnualQuantityHeader) });
 
             if (Requirements.IsAnnualReachRequired)
-                AnnualReach.Validations.Add(new IsNotNullOrEmptyRule<int?> { ValidationMessage = string.Format(Resources.Translations.validation_variablefield, Requirements.AnnualReachHeader) });
+                AnnualReach.Validations.Add(new IsValidNumberRule<int?> { ValidationMessage = string.Format(Resources.Translations.validation_variablefield, Requirements.AnnualReachHeader) });
 
             if (Requirements.IsSecondAnnualQuantityRequired)
-                SecondAnnualQuantity.Validations.Add(new IsNotNullOrEmptyRule<int?> { ValidationMessage = string.Format(Resources.Translations.validation_variablefield, Requirements.SecondAnnualQuantityHeader) });
+                SecondAnnualQuantity.Validations.Add(new IsValidNumberRule<int?> { ValidationMessage = string.Format(Resources.Translations.validation_variablefield, Requirements.SecondAnnualQuantityHeader) });
         }
 
         public bool IsValid()

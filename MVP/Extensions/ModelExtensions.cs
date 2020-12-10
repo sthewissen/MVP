@@ -55,6 +55,28 @@ namespace MVP.Extensions
             };
         }
 
+        public static Contribution ToContribution(this ContributionViewModel contribution)
+        {
+            if (contribution == null)
+                return null;
+
+            return new Contribution
+            {
+                AdditionalTechnologies = contribution.AdditionalTechnologies,
+                AnnualQuantity = contribution.AnnualQuantity.Value,
+                AnnualReach = contribution.AnnualReach.Value,
+                ContributionId = contribution.ContributionId,
+                ContributionTechnology = contribution.ContributionTechnology.Value,
+                ContributionType = contribution.ContributionType.Value,
+                Description = contribution.Description,
+                ReferenceUrl = contribution.ReferenceUrl.Value,
+                SecondAnnualQuantity = contribution.SecondAnnualQuantity.Value,
+                StartDate = contribution.StartDate,
+                Title = contribution.Title.Value,
+                Visibility = contribution.Visibility.Value,
+            };
+        }
+
         public static ContributionTypeConfig GetContributionTypeRequirements(this Guid contributionType)
         {
             var config = new ContributionTypeConfig();
