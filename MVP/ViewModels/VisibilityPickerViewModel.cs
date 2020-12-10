@@ -2,13 +2,10 @@
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Input;
-using MVP.Models;
-using MVP.Pages;
+using MVP.Extensions;
 using MVP.Services.Interfaces;
 using MVP.ViewModels.Data;
-using MvvmHelpers;
 using TinyMvvm;
-using Xamarin.CommunityToolkit.ObjectModel;
 using Xamarin.Essentials;
 using Xamarin.Forms;
 
@@ -22,9 +19,8 @@ namespace MVP.ViewModels
 
         public IList<VisibilityViewModel> Visibilities { get; set; } = new List<VisibilityViewModel>();
 
-        public VisibilityPickerViewModel(IAnalyticsService analyticsService, IAuthService authService,
-            IDialogService dialogService, INavigationHelper navigationHelper)
-            : base(analyticsService, authService, dialogService, navigationHelper)
+        public VisibilityPickerViewModel(IAnalyticsService analyticsService, IDialogService dialogService, INavigationHelper navigationHelper)
+            : base(analyticsService, dialogService, navigationHelper)
         {
             SelectVisibilityCommand = new Command<VisibilityViewModel>((x) => SelectVisibility(x));
         }
@@ -50,6 +46,9 @@ namespace MVP.ViewModels
                 item.IsSelected = false;
 
             vm.IsSelected = true;
+
+            //TODO: Replace by the back navigation version.
+            contribution.Visibility.Value = vm.Visibility;
         }
 
         public async override Task Back()

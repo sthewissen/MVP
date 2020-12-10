@@ -33,8 +33,8 @@ namespace MVP.ViewModels
             }
         }
 
-        public ProfileViewModel(IAnalyticsService analyticsService, IAuthService authService, IDialogService dialogService, INavigationHelper navigationHelper)
-            : base(analyticsService, authService, dialogService, navigationHelper)
+        public ProfileViewModel(IAnalyticsService analyticsService, IDialogService dialogService, INavigationHelper navigationHelper)
+            : base(analyticsService, dialogService, navigationHelper)
         {
             LogoutCommand = new AsyncCommand(() => Logout());
             LoadProfileCommand = new AsyncCommand(() => LoadProfile(true));

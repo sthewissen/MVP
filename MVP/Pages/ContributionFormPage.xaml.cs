@@ -1,7 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
+using System.Globalization;
 using MVP.Services.Interfaces;
-using Xamarin.Forms;
+using Xamarin.CommunityToolkit.Converters;
 
 namespace MVP.Pages
 {

@@ -1,15 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
 using System.Web;
+using MVP.Extensions;
 using MVP.Helpers;
 using MVP.Models;
 using MVP.Pages;
 using MVP.Services.Interfaces;
-using MvvmHelpers;
 using TinyMvvm;
 using Xamarin.CommunityToolkit.ObjectModel;
+using Xamarin.CommunityToolkit.UI.Views;
 using Xamarin.Essentials;
 
 namespace MVP.ViewModels

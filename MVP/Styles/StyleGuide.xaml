@@ -4,10 +4,8 @@
                     xmlns:controls="clr-namespace:MVP.Controls"
                     xmlns:effects="clr-namespace:Xamarin.CommunityToolkit.Effects;assembly=Xamarin.CommunityToolkit"
                     xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
-                    xmlns:helpers="clr-namespace:MVP.Helpers"
                     xmlns:local="clr-namespace:MVP"                    
                     xmlns:ff="clr-namespace:FFImageLoading.Svg.Forms;assembly=FFImageLoading.Svg.Forms"
-                    xmlns:touch="clr-namespace:TouchEffect;assembly=TouchEffect"
                     x:Class="MVP.Styles.StyleGuide">
 
     <?xaml-comp compile="true" ?>
@@ -272,8 +270,8 @@
         <Setter Property="CornerRadius" Value="24"/>
         <Setter Property="BackgroundColor" Value="{StaticResource background_gray}"/>
         <Setter Property="HeightRequest" Value="48"/>
-        <Setter Property="touch:TouchEff.PressedBackgroundColor" Value="{AppThemeBinding Light={StaticResource border_light_gray}, Dark={StaticResource background_dark_gray_highlight}}"/>
-        <Setter Property="touch:TouchEff.RegularBackgroundColor" Value="{AppThemeBinding Light={StaticResource background_gray}, Dark={StaticResource background_dark_gray}}"/>
+        <Setter Property="effects:TouchEffect.PressedBackgroundColor" Value="{AppThemeBinding Light={StaticResource border_light_gray}, Dark={StaticResource background_dark_gray_highlight}}"/>
+        <Setter Property="effects:TouchEffect.NormalBackgroundColor" Value="{AppThemeBinding Light={StaticResource background_gray}, Dark={StaticResource background_dark_gray}}"/>
     </Style>
 
     <Style TargetType="local:AppFrame">

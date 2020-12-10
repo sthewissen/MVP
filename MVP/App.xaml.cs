@@ -17,20 +17,16 @@ namespace MVP
     public partial class App : Xamarin.Forms.Application
     {
         readonly IAnalyticsService analyticsService;
-        readonly IAuthService authService;
         readonly IDialogService dialogService;
 
         public static IMvpApiService MvpApiService { get; set; }
+        public static IAuthService AuthService { get; set; }
 
-        public App(IAnalyticsService analyticsService,
-                    IMvpApiService mvpApiService,
-                    IAuthService authService,
-                    IDialogService dialogService)
+        public App(IAnalyticsService analyticsService, IMvpApiService mvpApiService, IAuthService authService, IDialogService dialogService)
         {
             InitializeComponent();
 
             this.analyticsService = analyticsService;
-            this.authService = authService;
             this.dialogService = dialogService;
 
             // We add exception handling here, because the MVP API is shared
@@ -40,12 +36,11 @@ namespace MVP
             mvpApiService.RequestErrorOccurred += MvpApiService_RequestErrorOccurred;
 
             MvpApiService = mvpApiService;
+            AuthService = authService;
 
             LocalizationResourceManager.Current.Init(Translations.ResourceManager);
 
-            Device.SetFlags(new[] { "IndicatorView_Experimental" });
             Resolver.SetResolver(new AutofacResolver(ContainerService.Container));
-            Sharpnado.Shades.Initializer.Initialize(loggerEnable: false);
             Akavache.Registrations.Start(Constants.AppName);
             On<iOS>().SetHandleControlUpdatesOnMainThread(true);
 
@@ -63,16 +58,16 @@ namespace MVP
             if (e.IsBadRequest)
             {
                 await dialogService.AlertAsync(
-                    "That request wasn't quite right. Try again later.",
-                    "Oh boy, that's not good!",
-                    "OK");
+                    Translations.alert_error_badrequest,
+                    Translations.alert_error_title,
+                    Translations.alert_ok);
             }
             else if (e.IsServerError)
             {
                 await dialogService.AlertAsync(
-                    "The MVP API messed something up. Couldn't grab that data right now.",
-                    "Oh boy, that's not good!",
-                    "OK");
+                    Translations.alert_error_servererror,
+                    Translations.alert_error_title,
+                    Translations.alert_ok);
             }
         }
 
@@ -80,19 +75,19 @@ namespace MVP
         {
             // If the access token expired, we need to sign in again,
             // because we might've lost our auth.
-            var result = await authService.SignInAsync();
+            var result = await AuthService.SignInAsync();
 
             if (!result)
             {
                 // Show a message that data could not be refreshed. Also forward the user back to getting started
                 // telling the user that a logout has occurred.
                 await dialogService.AlertAsync(
-                    "Your credentials have expired. We needed to log you out. Please login again to continue.",
-                    "Oh boy, that's not good!",
-                    "OK");
+                    Translations.alert_error_unauthorized,
+                    Translations.alert_error_title,
+                    Translations.alert_ok);
 
                 // Move the user over to Getting Started.
-                await authService.SignOutAsync();
+                await AuthService.SignOutAsync();
 
                 var navHelper = Resolver.Resolve<INavigationHelper>();
                 navHelper.SetRootView(nameof(IntroPage));

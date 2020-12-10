@@ -1,15 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Input;
+using MVP.Extensions;
 using MVP.Models;
-using MVP.Pages;
 using MVP.Services.Interfaces;
 using MVP.ViewModels.Data;
-using MvvmHelpers;
 using TinyMvvm;
-using Xamarin.CommunityToolkit.ObjectModel;
 using Xamarin.Essentials;
 using Xamarin.Forms;
 
@@ -23,9 +20,8 @@ namespace MVP.ViewModels
 
         public List<ContributionTypeViewModel> ContributionTypes { get; set; } = new List<ContributionTypeViewModel>();
 
-        public ContributionTypePickerViewModel(IAnalyticsService analyticsService, IAuthService authService,
-            IDialogService dialogService, INavigationHelper navigationHelper)
-            : base(analyticsService, authService, dialogService, navigationHelper)
+        public ContributionTypePickerViewModel(IAnalyticsService analyticsService, IDialogService dialogService, INavigationHelper navigationHelper)
+            : base(analyticsService, dialogService, navigationHelper)
         {
             SelectContributionTypeCommand = new Command<ContributionTypeViewModel>((x) => SelectContributionType(x));
         }
@@ -81,6 +77,9 @@ namespace MVP.ViewModels
                 item.IsSelected = false;
 
             vm.IsSelected = true;
+
+            //TODO: Replace by the back navigation version.
+            contribution.ContributionType = new Validation.ValidatableObject<ContributionType> { Value = vm.ContributionType };
         }
     }
 }

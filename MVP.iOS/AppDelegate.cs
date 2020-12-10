@@ -1,13 +1,9 @@
-﻿using System;
-using Autofac;
+﻿using Autofac;
 using FormsToolkit.iOS;
 using Foundation;
 using Microsoft.Identity.Client;
-using MVP.Pages;
 using MVP.Services;
 using MVP.Services.Interfaces;
-using MVP.ViewModels;
-using TouchEffect.iOS;
 using UIKit;
 
 namespace MVP.iOS
@@ -25,8 +21,6 @@ namespace MVP.iOS
             // Init plugins
             FFImageLoading.Forms.Platform.CachedImageRenderer.Init();
             Toolkit.Init();
-            Sharpnado.Shades.iOS.iOSShadowsRenderer.Initialize();
-            TouchEffectPreserver.Preserve();
 
             // Inject our dependencies
             using var scope = ContainerService.Container.BeginLifetimeScope();

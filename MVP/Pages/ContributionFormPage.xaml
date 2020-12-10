@@ -86,7 +86,7 @@
                              Style="{StaticResource separator}"/>
 
                     <controls:InputView Title="{xct:Translate field_url}"
-                                        IsRequired="{Binding ContributionTypeConfig.IsUrlRequired}"
+                                        IsRequired="{Binding Contribution.Requirements.IsUrlRequired}"
                                         Keyboard="Url"
                                         IsValid="{Binding Contribution.ReferenceUrl.IsValid}"
                                         Errors="{Binding Contribution.ReferenceUrl.Errors, Converter={converters:ListToStringConverter}}"
@@ -115,9 +115,9 @@
                         <BoxView Margin="16,0"
                              Style="{StaticResource separator}"/>
 
-                        <controls:InputView Title="{Binding ContributionTypeConfig.AnnualQuantityHeader}"
-                                        IsRequired="{Binding ContributionTypeConfig.IsAnnualQuantityRequired}"
-                                        IsVisible="{Binding ContributionTypeConfig.HasAnnualQuantity}"
+                        <controls:InputView Title="{Binding Contribution.Requirements.AnnualQuantityHeader}"
+                                        IsRequired="{Binding Contribution.Requirements.IsAnnualQuantityRequired}"
+                                        IsVisible="{Binding Contribution.Requirements.HasAnnualQuantity}"
                                         IsValid="{Binding Contribution.AnnualQuantity.IsValid}"
                                         Errors="{Binding Contribution.AnnualQuantity.Errors, Converter={converters:ListToStringConverter}}"
                                         Keyboard="Numeric"
@@ -125,11 +125,11 @@
 
                         <BoxView Margin="16,16,16,0"
                              Style="{StaticResource separator}"
-                             IsVisible="{Binding ContributionTypeConfig.HasSecondAnnualQuantity}" />
+                             IsVisible="{Binding Contribution.Requirements.HasSecondAnnualQuantity}" />
 
-                        <controls:InputView Title="{Binding ContributionTypeConfig.SecondAnnualQuantityHeader}"
-                                        IsRequired="{Binding ContributionTypeConfig.IsSecondAnnualQuantityRequired}"
-                                        IsVisible="{Binding ContributionTypeConfig.HasSecondAnnualQuantity}"
+                        <controls:InputView Title="{Binding Contribution.Requirements.SecondAnnualQuantityHeader}"
+                                        IsRequired="{Binding Contribution.Requirements.IsSecondAnnualQuantityRequired}"
+                                        IsVisible="{Binding Contribution.Requirements.HasSecondAnnualQuantity}"
                                         IsValid="{Binding Contribution.SecondAnnualQuantity.IsValid}"
                                         Errors="{Binding Contribution.SecondAnnualQuantity.Errors, Converter={converters:ListToStringConverter}}"
                                         Keyboard="Numeric"
@@ -137,11 +137,11 @@
 
                         <BoxView Margin="16,16,16,0"
                              Style="{StaticResource separator}"
-                             IsVisible="{Binding ContributionTypeConfig.HasAnnualReach}" />
+                             IsVisible="{Binding Contribution.Requirements.HasAnnualReach}" />
 
-                        <controls:InputView Title="{Binding ContributionTypeConfig.AnnualReachHeader}"
-                                        IsRequired="{Binding ContributionTypeConfig.IsAnnualReachRequired}"
-                                        IsVisible="{Binding ContributionTypeConfig.HasAnnualReach}"
+                        <controls:InputView Title="{Binding Contribution.Requirements.AnnualReachHeader}"
+                                        IsRequired="{Binding Contribution.Requirements.IsAnnualReachRequired}"
+                                        IsVisible="{Binding Contribution.Requirements.HasAnnualReach}"
                                         IsValid="{Binding Contribution.AnnualReach.IsValid}"
                                         Errors="{Binding Contribution.AnnualReach.Errors, Converter={converters:ListToStringConverter}}"
                                         Keyboard="Numeric"

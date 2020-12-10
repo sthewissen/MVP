@@ -8,13 +8,10 @@ namespace MVP.Helpers
 {
     public class AuthenticatedHttpClientHandler : HttpClientHandler
     {
-        private readonly Func<Task<string>> getToken;
+        readonly Func<Task<string>> getToken;
 
         public AuthenticatedHttpClientHandler(Func<Task<string>> getToken)
-        {
-            if (getToken == null) throw new ArgumentNullException(nameof(getToken));
-            this.getToken = getToken;
-        }
+            => this.getToken = getToken ?? throw new ArgumentNullException(nameof(getToken));
 
         protected override async Task<HttpResponseMessage> SendAsync(HttpRequestMessage request, CancellationToken cancellationToken)
         {

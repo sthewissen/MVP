@@ -6,9 +6,8 @@ namespace MVP.ViewModels
 {
     public class AboutViewModel : BaseViewModel
     {
-        public AboutViewModel(IAnalyticsService analyticsService, IAuthService authService,
-            IDialogService dialogService, INavigationHelper navigationHelper)
-            : base(analyticsService, authService, dialogService, navigationHelper)
+        public AboutViewModel(IAnalyticsService analyticsService, IDialogService dialogService, INavigationHelper navigationHelper)
+            : base(analyticsService, dialogService, navigationHelper)
         {
         }
     }

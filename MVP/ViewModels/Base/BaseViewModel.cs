@@ -2,7 +2,6 @@
 using System.Windows.Input;
 using MVP.Services.Interfaces;
 using TinyMvvm;
-using TinyMvvm;
 using Xamarin.CommunityToolkit.ObjectModel;
 using Xamarin.CommunityToolkit.UI.Views;
 
@@ -14,7 +13,7 @@ namespace MVP.ViewModels
 
         protected IMvpApiService MvpApiService => (App.MvpApiService);
         protected IAnalyticsService AnalyticsService { get; }
-        protected IAuthService AuthService { get; }
+        protected IAuthService AuthService => (App.AuthService);
         protected IDialogService DialogService { get; }
         protected INavigationHelper NavigationHelper { get; }
 
@@ -24,10 +23,9 @@ namespace MVP.ViewModels
 
         public LayoutState State { get; set; }
 
-        public BaseViewModel(IAnalyticsService analyticsService, IAuthService authService, IDialogService dialogService, INavigationHelper navigationHelper)
+        public BaseViewModel(IAnalyticsService analyticsService, IDialogService dialogService, INavigationHelper navigationHelper)
         {
             AnalyticsService = analyticsService;
-            AuthService = authService;
             DialogService = dialogService;
             NavigationHelper = navigationHelper;
 
@@ -35,8 +33,6 @@ namespace MVP.ViewModels
         }
 
         public async virtual Task Back()
-        {
-            await NavigationHelper.BackAsync().ConfigureAwait(false);
-        }
+            => await NavigationHelper.BackAsync().ConfigureAwait(false);
     }
 }

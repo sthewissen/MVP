@@ -1,15 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Input;
-using MVP.Models;
-using MVP.Pages;
+using MVP.Extensions;
+using MVP.Helpers;
 using MVP.Services.Interfaces;
 using MVP.ViewModels.Data;
-using MvvmHelpers;
 using TinyMvvm;
-using Xamarin.CommunityToolkit.ObjectModel;
 using Xamarin.Essentials;
 using Xamarin.Forms;
 
@@ -24,9 +21,8 @@ namespace MVP.ViewModels
 
         public IList<Grouping<string, ContributionTechnologyViewModel>> GroupedContributionTechnologies { get; set; } = new List<Grouping<string, ContributionTechnologyViewModel>>();
 
-        public ContributionTechnologyPickerViewModel(IAnalyticsService analyticsService, IAuthService authService,
-            IDialogService dialogService, INavigationHelper navigationHelper)
-            : base(analyticsService, authService, dialogService, navigationHelper)
+        public ContributionTechnologyPickerViewModel(IAnalyticsService analyticsService, IDialogService dialogService, INavigationHelper navigationHelper)
+            : base(analyticsService, dialogService, navigationHelper)
         {
             SelectContributionTechnologyCommand = new Command<ContributionTechnologyViewModel>((x) => SelectContributionTechnology(x));
         }
@@ -92,6 +88,8 @@ namespace MVP.ViewModels
                     tech.IsSelected = false;
 
             vm.IsSelected = true;
+
+            //TODO: Replace by the back navigation version.
             contribution.ContributionTechnology.Value = vm.ContributionTechnology;
         }
     }

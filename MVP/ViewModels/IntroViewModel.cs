@@ -15,8 +15,8 @@ namespace MVP.ViewModels
         public IAsyncCommand SignInCommand { get; set; }
         public List<OnboardingItem> OnboardingItems { get; }
 
-        public IntroViewModel(IAnalyticsService analyticsService, IAuthService authService, IDialogService dialogService, INavigationHelper navigationHelper)
-            : base(analyticsService, authService, dialogService, navigationHelper)
+        public IntroViewModel(IAnalyticsService analyticsService, IDialogService dialogService, INavigationHelper navigationHelper)
+            : base(analyticsService, dialogService, navigationHelper)
         {
             SignInCommand = new AsyncCommand(() => SignIn());
 

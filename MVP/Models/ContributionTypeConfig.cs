@@ -1,4 +1,6 @@
-﻿namespace MVP.Models
+﻿using Xamarin.CommunityToolkit.ObjectModel;
+
+namespace MVP.Models
 {
     public class ContributionTypeConfig
     {

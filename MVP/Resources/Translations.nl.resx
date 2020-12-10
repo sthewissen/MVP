@@ -213,6 +213,15 @@
     <data name="alert_error_unexpected" xml:space="preserve">
         <value>Something went wrong that we didn't expect could happen. An error has been logged and we will look into it as soon as possible.</value>
     </data>
+    <data name="alert_error_badrequest" xml:space="preserve">
+        <value>We managed to do a request that wasn't quite right. Try again later.</value>
+    </data>
+    <data name="alert_error_servererror" xml:space="preserve">
+        <value>The MVP API messed something up. Couldn't process your request. Try again later.</value>
+    </data>
+    <data name="alert_error_unauthorized" xml:space="preserve">
+        <value>Your credentials have expired and we couldn't save the day. Therefore you were logged out. Please log in again to continue.</value>
+    </data>
     <data name="clipboard_alert_title" xml:space="preserve">
         <value>That looks cool!</value>
     </data>
@@ -221,5 +230,8 @@
     </data>
     <data name="alert_contribution_notdeleted" xml:space="preserve">
         <value>Your contribution could not be deleted. Perhaps it was already deleted, or it took place in the previous award period?</value>
+    </data>
+    <data name="validation_variablefield" xml:space="preserve">
+        <value>{0} is a required field.</value>
     </data>
 </root>

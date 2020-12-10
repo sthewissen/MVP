@@ -15,9 +15,8 @@ namespace MVP.ViewModels
     public class ContributionFormViewModel : BaseViewModel
     {
         public bool IsEditing { get; set; }
-        public ContributionViewModel Contribution { get; set; } = new ContributionViewModel();
 
-        public ContributionTypeConfig ContributionTypeConfig { get; set; }
+        public ContributionViewModel Contribution { get; set; } = new ContributionViewModel();
 
         public string ContributionDeadlineText
         {
@@ -40,9 +39,8 @@ namespace MVP.ViewModels
         public IAsyncCommand PickVisibilityCommand { get; set; }
         public IAsyncCommand PickContributionTechnologyCommand { get; set; }
 
-        public ContributionFormViewModel(IAnalyticsService analyticsService, IAuthService authService,
-            IDialogService dialogService, INavigationHelper navigationHelper)
-            : base(analyticsService, authService, dialogService, navigationHelper)
+        public ContributionFormViewModel(IAnalyticsService analyticsService, IDialogService dialogService, INavigationHelper navigationHelper)
+            : base(analyticsService, dialogService, navigationHelper)
         {
             PickAdditionalTechnologiesCommand = new AsyncCommand(PickAdditionalTechnologies);
             PickContributionTypeCommand = new AsyncCommand(PickContributionType);
@@ -58,40 +56,40 @@ namespace MVP.ViewModels
             if (NavigationParameter is Contribution contribution)
             {
                 Contribution = contribution.ToContributionViewModel();
-
                 IsEditing = contribution.ContributionId.HasValue && contribution.ContributionId.Value > 0;
 
-                if (contribution.ContributionType != null && contribution.ContributionType.Id.HasValue)
-                {
-                    ContributionTypeConfig = contribution.ContributionType.Id.Value.GetContributionTypeRequirements();
-                }
+                //if (contribution.ContributionType != null && contribution.ContributionType.Id.HasValue)
+                //{
+                //    ContributionTypeConfig = contribution.ContributionType.Id.Value.GetContributionTypeRequirements();
+                //}
             }
 
             Contribution.AddValidationRules();
         }
 
-        public override async Task Returning()
-        {
-            await base.Returning();
+        // TODO: Could implement this when TinyMvvm 3.0 is final.
+        // public override async Task Returning()
+        // {
+        //     await base.Returning();
 
-            if (ReturningParameter is ContributionType type)
-            {
-                Contribution.ContributionType.Value = type;
-                ContributionTypeConfig = type.Id.Value.GetContributionTypeRequirements();
-            }
-            else if (ReturningParameter is Visibility vis)
-            {
-                Contribution.Visibility.Value = vis;
-            }
-            else if (ReturningParameter is IList<ContributionTechnology> techs)
-            {
-                Contribution.AdditionalTechnologies = techs;
-            }
-            else if (ReturningParameter is ContributionTechnology tech)
-            {
-                Contribution.ContributionTechnology.Value = tech;
-            }
-        }
+        //     if (ReturningParameter is ContributionType type)
+        //     {
+        //         Contribution.ContributionType.Value = type;
+        //         ContributionTypeConfig = type.Id.Value.GetContributionTypeRequirements();
+        //     }
+        //     else if (ReturningParameter is Visibility vis)
+        //     {
+        //         Contribution.Visibility.Value = vis;
+        //     }
+        //     else if (ReturningParameter is IList<ContributionTechnology> techs)
+        //     {
+        //         Contribution.AdditionalTechnologies = techs;
+        //     }
+        //     else if (ReturningParameter is ContributionTechnology tech)
+        //     {
+        //         Contribution.ContributionTechnology.Value = tech;
+        //     }
+        // }
 
         // Pop the entire modal stack instead of just going back one screen.
         // This means it's editing mode and there is no way to go back and change activity type.

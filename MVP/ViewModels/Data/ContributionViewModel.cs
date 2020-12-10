@@ -12,6 +12,7 @@ namespace MVP.ViewModels.Data
     {
         ValidatableObject<ContributionType> contributionType = new ValidatableObject<ContributionType>();
 
+        public ContributionTypeConfig Requirements { get; set; }
         public int? ContributionId { get; set; }
 
         public ValidatableObject<ContributionType> ContributionType
@@ -19,8 +20,15 @@ namespace MVP.ViewModels.Data
             get => contributionType; set
             {
                 contributionType = value;
-                AddVariableValidationRules(value);
+
+                if (value != null)
+                {
+                    Requirements = value.Value.Id.Value.GetContributionTypeRequirements();
+                    AddVariableValidationRules(value);
+                }
+
                 OnPropertyChanged(nameof(ContributionType));
+                OnPropertyChanged(nameof(Requirements));
             }
         }
 
@@ -37,10 +45,10 @@ namespace MVP.ViewModels.Data
 
         public void AddValidationRules()
         {
-            Title.Validations.Add(new IsNotNullOrEmptyRule<string> { ValidationMessage = "Needs a title!" });
-            ContributionTechnology.Validations.Add(new IsNotNullOrEmptyRule<ContributionTechnology> { ValidationMessage = "Needs a ContributionTechnology!" });
-            Visibility.Validations.Add(new IsNotNullOrEmptyRule<Visibility> { ValidationMessage = "Needs a Visibility!" });
-            ContributionType.Validations.Add(new IsNotNullOrEmptyRule<ContributionType> { ValidationMessage = "Needs a ContributionType!" });
+            Title.Validations.Add(new IsNotNullOrEmptyRule<string> { ValidationMessage = string.Format(Resources.Translations.validation_variablefield, Resources.Translations.field_title) });
+            ContributionTechnology.Validations.Add(new IsNotNullOrEmptyRule<ContributionTechnology> { ValidationMessage = string.Format(Resources.Translations.validation_variablefield, Resources.Translations.field_primary_contribution_area) });
+            Visibility.Validations.Add(new IsNotNullOrEmptyRule<Visibility> { ValidationMessage = string.Format(Resources.Translations.validation_variablefield, Resources.Translations.field_visibility) });
+            ContributionType.Validations.Add(new IsNotNullOrEmptyRule<ContributionType> { ValidationMessage = string.Format(Resources.Translations.validation_variablefield, Resources.Translations.field_activity_type) });
         }
 
         void AddVariableValidationRules(ValidatableObject<ContributionType> value)
@@ -53,19 +61,17 @@ namespace MVP.ViewModels.Data
             if (value.Value == null)
                 return;
 
-            var contributionType = value.Value.Id.Value.GetContributionTypeRequirements();
+            if (Requirements.IsUrlRequired)
+                ReferenceUrl.Validations.Add(new IsNotNullOrEmptyRule<string> { ValidationMessage = string.Format(Resources.Translations.validation_variablefield, Resources.Translations.field_url) });
 
-            if (contributionType.IsUrlRequired)
-                ReferenceUrl.Validations.Add(new IsNotNullOrEmptyRule<string> { ValidationMessage = "Needs a URL!" });
+            if (Requirements.IsAnnualQuantityRequired)
+                AnnualQuantity.Validations.Add(new IsNotNullOrEmptyRule<int?> { ValidationMessage = string.Format(Resources.Translations.validation_variablefield, Requirements.AnnualQuantityHeader) });
 
-            if (contributionType.IsAnnualQuantityRequired)
-                AnnualQuantity.Validations.Add(new IsNotNullOrEmptyRule<int?> { ValidationMessage = $"Needs {contributionType.AnnualQuantityHeader}!" });
+            if (Requirements.IsAnnualReachRequired)
+                AnnualReach.Validations.Add(new IsNotNullOrEmptyRule<int?> { ValidationMessage = string.Format(Resources.Translations.validation_variablefield, Requirements.AnnualReachHeader) });
 
-            if (contributionType.IsAnnualReachRequired)
-                AnnualReach.Validations.Add(new IsNotNullOrEmptyRule<int?> { ValidationMessage = $"Needs {contributionType.AnnualReachHeader}!" });
-
-            if (contributionType.IsSecondAnnualQuantityRequired)
-                SecondAnnualQuantity.Validations.Add(new IsNotNullOrEmptyRule<int?> { ValidationMessage = $"Needs {contributionType.SecondAnnualQuantityHeader}!" });
+            if (Requirements.IsSecondAnnualQuantityRequired)
+                SecondAnnualQuantity.Validations.Add(new IsNotNullOrEmptyRule<int?> { ValidationMessage = string.Format(Resources.Translations.validation_variablefield, Requirements.SecondAnnualQuantityHeader) });
         }
 
         public bool IsValid()

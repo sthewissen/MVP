@@ -20,9 +20,8 @@ namespace MVP.ViewModels
             set => Set(ref fetchText, value);
         }
 
-        public SplashScreenViewModel(IAuthService authService, IAnalyticsService analyticsService,
-            IDialogService dialogService, INavigationHelper navigationHelper)
-            : base(analyticsService, authService, dialogService, navigationHelper)
+        public SplashScreenViewModel(IAnalyticsService analyticsService, IDialogService dialogService, INavigationHelper navigationHelper)
+            : base(analyticsService, dialogService, navigationHelper)
         {
             PrefetchDataCommand = new AsyncCommand(() => PrefetchData());
         }

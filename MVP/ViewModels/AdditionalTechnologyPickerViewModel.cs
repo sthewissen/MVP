@@ -2,9 +2,10 @@
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Input;
+using MVP.Extensions;
+using MVP.Helpers;
 using MVP.Services.Interfaces;
 using MVP.ViewModels.Data;
-using MvvmHelpers;
 using TinyMvvm;
 using Xamarin.Essentials;
 using Xamarin.Forms;
@@ -20,9 +21,8 @@ namespace MVP.ViewModels
 
         public IList<Grouping<string, ContributionTechnologyViewModel>> GroupedContributionTechnologies { get; set; } = new List<Grouping<string, ContributionTechnologyViewModel>>();
 
-        public AdditionalTechnologyPickerViewModel(IAnalyticsService analyticsService, IAuthService authService,
-            IDialogService dialogService, INavigationHelper navigationHelper)
-            : base(analyticsService, authService, dialogService, navigationHelper)
+        public AdditionalTechnologyPickerViewModel(IAnalyticsService analyticsService, IDialogService dialogService, INavigationHelper navigationHelper)
+            : base(analyticsService, dialogService, navigationHelper)
         {
             SelectContributionTechnologyCommand = new Command<ContributionTechnologyViewModel>((x) => SelectContributionTechnology(x));
         }
@@ -57,6 +57,9 @@ namespace MVP.ViewModels
 
             selectedTechnologies.Add(vm);
             vm.IsSelected = true;
+
+            //TODO: Replace by the back navigation version.
+            contribution.AdditionalTechnologies = selectedTechnologies.Select(x => x.ContributionTechnology).ToList();
         }
 
         public async override Task Back()

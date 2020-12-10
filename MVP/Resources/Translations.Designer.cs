@@ -437,6 +437,24 @@ namespace MVP.Resources {
             }
         }
         
+        internal static string alert_error_badrequest {
+            get {
+                return ResourceManager.GetString("alert_error_badrequest", resourceCulture);
+            }
+        }
+        
+        internal static string alert_error_servererror {
+            get {
+                return ResourceManager.GetString("alert_error_servererror", resourceCulture);
+            }
+        }
+        
+        internal static string alert_error_unauthorized {
+            get {
+                return ResourceManager.GetString("alert_error_unauthorized", resourceCulture);
+            }
+        }
+        
         internal static string clipboard_alert_title {
             get {
                 return ResourceManager.GetString("clipboard_alert_title", resourceCulture);
@@ -452,6 +470,12 @@ namespace MVP.Resources {
         internal static string alert_contribution_notdeleted {
             get {
                 return ResourceManager.GetString("alert_contribution_notdeleted", resourceCulture);
+            }
+        }
+        
+        internal static string validation_variablefield {
+            get {
+                return ResourceManager.GetString("validation_variablefield", resourceCulture);
             }
         }
     }

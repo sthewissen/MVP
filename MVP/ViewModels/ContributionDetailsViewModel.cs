@@ -17,9 +17,8 @@ namespace MVP.ViewModels
         public IAsyncCommand DeleteContributionCommand { get; set; }
         public ContributionTypeConfig ContributionTypeConfig { get; set; }
 
-        public ContributionDetailsViewModel(IAnalyticsService analyticsService, IAuthService authService,
-            IDialogService dialogService, INavigationHelper navigationHelper)
-            : base(analyticsService, authService, dialogService, navigationHelper)
+        public ContributionDetailsViewModel(IAnalyticsService analyticsService, IDialogService dialogService, INavigationHelper navigationHelper)
+            : base(analyticsService, dialogService, navigationHelper)
         {
             DeleteContributionCommand = new AsyncCommand(() => DeleteContribution());
             SecondaryCommand = new AsyncCommand(() => EditContribution(), (x) => CanBeEdited);

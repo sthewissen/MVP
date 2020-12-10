@@ -19,12 +19,10 @@ namespace MVP.ViewModels
 
         public ICommand SetAppThemeCommand { get; set; }
 
-        public ThemePickerViewModel(IAnalyticsService analyticsService, IAuthService authService,
-            IDialogService dialogService, INavigationHelper navigationHelper)
-            : base(analyticsService, authService, dialogService, navigationHelper)
+        public ThemePickerViewModel(IAnalyticsService analyticsService, IDialogService dialogService, INavigationHelper navigationHelper)
+            : base(analyticsService, dialogService, navigationHelper)
         {
             SetAppThemeCommand = new Command<AppThemeViewModel>((x) => SetAppTheme(x));
-
             AppThemes.FirstOrDefault(x => x.Key == Preferences.Get(Settings.AppTheme, Settings.AppThemeDefault)).IsSelected = true;
         }
 

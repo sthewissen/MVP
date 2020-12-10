@@ -16,7 +16,7 @@ namespace MVP.iOS.Renderers
             UITabBar.Appearance.ShadowImage = new UIImage();
             UITabBar.Appearance.BackgroundImage = new UIImage();
 
-            if (Element is TabbedPage tabs)
+            if (Element is TabbedPage)
             {
                 for (var i = 0; i < TabBar.Items.Length; i++)
                 {

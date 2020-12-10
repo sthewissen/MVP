@@ -4,7 +4,6 @@ using Xamarin.Forms.PlatformConfiguration;
 
 namespace MVP.Helpers
 {
-
     public enum StatusBarStyle
     {
         Default = 0,

@@ -7,7 +7,7 @@
                        xmlns:local="clr-namespace:MVP"
                        xmlns:pages="clr-namespace:MVP.Pages"
                        xmlns:state="clr-namespace:Xamarin.CommunityToolkit.UI.Views;assembly=Xamarin.CommunityToolkit"
-                       xmlns:touch="clr-namespace:TouchEffect;assembly=TouchEffect"
+                       xmlns:effects="clr-namespace:Xamarin.CommunityToolkit.Effects;assembly=Xamarin.CommunityToolkit"
                        xmlns:vm="clr-namespace:MVP.ViewModels"
                        xmlns:xct="clr-namespace:Xamarin.CommunityToolkit.Extensions;assembly=Xamarin.CommunityToolkit"
                        xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
@@ -81,7 +81,7 @@
                           Padding="32,0"
                           RowDefinitions="Auto, Auto"
                           RowSpacing="8"
-                          touch:TouchEff.Command="{Binding ToggleUseClipboardUrlsCommand}">
+                          effects:TouchEffect.Command="{Binding ToggleUseClipboardUrlsCommand}">
 
                         <Label Style="{StaticResource field_title}" 
                                Text="{xct:Translate setting_contributionfromurl_title}"/>
@@ -104,9 +104,9 @@
                           Padding="32,16,16,16"
                           RowDefinitions="Auto, Auto"
                           RowSpacing="8"
-                          touch:TouchEff.PressedBackgroundColor="{AppThemeBinding Light={StaticResource light_blue}, Dark={StaticResource background_dark_gray_highlight}}"
-                          touch:TouchEff.RegularBackgroundColor="{AppThemeBinding Light={StaticResource white}, Dark={StaticResource black}}"
-                          touch:TouchEff.Command="{Binding OpenThemePickerCommand}">
+                          effects:TouchEffect.PressedBackgroundColor="{AppThemeBinding Light={StaticResource light_blue}, Dark={StaticResource background_dark_gray_highlight}}"
+                          effects:TouchEffect.NormalBackgroundColor="{AppThemeBinding Light={StaticResource white}, Dark={StaticResource black}}"
+                          effects:TouchEffect.Command="{Binding OpenThemePickerCommand}">
 
                         <Label Style="{StaticResource field_title}" 
                                Text="{xct:Translate setting_apptheme_title}"/>
@@ -129,9 +129,9 @@
                           Padding="32,16,16,16"
                           RowDefinitions="Auto, Auto"
                           RowSpacing="8"
-                          touch:TouchEff.PressedBackgroundColor="{AppThemeBinding Light={StaticResource light_blue}, Dark={StaticResource background_dark_gray_highlight}}"
-                          touch:TouchEff.RegularBackgroundColor="{AppThemeBinding Light={StaticResource white}, Dark={StaticResource black}}"
-                          touch:TouchEff.Command="{Binding OpenLanguagePickerCommand}">
+                          effects:TouchEffect.PressedBackgroundColor="{AppThemeBinding Light={StaticResource light_blue}, Dark={StaticResource background_dark_gray_highlight}}"
+                          effects:TouchEffect.NormalBackgroundColor="{AppThemeBinding Light={StaticResource white}, Dark={StaticResource black}}"
+                          effects:TouchEffect.Command="{Binding OpenLanguagePickerCommand}">
 
                         <Label Style="{StaticResource field_title}" 
                                Text="{xct:Translate setting_language_title}"/>
@@ -155,9 +155,9 @@
                           Padding="32,16,16,16"
                           RowDefinitions="Auto, Auto"
                           RowSpacing="8"
-                          touch:TouchEff.PressedBackgroundColor="{AppThemeBinding Light={StaticResource light_blue}, Dark={StaticResource background_dark_gray_highlight}}"
-                          touch:TouchEff.RegularBackgroundColor="{AppThemeBinding Light={StaticResource white}, Dark={StaticResource black}}"
-                          touch:TouchEff.Command="{Binding OpenIconPickerCommand}">
+                          effects:TouchEffect.PressedBackgroundColor="{AppThemeBinding Light={StaticResource light_blue}, Dark={StaticResource background_dark_gray_highlight}}"
+                          effects:TouchEffect.NormalBackgroundColor="{AppThemeBinding Light={StaticResource white}, Dark={StaticResource black}}"
+                          effects:TouchEffect.Command="{Binding OpenIconPickerCommand}">
 
                         <Label Style="{StaticResource field_title}" 
                                Text="{xct:Translate setting_appicon_title}"/>
