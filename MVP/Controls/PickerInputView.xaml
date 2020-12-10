@@ -16,15 +16,17 @@
           ColumnSpacing="24"
           RowSpacing="4">
 
-        <Label Style="{StaticResource field_title}">
-            <Label.FormattedText>
-                <FormattedString>
-                    <Span Text="{Binding Title, Source={x:Reference inputView}}" />
-                    <Span Text="{Binding IsRequired, Source={x:Reference inputView}, Converter={xct:BoolToObjectConverter TrueObject=' *'}}"
-                          TextColor="{StaticResource error}" />
-                </FormattedString>
-            </Label.FormattedText>
-        </Label>
+        <StackLayout Orientation="Horizontal" Spacing="4">
+            <Label Style="{StaticResource field_title}" Text="{Binding Title, Source={x:Reference inputView}}" />
+            <Label Text="*" FontSize="18" TextColor="{StaticResource error}">
+                <Label.IsVisible>
+                    <MultiBinding Converter="{xct:VariableMultiValueConverter ConditionType=All}">
+                        <Binding Path="IsRequired" Source="{x:Reference inputView}" />
+                        <Binding Path="IsEnabled" Source="{x:Reference inputView}" />
+                    </MultiBinding>
+                </Label.IsVisible>
+            </Label>
+        </StackLayout>
 
         <Label Style="{StaticResource input_picker_label}"
                Grid.Row="1"
@@ -48,6 +50,7 @@
         <Label Style="{StaticResource chevron}" 
                Grid.Column="1"
                Grid.RowSpan="2"
+               IsVisible="{Binding IsEnabled, Source={x:Reference inputView}}"
                Text="{x:Static icons:Icons.chevron_right}" />
     </Grid>
 </StackLayout>

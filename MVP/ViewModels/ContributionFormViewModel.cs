@@ -43,7 +43,7 @@ namespace MVP.ViewModels
             : base(analyticsService, dialogService, navigationHelper)
         {
             PickAdditionalTechnologiesCommand = new AsyncCommand(PickAdditionalTechnologies);
-            PickContributionTypeCommand = new AsyncCommand(PickContributionType);
+            PickContributionTypeCommand = new AsyncCommand(PickContributionType, (x) => !IsEditing);
             PickVisibilityCommand = new AsyncCommand(PickVisibility);
             PickContributionTechnologyCommand = new AsyncCommand(PickContributionTechnology);
             SecondaryCommand = new Command(() => { if (Contribution.IsValid()) return; });
@@ -57,6 +57,7 @@ namespace MVP.ViewModels
             {
                 Contribution = contribution.ToContributionViewModel();
                 IsEditing = contribution.ContributionId.HasValue && contribution.ContributionId.Value > 0;
+                PickContributionTypeCommand.RaiseCanExecuteChanged();
 
                 //if (contribution.ContributionType != null && contribution.ContributionType.Id.HasValue)
                 //{

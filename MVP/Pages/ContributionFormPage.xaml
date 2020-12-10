@@ -40,6 +40,7 @@
 
                     <controls:PickerInputView Title="{xct:Translate field_activity_type}"
                                               IsRequired="True"
+                                              IsEnabled="{Binding IsEditing, Converter={converters:InvertedBoolConverter}}"
                                               IsValid="{Binding Contribution.ContributionType.IsValid}"
                                               Errors="{Binding Contribution.ContributionType.Errors, Converter={converters:ListToStringConverter}}"
                                               Value="{Binding Contribution.ContributionType.Value}"

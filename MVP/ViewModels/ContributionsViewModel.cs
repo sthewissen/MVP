@@ -25,8 +25,8 @@ namespace MVP.ViewModels
         public IAsyncCommand RefreshDataCommand { get; set; }
         public IAsyncCommand<Contribution> OpenContributionCommand { get; set; }
 
-        public ContributionsViewModel(IAnalyticsService analyticsService, IAuthService authService, IDialogService dialogService, INavigationHelper navigationHelper)
-            : base(analyticsService, authService, dialogService, navigationHelper)
+        public ContributionsViewModel(IAnalyticsService analyticsService, IDialogService dialogService, INavigationHelper navigationHelper)
+            : base(analyticsService, dialogService, navigationHelper)
         {
             OpenContributionCommand = new AsyncCommand<Contribution>((Contribution c) => OpenContribution(c));
             SecondaryCommand = new AsyncCommand(() => OpenAddContribution());
