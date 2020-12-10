@@ -16,6 +16,7 @@
     <Color x:Key="primary">#0178D4</Color>
     <Color x:Key="error">#E8484C</Color>
     <Color x:Key="warning">#574305</Color>
+    <Color x:Key="dark_primary">#002050</Color>
     <Color x:Key="light_primary">#E1EFFA</Color>
     <Color x:Key="light_error">#FFF3F4</Color>
     <Color x:Key="light_warning">#E2DDCC</Color>

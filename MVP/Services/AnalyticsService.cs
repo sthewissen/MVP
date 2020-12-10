@@ -11,21 +11,17 @@ namespace MVP.Services
 {
     public class AnalyticsService : IAnalyticsService
     {
-
-#if AppStore
-        const string iOSKey = "d93d1cb9-8a66-494a-8478-b73ac5f0516d";
-        const string androidKey = "3aa628e6-2d4e-428a-b064-88a2d358763e";
-#else
-        const string iOSKey = "71df115f-45d9-49da-bf13-de09ff4a3aff";
-        const string androidKey = "36d4c425-d4b8-4712-baa3-681cc6586c14";
-#endif
-
         public AnalyticsService() => AppCenter.Start(ApiKey, typeof(Analytics), typeof(Crashes));
 
         string ApiKey => Xamarin.Forms.Device.RuntimePlatform switch
         {
-            Xamarin.Forms.Device.iOS => iOSKey,
-            Xamarin.Forms.Device.Android => androidKey,
+#if AppStore
+            Xamarin.Forms.Device.iOS => Constants.AppCenterProdiOSKey,
+            Xamarin.Forms.Device.Android => Constants.AppCenterProdAndroidKey,
+#else
+            Xamarin.Forms.Device.iOS => Constants.AppCenterDeviOSKey,
+            Xamarin.Forms.Device.Android => Constants.AppCenterDevAndroidKey,
+#endif
             _ => throw new NotSupportedException()
         };
 

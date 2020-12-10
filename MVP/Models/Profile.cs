@@ -4,7 +4,6 @@ namespace MVP.Models
 {
     public partial class Profile
     {
-        public ContentMetadata Metadata { get; set; }
         public string MvpId { get; set; }
         public int? YearsAsMvp { get; set; }
         public string FirstAwardYear { get; set; }
@@ -19,11 +18,5 @@ namespace MVP.Models
         public string ShippingCountry { get; set; }
         public string ShippingStateCity { get; set; }
         public string Languages { get; set; }
-        public IList<OnlineIdentity> OnlineIdentities { get; set; }
-        public IList<Certification> Certifications { get; set; }
-        public IList<Activity> Activities { get; set; }
-        public IList<AwardRecognition> CommunityAwards { get; set; }
-        public IList<MvpHighlight> NewsHighlights { get; set; }
-        public IList<MvpHighlight> UpcomingEvent { get; set; }
     }
 }

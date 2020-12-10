@@ -14,7 +14,8 @@ namespace MVP.Services
     {
         readonly static Lazy<IContainer> containerHolder = new Lazy<IContainer>(CreateContainer);
 
-        public static IContainer Container => containerHolder.Value;
+        public static IContainer Container
+            => containerHolder.Value;
 
         static IContainer CreateContainer()
         {

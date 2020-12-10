@@ -31,7 +31,7 @@ namespace MVP.Services
 
         async Task<string> GetToken()
         {
-            var token = await SecureStorage.GetAsync("AccessToken");
+            var token = await SecureStorage.GetAsync(Constants.AccessToken);
             return token;
         }
 
@@ -372,174 +372,6 @@ namespace MVP.Services
             }
         }
 
-        /// <summary>
-        /// Returns a list of the MVP's OnlineIdentities (social media accounts and other identities)
-        /// </summary>
-        /// <param name="forceRefresh">The result is cached in a backing list by default which prevents unnecessary fetches. If you want the cache refreshed, set this to true</param>
-        /// <returns></returns>
-        public async Task<IReadOnlyList<OnlineIdentity>> GetOnlineIdentitiesAsync(bool forceRefresh = false)
-        {
-            try
-            {
-                return await api.GetOnlineIdentities();
-            }
-            catch (ApiException e)
-            {
-                HandleApiException(e);
-                return null;
-            }
-            catch (Exception e)
-            {
-                analyticsService.Report(e);
-                return null;
-            }
-        }
-
-        /// <summary>
-        /// Saves an OnlineIdentity
-        /// </summary>
-        /// <param name="onlineIdentity"></param>
-        /// <returns></returns>
-        public async Task<OnlineIdentity> SubmitOnlineIdentityAsync(OnlineIdentity onlineIdentity)
-        {
-            if (onlineIdentity == null)
-                throw new NullReferenceException($"The {nameof(onlineIdentity)} parameter was null.");
-
-            try
-            {
-                return await api.AddOnlineIdentity(onlineIdentity);
-            }
-            catch (ApiException e)
-            {
-                HandleApiException(e);
-                return null;
-            }
-            catch (Exception e)
-            {
-                analyticsService.Report(e);
-                return null;
-            }
-        }
-
-        public async Task<bool> DeleteOnlineIdentityAsync(OnlineIdentity onlineIdentity)
-        {
-            if (onlineIdentity == null)
-                throw new NullReferenceException($"The {nameof(onlineIdentity)} parameter was null.");
-
-            try
-            {
-                await api.DeleteOnlineIdentity(onlineIdentity.PrivateSiteId ?? 0);
-                return true;
-            }
-            catch (ApiException e)
-            {
-                HandleApiException(e);
-                return false;
-            }
-            catch (Exception e)
-            {
-                analyticsService.Report(e);
-                return false;
-            }
-        }
-
-        /// <summary>
-        /// Gets the current Award Consideration Questions list.
-        /// </summary>
-        /// <returns>The list of questions to be answered for consideration in the next award period.</returns>
-        public async Task<IReadOnlyList<AwardConsiderationQuestion>> GetAwardConsiderationQuestionsAsync()
-        {
-            try
-            {
-                return await api.GetAwardConsiderationQuestions();
-            }
-            catch (ApiException e)
-            {
-                HandleApiException(e);
-                return null;
-            }
-            catch (Exception e)
-            {
-                analyticsService.Report(e);
-                return null;
-            }
-        }
-
-        /// <summary>
-        /// Gets the MVP's currently saved answers for the Award consideration questions
-        /// </summary>
-        /// <returns>The list of questions to be answered for consideration in the next award period.</returns>
-        public async Task<IReadOnlyList<AwardConsiderationAnswer>> GetAwardConsiderationAnswersAsync()
-        {
-            try
-            {
-                return await api.GetAwardConsiderationAnswers();
-            }
-            catch (ApiException e)
-            {
-                HandleApiException(e);
-                return null;
-            }
-            catch (Exception e)
-            {
-                analyticsService.Report(e);
-                return null;
-            }
-        }
-
-        /// <summary>
-        /// Saves the MVP's answers to the Award Consideration questions.
-        /// IMPORTANT NOTE:
-        /// This does NOT submit them for review by the MVP award team, it is intended to be used to save the answers.
-        /// To submit the questions, call SubmitAwardConsiderationAnswerAsync after saving the answers.
-        /// </summary>
-        /// <param name="answers"></param>
-        /// <returns></returns>
-        public async Task<List<AwardConsiderationAnswer>> SaveAwardConsiderationAnswerAsync(IEnumerable<AwardConsiderationAnswer> answers)
-        {
-            if (answers == null)
-                throw new NullReferenceException($"The {nameof(answers)} parameter was null.");
-
-            try
-            {
-                return await api.SaveAwardConsiderationAnswers(answers);
-            }
-            catch (ApiException e)
-            {
-                HandleApiException(e);
-                return null;
-            }
-            catch (Exception e)
-            {
-                analyticsService.Report(e);
-                return null;
-            }
-        }
-
-        /// <summary>
-        /// Submits the MVP's answers for award consideration questions.
-        /// WARNING - THIS CAN ONLY BE DONE ONCE PER AWARD PERIOD, THE ANSWERS CANNOT BE CHANGED AFTER SUBMISSION.
-        /// </summary>
-        /// <returns>If the submission was successful</returns>
-        public async Task<bool> SubmitAwardConsiderationAnswerAsync()
-        {
-            try
-            {
-                await api.SubmitAwardConsiderationAnswers();
-                return true;
-            }
-            catch (ApiException e)
-            {
-                HandleApiException(e);
-                return false;
-            }
-            catch (Exception e)
-            {
-                analyticsService.Report(e);
-                return false;
-            }
-        }
-
         void HandleRequestErrorOccurred(string message, bool isServerError = false, bool isBadRequest = false, bool isTokenRefreshNeeded = false)
         {
             RequestErrorOccurred?.Invoke(this, new ApiServiceEventArgs
@@ -628,7 +460,7 @@ namespace MVP.Services
                 var cachedData = BlobCache.LocalMachine.GetAndFetchLatest(key, fetch,
                     offset =>
                     {
-                        TimeSpan elapsed = DateTimeOffset.Now - offset;
+                        var elapsed = DateTimeOffset.Now - offset;
                         return elapsed > cacheTimeSpan;
                     });
 

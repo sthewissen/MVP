@@ -51,7 +51,7 @@ namespace MVP.Services
                 var authResult = await pca.AcquireTokenSilent(Constants.AuthScopes, firstAccount).ExecuteAsync();
 
                 // Store the access token securely for later use.
-                await SecureStorage.SetAsync("AccessToken", $"{Constants.AuthType} {authResult?.AccessToken}");
+                await SecureStorage.SetAsync(Constants.AccessToken, $"{Constants.AuthType} {authResult?.AccessToken}");
 
                 return true;
             }
@@ -70,7 +70,7 @@ namespace MVP.Services
                 var authResult = await pca.AcquireTokenSilent(Constants.AuthScopes, firstAccount).ExecuteAsync();
 
                 // Store the access token securely for later use.
-                await SecureStorage.SetAsync("AccessToken", $"{Constants.AuthType} {authResult?.AccessToken}");
+                await SecureStorage.SetAsync(Constants.AccessToken, $"{Constants.AuthType} {authResult?.AccessToken}");
 
                 return true;
             }
@@ -85,7 +85,7 @@ namespace MVP.Services
                                                 .ExecuteAsync();
 
                     // Store the access token securely for later use.
-                    await SecureStorage.SetAsync("AccessToken", $"{Constants.AuthType} {authResult?.AccessToken}");
+                    await SecureStorage.SetAsync(Constants.AccessToken, $"{Constants.AuthType} {authResult?.AccessToken}");
 
                     return true;
                 }
@@ -116,7 +116,7 @@ namespace MVP.Services
                 }
 
                 // Clear our access token from secure storage.
-                SecureStorage.Remove("AccessToken");
+                SecureStorage.Remove(Constants.AccessToken);
 
                 return true;
             }

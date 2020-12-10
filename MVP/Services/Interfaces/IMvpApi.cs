@@ -37,26 +37,5 @@ namespace MVP.Services.Interfaces
 
         [Get("/contributions/sharingpreferences")]
         Task<List<Visibility>> GetVisibilities();
-
-        [Get("/onlineidentities")]
-        Task<List<OnlineIdentity>> GetOnlineIdentities();
-
-        [Post("/onlineidentities")]
-        Task<OnlineIdentity> AddOnlineIdentity([Body] OnlineIdentity identity);
-
-        [Delete("/onlineidentities")]
-        Task DeleteOnlineIdentity(int id);
-
-        [Get("/awardconsideration/getcurrentquestions")]
-        Task<List<AwardConsiderationQuestion>> GetAwardConsiderationQuestions();
-
-        [Get("/awardconsideration/getanswers")]
-        Task<List<AwardConsiderationAnswer>> GetAwardConsiderationAnswers();
-
-        [Post("/awardconsideration/saveanswers")]
-        Task<List<AwardConsiderationAnswer>> SaveAwardConsiderationAnswers([Body] IEnumerable<AwardConsiderationAnswer> answers);
-
-        [Post("/awardconsideration/submitanswers")]
-        Task SubmitAwardConsiderationAnswers();
     }
 }
