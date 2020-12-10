@@ -16,6 +16,7 @@ namespace MVP.ViewModels
         public IAsyncCommand LogoutCommand { get; set; }
         public IAsyncCommand LoadProfileCommand { get; set; }
         public IAsyncCommand OpenThemePickerCommand { get; set; }
+        public IAsyncCommand OpenIconPickerCommand { get; set; }
         public IAsyncCommand OpenLanguagePickerCommand { get; set; }
         public ICommand ToggleUseClipboardUrlsCommand { get; set; }
 
@@ -41,6 +42,7 @@ namespace MVP.ViewModels
             OpenThemePickerCommand = new AsyncCommand(() => OpenThemePicker());
             OpenLanguagePickerCommand = new AsyncCommand(() => OpenLanguagePicker());
             SecondaryCommand = new AsyncCommand(() => OpenAbout());
+            OpenIconPickerCommand = new AsyncCommand(() => OpenIconPicker(), (o) => Device.RuntimePlatform == Device.iOS);
         }
 
         public override async Task Initialize()
@@ -106,6 +108,9 @@ namespace MVP.ViewModels
 
         async Task OpenLanguagePicker()
             => await NavigationHelper.NavigateToAsync(nameof(LanguagePickerPage)).ConfigureAwait(false);
+
+        async Task OpenIconPicker()
+            => await NavigationHelper.NavigateToAsync(nameof(AppIconPickerPage)).ConfigureAwait(false);
 
         async Task OpenAbout()
             => await NavigationHelper.NavigateToAsync(nameof(AboutPage)).ConfigureAwait(false);

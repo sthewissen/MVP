@@ -130,7 +130,7 @@
         <value>Language</value>
     </data>
     <data name="setting_language_description" xml:space="preserve">
-        <value>Don't like the language we picked for you? You can override it here.</value>
+        <value>By default, we select the language that you're using on your device if translations for it are available. However, if you want to use this app in a different language you can override it here.</value>
     </data>
     <data name="themepicker_title" xml:space="preserve">
         <value>App theme</value>
@@ -170,5 +170,23 @@
     </data>
     <data name="visibility_title" xml:space="preserve">
         <value>Visibility</value>
+    </data>
+    <data name="icon_default" xml:space="preserve">
+        <value>Default</value>
+    </data>
+    <data name="icon_darkblue" xml:space="preserve">
+        <value>Dark Blue</value>
+    </data>
+    <data name="icon_black" xml:space="preserve">
+        <value>Black</value>
+    </data>
+    <data name="icon_white" xml:space="preserve">
+        <value>White</value>
+    </data>
+    <data name="setting_appicon_title" xml:space="preserve">
+        <value>App icon</value>
+    </data>
+    <data name="setting_appicon_description" xml:space="preserve">
+        <value>Don't like the app icon we picked for you? We have alternative options available. If you have ideas for additional ones, feel free to reach out!</value>
     </data>
 </root>

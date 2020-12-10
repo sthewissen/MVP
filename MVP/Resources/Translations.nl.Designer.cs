@@ -358,5 +358,41 @@ namespace MVP.Resources {
                 return ResourceManager.GetString("visibility_title", resourceCulture);
             }
         }
+        
+        internal static string icon_default {
+            get {
+                return ResourceManager.GetString("icon_default", resourceCulture);
+            }
+        }
+        
+        internal static string icon_darkblue {
+            get {
+                return ResourceManager.GetString("icon_darkblue", resourceCulture);
+            }
+        }
+        
+        internal static string icon_black {
+            get {
+                return ResourceManager.GetString("icon_black", resourceCulture);
+            }
+        }
+        
+        internal static string icon_white {
+            get {
+                return ResourceManager.GetString("icon_white", resourceCulture);
+            }
+        }
+        
+        internal static string setting_appicon_title {
+            get {
+                return ResourceManager.GetString("setting_appicon_title", resourceCulture);
+            }
+        }
+        
+        internal static string setting_appicon_description {
+            get {
+                return ResourceManager.GetString("setting_appicon_description", resourceCulture);
+            }
+        }
     }
 }

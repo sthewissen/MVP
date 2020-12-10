@@ -149,8 +149,35 @@
                     <BoxView Margin="16,0"
                              Style="{StaticResource separator}"/>
 
+                    <Grid IsVisible="{OnPlatform Default=false, iOS=true}"
+                          ColumnDefinitions="*, Auto"
+                          ColumnSpacing="24"
+                          Padding="32,16,16,16"
+                          RowDefinitions="Auto, Auto"
+                          RowSpacing="8"
+                          touch:TouchEff.PressedBackgroundColor="{AppThemeBinding Light={StaticResource light_blue}, Dark={StaticResource background_dark_gray_highlight}}"
+                          touch:TouchEff.RegularBackgroundColor="{AppThemeBinding Light={StaticResource white}, Dark={StaticResource black}}"
+                          touch:TouchEff.Command="{Binding OpenIconPickerCommand}">
+
+                        <Label Style="{StaticResource field_title}" 
+                               Text="{xct:Translate setting_appicon_title}"/>
+
+                        <Label Style="{StaticResource field_description}" 
+                               Grid.Row="1"
+                               Text="{xct:Translate setting_appicon_description}"/>
+
+                        <Label Style="{StaticResource chevron}"
+                               Grid.Column="1"
+                               Grid.RowSpan="2"
+                               Text="{x:Static icons:Icons.chevron_right}"/>
+                    </Grid>
+
+                    <BoxView IsVisible="{OnPlatform Default=false, iOS=true}"
+                             Margin="16,0"
+                             Style="{StaticResource separator}"/>
+
                     <Button Style="{StaticResource destructive_button}"
-                            Margin="0,16"
+                            Margin="0,16,0,32"
                             Command="{Binding LogoutCommand}"
                             ImageSource="{FontImage FontFamily={StaticResource font_icon}, Color={StaticResource error}, Size=20, Glyph={x:Static icons:Icons.logout}}"
                             Text="{xct:Translate button_logout}"/>

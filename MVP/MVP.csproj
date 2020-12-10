@@ -47,6 +47,7 @@
         <Folder Include="Controls\" />
         <Folder Include="ViewModels\Data\" />
         <Folder Include="Validation\" />
+        <Folder Include="Models\Enums\" />
     </ItemGroup>
     <ItemGroup>
         <None Remove="Resources\mvp_logo.svg" />

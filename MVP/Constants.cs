@@ -20,6 +20,9 @@
 
         public const string AppLanguage = "app_language";
         public const string AppLanguageDefault = "en";
+
+        public const string AppIcon = "app_icon";
+        public const int AppIconDefault = 0;
     }
 
     public class Alerts
