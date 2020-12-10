@@ -56,6 +56,7 @@ namespace MVP.ViewModels
 
             // Also force the tabs to change
             (CurrentApp.MainPage as TabbedMainPage).SetTitles();
+            HapticFeedback.Perform(HapticFeedbackType.Click);
         }
     }
 }
