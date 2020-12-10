@@ -6,14 +6,21 @@
                        xmlns:icons="clr-namespace:MVP.Styles"
                        xmlns:local="clr-namespace:MVP"
                        xmlns:pages="clr-namespace:MVP.Pages"
-                       xmlns:state="clr-namespace:Xamarin.CommunityToolkit.UI.Views;assembly=Xamarin.CommunityToolkit"
+                       xmlns:views="clr-namespace:Xamarin.CommunityToolkit.UI.Views;assembly=Xamarin.CommunityToolkit"
                        xmlns:effects="clr-namespace:Xamarin.CommunityToolkit.Effects;assembly=Xamarin.CommunityToolkit"
+                       xmlns:converters="clr-namespace:MVP.Converters"
                        xmlns:vm="clr-namespace:MVP.ViewModels"
                        xmlns:xct="clr-namespace:Xamarin.CommunityToolkit.Extensions;assembly=Xamarin.CommunityToolkit"
                        xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
                        x:Class="MVP.Pages.ProfilePage"
                        x:DataType="vm:ProfileViewModel"
                        x:TypeArguments="vm:ProfileViewModel">
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <converters:Base64ImageConverter x:Key="Base64ImageConverter" />
+        </ResourceDictionary>
+    </ContentPage.Resources>
 
     <local:AppFrame Title="{xct:Translate profile_title}"
                     x:Name="appFrame"
@@ -25,14 +32,14 @@
                     <Grid ColumnDefinitions="80,*"
                           ColumnSpacing="16"
                           Padding="32,16,32,16"
-                          state:StateLayout.CurrentState="{Binding State}"
-                          state:StateLayout.AnimateStateChanges="False">
+                          views:StateLayout.CurrentState="{Binding State}"
+                          views:StateLayout.AnimateStateChanges="False">
                         <Grid.GestureRecognizers>
                             <TapGestureRecognizer Command="{Binding LoadProfileCommand}" />
                         </Grid.GestureRecognizers>
 
-                        <state:StateLayout.StateViews>
-                            <state:StateView StateKey="Loading">
+                        <views:StateLayout.StateViews>
+                            <views:StateView StateKey="Loading">
                                 <Grid ColumnDefinitions="80,*"
                                       ColumnSpacing="16"
                                       Grid.ColumnSpan="2">
@@ -49,8 +56,8 @@
                                         <controls:SkeletonView HeightRequest="16" />
                                     </StackLayout>
                                 </Grid>
-                            </state:StateView>
-                        </state:StateLayout.StateViews>
+                            </views:StateView>
+                        </views:StateLayout.StateViews>
 
                         <ff:CachedImage HeightRequest="80"
                                         Source="{Binding ProfileImage}"
@@ -60,6 +67,13 @@
                                 <fftransformations:CircleTransformation/>
                             </ff:CachedImage.Transformations>
                         </ff:CachedImage>
+
+                        <!--<views:AvatarView Aspect="AspectFill"
+                                          Text="ST"
+                                          Source="{Binding ProfileImage, Converter={StaticResource Base64ImageConverter}}"
+                                          VerticalOptions="CenterAndExpand"
+                                          HorizontalOptions="CenterAndExpand"
+                                          Size="80"/>-->
 
                         <StackLayout Grid.Column="1"
                                      VerticalOptions="CenterAndExpand">

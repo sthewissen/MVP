@@ -32,5 +32,6 @@ namespace MVP.Styles
         public const string chevron_up = "\ue919";
         public const string calendar = "\ue91a";
         public const string info = "\ue91b";
+        public const string alert_circle = "\ue91c";
     }
 }

@@ -392,4 +392,28 @@
         <Setter Property="FontSize" Value="24"/>
         <Setter Property="VerticalOptions" Value="Center"/>
     </Style>
+
+    <Style x:Key="warning_text" TargetType="Label">
+        <Setter Property="TextColor" Value="{StaticResource warning}"/>
+    </Style>
+
+    <Style x:Key="warning_title" TargetType="Label">
+        <Setter Property="TextColor" Value="{StaticResource warning}"/>
+        <Setter Property="VerticalTextAlignment" Value="Center"/>
+        <Setter Property="FontFamily" Value="{StaticResource font_semibold}"/>
+        <Setter Property="VerticalOptions" Value="Center"/>
+    </Style>
+
+    <Style x:Key="warning_icon" TargetType="Label">
+        <Setter Property="TextColor" Value="{StaticResource warning}"/>
+        <Setter Property="FontFamily" Value="{StaticResource font_icon}"/>
+        <Setter Property="FontSize" Value="18"/>
+        <Setter Property="VerticalOptions" Value="Center"/>
+    </Style>
+
+    <Style x:Key="warning_frame" TargetType="Frame">
+        <Setter Property="Padding" Value="16"/>
+        <Setter Property="Margin" Value="0,0,0,16"/>
+        <Setter Property="BackgroundColor" Value="{StaticResource light_warning}"/>
+    </Style>
 </ResourceDictionary>

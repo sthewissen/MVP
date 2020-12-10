@@ -25,6 +25,14 @@
                 <StackLayout Padding="24"
                              Spacing="4">
 
+                    <Frame Style="{StaticResource warning_frame}" IsVisible="{Binding CanBeEdited, Converter={converters:InvertedBoolConverter}}">
+                        <Grid ColumnDefinitions="Auto, *" RowDefinitions="Auto, Auto" RowSpacing="8" ColumnSpacing="16">
+                            <Label Style="{StaticResource warning_icon}"  Text="{x:Static icons:Icons.alert_circle}" />
+                            <Label Style="{StaticResource warning_title}" Grid.Column="1" Text="{xct:Translate warning_title_activitylocked}" />
+                            <Label Style="{StaticResource warning_text}" Grid.ColumnSpan="2" Grid.Row="1" Text="{xct:Translate warning_description_activitylocked}" />
+                        </Grid>
+                    </Frame>
+
                     <Frame BackgroundColor="{Binding Contribution.ContributionType.Id, Converter={StaticResource ContributionTypeConverter}}"
                            Style="{StaticResource contribution_item_category}"
                            Margin="0,0,0,8">

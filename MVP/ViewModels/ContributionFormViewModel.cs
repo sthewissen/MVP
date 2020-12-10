@@ -97,7 +97,6 @@ namespace MVP.ViewModels
 
                 State = LayoutState.Saving;
 
-                //await Task.Delay(5000);
                 if (IsEditing)
                 {
                     var result = await MvpApiService.UpdateContributionAsync(Contribution.ToContribution());

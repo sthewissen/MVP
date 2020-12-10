@@ -53,6 +53,9 @@ namespace MVP.ViewModels
 
         async Task LoadProfile(bool force)
         {
+            if (State != LayoutState.None)
+                return;
+
             State = LayoutState.Loading;
             await Task.WhenAll(RefreshProfileData(force), RefreshProfileImage(force));
             State = LayoutState.None;

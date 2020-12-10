@@ -478,5 +478,17 @@ namespace MVP.Resources {
                 return ResourceManager.GetString("validation_variablefield", resourceCulture);
             }
         }
+        
+        internal static string warning_title_activitylocked {
+            get {
+                return ResourceManager.GetString("warning_title_activitylocked", resourceCulture);
+            }
+        }
+        
+        internal static string warning_description_activitylocked {
+            get {
+                return ResourceManager.GetString("warning_description_activitylocked", resourceCulture);
+            }
+        }
     }
 }
