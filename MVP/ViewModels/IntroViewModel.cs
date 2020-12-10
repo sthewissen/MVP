@@ -53,13 +53,21 @@ namespace MVP.ViewModels
                 }
                 else
                 {
-                    await DialogService.AlertAsync("Couldn't authenticate you using the provided credentials. Are you sure you are using the account associated to your MVP ID?", Alerts.Error, Alerts.OK);
+                    await DialogService.AlertAsync("Couldn't authenticate you using the provided credentials. Are you sure you are using the account associated to your MVP ID?",
+                        Resources.Translations.alert_error_title,
+                        Resources.Translations.alert_ok
+                    );
                 }
             }
             catch (Exception e)
             {
                 AnalyticsService.Report(e);
-                await DialogService.AlertAsync(Alerts.UnexpectedError, Alerts.Error, Alerts.OK);
+
+                await DialogService.AlertAsync(
+                    Resources.Translations.alert_error_unexpected,
+                    Resources.Translations.alert_error_title,
+                    Resources.Translations.alert_ok
+                );
             }
         }
     }

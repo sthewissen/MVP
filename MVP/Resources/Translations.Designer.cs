@@ -388,5 +388,71 @@ namespace MVP.Resources {
                 return ResourceManager.GetString("setting_appicon_description", resourceCulture);
             }
         }
+        
+        internal static string alert_yes {
+            get {
+                return ResourceManager.GetString("alert_yes", resourceCulture);
+            }
+        }
+        
+        internal static string alert_no {
+            get {
+                return ResourceManager.GetString("alert_no", resourceCulture);
+            }
+        }
+        
+        internal static string alert_ok {
+            get {
+                return ResourceManager.GetString("alert_ok", resourceCulture);
+            }
+        }
+        
+        internal static string alert_cancel {
+            get {
+                return ResourceManager.GetString("alert_cancel", resourceCulture);
+            }
+        }
+        
+        internal static string alert_error_title {
+            get {
+                return ResourceManager.GetString("alert_error_title", resourceCulture);
+            }
+        }
+        
+        internal static string alert_warning_title {
+            get {
+                return ResourceManager.GetString("alert_warning_title", resourceCulture);
+            }
+        }
+        
+        internal static string alert_contribution_deleteconfirmation {
+            get {
+                return ResourceManager.GetString("alert_contribution_deleteconfirmation", resourceCulture);
+            }
+        }
+        
+        internal static string alert_error_unexpected {
+            get {
+                return ResourceManager.GetString("alert_error_unexpected", resourceCulture);
+            }
+        }
+        
+        internal static string clipboard_alert_title {
+            get {
+                return ResourceManager.GetString("clipboard_alert_title", resourceCulture);
+            }
+        }
+        
+        internal static string clipboard_alert_description {
+            get {
+                return ResourceManager.GetString("clipboard_alert_description", resourceCulture);
+            }
+        }
+        
+        internal static string alert_contribution_notdeleted {
+            get {
+                return ResourceManager.GetString("alert_contribution_notdeleted", resourceCulture);
+            }
+        }
     }
 }

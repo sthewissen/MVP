@@ -108,6 +108,7 @@
 
     <Style TargetType="controls:SkeletonView">
         <Setter Property="BackgroundColor" Value="{AppThemeBinding Light={StaticResource border_light_gray}, Dark={StaticResource background_dark_gray}}"/>
+        <Setter Property="CornerRadius" Value="4" />
     </Style>
 
     <Style TargetType="ContentPage" ApplyToDerivedTypes="True">
@@ -170,7 +171,7 @@
 
     <Style x:Key="contribution_item_date" TargetType="Label">
         <Setter Property="FontFamily" Value="{StaticResource font_regular}" />
-        <Setter Property="FontSize" Value="13" />
+        <Setter Property="FontSize" Value="14" />
         <Setter Property="TextColor" Value="{StaticResource gray}" />
     </Style>
 

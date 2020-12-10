@@ -200,7 +200,7 @@ namespace MVP.Extensions
                     config.SecondAnnualQuantityHeader = "";
                     config.AnnualReachHeader = "Attendees of Talks";
                     config.TypeColor = "powderblue_light";
-                    config.TextColor = "white";
+                    config.TextColor = "black";
                     break;
                 case "d56464de-179a-e411-bbc8-6c3be5a82b68": // "EnglishName": "Speaking (User Group/Meetup/Local events)"
                     config.AnnualQuantityHeader = "Number of Talks";

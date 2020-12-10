@@ -30,28 +30,14 @@ namespace MVP.ViewModels
 
         void SetAppTheme(AppThemeViewModel theme)
         {
+            Application.Current.UserAppTheme = (OSAppTheme)theme.Key;
+            Preferences.Set(Settings.AppTheme, theme.Key);
+
             foreach (var item in AppThemes)
                 item.IsSelected = false;
 
-            switch (theme.Key)
-            {
-                case 0:
-                    Application.Current.UserAppTheme = OSAppTheme.Unspecified;
-                    Preferences.Set(Settings.AppTheme, (int)OSAppTheme.Unspecified);
-                    break;
-                case 1:
-                    Application.Current.UserAppTheme = OSAppTheme.Light;
-                    Preferences.Set(Settings.AppTheme, (int)OSAppTheme.Light);
-                    break;
-                case 2:
-                    Application.Current.UserAppTheme = OSAppTheme.Dark;
-                    Preferences.Set(Settings.AppTheme, (int)OSAppTheme.Dark);
-                    break;
-                default:
-                    break;
-            }
-
             AppThemes.FirstOrDefault(x => x.Key == Preferences.Get(Settings.AppTheme, Settings.AppThemeDefault)).IsSelected = true;
+
             RaisePropertyChanged(nameof(AppThemes));
             HapticFeedback.Perform(HapticFeedbackType.Click);
         }

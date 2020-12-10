@@ -35,6 +35,7 @@
                     Focused="DatePicker_Focused"
                     Unfocused="DatePicker_Unfocused"
                     Margin="16,0"
+                    MinimumDate="{Binding MinimumDate, Source={x:Reference inputView}}"
                     Format="D"
                     Date="{Binding Value, Source={x:Reference inputView}}" />
     </Frame>

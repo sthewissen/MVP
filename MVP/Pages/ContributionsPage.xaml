@@ -4,21 +4,28 @@
                        xmlns:local="clr-namespace:MVP"
                        xmlns:pages="clr-namespace:MVP.Pages"
                        xmlns:xct="clr-namespace:Xamarin.CommunityToolkit.Extensions;assembly=Xamarin.CommunityToolkit"
-                       xmlns:touch="clr-namespace:TouchEffect;assembly=TouchEffect"
                        xmlns:vm="clr-namespace:MVP.ViewModels"
                        xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
                        x:Class="MVP.Pages.ContributionsPage"
                        x:DataType="vm:ContributionsViewModel"
                        x:Name="page"
                        x:TypeArguments="vm:ContributionsViewModel"
-                       xmlns:lottie="clr-namespace:Lottie.Forms;assembly=Lottie.Forms">
+                       xmlns:lottie="clr-namespace:Lottie.Forms;assembly=Lottie.Forms"
+                       xmlns:state="clr-namespace:Xamarin.CommunityToolkit.UI.Views;assembly=Xamarin.CommunityToolkit"
+                       xmlns:controls="clr-namespace:MVP.Controls">
 
     <local:AppFrame SecondaryButtonIcon="{x:Static icons:Icons.plus}"
                     ShowSecondaryButton="True"
                     Title="{xct:Translate contributions_title}"
                     x:Name="appFrame">
         <local:AppFrame.Content>
-            <StackLayout>
+            <StackLayout state:StateLayout.CurrentState="{Binding State}"
+                         state:StateLayout.AnimateStateChanges="False">
+
+                <state:StateLayout.StateViews>
+                    <state:StateView StateKey="Loading" RepeatCount="3" RepeatTemplate="{StaticResource contribution_item_loading}" />
+                </state:StateLayout.StateViews>
+
                 <!--<lottie:AnimationView x:Name="animationView"
                                       Animation="{AppThemeBinding Light='resource://loading.json?assembly=MVP', Dark='resource://loading_light.json?assembly=MVP'}"
                                       AnimationSource="EmbeddedResource"

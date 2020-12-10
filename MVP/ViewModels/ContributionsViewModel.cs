@@ -50,13 +50,32 @@ namespace MVP.ViewModels
         {
             Contributions.Clear();
             contributions.Clear();
+            try
+            {
+                State = LayoutState.Loading;
+
+                await Task.Delay(5000);
+
+                Contributions.Clear();
+                contributions.Clear();
+
+                var contributionsList = await MvpApiService.GetContributionsAsync(0, pageSize).ConfigureAwait(false);
+
+                if (contributionsList == null)
+                    return;
 
             var contributionsList = await MvpApiService.GetContributionsAsync(0, pageSize).ConfigureAwait(false);
+                Contributions = contributionsList.Contributions;
 
             if (contributionsList == null)
                 return;
 
             Contributions = contributionsList.Contributions;
+            }
+            finally
+            {
+                State = LayoutState.None;
+            }
         }
 
         async Task<bool> CheckForClipboardUrl()
@@ -74,10 +93,10 @@ namespace MVP.ViewModels
                     return false;
 
                 var shouldCreateActivity = await DialogService.ConfirmAsync(
-                    "We notice a URL on your clipboard. Do you want us to pre-fill an activity out of that?",
-                    "That looks cool!",
-                    "Yes",
-                    "No"
+                    Resources.Translations.clipboard_alert_description,
+                    Resources.Translations.clipboard_alert_title,
+                    Resources.Translations.alert_yes,
+                    Resources.Translations.alert_no
                 );
 
                 if (!shouldCreateActivity)

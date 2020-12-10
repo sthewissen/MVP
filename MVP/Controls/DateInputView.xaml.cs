@@ -12,6 +12,9 @@ namespace MVP.Controls
         public static readonly BindableProperty ValueProperty =
             BindableProperty.Create(nameof(Value), typeof(DateTime), typeof(DateInputView), defaultValue: DateTime.Now.Date, defaultBindingMode: BindingMode.TwoWay);
 
+        public static readonly BindableProperty MinimumDateProperty =
+            BindableProperty.Create(nameof(MinimumDate), typeof(DateTime), typeof(DateInputView));
+
         public static readonly BindableProperty DescriptionProperty =
          BindableProperty.Create(nameof(Description), typeof(string), typeof(DateInputView), string.Empty, defaultBindingMode: BindingMode.OneTime);
 
@@ -46,6 +49,12 @@ namespace MVP.Controls
         {
             get => (DateTime)GetValue(ValueProperty);
             set => SetValue(ValueProperty, value);
+        }
+
+        public DateTime MinimumDate
+        {
+            get => (DateTime)GetValue(MinimumDateProperty);
+            set => SetValue(MinimumDateProperty, value);
         }
 
         public string Description

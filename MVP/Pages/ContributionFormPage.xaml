@@ -30,10 +30,10 @@
             <ScrollView>
                 <StackLayout Padding="0,32">
 
-                    <Label Padding="32,0"
+                    <Label x:Name="lbl" Padding="32,0"
                            TextColor="{StaticResource gray}"
                            FontSize="13"
-                           Text="{xct:Translate contribution_form_timeframememo}" />
+                           Text="{Binding ContributionDeadlineText}" />
 
                     <BoxView Margin="16,16,16,0"
                              Style="{StaticResource separator}"/>
@@ -69,6 +69,7 @@
                              Style="{StaticResource separator}"/>
 
                     <controls:DateInputView Title="{xct:Translate field_activity_date}"
+                                            MinimumDate="{Binding CurrentAwardPeriodStartDate}"
                                             IsRequired="True"
                                             Value="{Binding Contribution.StartDate}" />
 

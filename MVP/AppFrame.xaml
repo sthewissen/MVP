@@ -68,6 +68,7 @@
     <Image Aspect="AspectFill"
            Grid.ColumnSpan="3"
            Grid.Row="1"
+           BackgroundColor="Transparent"
            Opacity="{Binding ShadowOpacity, Source={x:Reference appFrame}}"
            Source="shadow.png"
            VerticalOptions="Start"/>
@@ -76,6 +77,7 @@
            Grid.ColumnSpan="3"
            Grid.Row="1"
            Rotation="180"
+           BackgroundColor="Transparent"
            Source="shadow.png"
            VerticalOptions="End"/>
 </Grid>

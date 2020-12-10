@@ -30,6 +30,8 @@ namespace MVP.ViewModels
 
         void LoadLanguages()
         {
+            // Not going to translate the top name, as it's the
+            // language's native name, which should be the same across all languages.
             SupportedLanguages = new List<LanguageViewModel>()
             {
                 { new LanguageViewModel{ Description = "English", CurrentLanguageDescription=Resources.Translations.language_english, CI = "en" } },

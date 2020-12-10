@@ -14,7 +14,7 @@
                        x:TypeArguments="vm:ContributionDetailsViewModel">
 
     <local:AppFrame ShowBackButton="True"
-                    ShowSecondaryButton="True"
+                    ShowSecondaryButton="{Binding CanBeEdited}"
                     SecondaryButtonIcon="{x:Static icons:Icons.edit}"
                     Title="{xct:Translate contributiondetails_title}"
                     x:Name="appFrame">
@@ -113,6 +113,7 @@
 
                     <Button Style="{StaticResource destructive_button}"
                             Command="{Binding DeleteContributionCommand}"
+                            IsVisible="{Binding CanBeEdited}"
                             Text="{xct:Translate button_delete_contribution}"
                             ImageSource="{FontImage FontFamily={StaticResource font_icon}, Color={StaticResource error}, Size=20, Glyph={x:Static icons:Icons.trash2}}" />
 

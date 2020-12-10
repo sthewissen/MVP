@@ -19,6 +19,22 @@ namespace MVP.ViewModels
 
         public ContributionTypeConfig ContributionTypeConfig { get; set; }
 
+        public string ContributionDeadlineText
+        {
+            get
+            {
+                var startDate = DateTime.Now.CurrentAwardPeriodStartDate();
+
+                return string.Format(
+                    Resources.Translations.contribution_form_timeframememo,
+                    startDate.ToLongDateString(),
+                    startDate.AddYears(1).AddDays(-1).ToLongDateString()
+                );
+            }
+        }
+
+        public DateTime CurrentAwardPeriodStartDate { get; set; } = DateTime.Now.CurrentAwardPeriodStartDate();
+
         public IAsyncCommand PickAdditionalTechnologiesCommand { get; set; }
         public IAsyncCommand PickContributionTypeCommand { get; set; }
         public IAsyncCommand PickVisibilityCommand { get; set; }

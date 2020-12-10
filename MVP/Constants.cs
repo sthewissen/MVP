@@ -31,13 +31,4 @@
         public const string AppIcon = "app_icon";
         public const int AppIconDefault = 0;
     }
-
-    public class Alerts
-    {
-        public const string OK = "OK";
-        public const string Cancel = "Cancel";
-        public const string HoldOn = "Hold on...";
-        public const string Error = "That's not good...";
-        public const string UnexpectedError = "Something went wrong that we didn't expect could happen. An error has been logged and we will look into it as soon as possible.";
-    }
 }

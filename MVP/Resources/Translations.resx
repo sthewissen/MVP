@@ -217,7 +217,7 @@
         <value>Become a sponsor</value>
     </data>
     <data name="contribution_form_timeframememo" xml:space="preserve">
-        <value>Your contribution submission for the July award cycle must be for community activities between April 1, 2020 to March 31, 2021. Community activities submitted from April 1st and beyond will be held for future consideration.</value>
+        <value>Your contribution submission for the July award cycle must be for community activities between {0} to {1}. Community activities submitted from {1} and beyond will be held for future consideration.</value>
     </data>
     <data name="contributionform_activitytype_placeholder" xml:space="preserve">
         <value>Select the activity type that best fits this activity.</value>
@@ -287,5 +287,38 @@
     </data>
     <data name="setting_appicon_description" xml:space="preserve">
         <value>Don't like the app icon we picked for you? We have alternative options available. If you have ideas for additional ones, feel free to reach out!</value>
+    </data>
+    <data name="alert_yes" xml:space="preserve">
+        <value>Yes</value>
+    </data>
+    <data name="alert_no" xml:space="preserve">
+        <value>No</value>
+    </data>
+    <data name="alert_ok" xml:space="preserve">
+        <value>Ok</value>
+    </data>
+    <data name="alert_cancel" xml:space="preserve">
+        <value>Cancel</value>
+    </data>
+    <data name="alert_error_title" xml:space="preserve">
+        <value>That's not good...</value>
+    </data>
+    <data name="alert_warning_title" xml:space="preserve">
+        <value>Hold on...</value>
+    </data>
+    <data name="alert_contribution_deleteconfirmation" xml:space="preserve">
+        <value>Are you sure you want to delete this contribution? You cannot undo this.</value>
+    </data>
+    <data name="alert_error_unexpected" xml:space="preserve">
+        <value>Something went wrong that we didn't expect could happen. An error has been logged and we will look into it as soon as possible.</value>
+    </data>
+    <data name="clipboard_alert_title" xml:space="preserve">
+        <value>That looks cool!</value>
+    </data>
+    <data name="clipboard_alert_description" xml:space="preserve">
+        <value>We notice a URL on your clipboard. Do you want us to pre-fill an activity out of that?</value>
+    </data>
+    <data name="alert_contribution_notdeleted" xml:space="preserve">
+        <value>Your contribution could not be deleted. Perhaps it was already deleted, or it took place in the previous award period?</value>
     </data>
 </root>
