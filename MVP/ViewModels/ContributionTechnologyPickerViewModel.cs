@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Input;
@@ -7,6 +8,7 @@ using MVP.Helpers;
 using MVP.Services.Interfaces;
 using MVP.ViewModels.Data;
 using TinyMvvm;
+using Xamarin.CommunityToolkit.UI.Views;
 using Xamarin.Essentials;
 using Xamarin.Forms;
 
@@ -15,15 +17,18 @@ namespace MVP.ViewModels
     public class ContributionTechnologyPickerViewModel : BaseViewModel
     {
         ContributionViewModel contribution;
+        IReadOnlyList<Models.ContributionCategory> allCategories = new List<Models.ContributionCategory>();
 
-        public bool IsEditing { get; set; }
+        public string SearchText { get; set; } = string.Empty;
         public ICommand SelectContributionTechnologyCommand { get; set; }
+        public ICommand SearchCommand { get; set; }
 
         public IList<Grouping<string, ContributionTechnologyViewModel>> GroupedContributionTechnologies { get; set; } = new List<Grouping<string, ContributionTechnologyViewModel>>();
 
         public ContributionTechnologyPickerViewModel(IAnalyticsService analyticsService, IDialogService dialogService, INavigationHelper navigationHelper)
             : base(analyticsService, dialogService, navigationHelper)
         {
+            SearchCommand = new Command(() => PopulateList());
             SelectContributionTechnologyCommand = new Command<ContributionTechnologyViewModel>((x) => SelectContributionTechnology(x));
         }
 
@@ -39,43 +44,50 @@ namespace MVP.ViewModels
             LoadContributionAreas().SafeFireAndForget();
         }
 
-        public async override Task Back()
-            => await NavigationHelper.BackAsync(GroupedContributionTechnologies.SelectMany(x => x).FirstOrDefault(x => x.IsSelected)?.ContributionTechnology);
-
         async Task LoadContributionAreas()
         {
-            if (Connectivity.NetworkAccess == NetworkAccess.Internet)
+            try
             {
-                var categories = await MvpApiService.GetContributionAreasAsync().ConfigureAwait(false);
+                State = LayoutState.Loading;
 
-                if (categories != null)
-                {
-                    var result = new List<Grouping<string, ContributionTechnologyViewModel>>();
+                allCategories = await MvpApiService.GetContributionAreasAsync().ConfigureAwait(false);
 
-                    foreach (var item in categories.SelectMany(x => x.ContributionAreas))
-                    {
-                        result.Add(
-                            new Grouping<string, ContributionTechnologyViewModel>(item.AwardName,
-                            item.ContributionTechnology.Select(x => new ContributionTechnologyViewModel()
-                            {
-                                ContributionTechnology = x
-                            }))
-                        );
-                    }
-
-                    GroupedContributionTechnologies = result;
-
-                    // Editing mode
-                    if (contribution.ContributionTechnology.Value != null)
-                    {
-                        var selected = result
-                            .SelectMany(x => x)
-                            .FirstOrDefault(x => x.ContributionTechnology.Id == contribution.ContributionTechnology.Value.Id);
-
-                        selected.IsSelected = true;
-                    }
-                }
+                PopulateList();
             }
+            finally
+            {
+                State = LayoutState.None;
+            }
+        }
+
+        void PopulateList()
+        {
+            if (allCategories == null)
+                return;
+
+            var result = new List<Grouping<string, ContributionTechnologyViewModel>>();
+
+            foreach (var item in allCategories.SelectMany(x => x.ContributionAreas))
+            {
+                var data = item.ContributionTechnology
+                                .Where(x => x.Name.ToLowerInvariant().Contains(SearchText.ToLowerInvariant()) || string.IsNullOrEmpty(SearchText))
+                                .Select(x => new ContributionTechnologyViewModel() { ContributionTechnology = x });
+
+                if (data.Any())
+                    result.Add(new Grouping<string, ContributionTechnologyViewModel>(item.AwardName, data));
+            }
+
+            GroupedContributionTechnologies = result;
+
+            // Editing mode
+            if (contribution.ContributionTechnology.Value == null)
+                return;
+
+            var selected = result
+                .SelectMany(x => x)
+                .FirstOrDefault(x => x.ContributionTechnology.Id == contribution.ContributionTechnology.Value.Id);
+
+            selected.IsSelected = true;
         }
 
         void SelectContributionTechnology(ContributionTechnologyViewModel vm)
@@ -92,5 +104,8 @@ namespace MVP.ViewModels
             //TODO: Replace by the back navigation version.
             contribution.ContributionTechnology.Value = vm.ContributionTechnology;
         }
+
+        public async override Task Back()
+            => await NavigationHelper.BackAsync(GroupedContributionTechnologies.SelectMany(x => x).FirstOrDefault(x => x.IsSelected)?.ContributionTechnology);
     }
 }

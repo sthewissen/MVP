@@ -1,7 +1,10 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Threading.Tasks;
+using MVP.Models;
 using MVP.Pages;
 using MVP.Services.Interfaces;
+using Newtonsoft.Json;
 using TinyMvvm;
 using Xamarin.CommunityToolkit.ObjectModel;
 using Xamarin.Essentials;
@@ -30,6 +33,40 @@ namespace MVP.ViewModels
         {
             try
             {
+
+                //var random = new Random();
+                //var cont = new List<Contribution>();
+
+                //var techs = await MvpApiService.GetContributionAreasAsync();
+                //var vis = await MvpApiService.GetVisibilitiesAsync();
+                //var types = await MvpApiService.GetContributionTypesAsync();
+
+                //for (var i = 0; i < 100; i++)
+                //{
+                //    var techcat = techs[random.Next(0, techs.Count - 1)];
+                //    var tech = techcat.ContributionAreas[random.Next(0, techcat.ContributionAreas.Count - 1)].ContributionTechnology;
+                //    var id = random.Next(0, 1000);
+
+                //    var contrib = new Contribution
+                //    {
+                //        AnnualQuantity = random.Next(0, 50),
+                //        SecondAnnualQuantity = random.Next(0, 50),
+                //        AnnualReach = random.Next(0, 50),
+                //        StartDate = DateTime.Now.AddYears(-4).AddDays(random.Next(0, 4 * 365)),
+                //        Description = "This is a non randomized description.",
+                //        Title = $"My Activity #{id}",
+                //        ContributionTechnology = tech[random.Next(0, tech.Count - 1)],
+                //        ContributionType = types[random.Next(0, types.Count - 1)],
+                //        Visibility = vis[random.Next(0, vis.Count - 1)],
+                //        ReferenceUrl = "https://cataas.com/cat/says/hello%20world!",
+                //        ContributionId = id
+                //    };
+
+                //    cont.Add(contrib);
+                //}
+
+                //var con = JsonConvert.SerializeObject(cont);
+
                 if (await AuthService.SignInSilentAsync())
                 {
                     FetchText = Resources.Translations.splash_contributionareas;

@@ -7,19 +7,27 @@
                        xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
                        x:Class="MVP.Pages.ContributionTypePickerPage"
                        x:DataType="vm:ContributionTypePickerViewModel"
-                       x:TypeArguments="vm:ContributionTypePickerViewModel">
+                       x:TypeArguments="vm:ContributionTypePickerViewModel"
+                       xmlns:state="clr-namespace:Xamarin.CommunityToolkit.UI.Views;assembly=Xamarin.CommunityToolkit">
 
     <local:AppFrame ShowBackButton="True"
                     Title="{xct:Translate contributiontypepicker_title}"
                     x:Name="appFrame">
         <local:AppFrame.Content>
-            <CollectionView ItemsSource="{Binding ContributionTypes}"
+            <Grid state:StateLayout.CurrentState="{Binding State}"
+                  state:StateLayout.AnimateStateChanges="False">
+
+                <state:StateLayout.StateViews>
+                    <state:StateView StateKey="Loading" RepeatCount="3" RepeatTemplate="{StaticResource picker_item_loading}" />
+                </state:StateLayout.StateViews>
+
+                <CollectionView ItemsSource="{Binding ContributionTypes}"
                                 ItemTemplate="{StaticResource contribution_type_item}"
                                 Scrolled="CollectionView_Scrolled"
                                 SelectionMode="None">
-                <CollectionView.Header>
-                    <StackLayout>
-                        <!--<FlexLayout Direction="Row"
+                    <CollectionView.Header>
+                        <StackLayout>
+                            <!--<FlexLayout Direction="Row"
                                         Margin="0,0,0,16"
                                         Padding="24,0"
                                         Wrap="Wrap">
@@ -46,12 +54,13 @@
                                 </DataTemplate>
                             </BindableLayout.ItemTemplate>
                         </FlexLayout>-->
-                    </StackLayout>
-                </CollectionView.Header>
-                <CollectionView.Footer>
-                    <BoxView HeightRequest="40"/>
-                </CollectionView.Footer>
-            </CollectionView>
+                        </StackLayout>
+                    </CollectionView.Header>
+                    <CollectionView.Footer>
+                        <BoxView HeightRequest="40"/>
+                    </CollectionView.Footer>
+                </CollectionView>
+            </Grid>
         </local:AppFrame.Content>
     </local:AppFrame>
 </pages:BaseContentPage>

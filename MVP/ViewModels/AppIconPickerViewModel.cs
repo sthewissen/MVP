@@ -19,7 +19,8 @@ namespace MVP.ViewModels
             new AppIconViewModel() { Key = (int)AppIcon.Default, ImageUrl = $"icon_{AppIcon.Default.ToString().ToLower()}", Description = Resources.Translations.icon_default },
             new AppIconViewModel() { Key = (int)AppIcon.DarkBlue, ImageUrl = $"icon_{AppIcon.DarkBlue.ToString().ToLower()}", Description = Resources.Translations.icon_darkblue  },
             new AppIconViewModel() { Key = (int)AppIcon.Black, ImageUrl = $"icon_{AppIcon.Black.ToString().ToLower()}", Description = Resources.Translations.icon_black  },
-            new AppIconViewModel() { Key = (int)AppIcon.White, ImageUrl = $"icon_{AppIcon.White.ToString().ToLower()}", Description = Resources.Translations.icon_white  }
+            new AppIconViewModel() { Key = (int)AppIcon.White, ImageUrl = $"icon_{AppIcon.White.ToString().ToLower()}", Description = Resources.Translations.icon_white  },
+            new AppIconViewModel() { Key = (int)AppIcon.Rainbow, ImageUrl = $"icon_{AppIcon.Rainbow.ToString().ToLower()}", Description = Resources.Translations.icon_rainbow  }
         };
 
         public ICommand SetAppIconCommand { get; set; }

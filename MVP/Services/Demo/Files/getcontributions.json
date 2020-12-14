@@ -1,0 +1,3002 @@
+﻿[
+  {
+    "ContributionId": 856,
+    "ContributionTypeName": null,
+    "ContributionType": {
+      "Id": "f76464de-179a-e411-bbc8-6c3be5a82b68",
+      "Name": "Mentorship",
+      "EnglishName": "Mentorship"
+    },
+    "ContributionTechnology": {
+      "Id": "4e04f4ef-066b-e511-810b-fc15b428ced0",
+      "Name": "Visual Studio Extensibility",
+      "AwardName": "Developer Technologies",
+      "AwardCategory": "My Awarded Category",
+      "Statuscode": 0,
+      "Active": false
+    },
+    "AdditionalTechnologies": [],
+    "StartDate": "2020-09-28T16:05:15.632083+02:00",
+    "Title": "My Activity #856",
+    "ReferenceUrl": "https://www.nationalgeographic.com/animals/birds/e/emperor-penguin/",
+    "Visibility": {
+      "Id": 100000001,
+      "Description": "MVP Community",
+      "LocalizeKey": "MVPVisibilityText"
+    },
+    "AnnualQuantity": 16,
+    "SecondAnnualQuantity": 12,
+    "AnnualReach": 12,
+    "Description": "This is a non randomized description."
+  },
+  {
+    "ContributionId": 88,
+    "ContributionTypeName": null,
+    "ContributionType": {
+      "Id": "d96464de-179a-e411-bbc8-6c3be5a82b68",
+      "Name": "Forum Participation (3rd Party forums)",
+      "EnglishName": "Forum Participation (3rd Party forums)"
+    },
+    "ContributionTechnology": {
+      "Id": "3004f4ef-066b-e511-810b-fc15b428ced0",
+      "Name": "PHP",
+      "AwardName": "Developer Technologies",
+      "AwardCategory": "My Awarded Category",
+      "Statuscode": 0,
+      "Active": false
+    },
+    "AdditionalTechnologies": [],
+    "StartDate": "2020-04-20T16:05:39.289239+02:00",
+    "Title": "My Activity #88",
+    "ReferenceUrl": "https://www.nationalgeographic.com/animals/birds/e/emperor-penguin/",
+    "Visibility": {
+      "Id": 100000000,
+      "Description": "Microsoft",
+      "LocalizeKey": "MicrosoftVisibilityText"
+    },
+    "AnnualQuantity": 42,
+    "SecondAnnualQuantity": 32,
+    "AnnualReach": 13,
+    "Description": "This is a non randomized description."
+  },
+  {
+    "ContributionId": 50,
+    "ContributionTypeName": null,
+    "ContributionType": {
+      "Id": "df6464de-179a-e411-bbc8-6c3be5a82b68",
+      "Name": "Blog/Website Post",
+      "EnglishName": "Blog/Website Post"
+    },
+    "ContributionTechnology": {
+      "Id": "84c301bb-189a-e411-93f2-9cb65495d3c4",
+      "Name": "Azure DevOps",
+      "AwardName": "Developer Technologies",
+      "AwardCategory": "My Awarded Category",
+      "Statuscode": 0,
+      "Active": false
+    },
+    "AdditionalTechnologies": [],
+    "StartDate": "2018-04-11T16:05:39.289297+02:00",
+    "Title": "My Activity #50",
+    "ReferenceUrl": "https://www.nationalgeographic.com/animals/birds/e/emperor-penguin/",
+    "Visibility": {
+      "Id": 100000000,
+      "Description": "Microsoft",
+      "LocalizeKey": "MicrosoftVisibilityText"
+    },
+    "AnnualQuantity": 19,
+    "SecondAnnualQuantity": 1,
+    "AnnualReach": 13,
+    "Description": "This is a non randomized description."
+  },
+  {
+    "ContributionId": 351,
+    "ContributionTypeName": null,
+    "ContributionType": {
+      "Id": "d2d96407-0304-e911-8171-3863bb2bca60",
+      "Name": "Microsoft Open Source Projects",
+      "EnglishName": "Microsoft Open Source Projects"
+    },
+    "ContributionTechnology": {
+      "Id": "c4fe7f2a-8678-ea11-a811-000d3a8ccaf5",
+      "Name": "Quantum",
+      "AwardName": "Developer Technologies",
+      "AwardCategory": "My Awarded Category",
+      "Statuscode": 0,
+      "Active": false
+    },
+    "AdditionalTechnologies": [],
+    "StartDate": "2020-05-21T16:05:39.289325+02:00",
+    "Title": "My Activity #351",
+    "ReferenceUrl": "https://www.nationalgeographic.com/animals/birds/e/emperor-penguin/",
+    "Visibility": {
+      "Id": 100000000,
+      "Description": "Microsoft",
+      "LocalizeKey": "MicrosoftVisibilityText"
+    },
+    "AnnualQuantity": 47,
+    "SecondAnnualQuantity": 18,
+    "AnnualReach": 7,
+    "Description": "This is a non randomized description."
+  },
+  {
+    "ContributionId": 563,
+    "ContributionTypeName": null,
+    "ContributionType": {
+      "Id": "d96464de-179a-e411-bbc8-6c3be5a82b68",
+      "Name": "Forum Participation (3rd Party forums)",
+      "EnglishName": "Forum Participation (3rd Party forums)"
+    },
+    "ContributionTechnology": {
+      "Id": "e803f4ef-066b-e511-810b-fc15b428ced0",
+      "Name": "Node.js",
+      "AwardName": "Developer Technologies",
+      "AwardCategory": "My Awarded Category",
+      "Statuscode": 0,
+      "Active": false
+    },
+    "AdditionalTechnologies": [],
+    "StartDate": "2019-08-26T16:05:39.289354+02:00",
+    "Title": "My Activity #563",
+    "ReferenceUrl": "https://www.nationalgeographic.com/animals/birds/e/emperor-penguin/",
+    "Visibility": {
+      "Id": 100000001,
+      "Description": "MVP Community",
+      "LocalizeKey": "MVPVisibilityText"
+    },
+    "AnnualQuantity": 46,
+    "SecondAnnualQuantity": 19,
+    "AnnualReach": 16,
+    "Description": "This is a non randomized description."
+  },
+  {
+    "ContributionId": 560,
+    "ContributionTypeName": null,
+    "ContributionType": {
+      "Id": "d96464de-179a-e411-bbc8-6c3be5a82b68",
+      "Name": "Forum Participation (3rd Party forums)",
+      "EnglishName": "Forum Participation (3rd Party forums)"
+    },
+    "ContributionTechnology": {
+      "Id": "dc03f4ef-066b-e511-810b-fc15b428ced0",
+      "Name": "Java",
+      "AwardName": "Developer Technologies",
+      "AwardCategory": "My Awarded Category",
+      "Statuscode": 0,
+      "Active": false
+    },
+    "AdditionalTechnologies": [],
+    "StartDate": "2019-07-07T16:05:39.289387+02:00",
+    "Title": "My Activity #560",
+    "ReferenceUrl": "https://www.nationalgeographic.com/animals/birds/e/emperor-penguin/",
+    "Visibility": {
+      "Id": 100000001,
+      "Description": "MVP Community",
+      "LocalizeKey": "MVPVisibilityText"
+    },
+    "AnnualQuantity": 31,
+    "SecondAnnualQuantity": 33,
+    "AnnualReach": 2,
+    "Description": "This is a non randomized description."
+  },
+  {
+    "ContributionId": 865,
+    "ContributionTypeName": null,
+    "ContributionType": {
+      "Id": "414bcf30-e889-e511-8110-c4346bac0abc",
+      "Name": "Non-Microsoft Open Source Projects",
+      "EnglishName": "Non-Microsoft Open Source Projects"
+    },
+    "ContributionTechnology": {
+      "Id": "82c301bb-189a-e411-93f2-9cb65495d3c4",
+      "Name": "ASP.NET/IIS",
+      "AwardName": "Developer Technologies",
+      "AwardCategory": "My Awarded Category",
+      "Statuscode": 0,
+      "Active": false
+    },
+    "AdditionalTechnologies": [],
+    "StartDate": "2019-12-21T16:05:39.28942+01:00",
+    "Title": "My Activity #865",
+    "ReferenceUrl": "https://www.nationalgeographic.com/animals/birds/e/emperor-penguin/",
+    "Visibility": {
+      "Id": 100000001,
+      "Description": "MVP Community",
+      "LocalizeKey": "MVPVisibilityText"
+    },
+    "AnnualQuantity": 17,
+    "SecondAnnualQuantity": 23,
+    "AnnualReach": 17,
+    "Description": "This is a non randomized description."
+  },
+  {
+    "ContributionId": 231,
+    "ContributionTypeName": null,
+    "ContributionType": {
+      "Id": "e56464de-179a-e411-bbc8-6c3be5a82b68",
+      "Name": "Video/Webcast/Podcast",
+      "EnglishName": "Video/Webcast/Podcast"
+    },
+    "ContributionTechnology": {
+      "Id": "0b2c2181-02e4-e611-80fe-3863bb34cb20",
+      "Name": "Accessibility",
+      "AwardName": "Developer Technologies",
+      "AwardCategory": "My Awarded Category",
+      "Statuscode": 0,
+      "Active": false
+    },
+    "AdditionalTechnologies": [],
+    "StartDate": "2018-09-04T16:05:39.289452+02:00",
+    "Title": "My Activity #231",
+    "ReferenceUrl": "https://www.nationalgeographic.com/animals/birds/e/emperor-penguin/",
+    "Visibility": {
+      "Id": 100000001,
+      "Description": "MVP Community",
+      "LocalizeKey": "MVPVisibilityText"
+    },
+    "AnnualQuantity": 46,
+    "SecondAnnualQuantity": 41,
+    "AnnualReach": 18,
+    "Description": "This is a non randomized description."
+  },
+  {
+    "ContributionId": 899,
+    "ContributionTypeName": null,
+    "ContributionType": {
+      "Id": "f96464de-179a-e411-bbc8-6c3be5a82b68",
+      "Name": "Forum Moderator",
+      "EnglishName": "Forum Moderator"
+    },
+    "ContributionTechnology": {
+      "Id": "3004f4ef-066b-e511-810b-fc15b428ced0",
+      "Name": "PHP",
+      "AwardName": "Developer Technologies",
+      "AwardCategory": "My Awarded Category",
+      "Statuscode": 0,
+      "Active": false
+    },
+    "AdditionalTechnologies": [],
+    "StartDate": "2020-08-23T16:05:39.289487+02:00",
+    "Title": "My Activity #899",
+    "ReferenceUrl": "https://www.nationalgeographic.com/animals/birds/e/emperor-penguin/",
+    "Visibility": {
+      "Id": 100000000,
+      "Description": "Microsoft",
+      "LocalizeKey": "MicrosoftVisibilityText"
+    },
+    "AnnualQuantity": 21,
+    "SecondAnnualQuantity": 45,
+    "AnnualReach": 13,
+    "Description": "This is a non randomized description."
+  },
+  {
+    "ContributionId": 513,
+    "ContributionTypeName": null,
+    "ContributionType": {
+      "Id": "d2d96407-0304-e911-8171-3863bb2bca60",
+      "Name": "Microsoft Open Source Projects",
+      "EnglishName": "Microsoft Open Source Projects"
+    },
+    "ContributionTechnology": {
+      "Id": "84c301bb-189a-e411-93f2-9cb65495d3c4",
+      "Name": "Azure DevOps",
+      "AwardName": "Developer Technologies",
+      "AwardCategory": "My Awarded Category",
+      "Statuscode": 0,
+      "Active": false
+    },
+    "AdditionalTechnologies": [],
+    "StartDate": "2017-11-28T16:05:39.289517+01:00",
+    "Title": "My Activity #513",
+    "ReferenceUrl": "https://www.nationalgeographic.com/animals/birds/e/emperor-penguin/",
+    "Visibility": {
+      "Id": 100000000,
+      "Description": "Microsoft",
+      "LocalizeKey": "MicrosoftVisibilityText"
+    },
+    "AnnualQuantity": 24,
+    "SecondAnnualQuantity": 24,
+    "AnnualReach": 35,
+    "Description": "This is a non randomized description."
+  },
+  {
+    "ContributionId": 126,
+    "ContributionTypeName": null,
+    "ContributionType": {
+      "Id": "d16464de-179a-e411-bbc8-6c3be5a82b68",
+      "Name": "Speaking (Conference)",
+      "EnglishName": "Speaking (Conference)"
+    },
+    "ContributionTechnology": {
+      "Id": "e803f4ef-066b-e511-810b-fc15b428ced0",
+      "Name": "Node.js",
+      "AwardName": "Developer Technologies",
+      "AwardCategory": "My Awarded Category",
+      "Statuscode": 0,
+      "Active": false
+    },
+    "AdditionalTechnologies": [],
+    "StartDate": "2020-06-20T16:05:39.289543+02:00",
+    "Title": "My Activity #126",
+    "ReferenceUrl": "https://www.nationalgeographic.com/animals/birds/e/emperor-penguin/",
+    "Visibility": {
+      "Id": 100000000,
+      "Description": "Microsoft",
+      "LocalizeKey": "MicrosoftVisibilityText"
+    },
+    "AnnualQuantity": 41,
+    "SecondAnnualQuantity": 12,
+    "AnnualReach": 5,
+    "Description": "This is a non randomized description."
+  },
+  {
+    "ContributionId": 492,
+    "ContributionTypeName": null,
+    "ContributionType": {
+      "Id": "d2d96407-0304-e911-8171-3863bb2bca60",
+      "Name": "Microsoft Open Source Projects",
+      "EnglishName": "Microsoft Open Source Projects"
+    },
+    "ContributionTechnology": {
+      "Id": "cc03f4ef-066b-e511-810b-fc15b428ced0",
+      "Name": "Front End Web Dev",
+      "AwardName": "Developer Technologies",
+      "AwardCategory": "My Awarded Category",
+      "Statuscode": 0,
+      "Active": false
+    },
+    "AdditionalTechnologies": [],
+    "StartDate": "2020-03-10T16:05:39.28957+01:00",
+    "Title": "My Activity #492",
+    "ReferenceUrl": "https://www.nationalgeographic.com/animals/birds/e/emperor-penguin/",
+    "Visibility": {
+      "Id": 100000000,
+      "Description": "Microsoft",
+      "LocalizeKey": "MicrosoftVisibilityText"
+    },
+    "AnnualQuantity": 30,
+    "SecondAnnualQuantity": 19,
+    "AnnualReach": 9,
+    "Description": "This is a non randomized description."
+  },
+  {
+    "ContributionId": 861,
+    "ContributionTypeName": null,
+    "ContributionType": {
+      "Id": "d2d96407-0304-e911-8171-3863bb2bca60",
+      "Name": "Microsoft Open Source Projects",
+      "EnglishName": "Microsoft Open Source Projects"
+    },
+    "ContributionTechnology": {
+      "Id": "3a04f4ef-066b-e511-810b-fc15b428ced0",
+      "Name": "Python",
+      "AwardName": "Developer Technologies",
+      "AwardCategory": "My Awarded Category",
+      "Statuscode": 0,
+      "Active": false
+    },
+    "AdditionalTechnologies": [],
+    "StartDate": "2018-12-17T16:05:39.290881+01:00",
+    "Title": "My Activity #861",
+    "ReferenceUrl": "https://www.nationalgeographic.com/animals/birds/e/emperor-penguin/",
+    "Visibility": {
+      "Id": 100000000,
+      "Description": "Microsoft",
+      "LocalizeKey": "MicrosoftVisibilityText"
+    },
+    "AnnualQuantity": 7,
+    "SecondAnnualQuantity": 0,
+    "AnnualReach": 1,
+    "Description": "This is a non randomized description."
+  },
+  {
+    "ContributionId": 638,
+    "ContributionTypeName": null,
+    "ContributionType": {
+      "Id": "f16464de-179a-e411-bbc8-6c3be5a82b68",
+      "Name": "Conference (Staffing)",
+      "EnglishName": "Conference (Staffing)"
+    },
+    "ContributionTechnology": {
+      "Id": "0b2c2181-02e4-e611-80fe-3863bb34cb20",
+      "Name": "Accessibility",
+      "AwardName": "Developer Technologies",
+      "AwardCategory": "My Awarded Category",
+      "Statuscode": 0,
+      "Active": false
+    },
+    "AdditionalTechnologies": [],
+    "StartDate": "2019-05-04T16:05:39.290914+02:00",
+    "Title": "My Activity #638",
+    "ReferenceUrl": "https://www.nationalgeographic.com/animals/birds/e/emperor-penguin/",
+    "Visibility": {
+      "Id": 100000001,
+      "Description": "MVP Community",
+      "LocalizeKey": "MVPVisibilityText"
+    },
+    "AnnualQuantity": 46,
+    "SecondAnnualQuantity": 6,
+    "AnnualReach": 2,
+    "Description": "This is a non randomized description."
+  },
+  {
+    "ContributionId": 910,
+    "ContributionTypeName": null,
+    "ContributionType": {
+      "Id": "db6464de-179a-e411-bbc8-6c3be5a82b68",
+      "Name": "Book (Author)",
+      "EnglishName": "Book (Author)"
+    },
+    "ContributionTechnology": {
+      "Id": "4c04f4ef-066b-e511-810b-fc15b428ced0",
+      "Name": "Unity",
+      "AwardName": "Developer Technologies",
+      "AwardCategory": "My Awarded Category",
+      "Statuscode": 0,
+      "Active": false
+    },
+    "AdditionalTechnologies": [],
+    "StartDate": "2020-07-05T16:05:39.29097+02:00",
+    "Title": "My Activity #910",
+    "ReferenceUrl": "https://www.nationalgeographic.com/animals/birds/e/emperor-penguin/",
+    "Visibility": {
+      "Id": 100000000,
+      "Description": "Microsoft",
+      "LocalizeKey": "MicrosoftVisibilityText"
+    },
+    "AnnualQuantity": 48,
+    "SecondAnnualQuantity": 35,
+    "AnnualReach": 48,
+    "Description": "This is a non randomized description."
+  },
+  {
+    "ContributionId": 760,
+    "ContributionTypeName": null,
+    "ContributionType": {
+      "Id": "d16464de-179a-e411-bbc8-6c3be5a82b68",
+      "Name": "Speaking (Conference)",
+      "EnglishName": "Speaking (Conference)"
+    },
+    "ContributionTechnology": {
+      "Id": "4e04f4ef-066b-e511-810b-fc15b428ced0",
+      "Name": "Visual Studio Extensibility",
+      "AwardName": "Developer Technologies",
+      "AwardCategory": "My Awarded Category",
+      "Statuscode": 0,
+      "Active": false
+    },
+    "AdditionalTechnologies": [],
+    "StartDate": "2019-08-28T16:05:39.291001+02:00",
+    "Title": "My Activity #760",
+    "ReferenceUrl": "https://www.nationalgeographic.com/animals/birds/e/emperor-penguin/",
+    "Visibility": {
+      "Id": 100000000,
+      "Description": "Microsoft",
+      "LocalizeKey": "MicrosoftVisibilityText"
+    },
+    "AnnualQuantity": 14,
+    "SecondAnnualQuantity": 31,
+    "AnnualReach": 26,
+    "Description": "This is a non randomized description."
+  },
+  {
+    "ContributionId": 187,
+    "ContributionTypeName": null,
+    "ContributionType": {
+      "Id": "414bcf30-e889-e511-8110-c4346bac0abc",
+      "Name": "Non-Microsoft Open Source Projects",
+      "EnglishName": "Non-Microsoft Open Source Projects"
+    },
+    "ContributionTechnology": {
+      "Id": "de03f4ef-066b-e511-810b-fc15b428ced0",
+      "Name": "Javascript/Typescript",
+      "AwardName": "Developer Technologies",
+      "AwardCategory": "My Awarded Category",
+      "Statuscode": 0,
+      "Active": false
+    },
+    "AdditionalTechnologies": [],
+    "StartDate": "2020-07-02T16:05:39.291021+02:00",
+    "Title": "My Activity #187",
+    "ReferenceUrl": "https://www.nationalgeographic.com/animals/birds/e/emperor-penguin/",
+    "Visibility": {
+      "Id": 100000000,
+      "Description": "Microsoft",
+      "LocalizeKey": "MicrosoftVisibilityText"
+    },
+    "AnnualQuantity": 34,
+    "SecondAnnualQuantity": 9,
+    "AnnualReach": 19,
+    "Description": "This is a non randomized description."
+  },
+  {
+    "ContributionId": 254,
+    "ContributionTypeName": null,
+    "ContributionType": {
+      "Id": "d2d96407-0304-e911-8171-3863bb2bca60",
+      "Name": "Microsoft Open Source Projects",
+      "EnglishName": "Microsoft Open Source Projects"
+    },
+    "ContributionTechnology": {
+      "Id": "4c04f4ef-066b-e511-810b-fc15b428ced0",
+      "Name": "Unity",
+      "AwardName": "Developer Technologies",
+      "AwardCategory": "My Awarded Category",
+      "Statuscode": 0,
+      "Active": false
+    },
+    "AdditionalTechnologies": [],
+    "StartDate": "2017-06-18T16:05:39.291042+02:00",
+    "Title": "My Activity #254",
+    "ReferenceUrl": "https://www.nationalgeographic.com/animals/birds/e/emperor-penguin/",
+    "Visibility": {
+      "Id": 100000000,
+      "Description": "Microsoft",
+      "LocalizeKey": "MicrosoftVisibilityText"
+    },
+    "AnnualQuantity": 32,
+    "SecondAnnualQuantity": 40,
+    "AnnualReach": 5,
+    "Description": "This is a non randomized description."
+  },
+  {
+    "ContributionId": 644,
+    "ContributionTypeName": null,
+    "ContributionType": {
+      "Id": "f96464de-179a-e411-bbc8-6c3be5a82b68",
+      "Name": "Forum Moderator",
+      "EnglishName": "Forum Moderator"
+    },
+    "ContributionTechnology": {
+      "Id": "8ac301bb-189a-e411-93f2-9cb65495d3c4",
+      "Name": "Developer Security",
+      "AwardName": "Developer Technologies",
+      "AwardCategory": "My Awarded Category",
+      "Statuscode": 0,
+      "Active": false
+    },
+    "AdditionalTechnologies": [],
+    "StartDate": "2018-10-22T16:05:39.291061+02:00",
+    "Title": "My Activity #644",
+    "ReferenceUrl": "https://www.nationalgeographic.com/animals/birds/e/emperor-penguin/",
+    "Visibility": {
+      "Id": 100000001,
+      "Description": "MVP Community",
+      "LocalizeKey": "MVPVisibilityText"
+    },
+    "AnnualQuantity": 7,
+    "SecondAnnualQuantity": 11,
+    "AnnualReach": 15,
+    "Description": "This is a non randomized description."
+  },
+  {
+    "ContributionId": 247,
+    "ContributionTypeName": null,
+    "ContributionType": {
+      "Id": "fb6464de-179a-e411-bbc8-6c3be5a82b68",
+      "Name": "Site Owner",
+      "EnglishName": "Site Owner"
+    },
+    "ContributionTechnology": {
+      "Id": "84c301bb-189a-e411-93f2-9cb65495d3c4",
+      "Name": "Azure DevOps",
+      "AwardName": "Developer Technologies",
+      "AwardCategory": "My Awarded Category",
+      "Statuscode": 0,
+      "Active": false
+    },
+    "AdditionalTechnologies": [],
+    "StartDate": "2017-05-21T16:05:39.291084+02:00",
+    "Title": "My Activity #247",
+    "ReferenceUrl": "https://www.nationalgeographic.com/animals/birds/e/emperor-penguin/",
+    "Visibility": {
+      "Id": 100000000,
+      "Description": "Microsoft",
+      "LocalizeKey": "MicrosoftVisibilityText"
+    },
+    "AnnualQuantity": 48,
+    "SecondAnnualQuantity": 9,
+    "AnnualReach": 12,
+    "Description": "This is a non randomized description."
+  },
+  {
+    "ContributionId": 410,
+    "ContributionTypeName": null,
+    "ContributionType": {
+      "Id": "414bcf30-e889-e511-8110-c4346bac0abc",
+      "Name": "Non-Microsoft Open Source Projects",
+      "EnglishName": "Non-Microsoft Open Source Projects"
+    },
+    "ContributionTechnology": {
+      "Id": "0b2c2181-02e4-e611-80fe-3863bb34cb20",
+      "Name": "Accessibility",
+      "AwardName": "Developer Technologies",
+      "AwardCategory": "My Awarded Category",
+      "Statuscode": 0,
+      "Active": false
+    },
+    "AdditionalTechnologies": [],
+    "StartDate": "2019-02-20T16:05:39.291103+01:00",
+    "Title": "My Activity #410",
+    "ReferenceUrl": "https://www.nationalgeographic.com/animals/birds/e/emperor-penguin/",
+    "Visibility": {
+      "Id": 100000001,
+      "Description": "MVP Community",
+      "LocalizeKey": "MVPVisibilityText"
+    },
+    "AnnualQuantity": 37,
+    "SecondAnnualQuantity": 35,
+    "AnnualReach": 7,
+    "Description": "This is a non randomized description."
+  },
+  {
+    "ContributionId": 520,
+    "ContributionTypeName": null,
+    "ContributionType": {
+      "Id": "d2d96407-0304-e911-8171-3863bb2bca60",
+      "Name": "Microsoft Open Source Projects",
+      "EnglishName": "Microsoft Open Source Projects"
+    },
+    "ContributionTechnology": {
+      "Id": "aec301bb-189a-e411-93f2-9cb65495d3c4",
+      "Name": ".NET",
+      "AwardName": "Developer Technologies",
+      "AwardCategory": "My Awarded Category",
+      "Statuscode": 0,
+      "Active": false
+    },
+    "AdditionalTechnologies": [],
+    "StartDate": "2018-12-02T16:05:39.291122+01:00",
+    "Title": "My Activity #520",
+    "ReferenceUrl": "https://www.nationalgeographic.com/animals/birds/e/emperor-penguin/",
+    "Visibility": {
+      "Id": 100000001,
+      "Description": "MVP Community",
+      "LocalizeKey": "MVPVisibilityText"
+    },
+    "AnnualQuantity": 38,
+    "SecondAnnualQuantity": 3,
+    "AnnualReach": 0,
+    "Description": "This is a non randomized description."
+  },
+  {
+    "ContributionId": 263,
+    "ContributionTypeName": null,
+    "ContributionType": {
+      "Id": "d2d96407-0304-e911-8171-3863bb2bca60",
+      "Name": "Microsoft Open Source Projects",
+      "EnglishName": "Microsoft Open Source Projects"
+    },
+    "ContributionTechnology": {
+      "Id": "8cc301bb-189a-e411-93f2-9cb65495d3c4",
+      "Name": "C++",
+      "AwardName": "Developer Technologies",
+      "AwardCategory": "My Awarded Category",
+      "Statuscode": 0,
+      "Active": false
+    },
+    "AdditionalTechnologies": [],
+    "StartDate": "2018-12-05T16:05:39.29114+01:00",
+    "Title": "My Activity #263",
+    "ReferenceUrl": "https://www.nationalgeographic.com/animals/birds/e/emperor-penguin/",
+    "Visibility": {
+      "Id": 100000001,
+      "Description": "MVP Community",
+      "LocalizeKey": "MVPVisibilityText"
+    },
+    "AnnualQuantity": 44,
+    "SecondAnnualQuantity": 48,
+    "AnnualReach": 48,
+    "Description": "This is a non randomized description."
+  },
+  {
+    "ContributionId": 121,
+    "ContributionTypeName": null,
+    "ContributionType": {
+      "Id": "d2d96407-0304-e911-8171-3863bb2bca60",
+      "Name": "Microsoft Open Source Projects",
+      "EnglishName": "Microsoft Open Source Projects"
+    },
+    "ContributionTechnology": {
+      "Id": "4c04f4ef-066b-e511-810b-fc15b428ced0",
+      "Name": "Unity",
+      "AwardName": "Developer Technologies",
+      "AwardCategory": "My Awarded Category",
+      "Statuscode": 0,
+      "Active": false
+    },
+    "AdditionalTechnologies": [],
+    "StartDate": "2017-09-20T16:05:39.291161+02:00",
+    "Title": "My Activity #121",
+    "ReferenceUrl": "https://www.nationalgeographic.com/animals/birds/e/emperor-penguin/",
+    "Visibility": {
+      "Id": 100000000,
+      "Description": "Microsoft",
+      "LocalizeKey": "MicrosoftVisibilityText"
+    },
+    "AnnualQuantity": 6,
+    "SecondAnnualQuantity": 48,
+    "AnnualReach": 40,
+    "Description": "This is a non randomized description."
+  },
+  {
+    "ContributionId": 874,
+    "ContributionTypeName": null,
+    "ContributionType": {
+      "Id": "eb6464de-179a-e411-bbc8-6c3be5a82b68",
+      "Name": "Technical Social Media (Twitter, Facebook, LinkedIn...)",
+      "EnglishName": "Technical Social Media (Twitter, Facebook, LinkedIn...)"
+    },
+    "ContributionTechnology": {
+      "Id": "dc03f4ef-066b-e511-810b-fc15b428ced0",
+      "Name": "Java",
+      "AwardName": "Developer Technologies",
+      "AwardCategory": "My Awarded Category",
+      "Statuscode": 0,
+      "Active": false
+    },
+    "AdditionalTechnologies": [],
+    "StartDate": "2017-05-19T16:05:39.29118+02:00",
+    "Title": "My Activity #874",
+    "ReferenceUrl": "https://www.nationalgeographic.com/animals/birds/e/emperor-penguin/",
+    "Visibility": {
+      "Id": 100000000,
+      "Description": "Microsoft",
+      "LocalizeKey": "MicrosoftVisibilityText"
+    },
+    "AnnualQuantity": 39,
+    "SecondAnnualQuantity": 9,
+    "AnnualReach": 29,
+    "Description": "This is a non randomized description."
+  },
+  {
+    "ContributionId": 768,
+    "ContributionTypeName": null,
+    "ContributionType": {
+      "Id": "d16464de-179a-e411-bbc8-6c3be5a82b68",
+      "Name": "Speaking (Conference)",
+      "EnglishName": "Speaking (Conference)"
+    },
+    "ContributionTechnology": {
+      "Id": "dc03f4ef-066b-e511-810b-fc15b428ced0",
+      "Name": "Java",
+      "AwardName": "Developer Technologies",
+      "AwardCategory": "My Awarded Category",
+      "Statuscode": 0,
+      "Active": false
+    },
+    "AdditionalTechnologies": [],
+    "StartDate": "2017-03-19T16:05:39.291199+01:00",
+    "Title": "My Activity #768",
+    "ReferenceUrl": "https://www.nationalgeographic.com/animals/birds/e/emperor-penguin/",
+    "Visibility": {
+      "Id": 100000001,
+      "Description": "MVP Community",
+      "LocalizeKey": "MVPVisibilityText"
+    },
+    "AnnualQuantity": 45,
+    "SecondAnnualQuantity": 20,
+    "AnnualReach": 27,
+    "Description": "This is a non randomized description."
+  },
+  {
+    "ContributionId": 655,
+    "ContributionTypeName": null,
+    "ContributionType": {
+      "Id": "d16464de-179a-e411-bbc8-6c3be5a82b68",
+      "Name": "Speaking (Conference)",
+      "EnglishName": "Speaking (Conference)"
+    },
+    "ContributionTechnology": {
+      "Id": "8ac301bb-189a-e411-93f2-9cb65495d3c4",
+      "Name": "Developer Security",
+      "AwardName": "Developer Technologies",
+      "AwardCategory": "My Awarded Category",
+      "Statuscode": 0,
+      "Active": false
+    },
+    "AdditionalTechnologies": [],
+    "StartDate": "2019-08-02T16:05:39.291217+02:00",
+    "Title": "My Activity #655",
+    "ReferenceUrl": "https://www.nationalgeographic.com/animals/birds/e/emperor-penguin/",
+    "Visibility": {
+      "Id": 100000000,
+      "Description": "Microsoft",
+      "LocalizeKey": "MicrosoftVisibilityText"
+    },
+    "AnnualQuantity": 46,
+    "SecondAnnualQuantity": 25,
+    "AnnualReach": 24,
+    "Description": "This is a non randomized description."
+  },
+  {
+    "ContributionId": 611,
+    "ContributionTypeName": null,
+    "ContributionType": {
+      "Id": "e96464de-179a-e411-bbc8-6c3be5a82b68",
+      "Name": "Sample Code/Projects/Tools",
+      "EnglishName": "Sample Code/Projects/Tools"
+    },
+    "ContributionTechnology": {
+      "Id": "dc03f4ef-066b-e511-810b-fc15b428ced0",
+      "Name": "Java",
+      "AwardName": "Developer Technologies",
+      "AwardCategory": "My Awarded Category",
+      "Statuscode": 0,
+      "Active": false
+    },
+    "AdditionalTechnologies": [],
+    "StartDate": "2019-08-04T16:05:39.291236+02:00",
+    "Title": "My Activity #611",
+    "ReferenceUrl": "https://www.nationalgeographic.com/animals/birds/e/emperor-penguin/",
+    "Visibility": {
+      "Id": 100000000,
+      "Description": "Microsoft",
+      "LocalizeKey": "MicrosoftVisibilityText"
+    },
+    "AnnualQuantity": 18,
+    "SecondAnnualQuantity": 5,
+    "AnnualReach": 28,
+    "Description": "This is a non randomized description."
+  },
+  {
+    "ContributionId": 396,
+    "ContributionTypeName": null,
+    "ContributionType": {
+      "Id": "e96464de-179a-e411-bbc8-6c3be5a82b68",
+      "Name": "Sample Code/Projects/Tools",
+      "EnglishName": "Sample Code/Projects/Tools"
+    },
+    "ContributionTechnology": {
+      "Id": "84c301bb-189a-e411-93f2-9cb65495d3c4",
+      "Name": "Azure DevOps",
+      "AwardName": "Developer Technologies",
+      "AwardCategory": "My Awarded Category",
+      "Statuscode": 0,
+      "Active": false
+    },
+    "AdditionalTechnologies": [],
+    "StartDate": "2017-06-26T16:05:39.291255+02:00",
+    "Title": "My Activity #396",
+    "ReferenceUrl": "https://www.nationalgeographic.com/animals/birds/e/emperor-penguin/",
+    "Visibility": {
+      "Id": 100000000,
+      "Description": "Microsoft",
+      "LocalizeKey": "MicrosoftVisibilityText"
+    },
+    "AnnualQuantity": 13,
+    "SecondAnnualQuantity": 40,
+    "AnnualReach": 47,
+    "Description": "This is a non randomized description."
+  },
+  {
+    "ContributionId": 94,
+    "ContributionTypeName": null,
+    "ContributionType": {
+      "Id": "f96464de-179a-e411-bbc8-6c3be5a82b68",
+      "Name": "Forum Moderator",
+      "EnglishName": "Forum Moderator"
+    },
+    "ContributionTechnology": {
+      "Id": "4e04f4ef-066b-e511-810b-fc15b428ced0",
+      "Name": "Visual Studio Extensibility",
+      "AwardName": "Developer Technologies",
+      "AwardCategory": "My Awarded Category",
+      "Statuscode": 0,
+      "Active": false
+    },
+    "AdditionalTechnologies": [],
+    "StartDate": "2019-09-23T16:05:39.291273+02:00",
+    "Title": "My Activity #94",
+    "ReferenceUrl": "https://www.nationalgeographic.com/animals/birds/e/emperor-penguin/",
+    "Visibility": {
+      "Id": 100000001,
+      "Description": "MVP Community",
+      "LocalizeKey": "MVPVisibilityText"
+    },
+    "AnnualQuantity": 34,
+    "SecondAnnualQuantity": 21,
+    "AnnualReach": 25,
+    "Description": "This is a non randomized description."
+  },
+  {
+    "ContributionId": 650,
+    "ContributionTypeName": null,
+    "ContributionType": {
+      "Id": "d16464de-179a-e411-bbc8-6c3be5a82b68",
+      "Name": "Speaking (Conference)",
+      "EnglishName": "Speaking (Conference)"
+    },
+    "ContributionTechnology": {
+      "Id": "8ac301bb-189a-e411-93f2-9cb65495d3c4",
+      "Name": "Developer Security",
+      "AwardName": "Developer Technologies",
+      "AwardCategory": "My Awarded Category",
+      "Statuscode": 0,
+      "Active": false
+    },
+    "AdditionalTechnologies": [],
+    "StartDate": "2018-09-30T16:05:39.291292+02:00",
+    "Title": "My Activity #650",
+    "ReferenceUrl": "https://www.nationalgeographic.com/animals/birds/e/emperor-penguin/",
+    "Visibility": {
+      "Id": 100000001,
+      "Description": "MVP Community",
+      "LocalizeKey": "MVPVisibilityText"
+    },
+    "AnnualQuantity": 30,
+    "SecondAnnualQuantity": 18,
+    "AnnualReach": 7,
+    "Description": "This is a non randomized description."
+  },
+  {
+    "ContributionId": 796,
+    "ContributionTypeName": null,
+    "ContributionType": {
+      "Id": "db6464de-179a-e411-bbc8-6c3be5a82b68",
+      "Name": "Book (Author)",
+      "EnglishName": "Book (Author)"
+    },
+    "ContributionTechnology": {
+      "Id": "8ac301bb-189a-e411-93f2-9cb65495d3c4",
+      "Name": "Developer Security",
+      "AwardName": "Developer Technologies",
+      "AwardCategory": "My Awarded Category",
+      "Statuscode": 0,
+      "Active": false
+    },
+    "AdditionalTechnologies": [],
+    "StartDate": "2020-05-30T16:05:39.291311+02:00",
+    "Title": "My Activity #796",
+    "ReferenceUrl": "https://www.nationalgeographic.com/animals/birds/e/emperor-penguin/",
+    "Visibility": {
+      "Id": 100000001,
+      "Description": "MVP Community",
+      "LocalizeKey": "MVPVisibilityText"
+    },
+    "AnnualQuantity": 20,
+    "SecondAnnualQuantity": 44,
+    "AnnualReach": 31,
+    "Description": "This is a non randomized description."
+  },
+  {
+    "ContributionId": 675,
+    "ContributionTypeName": null,
+    "ContributionType": {
+      "Id": "e56464de-179a-e411-bbc8-6c3be5a82b68",
+      "Name": "Video/Webcast/Podcast",
+      "EnglishName": "Video/Webcast/Podcast"
+    },
+    "ContributionTechnology": {
+      "Id": "4c04f4ef-066b-e511-810b-fc15b428ced0",
+      "Name": "Unity",
+      "AwardName": "Developer Technologies",
+      "AwardCategory": "My Awarded Category",
+      "Statuscode": 0,
+      "Active": false
+    },
+    "AdditionalTechnologies": [],
+    "StartDate": "2018-12-31T16:05:39.29133+01:00",
+    "Title": "My Activity #675",
+    "ReferenceUrl": "https://www.nationalgeographic.com/animals/birds/e/emperor-penguin/",
+    "Visibility": {
+      "Id": 100000001,
+      "Description": "MVP Community",
+      "LocalizeKey": "MVPVisibilityText"
+    },
+    "AnnualQuantity": 19,
+    "SecondAnnualQuantity": 26,
+    "AnnualReach": 6,
+    "Description": "This is a non randomized description."
+  },
+  {
+    "ContributionId": 202,
+    "ContributionTypeName": null,
+    "ContributionType": {
+      "Id": "eb6464de-179a-e411-bbc8-6c3be5a82b68",
+      "Name": "Technical Social Media (Twitter, Facebook, LinkedIn...)",
+      "EnglishName": "Technical Social Media (Twitter, Facebook, LinkedIn...)"
+    },
+    "ContributionTechnology": {
+      "Id": "3a04f4ef-066b-e511-810b-fc15b428ced0",
+      "Name": "Python",
+      "AwardName": "Developer Technologies",
+      "AwardCategory": "My Awarded Category",
+      "Statuscode": 0,
+      "Active": false
+    },
+    "AdditionalTechnologies": [],
+    "StartDate": "2018-06-14T16:05:39.291349+02:00",
+    "Title": "My Activity #202",
+    "ReferenceUrl": "https://www.nationalgeographic.com/animals/birds/e/emperor-penguin/",
+    "Visibility": {
+      "Id": 100000001,
+      "Description": "MVP Community",
+      "LocalizeKey": "MVPVisibilityText"
+    },
+    "AnnualQuantity": 1,
+    "SecondAnnualQuantity": 22,
+    "AnnualReach": 7,
+    "Description": "This is a non randomized description."
+  },
+  {
+    "ContributionId": 418,
+    "ContributionTypeName": null,
+    "ContributionType": {
+      "Id": "d16464de-179a-e411-bbc8-6c3be5a82b68",
+      "Name": "Speaking (Conference)",
+      "EnglishName": "Speaking (Conference)"
+    },
+    "ContributionTechnology": {
+      "Id": "3004f4ef-066b-e511-810b-fc15b428ced0",
+      "Name": "PHP",
+      "AwardName": "Developer Technologies",
+      "AwardCategory": "My Awarded Category",
+      "Statuscode": 0,
+      "Active": false
+    },
+    "AdditionalTechnologies": [],
+    "StartDate": "2020-06-27T16:05:39.291368+02:00",
+    "Title": "My Activity #418",
+    "ReferenceUrl": "https://www.nationalgeographic.com/animals/birds/e/emperor-penguin/",
+    "Visibility": {
+      "Id": 100000001,
+      "Description": "MVP Community",
+      "LocalizeKey": "MVPVisibilityText"
+    },
+    "AnnualQuantity": 44,
+    "SecondAnnualQuantity": 26,
+    "AnnualReach": 7,
+    "Description": "This is a non randomized description."
+  },
+  {
+    "ContributionId": 830,
+    "ContributionTypeName": null,
+    "ContributionType": {
+      "Id": "df6464de-179a-e411-bbc8-6c3be5a82b68",
+      "Name": "Blog/Website Post",
+      "EnglishName": "Blog/Website Post"
+    },
+    "ContributionTechnology": {
+      "Id": "84c301bb-189a-e411-93f2-9cb65495d3c4",
+      "Name": "Azure DevOps",
+      "AwardName": "Developer Technologies",
+      "AwardCategory": "My Awarded Category",
+      "Statuscode": 0,
+      "Active": false
+    },
+    "AdditionalTechnologies": [],
+    "StartDate": "2017-02-04T16:05:39.291386+01:00",
+    "Title": "My Activity #830",
+    "ReferenceUrl": "https://www.nationalgeographic.com/animals/birds/e/emperor-penguin/",
+    "Visibility": {
+      "Id": 100000000,
+      "Description": "Microsoft",
+      "LocalizeKey": "MicrosoftVisibilityText"
+    },
+    "AnnualQuantity": 35,
+    "SecondAnnualQuantity": 16,
+    "AnnualReach": 24,
+    "Description": "This is a non randomized description."
+  },
+  {
+    "ContributionId": 432,
+    "ContributionTypeName": null,
+    "ContributionType": {
+      "Id": "e56464de-179a-e411-bbc8-6c3be5a82b68",
+      "Name": "Video/Webcast/Podcast",
+      "EnglishName": "Video/Webcast/Podcast"
+    },
+    "ContributionTechnology": {
+      "Id": "3a04f4ef-066b-e511-810b-fc15b428ced0",
+      "Name": "Python",
+      "AwardName": "Developer Technologies",
+      "AwardCategory": "My Awarded Category",
+      "Statuscode": 0,
+      "Active": false
+    },
+    "AdditionalTechnologies": [],
+    "StartDate": "2018-06-25T16:05:39.291405+02:00",
+    "Title": "My Activity #432",
+    "ReferenceUrl": "https://www.nationalgeographic.com/animals/birds/e/emperor-penguin/",
+    "Visibility": {
+      "Id": 100000001,
+      "Description": "MVP Community",
+      "LocalizeKey": "MVPVisibilityText"
+    },
+    "AnnualQuantity": 10,
+    "SecondAnnualQuantity": 48,
+    "AnnualReach": 8,
+    "Description": "This is a non randomized description."
+  },
+  {
+    "ContributionId": 475,
+    "ContributionTypeName": null,
+    "ContributionType": {
+      "Id": "d56464de-179a-e411-bbc8-6c3be5a82b68",
+      "Name": "Speaking (User Group/Meetup/Local events)",
+      "EnglishName": "Speaking (User Group/Meetup/Local events)"
+    },
+    "ContributionTechnology": {
+      "Id": "3a04f4ef-066b-e511-810b-fc15b428ced0",
+      "Name": "Python",
+      "AwardName": "Developer Technologies",
+      "AwardCategory": "My Awarded Category",
+      "Statuscode": 0,
+      "Active": false
+    },
+    "AdditionalTechnologies": [],
+    "StartDate": "2017-01-14T16:05:39.291425+01:00",
+    "Title": "My Activity #475",
+    "ReferenceUrl": "https://www.nationalgeographic.com/animals/birds/e/emperor-penguin/",
+    "Visibility": {
+      "Id": 100000000,
+      "Description": "Microsoft",
+      "LocalizeKey": "MicrosoftVisibilityText"
+    },
+    "AnnualQuantity": 23,
+    "SecondAnnualQuantity": 3,
+    "AnnualReach": 30,
+    "Description": "This is a non randomized description."
+  },
+  {
+    "ContributionId": 96,
+    "ContributionTypeName": null,
+    "ContributionType": {
+      "Id": "e96464de-179a-e411-bbc8-6c3be5a82b68",
+      "Name": "Sample Code/Projects/Tools",
+      "EnglishName": "Sample Code/Projects/Tools"
+    },
+    "ContributionTechnology": {
+      "Id": "dc03f4ef-066b-e511-810b-fc15b428ced0",
+      "Name": "Java",
+      "AwardName": "Developer Technologies",
+      "AwardCategory": "My Awarded Category",
+      "Statuscode": 0,
+      "Active": false
+    },
+    "AdditionalTechnologies": [],
+    "StartDate": "2020-06-16T16:05:39.291444+02:00",
+    "Title": "My Activity #96",
+    "ReferenceUrl": "https://www.nationalgeographic.com/animals/birds/e/emperor-penguin/",
+    "Visibility": {
+      "Id": 100000001,
+      "Description": "MVP Community",
+      "LocalizeKey": "MVPVisibilityText"
+    },
+    "AnnualQuantity": 7,
+    "SecondAnnualQuantity": 47,
+    "AnnualReach": 27,
+    "Description": "This is a non randomized description."
+  },
+  {
+    "ContributionId": 706,
+    "ContributionTypeName": null,
+    "ContributionType": {
+      "Id": "056564de-179a-e411-bbc8-6c3be5a82b68",
+      "Name": "Translation Review, Feedback and Editing",
+      "EnglishName": "Translation Review, Feedback and Editing"
+    },
+    "ContributionTechnology": {
+      "Id": "84c301bb-189a-e411-93f2-9cb65495d3c4",
+      "Name": "Azure DevOps",
+      "AwardName": "Developer Technologies",
+      "AwardCategory": "My Awarded Category",
+      "Statuscode": 0,
+      "Active": false
+    },
+    "AdditionalTechnologies": [],
+    "StartDate": "2018-03-14T16:05:39.291462+01:00",
+    "Title": "My Activity #706",
+    "ReferenceUrl": "https://www.nationalgeographic.com/animals/birds/e/emperor-penguin/",
+    "Visibility": {
+      "Id": 100000000,
+      "Description": "Microsoft",
+      "LocalizeKey": "MicrosoftVisibilityText"
+    },
+    "AnnualQuantity": 33,
+    "SecondAnnualQuantity": 1,
+    "AnnualReach": 47,
+    "Description": "This is a non randomized description."
+  },
+  {
+    "ContributionId": 718,
+    "ContributionTypeName": null,
+    "ContributionType": {
+      "Id": "016564de-179a-e411-bbc8-6c3be5a82b68",
+      "Name": "Product Group Feedback",
+      "EnglishName": "Product Group Feedback (General)"
+    },
+    "ContributionTechnology": {
+      "Id": "8ac301bb-189a-e411-93f2-9cb65495d3c4",
+      "Name": "Developer Security",
+      "AwardName": "Developer Technologies",
+      "AwardCategory": "My Awarded Category",
+      "Statuscode": 0,
+      "Active": false
+    },
+    "AdditionalTechnologies": [],
+    "StartDate": "2020-04-21T16:05:39.291481+02:00",
+    "Title": "My Activity #718",
+    "ReferenceUrl": "https://www.nationalgeographic.com/animals/birds/e/emperor-penguin/",
+    "Visibility": {
+      "Id": 100000001,
+      "Description": "MVP Community",
+      "LocalizeKey": "MVPVisibilityText"
+    },
+    "AnnualQuantity": 3,
+    "SecondAnnualQuantity": 27,
+    "AnnualReach": 27,
+    "Description": "This is a non randomized description."
+  },
+  {
+    "ContributionId": 388,
+    "ContributionTypeName": null,
+    "ContributionType": {
+      "Id": "0ce0dc15-0304-e911-8171-3863bb2bca60",
+      "Name": "Docs.Microsoft.com Contribution",
+      "EnglishName": "Docs.Microsoft.com Contribution"
+    },
+    "ContributionTechnology": {
+      "Id": "8cc301bb-189a-e411-93f2-9cb65495d3c4",
+      "Name": "C++",
+      "AwardName": "Developer Technologies",
+      "AwardCategory": "My Awarded Category",
+      "Statuscode": 0,
+      "Active": false
+    },
+    "AdditionalTechnologies": [],
+    "StartDate": "2018-09-15T16:05:39.2915+02:00",
+    "Title": "My Activity #388",
+    "ReferenceUrl": "https://www.nationalgeographic.com/animals/birds/e/emperor-penguin/",
+    "Visibility": {
+      "Id": 100000000,
+      "Description": "Microsoft",
+      "LocalizeKey": "MicrosoftVisibilityText"
+    },
+    "AnnualQuantity": 34,
+    "SecondAnnualQuantity": 0,
+    "AnnualReach": 39,
+    "Description": "This is a non randomized description."
+  },
+  {
+    "ContributionId": 61,
+    "ContributionTypeName": null,
+    "ContributionType": {
+      "Id": "d2d96407-0304-e911-8171-3863bb2bca60",
+      "Name": "Microsoft Open Source Projects",
+      "EnglishName": "Microsoft Open Source Projects"
+    },
+    "ContributionTechnology": {
+      "Id": "c4fe7f2a-8678-ea11-a811-000d3a8ccaf5",
+      "Name": "Quantum",
+      "AwardName": "Developer Technologies",
+      "AwardCategory": "My Awarded Category",
+      "Statuscode": 0,
+      "Active": false
+    },
+    "AdditionalTechnologies": [],
+    "StartDate": "2018-06-16T16:05:39.291519+02:00",
+    "Title": "My Activity #61",
+    "ReferenceUrl": "https://www.nationalgeographic.com/animals/birds/e/emperor-penguin/",
+    "Visibility": {
+      "Id": 100000000,
+      "Description": "Microsoft",
+      "LocalizeKey": "MicrosoftVisibilityText"
+    },
+    "AnnualQuantity": 0,
+    "SecondAnnualQuantity": 31,
+    "AnnualReach": 6,
+    "Description": "This is a non randomized description."
+  },
+  {
+    "ContributionId": 869,
+    "ContributionTypeName": null,
+    "ContributionType": {
+      "Id": "ff6464de-179a-e411-bbc8-6c3be5a82b68",
+      "Name": "Other",
+      "EnglishName": "Other"
+    },
+    "ContributionTechnology": {
+      "Id": "aec301bb-189a-e411-93f2-9cb65495d3c4",
+      "Name": ".NET",
+      "AwardName": "Developer Technologies",
+      "AwardCategory": "My Awarded Category",
+      "Statuscode": 0,
+      "Active": false
+    },
+    "AdditionalTechnologies": [],
+    "StartDate": "2017-05-26T16:05:39.291537+02:00",
+    "Title": "My Activity #869",
+    "ReferenceUrl": "https://www.nationalgeographic.com/animals/birds/e/emperor-penguin/",
+    "Visibility": {
+      "Id": 100000000,
+      "Description": "Microsoft",
+      "LocalizeKey": "MicrosoftVisibilityText"
+    },
+    "AnnualQuantity": 24,
+    "SecondAnnualQuantity": 31,
+    "AnnualReach": 6,
+    "Description": "This is a non randomized description."
+  },
+  {
+    "ContributionId": 831,
+    "ContributionTypeName": null,
+    "ContributionType": {
+      "Id": "016564de-179a-e411-bbc8-6c3be5a82b68",
+      "Name": "Product Group Feedback",
+      "EnglishName": "Product Group Feedback (General)"
+    },
+    "ContributionTechnology": {
+      "Id": "aec301bb-189a-e411-93f2-9cb65495d3c4",
+      "Name": ".NET",
+      "AwardName": "Developer Technologies",
+      "AwardCategory": "My Awarded Category",
+      "Statuscode": 0,
+      "Active": false
+    },
+    "AdditionalTechnologies": [],
+    "StartDate": "2019-11-21T16:05:39.291556+01:00",
+    "Title": "My Activity #831",
+    "ReferenceUrl": "https://www.nationalgeographic.com/animals/birds/e/emperor-penguin/",
+    "Visibility": {
+      "Id": 100000000,
+      "Description": "Microsoft",
+      "LocalizeKey": "MicrosoftVisibilityText"
+    },
+    "AnnualQuantity": 0,
+    "SecondAnnualQuantity": 25,
+    "AnnualReach": 42,
+    "Description": "This is a non randomized description."
+  },
+  {
+    "ContributionId": 971,
+    "ContributionTypeName": null,
+    "ContributionType": {
+      "Id": "d2d96407-0304-e911-8171-3863bb2bca60",
+      "Name": "Microsoft Open Source Projects",
+      "EnglishName": "Microsoft Open Source Projects"
+    },
+    "ContributionTechnology": {
+      "Id": "3004f4ef-066b-e511-810b-fc15b428ced0",
+      "Name": "PHP",
+      "AwardName": "Developer Technologies",
+      "AwardCategory": "My Awarded Category",
+      "Statuscode": 0,
+      "Active": false
+    },
+    "AdditionalTechnologies": [],
+    "StartDate": "2017-03-03T16:05:39.291575+01:00",
+    "Title": "My Activity #971",
+    "ReferenceUrl": "https://www.nationalgeographic.com/animals/birds/e/emperor-penguin/",
+    "Visibility": {
+      "Id": 100000000,
+      "Description": "Microsoft",
+      "LocalizeKey": "MicrosoftVisibilityText"
+    },
+    "AnnualQuantity": 25,
+    "SecondAnnualQuantity": 3,
+    "AnnualReach": 43,
+    "Description": "This is a non randomized description."
+  },
+  {
+    "ContributionId": 930,
+    "ContributionTypeName": null,
+    "ContributionType": {
+      "Id": "df6464de-179a-e411-bbc8-6c3be5a82b68",
+      "Name": "Blog/Website Post",
+      "EnglishName": "Blog/Website Post"
+    },
+    "ContributionTechnology": {
+      "Id": "4c04f4ef-066b-e511-810b-fc15b428ced0",
+      "Name": "Unity",
+      "AwardName": "Developer Technologies",
+      "AwardCategory": "My Awarded Category",
+      "Statuscode": 0,
+      "Active": false
+    },
+    "AdditionalTechnologies": [],
+    "StartDate": "2018-06-16T16:05:39.291593+02:00",
+    "Title": "My Activity #930",
+    "ReferenceUrl": "https://www.nationalgeographic.com/animals/birds/e/emperor-penguin/",
+    "Visibility": {
+      "Id": 100000001,
+      "Description": "MVP Community",
+      "LocalizeKey": "MVPVisibilityText"
+    },
+    "AnnualQuantity": 27,
+    "SecondAnnualQuantity": 19,
+    "AnnualReach": 32,
+    "Description": "This is a non randomized description."
+  },
+  {
+    "ContributionId": 661,
+    "ContributionTypeName": null,
+    "ContributionType": {
+      "Id": "414bcf30-e889-e511-8110-c4346bac0abc",
+      "Name": "Non-Microsoft Open Source Projects",
+      "EnglishName": "Non-Microsoft Open Source Projects"
+    },
+    "ContributionTechnology": {
+      "Id": "aec301bb-189a-e411-93f2-9cb65495d3c4",
+      "Name": ".NET",
+      "AwardName": "Developer Technologies",
+      "AwardCategory": "My Awarded Category",
+      "Statuscode": 0,
+      "Active": false
+    },
+    "AdditionalTechnologies": [],
+    "StartDate": "2017-03-20T16:05:39.291612+01:00",
+    "Title": "My Activity #661",
+    "ReferenceUrl": "https://www.nationalgeographic.com/animals/birds/e/emperor-penguin/",
+    "Visibility": {
+      "Id": 100000001,
+      "Description": "MVP Community",
+      "LocalizeKey": "MVPVisibilityText"
+    },
+    "AnnualQuantity": 41,
+    "SecondAnnualQuantity": 34,
+    "AnnualReach": 38,
+    "Description": "This is a non randomized description."
+  },
+  {
+    "ContributionId": 150,
+    "ContributionTypeName": null,
+    "ContributionType": {
+      "Id": "f76464de-179a-e411-bbc8-6c3be5a82b68",
+      "Name": "Mentorship",
+      "EnglishName": "Mentorship"
+    },
+    "ContributionTechnology": {
+      "Id": "8ac301bb-189a-e411-93f2-9cb65495d3c4",
+      "Name": "Developer Security",
+      "AwardName": "Developer Technologies",
+      "AwardCategory": "My Awarded Category",
+      "Statuscode": 0,
+      "Active": false
+    },
+    "AdditionalTechnologies": [],
+    "StartDate": "2020-04-15T16:05:39.291631+02:00",
+    "Title": "My Activity #150",
+    "ReferenceUrl": "https://www.nationalgeographic.com/animals/birds/e/emperor-penguin/",
+    "Visibility": {
+      "Id": 100000001,
+      "Description": "MVP Community",
+      "LocalizeKey": "MVPVisibilityText"
+    },
+    "AnnualQuantity": 10,
+    "SecondAnnualQuantity": 29,
+    "AnnualReach": 13,
+    "Description": "This is a non randomized description."
+  },
+  {
+    "ContributionId": 571,
+    "ContributionTypeName": null,
+    "ContributionType": {
+      "Id": "ef6464de-179a-e411-bbc8-6c3be5a82b68",
+      "Name": "Organizer of Conference",
+      "EnglishName": "Organizer of Conference"
+    },
+    "ContributionTechnology": {
+      "Id": "8cc301bb-189a-e411-93f2-9cb65495d3c4",
+      "Name": "C++",
+      "AwardName": "Developer Technologies",
+      "AwardCategory": "My Awarded Category",
+      "Statuscode": 0,
+      "Active": false
+    },
+    "AdditionalTechnologies": [],
+    "StartDate": "2019-04-08T16:05:39.291649+02:00",
+    "Title": "My Activity #571",
+    "ReferenceUrl": "https://www.nationalgeographic.com/animals/birds/e/emperor-penguin/",
+    "Visibility": {
+      "Id": 100000001,
+      "Description": "MVP Community",
+      "LocalizeKey": "MVPVisibilityText"
+    },
+    "AnnualQuantity": 9,
+    "SecondAnnualQuantity": 11,
+    "AnnualReach": 34,
+    "Description": "This is a non randomized description."
+  },
+  {
+    "ContributionId": 957,
+    "ContributionTypeName": null,
+    "ContributionType": {
+      "Id": "d16464de-179a-e411-bbc8-6c3be5a82b68",
+      "Name": "Speaking (Conference)",
+      "EnglishName": "Speaking (Conference)"
+    },
+    "ContributionTechnology": {
+      "Id": "82c301bb-189a-e411-93f2-9cb65495d3c4",
+      "Name": "ASP.NET/IIS",
+      "AwardName": "Developer Technologies",
+      "AwardCategory": "My Awarded Category",
+      "Statuscode": 0,
+      "Active": false
+    },
+    "AdditionalTechnologies": [],
+    "StartDate": "2018-06-18T16:05:39.291668+02:00",
+    "Title": "My Activity #957",
+    "ReferenceUrl": "https://www.nationalgeographic.com/animals/birds/e/emperor-penguin/",
+    "Visibility": {
+      "Id": 100000000,
+      "Description": "Microsoft",
+      "LocalizeKey": "MicrosoftVisibilityText"
+    },
+    "AnnualQuantity": 39,
+    "SecondAnnualQuantity": 27,
+    "AnnualReach": 4,
+    "Description": "This is a non randomized description."
+  },
+  {
+    "ContributionId": 217,
+    "ContributionTypeName": null,
+    "ContributionType": {
+      "Id": "056564de-179a-e411-bbc8-6c3be5a82b68",
+      "Name": "Translation Review, Feedback and Editing",
+      "EnglishName": "Translation Review, Feedback and Editing"
+    },
+    "ContributionTechnology": {
+      "Id": "3004f4ef-066b-e511-810b-fc15b428ced0",
+      "Name": "PHP",
+      "AwardName": "Developer Technologies",
+      "AwardCategory": "My Awarded Category",
+      "Statuscode": 0,
+      "Active": false
+    },
+    "AdditionalTechnologies": [],
+    "StartDate": "2020-06-13T16:05:39.291687+02:00",
+    "Title": "My Activity #217",
+    "ReferenceUrl": "https://www.nationalgeographic.com/animals/birds/e/emperor-penguin/",
+    "Visibility": {
+      "Id": 100000000,
+      "Description": "Microsoft",
+      "LocalizeKey": "MicrosoftVisibilityText"
+    },
+    "AnnualQuantity": 33,
+    "SecondAnnualQuantity": 1,
+    "AnnualReach": 40,
+    "Description": "This is a non randomized description."
+  },
+  {
+    "ContributionId": 468,
+    "ContributionTypeName": null,
+    "ContributionType": {
+      "Id": "ef6464de-179a-e411-bbc8-6c3be5a82b68",
+      "Name": "Organizer of Conference",
+      "EnglishName": "Organizer of Conference"
+    },
+    "ContributionTechnology": {
+      "Id": "dc03f4ef-066b-e511-810b-fc15b428ced0",
+      "Name": "Java",
+      "AwardName": "Developer Technologies",
+      "AwardCategory": "My Awarded Category",
+      "Statuscode": 0,
+      "Active": false
+    },
+    "AdditionalTechnologies": [],
+    "StartDate": "2020-05-06T16:05:39.291705+02:00",
+    "Title": "My Activity #468",
+    "ReferenceUrl": "https://www.nationalgeographic.com/animals/birds/e/emperor-penguin/",
+    "Visibility": {
+      "Id": 100000000,
+      "Description": "Microsoft",
+      "LocalizeKey": "MicrosoftVisibilityText"
+    },
+    "AnnualQuantity": 15,
+    "SecondAnnualQuantity": 40,
+    "AnnualReach": 14,
+    "Description": "This is a non randomized description."
+  },
+  {
+    "ContributionId": 455,
+    "ContributionTypeName": null,
+    "ContributionType": {
+      "Id": "016564de-179a-e411-bbc8-6c3be5a82b68",
+      "Name": "Product Group Feedback",
+      "EnglishName": "Product Group Feedback (General)"
+    },
+    "ContributionTechnology": {
+      "Id": "8ac301bb-189a-e411-93f2-9cb65495d3c4",
+      "Name": "Developer Security",
+      "AwardName": "Developer Technologies",
+      "AwardCategory": "My Awarded Category",
+      "Statuscode": 0,
+      "Active": false
+    },
+    "AdditionalTechnologies": [],
+    "StartDate": "2018-07-18T16:05:39.291724+02:00",
+    "Title": "My Activity #455",
+    "ReferenceUrl": "https://www.nationalgeographic.com/animals/birds/e/emperor-penguin/",
+    "Visibility": {
+      "Id": 100000000,
+      "Description": "Microsoft",
+      "LocalizeKey": "MicrosoftVisibilityText"
+    },
+    "AnnualQuantity": 32,
+    "SecondAnnualQuantity": 14,
+    "AnnualReach": 27,
+    "Description": "This is a non randomized description."
+  },
+  {
+    "ContributionId": 540,
+    "ContributionTypeName": null,
+    "ContributionType": {
+      "Id": "dd6464de-179a-e411-bbc8-6c3be5a82b68",
+      "Name": "Book (Co-Author)",
+      "EnglishName": "Book (Co-Author)"
+    },
+    "ContributionTechnology": {
+      "Id": "4c04f4ef-066b-e511-810b-fc15b428ced0",
+      "Name": "Unity",
+      "AwardName": "Developer Technologies",
+      "AwardCategory": "My Awarded Category",
+      "Statuscode": 0,
+      "Active": false
+    },
+    "AdditionalTechnologies": [],
+    "StartDate": "2017-08-28T16:05:39.291743+02:00",
+    "Title": "My Activity #540",
+    "ReferenceUrl": "https://www.nationalgeographic.com/animals/birds/e/emperor-penguin/",
+    "Visibility": {
+      "Id": 100000000,
+      "Description": "Microsoft",
+      "LocalizeKey": "MicrosoftVisibilityText"
+    },
+    "AnnualQuantity": 6,
+    "SecondAnnualQuantity": 48,
+    "AnnualReach": 3,
+    "Description": "This is a non randomized description."
+  },
+  {
+    "ContributionId": 330,
+    "ContributionTypeName": null,
+    "ContributionType": {
+      "Id": "e56464de-179a-e411-bbc8-6c3be5a82b68",
+      "Name": "Video/Webcast/Podcast",
+      "EnglishName": "Video/Webcast/Podcast"
+    },
+    "ContributionTechnology": {
+      "Id": "e803f4ef-066b-e511-810b-fc15b428ced0",
+      "Name": "Node.js",
+      "AwardName": "Developer Technologies",
+      "AwardCategory": "My Awarded Category",
+      "Statuscode": 0,
+      "Active": false
+    },
+    "AdditionalTechnologies": [],
+    "StartDate": "2018-06-14T16:05:39.291762+02:00",
+    "Title": "My Activity #330",
+    "ReferenceUrl": "https://www.nationalgeographic.com/animals/birds/e/emperor-penguin/",
+    "Visibility": {
+      "Id": 100000000,
+      "Description": "Microsoft",
+      "LocalizeKey": "MicrosoftVisibilityText"
+    },
+    "AnnualQuantity": 23,
+    "SecondAnnualQuantity": 1,
+    "AnnualReach": 22,
+    "Description": "This is a non randomized description."
+  },
+  {
+    "ContributionId": 528,
+    "ContributionTypeName": null,
+    "ContributionType": {
+      "Id": "d76464de-179a-e411-bbc8-6c3be5a82b68",
+      "Name": "Forum Participation (Microsoft Forums)",
+      "EnglishName": "Forum Participation (Microsoft Forums)"
+    },
+    "ContributionTechnology": {
+      "Id": "de03f4ef-066b-e511-810b-fc15b428ced0",
+      "Name": "Javascript/Typescript",
+      "AwardName": "Developer Technologies",
+      "AwardCategory": "My Awarded Category",
+      "Statuscode": 0,
+      "Active": false
+    },
+    "AdditionalTechnologies": [],
+    "StartDate": "2019-02-10T16:05:39.29178+01:00",
+    "Title": "My Activity #528",
+    "ReferenceUrl": "https://www.nationalgeographic.com/animals/birds/e/emperor-penguin/",
+    "Visibility": {
+      "Id": 100000000,
+      "Description": "Microsoft",
+      "LocalizeKey": "MicrosoftVisibilityText"
+    },
+    "AnnualQuantity": 40,
+    "SecondAnnualQuantity": 4,
+    "AnnualReach": 0,
+    "Description": "This is a non randomized description."
+  },
+  {
+    "ContributionId": 51,
+    "ContributionTypeName": null,
+    "ContributionType": {
+      "Id": "d96464de-179a-e411-bbc8-6c3be5a82b68",
+      "Name": "Forum Participation (3rd Party forums)",
+      "EnglishName": "Forum Participation (3rd Party forums)"
+    },
+    "ContributionTechnology": {
+      "Id": "8ac301bb-189a-e411-93f2-9cb65495d3c4",
+      "Name": "Developer Security",
+      "AwardName": "Developer Technologies",
+      "AwardCategory": "My Awarded Category",
+      "Statuscode": 0,
+      "Active": false
+    },
+    "AdditionalTechnologies": [],
+    "StartDate": "2018-11-12T16:05:39.291799+01:00",
+    "Title": "My Activity #51",
+    "ReferenceUrl": "https://www.nationalgeographic.com/animals/birds/e/emperor-penguin/",
+    "Visibility": {
+      "Id": 100000001,
+      "Description": "MVP Community",
+      "LocalizeKey": "MVPVisibilityText"
+    },
+    "AnnualQuantity": 22,
+    "SecondAnnualQuantity": 12,
+    "AnnualReach": 5,
+    "Description": "This is a non randomized description."
+  },
+  {
+    "ContributionId": 328,
+    "ContributionTypeName": null,
+    "ContributionType": {
+      "Id": "ff6464de-179a-e411-bbc8-6c3be5a82b68",
+      "Name": "Other",
+      "EnglishName": "Other"
+    },
+    "ContributionTechnology": {
+      "Id": "4e04f4ef-066b-e511-810b-fc15b428ced0",
+      "Name": "Visual Studio Extensibility",
+      "AwardName": "Developer Technologies",
+      "AwardCategory": "My Awarded Category",
+      "Statuscode": 0,
+      "Active": false
+    },
+    "AdditionalTechnologies": [],
+    "StartDate": "2018-10-02T16:05:39.291818+02:00",
+    "Title": "My Activity #328",
+    "ReferenceUrl": "https://www.nationalgeographic.com/animals/birds/e/emperor-penguin/",
+    "Visibility": {
+      "Id": 100000001,
+      "Description": "MVP Community",
+      "LocalizeKey": "MVPVisibilityText"
+    },
+    "AnnualQuantity": 9,
+    "SecondAnnualQuantity": 9,
+    "AnnualReach": 16,
+    "Description": "This is a non randomized description."
+  },
+  {
+    "ContributionId": 391,
+    "ContributionTypeName": null,
+    "ContributionType": {
+      "Id": "e36464de-179a-e411-bbc8-6c3be5a82b68",
+      "Name": "Article",
+      "EnglishName": "Article"
+    },
+    "ContributionTechnology": {
+      "Id": "3004f4ef-066b-e511-810b-fc15b428ced0",
+      "Name": "PHP",
+      "AwardName": "Developer Technologies",
+      "AwardCategory": "My Awarded Category",
+      "Statuscode": 0,
+      "Active": false
+    },
+    "AdditionalTechnologies": [],
+    "StartDate": "2017-08-21T16:05:39.291837+02:00",
+    "Title": "My Activity #391",
+    "ReferenceUrl": "https://www.nationalgeographic.com/animals/birds/e/emperor-penguin/",
+    "Visibility": {
+      "Id": 100000001,
+      "Description": "MVP Community",
+      "LocalizeKey": "MVPVisibilityText"
+    },
+    "AnnualQuantity": 20,
+    "SecondAnnualQuantity": 12,
+    "AnnualReach": 48,
+    "Description": "This is a non randomized description."
+  },
+  {
+    "ContributionId": 525,
+    "ContributionTypeName": null,
+    "ContributionType": {
+      "Id": "f16464de-179a-e411-bbc8-6c3be5a82b68",
+      "Name": "Conference (Staffing)",
+      "EnglishName": "Conference (Staffing)"
+    },
+    "ContributionTechnology": {
+      "Id": "4c04f4ef-066b-e511-810b-fc15b428ced0",
+      "Name": "Unity",
+      "AwardName": "Developer Technologies",
+      "AwardCategory": "My Awarded Category",
+      "Statuscode": 0,
+      "Active": false
+    },
+    "AdditionalTechnologies": [],
+    "StartDate": "2020-03-08T16:05:39.291855+01:00",
+    "Title": "My Activity #525",
+    "ReferenceUrl": "https://www.nationalgeographic.com/animals/birds/e/emperor-penguin/",
+    "Visibility": {
+      "Id": 100000001,
+      "Description": "MVP Community",
+      "LocalizeKey": "MVPVisibilityText"
+    },
+    "AnnualQuantity": 32,
+    "SecondAnnualQuantity": 49,
+    "AnnualReach": 14,
+    "Description": "This is a non randomized description."
+  },
+  {
+    "ContributionId": 313,
+    "ContributionTypeName": null,
+    "ContributionType": {
+      "Id": "ff6464de-179a-e411-bbc8-6c3be5a82b68",
+      "Name": "Other",
+      "EnglishName": "Other"
+    },
+    "ContributionTechnology": {
+      "Id": "8ac301bb-189a-e411-93f2-9cb65495d3c4",
+      "Name": "Developer Security",
+      "AwardName": "Developer Technologies",
+      "AwardCategory": "My Awarded Category",
+      "Statuscode": 0,
+      "Active": false
+    },
+    "AdditionalTechnologies": [],
+    "StartDate": "2019-03-31T16:05:39.291874+02:00",
+    "Title": "My Activity #313",
+    "ReferenceUrl": "https://www.nationalgeographic.com/animals/birds/e/emperor-penguin/",
+    "Visibility": {
+      "Id": 100000001,
+      "Description": "MVP Community",
+      "LocalizeKey": "MVPVisibilityText"
+    },
+    "AnnualQuantity": 11,
+    "SecondAnnualQuantity": 7,
+    "AnnualReach": 14,
+    "Description": "This is a non randomized description."
+  },
+  {
+    "ContributionId": 937,
+    "ContributionTypeName": null,
+    "ContributionType": {
+      "Id": "f16464de-179a-e411-bbc8-6c3be5a82b68",
+      "Name": "Conference (Staffing)",
+      "EnglishName": "Conference (Staffing)"
+    },
+    "ContributionTechnology": {
+      "Id": "e803f4ef-066b-e511-810b-fc15b428ced0",
+      "Name": "Node.js",
+      "AwardName": "Developer Technologies",
+      "AwardCategory": "My Awarded Category",
+      "Statuscode": 0,
+      "Active": false
+    },
+    "AdditionalTechnologies": [],
+    "StartDate": "2017-06-04T16:05:39.291893+02:00",
+    "Title": "My Activity #937",
+    "ReferenceUrl": "https://www.nationalgeographic.com/animals/birds/e/emperor-penguin/",
+    "Visibility": {
+      "Id": 100000000,
+      "Description": "Microsoft",
+      "LocalizeKey": "MicrosoftVisibilityText"
+    },
+    "AnnualQuantity": 26,
+    "SecondAnnualQuantity": 16,
+    "AnnualReach": 33,
+    "Description": "This is a non randomized description."
+  },
+  {
+    "ContributionId": 304,
+    "ContributionTypeName": null,
+    "ContributionType": {
+      "Id": "f16464de-179a-e411-bbc8-6c3be5a82b68",
+      "Name": "Conference (Staffing)",
+      "EnglishName": "Conference (Staffing)"
+    },
+    "ContributionTechnology": {
+      "Id": "3004f4ef-066b-e511-810b-fc15b428ced0",
+      "Name": "PHP",
+      "AwardName": "Developer Technologies",
+      "AwardCategory": "My Awarded Category",
+      "Statuscode": 0,
+      "Active": false
+    },
+    "AdditionalTechnologies": [],
+    "StartDate": "2018-08-24T16:05:39.291911+02:00",
+    "Title": "My Activity #304",
+    "ReferenceUrl": "https://www.nationalgeographic.com/animals/birds/e/emperor-penguin/",
+    "Visibility": {
+      "Id": 100000001,
+      "Description": "MVP Community",
+      "LocalizeKey": "MVPVisibilityText"
+    },
+    "AnnualQuantity": 19,
+    "SecondAnnualQuantity": 10,
+    "AnnualReach": 24,
+    "Description": "This is a non randomized description."
+  },
+  {
+    "ContributionId": 778,
+    "ContributionTypeName": null,
+    "ContributionType": {
+      "Id": "f96464de-179a-e411-bbc8-6c3be5a82b68",
+      "Name": "Forum Moderator",
+      "EnglishName": "Forum Moderator"
+    },
+    "ContributionTechnology": {
+      "Id": "82c301bb-189a-e411-93f2-9cb65495d3c4",
+      "Name": "ASP.NET/IIS",
+      "AwardName": "Developer Technologies",
+      "AwardCategory": "My Awarded Category",
+      "Statuscode": 0,
+      "Active": false
+    },
+    "AdditionalTechnologies": [],
+    "StartDate": "2018-09-01T16:05:39.29193+02:00",
+    "Title": "My Activity #778",
+    "ReferenceUrl": "https://www.nationalgeographic.com/animals/birds/e/emperor-penguin/",
+    "Visibility": {
+      "Id": 100000001,
+      "Description": "MVP Community",
+      "LocalizeKey": "MVPVisibilityText"
+    },
+    "AnnualQuantity": 35,
+    "SecondAnnualQuantity": 43,
+    "AnnualReach": 6,
+    "Description": "This is a non randomized description."
+  },
+  {
+    "ContributionId": 117,
+    "ContributionTypeName": null,
+    "ContributionType": {
+      "Id": "d96464de-179a-e411-bbc8-6c3be5a82b68",
+      "Name": "Forum Participation (3rd Party forums)",
+      "EnglishName": "Forum Participation (3rd Party forums)"
+    },
+    "ContributionTechnology": {
+      "Id": "4e04f4ef-066b-e511-810b-fc15b428ced0",
+      "Name": "Visual Studio Extensibility",
+      "AwardName": "Developer Technologies",
+      "AwardCategory": "My Awarded Category",
+      "Statuscode": 0,
+      "Active": false
+    },
+    "AdditionalTechnologies": [],
+    "StartDate": "2019-08-27T16:05:39.291949+02:00",
+    "Title": "My Activity #117",
+    "ReferenceUrl": "https://www.nationalgeographic.com/animals/birds/e/emperor-penguin/",
+    "Visibility": {
+      "Id": 100000000,
+      "Description": "Microsoft",
+      "LocalizeKey": "MicrosoftVisibilityText"
+    },
+    "AnnualQuantity": 13,
+    "SecondAnnualQuantity": 19,
+    "AnnualReach": 48,
+    "Description": "This is a non randomized description."
+  },
+  {
+    "ContributionId": 672,
+    "ContributionTypeName": null,
+    "ContributionType": {
+      "Id": "e36464de-179a-e411-bbc8-6c3be5a82b68",
+      "Name": "Article",
+      "EnglishName": "Article"
+    },
+    "ContributionTechnology": {
+      "Id": "4c04f4ef-066b-e511-810b-fc15b428ced0",
+      "Name": "Unity",
+      "AwardName": "Developer Technologies",
+      "AwardCategory": "My Awarded Category",
+      "Statuscode": 0,
+      "Active": false
+    },
+    "AdditionalTechnologies": [],
+    "StartDate": "2019-11-17T16:05:39.291968+01:00",
+    "Title": "My Activity #672",
+    "ReferenceUrl": "https://www.nationalgeographic.com/animals/birds/e/emperor-penguin/",
+    "Visibility": {
+      "Id": 100000001,
+      "Description": "MVP Community",
+      "LocalizeKey": "MVPVisibilityText"
+    },
+    "AnnualQuantity": 46,
+    "SecondAnnualQuantity": 48,
+    "AnnualReach": 11,
+    "Description": "This is a non randomized description."
+  },
+  {
+    "ContributionId": 143,
+    "ContributionTypeName": null,
+    "ContributionType": {
+      "Id": "016564de-179a-e411-bbc8-6c3be5a82b68",
+      "Name": "Product Group Feedback",
+      "EnglishName": "Product Group Feedback (General)"
+    },
+    "ContributionTechnology": {
+      "Id": "84c301bb-189a-e411-93f2-9cb65495d3c4",
+      "Name": "Azure DevOps",
+      "AwardName": "Developer Technologies",
+      "AwardCategory": "My Awarded Category",
+      "Statuscode": 0,
+      "Active": false
+    },
+    "AdditionalTechnologies": [],
+    "StartDate": "2020-01-14T16:05:39.291987+01:00",
+    "Title": "My Activity #143",
+    "ReferenceUrl": "https://www.nationalgeographic.com/animals/birds/e/emperor-penguin/",
+    "Visibility": {
+      "Id": 100000000,
+      "Description": "Microsoft",
+      "LocalizeKey": "MicrosoftVisibilityText"
+    },
+    "AnnualQuantity": 35,
+    "SecondAnnualQuantity": 11,
+    "AnnualReach": 49,
+    "Description": "This is a non randomized description."
+  },
+  {
+    "ContributionId": 359,
+    "ContributionTypeName": null,
+    "ContributionType": {
+      "Id": "e36464de-179a-e411-bbc8-6c3be5a82b68",
+      "Name": "Article",
+      "EnglishName": "Article"
+    },
+    "ContributionTechnology": {
+      "Id": "aec301bb-189a-e411-93f2-9cb65495d3c4",
+      "Name": ".NET",
+      "AwardName": "Developer Technologies",
+      "AwardCategory": "My Awarded Category",
+      "Statuscode": 0,
+      "Active": false
+    },
+    "AdditionalTechnologies": [],
+    "StartDate": "2019-06-23T16:05:39.292006+02:00",
+    "Title": "My Activity #359",
+    "ReferenceUrl": "https://www.nationalgeographic.com/animals/birds/e/emperor-penguin/",
+    "Visibility": {
+      "Id": 100000000,
+      "Description": "Microsoft",
+      "LocalizeKey": "MicrosoftVisibilityText"
+    },
+    "AnnualQuantity": 11,
+    "SecondAnnualQuantity": 43,
+    "AnnualReach": 5,
+    "Description": "This is a non randomized description."
+  },
+  {
+    "ContributionId": 360,
+    "ContributionTypeName": null,
+    "ContributionType": {
+      "Id": "e96464de-179a-e411-bbc8-6c3be5a82b68",
+      "Name": "Sample Code/Projects/Tools",
+      "EnglishName": "Sample Code/Projects/Tools"
+    },
+    "ContributionTechnology": {
+      "Id": "c4fe7f2a-8678-ea11-a811-000d3a8ccaf5",
+      "Name": "Quantum",
+      "AwardName": "Developer Technologies",
+      "AwardCategory": "My Awarded Category",
+      "Statuscode": 0,
+      "Active": false
+    },
+    "AdditionalTechnologies": [],
+    "StartDate": "2020-07-26T16:05:39.292025+02:00",
+    "Title": "My Activity #360",
+    "ReferenceUrl": "https://www.nationalgeographic.com/animals/birds/e/emperor-penguin/",
+    "Visibility": {
+      "Id": 100000001,
+      "Description": "MVP Community",
+      "LocalizeKey": "MVPVisibilityText"
+    },
+    "AnnualQuantity": 43,
+    "SecondAnnualQuantity": 36,
+    "AnnualReach": 17,
+    "Description": "This is a non randomized description."
+  },
+  {
+    "ContributionId": 136,
+    "ContributionTypeName": null,
+    "ContributionType": {
+      "Id": "e36464de-179a-e411-bbc8-6c3be5a82b68",
+      "Name": "Article",
+      "EnglishName": "Article"
+    },
+    "ContributionTechnology": {
+      "Id": "cc03f4ef-066b-e511-810b-fc15b428ced0",
+      "Name": "Front End Web Dev",
+      "AwardName": "Developer Technologies",
+      "AwardCategory": "My Awarded Category",
+      "Statuscode": 0,
+      "Active": false
+    },
+    "AdditionalTechnologies": [],
+    "StartDate": "2019-09-18T16:05:39.292043+02:00",
+    "Title": "My Activity #136",
+    "ReferenceUrl": "https://www.nationalgeographic.com/animals/birds/e/emperor-penguin/",
+    "Visibility": {
+      "Id": 100000000,
+      "Description": "Microsoft",
+      "LocalizeKey": "MicrosoftVisibilityText"
+    },
+    "AnnualQuantity": 31,
+    "SecondAnnualQuantity": 4,
+    "AnnualReach": 25,
+    "Description": "This is a non randomized description."
+  },
+  {
+    "ContributionId": 311,
+    "ContributionTypeName": null,
+    "ContributionType": {
+      "Id": "df6464de-179a-e411-bbc8-6c3be5a82b68",
+      "Name": "Blog/Website Post",
+      "EnglishName": "Blog/Website Post"
+    },
+    "ContributionTechnology": {
+      "Id": "cc03f4ef-066b-e511-810b-fc15b428ced0",
+      "Name": "Front End Web Dev",
+      "AwardName": "Developer Technologies",
+      "AwardCategory": "My Awarded Category",
+      "Statuscode": 0,
+      "Active": false
+    },
+    "AdditionalTechnologies": [],
+    "StartDate": "2020-03-15T16:05:39.292062+01:00",
+    "Title": "My Activity #311",
+    "ReferenceUrl": "https://www.nationalgeographic.com/animals/birds/e/emperor-penguin/",
+    "Visibility": {
+      "Id": 100000001,
+      "Description": "MVP Community",
+      "LocalizeKey": "MVPVisibilityText"
+    },
+    "AnnualQuantity": 5,
+    "SecondAnnualQuantity": 4,
+    "AnnualReach": 10,
+    "Description": "This is a non randomized description."
+  },
+  {
+    "ContributionId": 913,
+    "ContributionTypeName": null,
+    "ContributionType": {
+      "Id": "e56464de-179a-e411-bbc8-6c3be5a82b68",
+      "Name": "Video/Webcast/Podcast",
+      "EnglishName": "Video/Webcast/Podcast"
+    },
+    "ContributionTechnology": {
+      "Id": "8cc301bb-189a-e411-93f2-9cb65495d3c4",
+      "Name": "C++",
+      "AwardName": "Developer Technologies",
+      "AwardCategory": "My Awarded Category",
+      "Statuscode": 0,
+      "Active": false
+    },
+    "AdditionalTechnologies": [],
+    "StartDate": "2019-02-04T16:05:39.292081+01:00",
+    "Title": "My Activity #913",
+    "ReferenceUrl": "https://www.nationalgeographic.com/animals/birds/e/emperor-penguin/",
+    "Visibility": {
+      "Id": 100000001,
+      "Description": "MVP Community",
+      "LocalizeKey": "MVPVisibilityText"
+    },
+    "AnnualQuantity": 39,
+    "SecondAnnualQuantity": 41,
+    "AnnualReach": 21,
+    "Description": "This is a non randomized description."
+  },
+  {
+    "ContributionId": 487,
+    "ContributionTypeName": null,
+    "ContributionType": {
+      "Id": "dd6464de-179a-e411-bbc8-6c3be5a82b68",
+      "Name": "Book (Co-Author)",
+      "EnglishName": "Book (Co-Author)"
+    },
+    "ContributionTechnology": {
+      "Id": "3004f4ef-066b-e511-810b-fc15b428ced0",
+      "Name": "PHP",
+      "AwardName": "Developer Technologies",
+      "AwardCategory": "My Awarded Category",
+      "Statuscode": 0,
+      "Active": false
+    },
+    "AdditionalTechnologies": [],
+    "StartDate": "2020-03-31T16:05:39.2921+02:00",
+    "Title": "My Activity #487",
+    "ReferenceUrl": "https://www.nationalgeographic.com/animals/birds/e/emperor-penguin/",
+    "Visibility": {
+      "Id": 100000000,
+      "Description": "Microsoft",
+      "LocalizeKey": "MicrosoftVisibilityText"
+    },
+    "AnnualQuantity": 2,
+    "SecondAnnualQuantity": 40,
+    "AnnualReach": 36,
+    "Description": "This is a non randomized description."
+  },
+  {
+    "ContributionId": 987,
+    "ContributionTypeName": null,
+    "ContributionType": {
+      "Id": "fb6464de-179a-e411-bbc8-6c3be5a82b68",
+      "Name": "Site Owner",
+      "EnglishName": "Site Owner"
+    },
+    "ContributionTechnology": {
+      "Id": "84c301bb-189a-e411-93f2-9cb65495d3c4",
+      "Name": "Azure DevOps",
+      "AwardName": "Developer Technologies",
+      "AwardCategory": "My Awarded Category",
+      "Statuscode": 0,
+      "Active": false
+    },
+    "AdditionalTechnologies": [],
+    "StartDate": "2017-06-11T16:05:39.292118+02:00",
+    "Title": "My Activity #987",
+    "ReferenceUrl": "https://www.nationalgeographic.com/animals/birds/e/emperor-penguin/",
+    "Visibility": {
+      "Id": 100000001,
+      "Description": "MVP Community",
+      "LocalizeKey": "MVPVisibilityText"
+    },
+    "AnnualQuantity": 30,
+    "SecondAnnualQuantity": 1,
+    "AnnualReach": 18,
+    "Description": "This is a non randomized description."
+  },
+  {
+    "ContributionId": 781,
+    "ContributionTypeName": null,
+    "ContributionType": {
+      "Id": "d16464de-179a-e411-bbc8-6c3be5a82b68",
+      "Name": "Speaking (Conference)",
+      "EnglishName": "Speaking (Conference)"
+    },
+    "ContributionTechnology": {
+      "Id": "8ac301bb-189a-e411-93f2-9cb65495d3c4",
+      "Name": "Developer Security",
+      "AwardName": "Developer Technologies",
+      "AwardCategory": "My Awarded Category",
+      "Statuscode": 0,
+      "Active": false
+    },
+    "AdditionalTechnologies": [],
+    "StartDate": "2019-05-02T16:05:39.292137+02:00",
+    "Title": "My Activity #781",
+    "ReferenceUrl": "https://www.nationalgeographic.com/animals/birds/e/emperor-penguin/",
+    "Visibility": {
+      "Id": 100000001,
+      "Description": "MVP Community",
+      "LocalizeKey": "MVPVisibilityText"
+    },
+    "AnnualQuantity": 43,
+    "SecondAnnualQuantity": 1,
+    "AnnualReach": 34,
+    "Description": "This is a non randomized description."
+  },
+  {
+    "ContributionId": 410,
+    "ContributionTypeName": null,
+    "ContributionType": {
+      "Id": "f96464de-179a-e411-bbc8-6c3be5a82b68",
+      "Name": "Forum Moderator",
+      "EnglishName": "Forum Moderator"
+    },
+    "ContributionTechnology": {
+      "Id": "8cc301bb-189a-e411-93f2-9cb65495d3c4",
+      "Name": "C++",
+      "AwardName": "Developer Technologies",
+      "AwardCategory": "My Awarded Category",
+      "Statuscode": 0,
+      "Active": false
+    },
+    "AdditionalTechnologies": [],
+    "StartDate": "2020-10-19T16:05:39.292156+02:00",
+    "Title": "My Activity #410",
+    "ReferenceUrl": "https://www.nationalgeographic.com/animals/birds/e/emperor-penguin/",
+    "Visibility": {
+      "Id": 100000000,
+      "Description": "Microsoft",
+      "LocalizeKey": "MicrosoftVisibilityText"
+    },
+    "AnnualQuantity": 8,
+    "SecondAnnualQuantity": 16,
+    "AnnualReach": 13,
+    "Description": "This is a non randomized description."
+  },
+  {
+    "ContributionId": 299,
+    "ContributionTypeName": null,
+    "ContributionType": {
+      "Id": "fb6464de-179a-e411-bbc8-6c3be5a82b68",
+      "Name": "Site Owner",
+      "EnglishName": "Site Owner"
+    },
+    "ContributionTechnology": {
+      "Id": "8cc301bb-189a-e411-93f2-9cb65495d3c4",
+      "Name": "C++",
+      "AwardName": "Developer Technologies",
+      "AwardCategory": "My Awarded Category",
+      "Statuscode": 0,
+      "Active": false
+    },
+    "AdditionalTechnologies": [],
+    "StartDate": "2019-10-23T16:05:39.292174+02:00",
+    "Title": "My Activity #299",
+    "ReferenceUrl": "https://www.nationalgeographic.com/animals/birds/e/emperor-penguin/",
+    "Visibility": {
+      "Id": 100000000,
+      "Description": "Microsoft",
+      "LocalizeKey": "MicrosoftVisibilityText"
+    },
+    "AnnualQuantity": 34,
+    "SecondAnnualQuantity": 22,
+    "AnnualReach": 18,
+    "Description": "This is a non randomized description."
+  },
+  {
+    "ContributionId": 493,
+    "ContributionTypeName": null,
+    "ContributionType": {
+      "Id": "e36464de-179a-e411-bbc8-6c3be5a82b68",
+      "Name": "Article",
+      "EnglishName": "Article"
+    },
+    "ContributionTechnology": {
+      "Id": "e803f4ef-066b-e511-810b-fc15b428ced0",
+      "Name": "Node.js",
+      "AwardName": "Developer Technologies",
+      "AwardCategory": "My Awarded Category",
+      "Statuscode": 0,
+      "Active": false
+    },
+    "AdditionalTechnologies": [],
+    "StartDate": "2017-07-15T16:05:39.292215+02:00",
+    "Title": "My Activity #493",
+    "ReferenceUrl": "https://www.nationalgeographic.com/animals/birds/e/emperor-penguin/",
+    "Visibility": {
+      "Id": 100000000,
+      "Description": "Microsoft",
+      "LocalizeKey": "MicrosoftVisibilityText"
+    },
+    "AnnualQuantity": 24,
+    "SecondAnnualQuantity": 17,
+    "AnnualReach": 30,
+    "Description": "This is a non randomized description."
+  },
+  {
+    "ContributionId": 924,
+    "ContributionTypeName": null,
+    "ContributionType": {
+      "Id": "f96464de-179a-e411-bbc8-6c3be5a82b68",
+      "Name": "Forum Moderator",
+      "EnglishName": "Forum Moderator"
+    },
+    "ContributionTechnology": {
+      "Id": "c4fe7f2a-8678-ea11-a811-000d3a8ccaf5",
+      "Name": "Quantum",
+      "AwardName": "Developer Technologies",
+      "AwardCategory": "My Awarded Category",
+      "Statuscode": 0,
+      "Active": false
+    },
+    "AdditionalTechnologies": [],
+    "StartDate": "2020-03-22T16:05:39.292269+01:00",
+    "Title": "My Activity #924",
+    "ReferenceUrl": "https://www.nationalgeographic.com/animals/birds/e/emperor-penguin/",
+    "Visibility": {
+      "Id": 100000001,
+      "Description": "MVP Community",
+      "LocalizeKey": "MVPVisibilityText"
+    },
+    "AnnualQuantity": 23,
+    "SecondAnnualQuantity": 20,
+    "AnnualReach": 49,
+    "Description": "This is a non randomized description."
+  },
+  {
+    "ContributionId": 957,
+    "ContributionTypeName": null,
+    "ContributionType": {
+      "Id": "f76464de-179a-e411-bbc8-6c3be5a82b68",
+      "Name": "Mentorship",
+      "EnglishName": "Mentorship"
+    },
+    "ContributionTechnology": {
+      "Id": "0b2c2181-02e4-e611-80fe-3863bb34cb20",
+      "Name": "Accessibility",
+      "AwardName": "Developer Technologies",
+      "AwardCategory": "My Awarded Category",
+      "Statuscode": 0,
+      "Active": false
+    },
+    "AdditionalTechnologies": [],
+    "StartDate": "2017-08-18T16:05:39.2923+02:00",
+    "Title": "My Activity #957",
+    "ReferenceUrl": "https://www.nationalgeographic.com/animals/birds/e/emperor-penguin/",
+    "Visibility": {
+      "Id": 100000001,
+      "Description": "MVP Community",
+      "LocalizeKey": "MVPVisibilityText"
+    },
+    "AnnualQuantity": 21,
+    "SecondAnnualQuantity": 5,
+    "AnnualReach": 22,
+    "Description": "This is a non randomized description."
+  },
+  {
+    "ContributionId": 614,
+    "ContributionTypeName": null,
+    "ContributionType": {
+      "Id": "d16464de-179a-e411-bbc8-6c3be5a82b68",
+      "Name": "Speaking (Conference)",
+      "EnglishName": "Speaking (Conference)"
+    },
+    "ContributionTechnology": {
+      "Id": "4c04f4ef-066b-e511-810b-fc15b428ced0",
+      "Name": "Unity",
+      "AwardName": "Developer Technologies",
+      "AwardCategory": "My Awarded Category",
+      "Statuscode": 0,
+      "Active": false
+    },
+    "AdditionalTechnologies": [],
+    "StartDate": "2020-08-19T16:05:39.292333+02:00",
+    "Title": "My Activity #614",
+    "ReferenceUrl": "https://www.nationalgeographic.com/animals/birds/e/emperor-penguin/",
+    "Visibility": {
+      "Id": 100000001,
+      "Description": "MVP Community",
+      "LocalizeKey": "MVPVisibilityText"
+    },
+    "AnnualQuantity": 17,
+    "SecondAnnualQuantity": 18,
+    "AnnualReach": 34,
+    "Description": "This is a non randomized description."
+  },
+  {
+    "ContributionId": 262,
+    "ContributionTypeName": null,
+    "ContributionType": {
+      "Id": "f96464de-179a-e411-bbc8-6c3be5a82b68",
+      "Name": "Forum Moderator",
+      "EnglishName": "Forum Moderator"
+    },
+    "ContributionTechnology": {
+      "Id": "c4fe7f2a-8678-ea11-a811-000d3a8ccaf5",
+      "Name": "Quantum",
+      "AwardName": "Developer Technologies",
+      "AwardCategory": "My Awarded Category",
+      "Statuscode": 0,
+      "Active": false
+    },
+    "AdditionalTechnologies": [],
+    "StartDate": "2017-08-03T16:05:39.292366+02:00",
+    "Title": "My Activity #262",
+    "ReferenceUrl": "https://www.nationalgeographic.com/animals/birds/e/emperor-penguin/",
+    "Visibility": {
+      "Id": 100000000,
+      "Description": "Microsoft",
+      "LocalizeKey": "MicrosoftVisibilityText"
+    },
+    "AnnualQuantity": 8,
+    "SecondAnnualQuantity": 11,
+    "AnnualReach": 45,
+    "Description": "This is a non randomized description."
+  },
+  {
+    "ContributionId": 27,
+    "ContributionTypeName": null,
+    "ContributionType": {
+      "Id": "d76464de-179a-e411-bbc8-6c3be5a82b68",
+      "Name": "Forum Participation (Microsoft Forums)",
+      "EnglishName": "Forum Participation (Microsoft Forums)"
+    },
+    "ContributionTechnology": {
+      "Id": "0b2c2181-02e4-e611-80fe-3863bb34cb20",
+      "Name": "Accessibility",
+      "AwardName": "Developer Technologies",
+      "AwardCategory": "My Awarded Category",
+      "Statuscode": 0,
+      "Active": false
+    },
+    "AdditionalTechnologies": [],
+    "StartDate": "2018-04-06T16:05:39.292393+02:00",
+    "Title": "My Activity #27",
+    "ReferenceUrl": "https://www.nationalgeographic.com/animals/birds/e/emperor-penguin/",
+    "Visibility": {
+      "Id": 100000001,
+      "Description": "MVP Community",
+      "LocalizeKey": "MVPVisibilityText"
+    },
+    "AnnualQuantity": 48,
+    "SecondAnnualQuantity": 2,
+    "AnnualReach": 22,
+    "Description": "This is a non randomized description."
+  },
+  {
+    "ContributionId": 202,
+    "ContributionTypeName": null,
+    "ContributionType": {
+      "Id": "db6464de-179a-e411-bbc8-6c3be5a82b68",
+      "Name": "Book (Author)",
+      "EnglishName": "Book (Author)"
+    },
+    "ContributionTechnology": {
+      "Id": "de03f4ef-066b-e511-810b-fc15b428ced0",
+      "Name": "Javascript/Typescript",
+      "AwardName": "Developer Technologies",
+      "AwardCategory": "My Awarded Category",
+      "Statuscode": 0,
+      "Active": false
+    },
+    "AdditionalTechnologies": [],
+    "StartDate": "2020-05-14T16:05:39.292413+02:00",
+    "Title": "My Activity #202",
+    "ReferenceUrl": "https://www.nationalgeographic.com/animals/birds/e/emperor-penguin/",
+    "Visibility": {
+      "Id": 100000001,
+      "Description": "MVP Community",
+      "LocalizeKey": "MVPVisibilityText"
+    },
+    "AnnualQuantity": 16,
+    "SecondAnnualQuantity": 7,
+    "AnnualReach": 42,
+    "Description": "This is a non randomized description."
+  },
+  {
+    "ContributionId": 10,
+    "ContributionTypeName": null,
+    "ContributionType": {
+      "Id": "f16464de-179a-e411-bbc8-6c3be5a82b68",
+      "Name": "Conference (Staffing)",
+      "EnglishName": "Conference (Staffing)"
+    },
+    "ContributionTechnology": {
+      "Id": "3a04f4ef-066b-e511-810b-fc15b428ced0",
+      "Name": "Python",
+      "AwardName": "Developer Technologies",
+      "AwardCategory": "My Awarded Category",
+      "Statuscode": 0,
+      "Active": false
+    },
+    "AdditionalTechnologies": [],
+    "StartDate": "2019-04-27T16:05:39.292431+02:00",
+    "Title": "My Activity #10",
+    "ReferenceUrl": "https://www.nationalgeographic.com/animals/birds/e/emperor-penguin/",
+    "Visibility": {
+      "Id": 100000000,
+      "Description": "Microsoft",
+      "LocalizeKey": "MicrosoftVisibilityText"
+    },
+    "AnnualQuantity": 28,
+    "SecondAnnualQuantity": 32,
+    "AnnualReach": 2,
+    "Description": "This is a non randomized description."
+  },
+  {
+    "ContributionId": 794,
+    "ContributionTypeName": null,
+    "ContributionType": {
+      "Id": "f96464de-179a-e411-bbc8-6c3be5a82b68",
+      "Name": "Forum Moderator",
+      "EnglishName": "Forum Moderator"
+    },
+    "ContributionTechnology": {
+      "Id": "e803f4ef-066b-e511-810b-fc15b428ced0",
+      "Name": "Node.js",
+      "AwardName": "Developer Technologies",
+      "AwardCategory": "My Awarded Category",
+      "Statuscode": 0,
+      "Active": false
+    },
+    "AdditionalTechnologies": [],
+    "StartDate": "2017-12-27T16:05:39.29245+01:00",
+    "Title": "My Activity #794",
+    "ReferenceUrl": "https://www.nationalgeographic.com/animals/birds/e/emperor-penguin/",
+    "Visibility": {
+      "Id": 100000001,
+      "Description": "MVP Community",
+      "LocalizeKey": "MVPVisibilityText"
+    },
+    "AnnualQuantity": 47,
+    "SecondAnnualQuantity": 6,
+    "AnnualReach": 3,
+    "Description": "This is a non randomized description."
+  },
+  {
+    "ContributionId": 548,
+    "ContributionTypeName": null,
+    "ContributionType": {
+      "Id": "e36464de-179a-e411-bbc8-6c3be5a82b68",
+      "Name": "Article",
+      "EnglishName": "Article"
+    },
+    "ContributionTechnology": {
+      "Id": "4e04f4ef-066b-e511-810b-fc15b428ced0",
+      "Name": "Visual Studio Extensibility",
+      "AwardName": "Developer Technologies",
+      "AwardCategory": "My Awarded Category",
+      "Statuscode": 0,
+      "Active": false
+    },
+    "AdditionalTechnologies": [],
+    "StartDate": "2017-07-11T16:05:39.292469+02:00",
+    "Title": "My Activity #548",
+    "ReferenceUrl": "https://www.nationalgeographic.com/animals/birds/e/emperor-penguin/",
+    "Visibility": {
+      "Id": 100000000,
+      "Description": "Microsoft",
+      "LocalizeKey": "MicrosoftVisibilityText"
+    },
+    "AnnualQuantity": 45,
+    "SecondAnnualQuantity": 14,
+    "AnnualReach": 3,
+    "Description": "This is a non randomized description."
+  },
+  {
+    "ContributionId": 734,
+    "ContributionTypeName": null,
+    "ContributionType": {
+      "Id": "d96464de-179a-e411-bbc8-6c3be5a82b68",
+      "Name": "Forum Participation (3rd Party forums)",
+      "EnglishName": "Forum Participation (3rd Party forums)"
+    },
+    "ContributionTechnology": {
+      "Id": "cc03f4ef-066b-e511-810b-fc15b428ced0",
+      "Name": "Front End Web Dev",
+      "AwardName": "Developer Technologies",
+      "AwardCategory": "My Awarded Category",
+      "Statuscode": 0,
+      "Active": false
+    },
+    "AdditionalTechnologies": [],
+    "StartDate": "2020-06-18T16:05:39.292488+02:00",
+    "Title": "My Activity #734",
+    "ReferenceUrl": "https://www.nationalgeographic.com/animals/birds/e/emperor-penguin/",
+    "Visibility": {
+      "Id": 100000000,
+      "Description": "Microsoft",
+      "LocalizeKey": "MicrosoftVisibilityText"
+    },
+    "AnnualQuantity": 28,
+    "SecondAnnualQuantity": 19,
+    "AnnualReach": 32,
+    "Description": "This is a non randomized description."
+  },
+  {
+    "ContributionId": 864,
+    "ContributionTypeName": null,
+    "ContributionType": {
+      "Id": "f16464de-179a-e411-bbc8-6c3be5a82b68",
+      "Name": "Conference (Staffing)",
+      "EnglishName": "Conference (Staffing)"
+    },
+    "ContributionTechnology": {
+      "Id": "84c301bb-189a-e411-93f2-9cb65495d3c4",
+      "Name": "Azure DevOps",
+      "AwardName": "Developer Technologies",
+      "AwardCategory": "My Awarded Category",
+      "Statuscode": 0,
+      "Active": false
+    },
+    "AdditionalTechnologies": [],
+    "StartDate": "2018-01-04T16:05:39.292507+01:00",
+    "Title": "My Activity #864",
+    "ReferenceUrl": "https://www.nationalgeographic.com/animals/birds/e/emperor-penguin/",
+    "Visibility": {
+      "Id": 100000000,
+      "Description": "Microsoft",
+      "LocalizeKey": "MicrosoftVisibilityText"
+    },
+    "AnnualQuantity": 8,
+    "SecondAnnualQuantity": 30,
+    "AnnualReach": 4,
+    "Description": "This is a non randomized description."
+  },
+  {
+    "ContributionId": 290,
+    "ContributionTypeName": null,
+    "ContributionType": {
+      "Id": "f96464de-179a-e411-bbc8-6c3be5a82b68",
+      "Name": "Forum Moderator",
+      "EnglishName": "Forum Moderator"
+    },
+    "ContributionTechnology": {
+      "Id": "0b2c2181-02e4-e611-80fe-3863bb34cb20",
+      "Name": "Accessibility",
+      "AwardName": "Developer Technologies",
+      "AwardCategory": "My Awarded Category",
+      "Statuscode": 0,
+      "Active": false
+    },
+    "AdditionalTechnologies": [],
+    "StartDate": "2018-05-05T16:05:39.292525+02:00",
+    "Title": "My Activity #290",
+    "ReferenceUrl": "https://www.nationalgeographic.com/animals/birds/e/emperor-penguin/",
+    "Visibility": {
+      "Id": 100000001,
+      "Description": "MVP Community",
+      "LocalizeKey": "MVPVisibilityText"
+    },
+    "AnnualQuantity": 8,
+    "SecondAnnualQuantity": 18,
+    "AnnualReach": 10,
+    "Description": "This is a non randomized description."
+  },
+  {
+    "ContributionId": 784,
+    "ContributionTypeName": null,
+    "ContributionType": {
+      "Id": "ef6464de-179a-e411-bbc8-6c3be5a82b68",
+      "Name": "Organizer of Conference",
+      "EnglishName": "Organizer of Conference"
+    },
+    "ContributionTechnology": {
+      "Id": "84c301bb-189a-e411-93f2-9cb65495d3c4",
+      "Name": "Azure DevOps",
+      "AwardName": "Developer Technologies",
+      "AwardCategory": "My Awarded Category",
+      "Statuscode": 0,
+      "Active": false
+    },
+    "AdditionalTechnologies": [],
+    "StartDate": "2019-05-11T16:05:39.292544+02:00",
+    "Title": "My Activity #784",
+    "ReferenceUrl": "https://www.nationalgeographic.com/animals/birds/e/emperor-penguin/",
+    "Visibility": {
+      "Id": 100000000,
+      "Description": "Microsoft",
+      "LocalizeKey": "MicrosoftVisibilityText"
+    },
+    "AnnualQuantity": 41,
+    "SecondAnnualQuantity": 6,
+    "AnnualReach": 35,
+    "Description": "This is a non randomized description."
+  },
+  {
+    "ContributionId": 316,
+    "ContributionTypeName": null,
+    "ContributionType": {
+      "Id": "d96464de-179a-e411-bbc8-6c3be5a82b68",
+      "Name": "Forum Participation (3rd Party forums)",
+      "EnglishName": "Forum Participation (3rd Party forums)"
+    },
+    "ContributionTechnology": {
+      "Id": "8ac301bb-189a-e411-93f2-9cb65495d3c4",
+      "Name": "Developer Security",
+      "AwardName": "Developer Technologies",
+      "AwardCategory": "My Awarded Category",
+      "Statuscode": 0,
+      "Active": false
+    },
+    "AdditionalTechnologies": [],
+    "StartDate": "2020-11-27T16:05:39.292563+01:00",
+    "Title": "My Activity #316",
+    "ReferenceUrl": "https://www.nationalgeographic.com/animals/birds/e/emperor-penguin/",
+    "Visibility": {
+      "Id": 100000000,
+      "Description": "Microsoft",
+      "LocalizeKey": "MicrosoftVisibilityText"
+    },
+    "AnnualQuantity": 14,
+    "SecondAnnualQuantity": 3,
+    "AnnualReach": 40,
+    "Description": "This is a non randomized description."
+  },
+  {
+    "ContributionId": 735,
+    "ContributionTypeName": null,
+    "ContributionType": {
+      "Id": "f16464de-179a-e411-bbc8-6c3be5a82b68",
+      "Name": "Conference (Staffing)",
+      "EnglishName": "Conference (Staffing)"
+    },
+    "ContributionTechnology": {
+      "Id": "de03f4ef-066b-e511-810b-fc15b428ced0",
+      "Name": "Javascript/Typescript",
+      "AwardName": "Developer Technologies",
+      "AwardCategory": "My Awarded Category",
+      "Statuscode": 0,
+      "Active": false
+    },
+    "AdditionalTechnologies": [],
+    "StartDate": "2018-02-10T16:05:39.292582+01:00",
+    "Title": "My Activity #735",
+    "ReferenceUrl": "https://www.nationalgeographic.com/animals/birds/e/emperor-penguin/",
+    "Visibility": {
+      "Id": 100000000,
+      "Description": "Microsoft",
+      "LocalizeKey": "MicrosoftVisibilityText"
+    },
+    "AnnualQuantity": 46,
+    "SecondAnnualQuantity": 40,
+    "AnnualReach": 42,
+    "Description": "This is a non randomized description."
+  },
+  {
+    "ContributionId": 189,
+    "ContributionTypeName": null,
+    "ContributionType": {
+      "Id": "e36464de-179a-e411-bbc8-6c3be5a82b68",
+      "Name": "Article",
+      "EnglishName": "Article"
+    },
+    "ContributionTechnology": {
+      "Id": "aec301bb-189a-e411-93f2-9cb65495d3c4",
+      "Name": ".NET",
+      "AwardName": "Developer Technologies",
+      "AwardCategory": "My Awarded Category",
+      "Statuscode": 0,
+      "Active": false
+    },
+    "AdditionalTechnologies": [],
+    "StartDate": "2019-12-15T16:05:39.2926+01:00",
+    "Title": "My Activity #189",
+    "ReferenceUrl": "https://www.nationalgeographic.com/animals/birds/e/emperor-penguin/",
+    "Visibility": {
+      "Id": 100000001,
+      "Description": "MVP Community",
+      "LocalizeKey": "MVPVisibilityText"
+    },
+    "AnnualQuantity": 36,
+    "SecondAnnualQuantity": 4,
+    "AnnualReach": 9,
+    "Description": "This is a non randomized description."
+  },
+  {
+    "ContributionId": 682,
+    "ContributionTypeName": null,
+    "ContributionType": {
+      "Id": "db6464de-179a-e411-bbc8-6c3be5a82b68",
+      "Name": "Book (Author)",
+      "EnglishName": "Book (Author)"
+    },
+    "ContributionTechnology": {
+      "Id": "aec301bb-189a-e411-93f2-9cb65495d3c4",
+      "Name": ".NET",
+      "AwardName": "Developer Technologies",
+      "AwardCategory": "My Awarded Category",
+      "Statuscode": 0,
+      "Active": false
+    },
+    "AdditionalTechnologies": [],
+    "StartDate": "2020-07-15T16:05:39.292619+02:00",
+    "Title": "My Activity #682",
+    "ReferenceUrl": "https://www.nationalgeographic.com/animals/birds/e/emperor-penguin/",
+    "Visibility": {
+      "Id": 100000001,
+      "Description": "MVP Community",
+      "LocalizeKey": "MVPVisibilityText"
+    },
+    "AnnualQuantity": 35,
+    "SecondAnnualQuantity": 43,
+    "AnnualReach": 39,
+    "Description": "This is a non randomized description."
+  },
+  {
+    "ContributionId": 780,
+    "ContributionTypeName": null,
+    "ContributionType": {
+      "Id": "e36464de-179a-e411-bbc8-6c3be5a82b68",
+      "Name": "Article",
+      "EnglishName": "Article"
+    },
+    "ContributionTechnology": {
+      "Id": "c4fe7f2a-8678-ea11-a811-000d3a8ccaf5",
+      "Name": "Quantum",
+      "AwardName": "Developer Technologies",
+      "AwardCategory": "My Awarded Category",
+      "Statuscode": 0,
+      "Active": false
+    },
+    "AdditionalTechnologies": [],
+    "StartDate": "2020-08-23T16:05:39.292638+02:00",
+    "Title": "My Activity #780",
+    "ReferenceUrl": "https://www.nationalgeographic.com/animals/birds/e/emperor-penguin/",
+    "Visibility": {
+      "Id": 100000000,
+      "Description": "Microsoft",
+      "LocalizeKey": "MicrosoftVisibilityText"
+    },
+    "AnnualQuantity": 4,
+    "SecondAnnualQuantity": 39,
+    "AnnualReach": 0,
+    "Description": "This is a non randomized description."
+  },
+  {
+    "ContributionId": 17,
+    "ContributionTypeName": null,
+    "ContributionType": {
+      "Id": "f16464de-179a-e411-bbc8-6c3be5a82b68",
+      "Name": "Conference (Staffing)",
+      "EnglishName": "Conference (Staffing)"
+    },
+    "ContributionTechnology": {
+      "Id": "de03f4ef-066b-e511-810b-fc15b428ced0",
+      "Name": "Javascript/Typescript",
+      "AwardName": "Developer Technologies",
+      "AwardCategory": "My Awarded Category",
+      "Statuscode": 0,
+      "Active": false
+    },
+    "AdditionalTechnologies": [],
+    "StartDate": "2019-05-14T16:05:39.292658+02:00",
+    "Title": "My Activity #17",
+    "ReferenceUrl": "https://www.nationalgeographic.com/animals/birds/e/emperor-penguin/",
+    "Visibility": {
+      "Id": 100000001,
+      "Description": "MVP Community",
+      "LocalizeKey": "MVPVisibilityText"
+    },
+    "AnnualQuantity": 19,
+    "SecondAnnualQuantity": 9,
+    "AnnualReach": 20,
+    "Description": "This is a non randomized description."
+  },
+  {
+    "ContributionId": 333,
+    "ContributionTypeName": null,
+    "ContributionType": {
+      "Id": "df6464de-179a-e411-bbc8-6c3be5a82b68",
+      "Name": "Blog/Website Post",
+      "EnglishName": "Blog/Website Post"
+    },
+    "ContributionTechnology": {
+      "Id": "aec301bb-189a-e411-93f2-9cb65495d3c4",
+      "Name": ".NET",
+      "AwardName": "Developer Technologies",
+      "AwardCategory": "My Awarded Category",
+      "Statuscode": 0,
+      "Active": false
+    },
+    "AdditionalTechnologies": [],
+    "StartDate": "2017-10-20T16:05:39.292686+02:00",
+    "Title": "My Activity #333",
+    "ReferenceUrl": "https://www.nationalgeographic.com/animals/birds/e/emperor-penguin/",
+    "Visibility": {
+      "Id": 100000000,
+      "Description": "Microsoft",
+      "LocalizeKey": "MicrosoftVisibilityText"
+    },
+    "AnnualQuantity": 20,
+    "SecondAnnualQuantity": 34,
+    "AnnualReach": 37,
+    "Description": "This is a non randomized description."
+  },
+  {
+    "ContributionId": 450,
+    "ContributionTypeName": null,
+    "ContributionType": {
+      "Id": "056564de-179a-e411-bbc8-6c3be5a82b68",
+      "Name": "Translation Review, Feedback and Editing",
+      "EnglishName": "Translation Review, Feedback and Editing"
+    },
+    "ContributionTechnology": {
+      "Id": "0b2c2181-02e4-e611-80fe-3863bb34cb20",
+      "Name": "Accessibility",
+      "AwardName": "Developer Technologies",
+      "AwardCategory": "My Awarded Category",
+      "Statuscode": 0,
+      "Active": false
+    },
+    "AdditionalTechnologies": [],
+    "StartDate": "2016-12-23T16:05:39.29272+01:00",
+    "Title": "My Activity #450",
+    "ReferenceUrl": "https://www.nationalgeographic.com/animals/birds/e/emperor-penguin/",
+    "Visibility": {
+      "Id": 100000000,
+      "Description": "Microsoft",
+      "LocalizeKey": "MicrosoftVisibilityText"
+    },
+    "AnnualQuantity": 32,
+    "SecondAnnualQuantity": 47,
+    "AnnualReach": 15,
+    "Description": "This is a non randomized description."
+  }
+]

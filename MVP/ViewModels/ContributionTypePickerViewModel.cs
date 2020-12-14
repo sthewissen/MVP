@@ -7,6 +7,7 @@ using MVP.Models;
 using MVP.Services.Interfaces;
 using MVP.ViewModels.Data;
 using TinyMvvm;
+using Xamarin.CommunityToolkit.UI.Views;
 using Xamarin.Essentials;
 using Xamarin.Forms;
 
@@ -45,8 +46,10 @@ namespace MVP.ViewModels
 
         async Task LoadContributionTypes()
         {
-            if (Connectivity.NetworkAccess == NetworkAccess.Internet)
+            try
             {
+                State = LayoutState.Loading;
+
                 var types = await MvpApiService.GetContributionTypesAsync().ConfigureAwait(false);
 
                 if (types != null)
@@ -65,6 +68,10 @@ namespace MVP.ViewModels
                         selected.IsSelected = true;
                     }
                 }
+            }
+            finally
+            {
+                State = LayoutState.None;
             }
         }
 

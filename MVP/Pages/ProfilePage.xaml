@@ -59,21 +59,22 @@
                             </views:StateView>
                         </views:StateLayout.StateViews>
 
-                        <ff:CachedImage HeightRequest="80"
+                        <!--<ff:CachedImage HeightRequest="80"
                                         Source="{Binding ProfileImage}"
+                                        BackgroundColor="Orange"
                                         VerticalOptions="Center"
                                         WidthRequest="80">
                             <ff:CachedImage.Transformations>
                                 <fftransformations:CircleTransformation/>
                             </ff:CachedImage.Transformations>
-                        </ff:CachedImage>
+                        </ff:CachedImage>-->
 
-                        <!--<views:AvatarView Aspect="AspectFill"
-                                          Text="ST"
+                        <views:AvatarView Aspect="AspectFill"
+                                          Text="{Binding Profile.Initials}"
                                           Source="{Binding ProfileImage, Converter={StaticResource Base64ImageConverter}}"
                                           VerticalOptions="CenterAndExpand"
                                           HorizontalOptions="CenterAndExpand"
-                                          Size="80"/>-->
+                                          Size="80"/>
 
                         <StackLayout Grid.Column="1"
                                      VerticalOptions="CenterAndExpand">

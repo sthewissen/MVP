@@ -18,5 +18,23 @@ namespace MVP.Models
         public string ShippingCountry { get; set; }
         public string ShippingStateCity { get; set; }
         public string Languages { get; set; }
+
+        public string Initials
+        {
+            get
+            {
+                if (string.IsNullOrEmpty(FullName))
+                    return "?";
+
+                var parts = FullName.Split(" ");
+
+                if (parts.Length == 0)
+                    return "?";
+                if (parts.Length == 1)
+                    return parts[0].Substring(0, 1).ToUpper();
+                else
+                    return $"{parts[0].Substring(0, 1).ToUpper()}{parts[1].Substring(0, 1).ToUpper()}";
+            }
+        }
     }
 }

@@ -1,60 +1,85 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
-<pages:BaseContentPage BackgroundColor="{StaticResource light_primary}"
-                       xmlns="http://xamarin.com/schemas/2014/forms"
-                       xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-                       xmlns:vm="clr-namespace:MVP.ViewModels"
-                       xmlns:xct="clr-namespace:Xamarin.CommunityToolkit.Effects;assembly=Xamarin.CommunityToolkit"
+<pages:BaseContentPage xmlns="http://xamarin.com/schemas/2014/forms"
                        xmlns:ff="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
-                       xmlns:models="clr-namespace:MVP.Models"
                        xmlns:helpers="clr-namespace:MVP.Helpers"
+                       xmlns:models="clr-namespace:MVP.Models"
                        xmlns:pages="clr-namespace:MVP.Pages"
+                       xmlns:vm="clr-namespace:MVP.ViewModels"
+                       xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                       xmlns:converters="clr-namespace:Xamarin.CommunityToolkit.Converters;assembly=Xamarin.CommunityToolkit"
+                       xmlns:effects="clr-namespace:Xamarin.CommunityToolkit.Effects;assembly=Xamarin.CommunityToolkit"
                        x:Class="MVP.Pages.IntroPage"
-                       x:TypeArguments="vm:IntroViewModel"
-                       x:DataType="vm:IntroViewModel">
+                       x:DataType="vm:IntroViewModel"
+                       x:TypeArguments="vm:IntroViewModel">
 
-    <Grid RowDefinitions="Auto, *, Auto" xct:SafeAreaEffect.SafeArea="false,true,false,false">
+    <pages:BaseContentPage.Resources>
+        <x:Int32 x:Key="LastItemIndex">2</x:Int32>
+    </pages:BaseContentPage.Resources>
 
-        <Grid Grid.RowSpan="2" Grid.Row="1" HorizontalOptions="Fill" Padding="40">
+    <Grid ColumnDefinitions="Auto, *, Auto"
+          RowDefinitions="Auto, *, 120, Auto"
+          effects:SafeAreaEffect.SafeArea="false,true">
 
-            <ff:CachedImage x:Name="phoneImage" Source="onboarding1.png" FadeAnimationEnabled="True"
-                            FadeAnimationForCachedImages="True" FadeAnimationDuration="500"
-                            Aspect="AspectFit" HorizontalOptions="Fill" />
-        </Grid>
+        <Button Command="{Binding SignInCommand}"
+                Grid.Column="2"
+                Text="Sign in" Margin="0,0,24,0"/>
 
-        <CarouselView x:Name="carousel" IndicatorView="indicator" IsBounceEnabled="False" Grid.Row="1"
-                      ItemsSource="{Binding OnboardingItems}" HorizontalScrollBarVisibility="Never"
-                      VerticalScrollBarVisibility="Never" PositionChanged="CarouselView_PositionChanged">
+        <CarouselView Grid.ColumnSpan="3"
+                      Grid.Row="1"
+                      HorizontalScrollBarVisibility="Never"
+                      IndicatorView="indicator"
+                      Loop="False"
+                      IsBounceEnabled="False"
+                      ItemsSource="{Binding OnboardingItems}"
+                      PositionChanged="CarouselView_PositionChanged"
+                      VerticalScrollBarVisibility="Never"
+                      x:Name="carousel">
+
             <CarouselView.ItemTemplate>
                 <DataTemplate x:DataType="models:OnboardingItem">
-                    <Grid RowDefinitions="3*, *">
-                        <StackLayout HeightRequest="136" Spacing="12" Padding="40,24,40,16" Grid.Row="1"
-                                     VerticalOptions="End" BackgroundColor="{StaticResource white}">
-                            <Label Text="{Binding Title}" HorizontalTextAlignment="Center" FontSize="18" FontFamily="{StaticResource font_bold}" />
-                            <Label Text="{Binding Description}" HorizontalTextAlignment="Center" />
+                    <Grid>
+                        <StackLayout Grid.Row="0"
+                                     Padding="40"
+                                     Spacing="12">
+
+                            <Label FontFamily="{StaticResource font_bold}"
+                                   FontSize="24"
+                                   HorizontalTextAlignment="Center"
+                                   Text="{Binding Title}"/>
+
+                            <Label HorizontalTextAlignment="Center"
+                                   FontSize="16"
+                                   Text="{Binding Description}"/>
+
                         </StackLayout>
                     </Grid>
                 </DataTemplate>
             </CarouselView.ItemTemplate>
         </CarouselView>
 
-        <Grid HorizontalOptions="Fill"
-              Grid.Row="2"
-              RowSpacing="8"
-              BackgroundColor="{StaticResource white}"
-              RowDefinitions="56,*"
-              ColumnDefinitions="*, 2*, *">
+        <Label Text="Swipe to continue"
+               FontSize="16"
+               HorizontalOptions="Center"
+               HorizontalTextAlignment="Center"
+               Grid.ColumnSpan="3"
+               Grid.Row="2"
+               VerticalOptions="Center"
+               IsVisible="{Binding Path=Position, Source={x:Reference carousel}, Converter={converters:NotEqualConverter}, ConverterParameter={StaticResource LastItemIndex}}"/>
 
-            <IndicatorView Grid.Column="1" x:Name="indicator" Opacity=".5" Margin="0,8"
-                           IndicatorColor="{StaticResource gray}" SelectedIndicatorColor="{StaticResource primary}"  />
+        <Button Text="Try with a demo account"
+                Command="{Binding SignInAsDemoCommand}"
+                FontSize="16"
+                HorizontalOptions="Center"
+                VerticalOptions="Center"
+                Grid.ColumnSpan="3"
+                Grid.Row="2"
+                IsVisible="{Binding Path=Position, Source={x:Reference carousel}, Converter={converters:EqualConverter}, ConverterParameter={StaticResource LastItemIndex}}"/>
 
-            <Button Grid.Row="1" Grid.Column="1" Text="Skip" TextColor="{StaticResource white}"
-                    FontFamily="{StaticResource font_semibold}"
-                    BackgroundColor="{StaticResource primary}" Command="{Binding SignInCommand}"
-                    Margin="0,0,0,24" xct:SafeAreaEffect.SafeArea="false,false,false,true" />
-        </Grid>
-
-        <Label Text="Welcome MVP!" BackgroundColor="{StaticResource primary}" Padding="8" Margin="0,40,0,0" FontSize="24" FontFamily="{StaticResource font_bold}"
-               HorizontalOptions="Center" HorizontalTextAlignment="Center" TextColor="{StaticResource white}" />
+        <IndicatorView x:Name="indicator"
+                       Grid.Row="3"
+                       ItemsSource="{Binding OnboardingItems}"
+                       IndicatorColor="{StaticResource border_light_gray}"
+                       SelectedIndicatorColor="{StaticResource primary}"
+                       Grid.ColumnSpan="3" />
     </Grid>
-
 </pages:BaseContentPage>

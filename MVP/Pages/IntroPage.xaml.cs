@@ -1,6 +1,7 @@
 ﻿using MVP.Models;
 using MVP.Services.Interfaces;
 using MVP.ViewModels;
+using Xamarin.CommunityToolkit.Converters;
 using Xamarin.Forms;
 
 namespace MVP.Pages
@@ -12,8 +13,8 @@ namespace MVP.Pages
 
         void CarouselView_PositionChanged(object sender, PositionChangedEventArgs e)
         {
-            var item = carousel.CurrentItem as OnboardingItem;
-            phoneImage.Source = item.ImageName;
+            //var item = carousel.CurrentItem as OnboardingItem;
+            //phoneImage.Source = item.ImageName;
         }
     }
 }

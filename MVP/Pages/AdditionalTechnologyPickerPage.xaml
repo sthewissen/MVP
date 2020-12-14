@@ -5,15 +5,25 @@
                        xmlns:vm="clr-namespace:MVP.ViewModels"
                        xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
                        x:Class="MVP.Pages.AdditionalTechnologyPickerPage"
-                       xmlns:xct="clr-namespace:Xamarin.CommunityToolkit.Extensions;assembly=Xamarin.CommunityToolkit"
+                       xmlns:extensions="clr-namespace:Xamarin.CommunityToolkit.Extensions;assembly=Xamarin.CommunityToolkit"
+                       xmlns:behaviors="clr-namespace:Xamarin.CommunityToolkit.Behaviors;assembly=Xamarin.CommunityToolkit"
                        x:DataType="vm:AdditionalTechnologyPickerViewModel"
-                       x:TypeArguments="vm:AdditionalTechnologyPickerViewModel">
+                       x:TypeArguments="vm:AdditionalTechnologyPickerViewModel"
+                       xmlns:views="clr-namespace:Xamarin.CommunityToolkit.UI.Views;assembly=Xamarin.CommunityToolkit"
+                       xmlns:icons="clr-namespace:MVP.Styles">
 
     <local:AppFrame ShowBackButton="True"
-                    Title="{xct:Translate additionaltechnologypicker_title}"
+                    Title="{extensions:Translate additionaltechnologypicker_title}"
                     x:Name="appFrame">
         <local:AppFrame.Content>
-            <Grid>
+            <Grid RowDefinitions="Auto,*"
+                  views:StateLayout.CurrentState="{Binding State}"
+                  views:StateLayout.AnimateStateChanges="False">
+
+                <views:StateLayout.StateViews>
+                    <views:StateView StateKey="Loading" RepeatCount="3" RepeatTemplate="{StaticResource picker_item_loading}" />
+                </views:StateLayout.StateViews>
+
                 <CollectionView GroupHeaderTemplate="{StaticResource contribution_technology_group}"
                                 IsGrouped="true"
                                 ItemsSource="{Binding GroupedContributionTechnologies}"
@@ -25,6 +35,68 @@
                         <BoxView HeightRequest="40"/>
                     </CollectionView.Footer>
                 </CollectionView>
+
+                <StackLayout>
+                    <Frame Style="{StaticResource search_frame}"
+                           Margin="16,0,16,16">
+
+                        <Grid ColumnDefinitions="*,48"
+                              Padding="24,0"
+                              VerticalOptions="Center">
+
+                            <Entry Placeholder="{extensions:Translate search_placeholder}"
+                                   Text="{Binding SearchText}"
+                                   VerticalOptions="Center">
+                                <Entry.Behaviors>
+                                    <behaviors:UserStoppedTypingBehavior Command="{Binding SearchCommand}"
+                                                                         StoppedTypingTimeThreshold="500"
+                                                                         ShouldDismissKeyboardAutomatically="false" />
+                                </Entry.Behaviors>
+                            </Entry>
+
+                            <Label Style="{StaticResource search_icon}"
+                                   Grid.Column="1"
+                                   Text="{x:Static icons:Icons.search}"/>
+                        </Grid>
+                    </Frame>
+                    <!--<FlexLayout Direction="Row"
+                                Margin="0,0,0,16"
+                                Padding="24,0"
+                                Wrap="Wrap">
+                        <BindableLayout.ItemsSource>
+                            <x:Array Type="{x:Type x:String}">
+                                <x:String>Azure DevOps</x:String>
+                                <x:String>Python</x:String>
+                                <x:String>Chef/Puppet in Datacenter</x:String>
+                                <x:String>SQL Server, Azure SQL Database and SQL Server on Linux</x:String>
+                                <x:String>Endpoint Manager</x:String>
+                            </x:Array>
+                        </BindableLayout.ItemsSource>
+                        <BindableLayout.ItemTemplate>
+                            <DataTemplate>
+                                <StackLayout Margin="4">
+                                    <Frame BackgroundColor="{StaticResource light_primary}"
+                                           Style="{StaticResource contribution_item_category}">
+
+                                        <Label Style="{StaticResource contribution_item_category_label}"
+                                               Text="{Binding .}"
+                                               TextColor="{StaticResource primary}"/>
+                                    </Frame>
+                                </StackLayout>
+                            </DataTemplate>
+                        </BindableLayout.ItemTemplate>
+                    </FlexLayout>-->
+
+                    <Image x:Name="shadow"
+                           Opacity="0"
+                           Aspect="AspectFill"
+                           Grid.ColumnSpan="3"
+                           Grid.Row="1"
+                           BackgroundColor="Transparent"
+                           Source="shadow.png"
+                           HorizontalOptions="Fill"
+                           VerticalOptions="Start"/>
+                </StackLayout>
             </Grid>
         </local:AppFrame.Content>
     </local:AppFrame>

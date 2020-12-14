@@ -1,0 +1,995 @@
+﻿[
+  {
+    "AwardCategory": "My Awarded Category",
+    "Contributions": [
+      {
+        "AwardName": "Developer Technologies",
+        "ContributionArea": [
+          {
+            "Id": "aec301bb-189a-e411-93f2-9cb65495d3c4",
+            "Name": ".NET",
+            "AwardName": "Developer Technologies",
+            "AwardCategory": "My Awarded Category",
+            "Statuscode": 0,
+            "Active": false
+          },
+          {
+            "Id": "0b2c2181-02e4-e611-80fe-3863bb34cb20",
+            "Name": "Accessibility",
+            "AwardName": "Developer Technologies",
+            "AwardCategory": "My Awarded Category",
+            "Statuscode": 0,
+            "Active": false
+          },
+          {
+            "Id": "82c301bb-189a-e411-93f2-9cb65495d3c4",
+            "Name": "ASP.NET/IIS",
+            "AwardName": "Developer Technologies",
+            "AwardCategory": "My Awarded Category",
+            "Statuscode": 0,
+            "Active": false
+          },
+          {
+            "Id": "84c301bb-189a-e411-93f2-9cb65495d3c4",
+            "Name": "Azure DevOps",
+            "AwardName": "Developer Technologies",
+            "AwardCategory": "My Awarded Category",
+            "Statuscode": 0,
+            "Active": false
+          },
+          {
+            "Id": "8cc301bb-189a-e411-93f2-9cb65495d3c4",
+            "Name": "C++",
+            "AwardName": "Developer Technologies",
+            "AwardCategory": "My Awarded Category",
+            "Statuscode": 0,
+            "Active": false
+          },
+          {
+            "Id": "8ac301bb-189a-e411-93f2-9cb65495d3c4",
+            "Name": "Developer Security",
+            "AwardName": "Developer Technologies",
+            "AwardCategory": "My Awarded Category",
+            "Statuscode": 0,
+            "Active": false
+          },
+          {
+            "Id": "cc03f4ef-066b-e511-810b-fc15b428ced0",
+            "Name": "Front End Web Dev",
+            "AwardName": "Developer Technologies",
+            "AwardCategory": "My Awarded Category",
+            "Statuscode": 0,
+            "Active": false
+          },
+          {
+            "Id": "dc03f4ef-066b-e511-810b-fc15b428ced0",
+            "Name": "Java",
+            "AwardName": "Developer Technologies",
+            "AwardCategory": "My Awarded Category",
+            "Statuscode": 0,
+            "Active": false
+          },
+          {
+            "Id": "de03f4ef-066b-e511-810b-fc15b428ced0",
+            "Name": "Javascript/Typescript",
+            "AwardName": "Developer Technologies",
+            "AwardCategory": "My Awarded Category",
+            "Statuscode": 0,
+            "Active": false
+          },
+          {
+            "Id": "e803f4ef-066b-e511-810b-fc15b428ced0",
+            "Name": "Node.js",
+            "AwardName": "Developer Technologies",
+            "AwardCategory": "My Awarded Category",
+            "Statuscode": 0,
+            "Active": false
+          },
+          {
+            "Id": "3004f4ef-066b-e511-810b-fc15b428ced0",
+            "Name": "PHP",
+            "AwardName": "Developer Technologies",
+            "AwardCategory": "My Awarded Category",
+            "Statuscode": 0,
+            "Active": false
+          },
+          {
+            "Id": "3a04f4ef-066b-e511-810b-fc15b428ced0",
+            "Name": "Python",
+            "AwardName": "Developer Technologies",
+            "AwardCategory": "My Awarded Category",
+            "Statuscode": 0,
+            "Active": false
+          },
+          {
+            "Id": "c4fe7f2a-8678-ea11-a811-000d3a8ccaf5",
+            "Name": "Quantum",
+            "AwardName": "Developer Technologies",
+            "AwardCategory": "My Awarded Category",
+            "Statuscode": 0,
+            "Active": false
+          },
+          {
+            "Id": "4c04f4ef-066b-e511-810b-fc15b428ced0",
+            "Name": "Unity",
+            "AwardName": "Developer Technologies",
+            "AwardCategory": "My Awarded Category",
+            "Statuscode": 0,
+            "Active": false
+          },
+          {
+            "Id": "4e04f4ef-066b-e511-810b-fc15b428ced0",
+            "Name": "Visual Studio Extensibility",
+            "AwardName": "Developer Technologies",
+            "AwardCategory": "My Awarded Category",
+            "Statuscode": 0,
+            "Active": false
+          },
+          {
+            "Id": "5804f4ef-066b-e511-810b-fc15b428ced0",
+            "Name": "Xamarin",
+            "AwardName": "Developer Technologies",
+            "AwardCategory": "My Awarded Category",
+            "Statuscode": 0,
+            "Active": false
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "AwardCategory": "Other Award Category",
+    "Contributions": [
+      {
+        "AwardName": "AI",
+        "ContributionArea": [
+          {
+            "Id": "432e48a3-1c35-e711-810e-3863bb363e80",
+            "Name": "Azure Bot Service",
+            "AwardName": "AI",
+            "AwardCategory": "Other Award Category",
+            "Statuscode": 0,
+            "Active": false
+          },
+          {
+            "Id": "922e5279-1e31-ea11-a810-000d3a8ccaf5",
+            "Name": "Azure Cognitive Search",
+            "AwardName": "AI",
+            "AwardCategory": "Other Award Category",
+            "Statuscode": 0,
+            "Active": false
+          },
+          {
+            "Id": "6708a593-1c35-e711-810e-3863bb363e80",
+            "Name": "Azure Cognitive Services",
+            "AwardName": "AI",
+            "AwardCategory": "Other Award Category",
+            "Statuscode": 0,
+            "Active": false
+          },
+          {
+            "Id": "a003f4ef-066b-e511-810b-fc15b428ced0",
+            "Name": "Azure Machine Learning",
+            "AwardName": "AI",
+            "AwardCategory": "Other Award Category",
+            "Statuscode": 0,
+            "Active": false
+          }
+        ]
+      },
+      {
+        "AwardName": "Business Applications",
+        "ContributionArea": [
+          {
+            "Id": "6679469e-e083-e811-8136-3863bb2bca60",
+            "Name": "Dynamics 365",
+            "AwardName": "Business Applications",
+            "AwardCategory": "Other Award Category",
+            "Statuscode": 0,
+            "Active": false
+          },
+          {
+            "Id": "fc78c036-45ac-e911-a9a0-000d3a1362e3",
+            "Name": "Power Apps",
+            "AwardName": "Business Applications",
+            "AwardCategory": "Other Award Category",
+            "Statuscode": 0,
+            "Active": false
+          },
+          {
+            "Id": "8ab4d989-45ac-e911-a9a0-000d3a1362e3",
+            "Name": "Power Automate",
+            "AwardName": "Business Applications",
+            "AwardCategory": "Other Award Category",
+            "Statuscode": 0,
+            "Active": false
+          },
+          {
+            "Id": "0cd8fd4f-cac4-ea11-a812-000d3a8dfe0d",
+            "Name": "Power Virtual Agents",
+            "AwardName": "Business Applications",
+            "AwardCategory": "Other Award Category",
+            "Statuscode": 0,
+            "Active": false
+          }
+        ]
+      },
+      {
+        "AwardName": "Cloud and Datacenter Management",
+        "ContributionArea": [
+          {
+            "Id": "b803f4ef-066b-e511-810b-fc15b428ced0",
+            "Name": "Chef/Puppet in Datacenter",
+            "AwardName": "Cloud and Datacenter Management",
+            "AwardCategory": "Other Award Category",
+            "Statuscode": 0,
+            "Active": false
+          },
+          {
+            "Id": "be03f4ef-066b-e511-810b-fc15b428ced0",
+            "Name": "Container Management",
+            "AwardName": "Cloud and Datacenter Management",
+            "AwardCategory": "Other Award Category",
+            "Statuscode": 0,
+            "Active": false
+          },
+          {
+            "Id": "c603f4ef-066b-e511-810b-fc15b428ced0",
+            "Name": "Datacenter Management",
+            "AwardName": "Cloud and Datacenter Management",
+            "AwardCategory": "Other Award Category",
+            "Statuscode": 0,
+            "Active": false
+          },
+          {
+            "Id": "90c301bb-189a-e411-93f2-9cb65495d3c4",
+            "Name": "Enterprise Security",
+            "AwardName": "Cloud and Datacenter Management",
+            "AwardCategory": "Other Award Category",
+            "Statuscode": 0,
+            "Active": false
+          },
+          {
+            "Id": "7ac301bb-189a-e411-93f2-9cb65495d3c4",
+            "Name": "Group Policy",
+            "AwardName": "Cloud and Datacenter Management",
+            "AwardCategory": "Other Award Category",
+            "Statuscode": 0,
+            "Active": false
+          },
+          {
+            "Id": "d003f4ef-066b-e511-810b-fc15b428ced0",
+            "Name": "High Availability",
+            "AwardName": "Cloud and Datacenter Management",
+            "AwardCategory": "Other Award Category",
+            "Statuscode": 0,
+            "Active": false
+          },
+          {
+            "Id": "9ec301bb-189a-e411-93f2-9cb65495d3c4",
+            "Name": "Hyper-V",
+            "AwardName": "Cloud and Datacenter Management",
+            "AwardCategory": "Other Award Category",
+            "Statuscode": 0,
+            "Active": false
+          },
+          {
+            "Id": "e403f4ef-066b-e511-810b-fc15b428ced0",
+            "Name": "Linux in System Center/Operations Management Suite",
+            "AwardName": "Cloud and Datacenter Management",
+            "AwardCategory": "Other Award Category",
+            "Statuscode": 0,
+            "Active": false
+          },
+          {
+            "Id": "e203f4ef-066b-e511-810b-fc15b428ced0",
+            "Name": "Linux on Hyper-V",
+            "AwardName": "Cloud and Datacenter Management",
+            "AwardCategory": "Other Award Category",
+            "Statuscode": 0,
+            "Active": false
+          },
+          {
+            "Id": "e603f4ef-066b-e511-810b-fc15b428ced0",
+            "Name": "Networking",
+            "AwardName": "Cloud and Datacenter Management",
+            "AwardCategory": "Other Award Category",
+            "Statuscode": 0,
+            "Active": false
+          },
+          {
+            "Id": "7cc301bb-189a-e411-93f2-9cb65495d3c4",
+            "Name": "PowerShell",
+            "AwardName": "Cloud and Datacenter Management",
+            "AwardCategory": "Other Award Category",
+            "Statuscode": 0,
+            "Active": false
+          },
+          {
+            "Id": "4604f4ef-066b-e511-810b-fc15b428ced0",
+            "Name": "Storage",
+            "AwardName": "Cloud and Datacenter Management",
+            "AwardCategory": "Other Award Category",
+            "Statuscode": 0,
+            "Active": false
+          },
+          {
+            "Id": "98c301bb-189a-e411-93f2-9cb65495d3c4",
+            "Name": "Windows Server for Small & Medium Business",
+            "AwardName": "Cloud and Datacenter Management",
+            "AwardCategory": "Other Award Category",
+            "Statuscode": 0,
+            "Active": false
+          }
+        ]
+      },
+      {
+        "AwardName": "Data Platform",
+        "ContributionArea": [
+          {
+            "Id": "c4c13df4-a633-eb11-a813-000d3a8ccd71",
+            "Name": "Azure Arc Enabled Data Services",
+            "AwardName": "Data Platform",
+            "AwardCategory": "Other Award Category",
+            "Statuscode": 0,
+            "Active": false
+          },
+          {
+            "Id": "9c03f4ef-066b-e511-810b-fc15b428ced0",
+            "Name": "Azure Cosmos DB",
+            "AwardName": "Data Platform",
+            "AwardCategory": "Other Award Category",
+            "Statuscode": 0,
+            "Active": false
+          },
+          {
+            "Id": "c8c13df4-a633-eb11-a813-000d3a8ccd71",
+            "Name": "Azure Data Catalog",
+            "AwardName": "Data Platform",
+            "AwardCategory": "Other Award Category",
+            "Statuscode": 0,
+            "Active": false
+          },
+          {
+            "Id": "9a03f4ef-066b-e511-810b-fc15b428ced0",
+            "Name": "Azure Data Lake",
+            "AwardName": "Data Platform",
+            "AwardCategory": "Other Award Category",
+            "Statuscode": 0,
+            "Active": false
+          },
+          {
+            "Id": "041f6ea2-bc62-e711-8117-3863bb36edf8",
+            "Name": "Azure Database for MySQL",
+            "AwardName": "Data Platform",
+            "AwardCategory": "Other Award Category",
+            "Statuscode": 0,
+            "Active": false
+          },
+          {
+            "Id": "f5c002bd-bc62-e711-8117-3863bb36edf8",
+            "Name": "Azure Database for PostgreSQL",
+            "AwardName": "Data Platform",
+            "AwardCategory": "Other Award Category",
+            "Statuscode": 0,
+            "Active": false
+          },
+          {
+            "Id": "c2c13df4-a633-eb11-a813-000d3a8ccd71",
+            "Name": "Azure Databricks",
+            "AwardName": "Data Platform",
+            "AwardCategory": "Other Award Category",
+            "Statuscode": 0,
+            "Active": false
+          },
+          {
+            "Id": "9e03f4ef-066b-e511-810b-fc15b428ced0",
+            "Name": "Azure HDInsight and Hadoop & Spark on Azure",
+            "AwardName": "Data Platform",
+            "AwardCategory": "Other Award Category",
+            "Statuscode": 0,
+            "Active": false
+          },
+          {
+            "Id": "a603f4ef-066b-e511-810b-fc15b428ced0",
+            "Name": "Azure Search",
+            "AwardName": "Data Platform",
+            "AwardCategory": "Other Award Category",
+            "Statuscode": 0,
+            "Active": false
+          },
+          {
+            "Id": "bcc13df4-a633-eb11-a813-000d3a8ccd71",
+            "Name": "Azure SQL (Database, Pools, Serverless, Hyperscale, Managed Instance, Virtual Machines) ",
+            "AwardName": "Data Platform",
+            "AwardCategory": "Other Award Category",
+            "Statuscode": 0,
+            "Active": false
+          },
+          {
+            "Id": "bec13df4-a633-eb11-a813-000d3a8ccd71",
+            "Name": "Azure SQL Edge",
+            "AwardName": "Data Platform",
+            "AwardCategory": "Other Award Category",
+            "Statuscode": 0,
+            "Active": false
+          },
+          {
+            "Id": "b403f4ef-066b-e511-810b-fc15b428ced0",
+            "Name": "Azure Stream Analytics",
+            "AwardName": "Data Platform",
+            "AwardCategory": "Other Award Category",
+            "Statuscode": 0,
+            "Active": false
+          },
+          {
+            "Id": "c6c13df4-a633-eb11-a813-000d3a8ccd71",
+            "Name": "Azure Synapse Analytics",
+            "AwardName": "Data Platform",
+            "AwardCategory": "Other Award Category",
+            "Statuscode": 0,
+            "Active": false
+          },
+          {
+            "Id": "c0c13df4-a633-eb11-a813-000d3a8ccd71",
+            "Name": "Big Data Clusters",
+            "AwardName": "Data Platform",
+            "AwardCategory": "Other Award Category",
+            "Statuscode": 0,
+            "Active": false
+          },
+          {
+            "Id": "c203f4ef-066b-e511-810b-fc15b428ced0",
+            "Name": "Cortana Intelligence Suite",
+            "AwardName": "Data Platform",
+            "AwardCategory": "Other Award Category",
+            "Statuscode": 0,
+            "Active": false
+          },
+          {
+            "Id": "ac03f4ef-066b-e511-810b-fc15b428ced0",
+            "Name": "Data Warehousing (Azure SQL Data Warehouse, Fast Track & APS)",
+            "AwardName": "Data Platform",
+            "AwardCategory": "Other Award Category",
+            "Statuscode": 0,
+            "Active": false
+          },
+          {
+            "Id": "d403f4ef-066b-e511-810b-fc15b428ced0",
+            "Name": "Information Management (ADF, SSIS, &Data Sync)",
+            "AwardName": "Data Platform",
+            "AwardCategory": "Other Award Category",
+            "Statuscode": 0,
+            "Active": false
+          },
+          {
+            "Id": "3204f4ef-066b-e511-810b-fc15b428ced0",
+            "Name": "Power BI",
+            "AwardName": "Data Platform",
+            "AwardCategory": "Other Award Category",
+            "Statuscode": 0,
+            "Active": false
+          },
+          {
+            "Id": "bac13df4-a633-eb11-a813-000d3a8ccd71",
+            "Name": "SQL Server (on Windows, Linux, Containers) ",
+            "AwardName": "Data Platform",
+            "AwardCategory": "Other Award Category",
+            "Statuscode": 0,
+            "Active": false
+          },
+          {
+            "Id": "ed4c8e60-b30a-e611-8121-c4346bacebc4",
+            "Name": "SQL Server Machine Learning Services  (R, Python)",
+            "AwardName": "Data Platform",
+            "AwardCategory": "Other Award Category",
+            "Statuscode": 0,
+            "Active": false
+          },
+          {
+            "Id": "4404f4ef-066b-e511-810b-fc15b428ced0",
+            "Name": "SQL Server Reporting Services & Analysis Services",
+            "AwardName": "Data Platform",
+            "AwardCategory": "Other Award Category",
+            "Statuscode": 0,
+            "Active": false
+          }
+        ]
+      },
+      {
+        "AwardName": "Enterprise Mobility",
+        "ContributionArea": [
+          {
+            "Id": "4a04f4ef-066b-e511-810b-fc15b428ced0",
+            "Name": "Endpoint Manager",
+            "AwardName": "Enterprise Mobility",
+            "AwardCategory": "Other Award Category",
+            "Statuscode": 0,
+            "Active": false
+          },
+          {
+            "Id": "d203f4ef-066b-e511-810b-fc15b428ced0",
+            "Name": "Identity and Access",
+            "AwardName": "Enterprise Mobility",
+            "AwardCategory": "Other Award Category",
+            "Statuscode": 0,
+            "Active": false
+          },
+          {
+            "Id": "d603f4ef-066b-e511-810b-fc15b428ced0",
+            "Name": "Information Protection",
+            "AwardName": "Enterprise Mobility",
+            "AwardCategory": "Other Award Category",
+            "Statuscode": 0,
+            "Active": false
+          },
+          {
+            "Id": "3404f4ef-066b-e511-810b-fc15b428ced0",
+            "Name": "Previous Expertise: Directory Services",
+            "AwardName": "Enterprise Mobility",
+            "AwardCategory": "Other Award Category",
+            "Statuscode": 0,
+            "Active": false
+          },
+          {
+            "Id": "3c04f4ef-066b-e511-810b-fc15b428ced0",
+            "Name": "Remote Desktop Services",
+            "AwardName": "Enterprise Mobility",
+            "AwardCategory": "Other Award Category",
+            "Statuscode": 0,
+            "Active": false
+          }
+        ]
+      },
+      {
+        "AwardName": "Microsoft Azure",
+        "ContributionArea": [
+          {
+            "Id": "c803f4ef-066b-e511-810b-fc15b428ced0",
+            "Name": "ARM Templates (Infra as Code)",
+            "AwardName": "Microsoft Azure",
+            "AwardCategory": "Other Award Category",
+            "Statuscode": 0,
+            "Active": false
+          },
+          {
+            "Id": "aac13df4-a633-eb11-a813-000d3a8ccd71",
+            "Name": "Azure API Management",
+            "AwardName": "Microsoft Azure",
+            "AwardCategory": "Other Award Category",
+            "Statuscode": 0,
+            "Active": false
+          },
+          {
+            "Id": "9403f4ef-066b-e511-810b-fc15b428ced0",
+            "Name": "Azure App Service",
+            "AwardName": "Microsoft Azure",
+            "AwardCategory": "Other Award Category",
+            "Statuscode": 0,
+            "Active": false
+          },
+          {
+            "Id": "b2c13df4-a633-eb11-a813-000d3a8ccd71",
+            "Name": "Azure Arc Enabled Infrastructure",
+            "AwardName": "Microsoft Azure",
+            "AwardCategory": "Other Award Category",
+            "Statuscode": 0,
+            "Active": false
+          },
+          {
+            "Id": "9603f4ef-066b-e511-810b-fc15b428ced0",
+            "Name": "Azure Backup & Disaster Recovery",
+            "AwardName": "Microsoft Azure",
+            "AwardCategory": "Other Award Category",
+            "Statuscode": 0,
+            "Active": false
+          },
+          {
+            "Id": "871f7786-e083-e811-8136-3863bb2bca60",
+            "Name": "Azure Blockchain",
+            "AwardName": "Microsoft Azure",
+            "AwardCategory": "Other Award Category",
+            "Statuscode": 0,
+            "Active": false
+          },
+          {
+            "Id": "b603f4ef-066b-e511-810b-fc15b428ced0",
+            "Name": "Azure Core Compute (VMSS, Confidential Computing, Platform Deployment)",
+            "AwardName": "Microsoft Azure",
+            "AwardCategory": "Other Award Category",
+            "Statuscode": 0,
+            "Active": false
+          },
+          {
+            "Id": "b4c13df4-a633-eb11-a813-000d3a8ccd71",
+            "Name": "Azure Cost Management",
+            "AwardName": "Microsoft Azure",
+            "AwardCategory": "Other Award Category",
+            "Statuscode": 0,
+            "Active": false
+          },
+          {
+            "Id": "b003f4ef-066b-e511-810b-fc15b428ced0",
+            "Name": "Azure Edge + Platform (Azure Stack Hub, Stack Edge, Media Services)",
+            "AwardName": "Microsoft Azure",
+            "AwardCategory": "Other Award Category",
+            "Statuscode": 0,
+            "Active": false
+          },
+          {
+            "Id": "86e5e214-893d-ea11-a812-000d3a8cc191",
+            "Name": "Azure Functions",
+            "AwardName": "Microsoft Azure",
+            "AwardCategory": "Other Award Category",
+            "Statuscode": 0,
+            "Active": false
+          },
+          {
+            "Id": "da03f4ef-066b-e511-810b-fc15b428ced0",
+            "Name": "Azure IoT",
+            "AwardName": "Microsoft Azure",
+            "AwardCategory": "Other Award Category",
+            "Statuscode": 0,
+            "Active": false
+          },
+          {
+            "Id": "e003f4ef-066b-e511-810b-fc15b428ced0",
+            "Name": "Azure Kubernetes, Container Instances, Docker",
+            "AwardName": "Microsoft Azure",
+            "AwardCategory": "Other Award Category",
+            "Statuscode": 0,
+            "Active": false
+          },
+          {
+            "Id": "b0c13df4-a633-eb11-a813-000d3a8ccd71",
+            "Name": "Azure Lighthouse",
+            "AwardName": "Microsoft Azure",
+            "AwardCategory": "Other Award Category",
+            "Statuscode": 0,
+            "Active": false
+          },
+          {
+            "Id": "a8c13df4-a633-eb11-a813-000d3a8ccd71",
+            "Name": "Azure Logic Apps",
+            "AwardName": "Microsoft Azure",
+            "AwardCategory": "Other Award Category",
+            "Statuscode": 0,
+            "Active": false
+          },
+          {
+            "Id": "acc13df4-a633-eb11-a813-000d3a8ccd71",
+            "Name": "Azure Migrate",
+            "AwardName": "Microsoft Azure",
+            "AwardCategory": "Other Award Category",
+            "Statuscode": 0,
+            "Active": false
+          },
+          {
+            "Id": "b6c13df4-a633-eb11-a813-000d3a8ccd71",
+            "Name": "Azure Monitor",
+            "AwardName": "Microsoft Azure",
+            "AwardCategory": "Other Award Category",
+            "Statuscode": 0,
+            "Active": false
+          },
+          {
+            "Id": "a403f4ef-066b-e511-810b-fc15b428ced0",
+            "Name": "Azure Networking",
+            "AwardName": "Microsoft Azure",
+            "AwardCategory": "Other Award Category",
+            "Statuscode": 0,
+            "Active": false
+          },
+          {
+            "Id": "aec13df4-a633-eb11-a813-000d3a8ccd71",
+            "Name": "Azure Policy & Governance",
+            "AwardName": "Microsoft Azure",
+            "AwardCategory": "Other Award Category",
+            "Statuscode": 0,
+            "Active": false
+          },
+          {
+            "Id": "3e04f4ef-066b-e511-810b-fc15b428ced0",
+            "Name": "Azure SDK (Software Development Kit) and CLIs ( Az CLI, PowerShell, Terraform, Ansible)",
+            "AwardName": "Microsoft Azure",
+            "AwardCategory": "Other Award Category",
+            "Statuscode": 0,
+            "Active": false
+          },
+          {
+            "Id": "aa03f4ef-066b-e511-810b-fc15b428ced0",
+            "Name": "Azure Service Fabric",
+            "AwardName": "Microsoft Azure",
+            "AwardCategory": "Other Award Category",
+            "Statuscode": 0,
+            "Active": false
+          },
+          {
+            "Id": "b203f4ef-066b-e511-810b-fc15b428ced0",
+            "Name": "Azure Storage",
+            "AwardName": "Microsoft Azure",
+            "AwardCategory": "Other Award Category",
+            "Statuscode": 0,
+            "Active": false
+          },
+          {
+            "Id": "2847b5ea-105d-ea11-a812-000d3a8ccba0",
+            "Name": "Cloud Infrastructure Protection",
+            "AwardName": "Microsoft Azure",
+            "AwardCategory": "Other Award Category",
+            "Statuscode": 0,
+            "Active": false
+          },
+          {
+            "Id": "b8c13df4-a633-eb11-a813-000d3a8ccd71",
+            "Name": "Distributed App Runtime (Dapr), Open App Model (OAM), Open Service Mesh (OSM)",
+            "AwardName": "Microsoft Azure",
+            "AwardCategory": "Other Award Category",
+            "Statuscode": 0,
+            "Active": false
+          },
+          {
+            "Id": "3604f4ef-066b-e511-810b-fc15b428ced0",
+            "Name": "Previous Expertise: Microsoft Azure",
+            "AwardName": "Microsoft Azure",
+            "AwardCategory": "Other Award Category",
+            "Statuscode": 0,
+            "Active": false
+          },
+          {
+            "Id": "9203f4ef-066b-e511-810b-fc15b428ced0",
+            "Name": "Service Bus, Event Hubs, Event Grid, Relay",
+            "AwardName": "Microsoft Azure",
+            "AwardCategory": "Other Award Category",
+            "Statuscode": 0,
+            "Active": false
+          },
+          {
+            "Id": "581d9a90-105d-ea11-a812-000d3a8ccba0",
+            "Name": "Threat Protection",
+            "AwardName": "Microsoft Azure",
+            "AwardCategory": "Other Award Category",
+            "Statuscode": 0,
+            "Active": false
+          }
+        ]
+      },
+      {
+        "AwardName": "Office Apps & Services",
+        "ContributionArea": [
+          {
+            "Id": "52c301bb-189a-e411-93f2-9cb65495d3c4",
+            "Name": "Access",
+            "AwardName": "Office Apps & Services",
+            "AwardCategory": "Other Award Category",
+            "Statuscode": 0,
+            "Active": false
+          },
+          {
+            "Id": "54c301bb-189a-e411-93f2-9cb65495d3c4",
+            "Name": "Excel",
+            "AwardName": "Office Apps & Services",
+            "AwardCategory": "Other Award Category",
+            "Statuscode": 0,
+            "Active": false
+          },
+          {
+            "Id": "ca03f4ef-066b-e511-810b-fc15b428ced0",
+            "Name": "Exchange",
+            "AwardName": "Office Apps & Services",
+            "AwardCategory": "Other Award Category",
+            "Statuscode": 0,
+            "Active": false
+          },
+          {
+            "Id": "554b9e95-e083-e811-8136-3863bb2bca60",
+            "Name": "Microsoft Stream",
+            "AwardName": "Office Apps & Services",
+            "AwardCategory": "Other Award Category",
+            "Statuscode": 0,
+            "Active": false
+          },
+          {
+            "Id": "5f408202-bc62-e711-8117-3863bb36edf8",
+            "Name": "Microsoft Teams",
+            "AwardName": "Office Apps & Services",
+            "AwardCategory": "Other Award Category",
+            "Statuscode": 0,
+            "Active": false
+          },
+          {
+            "Id": "70c301bb-189a-e411-93f2-9cb65495d3c4",
+            "Name": "Office 365",
+            "AwardName": "Office Apps & Services",
+            "AwardCategory": "Other Award Category",
+            "Statuscode": 0,
+            "Active": false
+          },
+          {
+            "Id": "1e5d028e-e083-e811-8136-3863bb2bca60",
+            "Name": "OneDrive",
+            "AwardName": "Office Apps & Services",
+            "AwardCategory": "Other Award Category",
+            "Statuscode": 0,
+            "Active": false
+          },
+          {
+            "Id": "5ac301bb-189a-e411-93f2-9cb65495d3c4",
+            "Name": "OneNote",
+            "AwardName": "Office Apps & Services",
+            "AwardCategory": "Other Award Category",
+            "Statuscode": 0,
+            "Active": false
+          },
+          {
+            "Id": "5cc301bb-189a-e411-93f2-9cb65495d3c4",
+            "Name": "Outlook",
+            "AwardName": "Office Apps & Services",
+            "AwardCategory": "Other Award Category",
+            "Statuscode": 0,
+            "Active": false
+          },
+          {
+            "Id": "5ec301bb-189a-e411-93f2-9cb65495d3c4",
+            "Name": "PowerPoint",
+            "AwardName": "Office Apps & Services",
+            "AwardCategory": "Other Award Category",
+            "Statuscode": 0,
+            "Active": false
+          },
+          {
+            "Id": "60c301bb-189a-e411-93f2-9cb65495d3c4",
+            "Name": "Project",
+            "AwardName": "Office Apps & Services",
+            "AwardCategory": "Other Award Category",
+            "Statuscode": 0,
+            "Active": false
+          },
+          {
+            "Id": "4004f4ef-066b-e511-810b-fc15b428ced0",
+            "Name": "SharePoint",
+            "AwardName": "Office Apps & Services",
+            "AwardCategory": "Other Award Category",
+            "Statuscode": 0,
+            "Active": false
+          },
+          {
+            "Id": "6ac301bb-189a-e411-93f2-9cb65495d3c4",
+            "Name": "Skype for Business",
+            "AwardName": "Office Apps & Services",
+            "AwardCategory": "Other Award Category",
+            "Statuscode": 0,
+            "Active": false
+          },
+          {
+            "Id": "64c301bb-189a-e411-93f2-9cb65495d3c4",
+            "Name": "Visio",
+            "AwardName": "Office Apps & Services",
+            "AwardCategory": "Other Award Category",
+            "Statuscode": 0,
+            "Active": false
+          },
+          {
+            "Id": "66c301bb-189a-e411-93f2-9cb65495d3c4",
+            "Name": "Word",
+            "AwardName": "Office Apps & Services",
+            "AwardCategory": "Other Award Category",
+            "Statuscode": 0,
+            "Active": false
+          },
+          {
+            "Id": "5a04f4ef-066b-e511-810b-fc15b428ced0",
+            "Name": "Yammer",
+            "AwardName": "Office Apps & Services",
+            "AwardCategory": "Other Award Category",
+            "Statuscode": 0,
+            "Active": false
+          }
+        ]
+      },
+      {
+        "AwardName": "Office Development",
+        "ContributionArea": [
+          {
+            "Id": "ea03f4ef-066b-e511-810b-fc15b428ced0",
+            "Name": "Microsoft Graph",
+            "AwardName": "Office Development",
+            "AwardCategory": "Other Award Category",
+            "Statuscode": 0,
+            "Active": false
+          },
+          {
+            "Id": "67289880-bc62-e711-8117-3863bb36edf8",
+            "Name": "Microsoft Teams Development",
+            "AwardName": "Office Development",
+            "AwardCategory": "Other Award Category",
+            "Statuscode": 0,
+            "Active": false
+          },
+          {
+            "Id": "2212617a-e083-e811-8136-3863bb2bca60",
+            "Name": "Outlook Development",
+            "AwardName": "Office Development",
+            "AwardCategory": "Other Award Category",
+            "Statuscode": 0,
+            "Active": false
+          },
+          {
+            "Id": "4204f4ef-066b-e511-810b-fc15b428ced0",
+            "Name": "SharePoint Development",
+            "AwardName": "Office Development",
+            "AwardCategory": "Other Award Category",
+            "Statuscode": 0,
+            "Active": false
+          },
+          {
+            "Id": "ec03f4ef-066b-e511-810b-fc15b428ced0",
+            "Name": "W/X/P Development",
+            "AwardName": "Office Development",
+            "AwardCategory": "Other Award Category",
+            "Statuscode": 0,
+            "Active": false
+          }
+        ]
+      },
+      {
+        "AwardName": "Windows and Devices for IT",
+        "ContributionArea": [
+          {
+            "Id": "1183268f-7773-e511-8110-fc15b4285d7c",
+            "Name": "Surface for IT",
+            "AwardName": "Windows and Devices for IT",
+            "AwardCategory": "Other Award Category",
+            "Statuscode": 0,
+            "Active": false
+          },
+          {
+            "Id": "5404f4ef-066b-e511-810b-fc15b428ced0",
+            "Name": "Windows for IT",
+            "AwardName": "Windows and Devices for IT",
+            "AwardCategory": "Other Award Category",
+            "Statuscode": 0,
+            "Active": false
+          }
+        ]
+      },
+      {
+        "AwardName": "Windows Development",
+        "ContributionArea": [
+          {
+            "Id": "5004f4ef-066b-e511-810b-fc15b428ced0",
+            "Name": "Windows App Development",
+            "AwardName": "Windows Development",
+            "AwardCategory": "Other Award Category",
+            "Statuscode": 0,
+            "Active": false
+          },
+          {
+            "Id": "c1b41e30-5af2-e611-80fe-3863bb35ef70",
+            "Name": "Windows Design",
+            "AwardName": "Windows Development",
+            "AwardCategory": "Other Award Category",
+            "Statuscode": 0,
+            "Active": false
+          },
+          {
+            "Id": "5604f4ef-066b-e511-810b-fc15b428ced0",
+            "Name": "Windows Hardware Engineering (IoT, Mobile, and Desktop)",
+            "AwardName": "Windows Development",
+            "AwardCategory": "Other Award Category",
+            "Statuscode": 0,
+            "Active": false
+          },
+          {
+            "Id": "3ec301bb-189a-e411-93f2-9cb65495d3c4",
+            "Name": "Windows Mixed Reality",
+            "AwardName": "Windows Development",
+            "AwardCategory": "Other Award Category",
+            "Statuscode": 0,
+            "Active": false
+          }
+        ]
+      }
+    ]
+  }
+]

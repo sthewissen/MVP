@@ -9,6 +9,7 @@ using MVP.ViewModels.Data;
 using TinyMvvm;
 using Xamarin.CommunityToolkit.ObjectModel;
 using Xamarin.CommunityToolkit.UI.Views;
+using Xamarin.Essentials;
 using Xamarin.Forms;
 
 namespace MVP.ViewModels
@@ -103,6 +104,7 @@ namespace MVP.ViewModels
 
                     if (result)
                     {
+                        MainThread.BeginInvokeOnMainThread(() => HapticFeedback.Perform(HapticFeedbackType.LongPress));
                         await NavigationHelper.CloseModalAsync();
                         await NavigationHelper.BackAsync();
                     }
@@ -113,6 +115,7 @@ namespace MVP.ViewModels
 
                     if (result != null)
                     {
+                        MainThread.BeginInvokeOnMainThread(() => HapticFeedback.Perform(HapticFeedbackType.LongPress));
                         await NavigationHelper.CloseModalAsync();
                     }
                 }

@@ -11,6 +11,7 @@ using TinyMvvm;
 using Xamarin.CommunityToolkit.Helpers;
 using Xamarin.Essentials;
 using MVP.Resources;
+using MVP.Services.Demo;
 
 namespace MVP
 {
@@ -51,6 +52,20 @@ namespace MVP
             // everyone to see first. It's glorious.
             var navHelper = Resolver.Resolve<INavigationHelper>();
             navHelper.SetRootView(nameof(SplashScreenPage));
+        }
+
+        public void SwitchDemoMode(bool enable)
+        {
+            if (enable)
+            {
+                MvpApiService = new DemoMvpApiService();
+                AuthService = new DemoAuthService();
+            }
+            else
+            {
+                MvpApiService = Resolver.Resolve<IMvpApiService>();
+                AuthService = Resolver.Resolve<IAuthService>();
+            }
         }
 
         async void MvpApiService_RequestErrorOccurred(object sender, Services.Helpers.ApiServiceEventArgs e)

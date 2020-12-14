@@ -17,8 +17,8 @@
                     Title="{xct:Translate contributions_title}"
                     x:Name="appFrame">
         <local:AppFrame.Content>
-            <StackLayout state:StateLayout.CurrentState="{Binding State}"
-                         state:StateLayout.AnimateStateChanges="False">
+            <Grid state:StateLayout.CurrentState="{Binding State}"
+                  state:StateLayout.AnimateStateChanges="False">
 
                 <state:StateLayout.StateViews>
                     <state:StateView StateKey="Loading" RepeatCount="3" RepeatTemplate="{StaticResource contribution_item_loading}" />
@@ -55,7 +55,7 @@
                     -->
 
                 </CollectionView>
-            </StackLayout>
+            </Grid>
         </local:AppFrame.Content>
     </local:AppFrame>
 </pages:BaseContentPage>

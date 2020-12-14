@@ -30,5 +30,8 @@
 
         public const string AppIcon = "app_icon";
         public const int AppIconDefault = 0;
+
+        public const string IsUsingDemoAccount = "using_demoaccount";
+        public const bool IsUsingDemoAccountDefault = false;
     }
 }

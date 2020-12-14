@@ -7,18 +7,21 @@ using MVP.Services.Interfaces;
 using TinyMvvm;
 using Xamarin.CommunityToolkit.ObjectModel;
 using Xamarin.Essentials;
+using Xamarin.Forms;
 
 namespace MVP.ViewModels
 {
     public class IntroViewModel : BaseViewModel
     {
         public IAsyncCommand SignInCommand { get; set; }
+        public IAsyncCommand SignInAsDemoCommand { get; set; }
         public List<OnboardingItem> OnboardingItems { get; }
 
         public IntroViewModel(IAnalyticsService analyticsService, IDialogService dialogService, INavigationHelper navigationHelper)
             : base(analyticsService, dialogService, navigationHelper)
         {
             SignInCommand = new AsyncCommand(() => SignIn());
+            SignInAsDemoCommand = new AsyncCommand(() => SignInAsDemo());
 
             OnboardingItems = new List<OnboardingItem> {
                 new OnboardingItem {
@@ -39,6 +42,13 @@ namespace MVP.ViewModels
             };
         }
 
+        async Task SignInAsDemo()
+        {
+            Preferences.Set(Settings.IsUsingDemoAccount, true);
+            (Application.Current as App).SwitchDemoMode(true);
+            await SignIn();
+        }
+
         async Task SignIn()
         {
             try
@@ -53,7 +63,7 @@ namespace MVP.ViewModels
                 }
                 else
                 {
-                    await DialogService.AlertAsync("Couldn't authenticate you using the provided credentials. Are you sure you are using the account associated to your MVP ID?",
+                    await DialogService.AlertAsync(Resources.Translations.alert_error_nomvpaccount,
                         Resources.Translations.alert_error_title,
                         Resources.Translations.alert_ok
                     );

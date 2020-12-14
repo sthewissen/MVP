@@ -5,11 +5,12 @@ using System.Threading.Tasks;
 using System.Web;
 using MVP.Extensions;
 using MVP.Helpers;
+using Xamarin.CommunityToolkit.UI.Views;
 using Xamarin.Forms;
 
 namespace MVP.Controls
 {
-    public partial class UrlPreviewView : Grid
+    public partial class UrlPreviewView : StackLayout
     {
         public static readonly BindableProperty UrlProperty =
             BindableProperty.Create(nameof(Url), typeof(string), typeof(UrlPreviewView), string.Empty, defaultBindingMode: BindingMode.OneWay, propertyChanged: Url_Changed);
@@ -26,12 +27,24 @@ namespace MVP.Controls
         public static readonly BindableProperty HasValidUrlProperty =
             BindableProperty.Create(nameof(HasValidUrl), typeof(bool), typeof(UrlPreviewView), false, defaultBindingMode: BindingMode.OneWay);
 
+        public static readonly BindableProperty HasMetadataProperty =
+            BindableProperty.Create(nameof(HasMetadata), typeof(bool), typeof(UrlPreviewView), false, defaultBindingMode: BindingMode.OneWay);
+
+        public static readonly BindableProperty StateProperty =
+            BindableProperty.Create(nameof(State), typeof(LayoutState), typeof(UrlPreviewView), LayoutState.None, defaultBindingMode: BindingMode.OneWay);
+
         static void Url_Changed(BindableObject bindable, object oldValue, object newValue)
         {
             if (oldValue != newValue)
             {
                 (bindable as UrlPreviewView).GetOpenGraphData().SafeFireAndForget();
             }
+        }
+
+        public LayoutState State
+        {
+            get => (LayoutState)GetValue(StateProperty);
+            set => SetValue(StateProperty, value);
         }
 
         public string Url
@@ -64,23 +77,32 @@ namespace MVP.Controls
             set => SetValue(HasValidUrlProperty, value);
         }
 
-        public UrlPreviewView()
+        public bool HasMetadata
         {
-            InitializeComponent();
+            get => (bool)GetValue(HasMetadataProperty);
+            set => SetValue(HasMetadataProperty, value);
         }
+
+        public UrlPreviewView()
+            => InitializeComponent();
 
         public async Task GetOpenGraphData()
         {
             try
             {
-                if (string.IsNullOrEmpty(Url) || (!Url.StartsWith("http://") && !Url.StartsWith("https://")))
+                var result = Uri.TryCreate(Url, UriKind.Absolute, out var uriResult) && (uriResult.Scheme == Uri.UriSchemeHttp || uriResult.Scheme == Uri.UriSchemeHttps);
+
+                if (!result)
                 {
                     Title = string.Empty;
                     Description = string.Empty;
                     ImageUrl = string.Empty;
                     HasValidUrl = false;
+                    HasMetadata = false;
                     return;
                 }
+
+                State = LayoutState.Loading;
 
                 var openGraphData = await OpenGraph.ParseUrlAsync(Url);
 
@@ -93,7 +115,8 @@ namespace MVP.Controls
                 if (openGraphData.Metadata.ContainsKey("og:image"))
                     ImageUrl = openGraphData.Metadata["og:image"].First().Value;
 
-                HasValidUrl = !string.IsNullOrEmpty(Title) || !string.IsNullOrEmpty(Description) || !string.IsNullOrEmpty(ImageUrl);
+                HasValidUrl = true;
+                HasMetadata = !string.IsNullOrEmpty(Title) || !string.IsNullOrEmpty(Description) || !string.IsNullOrEmpty(ImageUrl);
             }
             catch
             {
@@ -102,6 +125,11 @@ namespace MVP.Controls
                 Description = string.Empty;
                 ImageUrl = string.Empty;
                 HasValidUrl = false;
+                HasMetadata = false;
+            }
+            finally
+            {
+                State = LayoutState.None;
             }
         }
     }

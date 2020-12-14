@@ -1,0 +1,17 @@
+﻿[
+  {
+    "Id": 100000000,
+    "Description": "Microsoft",
+    "LocalizeKey": "MicrosoftVisibilityText"
+  },
+  {
+    "Id": 100000001,
+    "Description": "MVP Community",
+    "LocalizeKey": "MVPVisibilityText"
+  },
+  {
+    "Id": 299600000,
+    "Description": "Everyone",
+    "LocalizeKey": "PublicVisibilityText"
+  }
+]

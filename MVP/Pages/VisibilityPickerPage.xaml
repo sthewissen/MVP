@@ -7,14 +7,21 @@
                        xmlns:xct="clr-namespace:Xamarin.CommunityToolkit.Extensions;assembly=Xamarin.CommunityToolkit"
                        x:Class="MVP.Pages.VisibilityPickerPage"
                        x:DataType="vm:VisibilityPickerViewModel"
-                       x:TypeArguments="vm:VisibilityPickerViewModel">
+                       x:TypeArguments="vm:VisibilityPickerViewModel"
+                       xmlns:state="clr-namespace:Xamarin.CommunityToolkit.UI.Views;assembly=Xamarin.CommunityToolkit">
 
     <local:AppFrame IsModal="False"
                     ShowBackButton="True"
                     Title="{xct:Translate visibility_title}"
                     x:Name="appFrame">
         <local:AppFrame.Content>
-            <Grid>
+            <Grid state:StateLayout.CurrentState="{Binding State}"
+                  state:StateLayout.AnimateStateChanges="False">
+
+                <state:StateLayout.StateViews>
+                    <state:StateView StateKey="Loading" RepeatCount="3" RepeatTemplate="{StaticResource picker_item_loading}" />
+                </state:StateLayout.StateViews>
+
                 <CollectionView ItemsSource="{Binding Visibilities}"
                             ItemTemplate="{StaticResource visibility_item}"
                             Scrolled="CollectionView_Scrolled"

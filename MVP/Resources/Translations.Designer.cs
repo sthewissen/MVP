@@ -377,6 +377,12 @@ namespace MVP.Resources {
             }
         }
         
+        internal static string icon_rainbow {
+            get {
+                return ResourceManager.GetString("icon_rainbow", resourceCulture);
+            }
+        }
+        
         internal static string setting_appicon_title {
             get {
                 return ResourceManager.GetString("setting_appicon_title", resourceCulture);
@@ -488,6 +494,18 @@ namespace MVP.Resources {
         internal static string warning_description_activitylocked {
             get {
                 return ResourceManager.GetString("warning_description_activitylocked", resourceCulture);
+            }
+        }
+        
+        internal static string additionaltechnologypicker_title {
+            get {
+                return ResourceManager.GetString("additionaltechnologypicker_title", resourceCulture);
+            }
+        }
+        
+        internal static string alert_error_nomvpaccount {
+            get {
+                return ResourceManager.GetString("alert_error_nomvpaccount", resourceCulture);
             }
         }
     }

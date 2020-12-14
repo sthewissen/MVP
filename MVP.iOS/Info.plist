@@ -74,6 +74,13 @@
 					<string>icon_white</string>
 				</array>
 			</dict>
+			<key>Rainbow</key>
+			<dict>
+				<key>CFBundleIconFiles</key>
+				<array>
+					<string>icon_rainbow</string>
+				</array>
+			</dict>
 		</dict>
 		<key>CFBundlePrimaryIcon</key>
 		<dict>

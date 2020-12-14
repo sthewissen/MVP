@@ -6,6 +6,7 @@ using MVP.Pages;
 using MVP.Services.Interfaces;
 using TinyMvvm;
 using Xamarin.CommunityToolkit.ObjectModel;
+using Xamarin.Essentials;
 
 namespace MVP.ViewModels
 {
@@ -15,6 +16,7 @@ namespace MVP.ViewModels
         public bool CanBeEdited => Contribution != null && Contribution.StartDate.IsWithinCurrentAwardPeriod();
 
         public IAsyncCommand DeleteContributionCommand { get; set; }
+        public IAsyncCommand OpenUrlCommand { get; set; }
         public ContributionTypeConfig ContributionTypeConfig { get; set; }
 
         public ContributionDetailsViewModel(IAnalyticsService analyticsService, IDialogService dialogService, INavigationHelper navigationHelper)
@@ -22,6 +24,7 @@ namespace MVP.ViewModels
         {
             DeleteContributionCommand = new AsyncCommand(() => DeleteContribution());
             SecondaryCommand = new AsyncCommand(() => EditContribution(), (x) => CanBeEdited);
+            OpenUrlCommand = new AsyncCommand(() => OpenUrl());
         }
 
         public async override Task Initialize()
@@ -75,7 +78,9 @@ namespace MVP.ViewModels
                 if (isDeleted)
                 {
                     // TODO: Pass back true to indicate it needs to refresh.
-                    await NavigationHelper.BackAsync().ConfigureAwait(false);
+                    // TODO: Be a bit more sensible with muh threads plz.
+                    MainThread.BeginInvokeOnMainThread(() => HapticFeedback.Perform(HapticFeedbackType.LongPress));
+                    await MainThread.InvokeOnMainThreadAsync(() => NavigationHelper.BackAsync());
                 }
                 else
                 {
@@ -97,5 +102,8 @@ namespace MVP.ViewModels
                 ).ConfigureAwait(false);
             }
         }
+
+        async Task OpenUrl()
+            => await Browser.OpenAsync(Contribution.ReferenceUrl);
     }
 }

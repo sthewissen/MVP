@@ -1,0 +1,122 @@
+﻿[
+  {
+    "Id": "e36464de-179a-e411-bbc8-6c3be5a82b68",
+    "Name": "Article",
+    "EnglishName": "Article"
+  },
+  {
+    "Id": "df6464de-179a-e411-bbc8-6c3be5a82b68",
+    "Name": "Blog/Website Post",
+    "EnglishName": "Blog/Website Post"
+  },
+  {
+    "Id": "db6464de-179a-e411-bbc8-6c3be5a82b68",
+    "Name": "Book (Author)",
+    "EnglishName": "Book (Author)"
+  },
+  {
+    "Id": "dd6464de-179a-e411-bbc8-6c3be5a82b68",
+    "Name": "Book (Co-Author)",
+    "EnglishName": "Book (Co-Author)"
+  },
+  {
+    "Id": "f16464de-179a-e411-bbc8-6c3be5a82b68",
+    "Name": "Conference (Staffing)",
+    "EnglishName": "Conference (Staffing)"
+  },
+  {
+    "Id": "0ce0dc15-0304-e911-8171-3863bb2bca60",
+    "Name": "Docs.Microsoft.com Contribution",
+    "EnglishName": "Docs.Microsoft.com Contribution"
+  },
+  {
+    "Id": "f96464de-179a-e411-bbc8-6c3be5a82b68",
+    "Name": "Forum Moderator",
+    "EnglishName": "Forum Moderator"
+  },
+  {
+    "Id": "d96464de-179a-e411-bbc8-6c3be5a82b68",
+    "Name": "Forum Participation (3rd Party forums)",
+    "EnglishName": "Forum Participation (3rd Party forums)"
+  },
+  {
+    "Id": "d76464de-179a-e411-bbc8-6c3be5a82b68",
+    "Name": "Forum Participation (Microsoft Forums)",
+    "EnglishName": "Forum Participation (Microsoft Forums)"
+  },
+  {
+    "Id": "f76464de-179a-e411-bbc8-6c3be5a82b68",
+    "Name": "Mentorship",
+    "EnglishName": "Mentorship"
+  },
+  {
+    "Id": "d2d96407-0304-e911-8171-3863bb2bca60",
+    "Name": "Microsoft Open Source Projects",
+    "EnglishName": "Microsoft Open Source Projects"
+  },
+  {
+    "Id": "414bcf30-e889-e511-8110-c4346bac0abc",
+    "Name": "Non-Microsoft Open Source Projects",
+    "EnglishName": "Non-Microsoft Open Source Projects"
+  },
+  {
+    "Id": "fd6464de-179a-e411-bbc8-6c3be5a82b68",
+    "Name": "Organizer (User Group/Meetup/Local Events)",
+    "EnglishName": "Organizer (User Group/Meetup/Local Events)"
+  },
+  {
+    "Id": "ef6464de-179a-e411-bbc8-6c3be5a82b68",
+    "Name": "Organizer of Conference",
+    "EnglishName": "Organizer of Conference"
+  },
+  {
+    "Id": "ff6464de-179a-e411-bbc8-6c3be5a82b68",
+    "Name": "Other",
+    "EnglishName": "Other"
+  },
+  {
+    "Id": "016564de-179a-e411-bbc8-6c3be5a82b68",
+    "Name": "Product Group Feedback",
+    "EnglishName": "Product Group Feedback (General)"
+  },
+  {
+    "Id": "e96464de-179a-e411-bbc8-6c3be5a82b68",
+    "Name": "Sample Code/Projects/Tools",
+    "EnglishName": "Sample Code/Projects/Tools"
+  },
+  {
+    "Id": "fb6464de-179a-e411-bbc8-6c3be5a82b68",
+    "Name": "Site Owner",
+    "EnglishName": "Site Owner"
+  },
+  {
+    "Id": "d16464de-179a-e411-bbc8-6c3be5a82b68",
+    "Name": "Speaking (Conference)",
+    "EnglishName": "Speaking (Conference)"
+  },
+  {
+    "Id": "d56464de-179a-e411-bbc8-6c3be5a82b68",
+    "Name": "Speaking (User Group/Meetup/Local events)",
+    "EnglishName": "Speaking (User Group/Meetup/Local events)"
+  },
+  {
+    "Id": "eb6464de-179a-e411-bbc8-6c3be5a82b68",
+    "Name": "Technical Social Media (Twitter, Facebook, LinkedIn...)",
+    "EnglishName": "Technical Social Media (Twitter, Facebook, LinkedIn...)"
+  },
+  {
+    "Id": "056564de-179a-e411-bbc8-6c3be5a82b68",
+    "Name": "Translation Review, Feedback and Editing",
+    "EnglishName": "Translation Review, Feedback and Editing"
+  },
+  {
+    "Id": "e56464de-179a-e411-bbc8-6c3be5a82b68",
+    "Name": "Video/Webcast/Podcast",
+    "EnglishName": "Video/Webcast/Podcast"
+  },
+  {
+    "Id": "0ee0dc15-0304-e911-8171-3863bb2bca60",
+    "Name": "Workshop/Volunteer/Proctor",
+    "EnglishName": "Workshop/Volunteer/Proctor"
+  }
+]

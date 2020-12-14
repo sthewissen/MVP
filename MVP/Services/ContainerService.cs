@@ -2,6 +2,7 @@
 using System.Linq;
 using System.Reflection;
 using Autofac;
+using MVP.Services.Demo;
 using MVP.Services.Interfaces;
 using MVP.ViewModels;
 using TinyMvvm;

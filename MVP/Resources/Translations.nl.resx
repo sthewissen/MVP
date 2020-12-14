@@ -183,6 +183,9 @@
     <data name="icon_white" xml:space="preserve">
         <value>White</value>
     </data>
+    <data name="icon_rainbow" xml:space="preserve">
+        <value>Rainbow</value>
+    </data>
     <data name="setting_appicon_title" xml:space="preserve">
         <value>App icon</value>
     </data>
@@ -239,5 +242,11 @@
     </data>
     <data name="warning_description_activitylocked" xml:space="preserve">
         <value>This activity was recorded in the previous contribution window and therefore it cannot be edited or deleted.</value>
+    </data>
+    <data name="additionaltechnologypicker_title" xml:space="preserve">
+        <value>Additional contribution areas</value>
+    </data>
+    <data name="alert_error_nomvpaccount" xml:space="preserve">
+        <value>Couldn't authenticate you using the provided credentials. Are you sure you are using the account associated to your MVP ID?</value>
     </data>
 </root>
