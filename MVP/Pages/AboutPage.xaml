@@ -13,17 +13,29 @@
                     ShowBackButton="True"
                     x:Name="appFrame">
         <local:AppFrame.Content>
-            <ScrollView Scrolled="ScrollView_Scrolled" Padding="32,16,32,32">
-                <StackLayout>
-                    <Label Style="{StaticResource about_title}" Text="{xct:Translate about_why_title}" />
-                    <Label Style="{StaticResource about_description}" Margin="0,0,0,32" Text="{xct:Translate about_why_description}" />
 
-                    <Label Text="{xct:Translate about_opensource_title}" FontSize="16" Margin="0,0,0,8" FontFamily="{StaticResource font_bold}" />
-                    <Label Style="{StaticResource about_description}" Margin="0,0,0,24" Text="{xct:Translate about_opensource_description}" />
+            <ScrollView Scrolled="ScrollView_Scrolled"
+                        Padding="32,16,32,32">
+
+                <StackLayout>
+                    <Label Style="{StaticResource about_title}"
+                           Text="{xct:Translate about_why_title}" />
+                    <Label Style="{StaticResource about_description}"
+                           Margin="0,0,0,32"
+                           Text="{xct:Translate about_why_description}" />
+
+                    <Label Style="{StaticResource about_title}"
+                           Text="{xct:Translate about_opensource_title}"
+                           Margin="0,0,0,8" />
+                    <Label Style="{StaticResource about_description}"
+                           Margin="0,0,0,24"
+                           Text="{xct:Translate about_opensource_description}" />
 
                     <Button Text="{xct:Translate button_becomesponsor}"/>
                 </StackLayout>
+
             </ScrollView>
+
         </local:AppFrame.Content>
     </local:AppFrame>
 

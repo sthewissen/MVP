@@ -18,7 +18,7 @@
 
         <StackLayout Orientation="Horizontal" Spacing="4">
             <Label Style="{StaticResource field_title}" Text="{Binding Title, Source={x:Reference inputView}}" />
-            <Label Text="*" FontSize="18" TextColor="{StaticResource error}">
+            <Label Style="{StaticResource required_indicator}" Text="*">
                 <Label.IsVisible>
                     <MultiBinding Converter="{xct:VariableMultiValueConverter ConditionType=All}">
                         <Binding Path="IsRequired" Source="{x:Reference inputView}" />

@@ -1,185 +1,182 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <pages:BaseContentPage xmlns="http://xamarin.com/schemas/2014/forms"
-                       xmlns:local="clr-namespace:MVP"
-                       xmlns:pages="clr-namespace:MVP.Pages"
-                       xmlns:vm="clr-namespace:MVP.ViewModels"
+                       xmlns:controls="clr-namespace:MVP.Controls"
+                       xmlns:converters="clr-namespace:Xamarin.CommunityToolkit.Converters;assembly=Xamarin.CommunityToolkit"
                        xmlns:icons="clr-namespace:MVP.Styles"
+                       xmlns:local="clr-namespace:MVP"
+                       xmlns:lottie="clr-namespace:Lottie.Forms;assembly=Lottie.Forms"
+                       xmlns:pages="clr-namespace:MVP.Pages"
+                       xmlns:state="clr-namespace:Xamarin.CommunityToolkit.UI.Views;assembly=Xamarin.CommunityToolkit"
+                       xmlns:vm="clr-namespace:MVP.ViewModels"
                        xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                       xmlns:xct="clr-namespace:Xamarin.CommunityToolkit.Extensions;assembly=Xamarin.CommunityToolkit"
                        x:Class="MVP.Pages.ContributionFormPage"
                        x:DataType="vm:ContributionFormViewModel"
-                       x:TypeArguments="vm:ContributionFormViewModel"
-                       xmlns:converters="clr-namespace:Xamarin.CommunityToolkit.Converters;assembly=Xamarin.CommunityToolkit"
-                       xmlns:xct="clr-namespace:Xamarin.CommunityToolkit.Extensions;assembly=Xamarin.CommunityToolkit"
-                       xmlns:state="clr-namespace:Xamarin.CommunityToolkit.UI.Views;assembly=Xamarin.CommunityToolkit"
-                       xmlns:controls="clr-namespace:MVP.Controls"
-                       xmlns:lottie="clr-namespace:Lottie.Forms;assembly=Lottie.Forms">
+                       x:TypeArguments="vm:ContributionFormViewModel">
 
-    <local:AppFrame ShowBackButton="{Binding State, Converter={converters:NotEqualConverter}, ConverterParameter={x:Static state:LayoutState.Saving}}"
-                    ShowSecondaryButton="{Binding State, Converter={converters:NotEqualConverter}, ConverterParameter={x:Static state:LayoutState.Saving}}"
+    <local:AppFrame IsModal="True"
                     SecondaryButtonIcon="{x:Static icons:Icons.save}"
-                    IsModal="True"
                     ShadowOpacity="1"
+                    ShowBackButton="{Binding State, Converter={converters:NotEqualConverter}, ConverterParameter={x:Static state:LayoutState.Saving}}"
+                    ShowSecondaryButton="{Binding State, Converter={converters:NotEqualConverter}, ConverterParameter={x:Static state:LayoutState.Saving}}"
                     x:Name="appFrame">
+
         <local:AppFrame.Triggers>
-            <DataTrigger TargetType="local:AppFrame" Binding="{Binding IsEditing}" Value="False">
-                <Setter Property="Title" Value="{xct:Translate contributionform_title_add}"/>
+            <DataTrigger Binding="{Binding IsEditing}"
+                         TargetType="local:AppFrame"
+                         Value="False">
+                <Setter Property="Title"
+                        Value="{xct:Translate contributionform_title_add}"/>
             </DataTrigger>
-            <DataTrigger TargetType="local:AppFrame" Binding="{Binding IsEditing}" Value="True">
-                <Setter Property="Title" Value="{xct:Translate contributionform_title_edit}"/>
+            <DataTrigger Binding="{Binding IsEditing}"
+                         TargetType="local:AppFrame"
+                         Value="True">
+                <Setter Property="Title"
+                        Value="{xct:Translate contributionform_title_edit}"/>
             </DataTrigger>
         </local:AppFrame.Triggers>
         <local:AppFrame.Content>
             <Grid>
                 <ScrollView>
                     <StackLayout Padding="0,32">
-
-                        <Label x:Name="lbl"
-                           Padding="32,0"
-                           TextColor="{StaticResource gray}"
-                           FontSize="13"
-                           Text="{Binding ContributionDeadlineText}" />
+                        <Label Style="{StaticResource contributionform_note}" 
+                               Padding="32,0"
+                               Text="{Binding ContributionDeadlineText}"
+                               x:Name="lbl"/>
 
                         <BoxView Margin="16,16,16,0"
-                             Style="{StaticResource separator}"/>
+                                 Style="{StaticResource separator}"/>
 
-                        <controls:PickerInputView Title="{xct:Translate field_activity_type}"
-                                              IsRequired="True"
-                                              IsEnabled="{Binding IsEditing, Converter={converters:InvertedBoolConverter}}"
-                                              IsValid="{Binding Contribution.ContributionType.IsValid}"
-                                              Errors="{Binding Contribution.ContributionType.Errors, Converter={converters:ListToStringConverter}}"
-                                              Value="{Binding Contribution.ContributionType.Value}"
-                                              Placeholder="{xct:Translate contributionform_activitytype_placeholder}" 
-                                              PickerCommand="{Binding PickContributionTypeCommand}" />
-
-                        <BoxView Margin="16,0"
-                             Style="{StaticResource separator}"/>
-
-                        <controls:PickerInputView Title="{xct:Translate field_primary_contribution_area}"
-                                              IsRequired="True"
-                                              IsValid="{Binding Contribution.ContributionTechnology.IsValid}"
-                                              Errors="{Binding Contribution.ContributionTechnology.Errors, Converter={converters:ListToStringConverter}}"
-                                              Value="{Binding Contribution.ContributionTechnology.Value}"
-                                              Placeholder="{xct:Translate contributionform_technologyarea_placeholder}"
-                                              PickerCommand="{Binding PickContributionTechnologyCommand}"  />
+                        <controls:PickerInputView Errors="{Binding Contribution.ContributionType.Errors, Converter={converters:ListToStringConverter}}"
+                                                  IsEnabled="{Binding IsEditing, Converter={converters:InvertedBoolConverter}}"
+                                                  IsRequired="True"
+                                                  IsValid="{Binding Contribution.ContributionType.IsValid}"
+                                                  PickerCommand="{Binding PickContributionTypeCommand}"
+                                                  Placeholder="{xct:Translate contributionform_activitytype_placeholder}"
+                                                  Title="{xct:Translate field_activity_type}"
+                                                  Value="{Binding Contribution.ContributionType.Value}"/>
 
                         <BoxView Margin="16,0"
-                             Style="{StaticResource separator}"/>
+                                 Style="{StaticResource separator}"/>
 
-                        <controls:PickerInputView Title="{xct:Translate field_additional_contribution_areas}"
-                                              Value="{Binding Contribution.AdditionalTechnologies, Converter={converters:ListToStringConverter Separator=','}}"
-                                              Placeholder="{xct:Translate contributionform_additionaltechnologyarea_placeholder}"
-                                              PickerCommand="{Binding PickAdditionalTechnologiesCommand}" />
-
+                        <controls:PickerInputView Errors="{Binding Contribution.ContributionTechnology.Errors, Converter={converters:ListToStringConverter}}"
+                                                  IsRequired="True"
+                                                  IsValid="{Binding Contribution.ContributionTechnology.IsValid}"
+                                                  PickerCommand="{Binding PickContributionTechnologyCommand}"
+                                                  Placeholder="{xct:Translate contributionform_technologyarea_placeholder}"
+                                                  Title="{xct:Translate field_primary_contribution_area}"
+                                                  Value="{Binding Contribution.ContributionTechnology.Value}"/>
                         <BoxView Margin="16,0"
-                             Style="{StaticResource separator}"/>
+                                 Style="{StaticResource separator}"/>
 
-                        <controls:DateInputView Title="{xct:Translate field_activity_date}"
-                                            MinimumDate="{Binding CurrentAwardPeriodStartDate}"
+                        <controls:PickerInputView PickerCommand="{Binding PickAdditionalTechnologiesCommand}"
+                                                  Placeholder="{xct:Translate contributionform_additionaltechnologyarea_placeholder}"
+                                                  Title="{xct:Translate field_additional_contribution_areas}"
+                                                  Value="{Binding Contribution.AdditionalTechnologies, Converter={converters:ListToStringConverter Separator=','}}"/>
+                        <BoxView Margin="16,0"
+                                 Style="{StaticResource separator}"/>
+
+                        <controls:DateInputView IsRequired="True"
+                                                MinimumDate="{Binding CurrentAwardPeriodStartDate}"
+                                                Title="{xct:Translate field_activity_date}"
+                                                Value="{Binding Contribution.StartDate}"/>
+                        <BoxView Margin="16,16,16,0"
+                                 Style="{StaticResource separator}"/>
+
+                        <controls:InputView Errors="{Binding Contribution.Title.Errors, Converter={converters:ListToStringConverter}}"
                                             IsRequired="True"
-                                            Value="{Binding Contribution.StartDate}" />
+                                            IsValid="{Binding Contribution.Title.IsValid}"
+                                            Title="{xct:Translate field_title}"
+                                            Value="{Binding Contribution.Title.Value}"/>
+                        <BoxView Margin="16,16,16,0"
+                                 Style="{StaticResource separator}"/>
+
+                        <controls:InputView Errors="{Binding Contribution.ReferenceUrl.Errors, Converter={converters:ListToStringConverter}}"
+                                            IsRequired="{Binding Contribution.Requirements.IsUrlRequired}"
+                                            IsValid="{Binding Contribution.ReferenceUrl.IsValid}"
+                                            Keyboard="Url"
+                                            Title="{xct:Translate field_url}"
+                                            Value="{Binding Contribution.ReferenceUrl.Value}"/>
+                        <controls:UrlPreviewView Padding="32,0"
+                                                 Url="{Binding Contribution.ReferenceUrl.Value}"/>
 
                         <BoxView Margin="16,16,16,0"
-                             Style="{StaticResource separator}"/>
+                                 Style="{StaticResource separator}"/>
 
-                        <controls:InputView Title="{xct:Translate field_title}"
-                                        IsRequired="True"
-                                        IsValid="{Binding Contribution.Title.IsValid}"
-                                        Errors="{Binding Contribution.Title.Errors, Converter={converters:ListToStringConverter}}"
-                                        Value="{Binding Contribution.Title.Value}" />
-
+                        <controls:InputView IsMultiLine="True"
+                                            Title="{xct:Translate field_description}"
+                                            Value="{Binding Contribution.Description}"/>
                         <BoxView Margin="16,16,16,0"
-                             Style="{StaticResource separator}"/>
+                                 Style="{StaticResource separator}"/>
 
-                        <controls:InputView Title="{xct:Translate field_url}"
-                                        IsRequired="{Binding Contribution.Requirements.IsUrlRequired}"
-                                        Keyboard="Url"
-                                        IsValid="{Binding Contribution.ReferenceUrl.IsValid}"
-                                        Errors="{Binding Contribution.ReferenceUrl.Errors, Converter={converters:ListToStringConverter}}"
-                                        Value="{Binding Contribution.ReferenceUrl.Value}" />
-
-                        <controls:UrlPreviewView Url="{Binding Contribution.ReferenceUrl.Value}" Padding="32,0" />
-
-                        <BoxView Margin="16,16,16,0"
-                             Style="{StaticResource separator}"/>
-
-                        <controls:InputView Title="{xct:Translate field_description}"
-                                        IsMultiLine="True"
-                                        Value="{Binding Contribution.Description}" />
-
-                        <BoxView Margin="16,16,16,0"
-                             Style="{StaticResource separator}"/>
-
-                        <controls:PickerInputView Title="{xct:Translate field_visibility}"
-                                              Value="{Binding Contribution.Visibility.Value}"
-                                              IsValid="{Binding Contribution.Visibility.IsValid}"
-                                              IsRequired="True"
-                                              Placeholder="{xct:Translate contributionform_visibility_placeholder}"
-                                              PickerCommand="{Binding PickVisibilityCommand}"  />
+                        <controls:PickerInputView IsRequired="True"
+                                                  IsValid="{Binding Contribution.Visibility.IsValid}"
+                                                  PickerCommand="{Binding PickVisibilityCommand}"
+                                                  Placeholder="{xct:Translate contributionform_visibility_placeholder}"
+                                                  Title="{xct:Translate field_visibility}"
+                                                  Value="{Binding Contribution.Visibility.Value}"/>
 
                         <StackLayout IsVisible="{Binding Contribution.ContributionType.Value, Converter={converters:IsNotNullOrEmptyConverter}}">
                             <BoxView Margin="16,0"
-                             Style="{StaticResource separator}"/>
+                                     Style="{StaticResource separator}"/>
 
-                            <controls:InputView Title="{Binding Contribution.Requirements.AnnualQuantityHeader}"
-                                        IsRequired="{Binding Contribution.Requirements.IsAnnualQuantityRequired}"
-                                        IsVisible="{Binding Contribution.Requirements.HasAnnualQuantity}"
-                                        IsValid="{Binding Contribution.AnnualQuantity.IsValid}"
-                                        Errors="{Binding Contribution.AnnualQuantity.Errors, Converter={converters:ListToStringConverter}}"
-                                        Keyboard="Numeric"
-                                        Value="{Binding Contribution.AnnualQuantity.Value}" />
+                            <controls:InputView Errors="{Binding Contribution.AnnualQuantity.Errors, Converter={converters:ListToStringConverter}}"
+                                                IsRequired="{Binding Contribution.Requirements.IsAnnualQuantityRequired}"
+                                                IsValid="{Binding Contribution.AnnualQuantity.IsValid}"
+                                                IsVisible="{Binding Contribution.Requirements.HasAnnualQuantity}"
+                                                Keyboard="Numeric"
+                                                Title="{Binding Contribution.Requirements.AnnualQuantityHeader}"
+                                                Value="{Binding Contribution.AnnualQuantity.Value}"/>
+                            <BoxView IsVisible="{Binding Contribution.Requirements.HasSecondAnnualQuantity}"
+                                     Margin="16,16,16,0"
+                                     Style="{StaticResource separator}"/>
 
-                            <BoxView Margin="16,16,16,0"
-                             Style="{StaticResource separator}"
-                             IsVisible="{Binding Contribution.Requirements.HasSecondAnnualQuantity}" />
+                            <controls:InputView Errors="{Binding Contribution.SecondAnnualQuantity.Errors, Converter={converters:ListToStringConverter}}"
+                                                IsRequired="{Binding Contribution.Requirements.IsSecondAnnualQuantityRequired}"
+                                                IsValid="{Binding Contribution.SecondAnnualQuantity.IsValid}"
+                                                IsVisible="{Binding Contribution.Requirements.HasSecondAnnualQuantity}"
+                                                Keyboard="Numeric"
+                                                Title="{Binding Contribution.Requirements.SecondAnnualQuantityHeader}"
+                                                Value="{Binding Contribution.SecondAnnualQuantity.Value}"/>
+                            <BoxView IsVisible="{Binding Contribution.Requirements.HasAnnualReach}"
+                                     Margin="16,16,16,0"
+                                     Style="{StaticResource separator}"/>
 
-                            <controls:InputView Title="{Binding Contribution.Requirements.SecondAnnualQuantityHeader}"
-                                        IsRequired="{Binding Contribution.Requirements.IsSecondAnnualQuantityRequired}"
-                                        IsVisible="{Binding Contribution.Requirements.HasSecondAnnualQuantity}"
-                                        IsValid="{Binding Contribution.SecondAnnualQuantity.IsValid}"
-                                        Errors="{Binding Contribution.SecondAnnualQuantity.Errors, Converter={converters:ListToStringConverter}}"
-                                        Keyboard="Numeric"
-                                        Value="{Binding Contribution.SecondAnnualQuantity.Value}" />
-
-                            <BoxView Margin="16,16,16,0"
-                             Style="{StaticResource separator}"
-                             IsVisible="{Binding Contribution.Requirements.HasAnnualReach}" />
-
-                            <controls:InputView Title="{Binding Contribution.Requirements.AnnualReachHeader}"
-                                        IsRequired="{Binding Contribution.Requirements.IsAnnualReachRequired}"
-                                        IsVisible="{Binding Contribution.Requirements.HasAnnualReach}"
-                                        IsValid="{Binding Contribution.AnnualReach.IsValid}"
-                                        Errors="{Binding Contribution.AnnualReach.Errors, Converter={converters:ListToStringConverter}}"
-                                        Keyboard="Numeric"
-                                        Value="{Binding Contribution.AnnualReach.Value}" />
+                            <controls:InputView Errors="{Binding Contribution.AnnualReach.Errors, Converter={converters:ListToStringConverter}}"
+                                                IsRequired="{Binding Contribution.Requirements.IsAnnualReachRequired}"
+                                                IsValid="{Binding Contribution.AnnualReach.IsValid}"
+                                                IsVisible="{Binding Contribution.Requirements.HasAnnualReach}"
+                                                Keyboard="Numeric"
+                                                Title="{Binding Contribution.Requirements.AnnualReachHeader}"
+                                                Value="{Binding Contribution.AnnualReach.Value}"/>
                         </StackLayout>
                     </StackLayout>
                 </ScrollView>
 
-                <Grid IsVisible="false"
-                      Padding="0,0,0,80"
-                      BackgroundColor="{AppThemeBinding Light={StaticResource white}, Dark={StaticResource black}}">
+                <Grid BackgroundColor="{AppThemeBinding Light={StaticResource white}, Dark={StaticResource black}}"
+                      IsVisible="false"
+                      Padding="0,0,0,80">
                     <Grid.Triggers>
-                        <DataTrigger TargetType="Grid"
-                                     Binding="{Binding State}"
+                        <DataTrigger Binding="{Binding State}"
+                                     TargetType="Grid"
                                      Value="{x:Static state:LayoutState.Saving}">
                             <Setter Property="IsVisible"
-                                    Value="True" />
+                                    Value="True"/>
                         </DataTrigger>
                     </Grid.Triggers>
-                    <lottie:AnimationView x:Name="animationView"
-                                          Animation="{AppThemeBinding Light='resource://loading.json?assembly=MVP', Dark='resource://loading_light.json?assembly=MVP'}"
+                    <lottie:AnimationView Animation="{AppThemeBinding Light='resource://loading.json?assembly=MVP', Dark='resource://loading_light.json?assembly=MVP'}"
                                           AnimationSource="EmbeddedResource"
-                                          HorizontalOptions="Fill"
-                                          VerticalOptions="Center"
-                                          HeightRequest="240"
                                           AutoPlay="True"
-                                          RepeatMode="Infinite" />
-                    <Label Text="Saving..."
+                                          HeightRequest="240"
+                                          HorizontalOptions="Fill"
+                                          RepeatMode="Infinite"
+                                          VerticalOptions="Center"
+                                          x:Name="animationView"/>
+                    <Label HorizontalOptions="Center"
+                           HorizontalTextAlignment="Center"
                            Margin="0,48,0,0"
-                           FontSize="16"
-                           HorizontalOptions="Center"
-                           VerticalOptions="Center"
-                           HorizontalTextAlignment="Center"/>
+                           Text="{xct:Translate progress_saving}"
+                           VerticalOptions="Center"/>
                 </Grid>
             </Grid>
         </local:AppFrame.Content>

@@ -348,4 +348,7 @@
     <data name="alert_error_nomvpaccount" xml:space="preserve">
         <value>Couldn't authenticate you using the provided credentials. Are you sure you are using the account associated to your MVP ID?</value>
     </data>
+    <data name="progress_saving" xml:space="preserve">
+        <value>Saving...</value>
+    </data>
 </root>

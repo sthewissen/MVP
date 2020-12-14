@@ -61,19 +61,13 @@
 
         </Frame>
 
-        <Label FontFamily="{StaticResource font_bold}"
-               FontSize="14"
+        <Label Style="{StaticResource urlpreview_title}" 
                Grid.Column="1"
-               MaxLines="1"
-               LineBreakMode="TailTruncation"
                Text="{Binding Title, Source={x:Reference urlView}}"/>
 
-        <Label FontSize="14"
+        <Label Style="{StaticResource urlpreview_description}" 
                Grid.Column="1"
                Grid.Row="1"
-               HorizontalTextAlignment="Start"
-               LineBreakMode="TailTruncation"
-               MaxLines="3"
                Text="{Binding Description, Source={x:Reference urlView}}"/>
     </Grid>
 </StackLayout>

@@ -1,16 +1,16 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <ResourceDictionary xmlns="http://xamarin.com/schemas/2014/forms"
+                    xmlns:controls="clr-namespace:MVP.Controls"
                     xmlns:converters="clr-namespace:MVP.Converters"
+                    xmlns:data="clr-namespace:MVP.ViewModels.Data"
+                    xmlns:effects="clr-namespace:Xamarin.CommunityToolkit.Effects;assembly=Xamarin.CommunityToolkit"
+                    xmlns:ff="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
+                    xmlns:fftransformations="clr-namespace:FFImageLoading.Transformations;assembly=FFImageLoading.Transformations"
                     xmlns:icons="clr-namespace:MVP.Styles"
                     xmlns:models="clr-namespace:MVP.Models"
-                    xmlns:effects="clr-namespace:Xamarin.CommunityToolkit.Effects;assembly=Xamarin.CommunityToolkit"
                     xmlns:vm="clr-namespace:MVP.ViewModels"
                     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
                     xmlns:xct="clr-namespace:Xamarin.CommunityToolkit.Converters;assembly=Xamarin.CommunityToolkit"
-                    xmlns:ff="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
-                    xmlns:data="clr-namespace:MVP.ViewModels.Data"
-                    xmlns:fftransformations="clr-namespace:FFImageLoading.Transformations;assembly=FFImageLoading.Transformations"
-                    xmlns:controls="clr-namespace:MVP.Controls"
                     x:Class="MVP.Templates.DataTemplates">
 
     <xct:MultiConverter x:Key="ContributionTypeConverter">
@@ -29,33 +29,39 @@
             <StackLayout Padding="32,16"
                          Spacing="8"
                          VerticalOptions="Center"
-                         effects:TouchEffect.PressedBackgroundColor="{AppThemeBinding Light={StaticResource light_blue}, Dark={StaticResource background_dark_gray_highlight}}"
-                         effects:TouchEffect.NormalBackgroundColor="{AppThemeBinding Light={StaticResource white}, Dark={StaticResource black}}"
                          effects:TouchEffect.Command="{Binding Source={RelativeSource AncestorType={x:Type vm:BaseViewModel}}, Path=OpenContributionCommand}"
-                         effects:TouchEffect.CommandParameter="{Binding Source={RelativeSource Self}, Path=BindingContext}">
-
+                         effects:TouchEffect.CommandParameter="{Binding Source={RelativeSource Self}, Path=BindingContext}"
+                         effects:TouchEffect.NormalBackgroundColor="{AppThemeBinding Light={StaticResource white}, Dark={StaticResource black}}"
+                         effects:TouchEffect.PressedBackgroundColor="{AppThemeBinding Light={StaticResource light_blue}, Dark={StaticResource background_dark_gray_highlight}}">
                 <Frame BackgroundColor="{Binding ContributionType.Id, Converter={StaticResource ContributionTypeConverter}}"
                        Style="{StaticResource contribution_item_category}">
+
                     <Label HorizontalTextAlignment="End"
                            LineBreakMode="TailTruncation"
                            MaxLines="1"
                            Style="{StaticResource contribution_item_category_label}"
                            Text="{Binding ContributionType.EnglishName, Converter={xct:TextCaseConverter Type=Upper}}"
                            TextColor="{Binding ContributionType.Id, Converter={StaticResource ContributionTypeTextConverter}}"/>
+
                 </Frame>
                 <Label Style="{StaticResource contribution_item_title}"
                        Text="{Binding Title}"/>
+
                 <Label Style="{StaticResource contribution_item_date}">
                     <Label.FormattedText>
                         <FormattedString>
-                            <Span FontFamily="{StaticResource font_icon}" Text="{x:Static icons:Icons.calendar}" FontSize="12" />
-                            <Span Text="  " />
-                            <Span Text="{Binding StartDate, StringFormat='{0:D}'}" />
+                            <Span FontFamily="{StaticResource font_icon}"
+                                  FontSize="{StaticResource fontsize_small}"
+                                  Text="{x:Static icons:Icons.calendar}"/>
+                            <Span Text="  "/>
+                            <Span Text="{Binding StartDate, StringFormat='{0:D}'}"/>
                         </FormattedString>
                     </Label.FormattedText>
                 </Label>
             </StackLayout>
-            <BoxView Style="{StaticResource separator}" Margin="16,0"/>
+
+            <BoxView Margin="16,0"
+                     Style="{StaticResource separator}"/>
         </StackLayout>
     </DataTemplate>
 
@@ -64,11 +70,21 @@
             <Grid Padding="32,16"
                   RowSpacing="8"
                   VerticalOptions="Center">
-                <controls:SkeletonView HeightRequest="16" Grid.Row="0" Grid.ColumnSpan="3" />
-                <controls:SkeletonView HeightRequest="24" Grid.Row="1" Grid.ColumnSpan="5" />
-                <controls:SkeletonView HeightRequest="16" Grid.Row="2" Grid.ColumnSpan="2" />
+
+                <controls:SkeletonView Grid.ColumnSpan="3"
+                                       Grid.Row="0"
+                                       HeightRequest="16"/>
+
+                <controls:SkeletonView Grid.ColumnSpan="5"
+                                       Grid.Row="1"
+                                       HeightRequest="24"/>
+
+                <controls:SkeletonView Grid.ColumnSpan="2"
+                                       Grid.Row="2"
+                                       HeightRequest="16"/>
             </Grid>
-            <BoxView Style="{StaticResource separator}" Margin="16,0"/>
+            <BoxView Margin="16,0"
+                     Style="{StaticResource separator}"/>
         </StackLayout>
     </DataTemplate>
 
@@ -77,9 +93,10 @@
             <Grid Padding="32,16"
                   RowSpacing="8"
                   VerticalOptions="Center">
-                <controls:SkeletonView HeightRequest="24" />
+                <controls:SkeletonView HeightRequest="24"/>
             </Grid>
-            <BoxView Style="{StaticResource separator}" Margin="16,0"/>
+            <BoxView Margin="16,0"
+                     Style="{StaticResource separator}"/>
         </StackLayout>
     </DataTemplate>
 
@@ -88,62 +105,52 @@
             <StackLayout Orientation="Horizontal"
                          Padding="32,0"
                          Spacing="8"
-                         effects:TouchEffect.PressedBackgroundColor="{AppThemeBinding Light={StaticResource light_blue}, Dark={StaticResource background_dark_gray_highlight}}"
-                         effects:TouchEffect.NormalBackgroundColor="{AppThemeBinding Light={StaticResource white}, Dark={StaticResource black}}"
                          effects:TouchEffect.Command="{Binding Source={RelativeSource AncestorType={x:Type vm:BaseViewModel}}, Path=SetAppThemeCommand}"
-                         effects:TouchEffect.CommandParameter="{Binding Source={RelativeSource Self}, Path=BindingContext}">
-
-                <Label Style="{StaticResource list_item_title_label}"
-                       Padding="0,16"
-                       Text="{Binding Description}" />
-
-                <Label FontFamily="{StaticResource font_icon}"
-                       FontSize="20"
+                         effects:TouchEffect.CommandParameter="{Binding Source={RelativeSource Self}, Path=BindingContext}"
+                         effects:TouchEffect.NormalBackgroundColor="{AppThemeBinding Light={StaticResource white}, Dark={StaticResource black}}"
+                         effects:TouchEffect.PressedBackgroundColor="{AppThemeBinding Light={StaticResource light_blue}, Dark={StaticResource background_dark_gray_highlight}}">
+                <Label Padding="0,16"
+                       Style="{StaticResource list_item_title_label}"
+                       Text="{Binding Description}"/>
+                <Label Style="{StaticResource selection_indicator}" 
                        HorizontalOptions="EndAndExpand"
                        IsVisible="{Binding IsSelected}"
-                       Text="{x:Static icons:Icons.check}"
-                       TextColor="{AppThemeBinding Light={StaticResource primary}, Dark={StaticResource powderblue_light}}"
-                       VerticalOptions="Center"
-                       VerticalTextAlignment="Center"/>
+                       Text="{x:Static icons:Icons.check}"/>
             </StackLayout>
-            <BoxView Style="{StaticResource separator}" Margin="16,0"/>
+            <BoxView Margin="16,0"
+                     Style="{StaticResource separator}"/>
         </StackLayout>
     </DataTemplate>
 
-    <DataTemplate x:Key="app_icon_item" x:DataType="data:AppIconViewModel">
+    <DataTemplate x:DataType="data:AppIconViewModel"
+                  x:Key="app_icon_item">
         <StackLayout>
             <StackLayout Orientation="Horizontal"
                          Padding="32,0"
                          Spacing="8"
-                         effects:TouchEffect.PressedBackgroundColor="{AppThemeBinding Light={StaticResource light_blue}, Dark={StaticResource background_dark_gray_highlight}}"
-                         effects:TouchEffect.NormalBackgroundColor="{AppThemeBinding Light={StaticResource white}, Dark={StaticResource black}}"
                          effects:TouchEffect.Command="{Binding Source={RelativeSource AncestorType={x:Type vm:BaseViewModel}}, Path=SetAppIconCommand}"
-                         effects:TouchEffect.CommandParameter="{Binding Source={RelativeSource Self}, Path=BindingContext}">
-
-                <ff:CachedImage Source="{Binding ImageUrl}"
+                         effects:TouchEffect.CommandParameter="{Binding Source={RelativeSource Self}, Path=BindingContext}"
+                         effects:TouchEffect.NormalBackgroundColor="{AppThemeBinding Light={StaticResource white}, Dark={StaticResource black}}"
+                         effects:TouchEffect.PressedBackgroundColor="{AppThemeBinding Light={StaticResource light_blue}, Dark={StaticResource background_dark_gray_highlight}}">
+                <ff:CachedImage HeightRequest="48"
                                 Margin="0,8,16,8"
+                                Source="{Binding ImageUrl}"
                                 VerticalOptions="Center"
-                                HeightRequest="48"
                                 WidthRequest="48">
                     <ff:CachedImage.Transformations>
-                        <fftransformations:CornersTransformation CornersTransformType="AllRounded" />
+                        <fftransformations:CornersTransformation CornersTransformType="AllRounded"/>
                     </ff:CachedImage.Transformations>
                 </ff:CachedImage>
-
-                <Label Style="{StaticResource list_item_title_label}"
-                       Padding="0,16"
-                       Text="{Binding Description}" />
-
-                <Label FontFamily="{StaticResource font_icon}"
-                       FontSize="20"
+                <Label Padding="0,16"
+                       Style="{StaticResource list_item_title_label}"
+                       Text="{Binding Description}"/>
+                <Label Style="{StaticResource selection_indicator}"
                        HorizontalOptions="EndAndExpand"
                        IsVisible="{Binding IsSelected}"
-                       Text="{x:Static icons:Icons.check}"
-                       TextColor="{AppThemeBinding Light={StaticResource primary}, Dark={StaticResource powderblue_light}}"
-                       VerticalOptions="Center"
-                       VerticalTextAlignment="Center"/>
+                       Text="{x:Static icons:Icons.check}"/>
             </StackLayout>
-            <BoxView Style="{StaticResource separator}" Margin="16,0"/>
+            <BoxView Margin="16,0"
+                     Style="{StaticResource separator}"/>
         </StackLayout>
     </DataTemplate>
 
@@ -152,29 +159,24 @@
             <StackLayout Orientation="Horizontal"
                          Padding="32,0"
                          Spacing="8"
-                         effects:TouchEffect.PressedBackgroundColor="{AppThemeBinding Light={StaticResource light_blue}, Dark={StaticResource background_dark_gray_highlight}}"
-                         effects:TouchEffect.NormalBackgroundColor="{AppThemeBinding Light={StaticResource white}, Dark={StaticResource black}}"
                          effects:TouchEffect.Command="{Binding Source={RelativeSource AncestorType={x:Type vm:BaseViewModel}}, Path=SetAppLanguageCommand}"
-                         effects:TouchEffect.CommandParameter="{Binding Source={RelativeSource Self}, Path=BindingContext}">
-
-                <StackLayout Padding="0,16" Spacing="4">
+                         effects:TouchEffect.CommandParameter="{Binding Source={RelativeSource Self}, Path=BindingContext}"
+                         effects:TouchEffect.NormalBackgroundColor="{AppThemeBinding Light={StaticResource white}, Dark={StaticResource black}}"
+                         effects:TouchEffect.PressedBackgroundColor="{AppThemeBinding Light={StaticResource light_blue}, Dark={StaticResource background_dark_gray_highlight}}">
+                <StackLayout Padding="0,16"
+                             Spacing="4">
                     <Label Style="{StaticResource list_item_title_label}"
-                           Text="{Binding Description}" />
-
+                           Text="{Binding Description}"/>
                     <Label Style="{StaticResource list_item_subtitle_label}"
-                           Text="{Binding CurrentLanguageDescription}" />
+                           Text="{Binding CurrentLanguageDescription}"/>
                 </StackLayout>
-
-                <Label FontFamily="{StaticResource font_icon}"
-                       FontSize="20"
+                <Label Style="{StaticResource selection_indicator}"
                        HorizontalOptions="EndAndExpand"
                        IsVisible="{Binding IsSelected}"
-                       Text="{x:Static icons:Icons.check}"
-                       TextColor="{AppThemeBinding Light={StaticResource primary}, Dark={StaticResource powderblue_light}}"
-                       VerticalOptions="Center"
-                       VerticalTextAlignment="Center"/>
+                       Text="{x:Static icons:Icons.check}"/>
             </StackLayout>
-            <BoxView Style="{StaticResource separator}" Margin="16,0"/>
+            <BoxView Margin="16,0"
+                     Style="{StaticResource separator}"/>
         </StackLayout>
     </DataTemplate>
 
@@ -184,92 +186,73 @@
             <StackLayout Orientation="Horizontal"
                          Padding="32,0"
                          Spacing="8"
-                         effects:TouchEffect.PressedBackgroundColor="{AppThemeBinding Light={StaticResource light_blue}, Dark={StaticResource background_dark_gray_highlight}}"
-                         effects:TouchEffect.NormalBackgroundColor="{AppThemeBinding Light={StaticResource white}, Dark={StaticResource black}}"
                          effects:TouchEffect.Command="{Binding Source={RelativeSource AncestorType={x:Type vm:BaseViewModel}}, Path=SelectVisibilityCommand}"
-                         effects:TouchEffect.CommandParameter="{Binding Source={RelativeSource Self}, Path=BindingContext}">
-                <Label Style="{StaticResource list_item_title_label}"
-                       Padding="0,16"
-                       Text="{Binding Visibility.Description}" />
-
-                <Label FontFamily="{StaticResource font_icon}"
-                       FontSize="20"
+                         effects:TouchEffect.CommandParameter="{Binding Source={RelativeSource Self}, Path=BindingContext}"
+                         effects:TouchEffect.NormalBackgroundColor="{AppThemeBinding Light={StaticResource white}, Dark={StaticResource black}}"
+                         effects:TouchEffect.PressedBackgroundColor="{AppThemeBinding Light={StaticResource light_blue}, Dark={StaticResource background_dark_gray_highlight}}">
+                <Label Padding="0,16"
+                       Style="{StaticResource list_item_title_label}"
+                       Text="{Binding Visibility.Description}"/>
+                <Label Style="{StaticResource selection_indicator}"
                        HorizontalOptions="EndAndExpand"
                        IsVisible="{Binding IsSelected}"
-                       Text="{x:Static icons:Icons.check}"
-                       TextColor="{AppThemeBinding Light={StaticResource primary}, Dark={StaticResource powderblue_light}}"
-                       VerticalOptions="Center"
-                       VerticalTextAlignment="Center"/>
+                       Text="{x:Static icons:Icons.check}"/>
             </StackLayout>
-            <BoxView Style="{StaticResource separator}" Margin="16,0"/>
+            <BoxView Margin="16,0"
+                     Style="{StaticResource separator}"/>
         </StackLayout>
     </DataTemplate>
 
-    <DataTemplate x:Key="contribution_type_item"
-                  x:DataType="vm:ContributionTypeViewModel">
+    <DataTemplate x:DataType="vm:ContributionTypeViewModel"
+                  x:Key="contribution_type_item">
         <StackLayout>
             <StackLayout Orientation="Horizontal"
                          Padding="32,0"
                          Spacing="8"
-                         effects:TouchEffect.PressedBackgroundColor="{AppThemeBinding Light={StaticResource light_blue}, Dark={StaticResource background_dark_gray_highlight}}"
-                         effects:TouchEffect.NormalBackgroundColor="{AppThemeBinding Light={StaticResource white}, Dark={StaticResource black}}"
                          effects:TouchEffect.Command="{Binding Source={RelativeSource AncestorType={x:Type vm:BaseViewModel}}, Path=SelectContributionTypeCommand}"
-                         effects:TouchEffect.CommandParameter="{Binding Source={RelativeSource Self}, Path=BindingContext}">
-                <Label Style="{StaticResource list_item_title_label}"
-                       Text="{Binding ContributionType.Name}"                       
-                       Padding="0,16"/>
-
-                <Label FontFamily="{StaticResource font_icon}"
-                   FontSize="20"
-                   HorizontalOptions="EndAndExpand"
-                   IsVisible="{Binding IsSelected}"
-                   Text="{x:Static icons:Icons.check}"
-                   TextColor="{AppThemeBinding Light={StaticResource primary}, Dark={StaticResource powderblue_light}}"
-                   VerticalOptions="Center"
-                   VerticalTextAlignment="Center"/>
+                         effects:TouchEffect.CommandParameter="{Binding Source={RelativeSource Self}, Path=BindingContext}"
+                         effects:TouchEffect.NormalBackgroundColor="{AppThemeBinding Light={StaticResource white}, Dark={StaticResource black}}"
+                         effects:TouchEffect.PressedBackgroundColor="{AppThemeBinding Light={StaticResource light_blue}, Dark={StaticResource background_dark_gray_highlight}}">
+                <Label Padding="0,16"
+                       Style="{StaticResource list_item_title_label}"
+                       Text="{Binding ContributionType.Name}"/>
+                <Label Style="{StaticResource selection_indicator}"
+                       HorizontalOptions="EndAndExpand"
+                       IsVisible="{Binding IsSelected}"
+                       Text="{x:Static icons:Icons.check}"/>
             </StackLayout>
-            <BoxView Style="{StaticResource separator}" Margin="16,0"/>
+            <BoxView Margin="16,0"
+                     Style="{StaticResource separator}"/>
         </StackLayout>
     </DataTemplate>
 
-    <DataTemplate x:Key="contribution_technology_item"
-                  x:DataType="vm:ContributionTechnologyViewModel">
+    <DataTemplate x:DataType="vm:ContributionTechnologyViewModel"
+                  x:Key="contribution_technology_item">
         <StackLayout>
             <StackLayout Orientation="Horizontal"
                          Padding="32,0"
                          Spacing="8"
-                         effects:TouchEffect.PressedBackgroundColor="{AppThemeBinding Light={StaticResource light_blue}, Dark={StaticResource background_dark_gray_highlight}}"
-                         effects:TouchEffect.NormalBackgroundColor="{AppThemeBinding Light={StaticResource white}, Dark={StaticResource black}}"
                          effects:TouchEffect.Command="{Binding Source={RelativeSource AncestorType={x:Type vm:BaseViewModel}}, Path=SelectContributionTechnologyCommand}"
-                         effects:TouchEffect.CommandParameter="{Binding Source={RelativeSource Self}, Path=BindingContext}">
-                <Label Style="{StaticResource list_item_title_label}"
-                       Text="{Binding ContributionTechnology.Name}"                       
-                       Padding="0,16"/>
-
-                <Label FontFamily="{StaticResource font_icon}"
-                   FontSize="20"
-                   HorizontalOptions="EndAndExpand"
-                   IsVisible="{Binding IsSelected}"
-                   Text="{x:Static icons:Icons.check}"
-                   TextColor="{AppThemeBinding Light={StaticResource primary}, Dark={StaticResource powderblue_light}}"
-                   VerticalOptions="Center"
-                   VerticalTextAlignment="Center"/>
+                         effects:TouchEffect.CommandParameter="{Binding Source={RelativeSource Self}, Path=BindingContext}"
+                         effects:TouchEffect.NormalBackgroundColor="{AppThemeBinding Light={StaticResource white}, Dark={StaticResource black}}"
+                         effects:TouchEffect.PressedBackgroundColor="{AppThemeBinding Light={StaticResource light_blue}, Dark={StaticResource background_dark_gray_highlight}}">
+                <Label Padding="0,16"
+                       Style="{StaticResource list_item_title_label}"
+                       Text="{Binding ContributionTechnology.Name}"/>
+                <Label Style="{StaticResource selection_indicator}"
+                       HorizontalOptions="EndAndExpand"
+                       IsVisible="{Binding IsSelected}"
+                       Text="{x:Static icons:Icons.check}"/>
             </StackLayout>
-            <BoxView Style="{StaticResource separator}" Margin="16,0"/>
+            <BoxView Margin="16,0"
+                     Style="{StaticResource separator}"/>
         </StackLayout>
-
-        <!--<Grid Padding="16,0"
-              RowDefinitions="Auto, 1">
-            <Label Style="{StaticResource list_item_title_label}"
-                   Text="{Binding Name}"/>
-            <BoxView Style="{StaticResource separator}"
-                     Grid.Row="1"/>
-        </Grid>-->
     </DataTemplate>
 
     <DataTemplate x:Key="contribution_technology_group">
         <Grid Padding="24,24,24,16">
             <Label FontFamily="{StaticResource font_bold}"
+                   FontSize="{StaticResource fontsize_h3}"
                    LineBreakMode="TailTruncation"
                    Text="{Binding Key}"/>
         </Grid>

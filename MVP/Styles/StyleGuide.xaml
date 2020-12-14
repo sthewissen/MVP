@@ -86,9 +86,13 @@
     <x:String x:Key="font_semibold">SourceSansPro-SemiBold</x:String>
     <x:String x:Key="font_icon">MVPBuzz</x:String>
 
-    <x:Int32 x:Key="fontsize_small">15</x:Int32>
-    <x:Int32 x:Key="fontsize_medium">15</x:Int32>
-    <x:Int32 x:Key="fontsize_large">15</x:Int32>
+    <x:Double x:Key="fontsize_allcaps">12</x:Double>
+    <x:Double x:Key="fontsize_small">13</x:Double>
+    <x:Double x:Key="fontsize_medium">16</x:Double>
+    <x:Double x:Key="fontsize_h1">24</x:Double>
+    <x:Double x:Key="fontsize_h2">20</x:Double>
+    <x:Double x:Key="fontsize_h3">18</x:Double>
+
     <!--Resets-->
 
     <Style TargetType="Grid">
@@ -130,18 +134,16 @@
         <Setter Property="FontSize" Value="{StaticResource fontsize_medium}" />
     </Style>
 
-    <Style TargetType="Entry">
-        <Setter Property="BackgroundColor" Value="Transparent"/>
+    <Style TargetType="Button">
         <Setter Property="FontFamily" Value="{StaticResource font_regular}" />
-        <Setter Property="FontSize" Value="16" />
+        <Setter Property="FontSize" Value="{StaticResource fontsize_medium}" />
         <Setter Property="TextColor" Value="{AppThemeBinding Light={StaticResource black}, Dark={StaticResource white}}" />
-        <Setter Property="PlaceholderColor" Value="{StaticResource gray}" />
     </Style>
 
     <Style TargetType="DatePicker">
         <Setter Property="BackgroundColor" Value="{AppThemeBinding Light={StaticResource white}, Dark={StaticResource black}}"/>
         <Setter Property="FontFamily" Value="{StaticResource font_regular}" />
-        <Setter Property="FontSize" Value="16" />
+        <Setter Property="FontSize" Value="{StaticResource fontsize_medium}" />
         <Setter Property="TextColor" Value="{AppThemeBinding Light={StaticResource black}, Dark={StaticResource white}}" />
     </Style>
 
@@ -154,6 +156,7 @@
         <Setter Property="FontFamily" Value="{StaticResource font_regular}" />
         <Setter Property="TextColor" Value="{AppThemeBinding Light={StaticResource black}, Dark={StaticResource white}}" />
         <Setter Property="PlaceholderColor" Value="{StaticResource gray}" />
+        <Setter Property="FontSize" Value="{StaticResource fontsize_medium}" />
     </Style>
 
     <Style TargetType="Switch">
@@ -164,7 +167,6 @@
 
     <Style x:Key="contribution_item_title" TargetType="Label">
         <Setter Property="FontFamily" Value="{StaticResource font_bold}" />
-        <Setter Property="FontSize" Value="16" />
         <Setter Property="TextColor" Value="{AppThemeBinding Light={StaticResource black}, Dark={StaticResource white}}" />
         <Setter Property="MaxLines" Value="2" />
         <Setter Property="LineBreakMode" Value="TailTruncation" />
@@ -172,7 +174,7 @@
 
     <Style x:Key="contribution_item_date" TargetType="Label">
         <Setter Property="FontFamily" Value="{StaticResource font_regular}" />
-        <Setter Property="FontSize" Value="14" />
+        <Setter Property="FontSize" Value="{StaticResource fontsize_small}" />
         <Setter Property="TextColor" Value="{StaticResource gray}" />
     </Style>
 
@@ -186,14 +188,13 @@
         <Setter Property="HorizontalOptions" Value="Center" />
         <Setter Property="HorizontalTextAlignment" Value="Center" />
         <Setter Property="FontFamily" Value="{StaticResource font_bold}" />
-        <Setter Property="FontSize" Value="11" />
+        <Setter Property="FontSize" Value="{StaticResource fontsize_allcaps}" />
     </Style>
 
     <Style x:Key="list_item_title_label" TargetType="Label">
         <Setter Property="VerticalOptions" Value="Center" />
         <Setter Property="VerticalTextAlignment" Value="Center" />
         <Setter Property="FontFamily" Value="{StaticResource font_semibold}" />
-        <Setter Property="FontSize" Value="14" />
         <Setter Property="LineBreakMode" Value="TailTruncation" />
     </Style>
 
@@ -202,7 +203,7 @@
         <Setter Property="VerticalOptions" Value="Center" />
         <Setter Property="VerticalTextAlignment" Value="Center" />
         <Setter Property="FontFamily" Value="{StaticResource font_regular}" />
-        <Setter Property="FontSize" Value="14" />
+        <Setter Property="FontSize" Value="{StaticResource fontsize_small}" />
         <Setter Property="LineBreakMode" Value="TailTruncation" />
     </Style>
 
@@ -222,34 +223,9 @@
         <Setter Property="TextColor" Value="{AppThemeBinding Light={StaticResource black}, Dark={StaticResource white}}" />
         <Setter Property="VerticalTextAlignment" Value="Center"/>
         <Setter Property="FontFamily" Value="{StaticResource font_bold}"/>
-        <Setter Property="FontSize" Value="18"/>
+        <Setter Property="FontSize" Value="{StaticResource fontsize_h3}"/>
         <Setter Property="HorizontalOptions" Value="Center"/>
         <Setter Property="VerticalOptions" Value="Center"/>
-    </Style>
-
-    <Style x:Key="wizard_title" TargetType="Label">
-        <Setter Property="FontFamily" Value="{StaticResource font_bold}"/>
-        <Setter Property="FontSize" Value="28"/>
-    </Style>
-
-    <Style x:Key="wizard_subtitle" TargetType="Label">
-        <Setter Property="TextColor" Value="{StaticResource gray}"/>
-        <Setter Property="FontSize" Value="16"/>
-        <Setter Property="Margin" Value="24,0,24,16"/>
-    </Style>
-
-    <Style x:Key="fab_button" TargetType="Button">
-        <Setter Property="BackgroundColor" Value="{StaticResource primary}"/>
-        <Setter Property="CornerRadius" Value="28"/>
-        <Setter Property="HeightRequest" Value="56" />
-        <Setter Property="WidthRequest" Value="56"/>
-        <Setter Property="TextColor" Value="{StaticResource white}"/>
-        <Setter Property="VerticalOptions" Value="End"/>
-        <Setter Property="HorizontalOptions" Value="End"/>
-        <Setter Property="Margin" Value="0,0,24,24" />
-        <Setter Property="FontSize" Value="20" />
-        <Setter Property="FontFamily" Value="{StaticResource font_icon}" />
-        <Setter Property="effects:SafeAreaEffect.SafeArea" Value="false,false,false,true" />
     </Style>
 
     <Style x:Key="search_icon" TargetType="Label">
@@ -264,7 +240,7 @@
     <Style x:Key="search_text" TargetType="Label">
         <Setter Property="TextColor" Value="{StaticResource gray}"/>
         <Setter Property="FontFamily" Value="{StaticResource font_regular}"/>
-        <Setter Property="FontSize" Value="{StaticResource fontsize_medium}"/>
+        <Setter Property="FontSize" Value="{StaticResource fontsize_small}"/>
         <Setter Property="VerticalOptions" Value="Center"/>
         <Setter Property="BackgroundColor" Value="Transparent"/>
     </Style>
@@ -303,13 +279,13 @@
     <Style x:Key="field_label" TargetType="Label">
         <Setter Property="TextColor" Value="{StaticResource gray}"/>
         <Setter Property="FontFamily" Value="{StaticResource font_semibold}"/>
-        <Setter Property="FontSize" Value="14"/>
+        <Setter Property="FontSize" Value="{StaticResource fontsize_small}"/>
     </Style>
 
     <Style x:Key="contribution_detail_title" TargetType="Label">
         <Setter Property="LineBreakMode" Value="TailTruncation"/>
         <Setter Property="FontFamily" Value="{StaticResource font_bold}"/>
-        <Setter Property="FontSize" Value="20"/>
+        <Setter Property="FontSize" Value="{StaticResource fontsize_h2}"/>
         <Setter Property="MaxLines" Value="2"/>
     </Style>
 
@@ -319,8 +295,8 @@
     </Style>
 
     <Style x:Key="about_title" TargetType="Label">
-        <Setter Property="FontFamily" Value="{StaticResource font_bold}"/>
-        <Setter Property="FontSize" Value="16"/>
+        <Setter Property="FontFamily" Value="{StaticResource font_bold}" />
+        <Setter Property="FontSize" Value="{StaticResource fontsize_h3}" />
         <Setter Property="Margin" Value="0,0,0,8"/>
     </Style>
 
@@ -330,37 +306,34 @@
 
     <Style x:Key="field_description" TargetType="Label">
         <Setter Property="TextColor" Value="{StaticResource gray}"/>
-        <Setter Property="FontSize" Value="14"/>
+        <Setter Property="FontSize" Value="{StaticResource fontsize_small}"/>
     </Style>
 
     <Style x:Key="field_title" TargetType="Label">
         <Setter Property="FontFamily" Value="{StaticResource font_semibold}"/>
-        <Setter Property="FontSize" Value="16"/>
     </Style>
 
     <Style x:Key="profile_subtitle" TargetType="Label">
         <Setter Property="LineBreakMode" Value="TailTruncation"/>
         <Setter Property="TextColor" Value="{StaticResource gray}"/>
-        <Setter Property="FontSize" Value="14"/>
+        <Setter Property="FontSize" Value="{StaticResource fontsize_small}"/>
         <Setter Property="MaxLines" Value="2"/>
     </Style>
 
     <Style x:Key="profile_name" TargetType="Label">
         <Setter Property="LineBreakMode" Value="TailTruncation"/>
         <Setter Property="FontFamily" Value="{StaticResource font_bold}"/>
-        <Setter Property="FontSize" Value="20"/>
+        <Setter Property="FontSize" Value="{StaticResource fontsize_h2}"/>
         <Setter Property="MaxLines" Value="1"/>
     </Style>
 
     <Style x:Key="input_picker_label" TargetType="Label">
         <Setter Property="TextColor" Value="{AppThemeBinding Light={StaticResource black}, Dark={StaticResource white}}"/>
-        <Setter Property="FontSize" Value="16"/>
     </Style>
 
     <Style x:Key="input_multi_editor" TargetType="Editor">
         <Setter Property="AutoSize" Value="TextChanges"/>
         <Setter Property="FontFamily" Value="{StaticResource font_regular}"/>
-        <Setter Property="FontSize" Value="16"/>
         <Setter Property="Margin" Value="16,0"/>
         <Setter Property="BackgroundColor" Value="Transparent"/>
     </Style>
@@ -375,7 +348,6 @@
 
     <Style x:Key="input_single_entry" TargetType="Entry">
         <Setter Property="FontFamily" Value="{StaticResource font_regular}"/>
-        <Setter Property="FontSize" Value="16"/>
         <Setter Property="Margin" Value="16,0"/>
         <Setter Property="BackgroundColor" Value="Transparent"/>
     </Style>
@@ -392,7 +364,7 @@
         <Setter Property="TextColor" Value="{AppThemeBinding Light={StaticResource gray}, Dark={StaticResource gray}}"/>
         <Setter Property="VerticalTextAlignment" Value="Center"/>
         <Setter Property="FontFamily" Value="{StaticResource font_icon}"/>
-        <Setter Property="FontSize" Value="24"/>
+        <Setter Property="FontSize" Value="{StaticResource fontsize_h1}"/>
         <Setter Property="VerticalOptions" Value="Center"/>
     </Style>
 
@@ -410,7 +382,7 @@
     <Style x:Key="warning_icon" TargetType="Label">
         <Setter Property="TextColor" Value="{AppThemeBinding Light={StaticResource warning}, Dark={StaticResource light_warning}}"/>
         <Setter Property="FontFamily" Value="{StaticResource font_icon}"/>
-        <Setter Property="FontSize" Value="18"/>
+        <Setter Property="FontSize" Value="{StaticResource fontsize_h3}"/>
         <Setter Property="VerticalOptions" Value="Center"/>
     </Style>
 
@@ -418,5 +390,37 @@
         <Setter Property="Padding" Value="16"/>
         <Setter Property="Margin" Value="0,0,0,16"/>
         <Setter Property="BackgroundColor" Value="{AppThemeBinding Light={StaticResource light_warning}, Dark={StaticResource warning}}"/>
+    </Style>
+
+    <Style x:Key="contributionform_note" TargetType="Label">
+        <Setter Property="TextColor" Value="{StaticResource gray}"/>
+        <Setter Property="FontSize" Value="{StaticResource fontsize_small}"/>
+    </Style>
+
+    <Style x:Key="urlpreview_description" TargetType="Label">
+        <Setter Property="HorizontalTextAlignment" Value="Start"/>
+        <Setter Property="LineBreakMode" Value="TailTruncation"/>
+        <Setter Property="FontSize" Value="{StaticResource fontsize_small}"/>
+        <Setter Property="MaxLines" Value="3"/>
+    </Style>
+
+    <Style x:Key="urlpreview_title" TargetType="Label">
+        <Setter Property="LineBreakMode" Value="TailTruncation"/>
+        <Setter Property="FontFamily" Value="{StaticResource font_bold}"/>
+        <Setter Property="FontSize" Value="{StaticResource fontsize_small}"/>
+        <Setter Property="MaxLines" Value="1"/>
+    </Style>
+
+    <Style x:Key="selection_indicator" TargetType="Label">
+        <Setter Property="TextColor" Value="{AppThemeBinding Light={StaticResource primary}, Dark={StaticResource powderblue_light}}"/>
+        <Setter Property="VerticalTextAlignment" Value="Center"/>
+        <Setter Property="FontFamily" Value="{StaticResource font_icon}"/>
+        <Setter Property="FontSize" Value="{StaticResource fontsize_h2}"/>
+        <Setter Property="VerticalOptions" Value="Center"/>
+    </Style>
+
+    <Style x:Key="required_indicator" TargetType="Label">
+        <Setter Property="TextColor" Value="{StaticResource error}"/>
+        <Setter Property="FontSize" Value="{StaticResource fontsize_h3}"/>
     </Style>
 </ResourceDictionary>
