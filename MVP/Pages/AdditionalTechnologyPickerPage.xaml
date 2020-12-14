@@ -24,7 +24,8 @@
                     <views:StateView StateKey="Loading" RepeatCount="3" RepeatTemplate="{StaticResource picker_item_loading}" />
                 </views:StateLayout.StateViews>
 
-                <CollectionView GroupHeaderTemplate="{StaticResource contribution_technology_group}"
+                <CollectionView Grid.Row="1"
+                                GroupHeaderTemplate="{StaticResource contribution_technology_group}"
                                 IsGrouped="true"
                                 ItemsSource="{Binding GroupedContributionTechnologies}"
                                 ItemTemplate="{StaticResource contribution_technology_item}"
