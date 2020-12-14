@@ -296,7 +296,6 @@
 
     <Style x:Key="about_title" TargetType="Label">
         <Setter Property="FontFamily" Value="{StaticResource font_bold}" />
-        <Setter Property="FontSize" Value="{StaticResource fontsize_h3}" />
         <Setter Property="Margin" Value="0,0,0,8"/>
     </Style>
 
