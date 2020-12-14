@@ -24,7 +24,7 @@
         <PackageReference Include="akavache" Version="7.1.1" />
         <PackageReference Include="TinyMvvm.Forms" Version="3.0.1-pre3" />
         <PackageReference Include="TinyMvvm.Autofac" Version="3.0.1-pre3" />
-        <PackageReference Include="Xamarin.CommunityToolkit" Version="1.0.0-preview1115" />
+        <PackageReference Include="Xamarin.CommunityToolkit" Version="1.0.0-preview1119" />
         <PackageReference Include="Com.Airbnb.Xamarin.Forms.Lottie" Version="4.0.8" />
     </ItemGroup>
     <ItemGroup>
@@ -45,6 +45,8 @@
         <Folder Include="ViewModels\Data\" />
         <Folder Include="Validation\" />
         <Folder Include="Models\Enums\" />
+        <Folder Include="Services\Demo\" />
+        <Folder Include="Services\Demo\Files\" />
     </ItemGroup>
     <ItemGroup>
         <None Remove="Resources\mvp_logo.svg" />
@@ -54,6 +56,12 @@
         <None Remove="Resources\Fonts\MVPBuzz.ttf" />
         <None Remove="Resources\loading.json" />
         <None Remove="Resources\loading_light.json" />
+        <None Remove="Services\Demo\Files\getprofile.json" />
+        <None Remove="Services\Demo\Files\getprofileimage.json" />
+        <None Remove="Services\Demo\Files\getvisibilities.json" />
+        <None Remove="Services\Demo\Files\getcontributiontypes.json" />
+        <None Remove="Services\Demo\Files\getcontributionareas.json" />
+        <None Remove="Services\Demo\Files\getcontributions.json" />
     </ItemGroup>
     <ItemGroup>
         <EmbeddedResource Include="Resources\mvp_logo.svg">
@@ -68,6 +76,24 @@
         </EmbeddedResource>
         <EmbeddedResource Include="Resources\loading_light.json">
           <LogicalName>MVP.loading_light.json</LogicalName>
+        </EmbeddedResource>
+        <EmbeddedResource Include="Services\Demo\Files\getprofile.json">
+          <LogicalName>getprofile.json</LogicalName>
+        </EmbeddedResource>
+        <EmbeddedResource Include="Services\Demo\Files\getprofileimage.json">
+          <LogicalName>getprofileimage.json</LogicalName>
+        </EmbeddedResource>
+        <EmbeddedResource Include="Services\Demo\Files\getvisibilities.json">
+          <LogicalName>getvisibilities.json</LogicalName>
+        </EmbeddedResource>
+        <EmbeddedResource Include="Services\Demo\Files\getcontributiontypes.json">
+          <LogicalName>getcontributiontypes.json</LogicalName>
+        </EmbeddedResource>
+        <EmbeddedResource Include="Services\Demo\Files\getcontributionareas.json">
+          <LogicalName>getcontributionareas.json</LogicalName>
+        </EmbeddedResource>
+        <EmbeddedResource Include="Services\Demo\Files\getcontributions.json">
+          <LogicalName>getcontributions.json</LogicalName>
         </EmbeddedResource>
     </ItemGroup>
     <ItemGroup>
