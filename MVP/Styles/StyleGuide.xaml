@@ -330,6 +330,11 @@
         <Setter Property="TextColor" Value="{AppThemeBinding Light={StaticResource black}, Dark={StaticResource white}}"/>
     </Style>
 
+    <Style x:Key="input_picker_placeholder" TargetType="Label">
+        <Setter Property="TextColor" Value="{StaticResource gray}"/>
+        <Setter Property="FontSize" Value="{StaticResource fontsize_small}"/>
+    </Style>
+
     <Style x:Key="input_multi_editor" TargetType="Editor">
         <Setter Property="AutoSize" Value="TextChanges"/>
         <Setter Property="FontFamily" Value="{StaticResource font_regular}"/>

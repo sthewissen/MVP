@@ -33,8 +33,8 @@
                IsVisible="{Binding Value, Source={x:Reference inputView}, Converter={xct:IsNotNullOrEmptyConverter}}"
                Text="{Binding Value, Source={x:Reference inputView}}" />
 
-        <Label Grid.Row="1"
-               TextColor="{StaticResource gray}"
+        <Label Style="{StaticResource input_picker_placeholder}"
+               Grid.Row="1"
                IsVisible="{Binding Value, Source={x:Reference inputView}, Converter={xct:IsNullOrEmptyConverter}}"
                Text="{Binding Placeholder, Source={x:Reference inputView}}">
             <Label.Triggers>
