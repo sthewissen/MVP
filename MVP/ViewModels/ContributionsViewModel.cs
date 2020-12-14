@@ -50,6 +50,7 @@ namespace MVP.ViewModels
         {
             Contributions.Clear();
             contributions.Clear();
+
             try
             {
                 State = LayoutState.Loading;
@@ -64,13 +65,7 @@ namespace MVP.ViewModels
                 if (contributionsList == null)
                     return;
 
-            var contributionsList = await MvpApiService.GetContributionsAsync(0, pageSize).ConfigureAwait(false);
                 Contributions = contributionsList.Contributions;
-
-            if (contributionsList == null)
-                return;
-
-            Contributions = contributionsList.Contributions;
             }
             finally
             {
