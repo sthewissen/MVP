@@ -1,0 +1,114 @@
+[
+  {
+    "Id": "Acr.UserDialogs",
+    "Title": "Acr.UserDialogs",
+    "Description": "A cross platform library that allows you to call for standard user dialogs from a shared/portable library. Supports Android, iOS, and UWP",
+    "ProjectUrl": "https://github.com/aritchie/userdialogs",
+    "LicenseUrl": "https://licenses.nuget.org/MIT"
+  },
+  {
+    "Id": "Com.Airbnb.Xamarin.Forms.Lottie",
+    "Title": "Com.Airbnb.Xamarin.Forms.Lottie",
+    "Description": "Render After Effects animations natively on Android, iOS, MacOS, TVOs and UWP",
+    "ProjectUrl": "https://github.com/Baseflow/LottieXamarin",
+    "LicenseUrl": "https://licenses.nuget.org/Apache-2.0"
+  },
+  {
+    "Id": "Plugin.CurrentActivity",
+    "Title": "Current Activity Plugin for Xamarin.Android",
+    "Description": "Provides a simple solution for getting access to the current Activity of the application when developing a Plugin for Xamarin.\r\n      This will lay down a base \"application\" class for developers in their Android application with boilerplate code to get them started.",
+    "ProjectUrl": "https://github.com/jamesmontemagno/CurrentActivityPlugin",
+    "LicenseUrl": "https://github.com/jamesmontemagno/CurrentActivityPlugin/blob/master/LICENSE"
+  },
+  {
+    "Id": "Xamarin.Android.Support.Core.Utils",
+    "Title": "Xamarin Android Support Library - support-core-utils",
+    "Description": "Xamarin.Android bindings for Android Support Library - support-core-utils",
+    "ProjectUrl": "https://go.microsoft.com/fwlink/?linkid=865352",
+    "LicenseUrl": "https://go.microsoft.com/fwlink/?linkid=865381"
+  },
+  {
+    "Id": "Xamarin.Essentials",
+    "Title": "Xamarin.Essentials",
+    "Description": "Xamarin.Essentials: a kit of essential API's for your apps",
+    "ProjectUrl": "https://go.microsoft.com/fwlink/?linkid=868960",
+    "LicenseUrl": "https://aka.ms/deprecateLicenseUrl"
+  },
+  {
+    "Id": "Xamarin.FFImageLoading.Forms",
+    "Title": "FFImageLoading Plugin for Xamarin Forms",
+    "Description": "Xamarin Library to load images quickly and easily on Xamarin.Forms.\r\n\r\nEnsure you call CachedImageRenderer.Init() on each platform!!!\r\n\r\nFeatures:\r\n\r\n- Xamarin.iOS, Xamarin.Android, Xamarin.Forms, Xamarin.Mac and Windows (WinRT, UWP) support\r\n- Configurable disk and memory caching\r\n- Multiple image views using the same image source (url, path, resource) will use only one bitmap which is cached in memory (less memory usage)\r\n- Deduplication of similar download/load requests. *(If 100 similar requests arrive at same time then one real loading will be performed while 99 others will wait).*\r\n- Error and loading placeholders support\r\n- Images can be automatically downsampled to specified size (less memory usage)\r\n- Fluent API which is inspired by Picasso naming\r\n- SVG / WebP / GIF support\r\n- Image loading Fade-In animations support\r\n- Can retry image downloads (RetryCount, RetryDelay)\r\n- Android bitmap optimization. Saves 50% of memory by trying not to use transparency channel when possible.\r\n- Transformations support\r\n- BlurredTransformation\r\n- CircleTransformation, RoundedTransformation, CornersTransformation, CropTransformation\r\n- ColorSpaceTransformation, GrayscaleTransformation, SepiaTransformation, TintTransformation\r\n- FlipTransformation, RotateTransformation\r\n- Supports custom transformations (native platform `ITransformation` implementations)",
+    "ProjectUrl": "https://github.com/luberda-molinet/FFImageLoading",
+    "LicenseUrl": "https://raw.githubusercontent.com/luberda-molinet/FFImageLoading/master/LICENSE.md"
+  },
+  {
+    "Id": "Xamarin.FFImageLoading.Transformations",
+    "Title": "FFImageLoading Transformations",
+    "Description": "Transformations for FFImageLoading library.\r\n\r\n- BlurredTransformation\r\n- CircleTransformation, RoundedTransformation, CornersTransformation, CropTransformation\r\n- ColorSpaceTransformation, GrayscaleTransformation, SepiaTransformation, TintTransformation\r\n- FlipTransformation, RotateTransformation\r\n- Supports custom transformations (native platform `ITransformation` implementations)\r\n\r\nThese transformations can be consumed from FFImageLoading and FFImageLoading.Forms (Xamarin Forms).\r\nDon't forget to add the package in all platform specific projects. This way the correct native implementation is injected.",
+    "ProjectUrl": "https://github.com/luberda-molinet/FFImageLoading",
+    "LicenseUrl": "https://raw.githubusercontent.com/luberda-molinet/FFImageLoading/master/LICENSE.md"
+  },
+  {
+    "Id": "Xamarin.Forms",
+    "Title": "Xamarin.Forms",
+    "Description": "Build native UIs for iOS, Android, UWP, macOS, Tizen and many more from a single, shared C# codebase",
+    "ProjectUrl": "http://xamarin.com/forms",
+    "LicenseUrl": "https://licenses.nuget.org/MIT"
+  },
+  {
+    "Id": "akavache",
+    "Title": "akavache",
+    "Description": "An asynchronous, persistent key-value store for desktop and mobile applications on .NET",
+    "ProjectUrl": "https://github.com/reactiveui/akavache/",
+    "LicenseUrl": "https://licenses.nuget.org/MIT"
+  },
+  {
+    "Id": "HtmlAgilityPack",
+    "Title": "HtmlAgilityPack",
+    "Description": "This is an agile HTML parser that builds a read/write DOM and supports plain XPATH or XSLT (you actually don't HAVE to understand XPATH nor XSLT to use it, don't worry...). It is a .NET code library that allows you to parse \"out of the web\" HTML files. The parser is very tolerant with \"real world\" malformed HTML. The object model is very similar to what proposes System.Xml, but for HTML documents (or streams).",
+    "ProjectUrl": "http://html-agility-pack.net/",
+    "LicenseUrl": "https://github.com/zzzprojects/html-agility-pack/blob/master/LICENSE"
+  },
+  {
+    "Id": "Newtonsoft.Json",
+    "Title": "Json.NET",
+    "Description": "Json.NET is a popular high-performance JSON framework for .NET",
+    "ProjectUrl": "https://www.newtonsoft.com/json",
+    "LicenseUrl": "https://licenses.nuget.org/MIT"
+  },
+  {
+    "Id": "PropertyChanged.Fody",
+    "Title": "PropertyChanged.Fody",
+    "Description": "Add property notification to all classes that implement INotifyPropertyChanged.",
+    "ProjectUrl": "https://github.com/Fody/PropertyChanged",
+    "LicenseUrl": "https://licenses.nuget.org/MIT"
+  },
+  {
+    "Id": "Refit",
+    "Title": "Refit",
+    "Description": "The automatic type-safe REST library for Xamarin and .NET",
+    "ProjectUrl": "https://github.com/reactiveui/refit",
+    "LicenseUrl": "https://licenses.nuget.org/MIT"
+  },
+  {
+    "Id": "Xamarin.FFImageLoading.Svg.Forms",
+    "Title": "Xamarin.Forms FFImageLoading SVG support",
+    "Description": "Xamarin.Forms SVG support for FFImageLoading library.",
+    "ProjectUrl": "https://github.com/luberda-molinet/FFImageLoading",
+    "LicenseUrl": "https://raw.githubusercontent.com/luberda-molinet/FFImageLoading/master/LICENSE.md"
+  },
+  {
+    "Id": "NETStandard.Library",
+    "Title": "NETStandard.Library",
+    "Description": "A set of standard .NET APIs that are prescribed to be used and supported together. \r\n18a36291e48808fa7ef2d00a764ceb1ec95645a5 \r\nWhen using NuGet 3.x this package requires at least version 3.4.",
+    "ProjectUrl": "https://dot.net/",
+    "LicenseUrl": "https://github.com/dotnet/standard/blob/master/LICENSE.TXT"
+  },
+  {
+    "Id": "autofac",
+    "Title": "Autofac",
+    "Description": "Autofac is an IoC container for Microsoft .NET. It manages the dependencies between classes so that applications stay easy to change as they grow in size and complexity.",
+    "ProjectUrl": "http://autofac.org/",
+    "LicenseUrl": "http://www.opensource.org/licenses/mit-license.php"
+  }
+]

@@ -122,6 +122,24 @@
         </StackLayout>
     </DataTemplate>
 
+    <DataTemplate x:Key="license_item">
+        <StackLayout>
+            <StackLayout Orientation="Horizontal"
+                         Padding="32,0"
+                         Spacing="8"
+                         effects:TouchEffect.Command="{Binding Source={RelativeSource AncestorType={x:Type vm:BaseViewModel}}, Path=OpenLicenseCommand}"
+                         effects:TouchEffect.CommandParameter="{Binding Source={RelativeSource Self}, Path=BindingContext}"
+                         effects:TouchEffect.NormalBackgroundColor="{AppThemeBinding Light={StaticResource white}, Dark={StaticResource black}}"
+                         effects:TouchEffect.PressedBackgroundColor="{AppThemeBinding Light={StaticResource light_blue}, Dark={StaticResource background_dark_gray_highlight}}">
+                <Label Padding="0,16"
+                       Style="{StaticResource list_item_title_label}"
+                       Text="{Binding Title}"/>
+            </StackLayout>
+            <BoxView Margin="16,0"
+                     Style="{StaticResource separator}"/>
+        </StackLayout>
+    </DataTemplate>
+
     <DataTemplate x:DataType="data:AppIconViewModel"
                   x:Key="app_icon_item">
         <StackLayout>

@@ -1,5 +1,4 @@
 ﻿using Autofac;
-using FormsToolkit.iOS;
 using Foundation;
 using Microsoft.Identity.Client;
 using MVP.Services;
@@ -20,7 +19,6 @@ namespace MVP.iOS
 
             // Init plugins
             FFImageLoading.Forms.Platform.CachedImageRenderer.Init();
-            Toolkit.Init();
 
             // Inject our dependencies
             using var scope = ContainerService.Container.BeginLifetimeScope();

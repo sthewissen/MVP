@@ -47,7 +47,7 @@
 
                             <Entry Placeholder="{extensions:Translate search_placeholder}"
                                    Text="{Binding SearchText}"
-                                   FontSize="{StaticResource font_size_small}"
+                                   FontSize="{StaticResource fontsize_small}"
                                    VerticalOptions="Center">
                                 <Entry.Behaviors>
                                     <behaviors:UserStoppedTypingBehavior Command="{Binding SearchCommand}"

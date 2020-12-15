@@ -5,17 +5,17 @@
                        xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
                        xmlns:extensions="clr-namespace:Xamarin.CommunityToolkit.Extensions;assembly=Xamarin.CommunityToolkit"
                        xmlns:local="clr-namespace:MVP"
-                       x:Class="MVP.Pages.LanguagePickerPage"
-                       x:DataType="vm:LanguagePickerViewModel"
-                       x:TypeArguments="vm:LanguagePickerViewModel">
+                       x:Class="MVP.Pages.LicensesPage"
+                       x:DataType="vm:LicensesViewModel"
+                       x:TypeArguments="vm:LicensesViewModel">
 
-    <local:AppFrame Title="{extensions:Translate languagepicker_title}"
+    <local:AppFrame Title="{extensions:Translate licenses_title}"
                     ShowBackButton="True"
                     x:Name="appFrame">
         <local:AppFrame.Content>
 
-            <CollectionView ItemsSource="{Binding SupportedLanguages}"
-                            ItemTemplate="{StaticResource app_language_item}"
+            <CollectionView ItemsSource="{Binding Licenses}"
+                            ItemTemplate="{StaticResource license_item}"
                             Scrolled="CollectionView_Scrolled"
                             SelectionMode="None">
                 <CollectionView.Footer>
@@ -25,4 +25,5 @@
 
         </local:AppFrame.Content>
     </local:AppFrame>
+
 </pages:BaseContentPage>

@@ -32,6 +32,15 @@
                            Text="{xct:Translate about_opensource_description}" />
 
                     <Button Text="{xct:Translate button_becomesponsor}"/>
+
+                    <Label Style="{StaticResource about_title}"
+                           Text="{xct:Translate about_licenses_title}"
+                           Margin="0,0,0,8" />
+                    <Label Style="{StaticResource about_description}"
+                           Margin="0,0,0,24"
+                           Text="{xct:Translate about_licenses_description}" />
+
+                    <Button Text="{xct:Translate button_viewlicenses}" Command="{Binding OpenLicensesCommand}" />
                 </StackLayout>
 
             </ScrollView>

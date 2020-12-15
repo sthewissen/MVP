@@ -10,7 +10,6 @@
         <PackageReference Include="Xamarin.Essentials" Version="1.6.0-pre5" />
         <PackageReference Include="Newtonsoft.Json" Version="12.0.3" />
         <PackageReference Include="Microsoft.Identity.Client" Version="4.24.0" />
-        <PackageReference Include="Xamarin.Forms.PancakeView" Version="2.3.0.759" />
         <PackageReference Include="Xamarin.FFImageLoading.Forms" Version="2.4.11.982" />
         <PackageReference Include="Xamarin.FFImageLoading.Transformations" Version="2.4.11.982" />
         <PackageReference Include="PropertyChanged.Fody" Version="3.3.1" />
@@ -62,6 +61,7 @@
         <None Remove="Services\Demo\Files\getcontributiontypes.json" />
         <None Remove="Services\Demo\Files\getcontributionareas.json" />
         <None Remove="Services\Demo\Files\getcontributions.json" />
+        <None Remove="Resources\oss.json" />
     </ItemGroup>
     <ItemGroup>
         <EmbeddedResource Include="Resources\mvp_logo.svg">
@@ -94,6 +94,9 @@
         </EmbeddedResource>
         <EmbeddedResource Include="Services\Demo\Files\getcontributions.json">
           <LogicalName>getcontributions.json</LogicalName>
+        </EmbeddedResource>
+        <EmbeddedResource Include="Resources\oss.json">
+          <LogicalName>oss.json</LogicalName>
         </EmbeddedResource>
     </ItemGroup>
     <ItemGroup>

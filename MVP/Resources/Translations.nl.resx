@@ -252,4 +252,16 @@
     <data name="progress_saving" xml:space="preserve">
         <value>Saving...</value>
     </data>
+    <data name="licenses_title" xml:space="preserve">
+        <value>Licenses</value>
+    </data>
+    <data name="about_licenses_title" xml:space="preserve">
+        <value>Licenses</value>
+    </data>
+    <data name="about_licenses_description" xml:space="preserve">
+        <value>This app stands on the shoulders of giants without whom its creation would not be possible. If you want to know who they are, check out the licenses for their awesome pieces of software.</value>
+    </data>
+    <data name="button_viewlicenses" xml:space="preserve">
+        <value>View licenses</value>
+    </data>
 </root>

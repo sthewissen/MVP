@@ -1,0 +1,609 @@
+{
+  "format": 1,
+  "restore": {
+    "/Users/sthewissen/Documents/GitHub/MVP/MVP.Android/MVP.Android.csproj": {},
+    "/Users/sthewissen/Documents/GitHub/MVP/MVP.iOS/MVP.iOS.csproj": {},
+    "/Users/sthewissen/Documents/GitHub/MVP/MVP/MVP.csproj": {},
+    "/Users/sthewissen/Downloads/TinyMvvm-3.0/src/TinyMvvm.Autofac/TinyMvvm.Autofac.csproj": {},
+    "/Users/sthewissen/Downloads/TinyMvvm-3.0/src/TinyMvvm.Forms/TinyMvvm.Forms.csproj": {},
+    "/Users/sthewissen/Downloads/TinyMvvm-3.0/src/TinyMvvm.TinyIoC/TinyMvvm.TinyIoC.csproj": {},
+    "/Users/sthewissen/Downloads/TinyMvvm-3.0/src/TinyMvvm/TinyMvvm.csproj": {}
+  },
+  "projects": {
+    "/Users/sthewissen/Documents/GitHub/MVP/MVP.Android/MVP.Android.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/Users/sthewissen/Documents/GitHub/MVP/MVP.Android/MVP.Android.csproj",
+        "projectName": "MVP.Android",
+        "projectPath": "/Users/sthewissen/Documents/GitHub/MVP/MVP.Android/MVP.Android.csproj",
+        "packagesPath": "/Users/sthewissen/.nuget/packages/",
+        "outputPath": "/Users/sthewissen/Documents/GitHub/MVP/MVP.Android/obj/",
+        "projectStyle": "PackageReference",
+        "skipContentFileWrite": true,
+        "configFilePaths": [
+          "/Users/sthewissen/.config/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "monoandroid90"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {},
+          "https://pkgs.dev.azure.com/xamarin/public/_packaging/XamarinCommunityToolkitNightly/nuget/v3/index.json": {}
+        },
+        "frameworks": {
+          "monoandroid90": {
+            "projectReferences": {
+              "/Users/sthewissen/Documents/GitHub/MVP/MVP/MVP.csproj": {
+                "projectPath": "/Users/sthewissen/Documents/GitHub/MVP/MVP/MVP.csproj"
+              },
+              "/Users/sthewissen/Downloads/TinyMvvm-3.0/src/TinyMvvm.Forms/TinyMvvm.Forms.csproj": {
+                "projectPath": "/Users/sthewissen/Downloads/TinyMvvm-3.0/src/TinyMvvm.Forms/TinyMvvm.Forms.csproj"
+              }
+            }
+          }
+        }
+      },
+      "frameworks": {
+        "monoandroid90": {
+          "dependencies": {
+            "Acr.UserDialogs": {
+              "target": "Package",
+              "version": "[7.1.0.470, )"
+            },
+            "Com.Airbnb.Xamarin.Forms.Lottie": {
+              "target": "Package",
+              "version": "[4.0.8, )"
+            },
+            "FormsToolkit": {
+              "target": "Package",
+              "version": "[2.0.1, )"
+            },
+            "Microsoft.AppCenter": {
+              "target": "Package",
+              "version": "[4.0.0, )"
+            },
+            "Microsoft.AppCenter.Analytics": {
+              "target": "Package",
+              "version": "[4.0.0, )"
+            },
+            "Microsoft.AppCenter.Crashes": {
+              "target": "Package",
+              "version": "[4.0.0, )"
+            },
+            "Microsoft.Identity.Client": {
+              "target": "Package",
+              "version": "[4.24.0, )"
+            },
+            "Plugin.CurrentActivity": {
+              "target": "Package",
+              "version": "[2.1.0.4, )"
+            },
+            "Xamarin.Android.Support.Core.Utils": {
+              "target": "Package",
+              "version": "[28.0.0.3, )"
+            },
+            "Xamarin.CommunityToolkit": {
+              "target": "Package",
+              "version": "[1.0.0-preview1119, )"
+            },
+            "Xamarin.Essentials": {
+              "target": "Package",
+              "version": "[1.6.0-pre5, )"
+            },
+            "Xamarin.FFImageLoading.Forms": {
+              "target": "Package",
+              "version": "[2.4.11.982, )"
+            },
+            "Xamarin.FFImageLoading.Transformations": {
+              "target": "Package",
+              "version": "[2.4.11.982, )"
+            },
+            "Xamarin.Forms": {
+              "target": "Package",
+              "version": "[5.0.0.1791-pre5, )"
+            },
+            "Xamarin.Forms.PancakeView": {
+              "target": "Package",
+              "version": "[2.3.0.759, )"
+            },
+            "akavache": {
+              "target": "Package",
+              "version": "[7.1.1, )"
+            }
+          }
+        }
+      }
+    },
+    "/Users/sthewissen/Documents/GitHub/MVP/MVP.iOS/MVP.iOS.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/Users/sthewissen/Documents/GitHub/MVP/MVP.iOS/MVP.iOS.csproj",
+        "projectName": "MVP.iOS",
+        "projectPath": "/Users/sthewissen/Documents/GitHub/MVP/MVP.iOS/MVP.iOS.csproj",
+        "packagesPath": "/Users/sthewissen/.nuget/packages/",
+        "outputPath": "/Users/sthewissen/Documents/GitHub/MVP/MVP.iOS/obj/",
+        "projectStyle": "PackageReference",
+        "skipContentFileWrite": true,
+        "configFilePaths": [
+          "/Users/sthewissen/.config/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "xamarinios10"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {},
+          "https://pkgs.dev.azure.com/xamarin/public/_packaging/XamarinCommunityToolkitNightly/nuget/v3/index.json": {}
+        },
+        "frameworks": {
+          "xamarinios10": {
+            "projectReferences": {
+              "/Users/sthewissen/Documents/GitHub/MVP/MVP/MVP.csproj": {
+                "projectPath": "/Users/sthewissen/Documents/GitHub/MVP/MVP/MVP.csproj"
+              },
+              "/Users/sthewissen/Downloads/TinyMvvm-3.0/src/TinyMvvm.Autofac/TinyMvvm.Autofac.csproj": {
+                "projectPath": "/Users/sthewissen/Downloads/TinyMvvm-3.0/src/TinyMvvm.Autofac/TinyMvvm.Autofac.csproj"
+              },
+              "/Users/sthewissen/Downloads/TinyMvvm-3.0/src/TinyMvvm.Forms/TinyMvvm.Forms.csproj": {
+                "projectPath": "/Users/sthewissen/Downloads/TinyMvvm-3.0/src/TinyMvvm.Forms/TinyMvvm.Forms.csproj"
+              }
+            }
+          }
+        }
+      },
+      "frameworks": {
+        "xamarinios10": {
+          "dependencies": {
+            "Acr.UserDialogs": {
+              "target": "Package",
+              "version": "[7.1.0.470, )"
+            },
+            "Com.Airbnb.Xamarin.Forms.Lottie": {
+              "target": "Package",
+              "version": "[4.0.8, )"
+            },
+            "FormsToolkit": {
+              "target": "Package",
+              "version": "[2.0.1, )"
+            },
+            "FreshMvvm": {
+              "target": "Package",
+              "version": "[3.0.0, )"
+            },
+            "Microsoft.AppCenter": {
+              "target": "Package",
+              "version": "[4.0.0, )"
+            },
+            "Microsoft.AppCenter.Analytics": {
+              "target": "Package",
+              "version": "[4.0.0, )"
+            },
+            "Microsoft.AppCenter.Crashes": {
+              "target": "Package",
+              "version": "[4.0.0, )"
+            },
+            "Microsoft.Identity.Client": {
+              "target": "Package",
+              "version": "[4.24.0, )"
+            },
+            "Xamarin.CommunityToolkit": {
+              "target": "Package",
+              "version": "[1.0.0-preview1119, )"
+            },
+            "Xamarin.Essentials": {
+              "target": "Package",
+              "version": "[1.6.0-pre5, )"
+            },
+            "Xamarin.FFImageLoading.Forms": {
+              "target": "Package",
+              "version": "[2.4.11.982, )"
+            },
+            "Xamarin.FFImageLoading.Transformations": {
+              "target": "Package",
+              "version": "[2.4.11.982, )"
+            },
+            "Xamarin.Forms": {
+              "target": "Package",
+              "version": "[5.0.0.1791-pre5, )"
+            },
+            "Xamarin.Forms.PancakeView": {
+              "target": "Package",
+              "version": "[2.3.0.759, )"
+            },
+            "akavache": {
+              "target": "Package",
+              "version": "[7.1.1, )"
+            }
+          }
+        }
+      },
+      "runtimes": {
+        "win": {
+          "#import": []
+        },
+        "win-x64": {
+          "#import": []
+        },
+        "win-x86": {
+          "#import": []
+        }
+      }
+    },
+    "/Users/sthewissen/Documents/GitHub/MVP/MVP/MVP.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/Users/sthewissen/Documents/GitHub/MVP/MVP/MVP.csproj",
+        "projectName": "MVP",
+        "projectPath": "/Users/sthewissen/Documents/GitHub/MVP/MVP/MVP.csproj",
+        "packagesPath": "/Users/sthewissen/.nuget/packages/",
+        "outputPath": "/Users/sthewissen/Documents/GitHub/MVP/MVP/obj/",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "/Users/sthewissen/.config/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "netstandard2.1"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {},
+          "https://pkgs.dev.azure.com/xamarin/public/_packaging/XamarinCommunityToolkitNightly/nuget/v3/index.json": {}
+        },
+        "frameworks": {
+          "netstandard2.1": {
+            "projectReferences": {
+              "/Users/sthewissen/Downloads/TinyMvvm-3.0/src/TinyMvvm.Autofac/TinyMvvm.Autofac.csproj": {
+                "projectPath": "/Users/sthewissen/Downloads/TinyMvvm-3.0/src/TinyMvvm.Autofac/TinyMvvm.Autofac.csproj"
+              },
+              "/Users/sthewissen/Downloads/TinyMvvm-3.0/src/TinyMvvm.Forms/TinyMvvm.Forms.csproj": {
+                "projectPath": "/Users/sthewissen/Downloads/TinyMvvm-3.0/src/TinyMvvm.Forms/TinyMvvm.Forms.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netstandard2.1": {
+          "dependencies": {
+            "Acr.UserDialogs": {
+              "target": "Package",
+              "version": "[7.1.0.470, )"
+            },
+            "Com.Airbnb.Xamarin.Forms.Lottie": {
+              "target": "Package",
+              "version": "[4.0.8, )"
+            },
+            "HtmlAgilityPack": {
+              "target": "Package",
+              "version": "[1.11.28, )"
+            },
+            "Microsoft.AppCenter": {
+              "target": "Package",
+              "version": "[4.0.0, )"
+            },
+            "Microsoft.AppCenter.Analytics": {
+              "target": "Package",
+              "version": "[4.0.0, )"
+            },
+            "Microsoft.AppCenter.Crashes": {
+              "target": "Package",
+              "version": "[4.0.0, )"
+            },
+            "Microsoft.Identity.Client": {
+              "target": "Package",
+              "version": "[4.24.0, )"
+            },
+            "Newtonsoft.Json": {
+              "target": "Package",
+              "version": "[12.0.3, )"
+            },
+            "PropertyChanged.Fody": {
+              "target": "Package",
+              "version": "[3.3.1, )"
+            },
+            "Refit": {
+              "target": "Package",
+              "version": "[5.2.1, )"
+            },
+            "Xamarin.CommunityToolkit": {
+              "target": "Package",
+              "version": "[1.0.0-preview1119, )"
+            },
+            "Xamarin.Essentials": {
+              "target": "Package",
+              "version": "[1.6.0-pre5, )"
+            },
+            "Xamarin.FFImageLoading.Forms": {
+              "target": "Package",
+              "version": "[2.4.11.982, )"
+            },
+            "Xamarin.FFImageLoading.Svg.Forms": {
+              "target": "Package",
+              "version": "[2.4.11.982, )"
+            },
+            "Xamarin.FFImageLoading.Transformations": {
+              "target": "Package",
+              "version": "[2.4.11.982, )"
+            },
+            "Xamarin.Forms": {
+              "target": "Package",
+              "version": "[5.0.0.1791-pre5, )"
+            },
+            "Xamarin.Forms.PancakeView": {
+              "target": "Package",
+              "version": "[2.3.0.759, )"
+            },
+            "akavache": {
+              "target": "Package",
+              "version": "[7.1.1, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "NETStandard.Library": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/3.1.302/RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "/Users/sthewissen/Downloads/TinyMvvm-3.0/src/TinyMvvm.Autofac/TinyMvvm.Autofac.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/Users/sthewissen/Downloads/TinyMvvm-3.0/src/TinyMvvm.Autofac/TinyMvvm.Autofac.csproj",
+        "projectName": "TinyMvvm.Autofac",
+        "projectPath": "/Users/sthewissen/Downloads/TinyMvvm-3.0/src/TinyMvvm.Autofac/TinyMvvm.Autofac.csproj",
+        "packagesPath": "/Users/sthewissen/.nuget/packages/",
+        "outputPath": "/Users/sthewissen/Downloads/TinyMvvm-3.0/src/TinyMvvm.Autofac/obj/",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "/Users/sthewissen/.config/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "netstandard2.0"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {},
+          "https://pkgs.dev.azure.com/xamarin/public/_packaging/XamarinCommunityToolkitNightly/nuget/v3/index.json": {}
+        },
+        "frameworks": {
+          "netstandard2.0": {
+            "projectReferences": {
+              "/Users/sthewissen/Downloads/TinyMvvm-3.0/src/TinyMvvm/TinyMvvm.csproj": {
+                "projectPath": "/Users/sthewissen/Downloads/TinyMvvm-3.0/src/TinyMvvm/TinyMvvm.csproj"
+              }
+            }
+          }
+        }
+      },
+      "frameworks": {
+        "netstandard2.0": {
+          "dependencies": {
+            "Microsoft.SourceLink.GitHub": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[1.0.0, )"
+            },
+            "NETStandard.Library": {
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[2.0.3, )",
+              "autoReferenced": true
+            },
+            "autofac": {
+              "target": "Package",
+              "version": "[4.6.1, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/3.1.302/RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "/Users/sthewissen/Downloads/TinyMvvm-3.0/src/TinyMvvm.Forms/TinyMvvm.Forms.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/Users/sthewissen/Downloads/TinyMvvm-3.0/src/TinyMvvm.Forms/TinyMvvm.Forms.csproj",
+        "projectName": "TinyMvvm.Forms",
+        "projectPath": "/Users/sthewissen/Downloads/TinyMvvm-3.0/src/TinyMvvm.Forms/TinyMvvm.Forms.csproj",
+        "packagesPath": "/Users/sthewissen/.nuget/packages/",
+        "outputPath": "/Users/sthewissen/Downloads/TinyMvvm-3.0/src/TinyMvvm.Forms/obj/",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "/Users/sthewissen/.config/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "netstandard2.0"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {},
+          "https://pkgs.dev.azure.com/xamarin/public/_packaging/XamarinCommunityToolkitNightly/nuget/v3/index.json": {}
+        },
+        "frameworks": {
+          "netstandard2.0": {
+            "projectReferences": {
+              "/Users/sthewissen/Downloads/TinyMvvm-3.0/src/TinyMvvm/TinyMvvm.csproj": {
+                "projectPath": "/Users/sthewissen/Downloads/TinyMvvm-3.0/src/TinyMvvm/TinyMvvm.csproj"
+              }
+            }
+          }
+        }
+      },
+      "frameworks": {
+        "netstandard2.0": {
+          "dependencies": {
+            "Microsoft.SourceLink.GitHub": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[1.0.0, )"
+            },
+            "NETStandard.Library": {
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[2.0.3, )",
+              "autoReferenced": true
+            },
+            "xamarin.forms": {
+              "target": "Package",
+              "version": "[4.8.0.1687, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/3.1.302/RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "/Users/sthewissen/Downloads/TinyMvvm-3.0/src/TinyMvvm.TinyIoC/TinyMvvm.TinyIoC.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/Users/sthewissen/Downloads/TinyMvvm-3.0/src/TinyMvvm.TinyIoC/TinyMvvm.TinyIoC.csproj",
+        "projectName": "TinyMvvm.TinyIoC",
+        "projectPath": "/Users/sthewissen/Downloads/TinyMvvm-3.0/src/TinyMvvm.TinyIoC/TinyMvvm.TinyIoC.csproj",
+        "packagesPath": "/Users/sthewissen/.nuget/packages/",
+        "outputPath": "/Users/sthewissen/Downloads/TinyMvvm-3.0/src/TinyMvvm.TinyIoC/obj/",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "/Users/sthewissen/.config/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "netstandard2.0"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {},
+          "https://pkgs.dev.azure.com/xamarin/public/_packaging/XamarinCommunityToolkitNightly/nuget/v3/index.json": {}
+        },
+        "frameworks": {
+          "netstandard2.0": {
+            "projectReferences": {
+              "/Users/sthewissen/Downloads/TinyMvvm-3.0/src/TinyMvvm/TinyMvvm.csproj": {
+                "projectPath": "/Users/sthewissen/Downloads/TinyMvvm-3.0/src/TinyMvvm/TinyMvvm.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netstandard2.0": {
+          "dependencies": {
+            "Microsoft.SourceLink.GitHub": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[1.0.0, )"
+            },
+            "NETStandard.Library": {
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[2.0.3, )",
+              "autoReferenced": true
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/3.1.302/RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "/Users/sthewissen/Downloads/TinyMvvm-3.0/src/TinyMvvm/TinyMvvm.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/Users/sthewissen/Downloads/TinyMvvm-3.0/src/TinyMvvm/TinyMvvm.csproj",
+        "projectName": "TinyMvvm",
+        "projectPath": "/Users/sthewissen/Downloads/TinyMvvm-3.0/src/TinyMvvm/TinyMvvm.csproj",
+        "packagesPath": "/Users/sthewissen/.nuget/packages/",
+        "outputPath": "/Users/sthewissen/Downloads/TinyMvvm-3.0/src/TinyMvvm/obj/",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "/Users/sthewissen/.config/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "netstandard2.0"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {},
+          "https://pkgs.dev.azure.com/xamarin/public/_packaging/XamarinCommunityToolkitNightly/nuget/v3/index.json": {}
+        },
+        "frameworks": {
+          "netstandard2.0": {
+            "projectReferences": {}
+          }
+        }
+      },
+      "frameworks": {
+        "netstandard2.0": {
+          "dependencies": {
+            "Microsoft.SourceLink.GitHub": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[1.0.0, )"
+            },
+            "NETStandard.Library": {
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[2.0.3, )",
+              "autoReferenced": true
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/3.1.302/RuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}

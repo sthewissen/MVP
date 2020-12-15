@@ -1,44 +1,18 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Net;
-using System.Net.Http;
 using System.Reactive.Linq;
-using System.Reflection;
 using System.Threading.Tasks;
-using Akavache;
-using MVP.Helpers;
 using MVP.Models;
 using MVP.Services.Helpers;
 using MVP.Services.Interfaces;
 using Newtonsoft.Json;
-using Refit;
-using Xamarin.Essentials;
 
 namespace MVP.Services.Demo
 {
     public class DemoMvpApiService : IMvpApiService
     {
-        public DemoMvpApiService()
-        {
-
-        }
-
         static ContributionList allContributionList = null;
-
-        string GetFile(string fileName)
-        {
-            var assembly = Assembly.GetExecutingAssembly();
-            var stream = assembly.GetManifestResourceStream($"{fileName}.json");
-            var text = "";
-
-            using (var reader = new System.IO.StreamReader(stream))
-            {
-                text = reader.ReadToEnd();
-            }
-
-            return text;
-        }
 
         public Task ClearAllLocalData()
             => Task.FromResult<object>(null);
@@ -48,7 +22,7 @@ namespace MVP.Services.Demo
             // Let's fake some delay, to see all the fancy loaders!
             await Task.Delay(1000);
 
-            return JsonConvert.DeserializeObject<Profile>(GetFile("getprofile"));
+            return JsonConvert.DeserializeObject<Profile>(LocalResourceService.GetFile("getprofile"));
         }
 
         public async Task<string> GetProfileImageAsync(bool forceRefresh = false)
@@ -56,7 +30,7 @@ namespace MVP.Services.Demo
             // Let's fake some delay, to see all the fancy loaders!
             await Task.Delay(1000);
 
-            var image = GetFile("getprofileimage");
+            var image = LocalResourceService.GetFile("getprofileimage");
             image = image.TrimStart('"').TrimEnd('"');
 
             return image; // $"data:image/png;base64,{image}";
@@ -77,7 +51,7 @@ namespace MVP.Services.Demo
                 };
 
             // Get them from "remote" aka reset the whole thing.
-            var list = JsonConvert.DeserializeObject<List<Contribution>>(GetFile("getcontributions"));
+            var list = JsonConvert.DeserializeObject<List<Contribution>>(LocalResourceService.GetFile("getcontributions"));
 
             allContributionList = new ContributionList()
             {
@@ -142,7 +116,7 @@ namespace MVP.Services.Demo
             // Let's fake some delay, to see all the fancy loaders!
             await Task.Delay(1000);
 
-            return JsonConvert.DeserializeObject<List<ContributionType>>(GetFile("getcontributiontypes"));
+            return JsonConvert.DeserializeObject<List<ContributionType>>(LocalResourceService.GetFile("getcontributiontypes"));
         }
 
         public async Task<IReadOnlyList<ContributionCategory>> GetContributionAreasAsync(bool forceRefresh = false)
@@ -150,7 +124,7 @@ namespace MVP.Services.Demo
             // Let's fake some delay, to see all the fancy loaders!
             await Task.Delay(1000);
 
-            return JsonConvert.DeserializeObject<List<ContributionCategory>>(GetFile("getcontributionareas"));
+            return JsonConvert.DeserializeObject<List<ContributionCategory>>(LocalResourceService.GetFile("getcontributionareas"));
         }
 
         public async Task<IReadOnlyList<Visibility>> GetVisibilitiesAsync(bool forceRefresh = false)
@@ -158,7 +132,7 @@ namespace MVP.Services.Demo
             // Let's fake some delay, to see all the fancy loaders!
             await Task.Delay(1000);
 
-            return JsonConvert.DeserializeObject<List<Visibility>>(GetFile("getvisibilities"));
+            return JsonConvert.DeserializeObject<List<Visibility>>(LocalResourceService.GetFile("getvisibilities"));
         }
 
         public event EventHandler<ApiServiceEventArgs> AccessTokenExpired;

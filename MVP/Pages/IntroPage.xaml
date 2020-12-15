@@ -61,6 +61,7 @@
                HorizontalTextAlignment="Center"
                Grid.ColumnSpan="3"
                Grid.Row="2"
+               InputTransparent="True"
                VerticalOptions="Center"
                IsVisible="{Binding Path=Position, Source={x:Reference carousel}, Converter={converters:NotEqualConverter}, ConverterParameter={StaticResource LastItemIndex}}"/>
 
