@@ -18,7 +18,7 @@ namespace MVP.Pages
         {
             AnalyticsService = analyticsService;
             On<iOS>().SetUseSafeArea(false);
-            On<iOS>().SetModalPresentationStyle(UIModalPresentationStyle.FormSheet);
+            On<iOS>().SetModalPresentationStyle(UIModalPresentationStyle.PageSheet);
 
             //if (Xamarin.Forms.Application.Current.RequestedTheme == Xamarin.Forms.OSAppTheme.Light)
             //{

@@ -122,9 +122,6 @@
         <PackageReference Include="TinyMvvm.Autofac">
           <Version>3.0.1-pre3</Version>
         </PackageReference>
-        <PackageReference Include="Xamarin.Forms.PancakeView">
-          <Version>2.3.0.759</Version>
-        </PackageReference>
         <PackageReference Include="Xamarin.CommunityToolkit">
           <Version>1.0.0-preview1119</Version>
         </PackageReference>

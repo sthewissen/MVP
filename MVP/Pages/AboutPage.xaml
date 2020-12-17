@@ -31,7 +31,7 @@
                            Margin="0,0,0,24"
                            Text="{xct:Translate about_opensource_description}" />
 
-                    <Button Text="{xct:Translate button_becomesponsor}"/>
+                    <Button Text="{xct:Translate button_becomesponsor}" Command="{Binding OpenSponsorCommand}" />
 
                     <Label Style="{StaticResource about_title}"
                            Text="{xct:Translate about_licenses_title}"

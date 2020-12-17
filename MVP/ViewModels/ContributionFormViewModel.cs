@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
+using System.Web;
 using MVP.Extensions;
+using MVP.Helpers;
 using MVP.Models;
 using MVP.Pages;
 using MVP.Services.Interfaces;
@@ -63,6 +65,68 @@ namespace MVP.ViewModels
             }
 
             Contribution.AddValidationRules();
+            await CheckForClipboardUrl();
+        }
+
+        async Task CheckForClipboardUrl()
+        {
+            if (!Preferences.Get(Settings.UseClipboardUrls, true))
+                return;
+
+            var text = string.Empty;
+
+            try
+            {
+                if (!Clipboard.HasText)
+                    return;
+
+                text = await Clipboard.GetTextAsync();
+
+                if (string.IsNullOrEmpty(text) || (!text.StartsWith("http://") && !text.StartsWith("https://")))
+                    return;
+
+                var shouldCreateActivity = await DialogService.ConfirmAsync(
+                    Resources.Translations.clipboard_alert_description,
+                    Resources.Translations.clipboard_alert_title,
+                    Resources.Translations.alert_yes,
+                    Resources.Translations.alert_no
+                );
+
+                if (!shouldCreateActivity)
+                    return;
+
+                GetOpenGraphData(text).SafeFireAndForget();
+            }
+            catch (Exception ex)
+            {
+                AnalyticsService.Report(ex, new Dictionary<string, string> { { "clipboard_value", text } });
+                return;
+            }
+        }
+
+        async Task GetOpenGraphData(string text)
+        {
+            var ogData = await OpenGraph.ParseUrlAsync(text);
+
+            if (ogData == null)
+                return;
+
+            DateTime? dateTime = null;
+
+            if (ogData.Metadata.ContainsKey("article:published_time") &&
+                DateTime.TryParse(ogData.Metadata["article:published_time"].Value(), out var activityDate))
+            {
+                dateTime = activityDate;
+            }
+
+            Contribution.Title = new Validation.ValidatableObject<string> { Value = HttpUtility.HtmlDecode(ogData.Title) };
+            Contribution.ReferenceUrl = new Validation.ValidatableObject<string> { Value = ogData.Url.AbsoluteUri };
+            Contribution.Description = ogData.Metadata.ContainsKey("og:description")
+                ? HttpUtility.HtmlDecode(ogData.Metadata["og:description"].Value())
+                : string.Empty;
+
+            if (dateTime.HasValue)
+                Contribution.StartDate = dateTime.Value;
         }
 
         // TODO: Could implement this when TinyMvvm 3.0 is final.

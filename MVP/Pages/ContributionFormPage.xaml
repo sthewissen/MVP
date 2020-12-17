@@ -97,6 +97,7 @@
                                             Keyboard="Url"
                                             Title="{xct:Translate field_url}"
                                             Value="{Binding Contribution.ReferenceUrl.Value}"/>
+
                         <controls:UrlPreviewView Padding="32,0"
                                                  Url="{Binding Contribution.ReferenceUrl.Value}"/>
 

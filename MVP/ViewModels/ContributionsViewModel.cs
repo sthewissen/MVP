@@ -73,74 +73,8 @@ namespace MVP.ViewModels
             }
         }
 
-        async Task<bool> CheckForClipboardUrl()
-        {
-            var text = string.Empty;
-
-            try
-            {
-                if (!Clipboard.HasText)
-                    return false;
-
-                text = await Clipboard.GetTextAsync();
-
-                if (string.IsNullOrEmpty(text) || (!text.StartsWith("http://") && !text.StartsWith("https://")))
-                    return false;
-
-                var shouldCreateActivity = await DialogService.ConfirmAsync(
-                    Resources.Translations.clipboard_alert_description,
-                    Resources.Translations.clipboard_alert_title,
-                    Resources.Translations.alert_yes,
-                    Resources.Translations.alert_no
-                );
-
-                if (!shouldCreateActivity)
-                    return false;
-
-                var ogData = await OpenGraph.ParseUrlAsync(text);
-
-                if (ogData == null)
-                    return false;
-
-                DateTime? dateTime = null;
-
-                if (ogData.Metadata.ContainsKey("article:published_time") &&
-                    DateTime.TryParse(ogData.Metadata["article:published_time"].Value(), out var activityDate))
-                {
-                    dateTime = activityDate;
-                }
-
-                var contrib = new Contribution
-                {
-                    Title = HttpUtility.HtmlDecode(ogData.Title),
-                    ReferenceUrl = ogData.Url.AbsoluteUri,
-                    Description = ogData.Metadata.ContainsKey("og:description")
-                        ? HttpUtility.HtmlDecode(ogData.Metadata["og:description"].Value())
-                        : string.Empty,
-                    StartDate = dateTime
-                };
-
-                await NavigationHelper.OpenModalAsync(nameof(ContributionFormPage), contrib, true).ConfigureAwait(false);
-
-                return true;
-            }
-            catch (Exception ex)
-            {
-                AnalyticsService.Report(ex, new Dictionary<string, string> { { "clipboard_value", text } });
-                return false;
-            }
-        }
-
         async Task OpenAddContribution(Contribution prefilledData = null)
-        {
-            if (Preferences.Get(Settings.UseClipboardUrls, true))
-            {
-                if (await CheckForClipboardUrl())
-                    return;
-            }
-
-            await NavigationHelper.OpenModalAsync(nameof(ContributionFormPage), prefilledData, true).ConfigureAwait(false);
-        }
+            => await NavigationHelper.OpenModalAsync(nameof(ContributionFormPage), prefilledData, true).ConfigureAwait(false);
 
         async Task OpenContribution(Contribution contribution)
             => await NavigationHelper.NavigateToAsync(nameof(ContributionDetailsPage), contribution).ConfigureAwait(false);

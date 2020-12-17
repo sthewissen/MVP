@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Web;
 using MVP.Extensions;
@@ -12,6 +13,8 @@ namespace MVP.Controls
 {
     public partial class UrlPreviewView : StackLayout
     {
+        CancellationTokenSource tokenSource;
+
         public static readonly BindableProperty UrlProperty =
             BindableProperty.Create(nameof(Url), typeof(string), typeof(UrlPreviewView), string.Empty, defaultBindingMode: BindingMode.OneWay, propertyChanged: Url_Changed);
 
@@ -37,7 +40,7 @@ namespace MVP.Controls
         {
             if (oldValue != newValue)
             {
-                (bindable as UrlPreviewView).GetOpenGraphData().SafeFireAndForget();
+                (bindable as UrlPreviewView).OnUrlPropertyChanged();
             }
         }
 
@@ -85,6 +88,27 @@ namespace MVP.Controls
 
         public UrlPreviewView()
             => InitializeComponent();
+
+
+        protected void OnUrlPropertyChanged()
+        {
+            if (tokenSource != null)
+            {
+                tokenSource.Cancel();
+                tokenSource.Dispose();
+            }
+
+            tokenSource = new CancellationTokenSource();
+
+            _ = Task.Delay(2000, tokenSource.Token)
+                .ContinueWith(task =>
+                {
+                    if (task.Status == TaskStatus.Canceled)
+                        return;
+
+                    GetOpenGraphData().SafeFireAndForget();
+                });
+        }
 
         public async Task GetOpenGraphData()
         {

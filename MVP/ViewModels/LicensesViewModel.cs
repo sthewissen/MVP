@@ -39,7 +39,7 @@ namespace MVP.ViewModels
             if (string.IsNullOrEmpty(license?.LicenseUrl))
                 return;
 
-            await Browser.OpenAsync(license.LicenseUrl);
+            await Browser.OpenAsync(license.LicenseUrl, new BrowserLaunchOptions { Flags = BrowserLaunchFlags.PresentAsPageSheet });
         }
     }
 }

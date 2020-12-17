@@ -21,7 +21,7 @@ namespace MVP.ViewModels.Data
             {
                 contributionType = value;
 
-                if (value != null)
+                if (value != null && value.Value != null)
                 {
                     Requirements = value.Value.Id.Value.GetContributionTypeRequirements();
                     AddVariableValidationRules(value);

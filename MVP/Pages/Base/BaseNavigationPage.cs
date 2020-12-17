@@ -8,7 +8,7 @@ namespace MVP.Pages
     {
         public BaseNavigationPage(Xamarin.Forms.Page root) : base(root)
         {
-            On<iOS>().SetModalPresentationStyle(UIModalPresentationStyle.FormSheet);
+            On<iOS>().SetModalPresentationStyle(UIModalPresentationStyle.PageSheet);
         }
     }
 }
