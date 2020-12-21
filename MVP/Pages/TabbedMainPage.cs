@@ -28,6 +28,7 @@ namespace MVP.Pages
             profilePage = viewCreator.Create(typeof(ProfilePage));
             badgesPage = viewCreator.Create(typeof(BadgesPage));
             statsPage = viewCreator.Create(typeof(StatisticsPage));
+
             navigationMainPage = new Xamarin.Forms.NavigationPage(mainPage);
             navigationProfilePage = new Xamarin.Forms.NavigationPage(profilePage);
 

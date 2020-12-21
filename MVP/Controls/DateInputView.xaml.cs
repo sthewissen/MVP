@@ -79,7 +79,7 @@ namespace MVP.Controls
 
         void DatePicker_Unfocused(object sender, FocusEventArgs e)
         {
-            framePicker.BorderColor = (Color)Application.Current.Resources["border_light_gray"];
+            framePicker.BorderColor = (Color)Application.Current.Resources["neutral_1"];
         }
     }
 }

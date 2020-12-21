@@ -15,7 +15,7 @@
                        x:Name="page"
                        x:TypeArguments="vm:ContributionDetailsViewModel">
 
-    <local:AppFrame SecondaryButtonIcon="{x:Static icons:Icons.edit}"
+    <local:AppFrame SecondaryButtonText="{x:Static icons:Icons.edit}"
                     ShowBackButton="True"
                     ShowSecondaryButton="{Binding CanBeEdited}"
                     Title="{xct:Translate contributiondetails_title}"
@@ -103,9 +103,7 @@
                            Text="{xct:Translate field_url}"/>
 
                     <controls:UrlPreviewView Url="{Binding Contribution.ReferenceUrl}"
-                                             effects:TouchEffect.Command="{Binding OpenUrlCommand}"
-                                             effects:TouchEffect.NormalBackgroundColor="{AppThemeBinding Light={StaticResource white}, Dark={StaticResource black}}"
-                                             effects:TouchEffect.PressedBackgroundColor="{AppThemeBinding Light={StaticResource light_blue}, Dark={StaticResource background_dark_gray_highlight}}"/>
+                                             effects:TouchEffect.Command="{Binding OpenUrlCommand}" />
 
                     <BoxView Margin="0,16"
                              Style="{StaticResource separator}"/>

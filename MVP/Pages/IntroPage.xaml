@@ -1,13 +1,14 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <pages:BaseContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+                       xmlns:converters="clr-namespace:Xamarin.CommunityToolkit.Converters;assembly=Xamarin.CommunityToolkit"
+                       xmlns:effects="clr-namespace:Xamarin.CommunityToolkit.Effects;assembly=Xamarin.CommunityToolkit"
                        xmlns:ff="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
                        xmlns:helpers="clr-namespace:MVP.Helpers"
+                       xmlns:local="clr-namespace:MVP"
                        xmlns:models="clr-namespace:MVP.Models"
                        xmlns:pages="clr-namespace:MVP.Pages"
                        xmlns:vm="clr-namespace:MVP.ViewModels"
                        xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-                       xmlns:converters="clr-namespace:Xamarin.CommunityToolkit.Converters;assembly=Xamarin.CommunityToolkit"
-                       xmlns:effects="clr-namespace:Xamarin.CommunityToolkit.Effects;assembly=Xamarin.CommunityToolkit"
                        x:Class="MVP.Pages.IntroPage"
                        x:DataType="vm:IntroViewModel"
                        x:TypeArguments="vm:IntroViewModel">
@@ -16,68 +17,63 @@
         <x:Int32 x:Key="LastItemIndex">2</x:Int32>
     </pages:BaseContentPage.Resources>
 
-    <Grid ColumnDefinitions="Auto, *, Auto"
-          RowDefinitions="Auto, *, 120, Auto"
-          effects:SafeAreaEffect.SafeArea="false,true">
+    <local:AppFrame IsSecondaryButtonIcon="False"
+                    SecondaryButtonText="Sign in"
+                    ShadowOpacity="0"
+                    ShowSecondaryButton="True"
+                    x:Name="appFrame"
+                    effects:SafeAreaEffect.SafeArea="false,true">
+        <local:AppFrame.Content>
+            <Grid RowDefinitions="*, 120, Auto">
 
-        <Button Command="{Binding SignInCommand}"
-                Grid.Column="2"
-                Text="Sign in" Margin="0,0,24,0"/>
+                <CarouselView HorizontalScrollBarVisibility="Never"
+                              IndicatorView="indicator"
+                              IsBounceEnabled="False"
+                              ItemsSource="{Binding OnboardingItems}"
+                              Loop="False"
+                              PositionChanged="CarouselView_PositionChanged"
+                              VerticalScrollBarVisibility="Never"
+                              x:Name="carousel">
+                    <CarouselView.ItemTemplate>
+                        <DataTemplate x:DataType="models:OnboardingItem">
+                            <Grid>
+                                <StackLayout Grid.Row="0"
+                                             Padding="40"
+                                             Spacing="12">
 
-        <CarouselView Grid.ColumnSpan="3"
-                      Grid.Row="1"
-                      HorizontalScrollBarVisibility="Never"
-                      IndicatorView="indicator"
-                      Loop="False"
-                      IsBounceEnabled="False"
-                      ItemsSource="{Binding OnboardingItems}"
-                      PositionChanged="CarouselView_PositionChanged"
-                      VerticalScrollBarVisibility="Never"
-                      x:Name="carousel">
+                                    <Label FontFamily="{StaticResource font_bold}"
+                                           FontSize="{StaticResource fontsize_h1}"
+                                           HorizontalTextAlignment="Center"
+                                           Text="{Binding Title}"/>
 
-            <CarouselView.ItemTemplate>
-                <DataTemplate x:DataType="models:OnboardingItem">
-                    <Grid>
-                        <StackLayout Grid.Row="0"
-                                     Padding="40"
-                                     Spacing="12">
+                                    <Label HorizontalTextAlignment="Center"
+                                           Text="{Binding Description}"/>
 
-                            <Label FontFamily="{StaticResource font_bold}"
-                                   FontSize="{StaticResource fontsize_h1}"
-                                   HorizontalTextAlignment="Center"
-                                   Text="{Binding Title}"/>
+                                </StackLayout>
+                            </Grid>
+                        </DataTemplate>
+                    </CarouselView.ItemTemplate>
+                </CarouselView>
 
-                            <Label HorizontalTextAlignment="Center"
-                                   Text="{Binding Description}"/>
+                <Label Grid.Row="1"
+                       HorizontalOptions="Center"
+                       HorizontalTextAlignment="Center"
+                       InputTransparent="True"
+                       IsVisible="{Binding Path=Position, Source={x:Reference carousel}, Converter={converters:NotEqualConverter}, ConverterParameter={StaticResource LastItemIndex}}"
+                       Text="Swipe to continue"
+                       VerticalOptions="Center"/>
 
-                        </StackLayout>
-                    </Grid>
-                </DataTemplate>
-            </CarouselView.ItemTemplate>
-        </CarouselView>
+                <Button Command="{Binding SignInAsDemoCommand}"
+                        Grid.Row="1"
+                        HorizontalOptions="Center"
+                        IsVisible="{Binding Path=Position, Source={x:Reference carousel}, Converter={converters:EqualConverter}, ConverterParameter={StaticResource LastItemIndex}}"
+                        Text="Try with a demo account"
+                        VerticalOptions="Center"/>
 
-        <Label Text="Swipe to continue"
-               HorizontalOptions="Center"
-               HorizontalTextAlignment="Center"
-               Grid.ColumnSpan="3"
-               Grid.Row="2"
-               InputTransparent="True"
-               VerticalOptions="Center"
-               IsVisible="{Binding Path=Position, Source={x:Reference carousel}, Converter={converters:NotEqualConverter}, ConverterParameter={StaticResource LastItemIndex}}"/>
-
-        <Button Text="Try with a demo account"
-                Command="{Binding SignInAsDemoCommand}"
-                HorizontalOptions="Center"
-                VerticalOptions="Center"
-                Grid.ColumnSpan="3"
-                Grid.Row="2"
-                IsVisible="{Binding Path=Position, Source={x:Reference carousel}, Converter={converters:EqualConverter}, ConverterParameter={StaticResource LastItemIndex}}"/>
-
-        <IndicatorView x:Name="indicator"
-                       Grid.Row="3"
-                       ItemsSource="{Binding OnboardingItems}"
-                       IndicatorColor="{StaticResource border_light_gray}"
-                       SelectedIndicatorColor="{StaticResource primary}"
-                       Grid.ColumnSpan="3" />
-    </Grid>
+                <IndicatorView Grid.Row="2"
+                               ItemsSource="{Binding OnboardingItems}"
+                               x:Name="indicator"/>
+            </Grid>
+        </local:AppFrame.Content>
+    </local:AppFrame>
 </pages:BaseContentPage>

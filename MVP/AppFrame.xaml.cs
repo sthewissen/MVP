@@ -21,14 +21,20 @@ namespace MVP
         public static readonly BindableProperty ShowPrimaryButtonProperty =
             BindableProperty.Create(nameof(ShowPrimaryButton), typeof(bool), typeof(AppFrame), default(bool), defaultBindingMode: BindingMode.OneWay);
 
-        public static readonly BindableProperty PrimaryButtonIconProperty =
-            BindableProperty.Create(nameof(PrimaryButtonIcon), typeof(string), typeof(AppFrame), string.Empty, defaultBindingMode: BindingMode.OneWay);
+        public static readonly BindableProperty IsPrimaryButtonIconProperty =
+            BindableProperty.Create(nameof(IsPrimaryButtonIcon), typeof(bool), typeof(AppFrame), true, defaultBindingMode: BindingMode.OneWay);
+
+        public static readonly BindableProperty PrimaryButtonTextProperty =
+            BindableProperty.Create(nameof(PrimaryButtonText), typeof(string), typeof(AppFrame), string.Empty, defaultBindingMode: BindingMode.OneWay);
 
         public static readonly BindableProperty ShowSecondaryButtonProperty =
             BindableProperty.Create(nameof(ShowSecondaryButton), typeof(bool), typeof(AppFrame), default(bool), defaultBindingMode: BindingMode.OneWay);
 
-        public static readonly BindableProperty SecondaryButtonIconProperty =
-            BindableProperty.Create(nameof(SecondaryButtonIcon), typeof(string), typeof(AppFrame), string.Empty, defaultBindingMode: BindingMode.OneWay);
+        public static readonly BindableProperty IsSecondaryButtonIconProperty =
+            BindableProperty.Create(nameof(IsSecondaryButtonIcon), typeof(bool), typeof(AppFrame), true, defaultBindingMode: BindingMode.OneWay);
+
+        public static readonly BindableProperty SecondaryButtonTextProperty =
+            BindableProperty.Create(nameof(SecondaryButtonText), typeof(string), typeof(AppFrame), string.Empty, defaultBindingMode: BindingMode.OneWay);
 
         public static readonly BindableProperty ShowBackButtonProperty =
             BindableProperty.Create(nameof(ShowBackButton), typeof(bool), typeof(AppFrame), default(bool), defaultBindingMode: BindingMode.OneWay);
@@ -81,10 +87,16 @@ namespace MVP
             set => SetValue(ShowPrimaryButtonProperty, value);
         }
 
-        public string PrimaryButtonIcon
+        public bool IsPrimaryButtonIcon
         {
-            get => (string)GetValue(PrimaryButtonIconProperty);
-            set => SetValue(PrimaryButtonIconProperty, value);
+            get => (bool)GetValue(IsPrimaryButtonIconProperty);
+            set => SetValue(IsPrimaryButtonIconProperty, value);
+        }
+
+        public string PrimaryButtonText
+        {
+            get => (string)GetValue(PrimaryButtonTextProperty);
+            set => SetValue(PrimaryButtonTextProperty, value);
         }
 
         public bool ShowSecondaryButton
@@ -93,10 +105,16 @@ namespace MVP
             set => SetValue(ShowSecondaryButtonProperty, value);
         }
 
-        public string SecondaryButtonIcon
+        public bool IsSecondaryButtonIcon
         {
-            get => (string)GetValue(SecondaryButtonIconProperty);
-            set => SetValue(SecondaryButtonIconProperty, value);
+            get => (bool)GetValue(IsSecondaryButtonIconProperty);
+            set => SetValue(IsSecondaryButtonIconProperty, value);
+        }
+
+        public string SecondaryButtonText
+        {
+            get => (string)GetValue(SecondaryButtonTextProperty);
+            set => SetValue(SecondaryButtonTextProperty, value);
         }
 
         public bool ShowBackButton

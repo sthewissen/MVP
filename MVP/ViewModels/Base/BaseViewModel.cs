@@ -28,7 +28,6 @@ namespace MVP.ViewModels
             AnalyticsService = analyticsService;
             DialogService = dialogService;
             NavigationHelper = navigationHelper;
-
             BackCommand = new AsyncCommand(() => Back());
         }
 

@@ -2,7 +2,9 @@
 <Grid xmlns="http://xamarin.com/schemas/2014/forms"
       xmlns:icons="clr-namespace:MVP.Styles"
       xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-      ColumnDefinitions="56,*,56"
+      xmlns:converters="clr-namespace:Xamarin.CommunityToolkit.Converters;assembly=Xamarin.CommunityToolkit"
+      ColumnDefinitions="Auto,*,Auto"
+      ColumnSpacing="8"
       RowDefinitions="56, *"
       x:Class="MVP.AppFrame"
       x:Name="appFrame">
@@ -10,6 +12,7 @@
     <Button BackgroundColor="Transparent"
             Command="{Binding BackCommand}"
             Grid.Column="0"
+            Margin="16,0,0,0"
             HorizontalOptions="Center"
             IsVisible="{Binding Source={x:Reference appFrame}, Path=ShowBackButton}"
             Style="{StaticResource button_menu_icon}"
@@ -37,23 +40,42 @@
             Command="{Binding PrimaryCommand}"
             Grid.Column="0"
             HorizontalOptions="Center"
+            Margin="16,0,0,0"
             IsVisible="{Binding Source={x:Reference appFrame}, Path=ShowPrimaryButton}"
-            Style="{StaticResource button_menu_icon}"
-            Text="{Binding Source={x:Reference appFrame}, Path=PrimaryButtonIcon}"
+            Text="{Binding Source={x:Reference appFrame}, Path=PrimaryButtonText}"
             VerticalOptions="Center"
-            x:Name="PrimaryButton"/>
+            x:Name="PrimaryButton">
+        <Button.Triggers>
+            <DataTrigger TargetType="Button" Binding="{Binding Source={x:Reference appFrame}, Path=IsPrimaryButtonIcon}" Value="true">
+                <Setter Property="Style" Value="{StaticResource button_menu_icon}" />
+            </DataTrigger>
+            <DataTrigger TargetType="Button" Binding="{Binding Source={x:Reference appFrame}, Path=IsPrimaryButtonIcon}" Value="false">
+                <Setter Property="Style" Value="{StaticResource button_menu_text}" />
+            </DataTrigger>
+        </Button.Triggers>
+    </Button>
 
     <Button BackgroundColor="Transparent"
             Command="{Binding SecondaryCommand}"
             Grid.Column="2"
+            Margin="0,0,16,0"
             HorizontalOptions="Center"
             IsVisible="{Binding Source={x:Reference appFrame}, Path=ShowSecondaryButton}"
-            Style="{StaticResource button_menu_icon}"
-            Text="{Binding Source={x:Reference appFrame}, Path=SecondaryButtonIcon}"
             VerticalOptions="Center"
-            x:Name="SecondaryButton"/>
+            Text="{Binding Source={x:Reference appFrame}, Path=SecondaryButtonText}"
+            x:Name="SecondaryButton">
+        <Button.Triggers>
+            <DataTrigger TargetType="Button" Binding="{Binding Source={x:Reference appFrame}, Path=IsSecondaryButtonIcon}" Value="true">
+                <Setter Property="Style" Value="{StaticResource button_menu_icon}" />
+            </DataTrigger>
+            <DataTrigger TargetType="Button" Binding="{Binding Source={x:Reference appFrame}, Path=IsSecondaryButtonIcon}" Value="false">
+                <Setter Property="Style" Value="{StaticResource button_menu_text}" />
+            </DataTrigger>
+        </Button.Triggers>
+    </Button>
 
-    <Label Grid.Column="1"
+    <Label Grid.Column="0"
+           Grid.ColumnSpan="3"
            Grid.Row="0"
            Style="{StaticResource menu_title}"
            Text="{Binding Path=Title, Source={x:Reference appFrame}}"/>

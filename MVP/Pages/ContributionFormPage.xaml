@@ -15,7 +15,8 @@
                        x:TypeArguments="vm:ContributionFormViewModel">
 
     <local:AppFrame IsModal="True"
-                    SecondaryButtonIcon="{x:Static icons:Icons.save}"
+                    IsSecondaryButtonIcon="False"
+                    SecondaryButtonText="{xct:Translate contributionform_save}"
                     ShadowOpacity="1"
                     ShowBackButton="{Binding State, Converter={converters:NotEqualConverter}, ConverterParameter={x:Static state:LayoutState.Saving}}"
                     ShowSecondaryButton="{Binding State, Converter={converters:NotEqualConverter}, ConverterParameter={x:Static state:LayoutState.Saving}}"
@@ -36,7 +37,10 @@
             </DataTrigger>
         </local:AppFrame.Triggers>
         <local:AppFrame.Content>
-            <Grid>
+            <Grid state:StateLayout.CurrentState="{Binding State}"
+                  state:StateLayout.AnimateStateChanges="False"
+                  VerticalOptions="CenterAndExpand">
+
                 <ScrollView>
                     <StackLayout Padding="0,32">
                         <Label Style="{StaticResource contributionform_note}" 
@@ -154,31 +158,43 @@
                     </StackLayout>
                 </ScrollView>
 
-                <Grid BackgroundColor="{AppThemeBinding Light={StaticResource white}, Dark={StaticResource black}}"
-                      IsVisible="false"
-                      Padding="0,0,0,80">
-                    <Grid.Triggers>
-                        <DataTrigger Binding="{Binding State}"
-                                     TargetType="Grid"
-                                     Value="{x:Static state:LayoutState.Saving}">
-                            <Setter Property="IsVisible"
-                                    Value="True"/>
-                        </DataTrigger>
-                    </Grid.Triggers>
-                    <lottie:AnimationView Animation="{AppThemeBinding Light='resource://loading.json?assembly=MVP', Dark='resource://loading_light.json?assembly=MVP'}"
-                                          AnimationSource="EmbeddedResource"
-                                          AutoPlay="True"
-                                          HeightRequest="240"
-                                          HorizontalOptions="Fill"
-                                          RepeatMode="Infinite"
-                                          VerticalOptions="Center"
-                                          x:Name="animationView"/>
-                    <Label HorizontalOptions="Center"
-                           HorizontalTextAlignment="Center"
-                           Margin="0,48,0,0"
-                           Text="{xct:Translate progress_saving}"
-                           VerticalOptions="Center"/>
-                </Grid>
+
+                <state:StateLayout.StateViews>
+                    <state:StateView StateKey="Loading">
+                        <Grid VerticalOptions="CenterAndExpand"
+                              Padding="0,0,0,80">
+                            <lottie:AnimationView Animation="{AppThemeBinding Light='resource://loading.json?assembly=MVP', Dark='resource://loading_light.json?assembly=MVP'}"
+                                                  AnimationSource="EmbeddedResource"
+                                                  AutoPlay="True"
+                                                  HeightRequest="240"
+                                                  HorizontalOptions="Fill"
+                                                  RepeatMode="Infinite"
+                                                  VerticalOptions="Center" />
+                            <Label HorizontalOptions="Center"
+                                   HorizontalTextAlignment="Center"
+                                   Margin="0,48,0,0"
+                                   Text="{xct:Translate progress_loading_url_data}"
+                                   VerticalOptions="Center"/>
+                        </Grid>
+                    </state:StateView>
+                    <state:StateView StateKey="Saving">
+                        <Grid BackgroundColor="{AppThemeBinding Light={StaticResource white}, Dark={StaticResource black}}"
+                              Padding="0,0,0,80">
+                            <lottie:AnimationView Animation="{AppThemeBinding Light='resource://loading.json?assembly=MVP', Dark='resource://loading_light.json?assembly=MVP'}"
+                                                  AnimationSource="EmbeddedResource"
+                                                  AutoPlay="True"
+                                                  HeightRequest="240"
+                                                  HorizontalOptions="Fill"
+                                                  RepeatMode="Infinite"
+                                                  VerticalOptions="Center" />
+                            <Label HorizontalOptions="Center"
+                                   HorizontalTextAlignment="Center"
+                                   Margin="0,48,0,0"
+                                   Text="{xct:Translate progress_saving}"
+                                   VerticalOptions="Center"/>
+                        </Grid>
+                    </state:StateView>
+                </state:StateLayout.StateViews>
             </Grid>
         </local:AppFrame.Content>
     </local:AppFrame>

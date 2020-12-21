@@ -99,8 +99,8 @@ namespace MVP.Controls
 
         void Entry_Unfocused(object sender, FocusEventArgs e)
         {
-            frameEntry.BorderColor = (Color)Application.Current.Resources["border_light_gray"];
-            frameEditor.BorderColor = (Color)Application.Current.Resources["border_light_gray"];
+            frameEntry.BorderColor = (Color)Application.Current.Resources["neutral_1"];
+            frameEditor.BorderColor = (Color)Application.Current.Resources["neutral_1"];
             //frameEntry.HasShadow = false;
         }
     }

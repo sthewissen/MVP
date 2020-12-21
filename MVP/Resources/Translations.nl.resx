@@ -229,7 +229,7 @@
         <value>That looks cool!</value>
     </data>
     <data name="clipboard_alert_description" xml:space="preserve">
-        <value>We notice a URL on your clipboard. Do you want us to pre-fill an activity out of that?</value>
+        <value>We notice a URL on your clipboard. Do you want us to try to pre-fill an activity out of that?</value>
     </data>
     <data name="alert_contribution_notdeleted" xml:space="preserve">
         <value>Your contribution could not be deleted. Perhaps it was already deleted, or it took place in the previous award period?</value>
@@ -263,5 +263,11 @@
     </data>
     <data name="button_viewlicenses" xml:space="preserve">
         <value>View licenses</value>
+    </data>
+    <data name="progress_loading_url_data" xml:space="preserve">
+        <value>Getting URL metadata...</value>
+    </data>
+    <data name="contributionform_save" xml:space="preserve">
+        <value>Save</value>
     </data>
 </root>

@@ -13,14 +13,13 @@ namespace MVP.ViewModels
 {
     public class IntroViewModel : BaseViewModel
     {
-        public IAsyncCommand SignInCommand { get; set; }
         public IAsyncCommand SignInAsDemoCommand { get; set; }
         public List<OnboardingItem> OnboardingItems { get; }
 
         public IntroViewModel(IAnalyticsService analyticsService, IDialogService dialogService, INavigationHelper navigationHelper)
             : base(analyticsService, dialogService, navigationHelper)
         {
-            SignInCommand = new AsyncCommand(() => SignIn());
+            SecondaryCommand = new AsyncCommand(() => SignIn());
             SignInAsDemoCommand = new AsyncCommand(() => SignInAsDemo());
 
             OnboardingItems = new List<OnboardingItem> {

@@ -25,7 +25,7 @@
     <local:AppFrame Title="{xct:Translate profile_title}"
                     x:Name="appFrame"
                     ShowSecondaryButton="True"
-                    SecondaryButtonIcon="{x:Static icons:Icons.info}">
+                    SecondaryButtonText="{x:Static icons:Icons.info}">
         <local:AppFrame.Content>
             <ScrollView Scrolled="ScrollView_Scrolled">
                 <StackLayout>
@@ -119,7 +119,7 @@
                           Padding="32,16,16,16"
                           RowDefinitions="Auto, Auto"
                           RowSpacing="8"
-                          effects:TouchEffect.PressedBackgroundColor="{AppThemeBinding Light={StaticResource light_blue}, Dark={StaticResource background_dark_gray_highlight}}"
+                          effects:TouchEffect.PressedBackgroundColor="{AppThemeBinding Light={StaticResource white_highlight}, Dark={StaticResource black_highlight}}"
                           effects:TouchEffect.NormalBackgroundColor="{AppThemeBinding Light={StaticResource white}, Dark={StaticResource black}}"
                           effects:TouchEffect.Command="{Binding OpenThemePickerCommand}">
 
@@ -144,7 +144,7 @@
                           Padding="32,16,16,16"
                           RowDefinitions="Auto, Auto"
                           RowSpacing="8"
-                          effects:TouchEffect.PressedBackgroundColor="{AppThemeBinding Light={StaticResource light_blue}, Dark={StaticResource background_dark_gray_highlight}}"
+                          effects:TouchEffect.PressedBackgroundColor="{AppThemeBinding Light={StaticResource white_highlight}, Dark={StaticResource black_highlight}}"
                           effects:TouchEffect.NormalBackgroundColor="{AppThemeBinding Light={StaticResource white}, Dark={StaticResource black}}"
                           effects:TouchEffect.Command="{Binding OpenLanguagePickerCommand}">
 
@@ -170,7 +170,7 @@
                           Padding="32,16,16,16"
                           RowDefinitions="Auto, Auto"
                           RowSpacing="8"
-                          effects:TouchEffect.PressedBackgroundColor="{AppThemeBinding Light={StaticResource light_blue}, Dark={StaticResource background_dark_gray_highlight}}"
+                          effects:TouchEffect.PressedBackgroundColor="{AppThemeBinding Light={StaticResource white_highlight}, Dark={StaticResource black_highlight}}"
                           effects:TouchEffect.NormalBackgroundColor="{AppThemeBinding Light={StaticResource white}, Dark={StaticResource black}}"
                           effects:TouchEffect.Command="{Binding OpenIconPickerCommand}">
 

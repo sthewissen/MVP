@@ -68,6 +68,7 @@ namespace MVP.ViewModels
             await CheckForClipboardUrl();
         }
 
+
         async Task CheckForClipboardUrl()
         {
             if (!Preferences.Get(Settings.UseClipboardUrls, true))
@@ -106,27 +107,36 @@ namespace MVP.ViewModels
 
         async Task GetOpenGraphData(string text)
         {
-            var ogData = await OpenGraph.ParseUrlAsync(text);
-
-            if (ogData == null)
-                return;
-
-            DateTime? dateTime = null;
-
-            if (ogData.Metadata.ContainsKey("article:published_time") &&
-                DateTime.TryParse(ogData.Metadata["article:published_time"].Value(), out var activityDate))
+            try
             {
-                dateTime = activityDate;
+                State = LayoutState.Loading;
+
+                var ogData = await OpenGraph.ParseUrlAsync(text);
+
+                if (ogData == null)
+                    return;
+
+                DateTime? dateTime = null;
+
+                if (ogData.Metadata.ContainsKey("article:published_time") &&
+                    DateTime.TryParse(ogData.Metadata["article:published_time"].Value(), out var activityDate))
+                {
+                    dateTime = activityDate;
+                }
+
+                Contribution.Title = new Validation.ValidatableObject<string> { Value = HttpUtility.HtmlDecode(ogData.Title) };
+                Contribution.ReferenceUrl = new Validation.ValidatableObject<string> { Value = ogData.Url?.AbsoluteUri };
+                Contribution.Description = ogData.Metadata.ContainsKey("og:description")
+                    ? HttpUtility.HtmlDecode(ogData.Metadata["og:description"].Value())
+                    : string.Empty;
+
+                if (dateTime.HasValue)
+                    Contribution.StartDate = dateTime.Value;
             }
-
-            Contribution.Title = new Validation.ValidatableObject<string> { Value = HttpUtility.HtmlDecode(ogData.Title) };
-            Contribution.ReferenceUrl = new Validation.ValidatableObject<string> { Value = ogData.Url.AbsoluteUri };
-            Contribution.Description = ogData.Metadata.ContainsKey("og:description")
-                ? HttpUtility.HtmlDecode(ogData.Metadata["og:description"].Value())
-                : string.Empty;
-
-            if (dateTime.HasValue)
-                Contribution.StartDate = dateTime.Value;
+            finally
+            {
+                State = LayoutState.None;
+            }
         }
 
         // TODO: Could implement this when TinyMvvm 3.0 is final.

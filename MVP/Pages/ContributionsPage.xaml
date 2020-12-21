@@ -12,7 +12,8 @@
                        x:TypeArguments="vm:ContributionsViewModel"
                        xmlns:state="clr-namespace:Xamarin.CommunityToolkit.UI.Views;assembly=Xamarin.CommunityToolkit">
 
-    <local:AppFrame SecondaryButtonIcon="{x:Static icons:Icons.plus}"
+    <local:AppFrame IsSecondaryButtonIcon="True"
+                    SecondaryButtonText="{x:Static icons:Icons.plus}"
                     ShowSecondaryButton="True"
                     Title="{xct:Translate contributions_title}"
                     x:Name="appFrame">

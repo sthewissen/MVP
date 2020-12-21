@@ -508,5 +508,47 @@ namespace MVP.Resources {
                 return ResourceManager.GetString("alert_error_nomvpaccount", resourceCulture);
             }
         }
+        
+        internal static string progress_saving {
+            get {
+                return ResourceManager.GetString("progress_saving", resourceCulture);
+            }
+        }
+        
+        internal static string licenses_title {
+            get {
+                return ResourceManager.GetString("licenses_title", resourceCulture);
+            }
+        }
+        
+        internal static string about_licenses_title {
+            get {
+                return ResourceManager.GetString("about_licenses_title", resourceCulture);
+            }
+        }
+        
+        internal static string about_licenses_description {
+            get {
+                return ResourceManager.GetString("about_licenses_description", resourceCulture);
+            }
+        }
+        
+        internal static string button_viewlicenses {
+            get {
+                return ResourceManager.GetString("button_viewlicenses", resourceCulture);
+            }
+        }
+        
+        internal static string progress_loading_url_data {
+            get {
+                return ResourceManager.GetString("progress_loading_url_data", resourceCulture);
+            }
+        }
+        
+        internal static string contributionform_save {
+            get {
+                return ResourceManager.GetString("contributionform_save", resourceCulture);
+            }
+        }
     }
 }

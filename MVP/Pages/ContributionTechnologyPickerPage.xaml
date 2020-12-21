@@ -23,7 +23,7 @@
 
                 <state:StateLayout.StateViews>
                     <state:StateView StateKey="Loading"
-                                     RepeatCount="3"
+                                     RepeatCount="2"
                                      RepeatTemplate="{StaticResource picker_item_loading}" />
                 </state:StateLayout.StateViews>
 

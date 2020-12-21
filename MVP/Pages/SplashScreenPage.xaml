@@ -4,7 +4,7 @@
                        xmlns:pages="clr-namespace:MVP.Pages"
                        xmlns:vm="clr-namespace:MVP.ViewModels"
                        xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-                       BackgroundColor="{AppThemeBinding Light={StaticResource primary}, Dark={StaticResource dark_primary}}"
+                       BackgroundColor="{AppThemeBinding Light={StaticResource primary}, Dark={StaticResource black}}"
                        x:Class="MVP.Pages.SplashScreenPage"
                        x:DataType="vm:SplashScreenViewModel"
                        x:TypeArguments="vm:SplashScreenViewModel">

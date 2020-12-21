@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 using System.Web;
 using MVP.Extensions;
@@ -55,8 +56,6 @@ namespace MVP.ViewModels
             {
                 State = LayoutState.Loading;
 
-                await Task.Delay(5000);
-
                 Contributions.Clear();
                 contributions.Clear();
 
@@ -65,7 +64,7 @@ namespace MVP.ViewModels
                 if (contributionsList == null)
                     return;
 
-                Contributions = contributionsList.Contributions;
+                Contributions = contributionsList.Contributions.OrderByDescending(x => x.StartDate).ToList();
             }
             finally
             {
