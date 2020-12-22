@@ -19,7 +19,6 @@
     <Color x:Key="light_warning">#F5EDC6</Color>
     <Color x:Key="dark_warning">#F8C25B</Color>
 
-
     <!-- Accent colors -->
     <Color x:Key="white">#FFFFFF</Color>
     <Color x:Key="white_highlight">#E1EFFA</Color>
@@ -80,6 +79,12 @@
     <Color x:Key="powderblue_dark">#99AAD5</Color>
     <Color x:Key="blue_light">#5165A2</Color>
     <Color x:Key="blue_dark">#384C81</Color>
+
+    <x:Array x:Key="faux_list" Type="{x:Type x:Int32}">
+        <x:Int32>0</x:Int32>
+        <x:Int32>1</x:Int32>
+        <x:Int32>2</x:Int32>
+    </x:Array>
 
     <!--Fonts-->
     <x:String x:Key="font_bold">SourceSansPro-Bold</x:String>

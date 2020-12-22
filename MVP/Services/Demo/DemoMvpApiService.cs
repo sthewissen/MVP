@@ -47,7 +47,7 @@ namespace MVP.Services.Demo
                 {
                     Contributions = allContributionList.Contributions.Skip(offset).Take(limit == 0 ? allContributionList.Contributions.Count : limit).ToList(),
                     TotalContributions = allContributionList.Contributions.Count,
-                    PagingIndex = 0
+                    PagingIndex = offset + limit > allContributionList.Contributions.Count ? allContributionList.Contributions.Count : offset + limit
                 };
 
             // Get them from "remote" aka reset the whole thing.
@@ -55,7 +55,7 @@ namespace MVP.Services.Demo
 
             allContributionList = new ContributionList()
             {
-                Contributions = list,
+                Contributions = list.OrderByDescending(x => x.StartDate).ToList(),
                 TotalContributions = list.Count,
                 PagingIndex = 0
             };

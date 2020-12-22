@@ -10,7 +10,7 @@
                        x:DataType="vm:ContributionsViewModel"
                        x:Name="page"
                        x:TypeArguments="vm:ContributionsViewModel"
-                       xmlns:state="clr-namespace:Xamarin.CommunityToolkit.UI.Views;assembly=Xamarin.CommunityToolkit">
+                       xmlns:state="clr-namespace:Xamarin.CommunityToolkit.UI.Views;assembly=Xamarin.CommunityToolkit" xmlns:lottie="clr-namespace:Lottie.Forms;assembly=Lottie.Forms" xmlns:controls="clr-namespace:MVP.Controls">
 
     <local:AppFrame IsSecondaryButtonIcon="True"
                     SecondaryButtonText="{x:Static icons:Icons.plus}"
@@ -22,7 +22,9 @@
                   state:StateLayout.AnimateStateChanges="False">
 
                 <state:StateLayout.StateViews>
-                    <state:StateView StateKey="Loading" RepeatCount="3" RepeatTemplate="{StaticResource contribution_item_loading}" />
+                    <state:StateView StateKey="Loading"
+                                     RepeatCount="3"
+                                     RepeatTemplate="{StaticResource contribution_item_loading}" />
                 </state:StateLayout.StateViews>
 
                 <CollectionView ItemsSource="{Binding Contributions}"
@@ -30,10 +32,15 @@
                             ItemTemplate="{StaticResource contribution_item}"
                             Scrolled="CollectionView_Scrolled"
                             SelectionMode="None"
+                            RemainingItemsThreshold="{Binding ItemThreshold}"
+                            RemainingItemsThresholdReachedCommand="{Binding LoadMoreCommand}"
                             x:Name="collectionView">
 
                     <CollectionView.Footer>
-                        <BoxView HeightRequest="40"/>
+                        <!--Want to re-use the template so creating a faux list of items -->
+                        <StackLayout IsVisible="{Binding IsLoadingMore}"
+                                     BindableLayout.ItemTemplate="{StaticResource contribution_item_loading}"
+                                     BindableLayout.ItemsSource="{StaticResource faux_list}" />
                     </CollectionView.Footer>
 
                     <!--No search, the API just isn't suited for it. Yet. Maybe one day.
