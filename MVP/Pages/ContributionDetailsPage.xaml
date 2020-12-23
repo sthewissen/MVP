@@ -166,7 +166,7 @@
                     <Button Command="{Binding DeleteContributionCommand}"
                             ImageSource="{FontImage FontFamily={StaticResource font_icon}, Color={StaticResource error}, Size=20, Glyph={x:Static icons:Icons.trash2}}"
                             IsVisible="{Binding CanBeEdited}"
-                            Style="{StaticResource destructive_button}"
+                            Style="{StaticResource destructive_line_button}"
                             Text="{xct:Translate button_delete_contribution}"/>
                 </StackLayout>
             </ScrollView>

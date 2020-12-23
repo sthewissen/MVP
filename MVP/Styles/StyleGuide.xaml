@@ -323,14 +323,15 @@
         <Setter Property="MaxLines" Value="2"/>
     </Style>
 
-    <Style x:Key="regular_button" TargetType="Button">
+    <Style x:Key="line_button" TargetType="Button">
         <Setter Property="TextColor" Value="{AppThemeBinding Light={StaticResource primary}, Dark={StaticResource light_primary}}"/>
         <Setter Property="FontFamily" Value="{StaticResource font_semibold}"/>
+        <Setter Property="BorderColor" Value="{StaticResource neutral_1}"/>
+        <Setter Property="BorderWidth" Value="1"/>
     </Style>
 
-    <Style x:Key="destructive_button" TargetType="Button">
+    <Style x:Key="destructive_line_button" BasedOn="{StaticResource line_button}" TargetType="Button">
         <Setter Property="TextColor" Value="{AppThemeBinding Light={StaticResource error}, Dark={StaticResource error}}"/>
-        <Setter Property="FontFamily" Value="{StaticResource font_semibold}"/>
     </Style>
 
     <Style x:Key="about_title" TargetType="Label">
