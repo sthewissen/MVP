@@ -14,6 +14,7 @@ namespace MVP.Controls
     public partial class UrlPreviewView : StackLayout
     {
         CancellationTokenSource tokenSource;
+        bool initialized = false;
 
         public static readonly BindableProperty UrlProperty =
             BindableProperty.Create(nameof(Url), typeof(string), typeof(UrlPreviewView), string.Empty, defaultBindingMode: BindingMode.OneWay, propertyChanged: Url_Changed);
@@ -100,12 +101,13 @@ namespace MVP.Controls
 
             tokenSource = new CancellationTokenSource();
 
-            _ = Task.Delay(2000, tokenSource.Token)
+            _ = Task.Delay(!initialized ? 0 : 2000, tokenSource.Token)
                 .ContinueWith(task =>
                 {
                     if (task.Status == TaskStatus.Canceled)
                         return;
 
+                    initialized = true;
                     GetOpenGraphData().SafeFireAndForget();
                 });
         }
@@ -114,7 +116,8 @@ namespace MVP.Controls
         {
             try
             {
-                var result = Uri.TryCreate(Url, UriKind.Absolute, out var uriResult) && (uriResult.Scheme == Uri.UriSchemeHttp || uriResult.Scheme == Uri.UriSchemeHttps);
+                var result = Uri.TryCreate(Url, UriKind.Absolute, out var uriResult) &&
+                    (uriResult.Scheme == Uri.UriSchemeHttp || uriResult.Scheme == Uri.UriSchemeHttps);
 
                 if (!result)
                 {

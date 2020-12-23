@@ -14,7 +14,6 @@ namespace MVP.ViewModels
         protected IMvpApiService MvpApiService => (App.MvpApiService);
         protected IAnalyticsService AnalyticsService { get; }
         protected IAuthService AuthService => (App.AuthService);
-        protected IDialogService DialogService { get; }
         protected INavigationHelper NavigationHelper { get; }
 
         public virtual IAsyncCommand BackCommand { get; set; }
@@ -23,10 +22,9 @@ namespace MVP.ViewModels
 
         public LayoutState State { get; set; }
 
-        public BaseViewModel(IAnalyticsService analyticsService, IDialogService dialogService, INavigationHelper navigationHelper)
+        public BaseViewModel(IAnalyticsService analyticsService, INavigationHelper navigationHelper)
         {
             AnalyticsService = analyticsService;
-            DialogService = dialogService;
             NavigationHelper = navigationHelper;
             BackCommand = new AsyncCommand(() => Back());
         }

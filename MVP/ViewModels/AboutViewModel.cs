@@ -13,8 +13,8 @@ namespace MVP.ViewModels
         public IAsyncCommand OpenLicensesCommand { get; set; }
         public IAsyncCommand OpenSponsorCommand { get; set; }
 
-        public AboutViewModel(IAnalyticsService analyticsService, IDialogService dialogService, INavigationHelper navigationHelper)
-            : base(analyticsService, dialogService, navigationHelper)
+        public AboutViewModel(IAnalyticsService analyticsService, INavigationHelper navigationHelper)
+            : base(analyticsService, navigationHelper)
         {
             OpenSponsorCommand = new AsyncCommand(OpenSponsors);
             OpenLicensesCommand = new AsyncCommand(OpenLicenses);

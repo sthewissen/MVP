@@ -58,21 +58,13 @@
     <Button BackgroundColor="Transparent"
             Command="{Binding SecondaryCommand}"
             Grid.Column="2"
-            Margin="0,0,16,0"
+            Margin="0,0,24,0"
+            Style="{StaticResource button_menu_text}"
             HorizontalOptions="Center"
             IsVisible="{Binding Source={x:Reference appFrame}, Path=ShowSecondaryButton}"
             VerticalOptions="Center"
             Text="{Binding Source={x:Reference appFrame}, Path=SecondaryButtonText}"
-            x:Name="SecondaryButton">
-        <Button.Triggers>
-            <DataTrigger TargetType="Button" Binding="{Binding Source={x:Reference appFrame}, Path=IsSecondaryButtonIcon}" Value="true">
-                <Setter Property="Style" Value="{StaticResource button_menu_icon}" />
-            </DataTrigger>
-            <DataTrigger TargetType="Button" Binding="{Binding Source={x:Reference appFrame}, Path=IsSecondaryButtonIcon}" Value="false">
-                <Setter Property="Style" Value="{StaticResource button_menu_text}" />
-            </DataTrigger>
-        </Button.Triggers>
-    </Button>
+            x:Name="SecondaryButton" />
 
     <Label Grid.Column="0"
            Grid.ColumnSpan="3"
@@ -95,11 +87,13 @@
            Source="shadow.png"
            VerticalOptions="Start"/>
 
-    <Image Aspect="AspectFill"
+    <Image x:Name="tabShadow"
+           Aspect="AspectFill"
            Grid.ColumnSpan="3"
            Grid.Row="1"
            Rotation="180"
            BackgroundColor="Transparent"
+           IsVisible="{Binding ShowTabShadow, Source={x:Reference appFrame}}"
            Source="shadow.png"
            VerticalOptions="End"/>
 </Grid>

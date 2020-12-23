@@ -19,8 +19,8 @@ namespace MVP.ViewModels
 
         public IList<VisibilityViewModel> Visibilities { get; set; } = new List<VisibilityViewModel>();
 
-        public VisibilityPickerViewModel(IAnalyticsService analyticsService, IDialogService dialogService, INavigationHelper navigationHelper)
-            : base(analyticsService, dialogService, navigationHelper)
+        public VisibilityPickerViewModel(IAnalyticsService analyticsService, INavigationHelper navigationHelper)
+            : base(analyticsService, navigationHelper)
         {
             SelectVisibilityCommand = new Command<VisibilityViewModel>((x) => SelectVisibility(x));
         }

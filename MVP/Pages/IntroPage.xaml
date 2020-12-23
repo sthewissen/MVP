@@ -17,9 +17,9 @@
         <x:Int32 x:Key="LastItemIndex">2</x:Int32>
     </pages:BaseContentPage.Resources>
 
-    <local:AppFrame IsSecondaryButtonIcon="False"
-                    SecondaryButtonText="Sign in"
+    <local:AppFrame SecondaryButtonText="Sign in"
                     ShadowOpacity="0"
+                    ShowTabShadow="False"
                     ShowSecondaryButton="True"
                     x:Name="appFrame"
                     effects:SafeAreaEffect.SafeArea="false,true">

@@ -6,6 +6,7 @@ using MVP.Extensions;
 using MVP.Helpers;
 using MVP.Models;
 using MVP.Pages;
+using MVP.Services;
 using MVP.Services.Interfaces;
 using MVP.ViewModels.Data;
 using TinyMvvm;
@@ -42,15 +43,17 @@ namespace MVP.ViewModels
         public IAsyncCommand PickContributionTypeCommand { get; set; }
         public IAsyncCommand PickVisibilityCommand { get; set; }
         public IAsyncCommand PickContributionTechnologyCommand { get; set; }
+        public IAsyncCommand OpenUrlCommand { get; set; }
 
-        public ContributionFormViewModel(IAnalyticsService analyticsService, IDialogService dialogService, INavigationHelper navigationHelper)
-            : base(analyticsService, dialogService, navigationHelper)
+        public ContributionFormViewModel(IAnalyticsService analyticsService, INavigationHelper navigationHelper)
+            : base(analyticsService, navigationHelper)
         {
             PickAdditionalTechnologiesCommand = new AsyncCommand(() => PickAdditionalTechnologies());
             PickContributionTypeCommand = new AsyncCommand(() => PickContributionType(), (x) => !IsEditing);
             PickVisibilityCommand = new AsyncCommand(() => PickVisibility());
             PickContributionTechnologyCommand = new AsyncCommand(PickContributionTechnology);
             SecondaryCommand = new AsyncCommand(() => SaveContribution());
+            OpenUrlCommand = new AsyncCommand(() => OpenUrl());
         }
 
         public async override Task Initialize()
@@ -216,5 +219,8 @@ namespace MVP.ViewModels
 
         async Task PickContributionType()
             => await NavigationHelper.NavigateToAsync(nameof(ContributionTypePickerPage), Contribution).ConfigureAwait(false);
+
+        async Task OpenUrl()
+            => await Browser.OpenAsync(Contribution.ReferenceUrl, new BrowserLaunchOptions { Flags = BrowserLaunchFlags.PresentAsPageSheet }).ConfigureAwait(false);
     }
 }

@@ -19,15 +19,6 @@ namespace MVP.Pages
             AnalyticsService = analyticsService;
             On<iOS>().SetUseSafeArea(false);
             On<iOS>().SetModalPresentationStyle(UIModalPresentationStyle.PageSheet);
-
-            //if (Xamarin.Forms.Application.Current.RequestedTheme == Xamarin.Forms.OSAppTheme.Light)
-            //{
-            //    StatusBar.SetStatusBarStyle(this, StatusBarStyle.DarkText);
-            //}
-            //else
-            //{
-            //    StatusBar.SetStatusBarStyle(this, StatusBarStyle.WhiteText);
-            //}
         }
 
         protected override void OnAppearing()

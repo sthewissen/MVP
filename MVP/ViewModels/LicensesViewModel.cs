@@ -18,8 +18,8 @@ namespace MVP.ViewModels
 
         public IList<OpenSourceSoftware> Licenses { get; set; } = new List<OpenSourceSoftware>();
 
-        public LicensesViewModel(IAnalyticsService analyticsService, IDialogService dialogService, INavigationHelper navigationHelper)
-            : base(analyticsService, dialogService, navigationHelper)
+        public LicensesViewModel(IAnalyticsService analyticsService, INavigationHelper navigationHelper)
+            : base(analyticsService, navigationHelper)
         {
             OpenLicenseCommand = new AsyncCommand<OpenSourceSoftware>(OpenLicense);
         }
@@ -39,7 +39,7 @@ namespace MVP.ViewModels
             if (string.IsNullOrEmpty(license?.LicenseUrl))
                 return;
 
-            await Browser.OpenAsync(license.LicenseUrl, new BrowserLaunchOptions { Flags = BrowserLaunchFlags.PresentAsPageSheet });
+            await Browser.OpenAsync(license.LicenseUrl, new BrowserLaunchOptions { Flags = BrowserLaunchFlags.PresentAsPageSheet }).ConfigureAwait(false);
         }
     }
 }

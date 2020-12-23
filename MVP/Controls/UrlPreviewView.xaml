@@ -7,7 +7,8 @@
              state:StateLayout.AnimateStateChanges="False"
              state:StateLayout.CurrentState="{Binding State, Source={x:Reference urlView}}"
              x:Class="MVP.Controls.UrlPreviewView"
-             x:Name="urlView">
+             x:Name="urlView"
+             Padding="24,16">
 
     <state:StateLayout.StateViews>
         <state:StateView StateKey="Loading">
@@ -15,7 +16,6 @@
                   ColumnSpacing="24"
                   RowDefinitions="Auto, Auto"
                   RowSpacing="4"
-                  Padding="0,16,0,0"
                   VerticalOptions="Fill">
 
                 <controls:SkeletonView CornerRadius="8"
@@ -35,7 +35,6 @@
 
     <Grid ColumnDefinitions="Auto, *"
           ColumnSpacing="24"
-          Padding="0,16,0,0"
           RowDefinitions="Auto, Auto">
 
         <Grid.IsVisible>

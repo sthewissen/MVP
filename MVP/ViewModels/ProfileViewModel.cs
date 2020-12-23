@@ -18,10 +18,12 @@ namespace MVP.ViewModels
         public IAsyncCommand OpenThemePickerCommand { get; set; }
         public IAsyncCommand OpenIconPickerCommand { get; set; }
         public IAsyncCommand OpenLanguagePickerCommand { get; set; }
+        public IAsyncCommand OpenAboutCommand { get; set; }
         public ICommand ToggleUseClipboardUrlsCommand { get; set; }
 
         public Profile Profile { get; set; }
         public string ProfileImage { get; set; }
+        public string AppVersion => $"v{AppInfo.VersionString}";
 
         public bool UseClipboardUrls
         {
@@ -33,15 +35,15 @@ namespace MVP.ViewModels
             }
         }
 
-        public ProfileViewModel(IAnalyticsService analyticsService, IDialogService dialogService, INavigationHelper navigationHelper)
-            : base(analyticsService, dialogService, navigationHelper)
+        public ProfileViewModel(IAnalyticsService analyticsService, INavigationHelper navigationHelper)
+            : base(analyticsService, navigationHelper)
         {
             LogoutCommand = new AsyncCommand(() => Logout());
             LoadProfileCommand = new AsyncCommand(() => LoadProfile(true));
             ToggleUseClipboardUrlsCommand = new Command(() => UseClipboardUrls = !UseClipboardUrls);
             OpenThemePickerCommand = new AsyncCommand(() => OpenThemePicker());
             OpenLanguagePickerCommand = new AsyncCommand(() => OpenLanguagePicker());
-            SecondaryCommand = new AsyncCommand(() => OpenAbout());
+            OpenAboutCommand = new AsyncCommand(() => OpenAbout());
             OpenIconPickerCommand = new AsyncCommand(() => OpenIconPicker(), (o) => Device.RuntimePlatform == Device.iOS);
         }
 

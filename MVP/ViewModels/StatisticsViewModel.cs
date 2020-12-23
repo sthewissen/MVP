@@ -6,8 +6,8 @@ namespace MVP.ViewModels
 {
     public class StatisticsViewModel : BaseViewModel
     {
-        public StatisticsViewModel(IAnalyticsService analyticsService, IDialogService dialogService, INavigationHelper navigationHelper)
-            : base(analyticsService, dialogService, navigationHelper)
+        public StatisticsViewModel(IAnalyticsService analyticsService, INavigationHelper navigationHelper)
+            : base(analyticsService, navigationHelper)
         {
         }
     }

@@ -252,7 +252,7 @@
         <Setter Property="TextColor" Value="{AppThemeBinding Light={StaticResource black}, Dark={StaticResource white}}" />
         <Setter Property="Padding" Value="0" />
         <Setter Property="HeightRequest" Value="40" />
-        <Setter Property="FontFamily" Value="{StaticResource font_regular}" />
+        <Setter Property="FontFamily" Value="{StaticResource font_semibold}" />
     </Style>
 
     <Style x:Key="menu_title" TargetType="Label">

@@ -5,8 +5,8 @@ namespace MVP.ViewModels
 {
     public class SearchContributionViewModel : BaseViewModel
     {
-        public SearchContributionViewModel(IAnalyticsService analyticsService, IDialogService dialogService, INavigationHelper navigationHelper)
-            : base(analyticsService, dialogService, navigationHelper)
+        public SearchContributionViewModel(IAnalyticsService analyticsService, INavigationHelper navigationHelper)
+            : base(analyticsService, navigationHelper)
         {
         }
     }

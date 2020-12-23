@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Threading.Tasks;
 using MVP.Models;
 using MVP.Pages;
+using MVP.Services;
 using MVP.Services.Interfaces;
 using TinyMvvm;
 using Xamarin.CommunityToolkit.ObjectModel;
@@ -16,8 +17,8 @@ namespace MVP.ViewModels
         public IAsyncCommand SignInAsDemoCommand { get; set; }
         public List<OnboardingItem> OnboardingItems { get; }
 
-        public IntroViewModel(IAnalyticsService analyticsService, IDialogService dialogService, INavigationHelper navigationHelper)
-            : base(analyticsService, dialogService, navigationHelper)
+        public IntroViewModel(IAnalyticsService analyticsService, INavigationHelper navigationHelper)
+            : base(analyticsService, navigationHelper)
         {
             SecondaryCommand = new AsyncCommand(() => SignIn());
             SignInAsDemoCommand = new AsyncCommand(() => SignInAsDemo());

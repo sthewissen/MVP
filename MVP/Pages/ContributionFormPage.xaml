@@ -2,7 +2,6 @@
 <pages:BaseContentPage xmlns="http://xamarin.com/schemas/2014/forms"
                        xmlns:controls="clr-namespace:MVP.Controls"
                        xmlns:converters="clr-namespace:Xamarin.CommunityToolkit.Converters;assembly=Xamarin.CommunityToolkit"
-                       xmlns:icons="clr-namespace:MVP.Styles"
                        xmlns:local="clr-namespace:MVP"
                        xmlns:lottie="clr-namespace:Lottie.Forms;assembly=Lottie.Forms"
                        xmlns:pages="clr-namespace:MVP.Pages"
@@ -10,12 +9,12 @@
                        xmlns:vm="clr-namespace:MVP.ViewModels"
                        xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
                        xmlns:xct="clr-namespace:Xamarin.CommunityToolkit.Extensions;assembly=Xamarin.CommunityToolkit"
+                       xmlns:effects="clr-namespace:Xamarin.CommunityToolkit.Effects;assembly=Xamarin.CommunityToolkit"
                        x:Class="MVP.Pages.ContributionFormPage"
                        x:DataType="vm:ContributionFormViewModel"
                        x:TypeArguments="vm:ContributionFormViewModel">
 
     <local:AppFrame IsModal="True"
-                    IsSecondaryButtonIcon="False"
                     SecondaryButtonText="{xct:Translate contributionform_save}"
                     ShadowOpacity="1"
                     ShowBackButton="{Binding State, Converter={converters:NotEqualConverter}, ConverterParameter={x:Static state:LayoutState.Saving}}"
@@ -102,10 +101,10 @@
                                             Title="{xct:Translate field_url}"
                                             Value="{Binding Contribution.ReferenceUrl.Value}"/>
 
-                        <controls:UrlPreviewView Padding="32,0"
-                                                 Url="{Binding Contribution.ReferenceUrl.Value}"/>
+                        <controls:UrlPreviewView Url="{Binding Contribution.ReferenceUrl.Value}"
+                                                 effects:TouchEffect.Command="{Binding OpenUrlCommand}" />
 
-                        <BoxView Margin="16,16,16,0"
+                        <BoxView Margin="16,0,16,0"
                                  Style="{StaticResource separator}"/>
 
                         <controls:InputView IsMultiLine="True"

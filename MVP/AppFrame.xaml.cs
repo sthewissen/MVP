@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using MVP.Pages;
 using Xamarin.Forms;
 
 namespace MVP
@@ -30,14 +31,14 @@ namespace MVP
         public static readonly BindableProperty ShowSecondaryButtonProperty =
             BindableProperty.Create(nameof(ShowSecondaryButton), typeof(bool), typeof(AppFrame), default(bool), defaultBindingMode: BindingMode.OneWay);
 
-        public static readonly BindableProperty IsSecondaryButtonIconProperty =
-            BindableProperty.Create(nameof(IsSecondaryButtonIcon), typeof(bool), typeof(AppFrame), true, defaultBindingMode: BindingMode.OneWay);
-
         public static readonly BindableProperty SecondaryButtonTextProperty =
             BindableProperty.Create(nameof(SecondaryButtonText), typeof(string), typeof(AppFrame), string.Empty, defaultBindingMode: BindingMode.OneWay);
 
         public static readonly BindableProperty ShowBackButtonProperty =
             BindableProperty.Create(nameof(ShowBackButton), typeof(bool), typeof(AppFrame), default(bool), defaultBindingMode: BindingMode.OneWay);
+
+        public static readonly BindableProperty ShowTabShadowProperty =
+            BindableProperty.Create(nameof(ShowTabShadow), typeof(bool), typeof(AppFrame), true, defaultBindingMode: BindingMode.OneWay);
 
         public static readonly BindableProperty OverlayContentProperty =
             BindableProperty.Create(nameof(OverlayContent), typeof(View), typeof(AppFrame));
@@ -105,12 +106,6 @@ namespace MVP
             set => SetValue(ShowSecondaryButtonProperty, value);
         }
 
-        public bool IsSecondaryButtonIcon
-        {
-            get => (bool)GetValue(IsSecondaryButtonIconProperty);
-            set => SetValue(IsSecondaryButtonIconProperty, value);
-        }
-
         public string SecondaryButtonText
         {
             get => (string)GetValue(SecondaryButtonTextProperty);
@@ -123,7 +118,15 @@ namespace MVP
             set => SetValue(ShowBackButtonProperty, value);
         }
 
+        public bool ShowTabShadow
+        {
+            get => (bool)GetValue(ShowTabShadowProperty);
+            set => SetValue(ShowTabShadowProperty, value);
+        }
+
         public AppFrame()
-            => InitializeComponent();
+        {
+            InitializeComponent();
+        }
     }
 }

@@ -3,6 +3,7 @@ using System.Threading.Tasks;
 using MVP.Extensions;
 using MVP.Models;
 using MVP.Pages;
+using MVP.Services;
 using MVP.Services.Interfaces;
 using TinyMvvm;
 using Xamarin.CommunityToolkit.ObjectModel;
@@ -19,8 +20,8 @@ namespace MVP.ViewModels
         public IAsyncCommand OpenUrlCommand { get; set; }
         public ContributionTypeConfig ContributionTypeConfig { get; set; }
 
-        public ContributionDetailsViewModel(IAnalyticsService analyticsService, IDialogService dialogService, INavigationHelper navigationHelper)
-            : base(analyticsService, dialogService, navigationHelper)
+        public ContributionDetailsViewModel(IAnalyticsService analyticsService, INavigationHelper navigationHelper)
+            : base(analyticsService, navigationHelper)
         {
             DeleteContributionCommand = new AsyncCommand(() => DeleteContribution());
             SecondaryCommand = new AsyncCommand(() => EditContribution(), (x) => CanBeEdited);
@@ -104,6 +105,6 @@ namespace MVP.ViewModels
         }
 
         async Task OpenUrl()
-            => await Browser.OpenAsync(Contribution.ReferenceUrl);
+            => await Browser.OpenAsync(Contribution.ReferenceUrl, new BrowserLaunchOptions { Flags = BrowserLaunchFlags.PresentAsPageSheet }).ConfigureAwait(false);
     }
 }

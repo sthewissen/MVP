@@ -23,9 +23,7 @@
     </ContentPage.Resources>
 
     <local:AppFrame Title="{xct:Translate profile_title}"
-                    x:Name="appFrame"
-                    ShowSecondaryButton="True"
-                    SecondaryButtonText="{x:Static icons:Icons.info}">
+                    x:Name="appFrame">
         <local:AppFrame.Content>
             <ScrollView Scrolled="ScrollView_Scrolled">
                 <StackLayout>
@@ -189,6 +187,31 @@
 
                     <BoxView IsVisible="{OnPlatform Default=false, iOS=true}"
                              Margin="16,0"
+                             Style="{StaticResource separator}"/>
+
+
+                    <Grid ColumnDefinitions="*, Auto"
+                          ColumnSpacing="24"
+                          Padding="32,16,16,16"
+                          RowDefinitions="Auto, Auto"
+                          RowSpacing="8"
+                          effects:TouchEffect.PressedBackgroundColor="{AppThemeBinding Light={StaticResource white_highlight}, Dark={StaticResource black_highlight}}"
+                          effects:TouchEffect.NormalBackgroundColor="{AppThemeBinding Light={StaticResource white}, Dark={StaticResource black}}"
+                          effects:TouchEffect.Command="{Binding OpenAboutCommand}">
+
+                        <Label Style="{StaticResource field_title}" 
+                               Text="About this app"/>
+
+                        <Label Grid.Row="1"
+                               Text="{Binding AppVersion}"/>
+
+                        <Label Style="{StaticResource chevron}"
+                               Grid.Column="1"
+                               Grid.RowSpan="2"
+                               Text="{x:Static icons:Icons.chevron_right}" />
+                    </Grid>
+
+                    <BoxView Margin="16,0"
                              Style="{StaticResource separator}"/>
 
                     <Button Style="{StaticResource destructive_button}"

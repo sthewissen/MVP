@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <pages:BaseContentPage xmlns="http://xamarin.com/schemas/2014/forms"
-                       xmlns:icons="clr-namespace:MVP.Styles"
+                       
                        xmlns:local="clr-namespace:MVP"
                        xmlns:pages="clr-namespace:MVP.Pages"
                        xmlns:xct="clr-namespace:Xamarin.CommunityToolkit.Extensions;assembly=Xamarin.CommunityToolkit"
@@ -10,10 +10,9 @@
                        x:DataType="vm:ContributionsViewModel"
                        x:Name="page"
                        x:TypeArguments="vm:ContributionsViewModel"
-                       xmlns:state="clr-namespace:Xamarin.CommunityToolkit.UI.Views;assembly=Xamarin.CommunityToolkit" xmlns:lottie="clr-namespace:Lottie.Forms;assembly=Lottie.Forms" xmlns:controls="clr-namespace:MVP.Controls">
+                       xmlns:state="clr-namespace:Xamarin.CommunityToolkit.UI.Views;assembly=Xamarin.CommunityToolkit"  >
 
-    <local:AppFrame IsSecondaryButtonIcon="True"
-                    SecondaryButtonText="{x:Static icons:Icons.plus}"
+    <local:AppFrame SecondaryButtonText="Add"
                     ShowSecondaryButton="True"
                     Title="{xct:Translate contributions_title}"
                     x:Name="appFrame">
@@ -43,24 +42,15 @@
                                      BindableLayout.ItemsSource="{StaticResource faux_list}" />
                     </CollectionView.Footer>
 
-                    <!--No search, the API just isn't suited for it. Yet. Maybe one day.
-                    <CollectionView.Header>
-                        <StackLayout Padding="16,16,16,24">
-                            <Frame Style="{StaticResource search_frame}"
-                                   touch:TouchEff.Command="{Binding Source={RelativeSource AncestorType={x:Type vm:ContributionsViewModel}}, Path=SearchContributionCommand}">
-                                <Grid ColumnDefinitions="*,48"
-                                      Padding="24,0"
-                                      VerticalOptions="Center">
-                                    <Label Style="{StaticResource search_text}"
-                                           Text="{xct:Translate search_placeholder}"/>
-                                    <Label Grid.Column="1"
-                                           Style="{StaticResource search_icon}"
-                                           Text="{x:Static icons:Icons.search}"/>
-                                </Grid>
-                            </Frame>
+                    <!--<CollectionView.Header>
+                        <StackLayout Padding="32">
+                            <Label Text="What awesome activities have you been up to lately?"
+                                   FontSize="{StaticResource fontsize_h2}"
+                                   FontFamily="{StaticResource font_semibold}" />
+
+                            <Button Text="Add a new activity" Command="{Binding SecondaryCommand}" />
                         </StackLayout>
-                    </CollectionView.Header>
-                    -->
+                    </CollectionView.Header>-->
 
                 </CollectionView>
             </Grid>

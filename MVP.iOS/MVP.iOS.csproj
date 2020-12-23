@@ -72,7 +72,6 @@
         <None Include="Entitlements.plist" />
         <None Include="Info.plist" />
         <Compile Include="Properties\AssemblyInfo.cs" />
-        <Compile Include="Renderers\StatusBarRenderer.cs" />
         <Compile Include="Renderers\EntryBorderRenderer.cs" />
         <Compile Include="Renderers\BorderlessDatePickerRenderer.cs" />
         <Compile Include="Renderers\ExtendedTabbedPageRenderer.cs" />
@@ -115,12 +114,6 @@
         </PackageReference>
         <PackageReference Include="akavache">
             <Version>7.1.1</Version>
-        </PackageReference>
-        <PackageReference Include="TinyMvvm.Forms">
-          <Version>3.0.1-pre3</Version>
-        </PackageReference>
-        <PackageReference Include="TinyMvvm.Autofac">
-          <Version>3.0.1-pre3</Version>
         </PackageReference>
         <PackageReference Include="Xamarin.CommunityToolkit">
           <Version>1.0.0-preview1119</Version>

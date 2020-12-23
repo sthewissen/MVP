@@ -31,8 +31,8 @@ namespace MVP.ViewModels
 
         public bool IsLoadingMore { get; set; }
 
-        public ContributionsViewModel(IAnalyticsService analyticsService, IDialogService dialogService, INavigationHelper navigationHelper)
-            : base(analyticsService, dialogService, navigationHelper)
+        public ContributionsViewModel(IAnalyticsService analyticsService, INavigationHelper navigationHelper)
+            : base(analyticsService, navigationHelper)
         {
             OpenContributionCommand = new AsyncCommand<Contribution>((Contribution c) => OpenContribution(c));
             SecondaryCommand = new AsyncCommand(() => OpenAddContribution());

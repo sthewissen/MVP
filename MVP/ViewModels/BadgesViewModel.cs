@@ -5,8 +5,8 @@ namespace MVP.ViewModels
 {
     public class BadgesViewModel : BaseViewModel
     {
-        public BadgesViewModel(IAnalyticsService analyticsService, IDialogService dialogService, INavigationHelper navigationHelper)
-            : base(analyticsService, dialogService, navigationHelper)
+        public BadgesViewModel(IAnalyticsService analyticsService, INavigationHelper navigationHelper)
+            : base(analyticsService, navigationHelper)
         {
         }
     }

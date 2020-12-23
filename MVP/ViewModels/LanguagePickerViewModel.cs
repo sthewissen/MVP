@@ -19,8 +19,8 @@ namespace MVP.ViewModels
         public IList<LanguageViewModel> SupportedLanguages { get; set; } = new List<LanguageViewModel>();
         public ICommand SetAppLanguageCommand { get; set; }
 
-        public LanguagePickerViewModel(IAnalyticsService analyticsService, IDialogService dialogService, INavigationHelper navigationHelper)
-            : base(analyticsService, dialogService, navigationHelper)
+        public LanguagePickerViewModel(IAnalyticsService analyticsService, INavigationHelper navigationHelper)
+            : base(analyticsService, navigationHelper)
         {
             SetAppLanguageCommand = new Command<LanguageViewModel>((x) => SetAppLanguage(x));
 

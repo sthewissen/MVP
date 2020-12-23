@@ -25,8 +25,8 @@ namespace MVP.ViewModels
 
         public ICommand SetAppIconCommand { get; set; }
 
-        public AppIconPickerViewModel(IAnalyticsService analyticsService, IDialogService dialogService, INavigationHelper navigationHelper)
-            : base(analyticsService, dialogService, navigationHelper)
+        public AppIconPickerViewModel(IAnalyticsService analyticsService, INavigationHelper navigationHelper)
+            : base(analyticsService, navigationHelper)
         {
             SetAppIconCommand = new AsyncCommand<AppIconViewModel>((x) => SetAppIcon(x));
             AppIcons.FirstOrDefault(x => x.Key == Preferences.Get(Settings.AppIcon, Settings.AppIconDefault)).IsSelected = true;

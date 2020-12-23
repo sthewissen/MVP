@@ -21,8 +21,8 @@ namespace MVP.ViewModels
 
         public List<ContributionTypeViewModel> ContributionTypes { get; set; } = new List<ContributionTypeViewModel>();
 
-        public ContributionTypePickerViewModel(IAnalyticsService analyticsService, IDialogService dialogService, INavigationHelper navigationHelper)
-            : base(analyticsService, dialogService, navigationHelper)
+        public ContributionTypePickerViewModel(IAnalyticsService analyticsService, INavigationHelper navigationHelper)
+            : base(analyticsService, navigationHelper)
         {
             SelectContributionTypeCommand = new Command<ContributionTypeViewModel>((x) => SelectContributionType(x));
         }

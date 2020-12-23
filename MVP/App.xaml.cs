@@ -18,17 +18,15 @@ namespace MVP
     public partial class App : Xamarin.Forms.Application
     {
         readonly IAnalyticsService analyticsService;
-        readonly IDialogService dialogService;
 
         public static IMvpApiService MvpApiService { get; set; }
         public static IAuthService AuthService { get; set; }
 
-        public App(IAnalyticsService analyticsService, IMvpApiService mvpApiService, IAuthService authService, IDialogService dialogService)
+        public App(IAnalyticsService analyticsService, IMvpApiService mvpApiService, IAuthService authService)
         {
             InitializeComponent();
 
             this.analyticsService = analyticsService;
-            this.dialogService = dialogService;
 
             // We add exception handling here, because the MVP API is shared
             // through this app class with every page. Errors in it need to handled
@@ -72,14 +70,14 @@ namespace MVP
         {
             if (e.IsBadRequest)
             {
-                await dialogService.AlertAsync(
+                await DialogService.AlertAsync(
                     Translations.alert_error_badrequest,
                     Translations.alert_error_title,
                     Translations.alert_ok);
             }
             else if (e.IsServerError)
             {
-                await dialogService.AlertAsync(
+                await DialogService.AlertAsync(
                     Translations.alert_error_servererror,
                     Translations.alert_error_title,
                     Translations.alert_ok);
@@ -96,7 +94,7 @@ namespace MVP
             {
                 // Show a message that data could not be refreshed. Also forward the user back to getting started
                 // telling the user that a logout has occurred.
-                await dialogService.AlertAsync(
+                await DialogService.AlertAsync(
                     Translations.alert_error_unauthorized,
                     Translations.alert_error_title,
                     Translations.alert_ok);
