@@ -9,11 +9,17 @@
         public const string AppName = "MVPBuzz";
         public const string AccessToken = "AccessToken";
         public const string SponsorUrl = "https://github.com/sponsors/sthewissen";
+        public const string ApiUrl = "https://mvpapi.azure-api.net/mvp/api/";
 
         public const string AppCenterDeviOSKey = "71df115f-45d9-49da-bf13-de09ff4a3aff";
         public const string AppCenterDevAndroidKey = "36d4c425-d4b8-4712-baa3-681cc6586c14";
         public const string AppCenterProdiOSKey = "d93d1cb9-8a66-494a-8478-b73ac5f0516d";
         public const string AppCenterProdAndroidKey = "3aa628e6-2d4e-428a-b064-88a2d358763e";
+    }
+
+    public class MessageKeys
+    {
+        public const string RefreshNeeded = "RefreshNeeded";
     }
 
     public class CacheKeys

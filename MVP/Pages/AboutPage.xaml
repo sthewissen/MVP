@@ -5,6 +5,7 @@
                        x:Class="MVP.Pages.AboutPage"
                        x:DataType="vm:AboutViewModel"
                        xmlns:vm="clr-namespace:MVP.ViewModels"
+                       xmlns:icons="clr-namespace:MVP.Styles"
                        xmlns:xct="clr-namespace:Xamarin.CommunityToolkit.Extensions;assembly=Xamarin.CommunityToolkit"
                        x:TypeArguments="vm:AboutViewModel"
                        xmlns:pages="clr-namespace:MVP.Pages">
@@ -31,7 +32,13 @@
                            Margin="0,0,0,24"
                            Text="{xct:Translate about_opensource_description}" />
 
-                    <Button Text="{xct:Translate button_becomesponsor}" Command="{Binding OpenSponsorCommand}" />
+                    <Button Text="{xct:Translate button_becomesponsor}"
+                            Command="{Binding OpenSponsorCommand}"
+                            Margin="0,0,0,24"
+                            BorderWidth="1"
+                            BorderColor="{StaticResource neutral_1}"
+                            ImageSource="{FontImage FontFamily={StaticResource font_icon}, Color={StaticResource primary}, Size=20, Glyph={x:Static icons:Icons.coffee}}"
+                            Style="{StaticResource regular_button}" />
 
                     <Label Style="{StaticResource about_title}"
                            Text="{xct:Translate about_licenses_title}"
@@ -40,7 +47,12 @@
                            Margin="0,0,0,24"
                            Text="{xct:Translate about_licenses_description}" />
 
-                    <Button Text="{xct:Translate button_viewlicenses}" Command="{Binding OpenLicensesCommand}" />
+                    <Button Text="{xct:Translate button_viewlicenses}"
+                            Command="{Binding OpenLicensesCommand}"
+                            BorderWidth="1"
+                            BorderColor="{StaticResource neutral_1}"
+                            ImageSource="{FontImage FontFamily={StaticResource font_icon}, Color={StaticResource primary}, Size=20, Glyph={x:Static icons:Icons.file_text}}"
+                            Style="{StaticResource regular_button}"  />
                 </StackLayout>
 
             </ScrollView>

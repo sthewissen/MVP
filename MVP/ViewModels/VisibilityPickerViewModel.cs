@@ -6,6 +6,8 @@ using MVP.Extensions;
 using MVP.Services.Interfaces;
 using MVP.ViewModels.Data;
 using TinyMvvm;
+using TinyNavigationHelper;
+using Xamarin.CommunityToolkit.ObjectModel;
 using Xamarin.Essentials;
 using Xamarin.Forms;
 
@@ -15,14 +17,14 @@ namespace MVP.ViewModels
     {
         ContributionViewModel contribution;
 
-        public ICommand SelectVisibilityCommand { get; }
+        public IAsyncCommand<VisibilityViewModel> SelectVisibilityCommand { get; }
 
         public IList<VisibilityViewModel> Visibilities { get; set; } = new List<VisibilityViewModel>();
 
         public VisibilityPickerViewModel(IAnalyticsService analyticsService, INavigationHelper navigationHelper)
             : base(analyticsService, navigationHelper)
         {
-            SelectVisibilityCommand = new Command<VisibilityViewModel>((x) => SelectVisibility(x));
+            SelectVisibilityCommand = new AsyncCommand<VisibilityViewModel>((x) => SelectVisibility(x));
         }
 
         public async override Task Initialize()
@@ -37,7 +39,7 @@ namespace MVP.ViewModels
             LoadVisibilities().SafeFireAndForget();
         }
 
-        void SelectVisibility(VisibilityViewModel vm)
+        async Task SelectVisibility(VisibilityViewModel vm)
         {
             if (vm == null)
                 return;
@@ -49,10 +51,12 @@ namespace MVP.ViewModels
 
             //TODO: Replace by the back navigation version.
             contribution.Visibility.Value = vm.Visibility;
+
+            await NavigationHelper.BackAsync();
         }
 
         public async override Task Back()
-            => await NavigationHelper.BackAsync(Visibilities.FirstOrDefault(x => x.IsSelected)?.Visibility);
+            => await NavigationHelper.BackAsync(); // TODO: TinyMVVM 3.0 - Visibilities.FirstOrDefault(x => x.IsSelected)?.Visibility);
 
         async Task LoadVisibilities()
         {

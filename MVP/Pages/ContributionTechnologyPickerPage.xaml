@@ -1,6 +1,5 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <pages:BaseContentPage xmlns="http://xamarin.com/schemas/2014/forms"
-                       xmlns:converters="clr-namespace:Xamarin.CommunityToolkit.Converters;assembly=Xamarin.CommunityToolkit"
                        xmlns:icons="clr-namespace:MVP.Styles"
                        xmlns:local="clr-namespace:MVP"
                        xmlns:pages="clr-namespace:MVP.Pages"
@@ -47,9 +46,8 @@
                               Padding="24,0"
                               VerticalOptions="Center">
 
-                            <Entry Placeholder="{extensions:Translate search_placeholder}"
+                            <Entry Style="{StaticResource search_entry}"
                                    Text="{Binding SearchText}"
-                                   FontSize="{StaticResource fontsize_small}"
                                    VerticalOptions="Center">
                                 <Entry.Behaviors>
                                     <behaviors:UserStoppedTypingBehavior Command="{Binding SearchCommand}"

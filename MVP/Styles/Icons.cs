@@ -33,5 +33,8 @@ namespace MVP.Styles
         public const string calendar = "\ue91a";
         public const string info = "\ue91b";
         public const string alert_circle = "\ue91c";
+        public const string locked = "\ue91e";
+        public const string coffee = "\ue91f";
+        public const string file_text = "\ue920";
     }
 }

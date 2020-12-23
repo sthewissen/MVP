@@ -2,11 +2,10 @@
 <ResourceDictionary xmlns="http://xamarin.com/schemas/2014/forms"
                     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
                     xmlns:converters="clr-namespace:MVP.Converters" 
-                    xmlns:xct="clr-namespace:Xamarin.CommunityToolkit.Converters;assembly=Xamarin.CommunityToolkit"
 					x:Class="MVP.Styles.Converters">
     <?xaml-comp compile="true" ?>
-    <converters:ResourceToHexStringConverter x:Key="ResourceToHexStringConverter" />
-    <converters:StringToColorResourceConverter x:Key="StringToColorResourceConverter" />
+    <converters:Base64ImageConverter x:Key="Base64ImageConverter" />
     <converters:ContributionTypeToTypeColorConverter x:Key="ContributionTypeToTypeColorConverter" />
-    <xct:MultiConverter x:Key="MultiConverter" />
+    <converters:ContributionTypeToTextColorConverter x:Key="ContributionTextToTypeColorConverter" />
+    <converters:StringToColorResourceConverter x:Key="StringToColorResourceConverter" />
 </ResourceDictionary>

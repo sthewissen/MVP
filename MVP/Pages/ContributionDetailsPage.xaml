@@ -15,7 +15,7 @@
                        x:Name="page"
                        x:TypeArguments="vm:ContributionDetailsViewModel">
 
-    <local:AppFrame SecondaryButtonText="Edit"
+    <local:AppFrame SecondaryButtonText="{xct:Translate contributiondetails_edit}"
                     ShowBackButton="True"
                     ShowSecondaryButton="{Binding CanBeEdited}"
                     Title="{xct:Translate contributiondetails_title}"
@@ -37,7 +37,7 @@
                               RowDefinitions="Auto, Auto"
                               RowSpacing="8">
                             <Label Style="{StaticResource warning_icon}"
-                                   Text="{x:Static icons:Icons.alert_circle}"/>
+                                   Text="{x:Static icons:Icons.locked}"/>
                             <Label Grid.Column="1"
                                    Style="{StaticResource warning_title}"
                                    Text="{xct:Translate warning_title_activitylocked}"/>

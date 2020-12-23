@@ -8,6 +8,7 @@ using MVP.Helpers;
 using MVP.Services.Interfaces;
 using MVP.ViewModels.Data;
 using TinyMvvm;
+using TinyNavigationHelper;
 using Xamarin.CommunityToolkit.UI.Views;
 using Xamarin.Essentials;
 using Xamarin.Forms;
@@ -120,7 +121,7 @@ namespace MVP.ViewModels
         }
 
         public async override Task Back()
-            => await NavigationHelper.BackAsync(selectedTechnologies.Select(x => x.ContributionTechnology).ToList());
+            => await NavigationHelper.BackAsync(); // TODO: TinyMVVM 3.0 - selectedTechnologies.Select(x => x.ContributionTechnology).ToList());
 
     }
 }

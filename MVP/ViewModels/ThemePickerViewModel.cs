@@ -4,6 +4,7 @@ using System.Linq;
 using System.Windows.Input;
 using MVP.Services.Interfaces;
 using TinyMvvm;
+using TinyNavigationHelper;
 using Xamarin.Essentials;
 using Xamarin.Forms;
 

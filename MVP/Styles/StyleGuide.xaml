@@ -2,6 +2,7 @@
 <ResourceDictionary xmlns="http://xamarin.com/schemas/2014/forms"
                     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
                     xmlns:controls="clr-namespace:MVP.Controls"
+                    xmlns:extensions="clr-namespace:Xamarin.CommunityToolkit.Extensions;assembly=Xamarin.CommunityToolkit"
                     xmlns:effects="clr-namespace:Xamarin.CommunityToolkit.Effects;assembly=Xamarin.CommunityToolkit"
                     xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
                     xmlns:local="clr-namespace:MVP"                    
@@ -15,6 +16,7 @@
     <Color x:Key="light_primary">#80bcea</Color>
     <Color x:Key="error">#E8484C</Color>
     <Color x:Key="light_error">#F4A4A6</Color>
+    <Color x:Key="dark_error">#DC7C7C</Color>
     <Color x:Key="warning">#967132</Color>
     <Color x:Key="light_warning">#F5EDC6</Color>
     <Color x:Key="dark_warning">#F8C25B</Color>
@@ -279,7 +281,7 @@
 
     <Style x:Key="search_frame" TargetType="Frame">
         <Setter Property="CornerRadius" Value="24"/>
-        <Setter Property="BackgroundColor" Value="{AppThemeBinding Light={StaticResource watermelon_light}, Dark={StaticResource neutral_4}}"/>
+        <Setter Property="BackgroundColor" Value="{AppThemeBinding Light={StaticResource neutral_1}, Dark={StaticResource neutral_4}}"/>
         <Setter Property="HeightRequest" Value="48"/>
         <!--<Setter Property="effects:TouchEffect.PressedBackgroundColor" Value="{AppThemeBinding Light={StaticResource neutral_1}, Dark={StaticResource black_highlight}}"/>
         <Setter Property="effects:TouchEffect.NormalBackgroundColor" Value="{AppThemeBinding Light={StaticResource background_gray}, Dark={StaticResource background_dark_gray}}"/>-->
@@ -321,8 +323,13 @@
         <Setter Property="MaxLines" Value="2"/>
     </Style>
 
+    <Style x:Key="regular_button" TargetType="Button">
+        <Setter Property="TextColor" Value="{AppThemeBinding Light={StaticResource primary}, Dark={StaticResource light_primary}}"/>
+        <Setter Property="FontFamily" Value="{StaticResource font_semibold}"/>
+    </Style>
+
     <Style x:Key="destructive_button" TargetType="Button">
-        <Setter Property="TextColor" Value="{StaticResource error}"/>
+        <Setter Property="TextColor" Value="{AppThemeBinding Light={StaticResource error}, Dark={StaticResource error}}"/>
         <Setter Property="FontFamily" Value="{StaticResource font_semibold}"/>
     </Style>
 
@@ -428,6 +435,30 @@
         <Setter Property="BackgroundColor" Value="{AppThemeBinding Light={StaticResource light_warning}, Dark={StaticResource dark_warning}}"/>
     </Style>
 
+    <Style x:Key="error_text" TargetType="Label">
+        <Setter Property="TextColor" Value="{AppThemeBinding Light={StaticResource red_dark}, Dark={StaticResource black}}"/>
+    </Style>
+
+    <Style x:Key="error_title" TargetType="Label">
+        <Setter Property="TextColor" Value="{AppThemeBinding Light={StaticResource red_dark}, Dark={StaticResource black}}"/>
+        <Setter Property="VerticalTextAlignment" Value="Center"/>
+        <Setter Property="FontFamily" Value="{StaticResource font_semibold}"/>
+        <Setter Property="VerticalOptions" Value="Center"/>
+    </Style>
+
+    <Style x:Key="error_icon" TargetType="Label">
+        <Setter Property="TextColor" Value="{AppThemeBinding Light={StaticResource red_dark}, Dark={StaticResource black}}"/>
+        <Setter Property="FontFamily" Value="{StaticResource font_icon}"/>
+        <Setter Property="FontSize" Value="{StaticResource fontsize_h3}"/>
+        <Setter Property="VerticalOptions" Value="Center"/>
+    </Style>
+
+    <Style x:Key="error_frame" TargetType="Frame">
+        <Setter Property="Padding" Value="16"/>
+        <Setter Property="Margin" Value="0,0,0,16"/>
+        <Setter Property="BackgroundColor" Value="{AppThemeBinding Light={StaticResource light_error}, Dark={StaticResource dark_error}}"/>
+    </Style>
+
     <Style x:Key="contributionform_note" TargetType="Label">
         <Setter Property="TextColor" Value="{AppThemeBinding Light={StaticResource neutral_3}, Dark={StaticResource neutral_2}}"/>
         <Setter Property="FontSize" Value="{StaticResource fontsize_small}"/>
@@ -458,5 +489,11 @@
     <Style x:Key="required_indicator" TargetType="Label">
         <Setter Property="TextColor" Value="{StaticResource error}"/>
         <Setter Property="FontSize" Value="{StaticResource fontsize_h3}"/>
+    </Style>
+
+    <Style x:Key="search_entry" TargetType="Entry">
+        <Setter Property="FontSize" Value="{StaticResource fontsize_medium}"/>
+        <Setter Property="IsSpellCheckEnabled" Value="False"/>
+        <Setter Property="Placeholder" Value="{extensions:Translate search_placeholder}"/>
     </Style>
 </ResourceDictionary>

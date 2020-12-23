@@ -45,9 +45,8 @@
                               Padding="24,0"
                               VerticalOptions="Center">
 
-                            <Entry Placeholder="{extensions:Translate search_placeholder}"
+                            <Entry Style="{StaticResource search_entry}"
                                    Text="{Binding SearchText}"
-                                   FontSize="{StaticResource fontsize_small}"
                                    VerticalOptions="Center">
                                 <Entry.Behaviors>
                                     <behaviors:UserStoppedTypingBehavior Command="{Binding SearchCommand}"

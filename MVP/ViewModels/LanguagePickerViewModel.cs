@@ -11,6 +11,7 @@ using TinyMvvm;
 using Xamarin.CommunityToolkit.Helpers;
 using Xamarin.Essentials;
 using Xamarin.Forms;
+using TinyNavigationHelper;
 
 namespace MVP.ViewModels
 {

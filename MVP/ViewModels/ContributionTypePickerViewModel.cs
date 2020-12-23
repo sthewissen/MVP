@@ -7,6 +7,8 @@ using MVP.Models;
 using MVP.Services.Interfaces;
 using MVP.ViewModels.Data;
 using TinyMvvm;
+using TinyNavigationHelper;
+using Xamarin.CommunityToolkit.ObjectModel;
 using Xamarin.CommunityToolkit.UI.Views;
 using Xamarin.Essentials;
 using Xamarin.Forms;
@@ -17,14 +19,14 @@ namespace MVP.ViewModels
     {
         ContributionViewModel contribution;
 
-        public ICommand SelectContributionTypeCommand { get; set; }
+        public IAsyncCommand<ContributionTypeViewModel> SelectContributionTypeCommand { get; set; }
 
         public List<ContributionTypeViewModel> ContributionTypes { get; set; } = new List<ContributionTypeViewModel>();
 
         public ContributionTypePickerViewModel(IAnalyticsService analyticsService, INavigationHelper navigationHelper)
             : base(analyticsService, navigationHelper)
         {
-            SelectContributionTypeCommand = new Command<ContributionTypeViewModel>((x) => SelectContributionType(x));
+            SelectContributionTypeCommand = new AsyncCommand<ContributionTypeViewModel>((x) => SelectContributionType(x));
         }
 
         public async override Task Initialize()
@@ -42,7 +44,7 @@ namespace MVP.ViewModels
         }
 
         public async override Task Back()
-            => await NavigationHelper.BackAsync(ContributionTypes.FirstOrDefault(x => x.IsSelected)?.ContributionType);
+            => await NavigationHelper.BackAsync(); // TODO: TinyMVVM 3.0 - ContributionTypes.FirstOrDefault(x => x.IsSelected)?.ContributionType);
 
         async Task LoadContributionTypes()
         {
@@ -75,7 +77,7 @@ namespace MVP.ViewModels
             }
         }
 
-        void SelectContributionType(ContributionTypeViewModel vm)
+        async Task SelectContributionType(ContributionTypeViewModel vm)
         {
             if (vm == null)
                 return;
@@ -87,6 +89,8 @@ namespace MVP.ViewModels
 
             //TODO: Replace by the back navigation version.
             contribution.ContributionType = new Validation.ValidatableObject<ContributionType> { Value = vm.ContributionType };
+
+            await NavigationHelper.BackAsync();
         }
     }
 }

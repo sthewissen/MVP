@@ -7,6 +7,8 @@ using MVP.Services.Interfaces;
 using MVP.ViewModels;
 using TinyMvvm;
 using TinyMvvm.Forms;
+using TinyNavigationHelper;
+using TinyNavigationHelper.Forms;
 using Xamarin.Forms;
 
 namespace MVP.Services

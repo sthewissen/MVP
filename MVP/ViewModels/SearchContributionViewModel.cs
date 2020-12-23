@@ -1,5 +1,6 @@
 ﻿using MVP.Services.Interfaces;
 using TinyMvvm;
+using TinyNavigationHelper;
 
 namespace MVP.ViewModels
 {

@@ -63,14 +63,14 @@ namespace MVP.Extensions
             return new Contribution
             {
                 AdditionalTechnologies = contribution.AdditionalTechnologies,
-                AnnualQuantity = contribution.AnnualQuantity.Value,
-                AnnualReach = contribution.AnnualReach.Value,
+                AnnualQuantity = contribution.AnnualQuantity?.Value ?? 0,
+                AnnualReach = contribution.AnnualReach?.Value ?? 0,
                 ContributionId = contribution.ContributionId,
                 ContributionTechnology = contribution.ContributionTechnology.Value,
                 ContributionType = contribution.ContributionType.Value,
                 Description = contribution.Description,
                 ReferenceUrl = contribution.ReferenceUrl.Value,
-                SecondAnnualQuantity = contribution.SecondAnnualQuantity.Value,
+                SecondAnnualQuantity = contribution.SecondAnnualQuantity?.Value ?? 0,
                 StartDate = contribution.StartDate,
                 Title = contribution.Title.Value,
                 Visibility = contribution.Visibility.Value,

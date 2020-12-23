@@ -12,6 +12,7 @@ using Xamarin.CommunityToolkit.Helpers;
 using Xamarin.Essentials;
 using MVP.Resources;
 using MVP.Services.Demo;
+using TinyNavigationHelper;
 
 namespace MVP
 {

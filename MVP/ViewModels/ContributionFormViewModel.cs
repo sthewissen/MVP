@@ -10,6 +10,7 @@ using MVP.Services;
 using MVP.Services.Interfaces;
 using MVP.ViewModels.Data;
 using TinyMvvm;
+using TinyNavigationHelper;
 using Xamarin.CommunityToolkit.ObjectModel;
 using Xamarin.CommunityToolkit.UI.Views;
 using Xamarin.Essentials;
@@ -20,6 +21,7 @@ namespace MVP.ViewModels
     public class ContributionFormViewModel : BaseViewModel
     {
         public bool IsEditing { get; set; }
+        public bool IsContributionValid { get; set; } = true;
 
         public ContributionViewModel Contribution { get; set; } = new ContributionViewModel();
 
@@ -66,7 +68,9 @@ namespace MVP.ViewModels
             }
 
             Contribution.AddValidationRules();
-            await CheckForClipboardUrl();
+
+            if (!IsEditing)
+                await CheckForClipboardUrl();
         }
 
 
@@ -169,7 +173,12 @@ namespace MVP.ViewModels
             try
             {
                 if (!Contribution.IsValid())
+                {
+                    IsContributionValid = false;
                     return;
+                }
+
+                IsContributionValid = true;
 
                 State = LayoutState.Saving;
 
@@ -182,6 +191,7 @@ namespace MVP.ViewModels
                         MainThread.BeginInvokeOnMainThread(() => HapticFeedback.Perform(HapticFeedbackType.LongPress));
                         await NavigationHelper.CloseModalAsync();
                         await NavigationHelper.BackAsync();
+                        MessagingService.Current.SendMessage(MessageKeys.RefreshNeeded);
                     }
                 }
                 else
@@ -192,6 +202,7 @@ namespace MVP.ViewModels
                     {
                         MainThread.BeginInvokeOnMainThread(() => HapticFeedback.Perform(HapticFeedbackType.LongPress));
                         await NavigationHelper.CloseModalAsync();
+                        MessagingService.Current.SendMessage(MessageKeys.RefreshNeeded);
                     }
                 }
             }

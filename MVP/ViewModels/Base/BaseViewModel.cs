@@ -2,6 +2,7 @@
 using System.Windows.Input;
 using MVP.Services.Interfaces;
 using TinyMvvm;
+using TinyNavigationHelper;
 using Xamarin.CommunityToolkit.ObjectModel;
 using Xamarin.CommunityToolkit.UI.Views;
 

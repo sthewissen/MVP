@@ -16,12 +16,6 @@
                        x:DataType="vm:ProfileViewModel"
                        x:TypeArguments="vm:ProfileViewModel">
 
-    <ContentPage.Resources>
-        <ResourceDictionary>
-            <converters:Base64ImageConverter x:Key="Base64ImageConverter" />
-        </ResourceDictionary>
-    </ContentPage.Resources>
-
     <local:AppFrame Title="{xct:Translate profile_title}"
                     x:Name="appFrame">
         <local:AppFrame.Content>

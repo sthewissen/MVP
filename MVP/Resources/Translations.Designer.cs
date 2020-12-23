@@ -550,5 +550,23 @@ namespace MVP.Resources {
                 return ResourceManager.GetString("contributionform_save", resourceCulture);
             }
         }
+        
+        internal static string contributiondetails_edit {
+            get {
+                return ResourceManager.GetString("contributiondetails_edit", resourceCulture);
+            }
+        }
+        
+        internal static string error_title_validationfailed {
+            get {
+                return ResourceManager.GetString("error_title_validationfailed", resourceCulture);
+            }
+        }
+        
+        internal static string error_description_validationfailed {
+            get {
+                return ResourceManager.GetString("error_description_validationfailed", resourceCulture);
+            }
+        }
     }
 }

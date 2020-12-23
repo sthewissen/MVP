@@ -8,11 +8,14 @@ using MVP.Extensions;
 using MVP.Helpers;
 using MVP.Models;
 using MVP.Pages;
+using MVP.Services;
 using MVP.Services.Interfaces;
 using TinyMvvm;
+using TinyNavigationHelper;
 using Xamarin.CommunityToolkit.ObjectModel;
 using Xamarin.CommunityToolkit.UI.Views;
 using Xamarin.Essentials;
+using Xamarin.Forms;
 
 namespace MVP.ViewModels
 {
@@ -37,8 +40,10 @@ namespace MVP.ViewModels
         {
             OpenContributionCommand = new AsyncCommand<Contribution>((Contribution c) => OpenContribution(c));
             SecondaryCommand = new AsyncCommand(() => OpenAddContribution());
-            RefreshDataCommand = new AsyncCommand(() => RefreshContributions(true));
+            RefreshDataCommand = new AsyncCommand(() => RefreshContributions());
             LoadMoreCommand = new AsyncCommand(() => LoadMore());
+
+            MessagingService.Current.Subscribe(MessageKeys.RefreshNeeded, HandleRefreshContributionsMessage);
         }
 
         public async override Task Initialize()
@@ -53,10 +58,7 @@ namespace MVP.ViewModels
 
             try
             {
-                if (!refresh)
-                    State = LayoutState.Loading;
-                else
-                    IsRefreshing = true;
+                State = LayoutState.Loading;
 
                 var contributionsList = await MvpApiService.GetContributionsAsync(0, pageSize).ConfigureAwait(false);
 
@@ -70,6 +72,11 @@ namespace MVP.ViewModels
                 IsRefreshing = false;
                 State = LayoutState.None;
             }
+        }
+
+        void HandleRefreshContributionsMessage(MessagingService obj)
+        {
+            RefreshContributions().SafeFireAndForget();
         }
 
         async Task LoadMore()

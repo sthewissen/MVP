@@ -23,10 +23,18 @@ namespace MVP.Services
         public MvpApiService(IAnalyticsService analyticsService)
         {
             this.analyticsService = analyticsService;
+
+#if DEBUG
+            api = RestService.For<IMvpApi>(new HttpClient(new HttpLoggingHandler(new AuthenticatedHttpClientHandler(GetToken)))
+            {
+                BaseAddress = new Uri(Constants.ApiUrl)
+            });
+#else
             api = RestService.For<IMvpApi>(new HttpClient(new AuthenticatedHttpClientHandler(GetToken))
             {
-                BaseAddress = new Uri("https://mvpapi.azure-api.net/mvp/api/")
+                BaseAddress = new Uri(Constants.ApiUrl)
             });
+#endif
         }
 
         async Task<string> GetToken()

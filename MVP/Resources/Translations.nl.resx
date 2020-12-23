@@ -267,7 +267,16 @@
     <data name="progress_loading_url_data" xml:space="preserve">
         <value>Getting URL metadata...</value>
     </data>
-    <data name="contributionform_save" xml:space="preserve">
-        <value>Save</value>
+    <data name="contributionform_edit" xml:space="preserve">
+        <value>Opslaan</value>
+    </data>
+    <data name="contributiondetails_edit" xml:space="preserve">
+        <value>Wijzig</value>
+    </data>
+    <data name="error_title_validationfailed" xml:space="preserve">
+        <value>Validation failed</value>
+    </data>
+    <data name="error_description_validationfailed" xml:space="preserve">
+        <value>Not all required fields were completed. Please complete the form and try saving again.</value>
     </data>
 </root>
