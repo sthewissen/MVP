@@ -39,6 +39,7 @@ namespace MVP.Services
             builder.RegisterType<AnalyticsService>().As<IAnalyticsService>().SingleInstance();
             builder.RegisterType<AuthService>().As<IAuthService>().SingleInstance();
             builder.RegisterType<MvpApiService>().As<IMvpApiService>().SingleInstance();
+            builder.RegisterType<LanguageService>().As<LanguageService>().SingleInstance();
 
             return builder.Build();
         }

@@ -12,17 +12,22 @@ using Xamarin.CommunityToolkit.Helpers;
 using Xamarin.Essentials;
 using Xamarin.Forms;
 using TinyNavigationHelper;
+using MVP.Services;
 
 namespace MVP.ViewModels
 {
     public class LanguagePickerViewModel : BaseViewModel
     {
+        readonly LanguageService languageService;
+
         public IList<LanguageViewModel> SupportedLanguages { get; set; } = new List<LanguageViewModel>();
         public ICommand SetAppLanguageCommand { get; set; }
 
-        public LanguagePickerViewModel(IAnalyticsService analyticsService, INavigationHelper navigationHelper)
+        public LanguagePickerViewModel(IAnalyticsService analyticsService, INavigationHelper navigationHelper, LanguageService languageService)
             : base(analyticsService, navigationHelper)
         {
+            this.languageService = languageService;
+
             SetAppLanguageCommand = new Command<LanguageViewModel>((x) => SetAppLanguage(x));
 
             LoadLanguages();
@@ -50,10 +55,10 @@ namespace MVP.ViewModels
             foreach (var item in SupportedLanguages)
                 item.IsSelected = false;
 
-            Preferences.Set(Settings.AppLanguage, language.CI);
-            SupportedLanguages.FirstOrDefault(x => x.CI == Preferences.Get(Settings.AppLanguage, Settings.AppLanguageDefault)).IsSelected = true;
+            languageService.SetLanguage(language.CI);
 
-            LocalizationResourceManager.Current.SetCulture(CultureInfo.GetCultureInfo(language.CI));
+            // SupportedLanguages.FirstOrDefault(x => x.CI == Preferences.Get(Settings.AppLanguage, Settings.AppLanguageDefault)).IsSelected = true;
+
             LoadLanguages();
 
             // Also force the tabs to change

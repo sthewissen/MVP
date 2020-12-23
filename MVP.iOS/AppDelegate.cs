@@ -25,8 +25,9 @@ namespace MVP.iOS
             var analyticsService = scope.Resolve<IAnalyticsService>();
             var apiService = scope.Resolve<IMvpApiService>();
             var authService = scope.Resolve<IAuthService>();
+            var languageService = scope.Resolve<LanguageService>();
 
-            LoadApplication(new App(analyticsService, apiService, authService));
+            LoadApplication(new App(analyticsService, apiService, authService, languageService));
 
             return base.FinishedLaunching(app, options);
         }
