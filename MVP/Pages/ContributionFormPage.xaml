@@ -101,8 +101,7 @@
                                             Title="{xct:Translate field_url}"
                                             Value="{Binding Contribution.ReferenceUrl.Value}"/>
 
-                        <controls:UrlPreviewView Url="{Binding Contribution.ReferenceUrl.Value}"
-                                                 effects:TouchEffect.Command="{Binding OpenUrlCommand}" />
+                        <controls:UrlPreviewView Url="{Binding Contribution.ReferenceUrl.Value}" />
 
                         <BoxView Margin="16,0,16,0"
                                  Style="{StaticResource separator}"/>

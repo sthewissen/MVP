@@ -104,7 +104,9 @@
 
                     <controls:UrlPreviewView Url="{Binding Contribution.ReferenceUrl}"
                                              Margin="-24,0"
-                                             effects:TouchEffect.Command="{Binding OpenUrlCommand}" />
+                                             effects:TouchEffect.Command="{Binding OpenUrlCommand}"
+                                             effects:TouchEffect.NormalBackgroundColor="{AppThemeBinding Light={StaticResource white}, Dark={StaticResource black}}"
+                                             effects:TouchEffect.PressedBackgroundColor="{AppThemeBinding Light={StaticResource white_highlight}, Dark={StaticResource black_highlight}}"/>
 
                     <BoxView Margin="0,-4,0,16"
                              Style="{StaticResource separator}"/>
