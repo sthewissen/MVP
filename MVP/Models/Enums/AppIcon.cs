@@ -6,7 +6,6 @@ namespace MVP.Models.Enums
         Default,
         DarkBlue,
         Black,
-        White,
-        Rainbow
+        White
     }
 }

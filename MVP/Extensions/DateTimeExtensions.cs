@@ -15,14 +15,6 @@ namespace MVP.Extensions
             return dateTime >= currentYearStart ? currentYearStart : lastYearStart;
         }
 
-        public static bool IsWithinReviewWindow(this DateTime dateTime)
-        {
-            var windowStart = new DateTime(dateTime.Year, 4, 1);
-            var windowEnd = new DateTime(dateTime.Year, 6, 1);
-
-            return dateTime >= windowStart && dateTime < windowEnd;
-        }
-
         public static bool IsWithinCurrentAwardPeriod(this DateTime dateTime)
         {
             var periodStart = new DateTime(DateTime.Now.Year, 4, 1);

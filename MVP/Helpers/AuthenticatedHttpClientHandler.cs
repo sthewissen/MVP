@@ -23,9 +23,7 @@ namespace MVP.Helpers
                 var token = await getToken().ConfigureAwait(false);
 
                 if (token.StartsWith(Constants.AuthType))
-                {
                     token = token.Replace($"{Constants.AuthType} ", string.Empty);
-                }
 
                 request.Headers.Authorization = new AuthenticationHeaderValue(Constants.AuthType, token);
             }

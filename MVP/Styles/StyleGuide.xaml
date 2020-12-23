@@ -283,8 +283,6 @@
         <Setter Property="CornerRadius" Value="24"/>
         <Setter Property="BackgroundColor" Value="{AppThemeBinding Light={StaticResource neutral_1}, Dark={StaticResource neutral_4}}"/>
         <Setter Property="HeightRequest" Value="48"/>
-        <!--<Setter Property="effects:TouchEffect.PressedBackgroundColor" Value="{AppThemeBinding Light={StaticResource neutral_1}, Dark={StaticResource black_highlight}}"/>
-        <Setter Property="effects:TouchEffect.NormalBackgroundColor" Value="{AppThemeBinding Light={StaticResource background_gray}, Dark={StaticResource background_dark_gray}}"/>-->
     </Style>
 
     <Style TargetType="local:AppFrame">

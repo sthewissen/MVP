@@ -47,7 +47,8 @@
 
                             <Entry Style="{StaticResource search_entry}"
                                    Text="{Binding SearchText}"
-                                   VerticalOptions="Center">
+                                   VerticalOptions="Fill"
+                                   VerticalTextAlignment="Center">
                                 <Entry.Behaviors>
                                     <behaviors:UserStoppedTypingBehavior Command="{Binding SearchCommand}"
                                                                          StoppedTypingTimeThreshold="500"

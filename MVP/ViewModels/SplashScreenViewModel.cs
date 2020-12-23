@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
+using MVP.Extensions;
 using MVP.Models;
 using MVP.Pages;
 using MVP.Services.Interfaces;
@@ -30,44 +31,16 @@ namespace MVP.ViewModels
             PrefetchDataCommand = new AsyncCommand(() => PrefetchData());
         }
 
+        public override async Task Initialize()
+        {
+            await base.Initialize();
+            PrefetchData().SafeFireAndForget();
+        }
+
         async Task PrefetchData()
         {
             try
             {
-
-                //var random = new Random();
-                //var cont = new List<Contribution>();
-
-                //var techs = await MvpApiService.GetContributionAreasAsync();
-                //var vis = await MvpApiService.GetVisibilitiesAsync();
-                //var types = await MvpApiService.GetContributionTypesAsync();
-
-                //for (var i = 0; i < 100; i++)
-                //{
-                //    var techcat = techs[random.Next(0, techs.Count - 1)];
-                //    var tech = techcat.ContributionAreas[random.Next(0, techcat.ContributionAreas.Count - 1)].ContributionTechnology;
-                //    var id = random.Next(0, 1000);
-
-                //    var contrib = new Contribution
-                //    {
-                //        AnnualQuantity = random.Next(0, 50),
-                //        SecondAnnualQuantity = random.Next(0, 50),
-                //        AnnualReach = random.Next(0, 50),
-                //        StartDate = DateTime.Now.AddYears(-4).AddDays(random.Next(0, 4 * 365)),
-                //        Description = "This is a non randomized description.",
-                //        Title = $"My Activity #{id}",
-                //        ContributionTechnology = tech[random.Next(0, tech.Count - 1)],
-                //        ContributionType = types[random.Next(0, types.Count - 1)],
-                //        Visibility = vis[random.Next(0, vis.Count - 1)],
-                //        ReferenceUrl = "https://cataas.com/cat/says/hello%20world!",
-                //        ContributionId = id
-                //    };
-
-                //    cont.Add(contrib);
-                //}
-
-                //var con = JsonConvert.SerializeObject(cont);
-
                 if (await AuthService.SignInSilentAsync())
                 {
                     FetchText = Resources.Translations.splash_contributionareas;
@@ -102,21 +75,21 @@ namespace MVP.ViewModels
             {
                 if (isAuthenticated)
                 {
-                    AnalyticsService.Track("");
+                    AnalyticsService.Track("Splash Authenticated");
                     NavigationHelper.SetRootView(nameof(TabbedMainPage), false);
                 }
                 else
                 {
-                    AnalyticsService.Track("");
+                    AnalyticsService.Track("Splash Unauthenticated");
                     NavigationHelper.SetRootView(nameof(IntroPage));
                 }
             });
         }
 
-        public override Task OnAppearing()
-        {
-            PrefetchDataCommand.Execute(null);
-            return base.OnAppearing();
-        }
+        //public override Task OnAppearing()
+        //{
+        //    PrefetchDataCommand.Execute(null);
+        //    return base.OnAppearing();
+        //}
     }
 }

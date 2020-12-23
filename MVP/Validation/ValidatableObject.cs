@@ -36,7 +36,8 @@ namespace MVP.Validation
         {
             Errors.Clear();
 
-            var errors = Validations.Where(v => !v.Check(Value))
+            var errors = Validations
+                .Where(v => !v.Check(Value))
                 .Select(v => v.ValidationMessage);
 
             Errors = errors.ToList();
