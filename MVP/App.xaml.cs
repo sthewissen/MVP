@@ -23,7 +23,7 @@ namespace MVP
         public static IMvpApiService MvpApiService { get; set; }
         public static IAuthService AuthService { get; set; }
 
-        public App(IAnalyticsService analyticsService, IMvpApiService mvpApiService, IAuthService authService)
+        public App(IAnalyticsService analyticsService, IMvpApiService mvpApiService, IAuthService authService, LanguageService languageService)
         {
             InitializeComponent();
 
@@ -39,6 +39,7 @@ namespace MVP
             AuthService = authService;
 
             LocalizationResourceManager.Current.Init(Translations.ResourceManager);
+            languageService.SetLanguage(Preferences.Get(Settings.AppLanguage, Settings.AppLanguageDefault));
 
             Resolver.SetResolver(new AutofacResolver(ContainerService.Container));
             Akavache.Registrations.Start(Constants.AppName);
