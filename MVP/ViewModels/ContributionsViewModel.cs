@@ -29,6 +29,7 @@ namespace MVP.ViewModels
         public IAsyncCommand LoadMoreCommand { get; set; }
         public IAsyncCommand<Contribution> OpenContributionCommand { get; set; }
 
+        public bool IsRefreshing { get; set; }
         public bool IsLoadingMore { get; set; }
 
         public ContributionsViewModel(IAnalyticsService analyticsService, INavigationHelper navigationHelper)
@@ -36,7 +37,7 @@ namespace MVP.ViewModels
         {
             OpenContributionCommand = new AsyncCommand<Contribution>((Contribution c) => OpenContribution(c));
             SecondaryCommand = new AsyncCommand(() => OpenAddContribution());
-            RefreshDataCommand = new AsyncCommand(() => RefreshContributions());
+            RefreshDataCommand = new AsyncCommand(() => RefreshContributions(true));
             LoadMoreCommand = new AsyncCommand(() => LoadMore());
         }
 
@@ -46,16 +47,16 @@ namespace MVP.ViewModels
             RefreshContributions().SafeFireAndForget();
         }
 
-        async Task RefreshContributions()
+        async Task RefreshContributions(bool refresh = false)
         {
-            Contributions.Clear();
             ItemThreshold = 2;
 
             try
             {
-                State = LayoutState.Loading;
-
-                Contributions.Clear();
+                if (!refresh)
+                    State = LayoutState.Loading;
+                else
+                    IsRefreshing = true;
 
                 var contributionsList = await MvpApiService.GetContributionsAsync(0, pageSize).ConfigureAwait(false);
 
@@ -66,6 +67,7 @@ namespace MVP.ViewModels
             }
             finally
             {
+                IsRefreshing = false;
                 State = LayoutState.None;
             }
         }

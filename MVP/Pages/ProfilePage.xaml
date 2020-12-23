@@ -57,22 +57,16 @@
                             </views:StateView>
                         </views:StateLayout.StateViews>
 
-                        <!--<ff:CachedImage HeightRequest="80"
+                        <ff:CachedImage HeightRequest="80"
                                         Source="{Binding ProfileImage}"
-                                        BackgroundColor="Orange"
+                                        ErrorPlaceholder="mvp_logo"
+                                        LoadingPlaceholder="mvp_logo"
                                         VerticalOptions="Center"
                                         WidthRequest="80">
                             <ff:CachedImage.Transformations>
                                 <fftransformations:CircleTransformation/>
                             </ff:CachedImage.Transformations>
-                        </ff:CachedImage>-->
-
-                        <views:AvatarView Aspect="AspectFill"
-                                          Text="{Binding Profile.Initials}"
-                                          Source="{Binding ProfileImage, Converter={StaticResource Base64ImageConverter}}"
-                                          VerticalOptions="CenterAndExpand"
-                                          HorizontalOptions="CenterAndExpand"
-                                          Size="80"/>
+                        </ff:CachedImage>
 
                         <StackLayout Grid.Column="1"
                                      VerticalOptions="CenterAndExpand">

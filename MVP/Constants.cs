@@ -15,6 +15,15 @@
         public const string AppCenterProdiOSKey = "d93d1cb9-8a66-494a-8478-b73ac5f0516d";
         public const string AppCenterProdAndroidKey = "3aa628e6-2d4e-428a-b064-88a2d358763e";
     }
+
+    public class CacheKeys
+    {
+        public const string Contributions = "contributions";
+        public const string ContributionTypes = "contributiontypes";
+        public const string ContributionAreas = "contributionareas";
+        public const string Visibilities = "visibilities";
+        public const string Profile = "profile";
+        public const string Avatar = "avatar";
     }
 
     public class Settings

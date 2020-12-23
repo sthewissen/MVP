@@ -1,6 +1,5 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
-<pages:BaseContentPage xmlns="http://xamarin.com/schemas/2014/forms"
-                       
+<pages:BaseContentPage xmlns="http://xamarin.com/schemas/2014/forms"                       
                        xmlns:local="clr-namespace:MVP"
                        xmlns:pages="clr-namespace:MVP.Pages"
                        xmlns:xct="clr-namespace:Xamarin.CommunityToolkit.Extensions;assembly=Xamarin.CommunityToolkit"
@@ -26,33 +25,29 @@
                                      RepeatTemplate="{StaticResource contribution_item_loading}" />
                 </state:StateLayout.StateViews>
 
-                <CollectionView ItemsSource="{Binding Contributions}"
-                            ItemsUpdatingScrollMode="KeepScrollOffset"
-                            ItemTemplate="{StaticResource contribution_item}"
-                            Scrolled="CollectionView_Scrolled"
-                            SelectionMode="None"
-                            RemainingItemsThreshold="{Binding ItemThreshold}"
-                            RemainingItemsThresholdReachedCommand="{Binding LoadMoreCommand}"
-                            x:Name="collectionView">
+                <RefreshView IsRefreshing="{Binding IsRefreshing}"
+                             Command="{Binding RefreshDataCommand}"
+                             
+                             BackgroundColor="Red"
+                             RefreshColor="Orange">
+                    <CollectionView ItemsSource="{Binding Contributions}"
+                                    ItemsUpdatingScrollMode="KeepScrollOffset"
+                                    ItemTemplate="{StaticResource contribution_item}"
+                                    Scrolled="CollectionView_Scrolled"
+                                    SelectionMode="None"
+                                    RemainingItemsThreshold="{Binding ItemThreshold}"
+                                    RemainingItemsThresholdReachedCommand="{Binding LoadMoreCommand}"
+                                    x:Name="collectionView">
 
-                    <CollectionView.Footer>
-                        <!--Want to re-use the template so creating a faux list of items -->
-                        <StackLayout IsVisible="{Binding IsLoadingMore}"
-                                     BindableLayout.ItemTemplate="{StaticResource contribution_item_loading}"
-                                     BindableLayout.ItemsSource="{StaticResource faux_list}" />
-                    </CollectionView.Footer>
+                        <CollectionView.Footer>
+                            <!--Want to re-use the template so creating a faux list of items -->
+                            <StackLayout IsVisible="{Binding IsLoadingMore}"
+                                         BindableLayout.ItemTemplate="{StaticResource contribution_item_loading}"
+                                         BindableLayout.ItemsSource="{StaticResource faux_list}" />
+                        </CollectionView.Footer>
 
-                    <!--<CollectionView.Header>
-                        <StackLayout Padding="32">
-                            <Label Text="What awesome activities have you been up to lately?"
-                                   FontSize="{StaticResource fontsize_h2}"
-                                   FontFamily="{StaticResource font_semibold}" />
-
-                            <Button Text="Add a new activity" Command="{Binding SecondaryCommand}" />
-                        </StackLayout>
-                    </CollectionView.Header>-->
-
-                </CollectionView>
+                    </CollectionView>
+                </RefreshView>
             </Grid>
         </local:AppFrame.Content>
     </local:AppFrame>

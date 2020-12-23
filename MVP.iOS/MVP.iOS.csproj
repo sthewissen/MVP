@@ -171,6 +171,12 @@
         <ImageAsset Include="Assets.xcassets\onboarding3.imageset\Contents.json">
             <Visible>False</Visible>
         </ImageAsset>
+        <ImageAsset Include="Assets.xcassets\mvp_logo.imageset\mvp_logo%403x.png" />
+        <ImageAsset Include="Assets.xcassets\mvp_logo.imageset\mvp_logo%402x.png" />
+        <ImageAsset Include="Assets.xcassets\mvp_logo.imageset\mvp_logo.png" />
+        <ImageAsset Include="Assets.xcassets\mvp_logo.imageset\Contents.json">
+          <Visible>False</Visible>
+        </ImageAsset>
     </ItemGroup>
     <ItemGroup>
         <Folder Include="Assets.xcassets\AppIcon.imageset\" />

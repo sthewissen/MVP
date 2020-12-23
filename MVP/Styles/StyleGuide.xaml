@@ -187,11 +187,6 @@
         <Setter Property="SelectedIndicatorColor" Value="{AppThemeBinding Light={StaticResource primary}, Dark={StaticResource light_primary}}"/>
     </Style>
 
-    <Style TargetType="controls:UrlPreviewView">
-        <Setter Property="effects:TouchEffect.NormalBackgroundColor" Value="{AppThemeBinding Light={StaticResource white}, Dark={StaticResource black}}"/>
-        <Setter Property="effects:TouchEffect.PressedBackgroundColor" Value="{AppThemeBinding Light={StaticResource white_highlight}, Dark={StaticResource black_highlight}}"/>
-    </Style>
-
     <!--Implicit stylings-->
 
     <Style x:Key="contribution_item_title" TargetType="Label">

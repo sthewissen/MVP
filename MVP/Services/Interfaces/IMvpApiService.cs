@@ -15,10 +15,10 @@ namespace MVP.Services.Interfaces
         Task<IReadOnlyList<Visibility>> GetVisibilitiesAsync(bool forceRefresh = false);
 
         Task<Profile> GetProfileAsync(bool forceRefresh = false);
-        Task<string> GetProfileImageAsync(bool forceRefresh = false);
+        Task<string> GetProfileImageAsync(bool forceRefresh = false, bool rawImage = false);
 
         Task<bool> DeleteContributionAsync(Contribution contribution);
-        Task<ContributionList> GetContributionsAsync(int offset = 0, int limit = 0, bool forceRefresh = false);
+        Task<ContributionList> GetContributionsAsync(int offset = 0, int limit = 0);
         Task<Contribution> SubmitContributionAsync(Contribution contribution);
         Task<bool> UpdateContributionAsync(Contribution contribution);
 

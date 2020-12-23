@@ -41,8 +41,8 @@ namespace MVP.Services
         /// <returns></returns>
         public async Task ClearAllLocalData()
         {
-            await BlobCache.LocalMachine.Invalidate("profile");
-            await BlobCache.LocalMachine.Invalidate("avatar");
+            await BlobCache.LocalMachine.Invalidate(CacheKeys.Profile);
+            await BlobCache.LocalMachine.Invalidate(CacheKeys.Avatar);
         }
 
         /// <summary>
@@ -53,7 +53,7 @@ namespace MVP.Services
         {
             try
             {
-                return GetFromCacheAndGetLatest("profile", GetRemoteProfileAsync, new TimeSpan(14, 0, 0, 0), forceRefresh);
+                return GetFromCacheAndGetLatest(CacheKeys.Profile, GetRemoteProfileAsync, new TimeSpan(14, 0, 0, 0), forceRefresh);
             }
             catch (Exception e)
             {
@@ -88,16 +88,16 @@ namespace MVP.Services
         /// Get the profile picture of the currently signed in MVP
         /// </summary>
         /// <returns>JPG image byte array</returns>
-        public async Task<string> GetProfileImageAsync(bool forceRefresh = false)
+        public async Task<string> GetProfileImageAsync(bool forceRefresh = false, bool rawImage = false)
         {
             try
             {
                 // Get rid of cached data.
                 if (forceRefresh)
-                    await BlobCache.LocalMachine.InvalidateObject<string>("avatar");
+                    await BlobCache.LocalMachine.InvalidateObject<string>(CacheKeys.Avatar);
 
                 // Grab cached data and return immediately + fetch new data in background if needed.
-                var cachedProfileImage = BlobCache.LocalMachine.GetAndFetchLatest("avatar", GetRemoteProfileImageAsync,
+                var cachedProfileImage = BlobCache.LocalMachine.GetAndFetchLatest(CacheKeys.Avatar, GetRemoteProfileImageAsync,
                     offset =>
                     {
                         var elapsed = DateTimeOffset.Now - offset;
@@ -105,7 +105,7 @@ namespace MVP.Services
                     });
 
                 var image = await cachedProfileImage.FirstOrDefaultAsync();
-                return $"data:image/png;base64,{image}";
+                return rawImage ? image : $"data:image/png;base64,{image}";
             }
             catch (Exception e)
             {
@@ -146,38 +146,7 @@ namespace MVP.Services
         /// <param name="limit">number of items for the page</param>
         /// <param name="forceRefresh">The result is cached in a backing list by default which prevents unnecessary fetches. If you want the cache refreshed, set this to true</param>
         /// <returns>A list of the MVP's contributions</returns>
-        public async Task<ContributionList> GetContributionsAsync(int offset = 0, int limit = 0, bool forceRefresh = false)
-        {
-            try
-            {
-                // Get rid of cached data.
-                if (forceRefresh)
-                    await BlobCache.LocalMachine.InvalidateObject<ContributionList>("contributions");
-
-                // Grab cached data and return immediately + fetch new data in background if needed.
-                var cachedContributions = BlobCache.LocalMachine.GetAndFetchLatest("contributions", () => GetRemoteContributionsAsync(offset, limit),
-                    cacheOffset =>
-                    {
-                        var elapsed = DateTimeOffset.Now - cacheOffset;
-                        return elapsed > new TimeSpan(days: 1, hours: 0, minutes: 0, seconds: 0);
-                    });
-
-                var contributions = await cachedContributions.FirstOrDefaultAsync();
-
-                return contributions;
-            }
-            catch (Exception e)
-            {
-                analyticsService.Report(e);
-                return null;
-            }
-        }
-
-        /// <summary>
-        /// Returns the latest contributions from the API.
-        /// </summary>
-        /// <returns></returns>
-        async Task<ContributionList> GetRemoteContributionsAsync(int offset = 0, int limit = 0)
+        public async Task<ContributionList> GetContributionsAsync(int offset = 0, int limit = 0)
         {
             try
             {
@@ -284,7 +253,7 @@ namespace MVP.Services
         public async Task<IReadOnlyList<ContributionType>> GetContributionTypesAsync(bool forceRefresh = false)
         {
             return await GetFromCacheOrRemote(
-                "contributiontypes",
+                CacheKeys.ContributionTypes,
                 GetRemoteContributionTypesAsync,
                 DateTimeOffset.Now.AddYears(1)
             );
@@ -316,7 +285,7 @@ namespace MVP.Services
         public async Task<IReadOnlyList<ContributionCategory>> GetContributionAreasAsync(bool forceRefresh = false)
         {
             return await GetFromCacheOrRemote(
-                "contributionareas",
+                CacheKeys.ContributionAreas,
                 GetRemoteContributionAreasAsync,
                 DateTimeOffset.Now.AddYears(1)
             );
@@ -348,7 +317,7 @@ namespace MVP.Services
         public async Task<IReadOnlyList<Visibility>> GetVisibilitiesAsync(bool forceRefresh = false)
         {
             return await GetFromCacheOrRemote(
-                "visibilities",
+                CacheKeys.Visibilities,
                 GetRemoteVisibilitiesAsync,
                 DateTimeOffset.Now.AddYears(1)
             );

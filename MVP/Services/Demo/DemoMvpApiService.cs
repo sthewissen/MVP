@@ -25,7 +25,7 @@ namespace MVP.Services.Demo
             return JsonConvert.DeserializeObject<Profile>(LocalResourceService.GetFile("getprofile"));
         }
 
-        public async Task<string> GetProfileImageAsync(bool forceRefresh = false)
+        public async Task<string> GetProfileImageAsync(bool forceRefresh = false, bool rawImage = false)
         {
             // Let's fake some delay, to see all the fancy loaders!
             await Task.Delay(1000);
@@ -33,16 +33,16 @@ namespace MVP.Services.Demo
             var image = LocalResourceService.GetFile("getprofileimage");
             image = image.TrimStart('"').TrimEnd('"');
 
-            return image; // $"data:image/png;base64,{image}";
+            return rawImage ? image : $"data:image/png;base64,{image}";
         }
 
-        public async Task<ContributionList> GetContributionsAsync(int offset = 0, int limit = 0, bool forceRefresh = false)
+        public async Task<ContributionList> GetContributionsAsync(int offset = 0, int limit = 0)
         {
             // Let's fake some delay, to see all the fancy loaders!
             await Task.Delay(3000);
 
             // Take the local copy, which we sort of cached in this service.
-            if (!forceRefresh && allContributionList != null)
+            if (allContributionList != null)
                 return new ContributionList()
                 {
                     Contributions = allContributionList.Contributions.Skip(offset).Take(limit == 0 ? allContributionList.Contributions.Count : limit).ToList(),
