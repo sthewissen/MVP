@@ -191,7 +191,5 @@
       <BundleResource Include="Resources\icon_white%402x.png" />
       <BundleResource Include="Resources\icon_default%402x.png" />
       <BundleResource Include="Resources\icon_default%403x.png" />
-      <BundleResource Include="Resources\icon_rainbow%402x.png" />
-      <BundleResource Include="Resources\icon_rainbow%403x.png" />
     </ItemGroup>
 </Project>
