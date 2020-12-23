@@ -35,10 +35,8 @@
                     <Button Text="{xct:Translate button_becomesponsor}"
                             Command="{Binding OpenSponsorCommand}"
                             Margin="0,0,0,24"
-                            BorderWidth="1"
-                            BorderColor="{StaticResource neutral_1}"
                             ImageSource="{FontImage FontFamily={StaticResource font_icon}, Color={StaticResource primary}, Size=20, Glyph={x:Static icons:Icons.coffee}}"
-                            Style="{StaticResource regular_button}" />
+                            Style="{StaticResource line_button}" />
 
                     <Label Style="{StaticResource about_title}"
                            Text="{xct:Translate about_licenses_title}"
@@ -49,10 +47,8 @@
 
                     <Button Text="{xct:Translate button_viewlicenses}"
                             Command="{Binding OpenLicensesCommand}"
-                            BorderWidth="1"
-                            BorderColor="{StaticResource neutral_1}"
                             ImageSource="{FontImage FontFamily={StaticResource font_icon}, Color={StaticResource primary}, Size=20, Glyph={x:Static icons:Icons.file_text}}"
-                            Style="{StaticResource regular_button}"  />
+                            Style="{StaticResource line_button}"  />
                 </StackLayout>
 
             </ScrollView>
