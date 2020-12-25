@@ -8,6 +8,7 @@ using MVP.Extensions;
 using MVP.Helpers;
 using MVP.Models;
 using MVP.Pages;
+using MVP.Resources;
 using MVP.Services;
 using MVP.Services.Interfaces;
 using TinyMvvm;
@@ -81,6 +82,16 @@ namespace MVP.ViewModels
         {
             if (IsLoadingMore)
                 return;
+
+            if (Connectivity.NetworkAccess != NetworkAccess.Internet)
+            {
+                // Connection to internet is not available
+                await DialogService.AlertAsync(
+                    Translations.alert_error_offline,
+                    Translations.alert_error_offlinetitle,
+                    Translations.alert_ok).ConfigureAwait(false);
+                return;
+            }
 
             try
             {
