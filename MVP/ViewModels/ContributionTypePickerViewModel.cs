@@ -20,12 +20,14 @@ namespace MVP.ViewModels
         ContributionViewModel contribution;
 
         public IAsyncCommand<ContributionTypeViewModel> SelectContributionTypeCommand { get; set; }
+        public IAsyncCommand RefreshDataCommand { get; set; }
 
         public List<ContributionTypeViewModel> ContributionTypes { get; set; } = new List<ContributionTypeViewModel>();
 
         public ContributionTypePickerViewModel(IAnalyticsService analyticsService, INavigationHelper navigationHelper)
             : base(analyticsService, navigationHelper)
         {
+            RefreshDataCommand = new AsyncCommand(() => LoadContributionTypes(true));
             SelectContributionTypeCommand = new AsyncCommand<ContributionTypeViewModel>((x) => SelectContributionType(x));
         }
 
@@ -46,13 +48,13 @@ namespace MVP.ViewModels
         public async override Task Back()
             => await NavigationHelper.BackAsync(); // TODO: TinyMVVM 3.0 - ContributionTypes.FirstOrDefault(x => x.IsSelected)?.ContributionType);
 
-        async Task LoadContributionTypes()
+        async Task LoadContributionTypes(bool force = false)
         {
             try
             {
                 State = LayoutState.Loading;
 
-                var types = await MvpApiService.GetContributionTypesAsync().ConfigureAwait(false);
+                var types = await MvpApiService.GetContributionTypesAsync(force).ConfigureAwait(false);
 
                 if (types != null)
                 {

@@ -19,12 +19,14 @@ namespace MVP.ViewModels
         ContributionViewModel contribution;
 
         public IAsyncCommand<VisibilityViewModel> SelectVisibilityCommand { get; }
+        public IAsyncCommand RefreshDataCommand { get; set; }
 
         public IList<VisibilityViewModel> Visibilities { get; set; } = new List<VisibilityViewModel>();
 
         public VisibilityPickerViewModel(IAnalyticsService analyticsService, INavigationHelper navigationHelper)
             : base(analyticsService, navigationHelper)
         {
+            RefreshDataCommand = new AsyncCommand(() => LoadVisibilities(true));
             SelectVisibilityCommand = new AsyncCommand<VisibilityViewModel>((x) => SelectVisibility(x));
         }
 
@@ -59,13 +61,13 @@ namespace MVP.ViewModels
         public async override Task Back()
             => await NavigationHelper.BackAsync(); // TODO: TinyMVVM 3.0 - Visibilities.FirstOrDefault(x => x.IsSelected)?.Visibility);
 
-        async Task LoadVisibilities()
+        async Task LoadVisibilities(bool force = false)
         {
             try
             {
                 State = LayoutState.Loading;
 
-                var visibilities = await MvpApiService.GetVisibilitiesAsync().ConfigureAwait(false);
+                var visibilities = await MvpApiService.GetVisibilitiesAsync(force).ConfigureAwait(false);
 
                 if (visibilities != null)
                 {

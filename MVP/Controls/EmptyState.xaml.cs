@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Windows.Input;
 using Xamarin.Forms;
 
 namespace MVP.Controls
@@ -15,10 +16,28 @@ namespace MVP.Controls
         public static readonly BindableProperty DescriptionProperty =
          BindableProperty.Create(nameof(Description), typeof(string), typeof(EmptyState), string.Empty, defaultBindingMode: BindingMode.OneWay);
 
+        public static readonly BindableProperty CommandTextProperty =
+         BindableProperty.Create(nameof(CommandText), typeof(string), typeof(EmptyState), string.Empty, defaultBindingMode: BindingMode.OneWay);
+
+        public static readonly BindableProperty CommandProperty =
+         BindableProperty.Create(nameof(Command), typeof(ICommand), typeof(EmptyState), default, defaultBindingMode: BindingMode.OneWay);
+
         public string Title
         {
             get => (string)GetValue(TitleProperty);
             set => SetValue(TitleProperty, value);
+        }
+
+        public string CommandText
+        {
+            get => (string)GetValue(CommandTextProperty);
+            set => SetValue(CommandTextProperty, value);
+        }
+
+        public ICommand Command
+        {
+            get => (ICommand)GetValue(CommandProperty);
+            set => SetValue(CommandProperty, value);
         }
 
         public ImageSource ImageSource

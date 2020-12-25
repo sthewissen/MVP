@@ -388,16 +388,16 @@
         <value>Add</value>
     </data>
     <data name="empty_state_contributiontypes" xml:space="preserve">
-        <value>We couldn't find any contributions types.</value>
+        <value>We couldn't find any contribution types. Please try to refresh them.</value>
     </data>
     <data name="empty_state_contributiontechnologies" xml:space="preserve">
-        <value>We couldn't find any contributions areas.</value>
+        <value>We couldn't find any contribution areas. Please try to refresh them.</value>
     </data>
     <data name="empty_state_noresultcontributiontechnologies" xml:space="preserve">
         <value>Your search query returned no results. Please try a different search query.</value>
     </data>
     <data name="empty_state_visibilities" xml:space="preserve">
-        <value>We couldn't find any visibilities.</value>
+        <value>We couldn't find any visibilities. Please try to refresh them.</value>
     </data>
     <data name="error_offline" xml:space="preserve">
         <value>This action cannot be performed without an internet connection. Please try again later.</value>

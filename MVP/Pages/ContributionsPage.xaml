@@ -39,7 +39,9 @@
                                      VerticalOptions="FillAndExpand" >
                         <controls:EmptyState Title="{xct:Translate empty_state_title}"
                                              Description="{xct:Translate empty_state_contributions}"
-                                             ImageSource="Resource://no_contributions.svg" />
+                                             ImageSource="Resource://no_contributions.svg"
+                                             CommandText="Retry"
+                                             Command="{Binding RefreshDataCommand}" />
                     </state:StateView>
                     <state:StateView StateKey="Custom"
                                      CustomStateKey="{x:Static mvp:StateKeys.Offline}"
@@ -47,7 +49,9 @@
                                      VerticalOptions="FillAndExpand" >
                         <controls:EmptyState Title="{xct:Translate error_offline_title}"
                                              Description="{xct:Translate offline_contributions}"
-                                             ImageSource="Resource://no_contributions.svg" />
+                                             ImageSource="Resource://no_contributions.svg"
+                                             CommandText="Retry"
+                                             Command="{Binding RefreshDataCommand}" />
                     </state:StateView>
                 </state:StateLayout.StateViews>
 

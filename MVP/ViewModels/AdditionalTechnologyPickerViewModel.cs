@@ -9,6 +9,7 @@ using MVP.Services.Interfaces;
 using MVP.ViewModels.Data;
 using TinyMvvm;
 using TinyNavigationHelper;
+using Xamarin.CommunityToolkit.ObjectModel;
 using Xamarin.CommunityToolkit.UI.Views;
 using Xamarin.Essentials;
 using Xamarin.Forms;
@@ -25,6 +26,7 @@ namespace MVP.ViewModels
 
         public ICommand SelectContributionTechnologyCommand { get; set; }
         public ICommand SearchCommand { get; set; }
+        public IAsyncCommand RefreshDataCommand { get; set; }
 
         public IList<Grouping<string, ContributionTechnologyViewModel>> GroupedContributionTechnologies { get; set; } = new List<Grouping<string, ContributionTechnologyViewModel>>();
 
@@ -32,6 +34,7 @@ namespace MVP.ViewModels
             : base(analyticsService, navigationHelper)
         {
             SearchCommand = new Command(() => PopulateList());
+            RefreshDataCommand = new AsyncCommand(() => LoadContributionAreas(true));
             SelectContributionTechnologyCommand = new Command<ContributionTechnologyViewModel>((x) => SelectContributionTechnology(x));
         }
 
@@ -48,13 +51,13 @@ namespace MVP.ViewModels
             LoadContributionAreas().SafeFireAndForget();
         }
 
-        async Task LoadContributionAreas()
+        async Task LoadContributionAreas(bool force = false)
         {
             try
             {
                 State = LayoutState.Loading;
 
-                allCategories = await MvpApiService.GetContributionAreasAsync().ConfigureAwait(false);
+                allCategories = await MvpApiService.GetContributionAreasAsync(force).ConfigureAwait(false);
 
                 PopulateList();
             }

@@ -26,6 +26,11 @@
         <Label Style="{StaticResource emptystate_description}" 
                Text="{Binding Description, Source={x:Reference emptyState}}"/>
 
+        <Button Text="{Binding CommandText, Source={x:Reference emptyState}}"
+                Command="{Binding Command, Source={x:Reference emptyState}}"
+                Style="{StaticResource line_button}"
+                IsVisible="{Binding Command, Source={x:Reference emptyState}, Converter={xct:IsNotNullOrEmptyConverter}}" />
+
     </StackLayout>
 
 </Grid>

@@ -22,8 +22,10 @@ namespace MVP.ViewModels
         IReadOnlyList<Models.ContributionCategory> allCategories = new List<Models.ContributionCategory>();
 
         public string SearchText { get; set; } = string.Empty;
+
         public IAsyncCommand<ContributionTechnologyViewModel> SelectContributionTechnologyCommand { get; set; }
         public ICommand SearchCommand { get; set; }
+        public IAsyncCommand RefreshDataCommand { get; set; }
 
         public IList<Grouping<string, ContributionTechnologyViewModel>> GroupedContributionTechnologies { get; set; } = new List<Grouping<string, ContributionTechnologyViewModel>>();
 
@@ -31,6 +33,7 @@ namespace MVP.ViewModels
             : base(analyticsService, navigationHelper)
         {
             SearchCommand = new Command(() => PopulateList());
+            RefreshDataCommand = new AsyncCommand(() => LoadContributionAreas(true));
             SelectContributionTechnologyCommand = new AsyncCommand<ContributionTechnologyViewModel>((x) => SelectContributionTechnology(x));
         }
 
@@ -46,13 +49,13 @@ namespace MVP.ViewModels
             LoadContributionAreas().SafeFireAndForget();
         }
 
-        async Task LoadContributionAreas()
+        async Task LoadContributionAreas(bool force = false)
         {
             try
             {
                 State = LayoutState.Loading;
 
-                allCategories = await MvpApiService.GetContributionAreasAsync().ConfigureAwait(false);
+                allCategories = await MvpApiService.GetContributionAreasAsync(force).ConfigureAwait(false);
 
                 PopulateList();
             }

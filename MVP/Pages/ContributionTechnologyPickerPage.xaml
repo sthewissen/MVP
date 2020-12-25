@@ -31,7 +31,9 @@
                                      VerticalOptions="FillAndExpand" >
                         <controls:EmptyState Title="{extensions:Translate empty_state_title}"
                                              Description="{extensions:Translate empty_state_contributiontechnologies}"
-                                             ImageSource="Resource://no_contributions.svg" />
+                                             ImageSource="Resource://no_contributions.svg"
+                                             CommandText="Retry"
+                                             Command="{Binding RefreshDataCommand}"  />
                     </views:StateView>
                 </views:StateLayout.StateViews>
 

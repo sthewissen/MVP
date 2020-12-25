@@ -41,6 +41,9 @@ namespace MVP.ViewModels
         {
             try
             {
+                if (Connectivity.NetworkAccess != NetworkAccess.Internet)
+                    await GoToNextPage(false);
+
                 if (await AuthService.SignInSilentAsync())
                 {
                     FetchText = Resources.Translations.splash_contributionareas;
@@ -85,11 +88,5 @@ namespace MVP.ViewModels
                 }
             });
         }
-
-        //public override Task OnAppearing()
-        //{
-        //    PrefetchDataCommand.Execute(null);
-        //    return base.OnAppearing();
-        //}
     }
 }
