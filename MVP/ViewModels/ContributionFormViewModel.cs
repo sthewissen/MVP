@@ -7,6 +7,7 @@ using MVP.Extensions;
 using MVP.Helpers;
 using MVP.Models;
 using MVP.Pages;
+using MVP.Resources;
 using MVP.Services;
 using MVP.Services.Interfaces;
 using MVP.ViewModels.Data;
@@ -93,11 +94,10 @@ namespace MVP.ViewModels
                     return;
 
                 var shouldCreateActivity = await DialogService.ConfirmAsync(
-                    Resources.Translations.clipboard_alert_description,
-                    Resources.Translations.clipboard_alert_title,
-                    Resources.Translations.alert_yes,
-                    Resources.Translations.alert_no
-                );
+                    Translations.clipboard_alert_description,
+                    Translations.clipboard_alert_title,
+                    Translations.alert_yes,
+                    Translations.alert_no);
 
                 if (!shouldCreateActivity)
                     return;
@@ -173,6 +173,16 @@ namespace MVP.ViewModels
         {
             try
             {
+                if (Connectivity.NetworkAccess != NetworkAccess.Internet)
+                {
+                    // Connection to internet is not available
+                    await DialogService.AlertAsync(
+                        Translations.alert_error_offline,
+                        Translations.alert_error_offlinetitle,
+                        Translations.alert_ok).ConfigureAwait(false);
+                    return;
+                }
+
                 if (!Contribution.IsValid())
                 {
                     IsContributionValid = false;
@@ -187,24 +197,24 @@ namespace MVP.ViewModels
                 {
                     var result = await MvpApiService.UpdateContributionAsync(Contribution.ToContribution());
 
-                    if (result)
-                    {
-                        MainThread.BeginInvokeOnMainThread(() => HapticFeedback.Perform(HapticFeedbackType.LongPress));
-                        await NavigationHelper.CloseModalAsync();
-                        await NavigationHelper.BackAsync();
-                        MessagingService.Current.SendMessage(MessageKeys.RefreshNeeded);
-                    }
+                    if (!result)
+                        return;
+
+                    MainThread.BeginInvokeOnMainThread(() => HapticFeedback.Perform(HapticFeedbackType.LongPress));
+                    await NavigationHelper.CloseModalAsync();
+                    await NavigationHelper.BackAsync();
+                    MessagingService.Current.SendMessage(MessageKeys.RefreshNeeded);
                 }
                 else
                 {
                     var result = await MvpApiService.SubmitContributionAsync(Contribution.ToContribution());
 
-                    if (result != null)
-                    {
-                        MainThread.BeginInvokeOnMainThread(() => HapticFeedback.Perform(HapticFeedbackType.LongPress));
-                        await NavigationHelper.CloseModalAsync();
-                        MessagingService.Current.SendMessage(MessageKeys.RefreshNeeded);
-                    }
+                    if (result == null)
+                        return;
+
+                    MainThread.BeginInvokeOnMainThread(() => HapticFeedback.Perform(HapticFeedbackType.LongPress));
+                    await NavigationHelper.CloseModalAsync();
+                    MessagingService.Current.SendMessage(MessageKeys.RefreshNeeded);
                 }
             }
             finally

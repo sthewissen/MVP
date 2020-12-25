@@ -1,7 +1,10 @@
 ﻿using System.Threading.Tasks;
 using System.Windows.Input;
+using MVP.Extensions;
 using MVP.Models;
 using MVP.Pages;
+using MVP.Resources;
+using MVP.Services;
 using MVP.Services.Interfaces;
 using TinyMvvm;
 using TinyNavigationHelper;
@@ -51,13 +54,23 @@ namespace MVP.ViewModels
         public override async Task Initialize()
         {
             await base.Initialize();
-            await LoadProfile(false);
+            LoadProfile(false).SafeFireAndForget();
         }
 
         async Task LoadProfile(bool force)
         {
             if (State != LayoutState.None)
                 return;
+
+            if (force && Connectivity.NetworkAccess != NetworkAccess.Internet)
+            {
+                // Connection to internet is not available
+                await DialogService.AlertAsync(
+                    Translations.alert_error_offline,
+                    Translations.alert_error_offlinetitle,
+                    Translations.alert_ok).ConfigureAwait(false);
+                return;
+            }
 
             State = LayoutState.Loading;
             await Task.WhenAll(RefreshProfileData(force), RefreshProfileImage(force));
@@ -71,14 +84,6 @@ namespace MVP.ViewModels
             if (image == null && force)
                 return;
 
-            if (image == null)
-            {
-                image = await MvpApiService.GetProfileImageAsync(true).ConfigureAwait(false);
-
-                if (image == null)
-                    return;
-            }
-
             ProfileImage = image;
         }
 
@@ -89,19 +94,22 @@ namespace MVP.ViewModels
             if (profile == null && force)
                 return;
 
-            if (profile == null)
-            {
-                profile = await MvpApiService.GetProfileAsync(true).ConfigureAwait(false);
-
-                if (profile == null)
-                    return;
-            }
-
             Profile = profile;
         }
 
         async Task Logout()
         {
+            if (Connectivity.NetworkAccess != NetworkAccess.Internet)
+            {
+                // Connection to internet is not available
+                await DialogService.ConfirmAsync(
+                    Translations.alert_error_logoutwhileoffline,
+                    Translations.alert_error_offlinetitle,
+                    Translations.alert_yes,
+                    Translations.alert_no).ConfigureAwait(false);
+                return;
+            }
+
             if (!await AuthService.SignOutAsync())
                 return;
 

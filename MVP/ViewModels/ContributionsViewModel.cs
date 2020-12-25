@@ -40,7 +40,7 @@ namespace MVP.ViewModels
         {
             OpenContributionCommand = new AsyncCommand<Contribution>((Contribution c) => OpenContribution(c));
             SecondaryCommand = new AsyncCommand(() => OpenAddContribution());
-            RefreshDataCommand = new AsyncCommand(() => RefreshContributions());
+            RefreshDataCommand = new AsyncCommand(() => RefreshContributions(true));
             LoadMoreCommand = new AsyncCommand(() => LoadMore());
 
             MessagingService.Current.Subscribe(MessageKeys.RefreshNeeded, HandleRefreshContributionsMessage);
@@ -75,9 +75,7 @@ namespace MVP.ViewModels
         }
 
         void HandleRefreshContributionsMessage(MessagingService obj)
-        {
-            RefreshContributions().SafeFireAndForget();
-        }
+            => RefreshContributions().SafeFireAndForget();
 
         async Task LoadMore()
         {

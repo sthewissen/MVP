@@ -610,5 +610,23 @@ namespace MVP.Resources {
                 return ResourceManager.GetString("empty_state_visibilities", resourceCulture);
             }
         }
+        
+        internal static string alert_error_offline {
+            get {
+                return ResourceManager.GetString("alert_error_offline", resourceCulture);
+            }
+        }
+        
+        internal static string alert_error_offlinetitle {
+            get {
+                return ResourceManager.GetString("alert_error_offlinetitle", resourceCulture);
+            }
+        }
+        
+        internal static string alert_error_logoutwhileoffline {
+            get {
+                return ResourceManager.GetString("alert_error_logoutwhileoffline", resourceCulture);
+            }
+        }
     }
 }

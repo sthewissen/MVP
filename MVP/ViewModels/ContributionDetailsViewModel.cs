@@ -3,6 +3,7 @@ using System.Threading.Tasks;
 using MVP.Extensions;
 using MVP.Models;
 using MVP.Pages;
+using MVP.Resources;
 using MVP.Services;
 using MVP.Services.Interfaces;
 using TinyMvvm;
@@ -64,13 +65,22 @@ namespace MVP.ViewModels
                 if (!CanBeEdited)
                     return;
 
+                if (Connectivity.NetworkAccess != NetworkAccess.Internet)
+                {
+                    // Connection to internet is not available
+                    await DialogService.AlertAsync(
+                        Translations.alert_error_offline,
+                        Translations.alert_error_offlinetitle,
+                        Translations.alert_ok).ConfigureAwait(false);
+                    return;
+                }
+
                 // Ask for confirmation before deletion.
                 var confirm = await DialogService.ConfirmAsync(
-                    Resources.Translations.alert_contribution_deleteconfirmation,
-                    Resources.Translations.alert_warning_title,
-                    Resources.Translations.alert_ok,
-                    Resources.Translations.alert_cancel
-                ).ConfigureAwait(false);
+                    Translations.alert_contribution_deleteconfirmation,
+                    Translations.alert_warning_title,
+                    Translations.alert_ok,
+                    Translations.alert_cancel).ConfigureAwait(false);
 
                 if (!confirm)
                     return;
@@ -87,10 +97,9 @@ namespace MVP.ViewModels
                 else
                 {
                     await DialogService.AlertAsync(
-                        Resources.Translations.alert_contribution_notdeleted,
-                        Resources.Translations.alert_error_title,
-                        Resources.Translations.alert_ok
-                    ).ConfigureAwait(false);
+                        Translations.alert_contribution_notdeleted,
+                        Translations.alert_error_title,
+                        Translations.alert_ok).ConfigureAwait(false);
                 }
             }
             catch (Exception ex)
@@ -98,10 +107,9 @@ namespace MVP.ViewModels
                 AnalyticsService.Report(ex);
 
                 await DialogService.AlertAsync(
-                    Resources.Translations.alert_error_title,
-                    Resources.Translations.alert_error_unexpected,
-                    Resources.Translations.alert_ok
-                ).ConfigureAwait(false);
+                    Translations.alert_error_title,
+                    Translations.alert_error_unexpected,
+                    Translations.alert_ok).ConfigureAwait(false);
             }
         }
 
