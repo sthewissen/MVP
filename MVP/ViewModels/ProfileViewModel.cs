@@ -66,8 +66,8 @@ namespace MVP.ViewModels
             {
                 // Connection to internet is not available
                 await DialogService.AlertAsync(
-                    Translations.alert_error_offline,
-                    Translations.alert_error_offlinetitle,
+                    Translations.error_offline,
+                    Translations.error_offline_title,
                     Translations.alert_ok).ConfigureAwait(false);
                 return;
             }
@@ -103,8 +103,8 @@ namespace MVP.ViewModels
             {
                 // Connection to internet is not available
                 await DialogService.ConfirmAsync(
-                    Translations.alert_error_logoutwhileoffline,
-                    Translations.alert_error_offlinetitle,
+                    Translations.error_logoutwhileoffline,
+                    Translations.error_offline_title,
                     Translations.alert_yes,
                     Translations.alert_no).ConfigureAwait(false);
                 return;

@@ -399,13 +399,16 @@
     <data name="empty_state_visibilities" xml:space="preserve">
         <value>We couldn't find any visibilities.</value>
     </data>
-    <data name="alert_error_offline" xml:space="preserve">
+    <data name="error_offline" xml:space="preserve">
         <value>This action cannot be performed without an internet connection. Please try again later.</value>
     </data>
-    <data name="alert_error_offlinetitle" xml:space="preserve">
+    <data name="error_offline_title" xml:space="preserve">
         <value>No internet connection</value>
     </data>
-    <data name="alert_error_logoutwhileoffline" xml:space="preserve">
+    <data name="error_logoutwhileoffline" xml:space="preserve">
         <value>You currently have no internet connection. This may cause you to not be able to log back in again. Are you sure you want to continue?</value>
+    </data>
+    <data name="offline_contributions" xml:space="preserve">
+        <value>You currently have no internet connection. This prevents us from loading your contributions. Please try again later.</value>
     </data>
 </root>

@@ -57,6 +57,13 @@ namespace MVP.ViewModels
         {
             ItemThreshold = 2;
 
+            if (Connectivity.NetworkAccess != NetworkAccess.Internet)
+            {
+                State = LayoutState.Custom;
+                CustomStateKey = StateKeys.Offline;
+                return;
+            }
+
             try
             {
                 State = LayoutState.Loading;
@@ -87,8 +94,8 @@ namespace MVP.ViewModels
             {
                 // Connection to internet is not available
                 await DialogService.AlertAsync(
-                    Translations.alert_error_offline,
-                    Translations.alert_error_offlinetitle,
+                    Translations.error_offline,
+                    Translations.error_offline_title,
                     Translations.alert_ok).ConfigureAwait(false);
                 return;
             }

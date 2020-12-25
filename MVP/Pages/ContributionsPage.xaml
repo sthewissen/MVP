@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <pages:BaseContentPage xmlns="http://xamarin.com/schemas/2014/forms"                       
-                       xmlns:local="clr-namespace:MVP"
+                       xmlns:mvp="clr-namespace:MVP"
                        xmlns:pages="clr-namespace:MVP.Pages"
                        xmlns:converters="clr-namespace:Xamarin.CommunityToolkit.Converters;assembly=Xamarin.CommunityToolkit"
                        xmlns:xct="clr-namespace:Xamarin.CommunityToolkit.Extensions;assembly=Xamarin.CommunityToolkit"
@@ -20,22 +20,33 @@
         </converters:MultiConverter>
     </pages:BaseContentPage.Resources>
 
-    <local:AppFrame SecondaryButtonText="{xct:Translate contribution_add}"
+    <mvp:AppFrame SecondaryButtonText="{xct:Translate contribution_add}"
                     ShowSecondaryButton="{Binding State, Converter={StaticResource NotLoadingConverter}}"
                     Title="{xct:Translate contributions_title}"
                     x:Name="appFrame">
-        <local:AppFrame.Content>
+        <mvp:AppFrame.Content>
             <Grid state:StateLayout.CurrentState="{Binding State}"
-                  state:StateLayout.AnimateStateChanges="False">
+                  state:StateLayout.AnimateStateChanges="False"
+                  state:StateLayout.CurrentCustomStateKey="{Binding CustomStateKey}">
 
                 <state:StateLayout.StateViews>
                     <state:StateView StateKey="Loading"
                                      RepeatCount="3"
                                      RepeatTemplate="{StaticResource contribution_item_loading}" />
 
-                    <state:StateView StateKey="Empty" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" >
+                    <state:StateView StateKey="Empty"
+                                     HorizontalOptions="FillAndExpand"
+                                     VerticalOptions="FillAndExpand" >
                         <controls:EmptyState Title="{xct:Translate empty_state_title}"
                                              Description="{xct:Translate empty_state_contributions}"
+                                             ImageSource="Resource://no_contributions.svg" />
+                    </state:StateView>
+                    <state:StateView StateKey="Custom"
+                                     CustomStateKey="{x:Static mvp:StateKeys.Offline}"
+                                     HorizontalOptions="FillAndExpand"
+                                     VerticalOptions="FillAndExpand" >
+                        <controls:EmptyState Title="{xct:Translate error_offline_title}"
+                                             Description="{xct:Translate offline_contributions}"
                                              ImageSource="Resource://no_contributions.svg" />
                     </state:StateView>
                 </state:StateLayout.StateViews>
@@ -59,6 +70,6 @@
                 </CollectionView>
 
             </Grid>
-        </local:AppFrame.Content>
-    </local:AppFrame>
+        </mvp:AppFrame.Content>
+    </mvp:AppFrame>
 </pages:BaseContentPage>

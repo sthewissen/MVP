@@ -20,9 +20,13 @@
                   views:StateLayout.AnimateStateChanges="False">
 
                 <views:StateLayout.StateViews>
-                    <views:StateView StateKey="Loading" RepeatCount="3" RepeatTemplate="{StaticResource picker_item_loading}" />
+                    <views:StateView StateKey="Loading"
+                                     RepeatCount="3"
+                                     RepeatTemplate="{StaticResource picker_item_loading}" />
 
-                    <views:StateView StateKey="Empty" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" >
+                    <views:StateView StateKey="Empty"
+                                     HorizontalOptions="FillAndExpand"
+                                     VerticalOptions="FillAndExpand" >
                         <controls:EmptyState Title="{extensions:Translate empty_state_title}"
                                              Description="{extensions:Translate empty_state_visibilities}"
                                              ImageSource="Resource://no_contributions.svg" />

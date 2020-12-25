@@ -86,11 +86,11 @@
         <PackageReference Include="akavache">
             <Version>7.1.1</Version>
         </PackageReference>
-        <PackageReference Include="Xamarin.CommunityToolkit">
-          <Version>1.0.0-preview1119</Version>
-        </PackageReference>
         <PackageReference Include="Com.Airbnb.Xamarin.Forms.Lottie">
           <Version>4.0.8</Version>
+        </PackageReference>
+        <PackageReference Include="Xamarin.CommunityToolkit">
+          <Version>1.0.0-preview1120</Version>
         </PackageReference>
     </ItemGroup>
     <ItemGroup>

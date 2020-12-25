@@ -19,9 +19,13 @@
                   state:StateLayout.AnimateStateChanges="False">
 
                 <state:StateLayout.StateViews>
-                    <state:StateView StateKey="Loading" RepeatCount="3" RepeatTemplate="{StaticResource picker_item_loading}" />
+                    <state:StateView StateKey="Loading"
+                                     RepeatCount="3"
+                                     RepeatTemplate="{StaticResource picker_item_loading}" />
 
-                    <state:StateView StateKey="Empty" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" >
+                    <state:StateView StateKey="Empty"
+                                     HorizontalOptions="FillAndExpand"
+                                     VerticalOptions="FillAndExpand" >
                         <controls:EmptyState Title="{xct:Translate empty_state_title}"
                                              Description="{xct:Translate empty_state_contributiontypes}"
                                              ImageSource="Resource://no_contributions.svg" />

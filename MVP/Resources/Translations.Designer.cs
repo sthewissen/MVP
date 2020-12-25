@@ -611,21 +611,27 @@ namespace MVP.Resources {
             }
         }
         
-        internal static string alert_error_offline {
+        internal static string error_offline {
             get {
-                return ResourceManager.GetString("alert_error_offline", resourceCulture);
+                return ResourceManager.GetString("error_offline", resourceCulture);
             }
         }
         
-        internal static string alert_error_offlinetitle {
+        internal static string error_offline_title {
             get {
-                return ResourceManager.GetString("alert_error_offlinetitle", resourceCulture);
+                return ResourceManager.GetString("error_offline_title", resourceCulture);
             }
         }
         
-        internal static string alert_error_logoutwhileoffline {
+        internal static string error_logoutwhileoffline {
             get {
-                return ResourceManager.GetString("alert_error_logoutwhileoffline", resourceCulture);
+                return ResourceManager.GetString("error_logoutwhileoffline", resourceCulture);
+            }
+        }
+        
+        internal static string offline_contributions {
+            get {
+                return ResourceManager.GetString("offline_contributions", resourceCulture);
             }
         }
     }
