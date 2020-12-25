@@ -568,5 +568,47 @@ namespace MVP.Resources {
                 return ResourceManager.GetString("error_description_validationfailed", resourceCulture);
             }
         }
+        
+        internal static string empty_state_title {
+            get {
+                return ResourceManager.GetString("empty_state_title", resourceCulture);
+            }
+        }
+        
+        internal static string empty_state_contributions {
+            get {
+                return ResourceManager.GetString("empty_state_contributions", resourceCulture);
+            }
+        }
+        
+        internal static string contribution_add {
+            get {
+                return ResourceManager.GetString("contribution_add", resourceCulture);
+            }
+        }
+        
+        internal static string empty_state_contributiontypes {
+            get {
+                return ResourceManager.GetString("empty_state_contributiontypes", resourceCulture);
+            }
+        }
+        
+        internal static string empty_state_contributiontechnologies {
+            get {
+                return ResourceManager.GetString("empty_state_contributiontechnologies", resourceCulture);
+            }
+        }
+        
+        internal static string empty_state_noresultcontributiontechnologies {
+            get {
+                return ResourceManager.GetString("empty_state_noresultcontributiontechnologies", resourceCulture);
+            }
+        }
+        
+        internal static string empty_state_visibilities {
+            get {
+                return ResourceManager.GetString("empty_state_visibilities", resourceCulture);
+            }
+        }
     }
 }

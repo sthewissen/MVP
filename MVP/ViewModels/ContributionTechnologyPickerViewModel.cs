@@ -58,7 +58,7 @@ namespace MVP.ViewModels
             }
             finally
             {
-                State = LayoutState.None;
+                State = GroupedContributionTechnologies.Count > 0 ? LayoutState.None : LayoutState.Empty;
             }
         }
 

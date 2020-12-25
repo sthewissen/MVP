@@ -70,7 +70,7 @@ namespace MVP.ViewModels
             finally
             {
                 IsRefreshing = false;
-                State = LayoutState.None;
+                State = Contributions.Count > 0 ? LayoutState.None : LayoutState.Empty;
             }
         }
 

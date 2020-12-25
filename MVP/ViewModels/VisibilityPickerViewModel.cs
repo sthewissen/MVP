@@ -8,6 +8,7 @@ using MVP.ViewModels.Data;
 using TinyMvvm;
 using TinyNavigationHelper;
 using Xamarin.CommunityToolkit.ObjectModel;
+using Xamarin.CommunityToolkit.UI.Views;
 using Xamarin.Essentials;
 using Xamarin.Forms;
 
@@ -60,13 +61,15 @@ namespace MVP.ViewModels
 
         async Task LoadVisibilities()
         {
-            if (Connectivity.NetworkAccess == NetworkAccess.Internet)
+            try
             {
-                var result = await MvpApiService.GetVisibilitiesAsync().ConfigureAwait(false);
+                State = LayoutState.Loading;
 
-                if (result != null)
+                var visibilities = await MvpApiService.GetVisibilitiesAsync().ConfigureAwait(false);
+
+                if (visibilities != null)
                 {
-                    Visibilities = result.Select(x => new VisibilityViewModel() { Visibility = x }).ToList();
+                    Visibilities = visibilities.Select(x => new VisibilityViewModel() { Visibility = x }).ToList();
 
                     // Editing mode
                     if (contribution.Visibility.Value != null)
@@ -75,6 +78,10 @@ namespace MVP.ViewModels
                         selectedVisibility.IsSelected = true;
                     }
                 }
+            }
+            finally
+            {
+                State = Visibilities.Count > 0 ? LayoutState.None : LayoutState.Empty;
             }
         }
     }

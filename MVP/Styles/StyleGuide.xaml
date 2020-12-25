@@ -27,6 +27,7 @@
     <Color x:Key="black">#222222</Color>
     <Color x:Key="black_highlight">#333333</Color>
 
+    <Color x:Key="neutral_0">#f4f4f5</Color>
     <Color x:Key="neutral_1">#e3e4e4</Color>
     <Color x:Key="neutral_2">#a9abad</Color>
     <Color x:Key="neutral_3">#7a7c80</Color>
@@ -189,7 +190,11 @@
         <Setter Property="SelectedIndicatorColor" Value="{AppThemeBinding Light={StaticResource primary}, Dark={StaticResource light_primary}}"/>
     </Style>
 
-    <!--Implicit stylings-->
+    <Style TargetType="local:AppFrame">
+        <Setter Property="effects:SafeAreaEffect.SafeArea" Value="false,true,false,false" />
+    </Style>
+
+    <!--Explicit stylings-->
 
     <Style x:Key="contribution_item_title" TargetType="Label">
         <Setter Property="FontFamily" Value="{StaticResource font_bold}" />
@@ -281,12 +286,8 @@
 
     <Style x:Key="search_frame" TargetType="Frame">
         <Setter Property="CornerRadius" Value="24"/>
-        <Setter Property="BackgroundColor" Value="{AppThemeBinding Light={StaticResource neutral_1}, Dark={StaticResource neutral_4}}"/>
+        <Setter Property="BackgroundColor" Value="{AppThemeBinding Light={StaticResource neutral_0}, Dark={StaticResource neutral_4}}"/>
         <Setter Property="HeightRequest" Value="48"/>
-    </Style>
-
-    <Style TargetType="local:AppFrame">
-        <Setter Property="effects:SafeAreaEffect.SafeArea" Value="false,true,false,false" />
     </Style>
 
     <Style x:Key="splash_image" TargetType="ff:SvgCachedImage">
@@ -304,7 +305,7 @@
     </Style>
 
     <Style x:Key="separator" TargetType="BoxView">
-        <Setter Property="BackgroundColor" Value="{AppThemeBinding Light={StaticResource white_highlight}, Dark={StaticResource neutral_4}}"/>
+        <Setter Property="BackgroundColor" Value="{AppThemeBinding Light={StaticResource neutral_0}, Dark={StaticResource neutral_4}}"/>
         <Setter Property="HeightRequest" Value="1"/>
     </Style>
 
@@ -322,14 +323,16 @@
     </Style>
 
     <Style x:Key="line_button" TargetType="Button">
-        <Setter Property="TextColor" Value="{AppThemeBinding Light={StaticResource primary}, Dark={StaticResource light_primary}}"/>
+        <Setter Property="BackgroundColor" Value="{AppThemeBinding Light={StaticResource primary}, Dark={StaticResource light_primary}}"/>
+        <Setter Property="TextColor" Value="{AppThemeBinding Light={StaticResource white}, Dark={StaticResource black}}"/>
         <Setter Property="FontFamily" Value="{StaticResource font_semibold}"/>
-        <Setter Property="BorderColor" Value="{StaticResource neutral_1}"/>
-        <Setter Property="BorderWidth" Value="1"/>
+        <Setter Property="BorderWidth" Value="0"/>
     </Style>
 
     <Style x:Key="destructive_line_button" BasedOn="{StaticResource line_button}" TargetType="Button">
-        <Setter Property="TextColor" Value="{AppThemeBinding Light={StaticResource error}, Dark={StaticResource error}}"/>
+        <Setter Property="BorderWidth" Value="0"/>
+        <Setter Property="BackgroundColor" Value="{AppThemeBinding Light={StaticResource error}, Dark={StaticResource error}}"/>
+        <Setter Property="TextColor" Value="{AppThemeBinding Light={StaticResource white}, Dark={StaticResource white}}"/>
     </Style>
 
     <Style x:Key="about_title" TargetType="Label">
@@ -494,5 +497,23 @@
         <Setter Property="FontSize" Value="{StaticResource fontsize_medium}"/>
         <Setter Property="IsSpellCheckEnabled" Value="False"/>
         <Setter Property="Placeholder" Value="{extensions:Translate search_placeholder}"/>
+    </Style>
+
+    <Style x:Key="emptystate_description" TargetType="Label">
+        <Setter Property="HorizontalTextAlignment" Value="Center"/>
+        <Setter Property="TextColor" Value="{AppThemeBinding Light={StaticResource neutral_3}, Dark={StaticResource neutral_1}}"/>
+        <Setter Property="VerticalTextAlignment" Value="Center"/>
+        <Setter Property="HorizontalOptions" Value="Center"/>
+        <Setter Property="VerticalOptions" Value="Center"/>
+    </Style>
+
+    <Style x:Key="emptystate_title" TargetType="Label">
+        <Setter Property="HorizontalTextAlignment" Value="Center"/>
+        <Setter Property="TextColor" Value="{AppThemeBinding Light={StaticResource neutral_3}, Dark={StaticResource neutral_1}}"/>
+        <Setter Property="VerticalTextAlignment" Value="Center"/>
+        <Setter Property="FontFamily" Value="{StaticResource font_semibold}"/>
+        <Setter Property="FontSize" Value="{StaticResource fontsize_h2}"/>
+        <Setter Property="HorizontalOptions" Value="Center"/>
+        <Setter Property="VerticalOptions" Value="Center"/>
     </Style>
 </ResourceDictionary>

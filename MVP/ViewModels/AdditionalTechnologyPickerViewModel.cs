@@ -48,6 +48,22 @@ namespace MVP.ViewModels
             LoadContributionAreas().SafeFireAndForget();
         }
 
+        async Task LoadContributionAreas()
+        {
+            try
+            {
+                State = LayoutState.Loading;
+
+                allCategories = await MvpApiService.GetContributionAreasAsync().ConfigureAwait(false);
+
+                PopulateList();
+            }
+            finally
+            {
+                State = GroupedContributionTechnologies.Count > 0 ? LayoutState.None : LayoutState.Empty;
+            }
+        }
+
         void PopulateList()
         {
             if (allCategories == null)
@@ -68,18 +84,18 @@ namespace MVP.ViewModels
             GroupedContributionTechnologies = result;
 
             // Editing mode
-            if (contribution.AdditionalTechnologies != null && contribution.AdditionalTechnologies.Any())
-            {
-                var selectedValues = contribution.AdditionalTechnologies.Select(x => x.Id).ToList();
+            if (contribution.AdditionalTechnologies == null || !contribution.AdditionalTechnologies.Any())
+                return;
 
-                selectedTechnologies = result
-                    .SelectMany(x => x)
-                    .Where(x => selectedValues.Contains(x.ContributionTechnology.Id))
-                    .ToList();
+            var selectedValues = contribution.AdditionalTechnologies.Select(x => x.Id).ToList();
 
-                foreach (var item in selectedTechnologies)
-                    item.IsSelected = true;
-            }
+            selectedTechnologies = result
+                .SelectMany(x => x)
+                .Where(x => selectedValues.Contains(x.ContributionTechnology.Id))
+                .ToList();
+
+            foreach (var item in selectedTechnologies)
+                item.IsSelected = true;
         }
 
         void SelectContributionTechnology(ContributionTechnologyViewModel vm)
@@ -103,21 +119,6 @@ namespace MVP.ViewModels
 
             //TODO: Replace by the back navigation version.
             contribution.AdditionalTechnologies = selectedTechnologies.Select(x => x.ContributionTechnology).ToList();
-        }
-        async Task LoadContributionAreas()
-        {
-            try
-            {
-                State = LayoutState.Loading;
-
-                allCategories = await MvpApiService.GetContributionAreasAsync().ConfigureAwait(false);
-
-                PopulateList();
-            }
-            finally
-            {
-                State = LayoutState.None;
-            }
         }
 
         public async override Task Back()

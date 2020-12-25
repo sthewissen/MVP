@@ -22,6 +22,7 @@ namespace MVP.ViewModels
         public virtual ICommand SecondaryCommand { get; set; }
 
         public LayoutState State { get; set; }
+        public string CustomStateKey { get; set; }
 
         public BaseViewModel(IAnalyticsService analyticsService, INavigationHelper navigationHelper)
         {

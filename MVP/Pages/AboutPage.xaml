@@ -35,7 +35,7 @@
                     <Button Text="{xct:Translate button_becomesponsor}"
                             Command="{Binding OpenSponsorCommand}"
                             Margin="0,0,0,24"
-                            ImageSource="{FontImage FontFamily={StaticResource font_icon}, Color={StaticResource primary}, Size=20, Glyph={x:Static icons:Icons.coffee}}"
+                            ImageSource="{AppThemeBinding Light={FontImage FontFamily={StaticResource font_icon}, Color={StaticResource white}, Size=20, Glyph={x:Static icons:Icons.coffee}}, Dark={FontImage FontFamily={StaticResource font_icon}, Color={StaticResource black}, Size=20, Glyph={x:Static icons:Icons.coffee}}}"
                             Style="{StaticResource line_button}" />
 
                     <Label Style="{StaticResource about_title}"
@@ -47,7 +47,7 @@
 
                     <Button Text="{xct:Translate button_viewlicenses}"
                             Command="{Binding OpenLicensesCommand}"
-                            ImageSource="{FontImage FontFamily={StaticResource font_icon}, Color={StaticResource primary}, Size=20, Glyph={x:Static icons:Icons.file_text}}"
+                            ImageSource="{AppThemeBinding Light={FontImage FontFamily={StaticResource font_icon}, Color={StaticResource white}, Size=20, Glyph={x:Static icons:Icons.file_text}}, Dark={FontImage FontFamily={StaticResource font_icon}, Color={StaticResource black}, Size=20, Glyph={x:Static icons:Icons.file_text}}}"
                             Style="{StaticResource line_button}"  />
                 </StackLayout>
 

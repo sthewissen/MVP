@@ -378,4 +378,25 @@
     <data name="error_description_validationfailed" xml:space="preserve">
         <value>Not all required fields were completed. Please complete the form and try saving again.</value>
     </data>
+    <data name="empty_state_title" xml:space="preserve">
+        <value>Ooh...it's empty here!</value>
+    </data>
+    <data name="empty_state_contributions" xml:space="preserve">
+        <value>We couldn't find any contributions. Add a new contribution or refresh to try and retrieve your existing data.</value>
+    </data>
+    <data name="contribution_add" xml:space="preserve">
+        <value>Add</value>
+    </data>
+    <data name="empty_state_contributiontypes" xml:space="preserve">
+        <value>We couldn't find any contributions types.</value>
+    </data>
+    <data name="empty_state_contributiontechnologies" xml:space="preserve">
+        <value>We couldn't find any contributions areas.</value>
+    </data>
+    <data name="empty_state_noresultcontributiontechnologies" xml:space="preserve">
+        <value>Your search query returned no results. Please try a different search query.</value>
+    </data>
+    <data name="empty_state_visibilities" xml:space="preserve">
+        <value>We couldn't find any visibilities.</value>
+    </data>
 </root>

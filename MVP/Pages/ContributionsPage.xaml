@@ -5,6 +5,7 @@
                        xmlns:converters="clr-namespace:Xamarin.CommunityToolkit.Converters;assembly=Xamarin.CommunityToolkit"
                        xmlns:xct="clr-namespace:Xamarin.CommunityToolkit.Extensions;assembly=Xamarin.CommunityToolkit"
                        xmlns:vm="clr-namespace:MVP.ViewModels"
+                       xmlns:controls="clr-namespace:MVP.Controls"
                        xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
                        x:Class="MVP.Pages.ContributionsPage"
                        x:DataType="vm:ContributionsViewModel"
@@ -19,7 +20,7 @@
         </converters:MultiConverter>
     </pages:BaseContentPage.Resources>
 
-    <local:AppFrame SecondaryButtonText="Add"
+    <local:AppFrame SecondaryButtonText="{xct:Translate contribution_add}"
                     ShowSecondaryButton="{Binding State, Converter={StaticResource NotLoadingConverter}}"
                     Title="{xct:Translate contributions_title}"
                     x:Name="appFrame">
@@ -31,6 +32,12 @@
                     <state:StateView StateKey="Loading"
                                      RepeatCount="3"
                                      RepeatTemplate="{StaticResource contribution_item_loading}" />
+
+                    <state:StateView StateKey="Empty" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" >
+                        <controls:EmptyState Title="{xct:Translate empty_state_title}"
+                                             Description="{xct:Translate empty_state_contributions}"
+                                             ImageSource="Resource://no_contributions.svg" />
+                    </state:StateView>
                 </state:StateLayout.StateViews>
 
                 <CollectionView ItemsSource="{Binding Contributions}"

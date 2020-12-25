@@ -8,7 +8,8 @@
                        x:Class="MVP.Pages.ContributionTypePickerPage"
                        x:DataType="vm:ContributionTypePickerViewModel"
                        x:TypeArguments="vm:ContributionTypePickerViewModel"
-                       xmlns:state="clr-namespace:Xamarin.CommunityToolkit.UI.Views;assembly=Xamarin.CommunityToolkit">
+                       xmlns:state="clr-namespace:Xamarin.CommunityToolkit.UI.Views;assembly=Xamarin.CommunityToolkit"
+                       xmlns:controls="clr-namespace:MVP.Controls">
 
     <local:AppFrame ShowBackButton="True"
                     Title="{xct:Translate contributiontypepicker_title}"
@@ -19,6 +20,12 @@
 
                 <state:StateLayout.StateViews>
                     <state:StateView StateKey="Loading" RepeatCount="3" RepeatTemplate="{StaticResource picker_item_loading}" />
+
+                    <state:StateView StateKey="Empty" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" >
+                        <controls:EmptyState Title="{xct:Translate empty_state_title}"
+                                             Description="{xct:Translate empty_state_contributiontypes}"
+                                             ImageSource="Resource://no_contributions.svg" />
+                    </state:StateView>
                 </state:StateLayout.StateViews>
 
                 <CollectionView ItemsSource="{Binding ContributionTypes}"

@@ -95,10 +95,10 @@
             <Version>4.24.0</Version>
         </PackageReference>
         <PackageReference Include="Xamarin.FFImageLoading.Forms">
-            <Version>2.4.11.982</Version>
+            <Version>2.4.7.944</Version>
         </PackageReference>
         <PackageReference Include="Xamarin.FFImageLoading.Transformations">
-            <Version>2.4.11.982</Version>
+            <Version>2.4.7.944</Version>
         </PackageReference>
         <PackageReference Include="Acr.UserDialogs">
             <Version>7.1.0.470</Version>
@@ -116,10 +116,13 @@
             <Version>7.1.1</Version>
         </PackageReference>
         <PackageReference Include="Xamarin.CommunityToolkit">
-          <Version>1.0.0-preview1119</Version>
+            <Version>1.0.0-preview1119</Version>
         </PackageReference>
         <PackageReference Include="Com.Airbnb.Xamarin.Forms.Lottie">
-          <Version>4.0.8</Version>
+            <Version>4.0.8</Version>
+        </PackageReference>
+        <PackageReference Include="Xamarin.FFImageLoading.Svg.Forms">
+            <Version>2.4.7.944</Version>
         </PackageReference>
     </ItemGroup>
     <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
@@ -175,21 +178,21 @@
         <ImageAsset Include="Assets.xcassets\mvp_logo.imageset\mvp_logo%402x.png" />
         <ImageAsset Include="Assets.xcassets\mvp_logo.imageset\mvp_logo.png" />
         <ImageAsset Include="Assets.xcassets\mvp_logo.imageset\Contents.json">
-          <Visible>False</Visible>
+            <Visible>False</Visible>
         </ImageAsset>
     </ItemGroup>
     <ItemGroup>
         <Folder Include="Assets.xcassets\AppIcon.imageset\" />
     </ItemGroup>
     <ItemGroup>
-      <BundleResource Include="Resources\shadow.png" />
-      <BundleResource Include="Resources\icon_black%402x.png" />
-      <BundleResource Include="Resources\icon_white%403x.png" />
-      <BundleResource Include="Resources\icon_black%403x.png" />
-      <BundleResource Include="Resources\icon_darkblue%402x.png" />
-      <BundleResource Include="Resources\icon_darkblue%403x.png" />
-      <BundleResource Include="Resources\icon_white%402x.png" />
-      <BundleResource Include="Resources\icon_default%402x.png" />
-      <BundleResource Include="Resources\icon_default%403x.png" />
+        <BundleResource Include="Resources\shadow.png" />
+        <BundleResource Include="Resources\icon_black%402x.png" />
+        <BundleResource Include="Resources\icon_white%403x.png" />
+        <BundleResource Include="Resources\icon_black%403x.png" />
+        <BundleResource Include="Resources\icon_darkblue%402x.png" />
+        <BundleResource Include="Resources\icon_darkblue%403x.png" />
+        <BundleResource Include="Resources\icon_white%402x.png" />
+        <BundleResource Include="Resources\icon_default%402x.png" />
+        <BundleResource Include="Resources\icon_default%403x.png" />
     </ItemGroup>
 </Project>

@@ -73,15 +73,18 @@
 
                 <controls:SkeletonView Grid.ColumnSpan="3"
                                        Grid.Row="0"
-                                       HeightRequest="16"/>
+                                       HeightRequest="16"
+                                       VerticalOptions="Center"/>
 
                 <controls:SkeletonView Grid.ColumnSpan="5"
                                        Grid.Row="1"
-                                       HeightRequest="24"/>
+                                       HeightRequest="24"
+                                       VerticalOptions="Center"/>
 
                 <controls:SkeletonView Grid.ColumnSpan="2"
                                        Grid.Row="2"
-                                       HeightRequest="16"/>
+                                       HeightRequest="16"
+                                       VerticalOptions="Center"/>
             </Grid>
             <BoxView Margin="16,0"
                      Style="{StaticResource separator}"/>
@@ -93,21 +96,27 @@
             <Grid Padding="32,16"
                   ColumnDefinitions="*,*,*,*,*,*"
                   VerticalOptions="Center">
-                <controls:SkeletonView Grid.ColumnSpan="5" HeightRequest="24"/>
+                <controls:SkeletonView Grid.ColumnSpan="5"
+                                       HeightRequest="24"
+                                       VerticalOptions="Center"/>
             </Grid>
             <BoxView Margin="16,0"
                      Style="{StaticResource separator}"/>
             <Grid Padding="32,16"
                   ColumnDefinitions="*,*,*,*,*,*"
                   VerticalOptions="Center">
-                <controls:SkeletonView Grid.ColumnSpan="3" HeightRequest="24"/>
+                <controls:SkeletonView Grid.ColumnSpan="3"
+                                       HeightRequest="24"
+                                       VerticalOptions="Center" />
             </Grid>
             <BoxView Margin="16,0"
                      Style="{StaticResource separator}"/>
             <Grid Padding="32,16"
                   ColumnDefinitions="*,*,*,*,*,*"
                   VerticalOptions="Center">
-                <controls:SkeletonView Grid.ColumnSpan="4" HeightRequest="24"/>
+                <controls:SkeletonView Grid.ColumnSpan="4"
+                                       HeightRequest="24"
+                                       VerticalOptions="Center" />
             </Grid>
             <BoxView Margin="16,0"
                      Style="{StaticResource separator}"/>

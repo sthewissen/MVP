@@ -164,7 +164,7 @@
                              Style="{StaticResource separator}"/>
 
                     <Button Command="{Binding DeleteContributionCommand}"
-                            ImageSource="{FontImage FontFamily={StaticResource font_icon}, Color={StaticResource error}, Size=20, Glyph={x:Static icons:Icons.trash2}}"
+                            ImageSource="{FontImage FontFamily={StaticResource font_icon}, Color={StaticResource white}, Size=20, Glyph={x:Static icons:Icons.trash2}}"
                             IsVisible="{Binding CanBeEdited}"
                             Style="{StaticResource destructive_line_button}"
                             Text="{xct:Translate button_delete_contribution}"/>

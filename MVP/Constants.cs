@@ -17,6 +17,11 @@
         public const string AppCenterProdAndroidKey = "3aa628e6-2d4e-428a-b064-88a2d358763e";
     }
 
+    public static class StateKeys
+    {
+        public const string NoSearchResults = "NoSearchResults";
+    }
+
     public class MessageKeys
     {
         public const string RefreshNeeded = "RefreshNeeded";

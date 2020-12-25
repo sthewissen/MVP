@@ -205,7 +205,7 @@
                     <Button Style="{StaticResource destructive_line_button}"
                             Margin="24,16,24,32"
                             Command="{Binding LogoutCommand}"
-                            ImageSource="{FontImage FontFamily={StaticResource font_icon}, Color={StaticResource error}, Size=20, Glyph={x:Static icons:Icons.logout}}"
+                            ImageSource="{FontImage FontFamily={StaticResource font_icon}, Color={StaticResource white}, Size=20, Glyph={x:Static icons:Icons.logout}}"
                             Text="{xct:Translate button_logout}"/>
                 </StackLayout>
             </ScrollView>

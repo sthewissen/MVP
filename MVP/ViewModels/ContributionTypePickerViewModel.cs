@@ -73,7 +73,7 @@ namespace MVP.ViewModels
             }
             finally
             {
-                State = LayoutState.None;
+                State = ContributionTypes.Count > 0 ? LayoutState.None : LayoutState.Empty;
             }
         }
 

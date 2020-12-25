@@ -10,10 +10,10 @@
         <PackageReference Include="Xamarin.Essentials" Version="1.6.0" />
         <PackageReference Include="Newtonsoft.Json" Version="12.0.3" />
         <PackageReference Include="Microsoft.Identity.Client" Version="4.24.0" />
-        <PackageReference Include="Xamarin.FFImageLoading.Forms" Version="2.4.11.982" />
-        <PackageReference Include="Xamarin.FFImageLoading.Transformations" Version="2.4.11.982" />
+        <PackageReference Include="Xamarin.FFImageLoading.Forms" Version="2.4.7.944" />
+        <PackageReference Include="Xamarin.FFImageLoading.Transformations" Version="2.4.7.944" />
         <PackageReference Include="PropertyChanged.Fody" Version="3.3.1" />
-        <PackageReference Include="Xamarin.FFImageLoading.Svg.Forms" Version="2.4.11.982" />
+        <PackageReference Include="Xamarin.FFImageLoading.Svg.Forms" Version="2.4.7.944" />
         <PackageReference Include="Acr.UserDialogs" Version="7.1.0.470" />
         <PackageReference Include="Microsoft.AppCenter" Version="4.0.0" />
         <PackageReference Include="Microsoft.AppCenter.Analytics" Version="4.0.0" />
@@ -62,6 +62,7 @@
         <None Remove="Services\Demo\Files\getcontributionareas.json" />
         <None Remove="Services\Demo\Files\getcontributions.json" />
         <None Remove="Resources\oss.json" />
+        <None Remove="Resources\no_contributions.svg" />
     </ItemGroup>
     <ItemGroup>
         <EmbeddedResource Include="Resources\mvp_logo.svg">
@@ -72,31 +73,34 @@
         <EmbeddedResource Include="Resources\Fonts\SourceSansPro-Regular.ttf" />
         <EmbeddedResource Include="Resources\Fonts\MVPBuzz.ttf" />
         <EmbeddedResource Include="Resources\loading.json">
-          <LogicalName>MVP.loading.json</LogicalName>
+            <LogicalName>MVP.loading.json</LogicalName>
         </EmbeddedResource>
         <EmbeddedResource Include="Resources\loading_light.json">
-          <LogicalName>MVP.loading_light.json</LogicalName>
+            <LogicalName>MVP.loading_light.json</LogicalName>
         </EmbeddedResource>
         <EmbeddedResource Include="Services\Demo\Files\getprofile.json">
-          <LogicalName>getprofile.json</LogicalName>
+            <LogicalName>getprofile.json</LogicalName>
         </EmbeddedResource>
         <EmbeddedResource Include="Services\Demo\Files\getprofileimage.json">
-          <LogicalName>getprofileimage.json</LogicalName>
+            <LogicalName>getprofileimage.json</LogicalName>
         </EmbeddedResource>
         <EmbeddedResource Include="Services\Demo\Files\getvisibilities.json">
-          <LogicalName>getvisibilities.json</LogicalName>
+            <LogicalName>getvisibilities.json</LogicalName>
         </EmbeddedResource>
         <EmbeddedResource Include="Services\Demo\Files\getcontributiontypes.json">
-          <LogicalName>getcontributiontypes.json</LogicalName>
+            <LogicalName>getcontributiontypes.json</LogicalName>
         </EmbeddedResource>
         <EmbeddedResource Include="Services\Demo\Files\getcontributionareas.json">
-          <LogicalName>getcontributionareas.json</LogicalName>
+            <LogicalName>getcontributionareas.json</LogicalName>
         </EmbeddedResource>
         <EmbeddedResource Include="Services\Demo\Files\getcontributions.json">
-          <LogicalName>getcontributions.json</LogicalName>
+            <LogicalName>getcontributions.json</LogicalName>
         </EmbeddedResource>
         <EmbeddedResource Include="Resources\oss.json">
-          <LogicalName>oss.json</LogicalName>
+            <LogicalName>oss.json</LogicalName>
+        </EmbeddedResource>
+        <EmbeddedResource Include="Resources\no_contributions.svg">
+            <LogicalName>no_contributions.svg</LogicalName>
         </EmbeddedResource>
     </ItemGroup>
     <ItemGroup>
