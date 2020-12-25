@@ -92,16 +92,14 @@ namespace MVP.Controls
 
         void Entry_Focused(object sender, FocusEventArgs e)
         {
-            frameEntry.BorderColor = (Color)Application.Current.Resources["primary"];
-            frameEditor.BorderColor = (Color)Application.Current.Resources["primary"];
-            //frameEntry.HasShadow = true;
+            frameEntry.SetAppThemeColor(Frame.BorderColorProperty, (Color)Application.Current.Resources["primary"], (Color)Application.Current.Resources["light_primary"]);
+            frameEditor.SetAppThemeColor(Frame.BorderColorProperty, (Color)Application.Current.Resources["primary"], (Color)Application.Current.Resources["light_primary"]);
         }
 
         void Entry_Unfocused(object sender, FocusEventArgs e)
         {
-            frameEntry.BorderColor = (Color)Application.Current.Resources["neutral_1"];
-            frameEditor.BorderColor = (Color)Application.Current.Resources["neutral_1"];
-            //frameEntry.HasShadow = false;
+            frameEntry.SetAppThemeColor(Frame.BorderColorProperty, (Color)Application.Current.Resources["neutral_1"], (Color)Application.Current.Resources["neutral_3"]);
+            frameEditor.SetAppThemeColor(Frame.BorderColorProperty, (Color)Application.Current.Resources["neutral_1"], (Color)Application.Current.Resources["neutral_3"]);
         }
     }
 }

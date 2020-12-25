@@ -171,6 +171,7 @@
         <Setter Property="TextColor" Value="{AppThemeBinding Light={StaticResource black}, Dark={StaticResource white}}" />
         <Setter Property="PlaceholderColor" Value="{AppThemeBinding Light={StaticResource neutral_3}, Dark={StaticResource neutral_2}}" />
         <Setter Property="FontSize" Value="{StaticResource fontsize_medium}" />
+        <Setter Property="ios:Entry.CursorColor" Value="{AppThemeBinding Light={StaticResource primary}, Dark={StaticResource light_primary}}"/>
     </Style>
 
     <Style TargetType="Entry">
@@ -179,6 +180,7 @@
         <Setter Property="TextColor" Value="{AppThemeBinding Light={StaticResource black}, Dark={StaticResource white}}" />
         <Setter Property="PlaceholderColor" Value="{AppThemeBinding Light={StaticResource neutral_3}, Dark={StaticResource neutral_2}}" />
         <Setter Property="FontSize" Value="{StaticResource fontsize_medium}" />
+        <Setter Property="ios:Entry.CursorColor" Value="{AppThemeBinding Light={StaticResource primary}, Dark={StaticResource light_primary}}"/>
     </Style>
 
     <Style TargetType="Switch">

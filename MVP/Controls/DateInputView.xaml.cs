@@ -74,12 +74,12 @@ namespace MVP.Controls
 
         void DatePicker_Focused(object sender, FocusEventArgs e)
         {
-            framePicker.BorderColor = (Color)Application.Current.Resources["primary"];
+            framePicker.SetAppThemeColor(Frame.BorderColorProperty, (Color)Application.Current.Resources["primary"], (Color)Application.Current.Resources["light_primary"]);
         }
 
         void DatePicker_Unfocused(object sender, FocusEventArgs e)
         {
-            framePicker.BorderColor = (Color)Application.Current.Resources["neutral_1"];
+            framePicker.SetAppThemeColor(Frame.BorderColorProperty, (Color)Application.Current.Resources["neutral_1"], (Color)Application.Current.Resources["neutral_3"]);
         }
     }
 }
