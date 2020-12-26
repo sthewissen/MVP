@@ -671,9 +671,15 @@ namespace MVP.Resources {
             }
         }
         
-        internal static string appiconpicker_title {
+        internal static string error_couldntsavecontribution {
             get {
-                return ResourceManager.GetString("appiconpicker_title", resourceCulture);
+                return ResourceManager.GetString("error_couldntsavecontribution", resourceCulture);
+            }
+        }
+        
+        internal static string error_couldntrefreshprofile {
+            get {
+                return ResourceManager.GetString("error_couldntrefreshprofile", resourceCulture);
             }
         }
     }

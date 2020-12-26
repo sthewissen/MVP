@@ -57,6 +57,8 @@ namespace MVP.ViewModels
                 // Pop a sign in request up for the user.
                 if (await AuthService.SignInAsync().ConfigureAwait(false))
                 {
+                    AnalyticsService.Track("User Logged In");
+
                     MainThread.BeginInvokeOnMainThread(() =>
                     {
                         NavigationHelper.SetRootView(nameof(TabbedMainPage), false);
@@ -64,6 +66,7 @@ namespace MVP.ViewModels
                 }
                 else
                 {
+                    AnalyticsService.Track("Invalid MVP Account Used");
                     await DialogService.AlertAsync(
                         Resources.Translations.alert_error_nomvpaccount,
                         Resources.Translations.alert_error_title,

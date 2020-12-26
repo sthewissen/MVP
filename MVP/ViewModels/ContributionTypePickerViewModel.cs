@@ -46,6 +46,11 @@ namespace MVP.ViewModels
             LoadContributionTypes().SafeFireAndForget();
         }
 
+        /// <summary>
+        /// Loads the contribution types from cache.
+        /// </summary>
+        /// <param name="force"></param>
+        /// <returns></returns>
         async Task LoadContributionTypes(bool force = false)
         {
             try
@@ -54,21 +59,24 @@ namespace MVP.ViewModels
 
                 var types = await MvpApiService.GetContributionTypesAsync(force).ConfigureAwait(false);
 
-                if (types != null)
+                if (types == null)
                 {
-                    ContributionTypes = types
-                        .OrderBy(x => x.Name)
-                        .Select(x => new ContributionTypeViewModel
-                        {
-                            ContributionType = x
-                        }).ToList();
+                    State = LayoutState.Error;
+                    return;
+                }
 
-                    // Editing mode
-                    if (contribution.ContributionType.Value != null)
+                ContributionTypes = types
+                    .OrderBy(x => x.Name)
+                    .Select(x => new ContributionTypeViewModel
                     {
-                        var selected = ContributionTypes.FirstOrDefault(x => x.ContributionType.Id == contribution.ContributionType.Value.Id);
-                        selected.IsSelected = true;
-                    }
+                        ContributionType = x
+                    }).ToList();
+
+                // Editing mode
+                if (contribution.ContributionType.Value != null)
+                {
+                    var selected = ContributionTypes.FirstOrDefault(x => x.ContributionType.Id == contribution.ContributionType.Value.Id);
+                    selected.IsSelected = true;
                 }
             }
             catch (Exception ex)
@@ -83,6 +91,11 @@ namespace MVP.ViewModels
             }
         }
 
+        /// <summary>
+        /// Selects a specific contribution type for the contribution.
+        /// </summary>
+        /// <param name="vm"></param>
+        /// <returns></returns>
         async Task SelectContributionType(ContributionTypeViewModel vm)
         {
             if (vm == null)

@@ -48,6 +48,9 @@ namespace MVP.ViewModels
             RefreshContributions().SafeFireAndForget();
         }
 
+        /// <summary>
+        /// Refreshes the list of contributions.
+        /// </summary>
         async Task RefreshContributions(bool refresh = false)
         {
             ItemThreshold = 2;
@@ -66,7 +69,10 @@ namespace MVP.ViewModels
                 var contributionsList = await MvpApiService.GetContributionsAsync(0, pageSize).ConfigureAwait(false);
 
                 if (contributionsList == null)
+                {
+                    State = LayoutState.Error;
                     return;
+                }
 
                 Contributions = new ObservableCollection<Contribution>(contributionsList.Contributions.OrderByDescending(x => x.StartDate).ToList());
             }
@@ -83,9 +89,15 @@ namespace MVP.ViewModels
             }
         }
 
+        /// <summary>
+        /// Handles refreshing after saving/deleting.
+        /// </summary>
         void HandleRefreshContributionsMessage(MessagingService obj)
             => RefreshContributions().SafeFireAndForget();
 
+        /// <summary>
+        /// Loads more contributions when scrolled to the bottom.
+        /// </summary>
         async Task LoadMore()
         {
             if (IsLoadingMore)
@@ -99,6 +111,12 @@ namespace MVP.ViewModels
                 IsLoadingMore = true;
 
                 var contributionsList = await MvpApiService.GetContributionsAsync(Contributions.Count, pageSize).ConfigureAwait(false);
+
+                if (contributionsList == null)
+                {
+                    await DialogService.AlertAsync(Translations.error_couldntloadmorecontributions, Translations.alert_error_title, Translations.alert_ok).ConfigureAwait(false);
+                    return;
+                }
 
                 foreach (var item in contributionsList.Contributions.OrderByDescending(x => x.StartDate))
                 {
@@ -118,11 +136,7 @@ namespace MVP.ViewModels
             {
                 AnalyticsService.Report(ex);
 
-                await DialogService.AlertAsync(
-                    Translations.error_couldntloadmorecontributions,
-                    Translations.alert_error_title,
-                    Translations.alert_ok
-                ).ConfigureAwait(false);
+                await DialogService.AlertAsync(Translations.error_couldntloadmorecontributions, Translations.alert_error_title, Translations.alert_ok).ConfigureAwait(false);
             }
             finally
             {

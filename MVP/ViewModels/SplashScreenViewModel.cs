@@ -33,6 +33,9 @@ namespace MVP.ViewModels
             PrefetchData().SafeFireAndForget();
         }
 
+        /// <summary>
+        /// Prefetches some data that can come in handy (lookups).
+        /// </summary>
         async Task PrefetchData()
         {
             try
@@ -68,6 +71,9 @@ namespace MVP.ViewModels
             }
         }
 
+        /// <summary>
+        /// Depending on whether we're authenticated or not we show a specific page.
+        /// </summary>
         public Task GoToNextPage(bool isAuthenticated)
             => MainThread.InvokeOnMainThreadAsync(()
                 =>

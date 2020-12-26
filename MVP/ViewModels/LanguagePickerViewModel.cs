@@ -30,6 +30,9 @@ namespace MVP.ViewModels
             LoadLanguages();
         }
 
+        /// <summary>
+        /// Loads the list of valid languages.
+        /// </summary>
         void LoadLanguages()
         {
             // Not going to translate the top name, as it's the
@@ -47,6 +50,9 @@ namespace MVP.ViewModels
                 selected.IsSelected = true;
         }
 
+        /// <summary>
+        /// Sets the app's language.
+        /// </summary>
         async Task SetAppLanguage(LanguageViewModel language)
         {
             try

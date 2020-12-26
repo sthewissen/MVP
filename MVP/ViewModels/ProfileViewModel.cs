@@ -1,4 +1,5 @@
-﻿using System.Threading.Tasks;
+﻿using System;
+using System.Threading.Tasks;
 using System.Windows.Input;
 using MVP.Extensions;
 using MVP.Models;
@@ -56,22 +57,36 @@ namespace MVP.ViewModels
             LoadProfile(false).SafeFireAndForget();
         }
 
+        /// <summary>
+        /// Loads the profile information.
+        /// </summary>
         async Task LoadProfile(bool force)
         {
-            if (State != LayoutState.None)
-                return;
+            try
+            {
+                if (State != LayoutState.None)
+                    return;
 
-            if (!await VerifyInternetConnection())
-                return;
+                if (!await VerifyInternetConnection())
+                    return;
 
-            State = LayoutState.Loading;
-            await Task.WhenAll(RefreshProfileData(force), RefreshProfileImage(force));
-            State = LayoutState.None;
+                State = LayoutState.Loading;
+                await Task.WhenAll(RefreshProfileData(force), RefreshProfileImage(force));
+                State = LayoutState.None;
 
-            if (force)
-                AnalyticsService.Track("Profile Refreshed");
+                if (force)
+                    AnalyticsService.Track("Profile Refreshed");
+            }
+            catch (Exception ex)
+            {
+                AnalyticsService.Report(ex);
+                await DialogService.AlertAsync(Translations.error_couldntrefreshprofile, Translations.alert_error_title, Translations.alert_ok).ConfigureAwait(false);
+            }
         }
 
+        /// <summary>
+        /// Gets the profile image data.
+        /// </summary>
         async Task RefreshProfileImage(bool force)
         {
             var image = await MvpApiService.GetProfileImageAsync(force).ConfigureAwait(false);
@@ -82,6 +97,9 @@ namespace MVP.ViewModels
             ProfileImage = image;
         }
 
+        /// <summary>
+        /// Gets profile data.
+        /// </summary>
         async Task RefreshProfileData(bool force)
         {
             var profile = await MvpApiService.GetProfileAsync(force).ConfigureAwait(false);
@@ -92,16 +110,16 @@ namespace MVP.ViewModels
             Profile = profile;
         }
 
+        /// <summary>
+        /// Logs the user out.
+        /// </summary>
+        /// <returns></returns>
         async Task Logout()
         {
             if (Connectivity.NetworkAccess != NetworkAccess.Internet)
             {
                 // Connection to internet is not available
-                await DialogService.ConfirmAsync(
-                    Translations.error_logoutwhileoffline,
-                    Translations.error_offline_title,
-                    Translations.alert_yes,
-                    Translations.alert_no).ConfigureAwait(false);
+                await DialogService.ConfirmAsync(Translations.error_logoutwhileoffline, Translations.error_offline_title, Translations.alert_yes, Translations.alert_no).ConfigureAwait(false);
                 return;
             }
 

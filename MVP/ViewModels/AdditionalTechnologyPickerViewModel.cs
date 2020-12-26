@@ -59,6 +59,12 @@ namespace MVP.ViewModels
 
                 allCategories = await MvpApiService.GetContributionAreasAsync(force).ConfigureAwait(false);
 
+                if (allCategories == null)
+                {
+                    State = LayoutState.Error;
+                    return;
+                }
+
                 PopulateList();
             }
             catch (Exception ex)
@@ -80,9 +86,6 @@ namespace MVP.ViewModels
         {
             try
             {
-                if (allCategories == null)
-                    return;
-
                 var result = new List<Grouping<string, ContributionTechnologyViewModel>>();
 
                 foreach (var item in allCategories.SelectMany(x => x.ContributionAreas))

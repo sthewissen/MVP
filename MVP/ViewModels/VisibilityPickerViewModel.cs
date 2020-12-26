@@ -39,6 +39,9 @@ namespace MVP.ViewModels
             LoadVisibilities().SafeFireAndForget();
         }
 
+        /// <summary>
+        /// Selects a visibility for the contribuion being created/edited.
+        /// </summary>
         async Task SelectVisibility(VisibilityViewModel vm)
         {
             if (vm == null)
@@ -57,6 +60,9 @@ namespace MVP.ViewModels
             await NavigationHelper.BackAsync();
         }
 
+        /// <summary>
+        /// Loads visibilities from cache.
+        /// </summary>
         async Task LoadVisibilities(bool force = false)
         {
             try
@@ -65,16 +71,19 @@ namespace MVP.ViewModels
 
                 var visibilities = await MvpApiService.GetVisibilitiesAsync(force).ConfigureAwait(false);
 
-                if (visibilities != null)
+                if (visibilities == null)
                 {
-                    Visibilities = visibilities.Select(x => new VisibilityViewModel() { Visibility = x }).ToList();
+                    State = LayoutState.Error;
+                    return;
+                }
 
-                    // Editing mode
-                    if (contribution.Visibility.Value != null)
-                    {
-                        var selectedVisibility = Visibilities.FirstOrDefault(x => x.Visibility.Id == contribution.Visibility.Value.Id);
-                        selectedVisibility.IsSelected = true;
-                    }
+                Visibilities = visibilities.Select(x => new VisibilityViewModel() { Visibility = x }).ToList();
+
+                // Editing mode
+                if (contribution.Visibility.Value != null)
+                {
+                    var selectedVisibility = Visibilities.FirstOrDefault(x => x.Visibility.Id == contribution.Visibility.Value.Id);
+                    selectedVisibility.IsSelected = true;
                 }
             }
             catch (Exception ex)

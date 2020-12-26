@@ -29,6 +29,9 @@ namespace MVP.ViewModels
             AppThemes.FirstOrDefault(x => x.Key == Preferences.Get(Settings.AppTheme, Settings.AppThemeDefault)).IsSelected = true;
         }
 
+        /// <summary>
+        /// Sets the theme for the app.
+        /// </summary>
         async Task SetAppTheme(AppThemeViewModel theme)
         {
             try

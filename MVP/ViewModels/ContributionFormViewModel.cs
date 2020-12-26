@@ -72,7 +72,9 @@ namespace MVP.ViewModels
                 await CheckForClipboardUrl();
         }
 
-
+        /// <summary>
+        /// Checks if the clipboard contains a URL to use for prefilling.
+        /// </summary>
         async Task CheckForClipboardUrl()
         {
             if (Connectivity.NetworkAccess != NetworkAccess.Internet)
@@ -90,7 +92,10 @@ namespace MVP.ViewModels
 
                 clipboardText = await Clipboard.GetTextAsync();
 
-                if (string.IsNullOrEmpty(clipboardText) || (!clipboardText.StartsWith("http://") && !clipboardText.StartsWith("https://")))
+                var result = Uri.TryCreate(clipboardText, UriKind.Absolute, out var uriResult) &&
+                    (uriResult.Scheme == Uri.UriSchemeHttp || uriResult.Scheme == Uri.UriSchemeHttps);
+
+                if (!result)
                     return;
 
                 var shouldCreateActivity = await DialogService.ConfirmAsync(
@@ -111,6 +116,9 @@ namespace MVP.ViewModels
             }
         }
 
+        /// <summary>
+        /// Gets Open Graph data for prefilling.
+        /// </summary>
         async Task GetOpenGraphData(string clipboardText)
         {
             try
@@ -150,30 +158,9 @@ namespace MVP.ViewModels
             }
         }
 
-        // TODO: Could implement this when TinyMvvm 3.0 is final.
-        // public override async Task Returning()
-        // {
-        //     await base.Returning();
-
-        //     if (ReturningParameter is ContributionType type)
-        //     {
-        //         Contribution.ContributionType.Value = type;
-        //         ContributionTypeConfig = type.Id.Value.GetContributionTypeRequirements();
-        //     }
-        //     else if (ReturningParameter is Visibility vis)
-        //     {
-        //         Contribution.Visibility.Value = vis;
-        //     }
-        //     else if (ReturningParameter is IList<ContributionTechnology> techs)
-        //     {
-        //         Contribution.AdditionalTechnologies = techs;
-        //     }
-        //     else if (ReturningParameter is ContributionTechnology tech)
-        //     {
-        //         Contribution.ContributionTechnology.Value = tech;
-        //     }
-        // }
-
+        /// <summary>
+        /// Saves a contribution.
+        /// </summary>
         async Task SaveContribution()
         {
             try
@@ -195,9 +182,11 @@ namespace MVP.ViewModels
                 {
                     var result = await MvpApiService.UpdateContributionAsync(Contribution.ToContribution());
 
-                    // TODO: Error handling?
                     if (!result)
+                    {
+                        await DialogService.AlertAsync(Translations.error_couldntsavecontribution, Translations.alert_error_title, Translations.alert_ok).ConfigureAwait(false);
                         return;
+                    }
 
                     MainThread.BeginInvokeOnMainThread(() => HapticFeedback.Perform(HapticFeedbackType.LongPress));
                     AnalyticsService.Track("Contribution Added");
@@ -209,9 +198,16 @@ namespace MVP.ViewModels
                 {
                     var result = await MvpApiService.SubmitContributionAsync(Contribution.ToContribution());
 
-                    // TODO: Error handling?
                     if (result == null)
+                    {
+                        await DialogService.AlertAsync(
+                            Translations.error_couldntsavecontribution,
+                            Translations.alert_error_title,
+                            Translations.alert_ok
+                        ).ConfigureAwait(false);
+
                         return;
+                    }
 
                     AnalyticsService.Track("Contribution Edited");
                     MainThread.BeginInvokeOnMainThread(() => HapticFeedback.Perform(HapticFeedbackType.LongPress));
@@ -223,7 +219,11 @@ namespace MVP.ViewModels
             {
                 AnalyticsService.Report(ex);
 
-                // TODO: Error handling?
+                await DialogService.AlertAsync(
+                    Translations.error_couldntsavecontribution,
+                    Translations.alert_error_title,
+                    Translations.alert_ok
+                ).ConfigureAwait(false);
             }
             finally
             {

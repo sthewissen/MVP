@@ -427,9 +427,12 @@
         <value>The data could not be loaded. We're not quite sure why but an error has been logged. You can try to refresh or try again later.</value>
     </data>
     <data name="error_couldntloadmorecontributions" xml:space="preserve">
-        <value>Couldn't load more contributions. Please try again later.</value>
+        <value>Couldn't load more contributions. We're not quite sure why but an error has been logged. Please try again later.</value>
     </data>
-    <data name="appiconpicker_title" xml:space="preserve">
-        <value>Icon</value>
+    <data name="error_couldntsavecontribution" xml:space="preserve">
+        <value>Couldn't save this contribution. We're not quite sure why but an error has been logged. Please try again later.</value>
+    </data>
+    <data name="error_couldntrefreshprofile" xml:space="preserve">
+        <value>Couldn't refresh your profile information. We're not quite sure why but an error has been logged. Please try again later.</value>
     </data>
 </root>

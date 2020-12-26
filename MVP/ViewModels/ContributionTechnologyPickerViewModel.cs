@@ -47,6 +47,9 @@ namespace MVP.ViewModels
             LoadContributionAreas().SafeFireAndForget();
         }
 
+        /// <summary>
+        /// Loads the contribution areas for the contribution.
+        /// </summary>
         async Task LoadContributionAreas(bool force = false)
         {
             try
@@ -54,6 +57,12 @@ namespace MVP.ViewModels
                 State = LayoutState.Loading;
 
                 allCategories = await MvpApiService.GetContributionAreasAsync(force).ConfigureAwait(false);
+
+                if (allCategories == null)
+                {
+                    State = LayoutState.Error;
+                    return;
+                }
 
                 PopulateList();
             }
@@ -69,13 +78,13 @@ namespace MVP.ViewModels
             }
         }
 
+        /// <summary>
+        /// Populates the list of contribution areas based on search.
+        /// </summary>
         void PopulateList()
         {
             try
             {
-                if (allCategories == null)
-                    return;
-
                 var result = new List<Grouping<string, ContributionTechnologyViewModel>>();
 
                 foreach (var item in allCategories.SelectMany(x => x.ContributionAreas))
@@ -107,6 +116,9 @@ namespace MVP.ViewModels
             }
         }
 
+        /// <summary>
+        /// Selects a contribution area for this contribution.
+        /// </summary>
         async Task SelectContributionTechnology(ContributionTechnologyViewModel vm)
         {
             if (vm == null)

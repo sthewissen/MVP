@@ -33,7 +33,6 @@ namespace MVP
             // through this app class with every page. Errors in it need to handled
             // generically through here as well.
             mvpApiService.AccessTokenExpired += MvpApiService_AccessTokenExpired;
-            mvpApiService.RequestErrorOccurred += MvpApiService_RequestErrorOccurred;
 
             MvpApiService = mvpApiService;
             AuthService = authService;
@@ -136,7 +135,6 @@ namespace MVP
             base.OnResume();
 
             MvpApiService.AccessTokenExpired += MvpApiService_AccessTokenExpired;
-            MvpApiService.RequestErrorOccurred += MvpApiService_RequestErrorOccurred;
 
             OnResumed();
 
@@ -148,7 +146,6 @@ namespace MVP
             base.OnSleep();
 
             MvpApiService.AccessTokenExpired -= MvpApiService_AccessTokenExpired;
-            MvpApiService.RequestErrorOccurred -= MvpApiService_RequestErrorOccurred;
 
             analyticsService.Track("App Backgrounded");
         }
