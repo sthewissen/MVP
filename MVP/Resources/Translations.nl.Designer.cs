@@ -89,9 +89,9 @@ namespace MVP.Resources {
             }
         }
         
-        internal static string button_logout {
+        internal static string logout {
             get {
-                return ResourceManager.GetString("button_logout", resourceCulture);
+                return ResourceManager.GetString("logout", resourceCulture);
             }
         }
         
@@ -239,15 +239,15 @@ namespace MVP.Resources {
             }
         }
         
-        internal static string button_becomesponsor {
+        internal static string becomesponsor {
             get {
-                return ResourceManager.GetString("button_becomesponsor", resourceCulture);
+                return ResourceManager.GetString("becomesponsor", resourceCulture);
             }
         }
         
-        internal static string contribution_form_timeframememo {
+        internal static string contributionform_timeframememo {
             get {
-                return ResourceManager.GetString("contribution_form_timeframememo", resourceCulture);
+                return ResourceManager.GetString("contributionform_timeframememo", resourceCulture);
             }
         }
         
@@ -401,63 +401,57 @@ namespace MVP.Resources {
             }
         }
         
-        internal static string alert_yes {
+        internal static string yes {
             get {
-                return ResourceManager.GetString("alert_yes", resourceCulture);
+                return ResourceManager.GetString("yes", resourceCulture);
             }
         }
         
-        internal static string alert_no {
+        internal static string no {
             get {
-                return ResourceManager.GetString("alert_no", resourceCulture);
+                return ResourceManager.GetString("no", resourceCulture);
             }
         }
         
-        internal static string alert_ok {
+        internal static string ok {
             get {
-                return ResourceManager.GetString("alert_ok", resourceCulture);
+                return ResourceManager.GetString("ok", resourceCulture);
             }
         }
         
-        internal static string alert_cancel {
+        internal static string cancel {
             get {
-                return ResourceManager.GetString("alert_cancel", resourceCulture);
+                return ResourceManager.GetString("cancel", resourceCulture);
             }
         }
         
-        internal static string alert_error_title {
+        internal static string warning_title {
             get {
-                return ResourceManager.GetString("alert_error_title", resourceCulture);
+                return ResourceManager.GetString("warning_title", resourceCulture);
             }
         }
         
-        internal static string alert_warning_title {
+        internal static string contributiondetail_deleteconfirmation {
             get {
-                return ResourceManager.GetString("alert_warning_title", resourceCulture);
+                return ResourceManager.GetString("contributiondetail_deleteconfirmation", resourceCulture);
             }
         }
         
-        internal static string alert_contribution_deleteconfirmation {
+        internal static string error_unexpected {
             get {
-                return ResourceManager.GetString("alert_contribution_deleteconfirmation", resourceCulture);
+                return ResourceManager.GetString("error_unexpected", resourceCulture);
             }
         }
         
-        internal static string alert_error_unexpected {
+        internal static string error_badrequest {
             get {
-                return ResourceManager.GetString("alert_error_unexpected", resourceCulture);
+                return ResourceManager.GetString("error_badrequest", resourceCulture);
             }
         }
         
-        internal static string alert_error_badrequest {
+        internal static string error_servererror {
             get {
-                return ResourceManager.GetString("alert_error_badrequest", resourceCulture);
-            }
-        }
-        
-        internal static string alert_error_servererror {
-            get {
-                return ResourceManager.GetString("alert_error_servererror", resourceCulture);
+                return ResourceManager.GetString("error_servererror", resourceCulture);
             }
         }
         
@@ -467,21 +461,21 @@ namespace MVP.Resources {
             }
         }
         
-        internal static string clipboard_alert_title {
+        internal static string clipboard_title {
             get {
-                return ResourceManager.GetString("clipboard_alert_title", resourceCulture);
+                return ResourceManager.GetString("clipboard_title", resourceCulture);
             }
         }
         
-        internal static string clipboard_alert_description {
+        internal static string clipboard_description {
             get {
-                return ResourceManager.GetString("clipboard_alert_description", resourceCulture);
+                return ResourceManager.GetString("clipboard_description", resourceCulture);
             }
         }
         
-        internal static string alert_contribution_notdeleted {
+        internal static string contributiondetail_notdeleted {
             get {
-                return ResourceManager.GetString("alert_contribution_notdeleted", resourceCulture);
+                return ResourceManager.GetString("contributiondetail_notdeleted", resourceCulture);
             }
         }
         
@@ -503,9 +497,9 @@ namespace MVP.Resources {
             }
         }
         
-        internal static string alert_error_nomvpaccount {
+        internal static string error_nomvpaccount {
             get {
-                return ResourceManager.GetString("alert_error_nomvpaccount", resourceCulture);
+                return ResourceManager.GetString("error_nomvpaccount", resourceCulture);
             }
         }
         
@@ -533,9 +527,9 @@ namespace MVP.Resources {
             }
         }
         
-        internal static string button_viewlicenses {
+        internal static string view_licenses {
             get {
-                return ResourceManager.GetString("button_viewlicenses", resourceCulture);
+                return ResourceManager.GetString("view_licenses", resourceCulture);
             }
         }
         
@@ -629,9 +623,9 @@ namespace MVP.Resources {
             }
         }
         
-        internal static string error_state_title {
+        internal static string error_title {
             get {
-                return ResourceManager.GetString("error_state_title", resourceCulture);
+                return ResourceManager.GetString("error_title", resourceCulture);
             }
         }
         

@@ -33,7 +33,7 @@
     <data name="setting_apptheme_description" xml:space="preserve">
         <value>Deze applicatie kan zowel in een lichte als een donkere weergave gebruikt worden. Standaard neemt de app de instelling van de telefoon over. Wanneer een van beide weergaves je voorkeur heeft kan deze hier ingesteld worden.</value>
     </data>
-    <data name="button_logout" xml:space="preserve">
+    <data name="logout" xml:space="preserve">
         <value>Uitloggen</value>
     </data>
     <data name="tabs_activities" xml:space="preserve">
@@ -108,10 +108,10 @@
     <data name="about_opensource_description" xml:space="preserve">
         <value>This app is completely open source. If you like the app, feel free to become a GitHub sponsor, buying me a digital cup of coffee a month ☕️</value>
     </data>
-    <data name="button_becomesponsor" xml:space="preserve">
+    <data name="becomesponsor" xml:space="preserve">
         <value>Become a sponsor</value>
     </data>
-    <data name="contribution_form_timeframememo" xml:space="preserve">
+    <data name="contributionform_timeframememo" xml:space="preserve">
         <value>Your contribution submission for the July award cycle must be for community activities between {0} to {1}. Community activities submitted from {0} and beyond will be held for future consideration.</value>
     </data>
     <data name="contributionform_activitytype_placeholder" xml:space="preserve">
@@ -192,46 +192,43 @@
     <data name="setting_appicon_description" xml:space="preserve">
         <value>Don't like the app icon we picked for you? We have alternative options available. If you have ideas for additional ones, feel free to reach out!</value>
     </data>
-    <data name="alert_yes" xml:space="preserve">
+    <data name="yes" xml:space="preserve">
         <value>Yes</value>
     </data>
-    <data name="alert_no" xml:space="preserve">
+    <data name="no" xml:space="preserve">
         <value>No</value>
     </data>
-    <data name="alert_ok" xml:space="preserve">
+    <data name="ok" xml:space="preserve">
         <value>Ok</value>
     </data>
-    <data name="alert_cancel" xml:space="preserve">
+    <data name="cancel" xml:space="preserve">
         <value>Cancel</value>
     </data>
-    <data name="alert_error_title" xml:space="preserve">
-        <value>That's not good...</value>
-    </data>
-    <data name="alert_warning_title" xml:space="preserve">
+    <data name="warning_title" xml:space="preserve">
         <value>Hold on...</value>
     </data>
-    <data name="alert_contribution_deleteconfirmation" xml:space="preserve">
+    <data name="contributiondetail_deleteconfirmation" xml:space="preserve">
         <value>Are you sure you want to delete this contribution? You cannot undo this.</value>
     </data>
-    <data name="alert_error_unexpected" xml:space="preserve">
+    <data name="error_unexpected" xml:space="preserve">
         <value>Something went wrong that we didn't expect could happen. An error has been logged and we will look into it as soon as possible.</value>
     </data>
-    <data name="alert_error_badrequest" xml:space="preserve">
+    <data name="error_badrequest" xml:space="preserve">
         <value>We managed to do a request that wasn't quite right. Try again later.</value>
     </data>
-    <data name="alert_error_servererror" xml:space="preserve">
+    <data name="error_servererror" xml:space="preserve">
         <value>The MVP API messed something up. Couldn't process your request. Try again later.</value>
     </data>
     <data name="alert_error_unauthorized" xml:space="preserve">
         <value>Your credentials have expired and we couldn't save the day. Therefore you were logged out. Please log in again to continue.</value>
     </data>
-    <data name="clipboard_alert_title" xml:space="preserve">
+    <data name="clipboard_title" xml:space="preserve">
         <value>That looks cool!</value>
     </data>
-    <data name="clipboard_alert_description" xml:space="preserve">
+    <data name="clipboard_description" xml:space="preserve">
         <value>We notice a URL on your clipboard. Do you want us to try to pre-fill an activity out of that?</value>
     </data>
-    <data name="alert_contribution_notdeleted" xml:space="preserve">
+    <data name="contributiondetail_notdeleted" xml:space="preserve">
         <value>Your contribution could not be deleted. Perhaps it was already deleted, or it took place in the previous award period?</value>
     </data>
     <data name="validation_variablefield" xml:space="preserve">
@@ -246,7 +243,7 @@
     <data name="additionaltechnologypicker_title" xml:space="preserve">
         <value>Additional contribution areas</value>
     </data>
-    <data name="alert_error_nomvpaccount" xml:space="preserve">
+    <data name="error_nomvpaccount" xml:space="preserve">
         <value>Couldn't authenticate you using the provided credentials. Are you sure you are using the account associated to your MVP ID?</value>
     </data>
     <data name="progress_saving" xml:space="preserve">
@@ -261,7 +258,7 @@
     <data name="about_licenses_description" xml:space="preserve">
         <value>This app stands on the shoulders of giants without whom its creation would not be possible. If you want to know who they are, check out the licenses for their awesome pieces of software.</value>
     </data>
-    <data name="button_viewlicenses" xml:space="preserve">
+    <data name="view_licenses" xml:space="preserve">
         <value>View licenses</value>
     </data>
     <data name="progress_loading_url_data" xml:space="preserve">
@@ -309,7 +306,7 @@
     <data name="error_couldntchangelanguage" xml:space="preserve">
         <value>Your language couldn't be changed. Please try again later.</value>
     </data>
-    <data name="error_state_title" xml:space="preserve">
+    <data name="error_title" xml:space="preserve">
         <value>Something went wrong</value>
     </data>
     <data name="error_data_not_loaded" xml:space="preserve">

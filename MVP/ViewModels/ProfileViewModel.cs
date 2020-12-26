@@ -80,7 +80,7 @@ namespace MVP.ViewModels
             catch (Exception ex)
             {
                 AnalyticsService.Report(ex);
-                await DialogService.AlertAsync(Translations.error_couldntrefreshprofile, Translations.alert_error_title, Translations.alert_ok).ConfigureAwait(false);
+                await DialogService.AlertAsync(Translations.error_couldntrefreshprofile, Translations.error_title, Translations.ok).ConfigureAwait(false);
             }
         }
 
@@ -119,7 +119,7 @@ namespace MVP.ViewModels
             if (Connectivity.NetworkAccess != NetworkAccess.Internet)
             {
                 // Connection to internet is not available
-                await DialogService.ConfirmAsync(Translations.error_logoutwhileoffline, Translations.error_offline_title, Translations.alert_yes, Translations.alert_no).ConfigureAwait(false);
+                await DialogService.ConfirmAsync(Translations.error_logoutwhileoffline, Translations.error_offline_title, Translations.yes, Translations.no).ConfigureAwait(false);
                 return;
             }
 

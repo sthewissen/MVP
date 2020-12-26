@@ -64,11 +64,7 @@ namespace MVP.ViewModels
             }
             catch (Exception ex)
             {
-                await DialogService.AlertAsync(
-                    Translations.error_couldntchangeicon,
-                    Translations.alert_error_title,
-                    Translations.alert_ok
-                ).ConfigureAwait(false);
+                await DialogService.AlertAsync(Translations.error_couldntchangeicon, Translations.error_title, Translations.ok).ConfigureAwait(false);
 
                 AnalyticsService.Report(ex);
             }

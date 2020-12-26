@@ -114,7 +114,7 @@ namespace MVP.ViewModels
 
                 if (contributionsList == null)
                 {
-                    await DialogService.AlertAsync(Translations.error_couldntloadmorecontributions, Translations.alert_error_title, Translations.alert_ok).ConfigureAwait(false);
+                    await DialogService.AlertAsync(Translations.error_couldntloadmorecontributions, Translations.error_title, Translations.ok).ConfigureAwait(false);
                     return;
                 }
 
@@ -136,7 +136,7 @@ namespace MVP.ViewModels
             {
                 AnalyticsService.Report(ex);
 
-                await DialogService.AlertAsync(Translations.error_couldntloadmorecontributions, Translations.alert_error_title, Translations.alert_ok).ConfigureAwait(false);
+                await DialogService.AlertAsync(Translations.error_couldntloadmorecontributions, Translations.error_title, Translations.ok).ConfigureAwait(false);
             }
             finally
             {

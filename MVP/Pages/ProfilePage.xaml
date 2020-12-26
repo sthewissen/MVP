@@ -207,7 +207,7 @@
                                 Margin="24,16,24,32"
                                 Command="{Binding LogoutCommand}"
                                 ImageSource="{FontImage FontFamily={StaticResource font_icon}, Color={StaticResource white}, Size=20, Glyph={x:Static icons:Icons.logout}}"
-                                Text="{extensions:Translate button_logout}"/>
+                                Text="{extensions:Translate logout}"/>
                     </sh:Shadows>
                 </StackLayout>
             </ScrollView>

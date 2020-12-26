@@ -37,7 +37,7 @@
                     <views:StateView StateKey="Error"
                                      HorizontalOptions="FillAndExpand"
                                      VerticalOptions="FillAndExpand" >
-                        <controls:EmptyState Title="{extensions:Translate error_state_title}"
+                        <controls:EmptyState Title="{extensions:Translate error_title}"
                                              Description="{extensions:Translate error_data_not_loaded}"
                                              ImageSource="Resource://error.svg"
                                              CommandText="Retry"

@@ -31,7 +31,7 @@ namespace MVP.ViewModels
                 var startDate = DateTime.Now.CurrentAwardPeriodStartDate();
 
                 return string.Format(
-                    Translations.contribution_form_timeframememo,
+                    Translations.contributionform_timeframememo,
                     startDate.ToLongDateString(),
                     startDate.AddYears(1).AddDays(-1).ToLongDateString()
                 );
@@ -98,11 +98,7 @@ namespace MVP.ViewModels
                 if (!result)
                     return;
 
-                var shouldCreateActivity = await DialogService.ConfirmAsync(
-                    Translations.clipboard_alert_description,
-                    Translations.clipboard_alert_title,
-                    Translations.alert_yes,
-                    Translations.alert_no);
+                var shouldCreateActivity = await DialogService.ConfirmAsync(Translations.clipboard_description, Translations.clipboard_title, Translations.yes, Translations.no);
 
                 if (!shouldCreateActivity)
                     return;
@@ -184,7 +180,7 @@ namespace MVP.ViewModels
 
                     if (!result)
                     {
-                        await DialogService.AlertAsync(Translations.error_couldntsavecontribution, Translations.alert_error_title, Translations.alert_ok).ConfigureAwait(false);
+                        await DialogService.AlertAsync(Translations.error_couldntsavecontribution, Translations.error_title, Translations.ok).ConfigureAwait(false);
                         return;
                     }
 
@@ -200,10 +196,7 @@ namespace MVP.ViewModels
 
                     if (result == null)
                     {
-                        await DialogService.AlertAsync(
-                            Translations.error_couldntsavecontribution,
-                            Translations.alert_error_title,
-                            Translations.alert_ok
+                        await DialogService.AlertAsync(Translations.error_couldntsavecontribution, Translations.error_title, Translations.ok
                         ).ConfigureAwait(false);
 
                         return;
@@ -219,11 +212,7 @@ namespace MVP.ViewModels
             {
                 AnalyticsService.Report(ex);
 
-                await DialogService.AlertAsync(
-                    Translations.error_couldntsavecontribution,
-                    Translations.alert_error_title,
-                    Translations.alert_ok
-                ).ConfigureAwait(false);
+                await DialogService.AlertAsync(Translations.error_couldntsavecontribution, Translations.error_title, Translations.ok).ConfigureAwait(false);
             }
             finally
             {

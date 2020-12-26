@@ -74,11 +74,7 @@ namespace MVP.ViewModels
                     return;
 
                 // Ask for confirmation before deletion.
-                var confirm = await DialogService.ConfirmAsync(
-                    Translations.alert_contribution_deleteconfirmation,
-                    Translations.alert_warning_title,
-                    Translations.alert_ok,
-                    Translations.alert_cancel).ConfigureAwait(false);
+                var confirm = await DialogService.ConfirmAsync(Translations.contributiondetail_deleteconfirmation, Translations.warning_title, Translations.ok, Translations.cancel).ConfigureAwait(false);
 
                 if (!confirm)
                     return;
@@ -95,20 +91,14 @@ namespace MVP.ViewModels
                 }
                 else
                 {
-                    await DialogService.AlertAsync(
-                        Translations.alert_contribution_notdeleted,
-                        Translations.alert_error_title,
-                        Translations.alert_ok).ConfigureAwait(false);
+                    await DialogService.AlertAsync(Translations.contributiondetail_notdeleted, Translations.error_title, Translations.ok).ConfigureAwait(false);
                 }
             }
             catch (Exception ex)
             {
                 AnalyticsService.Report(ex);
 
-                await DialogService.AlertAsync(
-                    Translations.alert_error_unexpected,
-                    Translations.alert_error_title,
-                    Translations.alert_ok).ConfigureAwait(false);
+                await DialogService.AlertAsync(Translations.error_unexpected, Translations.error_title, Translations.ok).ConfigureAwait(false);
             }
         }
 

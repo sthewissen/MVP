@@ -75,17 +75,11 @@ namespace MVP
         {
             if (e.IsBadRequest)
             {
-                await DialogService.AlertAsync(
-                    Translations.alert_error_badrequest,
-                    Translations.alert_error_title,
-                    Translations.alert_ok);
+                await DialogService.AlertAsync(Translations.error_badrequest, Translations.error_title, Translations.ok);
             }
             else if (e.IsServerError)
             {
-                await DialogService.AlertAsync(
-                    Translations.alert_error_servererror,
-                    Translations.alert_error_title,
-                    Translations.alert_ok);
+                await DialogService.AlertAsync(Translations.error_servererror, Translations.error_title, Translations.ok);
             }
         }
 
@@ -102,10 +96,7 @@ namespace MVP
             {
                 // Show a message that data could not be refreshed. Also forward the user back to getting started
                 // telling the user that a logout has occurred.
-                await DialogService.AlertAsync(
-                    Translations.alert_error_unauthorized,
-                    Translations.alert_error_title,
-                    Translations.alert_ok);
+                await DialogService.AlertAsync(Translations.alert_error_unauthorized, Translations.error_title, Translations.ok);
 
                 // Move the user over to Getting Started.
                 await AuthService.SignOutAsync();

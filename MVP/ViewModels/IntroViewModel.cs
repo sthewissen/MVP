@@ -67,22 +67,14 @@ namespace MVP.ViewModels
                 else
                 {
                     AnalyticsService.Track("Invalid MVP Account Used");
-                    await DialogService.AlertAsync(
-                        Resources.Translations.alert_error_nomvpaccount,
-                        Resources.Translations.alert_error_title,
-                        Resources.Translations.alert_ok
-                    );
+                    await DialogService.AlertAsync(Resources.Translations.error_nomvpaccount, Resources.Translations.error_title, Resources.Translations.ok);
                 }
             }
             catch (Exception e)
             {
                 AnalyticsService.Report(e);
 
-                await DialogService.AlertAsync(
-                    Resources.Translations.alert_error_unexpected,
-                    Resources.Translations.alert_error_title,
-                    Resources.Translations.alert_ok
-                );
+                await DialogService.AlertAsync(Resources.Translations.error_unexpected, Resources.Translations.error_title, Resources.Translations.ok);
             }
         }
     }
