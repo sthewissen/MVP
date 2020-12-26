@@ -30,11 +30,12 @@ namespace MVP.ViewModels
                     Title = Translations.onboarding_1_title,
                     Description = Translations.onboarding_1_description
                 },
-                //new OnboardingItem {
-                //    ImageName="onboarding2",
-                //    Title = ,
-                //    Description = "Gather additional insights through your contribution statistics. When were you most active? What type of contributions are you favorite?"
-                //},
+                // Not sure yet if this is going to make it in.
+                new OnboardingItem {
+                    ImageName="onboarding2",
+                    Title = "Detailed statistics",
+                    Description = "Gather additional insights through your contribution statistics. When were you most active? What type of contributions are you favorite?"
+                },
                 new OnboardingItem {
                     ImageName="onboarding3",
                     Title = Translations.onboarding_3_title,
