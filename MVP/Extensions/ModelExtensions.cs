@@ -1,7 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using MVP.Helpers;
 using MVP.Models;
 using MVP.Validation;
 using MVP.ViewModels.Data;
@@ -10,6 +7,9 @@ namespace MVP.Extensions
 {
     public static class ModelExtensions
     {
+        /// <summary>
+        /// Converts an API returned contribution to a useable view model.
+        /// </summary>
         public static ContributionViewModel ToContributionViewModel(this Contribution contribution)
         {
             if (contribution == null)
@@ -32,6 +32,9 @@ namespace MVP.Extensions
             };
         }
 
+        /// <summary>
+        /// Converts a local view model to an API compatible contribution.
+        /// </summary>
         public static Contribution ToContribution(this ContributionViewModel contribution)
         {
             if (contribution == null)
@@ -54,6 +57,9 @@ namespace MVP.Extensions
             };
         }
 
+        /// <summary>
+        /// Retrieves contribution type information based on the provided Guid.
+        /// </summary>
         public static ContributionTypeConfig GetContributionTypeRequirements(this Guid contributionType)
         {
             var config = new ContributionTypeConfig();

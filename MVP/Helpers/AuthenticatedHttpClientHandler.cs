@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace MVP.Helpers
 {
+    /// <summary>
+    /// Ensures that a valid token is always sent up to the API service.
+    /// </summary>
     public class AuthenticatedHttpClientHandler : HttpClientHandler
     {
         readonly Func<Task<string>> getToken;

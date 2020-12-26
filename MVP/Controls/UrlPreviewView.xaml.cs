@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
@@ -41,9 +40,7 @@ namespace MVP.Controls
         static void Url_Changed(BindableObject bindable, object oldValue, object newValue)
         {
             if (oldValue != newValue)
-            {
                 (bindable as UrlPreviewView).OnUrlPropertyChanged();
-            }
         }
 
         public LayoutState State
@@ -112,6 +109,9 @@ namespace MVP.Controls
                 });
         }
 
+        /// <summary>
+        /// Retrieves data from the web to generate a preview of the provided URL.
+        /// </summary>
         public async Task GetOpenGraphData()
         {
             try

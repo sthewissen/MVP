@@ -14,22 +14,22 @@ namespace MVP.Controls
             BindableProperty.Create(nameof(Value), typeof(string), typeof(PickerInputView), string.Empty, defaultBindingMode: BindingMode.OneWay);
 
         public static readonly BindableProperty PlaceholderProperty =
-         BindableProperty.Create(nameof(Placeholder), typeof(string), typeof(PickerInputView), string.Empty, defaultBindingMode: BindingMode.OneWay);
+            BindableProperty.Create(nameof(Placeholder), typeof(string), typeof(PickerInputView), string.Empty, defaultBindingMode: BindingMode.OneWay);
 
         public static readonly BindableProperty DescriptionProperty =
-         BindableProperty.Create(nameof(Description), typeof(string), typeof(PickerInputView), string.Empty, defaultBindingMode: BindingMode.OneWay);
+            BindableProperty.Create(nameof(Description), typeof(string), typeof(PickerInputView), string.Empty, defaultBindingMode: BindingMode.OneWay);
 
         public static readonly BindableProperty PickerCommandProperty =
-         BindableProperty.Create(nameof(PickerCommand), typeof(ICommand), typeof(PickerInputView), null, defaultBindingMode: BindingMode.OneWay);
+            BindableProperty.Create(nameof(PickerCommand), typeof(ICommand), typeof(PickerInputView), null, defaultBindingMode: BindingMode.OneWay);
 
         public static readonly BindableProperty IsRequiredProperty =
-         BindableProperty.Create(nameof(IsRequired), typeof(bool), typeof(PickerInputView), false, defaultBindingMode: BindingMode.OneWay);
+            BindableProperty.Create(nameof(IsRequired), typeof(bool), typeof(PickerInputView), false, defaultBindingMode: BindingMode.OneWay);
 
         public static readonly BindableProperty IsValidProperty =
-         BindableProperty.Create(nameof(IsValid), typeof(bool), typeof(PickerInputView), true, defaultBindingMode: BindingMode.OneWay);
+            BindableProperty.Create(nameof(IsValid), typeof(bool), typeof(PickerInputView), true, defaultBindingMode: BindingMode.OneWay);
 
         public static readonly BindableProperty ErrorsProperty =
-         BindableProperty.Create(nameof(Errors), typeof(string), typeof(PickerInputView), null, defaultBindingMode: BindingMode.OneWay);
+            BindableProperty.Create(nameof(Errors), typeof(string), typeof(PickerInputView), null, defaultBindingMode: BindingMode.OneWay);
 
         public string Errors
         {

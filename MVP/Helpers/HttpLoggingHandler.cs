@@ -9,6 +9,9 @@ using System.Threading.Tasks;
 
 namespace MVP.Helpers
 {
+    /// <summary>
+    /// Ensures that we log all information provided by the API when debugging locally.
+    /// </summary>
     public class HttpLoggingHandler : DelegatingHandler
     {
         public HttpLoggingHandler(HttpMessageHandler innerHandler = null)

@@ -21,6 +21,13 @@
     "LicenseUrl": "https://github.com/jamesmontemagno/CurrentActivityPlugin/blob/master/LICENSE"
   },
   {
+    "Id": "Sharpnado.Shadows",
+    "Title": "Add as many custom shadows (Color, Offset, Blur, Neumorphism) as you like to any Xamarin.Forms view (Android, iOS, UWP, Tizen).",
+    "Description": "Add as many custom shadows as you like to any Xamarin.Forms view (Android, iOS, UWP, Tizen).\r\n\r\n* You can specify each shadow Color, Opacity, Blur, and Offset\r\n* You can add one shadow, 3 shadows, 99 shadows, to any Xamarin.Forms element\r\n* Implement easily Neumorphism\r\n* Animate any of these property and make the shadows dance around your elements\r\n* The only dependency is `Xamarin.Forms`, no `AndroidX`, no `SkiaSharp` (except Tizen) needed!\r\n\r\nPerformance: Implemented with custom draw on Android, CALayer on iOS, SpriteVisual on UWP, SkiaSharp on Tizen.\r\n\r\nMandatory initialization on iOS:\r\n\r\n    Xamarin.Forms.Forms.Init();\r\n    Sharpnado.Shades.iOS.iOSShadowsRenderer.Initialize();\r\n\r\nMandatory initialization on UWP:\r\n\r\n    var rendererAssemblies = new[] { typeof(UWPShadowsRenderer).GetTypeInfo().Assembly };\r\n    Xamarin.Forms.Forms.Init(e, rendererAssemblies);\r\n\r\nMandatory initialization on Tizen:\r\n\r\n    Xamarin.Forms.Forms.Init();\r\n    Sharpnado.Shades.Tizen.TizenShadowsRenderer.Initialize();",
+    "ProjectUrl": "https://github.com/roubachof/Sharpnado.Shadows",
+    "LicenseUrl": "https://github.com/roubachof/Sharpnado.Shadows/blob/master/LICENSE"
+  },
+  {
     "Id": "Xamarin.Android.Support.Core.Utils",
     "Title": "Xamarin Android Support Library - support-core-utils",
     "Description": "Xamarin.Android bindings for Android Support Library - support-core-utils",
@@ -32,7 +39,7 @@
     "Title": "Xamarin.Essentials",
     "Description": "Xamarin.Essentials: a kit of essential API's for your apps",
     "ProjectUrl": "https://go.microsoft.com/fwlink/?linkid=868960",
-    "LicenseUrl": "https://aka.ms/deprecateLicenseUrl"
+    "LicenseUrl": "https://github.com/xamarin/Essentials/blob/main/LICENSE"
   },
   {
     "Id": "Xamarin.FFImageLoading.Forms",
@@ -63,6 +70,13 @@
     "LicenseUrl": "https://licenses.nuget.org/MIT"
   },
   {
+    "Id": "Xamarin.FFImageLoading.Svg.Forms",
+    "Title": "Xamarin.Forms FFImageLoading SVG support",
+    "Description": "Xamarin.Forms SVG support for FFImageLoading library.",
+    "ProjectUrl": "https://github.com/luberda-molinet/FFImageLoading",
+    "LicenseUrl": "https://raw.githubusercontent.com/luberda-molinet/FFImageLoading/master/LICENSE.md"
+  },
+  {
     "Id": "HtmlAgilityPack",
     "Title": "HtmlAgilityPack",
     "Description": "This is an agile HTML parser that builds a read/write DOM and supports plain XPATH or XSLT (you actually don't HAVE to understand XPATH nor XSLT to use it, don't worry...). It is a .NET code library that allows you to parse \"out of the web\" HTML files. The parser is very tolerant with \"real world\" malformed HTML. The object model is very similar to what proposes System.Xml, but for HTML documents (or streams).",
@@ -91,24 +105,17 @@
     "LicenseUrl": "https://licenses.nuget.org/MIT"
   },
   {
-    "Id": "Xamarin.FFImageLoading.Svg.Forms",
-    "Title": "Xamarin.Forms FFImageLoading SVG support",
-    "Description": "Xamarin.Forms SVG support for FFImageLoading library.",
-    "ProjectUrl": "https://github.com/luberda-molinet/FFImageLoading",
-    "LicenseUrl": "https://raw.githubusercontent.com/luberda-molinet/FFImageLoading/master/LICENSE.md"
+    "Id": "TinyMvvm.Autofac",
+    "Title": "TinyMvvm.Autofac",
+    "Description": "Package Description",
+    "ProjectUrl": "https://github.com/dhindrik/TinyMvvm",
+    "LicenseUrl": "https://github.com/dhindrik/TinyMvvm/blob/master/LICENSE"
   },
   {
-    "Id": "NETStandard.Library",
-    "Title": "NETStandard.Library",
-    "Description": "A set of standard .NET APIs that are prescribed to be used and supported together. \r\n18a36291e48808fa7ef2d00a764ceb1ec95645a5 \r\nWhen using NuGet 3.x this package requires at least version 3.4.",
-    "ProjectUrl": "https://dot.net/",
-    "LicenseUrl": "https://github.com/dotnet/standard/blob/master/LICENSE.TXT"
-  },
-  {
-    "Id": "autofac",
-    "Title": "Autofac",
-    "Description": "Autofac is an IoC container for Microsoft .NET. It manages the dependencies between classes so that applications stay easy to change as they grow in size and complexity.",
-    "ProjectUrl": "http://autofac.org/",
-    "LicenseUrl": "http://www.opensource.org/licenses/mit-license.php"
+    "Id": "TinyMvvm.Forms",
+    "Title": "TinyMvvm.Forms",
+    "Description": "Package Description",
+    "ProjectUrl": "https://github.com/dhindrik/TinyMvvm",
+    "LicenseUrl": "https://github.com/dhindrik/TinyMvvm/blob/master/LICENSE"
   }
 ]

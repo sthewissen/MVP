@@ -7,6 +7,10 @@ namespace MVP.Extensions
         // The API doesn't return any data regarding the current initial award date.
         // Someone who became an MVP in October e.g. is an MVP until April + 1 year.
         // That entire period is valid as a period to edit activities in.
+
+        /// <summary>
+        /// Retrieves a DateTime representing the start date for the current award period.
+        /// </summary>
         public static DateTime CurrentAwardPeriodStartDate(this DateTime dateTime)
         {
             var currentYearStart = new DateTime(DateTime.Now.Year, 4, 1);
@@ -15,19 +19,24 @@ namespace MVP.Extensions
             return dateTime >= currentYearStart ? currentYearStart : lastYearStart;
         }
 
+        /// <summary>
+        /// Checks whether or not a provided DateTme is within the current award period.
+        /// </summary>
         public static bool IsWithinCurrentAwardPeriod(this DateTime dateTime)
         {
-            var periodStart = new DateTime(DateTime.Now.Year, 4, 1);
-
+            var periodStart = dateTime.CurrentAwardPeriodStartDate();
             return dateTime >= periodStart;
         }
 
+        /// <summary>
+        /// Checks whether or not a provided DateTme is within the current award period.
+        /// </summary>
         public static bool IsWithinCurrentAwardPeriod(this DateTime? dateTime)
         {
             if (!dateTime.HasValue)
                 return false;
 
-            var periodStart = new DateTime(DateTime.Now.Year, 4, 1);
+            var periodStart = dateTime.Value.CurrentAwardPeriodStartDate();
 
             return dateTime >= periodStart;
         }

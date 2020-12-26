@@ -6,6 +6,9 @@ using Xamarin.CommunityToolkit.ObjectModel;
 
 namespace MVP.Validation
 {
+    /// <summary>
+    /// Defines an object that can be validated.
+    /// </summary>
     public class ValidatableObject<T> : IValidatable<T>
     {
         public event PropertyChangedEventHandler PropertyChanged;

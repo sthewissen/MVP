@@ -1,5 +1,4 @@
-﻿using System;
-namespace MVP.Models
+﻿namespace MVP.Models
 {
     public class OpenSourceSoftware
     {

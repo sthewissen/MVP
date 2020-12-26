@@ -1,5 +1,8 @@
 ﻿namespace MVP.Validation
 {
+    /// <summary>
+    /// Checks whether an incoming value is a valid number.
+    /// </summary>
     public class IsValidNumberRule<T> : IValidationRule<T>
     {
         public string ValidationMessage { get; set; }

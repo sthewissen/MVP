@@ -125,8 +125,6 @@ namespace MVP
         }
 
         public AppFrame()
-        {
-            InitializeComponent();
-        }
+            => InitializeComponent();
     }
 }

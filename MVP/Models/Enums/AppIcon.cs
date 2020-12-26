@@ -1,5 +1,4 @@
-﻿using System;
-namespace MVP.Models.Enums
+﻿namespace MVP.Models.Enums
 {
     public enum AppIcon
     {

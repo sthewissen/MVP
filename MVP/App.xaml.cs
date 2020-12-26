@@ -55,6 +55,9 @@ namespace MVP
             navHelper.SetRootView(nameof(SplashScreenPage));
         }
 
+        /// <summary>
+        /// Switches from demo to normal mode.
+        /// </summary>
         public void SwitchDemoMode(bool enable)
         {
             if (enable)
@@ -87,6 +90,9 @@ namespace MVP
             }
         }
 
+        /// <summary>
+        /// Handles expired access tokens.
+        /// </summary>
         async void MvpApiService_AccessTokenExpired(object sender, Services.Helpers.ApiServiceEventArgs e)
         {
             // If the access token expired, we need to sign in again,

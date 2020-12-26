@@ -1,5 +1,3 @@
-using System.Collections.Generic;
-
 namespace MVP.Models
 {
     public partial class Profile

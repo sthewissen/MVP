@@ -21,7 +21,6 @@ namespace MVP.Services.Demo
         {
             // Let's fake some delay, to see all the fancy loaders!
             await Task.Delay(1000);
-
             return JsonConvert.DeserializeObject<Profile>(LocalResourceService.GetFile("getprofile"));
         }
 

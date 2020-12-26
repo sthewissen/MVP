@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Windows.Input;
+﻿using System.Windows.Input;
 using Xamarin.Forms;
 
 namespace MVP.Controls
@@ -14,13 +12,13 @@ namespace MVP.Controls
             BindableProperty.Create(nameof(ImageSource), typeof(ImageSource), typeof(EmptyState), default, defaultBindingMode: BindingMode.TwoWay);
 
         public static readonly BindableProperty DescriptionProperty =
-         BindableProperty.Create(nameof(Description), typeof(string), typeof(EmptyState), string.Empty, defaultBindingMode: BindingMode.OneWay);
+            BindableProperty.Create(nameof(Description), typeof(string), typeof(EmptyState), string.Empty, defaultBindingMode: BindingMode.OneWay);
 
         public static readonly BindableProperty CommandTextProperty =
-         BindableProperty.Create(nameof(CommandText), typeof(string), typeof(EmptyState), string.Empty, defaultBindingMode: BindingMode.OneWay);
+            BindableProperty.Create(nameof(CommandText), typeof(string), typeof(EmptyState), string.Empty, defaultBindingMode: BindingMode.OneWay);
 
         public static readonly BindableProperty CommandProperty =
-         BindableProperty.Create(nameof(Command), typeof(ICommand), typeof(EmptyState), default, defaultBindingMode: BindingMode.OneWay);
+            BindableProperty.Create(nameof(Command), typeof(ICommand), typeof(EmptyState), default, defaultBindingMode: BindingMode.OneWay);
 
         public string Title
         {
@@ -53,8 +51,6 @@ namespace MVP.Controls
         }
 
         public EmptyState()
-        {
-            InitializeComponent();
-        }
+            => InitializeComponent();
     }
 }
