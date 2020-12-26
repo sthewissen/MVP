@@ -1,21 +1,17 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
 using System.Threading.Tasks;
-using System.Web;
 using MVP.Extensions;
-using MVP.Helpers;
 using MVP.Models;
 using MVP.Pages;
+using MVP.Resources;
 using MVP.Services;
 using MVP.Services.Interfaces;
-using TinyMvvm;
 using TinyNavigationHelper;
 using Xamarin.CommunityToolkit.ObjectModel;
 using Xamarin.CommunityToolkit.UI.Views;
 using Xamarin.Essentials;
-using Xamarin.Forms;
 
 namespace MVP.ViewModels
 {
@@ -40,7 +36,7 @@ namespace MVP.ViewModels
         {
             OpenContributionCommand = new AsyncCommand<Contribution>((Contribution c) => OpenContribution(c));
             SecondaryCommand = new AsyncCommand(() => OpenAddContribution());
-            RefreshDataCommand = new AsyncCommand(() => RefreshContributions());
+            RefreshDataCommand = new AsyncCommand(() => RefreshContributions(true));
             LoadMoreCommand = new AsyncCommand(() => LoadMore());
 
             MessagingService.Current.Subscribe(MessageKeys.RefreshNeeded, HandleRefreshContributionsMessage);
@@ -52,9 +48,19 @@ namespace MVP.ViewModels
             RefreshContributions().SafeFireAndForget();
         }
 
+        /// <summary>
+        /// Refreshes the list of contributions.
+        /// </summary>
         async Task RefreshContributions(bool refresh = false)
         {
             ItemThreshold = 2;
+
+            if (Connectivity.NetworkAccess != NetworkAccess.Internet)
+            {
+                State = LayoutState.Custom;
+                CustomStateKey = StateKeys.Offline;
+                return;
+            }
 
             try
             {
@@ -63,25 +69,41 @@ namespace MVP.ViewModels
                 var contributionsList = await MvpApiService.GetContributionsAsync(0, pageSize).ConfigureAwait(false);
 
                 if (contributionsList == null)
+                {
+                    State = LayoutState.Error;
                     return;
+                }
 
                 Contributions = new ObservableCollection<Contribution>(contributionsList.Contributions.OrderByDescending(x => x.StartDate).ToList());
+            }
+            catch (Exception ex)
+            {
+                State = LayoutState.Error;
             }
             finally
             {
                 IsRefreshing = false;
-                State = LayoutState.None;
+
+                if (State != LayoutState.Error)
+                    State = Contributions.Count > 0 ? LayoutState.None : LayoutState.Empty;
             }
         }
 
+        /// <summary>
+        /// Handles refreshing after saving/deleting.
+        /// </summary>
         void HandleRefreshContributionsMessage(MessagingService obj)
-        {
-            RefreshContributions().SafeFireAndForget();
-        }
+            => RefreshContributions().SafeFireAndForget();
 
+        /// <summary>
+        /// Loads more contributions when scrolled to the bottom.
+        /// </summary>
         async Task LoadMore()
         {
             if (IsLoadingMore)
+                return;
+
+            if (!await VerifyInternetConnection())
                 return;
 
             try
@@ -90,10 +112,18 @@ namespace MVP.ViewModels
 
                 var contributionsList = await MvpApiService.GetContributionsAsync(Contributions.Count, pageSize).ConfigureAwait(false);
 
+                if (contributionsList == null)
+                {
+                    await DialogService.AlertAsync(Translations.error_couldntloadmorecontributions, Translations.error_title, Translations.ok).ConfigureAwait(false);
+                    return;
+                }
+
                 foreach (var item in contributionsList.Contributions.OrderByDescending(x => x.StartDate))
                 {
                     Contributions.Add(item);
                 }
+
+                AnalyticsService.Track("More Contributions Loaded");
 
                 // If we've reached the end, change the threshold.
                 if (!contributionsList.Contributions.Any())
@@ -101,6 +131,12 @@ namespace MVP.ViewModels
                     ItemThreshold = -1;
                     return;
                 }
+            }
+            catch (Exception ex)
+            {
+                AnalyticsService.Report(ex);
+
+                await DialogService.AlertAsync(Translations.error_couldntloadmorecontributions, Translations.error_title, Translations.ok).ConfigureAwait(false);
             }
             finally
             {

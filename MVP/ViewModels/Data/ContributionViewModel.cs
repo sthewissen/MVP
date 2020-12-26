@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Collections.ObjectModel;
 using MVP.Extensions;
 using MVP.Models;
 using MVP.Validation;

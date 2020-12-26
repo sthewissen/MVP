@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Diagnostics;
 using System.Globalization;
 using Xamarin.Forms;
 
@@ -9,19 +8,13 @@ namespace MVP.Converters
     {
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {
-            if (value == null)
+            var stringValue = value as string;
+
+            if (string.IsNullOrEmpty(stringValue))
                 return Color.Default;
 
-            var valueAsString = value.ToString();
-
-            switch (valueAsString)
-            {
-                case "":
-                    return Color.Default;
-                default:
-                    var c = LookupColor(valueAsString);
-                    return c;
-            }
+            var c = LookupColor(stringValue);
+            return c;
         }
 
         public Color LookupColor(string key)
@@ -38,8 +31,6 @@ namespace MVP.Converters
         }
 
         public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
-        {
-            return null;
-        }
+            => null;
     }
 }

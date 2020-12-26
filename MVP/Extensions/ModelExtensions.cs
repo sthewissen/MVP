@@ -1,7 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using MVP.Helpers;
 using MVP.Models;
 using MVP.Validation;
 using MVP.ViewModels.Data;
@@ -10,29 +7,9 @@ namespace MVP.Extensions
 {
     public static class ModelExtensions
     {
-        public static IList<Grouping<int, Contribution>> ToGroupedContributions(this IList<Contribution> list)
-        {
-            var result = new List<Grouping<int, Contribution>>();
-            var periodStart = new DateTime(DateTime.Now.Year, 4, 1);
-
-            // If we are before the 1st of April, the period start is last year's.
-            if (DateTime.Now < periodStart)
-            {
-                periodStart = periodStart.AddYears(-1);
-            }
-
-            var thisPeriod = list.Where(x => x.StartDate >= periodStart).OrderByDescending(x => x.StartDate);
-            var lastPeriod = list.Where(x => x.StartDate < periodStart).OrderByDescending(x => x.StartDate);
-
-            if (thisPeriod.Any())
-                result.Add(new Grouping<int, Contribution>(0, thisPeriod));
-
-            if (lastPeriod.Any())
-                result.Add(new Grouping<int, Contribution>(1, lastPeriod));
-
-            return result;
-        }
-
+        /// <summary>
+        /// Converts an API returned contribution to a useable view model.
+        /// </summary>
         public static ContributionViewModel ToContributionViewModel(this Contribution contribution)
         {
             if (contribution == null)
@@ -55,6 +32,9 @@ namespace MVP.Extensions
             };
         }
 
+        /// <summary>
+        /// Converts a local view model to an API compatible contribution.
+        /// </summary>
         public static Contribution ToContribution(this ContributionViewModel contribution)
         {
             if (contribution == null)
@@ -77,6 +57,9 @@ namespace MVP.Extensions
             };
         }
 
+        /// <summary>
+        /// Retrieves contribution type information based on the provided Guid.
+        /// </summary>
         public static ContributionTypeConfig GetContributionTypeRequirements(this Guid contributionType)
         {
             var config = new ContributionTypeConfig();

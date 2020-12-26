@@ -9,9 +9,13 @@ using MVP.Services.Interfaces;
 
 namespace MVP.Services
 {
+    /// <summary>
+    /// Allows us to track some basic analytics of how the app is doing.
+    /// </summary>
     public class AnalyticsService : IAnalyticsService
     {
-        public AnalyticsService() => AppCenter.Start(ApiKey, typeof(Analytics), typeof(Crashes));
+        public AnalyticsService()
+            => AppCenter.Start(ApiKey, typeof(Analytics), typeof(Crashes));
 
         string ApiKey => Xamarin.Forms.Device.RuntimePlatform switch
         {
@@ -25,23 +29,23 @@ namespace MVP.Services
             _ => throw new NotSupportedException()
         };
 
-        public void Track(string trackIdentifier, IDictionary<string, string>? table = null) =>
-            Analytics.TrackEvent(trackIdentifier, table);
+        public void Track(string trackIdentifier, IDictionary<string, string>? table = null)
+            => Analytics.TrackEvent(trackIdentifier, table);
 
-        public void Track(string trackIdentifier, string key, string value) =>
-            Analytics.TrackEvent(trackIdentifier, new Dictionary<string, string> { { key, value } });
+        public void Track(string trackIdentifier, string key, string value)
+            => Analytics.TrackEvent(trackIdentifier, new Dictionary<string, string> { { key, value } });
 
-        public ITimedEvent TrackTime(string trackIdentifier, IDictionary<string, string>? table = null) =>
-            new TimedEvent(trackIdentifier, table);
+        public ITimedEvent TrackTime(string trackIdentifier, IDictionary<string, string>? table = null)
+            => new TimedEvent(trackIdentifier, table);
 
-        public ITimedEvent TrackTime(string trackIdentifier, string key, string value) =>
-            TrackTime(trackIdentifier, new Dictionary<string, string> { { key, value } });
+        public ITimedEvent TrackTime(string trackIdentifier, string key, string value)
+            => TrackTime(trackIdentifier, new Dictionary<string, string> { { key, value } });
 
         public void Report(Exception exception,
-                                  IDictionary<string, string>? properties = null,
-                                  [CallerMemberName] string callerMemberName = "",
-                                  [CallerLineNumber] int lineNumber = 0,
-                                  [CallerFilePath] string filePath = "")
+                           IDictionary<string, string>? properties = null,
+                           [CallerMemberName] string callerMemberName = "",
+                           [CallerLineNumber] int lineNumber = 0,
+                           [CallerFilePath] string filePath = "")
         {
             PrintException(exception, callerMemberName, lineNumber, filePath, properties);
 
@@ -49,7 +53,8 @@ namespace MVP.Services
         }
 
         [Conditional("DEBUG")]
-        void PrintException(Exception exception, string callerMemberName, int lineNumber, string filePath, IDictionary<string, string>? properties = null)
+        void PrintException(Exception exception, string callerMemberName, int lineNumber,
+            string filePath, IDictionary<string, string>? properties = null)
         {
             var fileName = System.IO.Path.GetFileName(filePath);
 

@@ -13,7 +13,7 @@ using HtmlAgilityPack;
 namespace MVP.Helpers
 {
     // This code comes from the awesome library OpenGraph-Net: https://github.com/ghorsey/OpenGraph-Net
-    // Unfortunately at this time there's a bug in Mono/Xamarin preventing it from being used on Xamarin apps.
+    // Unfortunately at the time of writing there's a bug in Mono/Xamarin preventing it from being used on Xamarin apps.
     // When the time comes the NuGet will be properly referenced instead.
 
     /// <summary>

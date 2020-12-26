@@ -1,26 +1,49 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <pages:BaseContentPage xmlns="http://xamarin.com/schemas/2014/forms"
-                       xmlns:local="clr-namespace:MVP"
+                       xmlns:mvp="clr-namespace:MVP"
                        xmlns:pages="clr-namespace:MVP.Pages"
                        xmlns:vm="clr-namespace:MVP.ViewModels"
                        xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-                       xmlns:xct="clr-namespace:Xamarin.CommunityToolkit.Extensions;assembly=Xamarin.CommunityToolkit"
+                       xmlns:extensions="clr-namespace:Xamarin.CommunityToolkit.Extensions;assembly=Xamarin.CommunityToolkit"
                        x:Class="MVP.Pages.VisibilityPickerPage"
                        x:DataType="vm:VisibilityPickerViewModel"
                        x:TypeArguments="vm:VisibilityPickerViewModel"
-                       xmlns:state="clr-namespace:Xamarin.CommunityToolkit.UI.Views;assembly=Xamarin.CommunityToolkit">
+                       xmlns:views="clr-namespace:Xamarin.CommunityToolkit.UI.Views;assembly=Xamarin.CommunityToolkit"
+                       xmlns:controls="clr-namespace:MVP.Controls">
 
-    <local:AppFrame IsModal="False"
-                    ShowBackButton="True"
-                    Title="{xct:Translate visibility_title}"
-                    x:Name="appFrame">
-        <local:AppFrame.Content>
-            <Grid state:StateLayout.CurrentState="{Binding State}"
-                  state:StateLayout.AnimateStateChanges="False">
+    <mvp:AppFrame IsModal="False"
+                  ShowBackButton="True"
+                  Title="{extensions:Translate visibility_title}"
+                  x:Name="appFrame">
+        <mvp:AppFrame.Content>
+            <Grid views:StateLayout.CurrentState="{Binding State}"
+                  views:StateLayout.AnimateStateChanges="False">
 
-                <state:StateLayout.StateViews>
-                    <state:StateView StateKey="Loading" RepeatCount="3" RepeatTemplate="{StaticResource picker_item_loading}" />
-                </state:StateLayout.StateViews>
+                <views:StateLayout.StateViews>
+                    <views:StateView StateKey="Loading"
+                                     RepeatCount="3"
+                                     RepeatTemplate="{StaticResource picker_item_loading}" />
+
+                    <views:StateView StateKey="Empty"
+                                     HorizontalOptions="FillAndExpand"
+                                     VerticalOptions="FillAndExpand" >
+                        <controls:EmptyState Title="{extensions:Translate empty_state_title}"
+                                             Description="{extensions:Translate empty_state_visibilities}"
+                                             ImageSource="Resource://no_contributions.svg"
+                                             CommandText="Retry"
+                                             Command="{Binding RefreshDataCommand}"  />
+                    </views:StateView>
+
+                    <views:StateView StateKey="Error"
+                                     HorizontalOptions="FillAndExpand"
+                                     VerticalOptions="FillAndExpand" >
+                        <controls:EmptyState Title="{extensions:Translate error_title}"
+                                             Description="{extensions:Translate error_data_not_loaded}"
+                                             ImageSource="Resource://error.svg"
+                                             CommandText="Retry"
+                                             Command="{Binding RefreshDataCommand}"  />
+                    </views:StateView>
+                </views:StateLayout.StateViews>
 
                 <CollectionView ItemsSource="{Binding Visibilities}"
                             ItemTemplate="{StaticResource visibility_item}"
@@ -31,7 +54,7 @@
                     </CollectionView.Footer>
                 </CollectionView>
             </Grid>
-        </local:AppFrame.Content>
-    </local:AppFrame>
+        </mvp:AppFrame.Content>
+    </mvp:AppFrame>
 
 </pages:BaseContentPage>

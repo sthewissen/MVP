@@ -3,20 +3,20 @@
                        xmlns:pages="clr-namespace:MVP.Pages"
                        xmlns:vm="clr-namespace:MVP.ViewModels"
                        xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-                       xmlns:xct="clr-namespace:Xamarin.CommunityToolkit.Extensions;assembly=Xamarin.CommunityToolkit"
-                       xmlns:local="clr-namespace:MVP"
+                       xmlns:extensions="clr-namespace:Xamarin.CommunityToolkit.Extensions;assembly=Xamarin.CommunityToolkit"
+                       xmlns:mvp="clr-namespace:MVP"
                        x:Class="MVP.Pages.ThemePickerPage"
                        x:DataType="vm:ThemePickerViewModel"
                        x:TypeArguments="vm:ThemePickerViewModel">
 
-    <local:AppFrame Title="{xct:Translate themepicker_title}"
-                    ShowBackButton="True"
-                    x:Name="appFrame">
-        <local:AppFrame.Content>
+    <mvp:AppFrame Title="{extensions:Translate themepicker_title}"
+                  ShowBackButton="True"
+                  x:Name="appFrame">
+        <mvp:AppFrame.Content>
             <CollectionView ItemsSource="{Binding AppThemes}"
                             ItemTemplate="{StaticResource app_theme_item}"
                             Scrolled="CollectionView_Scrolled"
                             SelectionMode="None" />
-        </local:AppFrame.Content>
-    </local:AppFrame>
+        </mvp:AppFrame.Content>
+    </mvp:AppFrame>
 </pages:BaseContentPage>

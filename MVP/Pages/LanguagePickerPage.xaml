@@ -4,15 +4,15 @@
                        xmlns:vm="clr-namespace:MVP.ViewModels"
                        xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
                        xmlns:extensions="clr-namespace:Xamarin.CommunityToolkit.Extensions;assembly=Xamarin.CommunityToolkit"
-                       xmlns:local="clr-namespace:MVP"
+                       xmlns:mvp="clr-namespace:MVP"
                        x:Class="MVP.Pages.LanguagePickerPage"
                        x:DataType="vm:LanguagePickerViewModel"
                        x:TypeArguments="vm:LanguagePickerViewModel">
 
-    <local:AppFrame Title="{extensions:Translate languagepicker_title}"
-                    ShowBackButton="True"
-                    x:Name="appFrame">
-        <local:AppFrame.Content>
+    <mvp:AppFrame Title="{extensions:Translate languagepicker_title}"
+                  ShowBackButton="True"
+                  x:Name="appFrame">
+        <mvp:AppFrame.Content>
 
             <CollectionView ItemsSource="{Binding SupportedLanguages}"
                             ItemTemplate="{StaticResource app_language_item}"
@@ -23,6 +23,6 @@
                 </CollectionView.Footer>
             </CollectionView>
 
-        </local:AppFrame.Content>
-    </local:AppFrame>
+        </mvp:AppFrame.Content>
+    </mvp:AppFrame>
 </pages:BaseContentPage>

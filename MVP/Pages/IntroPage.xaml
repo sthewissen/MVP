@@ -2,9 +2,7 @@
 <pages:BaseContentPage xmlns="http://xamarin.com/schemas/2014/forms"
                        xmlns:converters="clr-namespace:Xamarin.CommunityToolkit.Converters;assembly=Xamarin.CommunityToolkit"
                        xmlns:effects="clr-namespace:Xamarin.CommunityToolkit.Effects;assembly=Xamarin.CommunityToolkit"
-                       xmlns:ff="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
-                       xmlns:helpers="clr-namespace:MVP.Helpers"
-                       xmlns:local="clr-namespace:MVP"
+                       xmlns:mvp="clr-namespace:MVP"
                        xmlns:models="clr-namespace:MVP.Models"
                        xmlns:pages="clr-namespace:MVP.Pages"
                        xmlns:vm="clr-namespace:MVP.ViewModels"
@@ -17,13 +15,13 @@
         <x:Int32 x:Key="LastItemIndex">2</x:Int32>
     </pages:BaseContentPage.Resources>
 
-    <local:AppFrame SecondaryButtonText="Sign in"
-                    ShadowOpacity="0"
-                    ShowTabShadow="False"
-                    ShowSecondaryButton="True"
-                    x:Name="appFrame"
-                    effects:SafeAreaEffect.SafeArea="false,true">
-        <local:AppFrame.Content>
+    <mvp:AppFrame SecondaryButtonText="Sign in"
+                  ShadowOpacity="0"
+                  ShowTabShadow="False"
+                  ShowSecondaryButton="True"
+                  x:Name="appFrame"
+                  effects:SafeAreaEffect.SafeArea="false,true">
+        <mvp:AppFrame.Content>
             <Grid RowDefinitions="*, 120, Auto">
 
                 <CarouselView HorizontalScrollBarVisibility="Never"
@@ -31,7 +29,6 @@
                               IsBounceEnabled="False"
                               ItemsSource="{Binding OnboardingItems}"
                               Loop="False"
-                              PositionChanged="CarouselView_PositionChanged"
                               VerticalScrollBarVisibility="Never"
                               x:Name="carousel">
                     <CarouselView.ItemTemplate>
@@ -74,6 +71,6 @@
                                ItemsSource="{Binding OnboardingItems}"
                                x:Name="indicator"/>
             </Grid>
-        </local:AppFrame.Content>
-    </local:AppFrame>
+        </mvp:AppFrame.Content>
+    </mvp:AppFrame>
 </pages:BaseContentPage>

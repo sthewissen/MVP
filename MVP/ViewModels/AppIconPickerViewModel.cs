@@ -4,9 +4,10 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Input;
 using MVP.Models.Enums;
+using MVP.Resources;
+using MVP.Services;
 using MVP.Services.Interfaces;
 using MVP.ViewModels.Data;
-using TinyMvvm;
 using TinyNavigationHelper;
 using Xamarin.CommunityToolkit.ObjectModel;
 using Xamarin.Essentials;
@@ -32,27 +33,41 @@ namespace MVP.ViewModels
             AppIcons.FirstOrDefault(x => x.Key == Preferences.Get(Settings.AppIcon, Settings.AppIconDefault)).IsSelected = true;
         }
 
+        /// <summary>
+        /// Sets the app icon to whatever the user chose.
+        /// </summary>
         async Task SetAppIcon(AppIconViewModel icon)
         {
-            var iconSwitcher = DependencyService.Get<IIconService>();
+            try
+            {
+                var iconSwitcher = DependencyService.Get<IIconService>();
 
-            if (iconSwitcher == null)
-                return;
+                if (iconSwitcher == null)
+                    return;
 
-            // Null switches to default.
-            if ((AppIcon)icon.Key == AppIcon.Default)
-                await iconSwitcher?.SwitchAppIcon(null);
-            else
-                await iconSwitcher?.SwitchAppIcon(((AppIcon)icon.Key).ToString());
+                if ((AppIcon)icon.Key == AppIcon.Default)
+                    await iconSwitcher?.SwitchAppIcon(null);
+                else
+                    await iconSwitcher?.SwitchAppIcon(((AppIcon)icon.Key).ToString());
 
-            Preferences.Set(Settings.AppIcon, icon.Key);
+                Preferences.Set(Settings.AppIcon, icon.Key);
 
-            foreach (var item in AppIcons)
-                item.IsSelected = false;
+                foreach (var item in AppIcons)
+                    item.IsSelected = false;
 
-            AppIcons.FirstOrDefault(x => x.Key == Preferences.Get(Settings.AppIcon, Settings.AppIconDefault)).IsSelected = true;
-            RaisePropertyChanged(nameof(AppIcons));
-            HapticFeedback.Perform(HapticFeedbackType.Click);
+                AppIcons.FirstOrDefault(x => x.Key == Preferences.Get(Settings.AppIcon, Settings.AppIconDefault)).IsSelected = true;
+                RaisePropertyChanged(nameof(AppIcons));
+
+                HapticFeedback.Perform(HapticFeedbackType.Click);
+
+                AnalyticsService.Track("App Icon Changed", nameof(icon), ((AppIcon)icon.Key).ToString() ?? "null");
+            }
+            catch (Exception ex)
+            {
+                await DialogService.AlertAsync(Translations.error_couldntchangeicon, Translations.error_title, Translations.ok).ConfigureAwait(false);
+
+                AnalyticsService.Report(ex);
+            }
         }
     }
 }

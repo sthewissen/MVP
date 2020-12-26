@@ -3,9 +3,9 @@ using System.Threading.Tasks;
 using MVP.Extensions;
 using MVP.Models;
 using MVP.Pages;
+using MVP.Resources;
 using MVP.Services;
 using MVP.Services.Interfaces;
-using TinyMvvm;
 using TinyNavigationHelper;
 using Xamarin.CommunityToolkit.ObjectModel;
 using Xamarin.Essentials;
@@ -47,6 +47,9 @@ namespace MVP.ViewModels
             }
         }
 
+        /// <summary>
+        /// Opens the edit contribution form.
+        /// </summary>
         async Task EditContribution()
         {
             // Shouldn't be getting here anyway, so no need for a message.
@@ -56,6 +59,9 @@ namespace MVP.ViewModels
             await NavigationHelper.OpenModalAsync(nameof(ContributionFormPage), Contribution, true).ConfigureAwait(false);
         }
 
+        /// <summary>
+        /// Deletes a contribution.
+        /// </summary>
         async Task DeleteContribution()
         {
             try
@@ -64,13 +70,11 @@ namespace MVP.ViewModels
                 if (!CanBeEdited)
                     return;
 
+                if (!await VerifyInternetConnection())
+                    return;
+
                 // Ask for confirmation before deletion.
-                var confirm = await DialogService.ConfirmAsync(
-                    Resources.Translations.alert_contribution_deleteconfirmation,
-                    Resources.Translations.alert_warning_title,
-                    Resources.Translations.alert_ok,
-                    Resources.Translations.alert_cancel
-                ).ConfigureAwait(false);
+                var confirm = await DialogService.ConfirmAsync(Translations.contributiondetail_deleteconfirmation, Translations.warning_title, Translations.ok, Translations.cancel).ConfigureAwait(false);
 
                 if (!confirm)
                     return;
@@ -82,26 +86,19 @@ namespace MVP.ViewModels
                     // TODO: Pass back true to indicate it needs to refresh.
                     // TODO: Be a bit more sensible with muh threads plz.
                     MainThread.BeginInvokeOnMainThread(() => HapticFeedback.Perform(HapticFeedbackType.LongPress));
+                    AnalyticsService.Track("Contribution Deleted");
                     await MainThread.InvokeOnMainThreadAsync(() => NavigationHelper.BackAsync());
                 }
                 else
                 {
-                    await DialogService.AlertAsync(
-                        Resources.Translations.alert_contribution_notdeleted,
-                        Resources.Translations.alert_error_title,
-                        Resources.Translations.alert_ok
-                    ).ConfigureAwait(false);
+                    await DialogService.AlertAsync(Translations.contributiondetail_notdeleted, Translations.error_title, Translations.ok).ConfigureAwait(false);
                 }
             }
             catch (Exception ex)
             {
                 AnalyticsService.Report(ex);
 
-                await DialogService.AlertAsync(
-                    Resources.Translations.alert_error_title,
-                    Resources.Translations.alert_error_unexpected,
-                    Resources.Translations.alert_ok
-                ).ConfigureAwait(false);
+                await DialogService.AlertAsync(Translations.error_unexpected, Translations.error_title, Translations.ok).ConfigureAwait(false);
             }
         }
 

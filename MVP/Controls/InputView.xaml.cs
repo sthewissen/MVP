@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using Xamarin.Forms;
+﻿using Xamarin.Forms;
 
 namespace MVP.Controls
 {
@@ -13,25 +11,25 @@ namespace MVP.Controls
             BindableProperty.Create(nameof(Value), typeof(string), typeof(InputView), string.Empty, defaultBindingMode: BindingMode.TwoWay);
 
         public static readonly BindableProperty DescriptionProperty =
-         BindableProperty.Create(nameof(Description), typeof(string), typeof(InputView), string.Empty, defaultBindingMode: BindingMode.OneWay);
+            BindableProperty.Create(nameof(Description), typeof(string), typeof(InputView), string.Empty, defaultBindingMode: BindingMode.OneWay);
 
         public static readonly BindableProperty PlaceholderProperty =
-         BindableProperty.Create(nameof(Placeholder), typeof(string), typeof(InputView), string.Empty, defaultBindingMode: BindingMode.OneWay);
+            BindableProperty.Create(nameof(Placeholder), typeof(string), typeof(InputView), string.Empty, defaultBindingMode: BindingMode.OneWay);
 
         public static readonly BindableProperty IsRequiredProperty =
-         BindableProperty.Create(nameof(IsRequired), typeof(bool), typeof(InputView), false, defaultBindingMode: BindingMode.OneWay);
+            BindableProperty.Create(nameof(IsRequired), typeof(bool), typeof(InputView), false, defaultBindingMode: BindingMode.OneWay);
 
         public static readonly BindableProperty IsMultiLineProperty =
-         BindableProperty.Create(nameof(IsMultiLine), typeof(bool), typeof(InputView), false, defaultBindingMode: BindingMode.OneWay);
+            BindableProperty.Create(nameof(IsMultiLine), typeof(bool), typeof(InputView), false, defaultBindingMode: BindingMode.OneWay);
 
         public static readonly BindableProperty KeyboardProperty =
-         BindableProperty.Create(nameof(Keyboard), typeof(Keyboard), typeof(InputView), Keyboard.Default, defaultBindingMode: BindingMode.OneWay);
+            BindableProperty.Create(nameof(Keyboard), typeof(Keyboard), typeof(InputView), Keyboard.Default, defaultBindingMode: BindingMode.OneWay);
 
         public static readonly BindableProperty IsValidProperty =
-         BindableProperty.Create(nameof(IsValid), typeof(bool), typeof(InputView), true, defaultBindingMode: BindingMode.OneWay);
+            BindableProperty.Create(nameof(IsValid), typeof(bool), typeof(InputView), true, defaultBindingMode: BindingMode.OneWay);
 
         public static readonly BindableProperty ErrorsProperty =
-         BindableProperty.Create(nameof(Errors), typeof(string), typeof(InputView), null, defaultBindingMode: BindingMode.OneWay);
+             BindableProperty.Create(nameof(Errors), typeof(string), typeof(InputView), null, defaultBindingMode: BindingMode.OneWay);
 
         public string Errors
         {
@@ -92,16 +90,24 @@ namespace MVP.Controls
 
         void Entry_Focused(object sender, FocusEventArgs e)
         {
-            frameEntry.BorderColor = (Color)Application.Current.Resources["primary"];
-            frameEditor.BorderColor = (Color)Application.Current.Resources["primary"];
-            //frameEntry.HasShadow = true;
+            frameEntry.SetAppThemeColor(Frame.BorderColorProperty,
+                (Color)Application.Current.Resources["primary"],
+                (Color)Application.Current.Resources["light_primary"]);
+
+            frameEditor.SetAppThemeColor(Frame.BorderColorProperty,
+                (Color)Application.Current.Resources["primary"],
+                (Color)Application.Current.Resources["light_primary"]);
         }
 
         void Entry_Unfocused(object sender, FocusEventArgs e)
         {
-            frameEntry.BorderColor = (Color)Application.Current.Resources["neutral_1"];
-            frameEditor.BorderColor = (Color)Application.Current.Resources["neutral_1"];
-            //frameEntry.HasShadow = false;
+            frameEntry.SetAppThemeColor(Frame.BorderColorProperty,
+                (Color)Application.Current.Resources["neutral_1"],
+                (Color)Application.Current.Resources["neutral_3"]);
+
+            frameEditor.SetAppThemeColor(Frame.BorderColorProperty,
+                (Color)Application.Current.Resources["neutral_1"],
+                (Color)Application.Current.Resources["neutral_3"]);
         }
     }
 }

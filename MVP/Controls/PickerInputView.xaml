@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <StackLayout xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:xct="clr-namespace:Xamarin.CommunityToolkit.Converters;assembly=Xamarin.CommunityToolkit"
+             xmlns:converters="clr-namespace:Xamarin.CommunityToolkit.Converters;assembly=Xamarin.CommunityToolkit"
              xmlns:effects="clr-namespace:Xamarin.CommunityToolkit.Effects;assembly=Xamarin.CommunityToolkit"
              x:Class="MVP.Controls.PickerInputView"
              x:Name="inputView"
@@ -20,7 +20,7 @@
             <Label Style="{StaticResource field_title}" Text="{Binding Title, Source={x:Reference inputView}}" />
             <Label Style="{StaticResource required_indicator}" Text="*">
                 <Label.IsVisible>
-                    <MultiBinding Converter="{xct:VariableMultiValueConverter ConditionType=All}">
+                    <MultiBinding Converter="{converters:VariableMultiValueConverter ConditionType=All}">
                         <Binding Path="IsRequired" Source="{x:Reference inputView}" />
                         <Binding Path="IsEnabled" Source="{x:Reference inputView}" />
                     </MultiBinding>
@@ -30,12 +30,12 @@
 
         <Label Style="{StaticResource input_picker_label}"
                Grid.Row="1"
-               IsVisible="{Binding Value, Source={x:Reference inputView}, Converter={xct:IsNotNullOrEmptyConverter}}"
+               IsVisible="{Binding Value, Source={x:Reference inputView}, Converter={converters:IsNotNullOrEmptyConverter}}"
                Text="{Binding Value, Source={x:Reference inputView}}" />
 
         <Label Style="{StaticResource input_picker_placeholder}"
                Grid.Row="1"
-               IsVisible="{Binding Value, Source={x:Reference inputView}, Converter={xct:IsNullOrEmptyConverter}}"
+               IsVisible="{Binding Value, Source={x:Reference inputView}, Converter={converters:IsNullOrEmptyConverter}}"
                Text="{Binding Placeholder, Source={x:Reference inputView}}">
             <Label.Triggers>
                 <DataTrigger TargetType="Label"

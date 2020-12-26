@@ -73,11 +73,13 @@ namespace MVP.Pages
             navigationProfilePage.Title = Translations.tabs_settings;
 
             Children.Add(navigationMainPage);
-            //Children.Add(statsPage);
-            //Children.Add(badgesPage);
             Children.Add(navigationProfilePage);
         }
 
+        /// <summary>
+        /// Sets the titles for the tabs again, this is to support dark mode.
+        /// For some reason, if you don't call this, the tabs go back to regular font on iOS.
+        /// </summary>
         public void SetTitles()
         {
             navigationMainPage.Title = Translations.tabs_activities;

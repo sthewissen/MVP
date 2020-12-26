@@ -2,12 +2,14 @@
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.Identity.Client;
-using MVP.Services.Helpers;
 using MVP.Services.Interfaces;
 using Xamarin.Essentials;
 
 namespace MVP.Services
 {
+    /// <summary>
+    /// Authenticates the user using their Live ID.
+    /// </summary>
     public class AuthService : IAuthService
     {
         readonly IAnalyticsService analyticsService;

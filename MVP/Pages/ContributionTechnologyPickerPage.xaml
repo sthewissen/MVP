@@ -1,7 +1,6 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <pages:BaseContentPage xmlns="http://xamarin.com/schemas/2014/forms"
                        xmlns:icons="clr-namespace:MVP.Styles"
-                       xmlns:local="clr-namespace:MVP"
                        xmlns:pages="clr-namespace:MVP.Pages"
                        xmlns:behaviors="clr-namespace:Xamarin.CommunityToolkit.Behaviors;assembly=Xamarin.CommunityToolkit"
                        xmlns:extensions="clr-namespace:Xamarin.CommunityToolkit.Extensions;assembly=Xamarin.CommunityToolkit"
@@ -10,21 +9,43 @@
                        x:Class="MVP.Pages.ContributionTechnologyPickerPage"
                        x:DataType="vm:ContributionTechnologyPickerViewModel"
                        x:TypeArguments="vm:ContributionTechnologyPickerViewModel"
-                       xmlns:state="clr-namespace:Xamarin.CommunityToolkit.UI.Views;assembly=Xamarin.CommunityToolkit">
+                       xmlns:views="clr-namespace:Xamarin.CommunityToolkit.UI.Views;assembly=Xamarin.CommunityToolkit"
+                       xmlns:controls="clr-namespace:MVP.Controls"
+                       xmlns:mvp="clr-namespace:MVP">
 
-    <local:AppFrame ShowBackButton="True"
-                    Title="{extensions:Translate contributiontechnologypicker_title}"
-                    x:Name="appFrame">
-        <local:AppFrame.Content>
+    <mvp:AppFrame ShowBackButton="True"
+                  Title="{extensions:Translate contributiontechnologypicker_title}"
+                  x:Name="appFrame">
+        <mvp:AppFrame.Content>
             <Grid RowDefinitions="Auto,*"
-                  state:StateLayout.CurrentState="{Binding State}"
-                  state:StateLayout.AnimateStateChanges="False">
+                  views:StateLayout.CurrentState="{Binding State}"
+                  views:StateLayout.AnimateStateChanges="False">
 
-                <state:StateLayout.StateViews>
-                    <state:StateView StateKey="Loading"
+                <views:StateLayout.StateViews>
+                    <views:StateView StateKey="Loading"
                                      RepeatCount="2"
                                      RepeatTemplate="{StaticResource picker_item_loading}" />
-                </state:StateLayout.StateViews>
+
+                    <views:StateView StateKey="Empty"
+                                     HorizontalOptions="FillAndExpand"
+                                     VerticalOptions="FillAndExpand" >
+                        <controls:EmptyState Title="{extensions:Translate empty_state_title}"
+                                             Description="{extensions:Translate empty_state_contributiontechnologies}"
+                                             ImageSource="Resource://no_contributions.svg"
+                                             CommandText="Retry"
+                                             Command="{Binding RefreshDataCommand}"  />
+                    </views:StateView>
+
+                    <views:StateView StateKey="Error"
+                                     HorizontalOptions="FillAndExpand"
+                                     VerticalOptions="FillAndExpand" >
+                        <controls:EmptyState Title="{extensions:Translate error_title}"
+                                             Description="{extensions:Translate error_data_not_loaded}"
+                                             ImageSource="Resource://error.svg"
+                                             CommandText="Retry"
+                                             Command="{Binding RefreshDataCommand}"  />
+                    </views:StateView>
+                </views:StateLayout.StateViews>
 
                 <CollectionView Grid.Row="1"
                                 GroupHeaderTemplate="{StaticResource contribution_technology_group}"
@@ -36,11 +57,16 @@
                     <CollectionView.Footer>
                         <BoxView HeightRequest="40"/>
                     </CollectionView.Footer>
+                    <CollectionView.EmptyView>
+                        <controls:EmptyState Title="{extensions:Translate empty_state_title}"
+                                            Description="{extensions:Translate empty_state_noresultcontributiontechnologies}"
+                                            ImageSource="Resource://no_contributions.svg" />
+                    </CollectionView.EmptyView>
                 </CollectionView>
 
                 <StackLayout>
                     <Frame Style="{StaticResource search_frame}"
-                           Margin="16,0,16,16">
+                           Margin="24,0,24,16">
 
                         <Grid ColumnDefinitions="*,48"
                               Padding="24,0"
@@ -48,7 +74,8 @@
 
                             <Entry Style="{StaticResource search_entry}"
                                    Text="{Binding SearchText}"
-                                   VerticalOptions="Center">
+                                   VerticalOptions="Fill"
+                                   VerticalTextAlignment="Center">
                                 <Entry.Behaviors>
                                     <behaviors:UserStoppedTypingBehavior Command="{Binding SearchCommand}"
                                                                          StoppedTypingTimeThreshold="500"
@@ -101,6 +128,6 @@
                            VerticalOptions="Start"/>
                 </StackLayout>
             </Grid>
-        </local:AppFrame.Content>
-    </local:AppFrame>
+        </mvp:AppFrame.Content>
+    </mvp:AppFrame>
 </pages:BaseContentPage>

@@ -1,20 +1,21 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <pages:BaseContentPage xmlns="http://xamarin.com/schemas/2014/forms"
                        xmlns:pages="clr-namespace:MVP.Pages"
-                       xmlns:local="clr-namespace:MVP"
+                       xmlns:mvp="clr-namespace:MVP"
                        xmlns:vm="clr-namespace:MVP.ViewModels"
+                       xmlns:extensions="clr-namespace:Xamarin.CommunityToolkit.Extensions;assembly=Xamarin.CommunityToolkit"
                        xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
                        x:Class="MVP.Pages.AppIconPickerPage"
                        x:DataType="vm:AppIconPickerViewModel"
                        x:TypeArguments="vm:AppIconPickerViewModel">
-    <local:AppFrame Title="Icon"
-                    ShowBackButton="True"
-                    x:Name="appFrame">
-        <local:AppFrame.Content>
+    <mvp:AppFrame Title="{extensions:Translate appiconpicker_title}"
+                  ShowBackButton="True"
+                  x:Name="appFrame">
+        <mvp:AppFrame.Content>
             <CollectionView ItemsSource="{Binding AppIcons}"
                             ItemTemplate="{StaticResource app_icon_item}"
                             Scrolled="CollectionView_Scrolled"
                             SelectionMode="None" />
-        </local:AppFrame.Content>
-    </local:AppFrame>
+        </mvp:AppFrame.Content>
+    </mvp:AppFrame>
 </pages:BaseContentPage>

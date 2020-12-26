@@ -1,15 +1,13 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using System.Windows.Input;
 using MVP.Extensions;
 using MVP.Services.Interfaces;
 using MVP.ViewModels.Data;
-using TinyMvvm;
 using TinyNavigationHelper;
 using Xamarin.CommunityToolkit.ObjectModel;
-using Xamarin.Essentials;
-using Xamarin.Forms;
+using Xamarin.CommunityToolkit.UI.Views;
 
 namespace MVP.ViewModels
 {
@@ -18,12 +16,14 @@ namespace MVP.ViewModels
         ContributionViewModel contribution;
 
         public IAsyncCommand<VisibilityViewModel> SelectVisibilityCommand { get; }
+        public IAsyncCommand RefreshDataCommand { get; set; }
 
         public IList<VisibilityViewModel> Visibilities { get; set; } = new List<VisibilityViewModel>();
 
         public VisibilityPickerViewModel(IAnalyticsService analyticsService, INavigationHelper navigationHelper)
             : base(analyticsService, navigationHelper)
         {
+            RefreshDataCommand = new AsyncCommand(() => LoadVisibilities(true));
             SelectVisibilityCommand = new AsyncCommand<VisibilityViewModel>((x) => SelectVisibility(x));
         }
 
@@ -39,6 +39,9 @@ namespace MVP.ViewModels
             LoadVisibilities().SafeFireAndForget();
         }
 
+        /// <summary>
+        /// Selects a visibility for the contribuion being created/edited.
+        /// </summary>
         async Task SelectVisibility(VisibilityViewModel vm)
         {
             if (vm == null)
@@ -49,33 +52,53 @@ namespace MVP.ViewModels
 
             vm.IsSelected = true;
 
-            //TODO: Replace by the back navigation version.
+            //TODO: Replace by the back navigation version in TinyMvvm 3.0.
             contribution.Visibility.Value = vm.Visibility;
+
+            AnalyticsService.Track("Visibility Picked", nameof(vm.Visibility), vm.Visibility.Description);
 
             await NavigationHelper.BackAsync();
         }
 
-        public async override Task Back()
-            => await NavigationHelper.BackAsync(); // TODO: TinyMVVM 3.0 - Visibilities.FirstOrDefault(x => x.IsSelected)?.Visibility);
-
-        async Task LoadVisibilities()
+        /// <summary>
+        /// Loads visibilities from cache.
+        /// </summary>
+        async Task LoadVisibilities(bool force = false)
         {
-            if (Connectivity.NetworkAccess == NetworkAccess.Internet)
+            try
             {
-                var result = await MvpApiService.GetVisibilitiesAsync().ConfigureAwait(false);
+                State = LayoutState.Loading;
 
-                if (result != null)
+                var visibilities = await MvpApiService.GetVisibilitiesAsync(force).ConfigureAwait(false);
+
+                if (visibilities == null)
                 {
-                    Visibilities = result.Select(x => new VisibilityViewModel() { Visibility = x }).ToList();
+                    State = LayoutState.Error;
+                    return;
+                }
 
-                    // Editing mode
-                    if (contribution.Visibility.Value != null)
-                    {
-                        var selectedVisibility = Visibilities.FirstOrDefault(x => x.Visibility.Id == contribution.Visibility.Value.Id);
-                        selectedVisibility.IsSelected = true;
-                    }
+                Visibilities = visibilities.Select(x => new VisibilityViewModel() { Visibility = x }).ToList();
+
+                // Editing mode
+                if (contribution.Visibility.Value != null)
+                {
+                    var selectedVisibility = Visibilities.FirstOrDefault(x => x.Visibility.Id == contribution.Visibility.Value.Id);
+                    selectedVisibility.IsSelected = true;
                 }
             }
+            catch (Exception ex)
+            {
+                State = LayoutState.Error;
+                AnalyticsService.Report(ex);
+            }
+            finally
+            {
+                if (State != LayoutState.Error)
+                    State = Visibilities.Count > 0 ? LayoutState.None : LayoutState.Empty;
+            }
         }
+
+        public async override Task Back()
+            => await NavigationHelper.BackAsync(); // TODO: TinyMVVM 3.0 - Visibilities.FirstOrDefault(x => x.IsSelected)?.Visibility);
     }
 }

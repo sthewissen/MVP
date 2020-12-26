@@ -3,6 +3,9 @@ using System.ComponentModel;
 
 namespace MVP.Validation
 {
+    /// <summary>
+    /// Exposes validation related properties.
+    /// </summary>
     public interface IValidatable<T> : INotifyPropertyChanged
     {
         List<IValidationRule<T>> Validations { get; }

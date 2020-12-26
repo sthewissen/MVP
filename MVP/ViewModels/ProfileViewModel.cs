@@ -1,9 +1,12 @@
-﻿using System.Threading.Tasks;
+﻿using System;
+using System.Threading.Tasks;
 using System.Windows.Input;
+using MVP.Extensions;
 using MVP.Models;
 using MVP.Pages;
+using MVP.Resources;
+using MVP.Services;
 using MVP.Services.Interfaces;
-using TinyMvvm;
 using TinyNavigationHelper;
 using Xamarin.CommunityToolkit.ObjectModel;
 using Xamarin.CommunityToolkit.UI.Views;
@@ -51,19 +54,39 @@ namespace MVP.ViewModels
         public override async Task Initialize()
         {
             await base.Initialize();
-            await LoadProfile(false);
+            LoadProfile(false).SafeFireAndForget();
         }
 
+        /// <summary>
+        /// Loads the profile information.
+        /// </summary>
         async Task LoadProfile(bool force)
         {
-            if (State != LayoutState.None)
-                return;
+            try
+            {
+                if (State != LayoutState.None)
+                    return;
 
-            State = LayoutState.Loading;
-            await Task.WhenAll(RefreshProfileData(force), RefreshProfileImage(force));
-            State = LayoutState.None;
+                if (!await VerifyInternetConnection())
+                    return;
+
+                State = LayoutState.Loading;
+                await Task.WhenAll(RefreshProfileData(force), RefreshProfileImage(force));
+                State = LayoutState.None;
+
+                if (force)
+                    AnalyticsService.Track("Profile Refreshed");
+            }
+            catch (Exception ex)
+            {
+                AnalyticsService.Report(ex);
+                await DialogService.AlertAsync(Translations.error_couldntrefreshprofile, Translations.error_title, Translations.ok).ConfigureAwait(false);
+            }
         }
 
+        /// <summary>
+        /// Gets the profile image data.
+        /// </summary>
         async Task RefreshProfileImage(bool force)
         {
             var image = await MvpApiService.GetProfileImageAsync(force).ConfigureAwait(false);
@@ -71,17 +94,12 @@ namespace MVP.ViewModels
             if (image == null && force)
                 return;
 
-            if (image == null)
-            {
-                image = await MvpApiService.GetProfileImageAsync(true).ConfigureAwait(false);
-
-                if (image == null)
-                    return;
-            }
-
             ProfileImage = image;
         }
 
+        /// <summary>
+        /// Gets profile data.
+        /// </summary>
         async Task RefreshProfileData(bool force)
         {
             var profile = await MvpApiService.GetProfileAsync(force).ConfigureAwait(false);
@@ -89,24 +107,28 @@ namespace MVP.ViewModels
             if (profile == null && force)
                 return;
 
-            if (profile == null)
-            {
-                profile = await MvpApiService.GetProfileAsync(true).ConfigureAwait(false);
-
-                if (profile == null)
-                    return;
-            }
-
             Profile = profile;
         }
 
+        /// <summary>
+        /// Logs the user out.
+        /// </summary>
+        /// <returns></returns>
         async Task Logout()
         {
+            if (Connectivity.NetworkAccess != NetworkAccess.Internet)
+            {
+                // Connection to internet is not available
+                await DialogService.ConfirmAsync(Translations.error_logoutwhileoffline, Translations.error_offline_title, Translations.yes, Translations.no).ConfigureAwait(false);
+                return;
+            }
+
             if (!await AuthService.SignOutAsync())
                 return;
 
             await MvpApiService.ClearAllLocalData();
             NavigationHelper.SetRootView(nameof(IntroPage));
+            AnalyticsService.Track("User Logged Out");
         }
 
         async Task OpenThemePicker()

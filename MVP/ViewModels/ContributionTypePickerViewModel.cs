@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Input;
@@ -20,12 +21,14 @@ namespace MVP.ViewModels
         ContributionViewModel contribution;
 
         public IAsyncCommand<ContributionTypeViewModel> SelectContributionTypeCommand { get; set; }
+        public IAsyncCommand RefreshDataCommand { get; set; }
 
         public List<ContributionTypeViewModel> ContributionTypes { get; set; } = new List<ContributionTypeViewModel>();
 
         public ContributionTypePickerViewModel(IAnalyticsService analyticsService, INavigationHelper navigationHelper)
             : base(analyticsService, navigationHelper)
         {
+            RefreshDataCommand = new AsyncCommand(() => LoadContributionTypes(true));
             SelectContributionTypeCommand = new AsyncCommand<ContributionTypeViewModel>((x) => SelectContributionType(x));
         }
 
@@ -43,40 +46,56 @@ namespace MVP.ViewModels
             LoadContributionTypes().SafeFireAndForget();
         }
 
-        public async override Task Back()
-            => await NavigationHelper.BackAsync(); // TODO: TinyMVVM 3.0 - ContributionTypes.FirstOrDefault(x => x.IsSelected)?.ContributionType);
-
-        async Task LoadContributionTypes()
+        /// <summary>
+        /// Loads the contribution types from cache.
+        /// </summary>
+        /// <param name="force"></param>
+        /// <returns></returns>
+        async Task LoadContributionTypes(bool force = false)
         {
             try
             {
                 State = LayoutState.Loading;
 
-                var types = await MvpApiService.GetContributionTypesAsync().ConfigureAwait(false);
+                var types = await MvpApiService.GetContributionTypesAsync(force).ConfigureAwait(false);
 
-                if (types != null)
+                if (types == null)
                 {
-                    ContributionTypes = types
-                        .OrderBy(x => x.Name)
-                        .Select(x => new ContributionTypeViewModel
-                        {
-                            ContributionType = x
-                        }).ToList();
-
-                    // Editing mode
-                    if (contribution.ContributionType.Value != null)
-                    {
-                        var selected = ContributionTypes.FirstOrDefault(x => x.ContributionType.Id == contribution.ContributionType.Value.Id);
-                        selected.IsSelected = true;
-                    }
+                    State = LayoutState.Error;
+                    return;
                 }
+
+                ContributionTypes = types
+                    .OrderBy(x => x.Name)
+                    .Select(x => new ContributionTypeViewModel
+                    {
+                        ContributionType = x
+                    }).ToList();
+
+                // Editing mode
+                if (contribution.ContributionType.Value != null)
+                {
+                    var selected = ContributionTypes.FirstOrDefault(x => x.ContributionType.Id == contribution.ContributionType.Value.Id);
+                    selected.IsSelected = true;
+                }
+            }
+            catch (Exception ex)
+            {
+                State = LayoutState.Error;
+                AnalyticsService.Report(ex);
             }
             finally
             {
-                State = LayoutState.None;
+                if (State != LayoutState.Error)
+                    State = ContributionTypes.Count > 0 ? LayoutState.None : LayoutState.Empty;
             }
         }
 
+        /// <summary>
+        /// Selects a specific contribution type for the contribution.
+        /// </summary>
+        /// <param name="vm"></param>
+        /// <returns></returns>
         async Task SelectContributionType(ContributionTypeViewModel vm)
         {
             if (vm == null)
@@ -90,7 +109,14 @@ namespace MVP.ViewModels
             //TODO: Replace by the back navigation version.
             contribution.ContributionType = new Validation.ValidatableObject<ContributionType> { Value = vm.ContributionType };
 
+            AnalyticsService.Track("Contribution Type Picked",
+                nameof(contribution.ContributionType),
+                vm.ContributionType.Name);
+
             await NavigationHelper.BackAsync();
         }
+
+        public async override Task Back()
+            => await NavigationHelper.BackAsync(); // TODO: TinyMVVM 3.0 - ContributionTypes.FirstOrDefault(x => x.IsSelected)?.ContributionType);
     }
 }

@@ -5,7 +5,6 @@ using MVP.Models;
 using MVP.Pages;
 using MVP.Services;
 using MVP.Services.Interfaces;
-using TinyMvvm;
 using TinyNavigationHelper;
 using Xamarin.CommunityToolkit.ObjectModel;
 using Xamarin.Essentials;
@@ -48,6 +47,7 @@ namespace MVP.ViewModels
             Preferences.Set(Settings.IsUsingDemoAccount, true);
             (Application.Current as App).SwitchDemoMode(true);
             await SignIn();
+            AnalyticsService.Track("Demo Mode Activated");
         }
 
         async Task SignIn()
@@ -57,6 +57,8 @@ namespace MVP.ViewModels
                 // Pop a sign in request up for the user.
                 if (await AuthService.SignInAsync().ConfigureAwait(false))
                 {
+                    AnalyticsService.Track("User Logged In");
+
                     MainThread.BeginInvokeOnMainThread(() =>
                     {
                         NavigationHelper.SetRootView(nameof(TabbedMainPage), false);
@@ -64,21 +66,15 @@ namespace MVP.ViewModels
                 }
                 else
                 {
-                    await DialogService.AlertAsync(Resources.Translations.alert_error_nomvpaccount,
-                        Resources.Translations.alert_error_title,
-                        Resources.Translations.alert_ok
-                    );
+                    AnalyticsService.Track("Invalid MVP Account Used");
+                    await DialogService.AlertAsync(Resources.Translations.error_nomvpaccount, Resources.Translations.error_title, Resources.Translations.ok);
                 }
             }
             catch (Exception e)
             {
                 AnalyticsService.Report(e);
 
-                await DialogService.AlertAsync(
-                    Resources.Translations.alert_error_unexpected,
-                    Resources.Translations.alert_error_title,
-                    Resources.Translations.alert_ok
-                );
+                await DialogService.AlertAsync(Resources.Translations.error_unexpected, Resources.Translations.error_title, Resources.Translations.ok);
             }
         }
     }

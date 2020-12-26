@@ -1,5 +1,4 @@
-﻿using System;
-using MVP.Models;
+﻿using MVP.Models;
 using Xamarin.CommunityToolkit.ObjectModel;
 
 namespace MVP.ViewModels

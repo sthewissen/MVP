@@ -1,18 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Globalization;
 using System.Linq;
-using System.Windows.Input;
 using MVP.Pages;
 using MVP.Resources;
 using MVP.Services.Interfaces;
-using TinyMvvm.IoC;
-using TinyMvvm;
 using Xamarin.CommunityToolkit.Helpers;
 using Xamarin.Essentials;
-using Xamarin.Forms;
 using TinyNavigationHelper;
 using MVP.Services;
+using System.Threading.Tasks;
+using Xamarin.CommunityToolkit.ObjectModel;
 
 namespace MVP.ViewModels
 {
@@ -21,18 +18,21 @@ namespace MVP.ViewModels
         readonly LanguageService languageService;
 
         public IList<LanguageViewModel> SupportedLanguages { get; set; } = new List<LanguageViewModel>();
-        public ICommand SetAppLanguageCommand { get; set; }
+        public IAsyncCommand<LanguageViewModel> SetAppLanguageCommand { get; set; }
 
         public LanguagePickerViewModel(IAnalyticsService analyticsService, INavigationHelper navigationHelper, LanguageService languageService)
             : base(analyticsService, navigationHelper)
         {
             this.languageService = languageService;
 
-            SetAppLanguageCommand = new Command<LanguageViewModel>((x) => SetAppLanguage(x));
+            SetAppLanguageCommand = new AsyncCommand<LanguageViewModel>((x) => SetAppLanguage(x));
 
             LoadLanguages();
         }
 
+        /// <summary>
+        /// Loads the list of valid languages.
+        /// </summary>
         void LoadLanguages()
         {
             // Not going to translate the top name, as it's the
@@ -50,20 +50,33 @@ namespace MVP.ViewModels
                 selected.IsSelected = true;
         }
 
-        void SetAppLanguage(LanguageViewModel language)
+        /// <summary>
+        /// Sets the app's language.
+        /// </summary>
+        async Task SetAppLanguage(LanguageViewModel language)
         {
-            foreach (var item in SupportedLanguages)
-                item.IsSelected = false;
+            try
+            {
+                foreach (var item in SupportedLanguages)
+                    item.IsSelected = false;
 
-            languageService.SetLanguage(language.CI);
+                languageService.SetLanguage(language.CI);
 
-            // SupportedLanguages.FirstOrDefault(x => x.CI == Preferences.Get(Settings.AppLanguage, Settings.AppLanguageDefault)).IsSelected = true;
+                LoadLanguages();
 
-            LoadLanguages();
+                // Also force the tabs to change
+                (CurrentApp.MainPage as TabbedMainPage).SetTitles();
 
-            // Also force the tabs to change
-            (CurrentApp.MainPage as TabbedMainPage).SetTitles();
-            HapticFeedback.Perform(HapticFeedbackType.Click);
+                AnalyticsService.Track("Preferred Language Changed", nameof(language.CI), language.CI ?? "null");
+
+                HapticFeedback.Perform(HapticFeedbackType.Click);
+            }
+            catch (Exception ex)
+            {
+                await DialogService.AlertAsync(Translations.error_couldntchangelanguage, Translations.error_title, Translations.ok).ConfigureAwait(false);
+
+                AnalyticsService.Report(ex);
+            }
         }
     }
 }

@@ -23,6 +23,9 @@ namespace MVP.Pages
             StartPulseAnimation();
         }
 
+        /// <summary>
+        /// Pulsates the MVP logo indefinitely.
+        /// </summary>
         void StartPulseAnimation()
         {
             var animation = new Animation();

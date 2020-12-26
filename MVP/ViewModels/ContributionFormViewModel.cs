@@ -1,21 +1,19 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Globalization;
 using System.Threading.Tasks;
 using System.Web;
 using MVP.Extensions;
 using MVP.Helpers;
 using MVP.Models;
 using MVP.Pages;
+using MVP.Resources;
 using MVP.Services;
 using MVP.Services.Interfaces;
 using MVP.ViewModels.Data;
-using TinyMvvm;
 using TinyNavigationHelper;
 using Xamarin.CommunityToolkit.ObjectModel;
 using Xamarin.CommunityToolkit.UI.Views;
 using Xamarin.Essentials;
-using Xamarin.Forms;
 
 namespace MVP.ViewModels
 {
@@ -33,7 +31,7 @@ namespace MVP.ViewModels
                 var startDate = DateTime.Now.CurrentAwardPeriodStartDate();
 
                 return string.Format(
-                    Resources.Translations.contribution_form_timeframememo,
+                    Translations.contributionform_timeframememo,
                     startDate.ToLongDateString(),
                     startDate.AddYears(1).AddDays(-1).ToLongDateString()
                 );
@@ -74,50 +72,56 @@ namespace MVP.ViewModels
                 await CheckForClipboardUrl();
         }
 
-
+        /// <summary>
+        /// Checks if the clipboard contains a URL to use for prefilling.
+        /// </summary>
         async Task CheckForClipboardUrl()
         {
+            if (Connectivity.NetworkAccess != NetworkAccess.Internet)
+                return;
+
             if (!Preferences.Get(Settings.UseClipboardUrls, true))
                 return;
 
-            var text = string.Empty;
+            var clipboardText = string.Empty;
 
             try
             {
                 if (!Clipboard.HasText)
                     return;
 
-                text = await Clipboard.GetTextAsync();
+                clipboardText = await Clipboard.GetTextAsync();
 
-                if (string.IsNullOrEmpty(text) || (!text.StartsWith("http://") && !text.StartsWith("https://")))
+                var result = Uri.TryCreate(clipboardText, UriKind.Absolute, out var uriResult) &&
+                    (uriResult.Scheme == Uri.UriSchemeHttp || uriResult.Scheme == Uri.UriSchemeHttps);
+
+                if (!result)
                     return;
 
-                var shouldCreateActivity = await DialogService.ConfirmAsync(
-                    Resources.Translations.clipboard_alert_description,
-                    Resources.Translations.clipboard_alert_title,
-                    Resources.Translations.alert_yes,
-                    Resources.Translations.alert_no
-                );
+                var shouldCreateActivity = await DialogService.ConfirmAsync(Translations.clipboard_description, Translations.clipboard_title, Translations.yes, Translations.no);
 
                 if (!shouldCreateActivity)
                     return;
 
-                GetOpenGraphData(text).SafeFireAndForget();
+                GetOpenGraphData(clipboardText).SafeFireAndForget();
             }
             catch (Exception ex)
             {
-                AnalyticsService.Report(ex, new Dictionary<string, string> { { "clipboard_value", text } });
+                AnalyticsService.Report(ex, new Dictionary<string, string> { { nameof(clipboardText), clipboardText } });
                 return;
             }
         }
 
-        async Task GetOpenGraphData(string text)
+        /// <summary>
+        /// Gets Open Graph data for prefilling.
+        /// </summary>
+        async Task GetOpenGraphData(string clipboardText)
         {
             try
             {
                 State = LayoutState.Loading;
 
-                var ogData = await OpenGraph.ParseUrlAsync(text);
+                var ogData = await OpenGraph.ParseUrlAsync(clipboardText);
 
                 if (ogData == null)
                     return;
@@ -139,40 +143,27 @@ namespace MVP.ViewModels
                 if (dateTime.HasValue)
                     Contribution.StartDate = dateTime.Value;
             }
+            catch (Exception ex)
+            {
+                // Fail silently.
+                AnalyticsService.Report(ex, new Dictionary<string, string> { { nameof(clipboardText), clipboardText } });
+            }
             finally
             {
                 State = LayoutState.None;
             }
         }
 
-        // TODO: Could implement this when TinyMvvm 3.0 is final.
-        // public override async Task Returning()
-        // {
-        //     await base.Returning();
-
-        //     if (ReturningParameter is ContributionType type)
-        //     {
-        //         Contribution.ContributionType.Value = type;
-        //         ContributionTypeConfig = type.Id.Value.GetContributionTypeRequirements();
-        //     }
-        //     else if (ReturningParameter is Visibility vis)
-        //     {
-        //         Contribution.Visibility.Value = vis;
-        //     }
-        //     else if (ReturningParameter is IList<ContributionTechnology> techs)
-        //     {
-        //         Contribution.AdditionalTechnologies = techs;
-        //     }
-        //     else if (ReturningParameter is ContributionTechnology tech)
-        //     {
-        //         Contribution.ContributionTechnology.Value = tech;
-        //     }
-        // }
-
+        /// <summary>
+        /// Saves a contribution.
+        /// </summary>
         async Task SaveContribution()
         {
             try
             {
+                if (!await VerifyInternetConnection())
+                    return;
+
                 if (!Contribution.IsValid())
                 {
                     IsContributionValid = false;
@@ -187,25 +178,41 @@ namespace MVP.ViewModels
                 {
                     var result = await MvpApiService.UpdateContributionAsync(Contribution.ToContribution());
 
-                    if (result)
+                    if (!result)
                     {
-                        MainThread.BeginInvokeOnMainThread(() => HapticFeedback.Perform(HapticFeedbackType.LongPress));
-                        await NavigationHelper.CloseModalAsync();
-                        await NavigationHelper.BackAsync();
-                        MessagingService.Current.SendMessage(MessageKeys.RefreshNeeded);
+                        await DialogService.AlertAsync(Translations.error_couldntsavecontribution, Translations.error_title, Translations.ok).ConfigureAwait(false);
+                        return;
                     }
+
+                    MainThread.BeginInvokeOnMainThread(() => HapticFeedback.Perform(HapticFeedbackType.LongPress));
+                    AnalyticsService.Track("Contribution Added");
+                    await NavigationHelper.CloseModalAsync();
+                    await NavigationHelper.BackAsync();
+                    MessagingService.Current.SendMessage(MessageKeys.RefreshNeeded);
                 }
                 else
                 {
                     var result = await MvpApiService.SubmitContributionAsync(Contribution.ToContribution());
 
-                    if (result != null)
+                    if (result == null)
                     {
-                        MainThread.BeginInvokeOnMainThread(() => HapticFeedback.Perform(HapticFeedbackType.LongPress));
-                        await NavigationHelper.CloseModalAsync();
-                        MessagingService.Current.SendMessage(MessageKeys.RefreshNeeded);
+                        await DialogService.AlertAsync(Translations.error_couldntsavecontribution, Translations.error_title, Translations.ok
+                        ).ConfigureAwait(false);
+
+                        return;
                     }
+
+                    AnalyticsService.Track("Contribution Edited");
+                    MainThread.BeginInvokeOnMainThread(() => HapticFeedback.Perform(HapticFeedbackType.LongPress));
+                    await NavigationHelper.CloseModalAsync();
+                    MessagingService.Current.SendMessage(MessageKeys.RefreshNeeded);
                 }
+            }
+            catch (Exception ex)
+            {
+                AnalyticsService.Report(ex);
+
+                await DialogService.AlertAsync(Translations.error_couldntsavecontribution, Translations.error_title, Translations.ok).ConfigureAwait(false);
             }
             finally
             {

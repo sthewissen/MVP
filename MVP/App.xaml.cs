@@ -33,7 +33,6 @@ namespace MVP
             // through this app class with every page. Errors in it need to handled
             // generically through here as well.
             mvpApiService.AccessTokenExpired += MvpApiService_AccessTokenExpired;
-            mvpApiService.RequestErrorOccurred += MvpApiService_RequestErrorOccurred;
 
             MvpApiService = mvpApiService;
             AuthService = authService;
@@ -44,6 +43,7 @@ namespace MVP
             Resolver.SetResolver(new AutofacResolver(ContainerService.Container));
             Akavache.Registrations.Start(Constants.AppName);
             On<iOS>().SetHandleControlUpdatesOnMainThread(true);
+            Sharpnado.Shades.Initializer.Initialize(loggerEnable: false);
 
             // Set the theme that the user has picked.
             Current.UserAppTheme = (OSAppTheme)Preferences.Get(Settings.AppTheme, Settings.AppThemeDefault);
@@ -54,6 +54,9 @@ namespace MVP
             navHelper.SetRootView(nameof(SplashScreenPage));
         }
 
+        /// <summary>
+        /// Switches from demo to normal mode.
+        /// </summary>
         public void SwitchDemoMode(bool enable)
         {
             if (enable)
@@ -72,20 +75,17 @@ namespace MVP
         {
             if (e.IsBadRequest)
             {
-                await DialogService.AlertAsync(
-                    Translations.alert_error_badrequest,
-                    Translations.alert_error_title,
-                    Translations.alert_ok);
+                await DialogService.AlertAsync(Translations.error_badrequest, Translations.error_title, Translations.ok);
             }
             else if (e.IsServerError)
             {
-                await DialogService.AlertAsync(
-                    Translations.alert_error_servererror,
-                    Translations.alert_error_title,
-                    Translations.alert_ok);
+                await DialogService.AlertAsync(Translations.error_servererror, Translations.error_title, Translations.ok);
             }
         }
 
+        /// <summary>
+        /// Handles expired access tokens.
+        /// </summary>
         async void MvpApiService_AccessTokenExpired(object sender, Services.Helpers.ApiServiceEventArgs e)
         {
             // If the access token expired, we need to sign in again,
@@ -96,10 +96,7 @@ namespace MVP
             {
                 // Show a message that data could not be refreshed. Also forward the user back to getting started
                 // telling the user that a logout has occurred.
-                await DialogService.AlertAsync(
-                    Translations.alert_error_unauthorized,
-                    Translations.alert_error_title,
-                    Translations.alert_ok);
+                await DialogService.AlertAsync(Translations.alert_error_unauthorized, Translations.error_title, Translations.ok);
 
                 // Move the user over to Getting Started.
                 await AuthService.SignOutAsync();
@@ -129,7 +126,6 @@ namespace MVP
             base.OnResume();
 
             MvpApiService.AccessTokenExpired += MvpApiService_AccessTokenExpired;
-            MvpApiService.RequestErrorOccurred += MvpApiService_RequestErrorOccurred;
 
             OnResumed();
 
@@ -141,7 +137,6 @@ namespace MVP
             base.OnSleep();
 
             MvpApiService.AccessTokenExpired -= MvpApiService_AccessTokenExpired;
-            MvpApiService.RequestErrorOccurred -= MvpApiService_RequestErrorOccurred;
 
             analyticsService.Track("App Backgrounded");
         }
