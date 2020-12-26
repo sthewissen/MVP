@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <Grid xmlns="http://xamarin.com/schemas/2014/forms"
       xmlns:ff="clr-namespace:FFImageLoading.Svg.Forms;assembly=FFImageLoading.Svg.Forms"
-      xmlns:xct="clr-namespace:Xamarin.CommunityToolkit.Converters;assembly=Xamarin.CommunityToolkit"
+      xmlns:converters="clr-namespace:Xamarin.CommunityToolkit.Converters;assembly=Xamarin.CommunityToolkit"
       xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
       Padding="32"
       x:Class="MVP.Controls.EmptyState"
@@ -14,7 +14,7 @@
                  VerticalOptions="Center">
 
         <ff:SvgCachedImage Source="{Binding ImageSource, Source={x:Reference emptyState}}"
-                           IsVisible="{Binding ImageSource, Source={x:Reference emptyState}, Converter={xct:IsNotNullOrEmptyConverter}}"
+                           IsVisible="{Binding ImageSource, Source={x:Reference emptyState}, Converter={converters:IsNotNullOrEmptyConverter}}"
                            Aspect="AspectFill"
                            HeightRequest="200"
                            WidthRequest="200"
@@ -31,7 +31,7 @@
             <Button Text="{Binding CommandText, Source={x:Reference emptyState}}"
                     Command="{Binding Command, Source={x:Reference emptyState}}"
                     Style="{StaticResource primary_button}"
-                    IsVisible="{Binding Command, Source={x:Reference emptyState}, Converter={xct:IsNotNullOrEmptyConverter}}" />
+                    IsVisible="{Binding Command, Source={x:Reference emptyState}, Converter={converters:IsNotNullOrEmptyConverter}}" />
         </sh:Shadows>
 
     </StackLayout>

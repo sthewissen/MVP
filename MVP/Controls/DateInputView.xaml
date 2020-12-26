@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <StackLayout xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:xct="clr-namespace:Xamarin.CommunityToolkit.Converters;assembly=Xamarin.CommunityToolkit"
+             xmlns:converters="clr-namespace:Xamarin.CommunityToolkit.Converters;assembly=Xamarin.CommunityToolkit"
              x:Class="MVP.Controls.DateInputView"
              Spacing="8"
              Padding="0,16,0,0"
@@ -12,7 +12,7 @@
         <Label.FormattedText>
             <FormattedString>
                 <Span Text="{Binding Title, Source={x:Reference inputView}}" />
-                <Span Text="{Binding IsRequired, Source={x:Reference inputView}, Converter={xct:BoolToObjectConverter TrueObject=' *'}}" TextColor="{StaticResource error}" />
+                <Span Text="{Binding IsRequired, Source={x:Reference inputView}, Converter={converters:BoolToObjectConverter TrueObject=' *'}}" TextColor="{StaticResource error}" />
             </FormattedString>
         </Label.FormattedText>
     </Label>
@@ -41,7 +41,7 @@
     </Frame>
 
     <Label Margin="32,0"
-           IsVisible="{Binding Errors, Converter={xct:IsNotNullOrEmptyConverter}, Source={x:Reference inputView}}"
+           IsVisible="{Binding Errors, Converter={converters:IsNotNullOrEmptyConverter}, Source={x:Reference inputView}}"
            Text="{Binding Errors, Source={x:Reference inputView}}"
            TextColor="{StaticResource error}" />
 </StackLayout>

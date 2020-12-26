@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Input;
@@ -45,9 +46,6 @@ namespace MVP.ViewModels
             LoadContributionTypes().SafeFireAndForget();
         }
 
-        public async override Task Back()
-            => await NavigationHelper.BackAsync(); // TODO: TinyMVVM 3.0 - ContributionTypes.FirstOrDefault(x => x.IsSelected)?.ContributionType);
-
         async Task LoadContributionTypes(bool force = false)
         {
             try
@@ -73,9 +71,15 @@ namespace MVP.ViewModels
                     }
                 }
             }
+            catch (Exception ex)
+            {
+                State = LayoutState.Error;
+                AnalyticsService.Report(ex);
+            }
             finally
             {
-                State = ContributionTypes.Count > 0 ? LayoutState.None : LayoutState.Empty;
+                if (State != LayoutState.Error)
+                    State = ContributionTypes.Count > 0 ? LayoutState.None : LayoutState.Empty;
             }
         }
 
@@ -92,7 +96,14 @@ namespace MVP.ViewModels
             //TODO: Replace by the back navigation version.
             contribution.ContributionType = new Validation.ValidatableObject<ContributionType> { Value = vm.ContributionType };
 
+            AnalyticsService.Track("Contribution Type Picked",
+                nameof(contribution.ContributionType),
+                vm.ContributionType.Name);
+
             await NavigationHelper.BackAsync();
         }
+
+        public async override Task Back()
+            => await NavigationHelper.BackAsync(); // TODO: TinyMVVM 3.0 - ContributionTypes.FirstOrDefault(x => x.IsSelected)?.ContributionType);
     }
 }

@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Globalization;
 using System.Threading.Tasks;
 using System.Web;
 using MVP.Extensions;
@@ -11,12 +10,10 @@ using MVP.Resources;
 using MVP.Services;
 using MVP.Services.Interfaces;
 using MVP.ViewModels.Data;
-using TinyMvvm;
 using TinyNavigationHelper;
 using Xamarin.CommunityToolkit.ObjectModel;
 using Xamarin.CommunityToolkit.UI.Views;
 using Xamarin.Essentials;
-using Xamarin.Forms;
 
 namespace MVP.ViewModels
 {
@@ -34,7 +31,7 @@ namespace MVP.ViewModels
                 var startDate = DateTime.Now.CurrentAwardPeriodStartDate();
 
                 return string.Format(
-                    Resources.Translations.contribution_form_timeframememo,
+                    Translations.contribution_form_timeframememo,
                     startDate.ToLongDateString(),
                     startDate.AddYears(1).AddDays(-1).ToLongDateString()
                 );
@@ -84,16 +81,16 @@ namespace MVP.ViewModels
             if (!Preferences.Get(Settings.UseClipboardUrls, true))
                 return;
 
-            var text = string.Empty;
+            var clipboardText = string.Empty;
 
             try
             {
                 if (!Clipboard.HasText)
                     return;
 
-                text = await Clipboard.GetTextAsync();
+                clipboardText = await Clipboard.GetTextAsync();
 
-                if (string.IsNullOrEmpty(text) || (!text.StartsWith("http://") && !text.StartsWith("https://")))
+                if (string.IsNullOrEmpty(clipboardText) || (!clipboardText.StartsWith("http://") && !clipboardText.StartsWith("https://")))
                     return;
 
                 var shouldCreateActivity = await DialogService.ConfirmAsync(
@@ -105,22 +102,22 @@ namespace MVP.ViewModels
                 if (!shouldCreateActivity)
                     return;
 
-                GetOpenGraphData(text).SafeFireAndForget();
+                GetOpenGraphData(clipboardText).SafeFireAndForget();
             }
             catch (Exception ex)
             {
-                AnalyticsService.Report(ex, new Dictionary<string, string> { { "clipboard_value", text } });
+                AnalyticsService.Report(ex, new Dictionary<string, string> { { nameof(clipboardText), clipboardText } });
                 return;
             }
         }
 
-        async Task GetOpenGraphData(string text)
+        async Task GetOpenGraphData(string clipboardText)
         {
             try
             {
                 State = LayoutState.Loading;
 
-                var ogData = await OpenGraph.ParseUrlAsync(text);
+                var ogData = await OpenGraph.ParseUrlAsync(clipboardText);
 
                 if (ogData == null)
                     return;
@@ -141,6 +138,11 @@ namespace MVP.ViewModels
 
                 if (dateTime.HasValue)
                     Contribution.StartDate = dateTime.Value;
+            }
+            catch (Exception ex)
+            {
+                // Fail silently.
+                AnalyticsService.Report(ex, new Dictionary<string, string> { { nameof(clipboardText), clipboardText } });
             }
             finally
             {
@@ -176,15 +178,8 @@ namespace MVP.ViewModels
         {
             try
             {
-                if (Connectivity.NetworkAccess != NetworkAccess.Internet)
-                {
-                    // Connection to internet is not available
-                    await DialogService.AlertAsync(
-                        Translations.error_offline,
-                        Translations.error_offline_title,
-                        Translations.alert_ok).ConfigureAwait(false);
+                if (!await VerifyInternetConnection())
                     return;
-                }
 
                 if (!Contribution.IsValid())
                 {
@@ -200,10 +195,12 @@ namespace MVP.ViewModels
                 {
                     var result = await MvpApiService.UpdateContributionAsync(Contribution.ToContribution());
 
+                    // TODO: Error handling?
                     if (!result)
                         return;
 
                     MainThread.BeginInvokeOnMainThread(() => HapticFeedback.Perform(HapticFeedbackType.LongPress));
+                    AnalyticsService.Track("Contribution Added");
                     await NavigationHelper.CloseModalAsync();
                     await NavigationHelper.BackAsync();
                     MessagingService.Current.SendMessage(MessageKeys.RefreshNeeded);
@@ -212,13 +209,21 @@ namespace MVP.ViewModels
                 {
                     var result = await MvpApiService.SubmitContributionAsync(Contribution.ToContribution());
 
+                    // TODO: Error handling?
                     if (result == null)
                         return;
 
+                    AnalyticsService.Track("Contribution Edited");
                     MainThread.BeginInvokeOnMainThread(() => HapticFeedback.Perform(HapticFeedbackType.LongPress));
                     await NavigationHelper.CloseModalAsync();
                     MessagingService.Current.SendMessage(MessageKeys.RefreshNeeded);
                 }
+            }
+            catch (Exception ex)
+            {
+                AnalyticsService.Report(ex);
+
+                // TODO: Error handling?
             }
             finally
             {

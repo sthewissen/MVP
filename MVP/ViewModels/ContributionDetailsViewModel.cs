@@ -6,7 +6,6 @@ using MVP.Pages;
 using MVP.Resources;
 using MVP.Services;
 using MVP.Services.Interfaces;
-using TinyMvvm;
 using TinyNavigationHelper;
 using Xamarin.CommunityToolkit.ObjectModel;
 using Xamarin.Essentials;
@@ -48,6 +47,9 @@ namespace MVP.ViewModels
             }
         }
 
+        /// <summary>
+        /// Opens the edit contribution form.
+        /// </summary>
         async Task EditContribution()
         {
             // Shouldn't be getting here anyway, so no need for a message.
@@ -57,6 +59,9 @@ namespace MVP.ViewModels
             await NavigationHelper.OpenModalAsync(nameof(ContributionFormPage), Contribution, true).ConfigureAwait(false);
         }
 
+        /// <summary>
+        /// Deletes a contribution.
+        /// </summary>
         async Task DeleteContribution()
         {
             try
@@ -65,15 +70,8 @@ namespace MVP.ViewModels
                 if (!CanBeEdited)
                     return;
 
-                if (Connectivity.NetworkAccess != NetworkAccess.Internet)
-                {
-                    // Connection to internet is not available
-                    await DialogService.AlertAsync(
-                        Translations.error_offline,
-                        Translations.error_offline_title,
-                        Translations.alert_ok).ConfigureAwait(false);
+                if (!await VerifyInternetConnection())
                     return;
-                }
 
                 // Ask for confirmation before deletion.
                 var confirm = await DialogService.ConfirmAsync(
@@ -92,6 +90,7 @@ namespace MVP.ViewModels
                     // TODO: Pass back true to indicate it needs to refresh.
                     // TODO: Be a bit more sensible with muh threads plz.
                     MainThread.BeginInvokeOnMainThread(() => HapticFeedback.Perform(HapticFeedbackType.LongPress));
+                    AnalyticsService.Track("Contribution Deleted");
                     await MainThread.InvokeOnMainThreadAsync(() => NavigationHelper.BackAsync());
                 }
                 else
@@ -107,8 +106,8 @@ namespace MVP.ViewModels
                 AnalyticsService.Report(ex);
 
                 await DialogService.AlertAsync(
-                    Translations.alert_error_title,
                     Translations.alert_error_unexpected,
+                    Translations.alert_error_title,
                     Translations.alert_ok).ConfigureAwait(false);
             }
         }

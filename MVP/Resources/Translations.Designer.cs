@@ -634,5 +634,47 @@ namespace MVP.Resources {
                 return ResourceManager.GetString("offline_contributions", resourceCulture);
             }
         }
+        
+        internal static string error_couldntchangeicon {
+            get {
+                return ResourceManager.GetString("error_couldntchangeicon", resourceCulture);
+            }
+        }
+        
+        internal static string error_couldntchangetheme {
+            get {
+                return ResourceManager.GetString("error_couldntchangetheme", resourceCulture);
+            }
+        }
+        
+        internal static string error_couldntchangelanguage {
+            get {
+                return ResourceManager.GetString("error_couldntchangelanguage", resourceCulture);
+            }
+        }
+        
+        internal static string error_state_title {
+            get {
+                return ResourceManager.GetString("error_state_title", resourceCulture);
+            }
+        }
+        
+        internal static string error_data_not_loaded {
+            get {
+                return ResourceManager.GetString("error_data_not_loaded", resourceCulture);
+            }
+        }
+        
+        internal static string error_couldntloadmorecontributions {
+            get {
+                return ResourceManager.GetString("error_couldntloadmorecontributions", resourceCulture);
+            }
+        }
+        
+        internal static string appiconpicker_title {
+            get {
+                return ResourceManager.GetString("appiconpicker_title", resourceCulture);
+            }
+        }
     }
 }

@@ -6,7 +6,6 @@ using MVP.Pages;
 using MVP.Resources;
 using MVP.Services;
 using MVP.Services.Interfaces;
-using TinyMvvm;
 using TinyNavigationHelper;
 using Xamarin.CommunityToolkit.ObjectModel;
 using Xamarin.CommunityToolkit.UI.Views;
@@ -62,19 +61,15 @@ namespace MVP.ViewModels
             if (State != LayoutState.None)
                 return;
 
-            if (force && Connectivity.NetworkAccess != NetworkAccess.Internet)
-            {
-                // Connection to internet is not available
-                await DialogService.AlertAsync(
-                    Translations.error_offline,
-                    Translations.error_offline_title,
-                    Translations.alert_ok).ConfigureAwait(false);
+            if (!await VerifyInternetConnection())
                 return;
-            }
 
             State = LayoutState.Loading;
             await Task.WhenAll(RefreshProfileData(force), RefreshProfileImage(force));
             State = LayoutState.None;
+
+            if (force)
+                AnalyticsService.Track("Profile Refreshed");
         }
 
         async Task RefreshProfileImage(bool force)
@@ -115,6 +110,7 @@ namespace MVP.ViewModels
 
             await MvpApiService.ClearAllLocalData();
             NavigationHelper.SetRootView(nameof(IntroPage));
+            AnalyticsService.Track("User Logged Out");
         }
 
         async Task OpenThemePicker()

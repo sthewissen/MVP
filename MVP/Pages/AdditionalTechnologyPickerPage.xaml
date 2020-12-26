@@ -14,8 +14,8 @@
                        xmlns:mvp="clr-namespace:MVP">
 
     <mvp:AppFrame ShowBackButton="True"
-                    Title="{extensions:Translate additionaltechnologypicker_title}"
-                    x:Name="appFrame">
+                  Title="{extensions:Translate additionaltechnologypicker_title}"
+                  x:Name="appFrame">
         <mvp:AppFrame.Content>
             <Grid RowDefinitions="Auto,*"
                   views:StateLayout.CurrentState="{Binding State}"
@@ -32,6 +32,16 @@
                         <controls:EmptyState Title="{extensions:Translate empty_state_title}"
                                              Description="{extensions:Translate empty_state_contributiontechnologies}"
                                              ImageSource="Resource://no_contributions.svg"
+                                             CommandText="Retry"
+                                             Command="{Binding RefreshDataCommand}"  />
+                    </views:StateView>
+
+                    <views:StateView StateKey="Error"
+                                     HorizontalOptions="FillAndExpand"
+                                     VerticalOptions="FillAndExpand" >
+                        <controls:EmptyState Title="{extensions:Translate error_state_title}"
+                                             Description="{extensions:Translate error_data_not_loaded}"
+                                             ImageSource="Resource://error.svg"
                                              CommandText="Retry"
                                              Command="{Binding RefreshDataCommand}"  />
                     </views:StateView>

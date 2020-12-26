@@ -2,10 +2,10 @@
 <pages:BaseContentPage xmlns="http://xamarin.com/schemas/2014/forms"
                        xmlns:controls="clr-namespace:MVP.Controls"
                        xmlns:converters="clr-namespace:Xamarin.CommunityToolkit.Converters;assembly=Xamarin.CommunityToolkit"
-                       xmlns:local="clr-namespace:MVP"
+                       xmlns:mvp="clr-namespace:MVP"
                        xmlns:lottie="clr-namespace:Lottie.Forms;assembly=Lottie.Forms"
                        xmlns:pages="clr-namespace:MVP.Pages"
-                       xmlns:state="clr-namespace:Xamarin.CommunityToolkit.UI.Views;assembly=Xamarin.CommunityToolkit"
+                       xmlns:views="clr-namespace:Xamarin.CommunityToolkit.UI.Views;assembly=Xamarin.CommunityToolkit"
                        xmlns:vm="clr-namespace:MVP.ViewModels"
                        xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
                        xmlns:xct="clr-namespace:Xamarin.CommunityToolkit.Extensions;assembly=Xamarin.CommunityToolkit"
@@ -14,30 +14,30 @@
                        x:DataType="vm:ContributionFormViewModel"
                        x:TypeArguments="vm:ContributionFormViewModel">
 
-    <local:AppFrame IsModal="True"
-                    SecondaryButtonText="{xct:Translate contributionform_save}"
-                    ShadowOpacity="1"
-                    ShowBackButton="{Binding State, Converter={converters:NotEqualConverter}, ConverterParameter={x:Static state:LayoutState.Saving}}"
-                    ShowSecondaryButton="{Binding State, Converter={converters:NotEqualConverter}, ConverterParameter={x:Static state:LayoutState.Saving}}"
-                    x:Name="appFrame">
+    <mvp:AppFrame IsModal="True"
+                  SecondaryButtonText="{xct:Translate contributionform_save}"
+                  ShadowOpacity="1"
+                  ShowBackButton="{Binding State, Converter={converters:NotEqualConverter}, ConverterParameter={x:Static views:LayoutState.Saving}}"
+                  ShowSecondaryButton="{Binding State, Converter={converters:NotEqualConverter}, ConverterParameter={x:Static views:LayoutState.Saving}}"
+                  x:Name="appFrame">
 
-        <local:AppFrame.Triggers>
+        <mvp:AppFrame.Triggers>
             <DataTrigger Binding="{Binding IsEditing}"
-                         TargetType="local:AppFrame"
+                         TargetType="mvp:AppFrame"
                          Value="False">
                 <Setter Property="Title"
                         Value="{xct:Translate contributionform_title_add}"/>
             </DataTrigger>
             <DataTrigger Binding="{Binding IsEditing}"
-                         TargetType="local:AppFrame"
+                         TargetType="mvp:AppFrame"
                          Value="True">
                 <Setter Property="Title"
                         Value="{xct:Translate contributionform_title_edit}"/>
             </DataTrigger>
-        </local:AppFrame.Triggers>
-        <local:AppFrame.Content>
-            <Grid state:StateLayout.CurrentState="{Binding State}"
-                  state:StateLayout.AnimateStateChanges="False"
+        </mvp:AppFrame.Triggers>
+        <mvp:AppFrame.Content>
+            <Grid views:StateLayout.CurrentState="{Binding State}"
+                  views:StateLayout.AnimateStateChanges="False"
                   VerticalOptions="CenterAndExpand">
 
                 <ScrollView>
@@ -178,8 +178,8 @@
                 </ScrollView>
 
 
-                <state:StateLayout.StateViews>
-                    <state:StateView StateKey="Loading">
+                <views:StateLayout.StateViews>
+                    <views:StateView StateKey="Loading">
                         <Grid VerticalOptions="CenterAndExpand"
                               Padding="0,0,0,80">
                             <lottie:AnimationView Animation="{AppThemeBinding Light='resource://loading.json?assembly=MVP', Dark='resource://loading_light.json?assembly=MVP'}"
@@ -195,8 +195,8 @@
                                    Text="{xct:Translate progress_loading_url_data}"
                                    VerticalOptions="Center"/>
                         </Grid>
-                    </state:StateView>
-                    <state:StateView StateKey="Saving">
+                    </views:StateView>
+                    <views:StateView StateKey="Saving">
                         <Grid BackgroundColor="{AppThemeBinding Light={StaticResource white}, Dark={StaticResource black}}"
                               Padding="0,0,0,80">
                             <lottie:AnimationView Animation="{AppThemeBinding Light='resource://loading.json?assembly=MVP', Dark='resource://loading_light.json?assembly=MVP'}"
@@ -212,9 +212,9 @@
                                    Text="{xct:Translate progress_saving}"
                                    VerticalOptions="Center"/>
                         </Grid>
-                    </state:StateView>
-                </state:StateLayout.StateViews>
+                    </views:StateView>
+                </views:StateLayout.StateViews>
             </Grid>
-        </local:AppFrame.Content>
-    </local:AppFrame>
+        </mvp:AppFrame.Content>
+    </mvp:AppFrame>
 </pages:BaseContentPage>

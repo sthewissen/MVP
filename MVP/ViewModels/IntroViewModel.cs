@@ -5,7 +5,6 @@ using MVP.Models;
 using MVP.Pages;
 using MVP.Services;
 using MVP.Services.Interfaces;
-using TinyMvvm;
 using TinyNavigationHelper;
 using Xamarin.CommunityToolkit.ObjectModel;
 using Xamarin.Essentials;
@@ -48,6 +47,7 @@ namespace MVP.ViewModels
             Preferences.Set(Settings.IsUsingDemoAccount, true);
             (Application.Current as App).SwitchDemoMode(true);
             await SignIn();
+            AnalyticsService.Track("Demo Mode Activated");
         }
 
         async Task SignIn()
@@ -64,7 +64,8 @@ namespace MVP.ViewModels
                 }
                 else
                 {
-                    await DialogService.AlertAsync(Resources.Translations.alert_error_nomvpaccount,
+                    await DialogService.AlertAsync(
+                        Resources.Translations.alert_error_nomvpaccount,
                         Resources.Translations.alert_error_title,
                         Resources.Translations.alert_ok
                     );

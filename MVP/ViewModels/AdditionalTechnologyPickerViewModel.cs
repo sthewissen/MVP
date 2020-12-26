@@ -7,11 +7,9 @@ using MVP.Extensions;
 using MVP.Helpers;
 using MVP.Services.Interfaces;
 using MVP.ViewModels.Data;
-using TinyMvvm;
 using TinyNavigationHelper;
 using Xamarin.CommunityToolkit.ObjectModel;
 using Xamarin.CommunityToolkit.UI.Views;
-using Xamarin.Essentials;
 using Xamarin.Forms;
 
 namespace MVP.ViewModels
@@ -38,7 +36,6 @@ namespace MVP.ViewModels
             SelectContributionTechnologyCommand = new Command<ContributionTechnologyViewModel>((x) => SelectContributionTechnology(x));
         }
 
-
         public async override Task Initialize()
         {
             await base.Initialize();
@@ -51,6 +48,9 @@ namespace MVP.ViewModels
             LoadContributionAreas().SafeFireAndForget();
         }
 
+        /// <summary>
+        /// Load the contribution areas from cache.
+        /// </summary>
         async Task LoadContributionAreas(bool force = false)
         {
             try
@@ -61,46 +61,66 @@ namespace MVP.ViewModels
 
                 PopulateList();
             }
+            catch (Exception ex)
+            {
+                State = LayoutState.Error;
+                AnalyticsService.Report(ex);
+            }
             finally
             {
-                State = GroupedContributionTechnologies.Count > 0 ? LayoutState.None : LayoutState.Empty;
+                if (State != LayoutState.Error)
+                    State = GroupedContributionTechnologies.Count > 0 ? LayoutState.None : LayoutState.Empty;
             }
         }
 
+        /// <summary>
+        /// Populates the list depending on search query.
+        /// </summary>
         void PopulateList()
         {
-            if (allCategories == null)
-                return;
-
-            var result = new List<Grouping<string, ContributionTechnologyViewModel>>();
-
-            foreach (var item in allCategories.SelectMany(x => x.ContributionAreas))
+            try
             {
-                var data = item.ContributionTechnology
-                                .Where(x => x.Name.ToLowerInvariant().Contains(SearchText.ToLowerInvariant()) || string.IsNullOrEmpty(SearchText))
-                                .Select(x => new ContributionTechnologyViewModel() { ContributionTechnology = x });
+                if (allCategories == null)
+                    return;
 
-                if (data.Any())
-                    result.Add(new Grouping<string, ContributionTechnologyViewModel>(item.AwardName, data));
+                var result = new List<Grouping<string, ContributionTechnologyViewModel>>();
+
+                foreach (var item in allCategories.SelectMany(x => x.ContributionAreas))
+                {
+                    var data = item.ContributionTechnology
+                                    .Where(x => x.Name.ToLowerInvariant().Contains(SearchText.ToLowerInvariant()) || string.IsNullOrEmpty(SearchText))
+                                    .Select(x => new ContributionTechnologyViewModel() { ContributionTechnology = x });
+
+                    if (data.Any())
+                        result.Add(new Grouping<string, ContributionTechnologyViewModel>(item.AwardName, data));
+                }
+
+                GroupedContributionTechnologies = result;
+
+                // Editing mode
+                if (contribution.AdditionalTechnologies == null || !contribution.AdditionalTechnologies.Any())
+                    return;
+
+                var selectedValues = contribution.AdditionalTechnologies.Select(x => x.Id).ToList();
+
+                selectedTechnologies = result
+                    .SelectMany(x => x)
+                    .Where(x => selectedValues.Contains(x.ContributionTechnology.Id))
+                    .ToList();
+
+                foreach (var item in selectedTechnologies)
+                    item.IsSelected = true;
             }
-
-            GroupedContributionTechnologies = result;
-
-            // Editing mode
-            if (contribution.AdditionalTechnologies == null || !contribution.AdditionalTechnologies.Any())
-                return;
-
-            var selectedValues = contribution.AdditionalTechnologies.Select(x => x.Id).ToList();
-
-            selectedTechnologies = result
-                .SelectMany(x => x)
-                .Where(x => selectedValues.Contains(x.ContributionTechnology.Id))
-                .ToList();
-
-            foreach (var item in selectedTechnologies)
-                item.IsSelected = true;
+            catch (Exception ex)
+            {
+                State = LayoutState.Error;
+                AnalyticsService.Report(ex);
+            }
         }
 
+        /// <summary>
+        /// Selects a contribution technology for this contribution.
+        /// </summary>
         void SelectContributionTechnology(ContributionTechnologyViewModel vm)
         {
             if (vm.IsSelected)
@@ -120,12 +140,15 @@ namespace MVP.ViewModels
             selectedTechnologies.Add(vm);
             vm.IsSelected = true;
 
-            //TODO: Replace by the back navigation version.
+            //TODO: Replace by the back navigation version from TinyMvvm 3.0.
             contribution.AdditionalTechnologies = selectedTechnologies.Select(x => x.ContributionTechnology).ToList();
+
+            AnalyticsService.Track("Additional Technology Picked",
+                nameof(contribution.AdditionalTechnologies),
+                vm.ContributionTechnology.Name);
         }
 
         public async override Task Back()
             => await NavigationHelper.BackAsync(); // TODO: TinyMVVM 3.0 - selectedTechnologies.Select(x => x.ContributionTechnology).ToList());
-
     }
 }

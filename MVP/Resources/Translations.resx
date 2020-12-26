@@ -411,4 +411,25 @@
     <data name="offline_contributions" xml:space="preserve">
         <value>You currently have no internet connection. This prevents us from loading your contributions. Please try again later.</value>
     </data>
+    <data name="error_couldntchangeicon" xml:space="preserve">
+        <value>Your icon couldn't be changed. Please try again later.</value>
+    </data>
+    <data name="error_couldntchangetheme" xml:space="preserve">
+        <value>Your theme couldn't be changed. Please try again later.</value>
+    </data>
+    <data name="error_couldntchangelanguage" xml:space="preserve">
+        <value>Your language couldn't be changed. Please try again later.</value>
+    </data>
+    <data name="error_state_title" xml:space="preserve">
+        <value>Something went wrong</value>
+    </data>
+    <data name="error_data_not_loaded" xml:space="preserve">
+        <value>The data could not be loaded. We're not quite sure why but an error has been logged. You can try to refresh or try again later.</value>
+    </data>
+    <data name="error_couldntloadmorecontributions" xml:space="preserve">
+        <value>Couldn't load more contributions. Please try again later.</value>
+    </data>
+    <data name="appiconpicker_title" xml:space="preserve">
+        <value>Icon</value>
+    </data>
 </root>

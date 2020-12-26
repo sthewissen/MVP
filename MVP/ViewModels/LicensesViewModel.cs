@@ -1,12 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using MVP.Models;
 using MVP.Services;
 using MVP.Services.Interfaces;
 using Newtonsoft.Json;
-using TinyMvvm;
 using TinyNavigationHelper;
 using Xamarin.CommunityToolkit.ObjectModel;
 using Xamarin.Essentials;
@@ -35,12 +33,17 @@ namespace MVP.ViewModels
             return Task.FromResult<object>(null);
         }
 
+        /// <summary>
+        /// Opens the URL of a given license file.
+        /// </summary>
         async Task OpenLicense(OpenSourceSoftware license)
         {
             if (string.IsNullOrEmpty(license?.LicenseUrl))
                 return;
 
             await Browser.OpenAsync(license.LicenseUrl, new BrowserLaunchOptions { Flags = BrowserLaunchFlags.PresentAsPageSheet }).ConfigureAwait(false);
+
+            AnalyticsService.Track("License URL Visited", nameof(license), license.Title);
         }
     }
 }

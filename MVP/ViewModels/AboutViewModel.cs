@@ -1,8 +1,6 @@
-﻿using System;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
 using MVP.Pages;
 using MVP.Services.Interfaces;
-using TinyMvvm;
 using TinyNavigationHelper;
 using Xamarin.CommunityToolkit.ObjectModel;
 using Xamarin.Essentials;
@@ -22,7 +20,10 @@ namespace MVP.ViewModels
         }
 
         async Task OpenSponsors()
-            => await Browser.OpenAsync(Constants.SponsorUrl, new BrowserLaunchOptions { Flags = BrowserLaunchFlags.PresentAsPageSheet }).ConfigureAwait(false);
+        {
+            await Browser.OpenAsync(Constants.SponsorUrl, new BrowserLaunchOptions { Flags = BrowserLaunchFlags.PresentAsPageSheet }).ConfigureAwait(false);
+            AnalyticsService.Track("Sponser URL Visited");
+        }
 
         async Task OpenLicenses()
             => await NavigationHelper.NavigateToAsync(nameof(LicensesPage)).ConfigureAwait(false);

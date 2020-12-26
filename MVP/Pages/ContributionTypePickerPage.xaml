@@ -1,38 +1,48 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <pages:BaseContentPage xmlns="http://xamarin.com/schemas/2014/forms"
-                       xmlns:local="clr-namespace:MVP"
+                       xmlns:mvp="clr-namespace:MVP"
                        xmlns:pages="clr-namespace:MVP.Pages"
                        xmlns:vm="clr-namespace:MVP.ViewModels"
-                       xmlns:xct="clr-namespace:Xamarin.CommunityToolkit.Extensions;assembly=Xamarin.CommunityToolkit"
+                       xmlns:extensions="clr-namespace:Xamarin.CommunityToolkit.Extensions;assembly=Xamarin.CommunityToolkit"
                        xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
                        x:Class="MVP.Pages.ContributionTypePickerPage"
                        x:DataType="vm:ContributionTypePickerViewModel"
                        x:TypeArguments="vm:ContributionTypePickerViewModel"
-                       xmlns:state="clr-namespace:Xamarin.CommunityToolkit.UI.Views;assembly=Xamarin.CommunityToolkit"
+                       xmlns:views="clr-namespace:Xamarin.CommunityToolkit.UI.Views;assembly=Xamarin.CommunityToolkit"
                        xmlns:controls="clr-namespace:MVP.Controls">
 
-    <local:AppFrame ShowBackButton="True"
-                    Title="{xct:Translate contributiontypepicker_title}"
-                    x:Name="appFrame">
-        <local:AppFrame.Content>
-            <Grid state:StateLayout.CurrentState="{Binding State}"
-                  state:StateLayout.AnimateStateChanges="False">
+    <mvp:AppFrame ShowBackButton="True"
+                  Title="{extensions:Translate contributiontypepicker_title}"
+                  x:Name="appFrame">
+        <mvp:AppFrame.Content>
+            <Grid views:StateLayout.CurrentState="{Binding State}"
+                  views:StateLayout.AnimateStateChanges="False">
 
-                <state:StateLayout.StateViews>
-                    <state:StateView StateKey="Loading"
+                <views:StateLayout.StateViews>
+                    <views:StateView StateKey="Loading"
                                      RepeatCount="3"
                                      RepeatTemplate="{StaticResource picker_item_loading}" />
 
-                    <state:StateView StateKey="Empty"
+                    <views:StateView StateKey="Empty"
                                      HorizontalOptions="FillAndExpand"
                                      VerticalOptions="FillAndExpand" >
-                        <controls:EmptyState Title="{xct:Translate empty_state_title}"
-                                             Description="{xct:Translate empty_state_contributiontypes}"
+                        <controls:EmptyState Title="{extensions:Translate empty_state_title}"
+                                             Description="{extensions:Translate empty_state_contributiontypes}"
                                              ImageSource="Resource://no_contributions.svg"
                                              CommandText="Retry"
                                              Command="{Binding RefreshDataCommand}" />
-                    </state:StateView>
-                </state:StateLayout.StateViews>
+                    </views:StateView>
+
+                    <views:StateView StateKey="Error"
+                                     HorizontalOptions="FillAndExpand"
+                                     VerticalOptions="FillAndExpand" >
+                        <controls:EmptyState Title="{extensions:Translate error_state_title}"
+                                             Description="{extensions:Translate error_data_not_loaded}"
+                                             ImageSource="Resource://error.svg"
+                                             CommandText="Retry"
+                                             Command="{Binding RefreshDataCommand}"  />
+                    </views:StateView>
+                </views:StateLayout.StateViews>
 
                 <CollectionView ItemsSource="{Binding ContributionTypes}"
                                 ItemTemplate="{StaticResource contribution_type_item}"
@@ -74,6 +84,6 @@
                     </CollectionView.Footer>
                 </CollectionView>
             </Grid>
-        </local:AppFrame.Content>
-    </local:AppFrame>
+        </mvp:AppFrame.Content>
+    </mvp:AppFrame>
 </pages:BaseContentPage>

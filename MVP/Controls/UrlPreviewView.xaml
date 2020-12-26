@@ -2,16 +2,16 @@
 <StackLayout xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:controls="clr-namespace:MVP.Controls"
              xmlns:converters="clr-namespace:Xamarin.CommunityToolkit.Converters;assembly=Xamarin.CommunityToolkit"
-             xmlns:state="http://xamarin.com/schemas/2020/toolkit"
+             xmlns:views="clr-namespace:Xamarin.CommunityToolkit.UI.Views;assembly=Xamarin.CommunityToolkit"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             state:StateLayout.AnimateStateChanges="False"
-             state:StateLayout.CurrentState="{Binding State, Source={x:Reference urlView}}"
+             views:StateLayout.AnimateStateChanges="False"
+             views:StateLayout.CurrentState="{Binding State, Source={x:Reference urlView}}"
              x:Class="MVP.Controls.UrlPreviewView"
              x:Name="urlView"
              Padding="24,16">
 
-    <state:StateLayout.StateViews>
-        <state:StateView StateKey="Loading">
+    <views:StateLayout.StateViews>
+        <views:StateView StateKey="Loading">
             <Grid ColumnDefinitions="Auto, *"
                   ColumnSpacing="24"
                   RowDefinitions="Auto, Auto"
@@ -30,8 +30,8 @@
                                        Grid.Row="1"
                                        HeightRequest="32"/>
             </Grid>
-        </state:StateView>
-    </state:StateLayout.StateViews>
+        </views:StateView>
+    </views:StateLayout.StateViews>
 
     <Grid ColumnDefinitions="Auto, *"
           ColumnSpacing="24"

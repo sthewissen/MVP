@@ -28,8 +28,6 @@ namespace MVP.Services
                 CultureInfo.CurrentUICulture = new CultureInfo(culture);
                 LocalizationResourceManager.Current.SetCulture(CultureInfo.GetCultureInfo(culture));
             }
-
-            analyticsService.Track("Preferred Language Changed", nameof(culture), culture ?? "null");
         }
     }
 }

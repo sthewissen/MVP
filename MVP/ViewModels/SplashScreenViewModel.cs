@@ -1,12 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Threading.Tasks;
 using MVP.Extensions;
-using MVP.Models;
 using MVP.Pages;
 using MVP.Services.Interfaces;
-using Newtonsoft.Json;
-using TinyMvvm;
 using TinyNavigationHelper;
 using Xamarin.CommunityToolkit.ObjectModel;
 using Xamarin.Essentials;
@@ -73,8 +69,8 @@ namespace MVP.ViewModels
         }
 
         public Task GoToNextPage(bool isAuthenticated)
-        {
-            return MainThread.InvokeOnMainThreadAsync(() =>
+            => MainThread.InvokeOnMainThreadAsync(()
+                =>
             {
                 if (isAuthenticated)
                 {
@@ -87,6 +83,5 @@ namespace MVP.ViewModels
                     NavigationHelper.SetRootView(nameof(IntroPage));
                 }
             });
-        }
     }
 }

@@ -1,16 +1,13 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using System.Windows.Input;
 using MVP.Extensions;
 using MVP.Services.Interfaces;
 using MVP.ViewModels.Data;
-using TinyMvvm;
 using TinyNavigationHelper;
 using Xamarin.CommunityToolkit.ObjectModel;
 using Xamarin.CommunityToolkit.UI.Views;
-using Xamarin.Essentials;
-using Xamarin.Forms;
 
 namespace MVP.ViewModels
 {
@@ -52,14 +49,13 @@ namespace MVP.ViewModels
 
             vm.IsSelected = true;
 
-            //TODO: Replace by the back navigation version.
+            //TODO: Replace by the back navigation version in TinyMvvm 3.0.
             contribution.Visibility.Value = vm.Visibility;
+
+            AnalyticsService.Track("Visibility Picked", nameof(vm.Visibility), vm.Visibility.Description);
 
             await NavigationHelper.BackAsync();
         }
-
-        public async override Task Back()
-            => await NavigationHelper.BackAsync(); // TODO: TinyMVVM 3.0 - Visibilities.FirstOrDefault(x => x.IsSelected)?.Visibility);
 
         async Task LoadVisibilities(bool force = false)
         {
@@ -81,10 +77,19 @@ namespace MVP.ViewModels
                     }
                 }
             }
+            catch (Exception ex)
+            {
+                State = LayoutState.Error;
+                AnalyticsService.Report(ex);
+            }
             finally
             {
-                State = Visibilities.Count > 0 ? LayoutState.None : LayoutState.Empty;
+                if (State != LayoutState.Error)
+                    State = Visibilities.Count > 0 ? LayoutState.None : LayoutState.Empty;
             }
         }
+
+        public async override Task Back()
+            => await NavigationHelper.BackAsync(); // TODO: TinyMVVM 3.0 - Visibilities.FirstOrDefault(x => x.IsSelected)?.Visibility);
     }
 }

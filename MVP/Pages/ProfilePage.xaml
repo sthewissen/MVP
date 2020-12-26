@@ -4,21 +4,21 @@
                        xmlns:ff="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
                        xmlns:fftransformations="clr-namespace:FFImageLoading.Transformations;assembly=FFImageLoading.Transformations"
                        xmlns:icons="clr-namespace:MVP.Styles"
-                       xmlns:local="clr-namespace:MVP"
+                       xmlns:mvp="clr-namespace:MVP"
                        xmlns:pages="clr-namespace:MVP.Pages"
                        xmlns:views="clr-namespace:Xamarin.CommunityToolkit.UI.Views;assembly=Xamarin.CommunityToolkit"
                        xmlns:effects="clr-namespace:Xamarin.CommunityToolkit.Effects;assembly=Xamarin.CommunityToolkit"
                        xmlns:vm="clr-namespace:MVP.ViewModels"
-                       xmlns:xct="clr-namespace:Xamarin.CommunityToolkit.Extensions;assembly=Xamarin.CommunityToolkit"
+                       xmlns:extensions="clr-namespace:Xamarin.CommunityToolkit.Extensions;assembly=Xamarin.CommunityToolkit"
                        xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
                        xmlns:sh="clr-namespace:Sharpnado.Shades;assembly=Sharpnado.Shadows"
                        x:Class="MVP.Pages.ProfilePage"
                        x:DataType="vm:ProfileViewModel"
                        x:TypeArguments="vm:ProfileViewModel">
 
-    <local:AppFrame Title="{xct:Translate profile_title}"
-                    x:Name="appFrame">
-        <local:AppFrame.Content>
+    <mvp:AppFrame Title="{extensions:Translate profile_title}"
+                  x:Name="appFrame">
+        <mvp:AppFrame.Content>
             <ScrollView Scrolled="ScrollView_Scrolled">
                 <StackLayout>
                     <Grid ColumnDefinitions="80,*"
@@ -85,11 +85,11 @@
                           effects:TouchEffect.Command="{Binding ToggleUseClipboardUrlsCommand}">
 
                         <Label Style="{StaticResource field_title}" 
-                               Text="{xct:Translate setting_contributionfromurl_title}"/>
+                               Text="{extensions:Translate setting_contributionfromurl_title}"/>
 
                         <Label Style="{StaticResource field_description}" 
                                Grid.Row="1"
-                               Text="{xct:Translate setting_contributionfromurl_description}"/>
+                               Text="{extensions:Translate setting_contributionfromurl_description}"/>
 
                         <Switch Grid.Column="1"
                                 Grid.RowSpan="2"
@@ -110,11 +110,11 @@
                           effects:TouchEffect.Command="{Binding OpenThemePickerCommand}">
 
                         <Label Style="{StaticResource field_title}" 
-                               Text="{xct:Translate setting_apptheme_title}"/>
+                               Text="{extensions:Translate setting_apptheme_title}"/>
 
                         <Label Style="{StaticResource field_description}" 
                                Grid.Row="1"
-                               Text="{xct:Translate setting_apptheme_description}"/>
+                               Text="{extensions:Translate setting_apptheme_description}"/>
 
                         <Label Style="{StaticResource chevron}"
                                Grid.Column="1"
@@ -135,11 +135,11 @@
                           effects:TouchEffect.Command="{Binding OpenLanguagePickerCommand}">
 
                         <Label Style="{StaticResource field_title}" 
-                               Text="{xct:Translate setting_language_title}"/>
+                               Text="{extensions:Translate setting_language_title}"/>
 
                         <Label Style="{StaticResource field_description}" 
                                Grid.Row="1"
-                               Text="{xct:Translate setting_language_description}"/>
+                               Text="{extensions:Translate setting_language_description}"/>
 
                         <Label Style="{StaticResource chevron}"
                                Grid.Column="1"
@@ -161,11 +161,11 @@
                           effects:TouchEffect.Command="{Binding OpenIconPickerCommand}">
 
                         <Label Style="{StaticResource field_title}" 
-                               Text="{xct:Translate setting_appicon_title}"/>
+                               Text="{extensions:Translate setting_appicon_title}"/>
 
                         <Label Style="{StaticResource field_description}" 
                                Grid.Row="1"
-                               Text="{xct:Translate setting_appicon_description}"/>
+                               Text="{extensions:Translate setting_appicon_description}"/>
 
                         <Label Style="{StaticResource chevron}"
                                Grid.Column="1"
@@ -207,10 +207,10 @@
                                 Margin="24,16,24,32"
                                 Command="{Binding LogoutCommand}"
                                 ImageSource="{FontImage FontFamily={StaticResource font_icon}, Color={StaticResource white}, Size=20, Glyph={x:Static icons:Icons.logout}}"
-                                Text="{xct:Translate button_logout}"/>
+                                Text="{extensions:Translate button_logout}"/>
                     </sh:Shadows>
                 </StackLayout>
             </ScrollView>
-        </local:AppFrame.Content>
-    </local:AppFrame>
+        </mvp:AppFrame.Content>
+    </mvp:AppFrame>
 </pages:BaseContentPage>

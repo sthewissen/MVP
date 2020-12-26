@@ -4,25 +4,25 @@
                        xmlns:converters="clr-namespace:Xamarin.CommunityToolkit.Converters;assembly=Xamarin.CommunityToolkit"
                        xmlns:effects="clr-namespace:Xamarin.CommunityToolkit.Effects;assembly=Xamarin.CommunityToolkit"
                        xmlns:icons="clr-namespace:MVP.Styles"
-                       xmlns:local="clr-namespace:MVP"
+                       xmlns:mvp="clr-namespace:MVP"
                        xmlns:models="clr-namespace:MVP.Models"
                        xmlns:pages="clr-namespace:MVP.Pages"
                        xmlns:vm="clr-namespace:MVP.ViewModels"
                        xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-                       xmlns:xct="clr-namespace:Xamarin.CommunityToolkit.Extensions;assembly=Xamarin.CommunityToolkit"
+                       xmlns:extensions="clr-namespace:Xamarin.CommunityToolkit.Extensions;assembly=Xamarin.CommunityToolkit"
                        x:Class="MVP.Pages.ContributionDetailsPage"
                        x:DataType="vm:ContributionDetailsViewModel"
                        x:Name="page"
                        x:TypeArguments="vm:ContributionDetailsViewModel"
                        xmlns:sh="clr-namespace:Sharpnado.Shades;assembly=Sharpnado.Shadows">
 
-    <local:AppFrame SecondaryButtonText="{xct:Translate contributiondetails_edit}"
-                    ShowBackButton="True"
-                    ShowSecondaryButton="{Binding CanBeEdited}"
-                    Title="{xct:Translate contributiondetails_title}"
-                    x:Name="appFrame">
+    <mvp:AppFrame SecondaryButtonText="{extensions:Translate contributiondetails_edit}"
+                  ShowBackButton="True"
+                  ShowSecondaryButton="{Binding CanBeEdited}"
+                  Title="{extensions:Translate contributiondetails_title}"
+                  x:Name="appFrame">
 
-        <local:AppFrame.Content>
+        <mvp:AppFrame.Content>
 
             <ScrollView Grid.Row="1"
                         Scrolled="ScrollView_Scrolled">
@@ -41,11 +41,11 @@
                                    Text="{x:Static icons:Icons.locked}"/>
                             <Label Grid.Column="1"
                                    Style="{StaticResource warning_title}"
-                                   Text="{xct:Translate warning_title_activitylocked}"/>
+                                   Text="{extensions:Translate warning_title_activitylocked}"/>
                             <Label Grid.ColumnSpan="2"
                                    Grid.Row="1"
                                    Style="{StaticResource warning_text}"
-                                   Text="{xct:Translate warning_description_activitylocked}"/>
+                                   Text="{extensions:Translate warning_description_activitylocked}"/>
                         </Grid>
                     </Frame>
 
@@ -68,7 +68,7 @@
                              Style="{StaticResource separator}"/>
 
                     <Label Style="{StaticResource field_title}"
-                           Text="{xct:Translate field_primary_contribution_area}"/>
+                           Text="{extensions:Translate field_primary_contribution_area}"/>
 
                     <Label Text="{Binding Contribution.ContributionTechnology.Name}"/>
 
@@ -77,7 +77,7 @@
 
                     <Label IsVisible="{Binding Contribution.AdditionalTechnologies, Converter={converters:ListIsNotNullOrEmptyConverter}}"
                            Style="{StaticResource field_title}"
-                           Text="{xct:Translate field_additional_contribution_areas}"/>
+                           Text="{extensions:Translate field_additional_contribution_areas}"/>
 
                     <StackLayout BindableLayout.ItemsSource="{Binding Contribution.AdditionalTechnologies}"
                                  IsVisible="{Binding Contribution.AdditionalTechnologies, Converter={converters:ListIsNotNullOrEmptyConverter}}">
@@ -93,7 +93,7 @@
                              Style="{StaticResource separator}"/>
 
                     <Label Style="{StaticResource field_title}"
-                           Text="{xct:Translate field_activity_date}"/>
+                           Text="{extensions:Translate field_activity_date}"/>
 
                     <Label Text="{Binding Contribution.StartDate, StringFormat='{0:D}'}"/>
 
@@ -101,7 +101,7 @@
                              Style="{StaticResource separator}"/>
 
                     <Label Style="{StaticResource field_title}"
-                           Text="{xct:Translate field_url}"/>
+                           Text="{extensions:Translate field_url}"/>
 
                     <controls:UrlPreviewView Url="{Binding Contribution.ReferenceUrl}"
                                              Margin="-24,0"
@@ -114,7 +114,7 @@
 
                     <Label IsVisible="{Binding Contribution.Description, Converter={converters:IsNotNullOrEmptyConverter}}"
                            Style="{StaticResource field_title}"
-                           Text="{xct:Translate field_description}"/>
+                           Text="{extensions:Translate field_description}"/>
 
                     <Label IsVisible="{Binding Contribution.Description, Converter={converters:IsNotNullOrEmptyConverter}}"
                            Text="{Binding Contribution.Description}"/>
@@ -157,7 +157,7 @@
                              Style="{StaticResource separator}"/>
 
                     <Label Style="{StaticResource field_title}"
-                           Text="{xct:Translate field_visibility}"/>
+                           Text="{extensions:Translate field_visibility}"/>
 
                     <Label Text="{Binding Contribution.Visibility.Description}"/>
 
@@ -169,10 +169,10 @@
                                 ImageSource="{FontImage FontFamily={StaticResource font_icon}, Color={StaticResource white}, Size=20, Glyph={x:Static icons:Icons.trash2}}"
                                 IsVisible="{Binding CanBeEdited}"
                                 Style="{StaticResource destructive_primary_button}"
-                                Text="{xct:Translate button_delete_contribution}"/>
+                                Text="{extensions:Translate button_delete_contribution}"/>
                     </sh:Shadows>
                 </StackLayout>
             </ScrollView>
-        </local:AppFrame.Content>
-    </local:AppFrame>
+        </mvp:AppFrame.Content>
+    </mvp:AppFrame>
 </pages:BaseContentPage>

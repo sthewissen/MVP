@@ -1,22 +1,17 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
 using System.Threading.Tasks;
-using System.Web;
 using MVP.Extensions;
-using MVP.Helpers;
 using MVP.Models;
 using MVP.Pages;
 using MVP.Resources;
 using MVP.Services;
 using MVP.Services.Interfaces;
-using TinyMvvm;
 using TinyNavigationHelper;
 using Xamarin.CommunityToolkit.ObjectModel;
 using Xamarin.CommunityToolkit.UI.Views;
 using Xamarin.Essentials;
-using Xamarin.Forms;
 
 namespace MVP.ViewModels
 {
@@ -75,10 +70,16 @@ namespace MVP.ViewModels
 
                 Contributions = new ObservableCollection<Contribution>(contributionsList.Contributions.OrderByDescending(x => x.StartDate).ToList());
             }
+            catch (Exception ex)
+            {
+                State = LayoutState.Error;
+            }
             finally
             {
                 IsRefreshing = false;
-                State = Contributions.Count > 0 ? LayoutState.None : LayoutState.Empty;
+
+                if (State != LayoutState.Error)
+                    State = Contributions.Count > 0 ? LayoutState.None : LayoutState.Empty;
             }
         }
 
@@ -90,15 +91,8 @@ namespace MVP.ViewModels
             if (IsLoadingMore)
                 return;
 
-            if (Connectivity.NetworkAccess != NetworkAccess.Internet)
-            {
-                // Connection to internet is not available
-                await DialogService.AlertAsync(
-                    Translations.error_offline,
-                    Translations.error_offline_title,
-                    Translations.alert_ok).ConfigureAwait(false);
+            if (!await VerifyInternetConnection())
                 return;
-            }
 
             try
             {
@@ -111,12 +105,24 @@ namespace MVP.ViewModels
                     Contributions.Add(item);
                 }
 
+                AnalyticsService.Track("More Contributions Loaded");
+
                 // If we've reached the end, change the threshold.
                 if (!contributionsList.Contributions.Any())
                 {
                     ItemThreshold = -1;
                     return;
                 }
+            }
+            catch (Exception ex)
+            {
+                AnalyticsService.Report(ex);
+
+                await DialogService.AlertAsync(
+                    Translations.error_couldntloadmorecontributions,
+                    Translations.alert_error_title,
+                    Translations.alert_ok
+                ).ConfigureAwait(false);
             }
             finally
             {
