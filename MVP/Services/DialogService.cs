@@ -3,6 +3,9 @@ using Acr.UserDialogs;
 
 namespace MVP.Services
 {
+    /// <summary>
+    /// Allows for popping a dialog up for the user.
+    /// </summary>
     public static class DialogService
     {
         public static Task AlertAsync(string message, string title, string buttonLabel)

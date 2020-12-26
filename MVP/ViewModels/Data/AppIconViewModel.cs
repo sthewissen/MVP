@@ -1,5 +1,4 @@
-﻿using System;
-using Xamarin.CommunityToolkit.ObjectModel;
+﻿using Xamarin.CommunityToolkit.ObjectModel;
 
 namespace MVP.ViewModels.Data
 {

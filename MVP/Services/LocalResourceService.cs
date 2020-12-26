@@ -1,8 +1,10 @@
-﻿using System;
-using System.Reflection;
+﻿using System.Reflection;
 
 namespace MVP.Services
 {
+    /// <summary>
+    /// Access a locally stored JSON file.
+    /// </summary>
     public static class LocalResourceService
     {
         public static string GetFile(string fileName)

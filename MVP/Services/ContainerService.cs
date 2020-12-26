@@ -2,17 +2,17 @@
 using System.Linq;
 using System.Reflection;
 using Autofac;
-using MVP.Services.Demo;
 using MVP.Services.Interfaces;
 using MVP.ViewModels;
-using TinyMvvm;
-using TinyMvvm.Forms;
 using TinyNavigationHelper;
 using TinyNavigationHelper.Forms;
 using Xamarin.Forms;
 
 namespace MVP.Services
 {
+    /// <summary>
+    /// Initializes all of the dependency injection bits and bobs.
+    /// </summary>
     public static class ContainerService
     {
         readonly static Lazy<IContainer> containerHolder = new Lazy<IContainer>(CreateContainer);

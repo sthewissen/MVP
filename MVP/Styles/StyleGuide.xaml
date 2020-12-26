@@ -326,8 +326,8 @@
     </Style>
 
     <Style x:Key="primary_button" TargetType="Button">
-        <Setter Property="BackgroundColor" Value="{AppThemeBinding Light={StaticResource primary}, Dark={StaticResource light_primary}}"/>
-        <Setter Property="TextColor" Value="{AppThemeBinding Light={StaticResource white}, Dark={StaticResource black}}"/>
+        <Setter Property="BackgroundColor" Value="{AppThemeBinding Light={StaticResource primary}, Dark={StaticResource primary}}"/>
+        <Setter Property="TextColor" Value="{AppThemeBinding Light={StaticResource white}, Dark={StaticResource white}}"/>
         <Setter Property="FontFamily" Value="{StaticResource font_semibold}"/>
         <Setter Property="HeightRequest" Value="48"/>
         <Setter Property="CornerRadius" Value="24" />

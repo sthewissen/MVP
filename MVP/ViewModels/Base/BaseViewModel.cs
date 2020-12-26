@@ -12,9 +12,9 @@ namespace MVP.ViewModels
     {
         protected App CurrentApp => (App)Xamarin.Forms.Application.Current;
 
-        protected IMvpApiService MvpApiService => (App.MvpApiService);
+        protected IMvpApiService MvpApiService => App.MvpApiService;
         protected IAnalyticsService AnalyticsService { get; }
-        protected IAuthService AuthService => (App.AuthService);
+        protected IAuthService AuthService => App.AuthService;
         protected INavigationHelper NavigationHelper { get; }
 
         public virtual IAsyncCommand BackCommand { get; set; }

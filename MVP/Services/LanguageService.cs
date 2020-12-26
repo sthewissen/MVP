@@ -1,19 +1,19 @@
-﻿using System;
-using System.Globalization;
+﻿using System.Globalization;
 using MVP.Services.Interfaces;
 using Xamarin.CommunityToolkit.Helpers;
 using Xamarin.Essentials;
 
 namespace MVP.Services
 {
+    /// <summary>
+    /// Changes the app language on the fly.
+    /// </summary>
     public class LanguageService
     {
         readonly IAnalyticsService analyticsService;
 
         public LanguageService(IAnalyticsService analyticsService)
-        {
-            this.analyticsService = analyticsService;
-        }
+            => this.analyticsService = analyticsService;
 
         public void SetLanguage(string culture)
         {

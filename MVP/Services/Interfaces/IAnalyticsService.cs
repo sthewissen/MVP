@@ -16,9 +16,9 @@ namespace MVP.Services.Interfaces
         ITimedEvent TrackTime(string trackIdentifier, string key, string value);
 
         void Report(Exception exception,
-                                  IDictionary<string, string>? properties = null,
-                                  [CallerMemberName] string callerMemberName = "",
-                                  [CallerLineNumber] int lineNumber = 0,
-                                  [CallerFilePath] string filePath = "");
+                    IDictionary<string, string>? properties = null,
+                    [CallerMemberName] string callerMemberName = "",
+                    [CallerLineNumber] int lineNumber = 0,
+                    [CallerFilePath] string filePath = "");
     }
 }

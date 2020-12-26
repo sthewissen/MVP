@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Reactive.Linq;
@@ -15,6 +14,9 @@ using Xamarin.Essentials;
 
 namespace MVP.Services
 {
+    /// <summary>
+    /// Communicates with the actual MVP API service.
+    /// </summary>
     public class MvpApiService : IMvpApiService
     {
         readonly IMvpApi api;
@@ -37,6 +39,10 @@ namespace MVP.Services
 #endif
         }
 
+        /// <summary>
+        /// Retreive our auth token from secure storage.
+        /// </summary>
+        /// <returns></returns>
         async Task<string> GetToken()
         {
             var token = await SecureStorage.GetAsync(Constants.AccessToken);
