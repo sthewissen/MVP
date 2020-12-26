@@ -44,6 +44,7 @@ namespace MVP
             Resolver.SetResolver(new AutofacResolver(ContainerService.Container));
             Akavache.Registrations.Start(Constants.AppName);
             On<iOS>().SetHandleControlUpdatesOnMainThread(true);
+            Sharpnado.Shades.Initializer.Initialize(loggerEnable: false);
 
             // Set the theme that the user has picked.
             Current.UserAppTheme = (OSAppTheme)Preferences.Get(Settings.AppTheme, Settings.AppThemeDefault);

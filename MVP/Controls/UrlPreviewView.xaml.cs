@@ -7,6 +7,7 @@ using System.Web;
 using MVP.Extensions;
 using MVP.Helpers;
 using Xamarin.CommunityToolkit.UI.Views;
+using Xamarin.Essentials;
 using Xamarin.Forms;
 
 namespace MVP.Controls
@@ -90,7 +91,6 @@ namespace MVP.Controls
         public UrlPreviewView()
             => InitializeComponent();
 
-
         protected void OnUrlPropertyChanged()
         {
             if (tokenSource != null)
@@ -119,7 +119,7 @@ namespace MVP.Controls
                 var result = Uri.TryCreate(Url, UriKind.Absolute, out var uriResult) &&
                     (uriResult.Scheme == Uri.UriSchemeHttp || uriResult.Scheme == Uri.UriSchemeHttps);
 
-                if (!result)
+                if (!result || Connectivity.NetworkAccess != NetworkAccess.Internet)
                 {
                     Title = string.Empty;
                     Description = string.Empty;

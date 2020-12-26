@@ -5,7 +5,8 @@
       xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
       Padding="32"
       x:Class="MVP.Controls.EmptyState"
-      x:Name="emptyState">
+      x:Name="emptyState"
+      xmlns:sh="clr-namespace:Sharpnado.Shades;assembly=Sharpnado.Shadows">
 
     <StackLayout HorizontalOptions="Center"
                  Margin="0,-40,0,0"
@@ -26,10 +27,12 @@
         <Label Style="{StaticResource emptystate_description}" 
                Text="{Binding Description, Source={x:Reference emptyState}}"/>
 
-        <Button Text="{Binding CommandText, Source={x:Reference emptyState}}"
-                Command="{Binding Command, Source={x:Reference emptyState}}"
-                Style="{StaticResource line_button}"
-                IsVisible="{Binding Command, Source={x:Reference emptyState}, Converter={xct:IsNotNullOrEmptyConverter}}" />
+        <sh:Shadows Style="{StaticResource shade_primary}" >
+            <Button Text="{Binding CommandText, Source={x:Reference emptyState}}"
+                    Command="{Binding Command, Source={x:Reference emptyState}}"
+                    Style="{StaticResource primary_button}"
+                    IsVisible="{Binding Command, Source={x:Reference emptyState}, Converter={xct:IsNotNullOrEmptyConverter}}" />
+        </sh:Shadows>
 
     </StackLayout>
 

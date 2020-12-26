@@ -7,7 +7,8 @@
                     xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
                     xmlns:local="clr-namespace:MVP"                    
                     xmlns:ff="clr-namespace:FFImageLoading.Svg.Forms;assembly=FFImageLoading.Svg.Forms"
-                    x:Class="MVP.Styles.StyleGuide">
+                    x:Class="MVP.Styles.StyleGuide"
+                    xmlns:sh="clr-namespace:Sharpnado.Shades;assembly=Sharpnado.Shadows">
 
     <?xaml-comp compile="true" ?>
 
@@ -324,15 +325,22 @@
         <Setter Property="MaxLines" Value="2"/>
     </Style>
 
-    <Style x:Key="line_button" TargetType="Button">
+    <Style x:Key="primary_button" TargetType="Button">
         <Setter Property="BackgroundColor" Value="{AppThemeBinding Light={StaticResource primary}, Dark={StaticResource light_primary}}"/>
         <Setter Property="TextColor" Value="{AppThemeBinding Light={StaticResource white}, Dark={StaticResource black}}"/>
         <Setter Property="FontFamily" Value="{StaticResource font_semibold}"/>
-        <Setter Property="BorderWidth" Value="0"/>
+        <Setter Property="HeightRequest" Value="48"/>
+        <Setter Property="CornerRadius" Value="24" />
     </Style>
 
-    <Style x:Key="destructive_line_button" BasedOn="{StaticResource line_button}" TargetType="Button">
-        <Setter Property="BorderWidth" Value="0"/>
+    <Style x:Key="secondary_button" BasedOn="{StaticResource primary_button}" TargetType="Button">
+        <Setter Property="BackgroundColor" Value="{AppThemeBinding Light={StaticResource white}, Dark={StaticResource black}}"/>
+        <Setter Property="TextColor" Value="{AppThemeBinding Light={StaticResource black}, Dark={StaticResource white}}"/>
+        <Setter Property="BorderWidth" Value="1" />
+        <Setter Property="BorderColor" Value="{AppThemeBinding Light={StaticResource neutral_1}, Dark={StaticResource neutral_3}}" />
+    </Style>
+
+    <Style x:Key="destructive_primary_button" BasedOn="{StaticResource primary_button}" TargetType="Button">
         <Setter Property="BackgroundColor" Value="{AppThemeBinding Light={StaticResource error}, Dark={StaticResource error}}"/>
         <Setter Property="TextColor" Value="{AppThemeBinding Light={StaticResource white}, Dark={StaticResource white}}"/>
     </Style>
@@ -517,5 +525,20 @@
         <Setter Property="FontSize" Value="{StaticResource fontsize_h2}"/>
         <Setter Property="HorizontalOptions" Value="Center"/>
         <Setter Property="VerticalOptions" Value="Center"/>
+    </Style>
+
+    <Style x:Key="shade_error" TargetType="sh:Shadows">
+        <Setter Property="CornerRadius" Value="24"/>
+        <Setter Property="Shades" Value="{sh:SingleShade Offset='0, 6', BlurRadius=12, Opacity=0.4, Color={StaticResource error}}"/>
+    </Style>
+
+    <Style x:Key="shade_primary" TargetType="sh:Shadows">
+        <Setter Property="CornerRadius" Value="24"/>
+        <Setter Property="Shades" Value="{sh:SingleShade Offset='0, 6', BlurRadius=12, Opacity=0.4, Color={StaticResource primary}}"/>
+    </Style>
+
+    <Style x:Key="shade_secondary" TargetType="sh:Shadows">
+        <Setter Property="CornerRadius" Value="24"/>
+        <Setter Property="Shades" Value="{AppThemeBinding Light={sh:SingleShade Offset='0, 6', BlurRadius=12, Opacity=0.4, Color={StaticResource neutral_1}}, Dark={sh:SingleShade Offset='0, 6', BlurRadius=12, Opacity=0.4, Color={StaticResource neutral_4}}}"/>
     </Style>
 </ResourceDictionary>

@@ -8,7 +8,8 @@
                        xmlns:icons="clr-namespace:MVP.Styles"
                        xmlns:xct="clr-namespace:Xamarin.CommunityToolkit.Extensions;assembly=Xamarin.CommunityToolkit"
                        x:TypeArguments="vm:AboutViewModel"
-                       xmlns:pages="clr-namespace:MVP.Pages">
+                       xmlns:pages="clr-namespace:MVP.Pages"
+                       xmlns:sh="clr-namespace:Sharpnado.Shades;assembly=Sharpnado.Shadows">
 
     <local:AppFrame Title="{xct:Translate about_title}"
                     ShowBackButton="True"
@@ -32,11 +33,14 @@
                            Margin="0,0,0,24"
                            Text="{xct:Translate about_opensource_description}" />
 
-                    <Button Text="{xct:Translate button_becomesponsor}"
-                            Command="{Binding OpenSponsorCommand}"
-                            Margin="0,0,0,24"
-                            ImageSource="{AppThemeBinding Light={FontImage FontFamily={StaticResource font_icon}, Color={StaticResource white}, Size=20, Glyph={x:Static icons:Icons.coffee}}, Dark={FontImage FontFamily={StaticResource font_icon}, Color={StaticResource black}, Size=20, Glyph={x:Static icons:Icons.coffee}}}"
-                            Style="{StaticResource line_button}" />
+
+                    <sh:Shadows Style="{StaticResource shade_secondary}" >
+                        <Button Text="{xct:Translate button_becomesponsor}"
+                                Command="{Binding OpenSponsorCommand}"
+                                Margin="0,0,0,24"
+                                ImageSource="{AppThemeBinding Light={FontImage FontFamily={StaticResource font_icon}, Color={StaticResource black}, Size=20, Glyph={x:Static icons:Icons.coffee}}, Dark={FontImage FontFamily={StaticResource font_icon}, Color={StaticResource white}, Size=20, Glyph={x:Static icons:Icons.coffee}}}"
+                                Style="{StaticResource secondary_button}" />
+                    </sh:Shadows>
 
                     <Label Style="{StaticResource about_title}"
                            Text="{xct:Translate about_licenses_title}"
@@ -45,10 +49,12 @@
                            Margin="0,0,0,24"
                            Text="{xct:Translate about_licenses_description}" />
 
-                    <Button Text="{xct:Translate button_viewlicenses}"
-                            Command="{Binding OpenLicensesCommand}"
-                            ImageSource="{AppThemeBinding Light={FontImage FontFamily={StaticResource font_icon}, Color={StaticResource white}, Size=20, Glyph={x:Static icons:Icons.file_text}}, Dark={FontImage FontFamily={StaticResource font_icon}, Color={StaticResource black}, Size=20, Glyph={x:Static icons:Icons.file_text}}}"
-                            Style="{StaticResource line_button}"  />
+                    <sh:Shadows Style="{StaticResource shade_secondary}" >
+                        <Button Text="{xct:Translate button_viewlicenses}"
+                                Command="{Binding OpenLicensesCommand}"
+                                ImageSource="{AppThemeBinding Light={FontImage FontFamily={StaticResource font_icon}, Color={StaticResource black}, Size=20, Glyph={x:Static icons:Icons.file_text}}, Dark={FontImage FontFamily={StaticResource font_icon}, Color={StaticResource white}, Size=20, Glyph={x:Static icons:Icons.file_text}}}"
+                                Style="{StaticResource secondary_button}"  />
+                    </sh:Shadows>
                 </StackLayout>
 
             </ScrollView>

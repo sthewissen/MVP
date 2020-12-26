@@ -78,6 +78,9 @@ namespace MVP.ViewModels
 
         async Task CheckForClipboardUrl()
         {
+            if (Connectivity.NetworkAccess != NetworkAccess.Internet)
+                return;
+
             if (!Preferences.Get(Settings.UseClipboardUrls, true))
                 return;
 

@@ -13,7 +13,8 @@
                        x:Class="MVP.Pages.ContributionDetailsPage"
                        x:DataType="vm:ContributionDetailsViewModel"
                        x:Name="page"
-                       x:TypeArguments="vm:ContributionDetailsViewModel">
+                       x:TypeArguments="vm:ContributionDetailsViewModel"
+                       xmlns:sh="clr-namespace:Sharpnado.Shades;assembly=Sharpnado.Shadows">
 
     <local:AppFrame SecondaryButtonText="{xct:Translate contributiondetails_edit}"
                     ShowBackButton="True"
@@ -163,11 +164,13 @@
                     <BoxView Margin="0,16"
                              Style="{StaticResource separator}"/>
 
-                    <Button Command="{Binding DeleteContributionCommand}"
-                            ImageSource="{FontImage FontFamily={StaticResource font_icon}, Color={StaticResource white}, Size=20, Glyph={x:Static icons:Icons.trash2}}"
-                            IsVisible="{Binding CanBeEdited}"
-                            Style="{StaticResource destructive_line_button}"
-                            Text="{xct:Translate button_delete_contribution}"/>
+                    <sh:Shadows Style="{StaticResource shade_error}" >
+                        <Button Command="{Binding DeleteContributionCommand}"
+                                ImageSource="{FontImage FontFamily={StaticResource font_icon}, Color={StaticResource white}, Size=20, Glyph={x:Static icons:Icons.trash2}}"
+                                IsVisible="{Binding CanBeEdited}"
+                                Style="{StaticResource destructive_primary_button}"
+                                Text="{xct:Translate button_delete_contribution}"/>
+                    </sh:Shadows>
                 </StackLayout>
             </ScrollView>
         </local:AppFrame.Content>

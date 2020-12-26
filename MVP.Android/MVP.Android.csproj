@@ -92,6 +92,9 @@
         <PackageReference Include="Xamarin.CommunityToolkit">
           <Version>1.0.0-preview1120</Version>
         </PackageReference>
+        <PackageReference Include="Sharpnado.Shadows">
+          <Version>1.2.0</Version>
+        </PackageReference>
     </ItemGroup>
     <ItemGroup>
         <Compile Include="MainActivity.cs" />
