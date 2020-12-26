@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using System.Web;
 using MVP.Extensions;
 using MVP.Helpers;
+using MVP.Services;
 using MVP.Services.Interfaces;
 using Xamarin.CommunityToolkit.UI.Views;
 using Xamarin.Essentials;
@@ -17,7 +18,6 @@ namespace MVP.Controls
     {
         CancellationTokenSource tokenSource;
         bool initialized = false;
-        readonly IAnalyticsService analyticsService;
 
         public static readonly BindableProperty UrlProperty =
             BindableProperty.Create(nameof(Url), typeof(string), typeof(UrlPreviewView), string.Empty, defaultBindingMode: BindingMode.OneWay, propertyChanged: Url_Changed);
@@ -88,11 +88,9 @@ namespace MVP.Controls
             set => SetValue(HasMetadataProperty, value);
         }
 
-        public UrlPreviewView(IAnalyticsService analyticsService)
+        public UrlPreviewView()
         {
             InitializeComponent();
-
-            this.analyticsService = analyticsService;
         }
 
         protected void OnUrlPropertyChanged()
@@ -155,7 +153,7 @@ namespace MVP.Controls
             catch (Exception ex)
             {
                 // Fail silently.
-                analyticsService.Report(ex, new Dictionary<string, string> { { nameof(Url), Url } });
+                (Application.Current as App).AnalyticsService.Report(ex, new Dictionary<string, string> { { nameof(Url), Url } });
 
                 // Catch 404s etc, but don't really care much about it further.
                 Title = string.Empty;

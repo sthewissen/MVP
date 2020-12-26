@@ -18,8 +18,7 @@ namespace MVP
 {
     public partial class App : Xamarin.Forms.Application
     {
-        readonly IAnalyticsService analyticsService;
-
+        public IAnalyticsService AnalyticsService { get; set; }
         public static IMvpApiService MvpApiService { get; set; }
         public static IAuthService AuthService { get; set; }
 
@@ -27,7 +26,7 @@ namespace MVP
         {
             InitializeComponent();
 
-            this.analyticsService = analyticsService;
+            this.AnalyticsService = analyticsService;
 
             // We add exception handling here, because the MVP API is shared
             // through this app class with every page. Errors in it need to handled
@@ -118,7 +117,7 @@ namespace MVP
         protected override void OnStart()
         {
             base.OnStart();
-            analyticsService.Track("App Started");
+            AnalyticsService.Track("App Started");
         }
 
         protected override void OnResume()
@@ -129,7 +128,7 @@ namespace MVP
 
             OnResumed();
 
-            analyticsService.Track("App Resumed");
+            AnalyticsService.Track("App Resumed");
         }
 
         protected override void OnSleep()
@@ -138,7 +137,7 @@ namespace MVP
 
             MvpApiService.AccessTokenExpired -= MvpApiService_AccessTokenExpired;
 
-            analyticsService.Track("App Backgrounded");
+            AnalyticsService.Track("App Backgrounded");
         }
     }
 }
