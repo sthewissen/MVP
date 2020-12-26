@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Threading.Tasks;
 using MVP.Models;
 using MVP.Pages;
+using MVP.Resources;
 using MVP.Services;
 using MVP.Services.Interfaces;
 using TinyNavigationHelper;
@@ -26,18 +27,18 @@ namespace MVP.ViewModels
             OnboardingItems = new List<OnboardingItem> {
                 new OnboardingItem {
                     ImageName="onboarding1",
-                    Title = "Simple and effective",
-                    Description = "Manage all of your community activities from the palm of your hand."
+                    Title = Translations.onboarding_1_title,
+                    Description = Translations.onboarding_1_description
                 },
-                new OnboardingItem {
-                    ImageName="onboarding2",
-                    Title = "Gather insights",
-                    Description = "Gather additional insights through your contribution statistics. When were you most active? What type of contributions are you favorite?"
-                },
+                //new OnboardingItem {
+                //    ImageName="onboarding2",
+                //    Title = ,
+                //    Description = "Gather additional insights through your contribution statistics. When were you most active? What type of contributions are you favorite?"
+                //},
                 new OnboardingItem {
                     ImageName="onboarding3",
-                    Title = "Quick Add",
-                    Description = "Directly create contributions based on a URL on your clipboard. Pre-filling whatever we can for you allowing you to quickly add new contributions."
+                    Title = Translations.onboarding_3_title,
+                    Description = Translations.onboarding_3_description
                 }
             };
         }
