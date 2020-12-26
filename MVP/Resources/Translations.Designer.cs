@@ -676,5 +676,227 @@ namespace MVP.Resources {
                 return ResourceManager.GetString("error_couldntrefreshprofile", resourceCulture);
             }
         }
+        
+        internal static string field_number_of_articles {
+            get {
+                return ResourceManager.GetString("field_number_of_articles", resourceCulture);
+            }
+        }
+        
+        internal static string field_number_of_views {
+            get {
+                return ResourceManager.GetString("field_number_of_views", resourceCulture);
+            }
+        }
+        
+        internal static string field_number_of_posts {
+            get {
+                return ResourceManager.GetString("field_number_of_posts", resourceCulture);
+            }
+        }
+        
+        internal static string field_number_of_subscribers {
+            get {
+                return ResourceManager.GetString("field_number_of_subscribers", resourceCulture);
+            }
+        }
+        
+        internal static string field_annual_unique_visitors {
+            get {
+                return ResourceManager.GetString("field_annual_unique_visitors", resourceCulture);
+            }
+        }
+        
+        internal static string field_number_of_books {
+            get {
+                return ResourceManager.GetString("field_number_of_books", resourceCulture);
+            }
+        }
+        
+        internal static string field_copies_sold {
+            get {
+                return ResourceManager.GetString("field_copies_sold", resourceCulture);
+            }
+        }
+        
+        internal static string field_number_of_conferences {
+            get {
+                return ResourceManager.GetString("field_number_of_conferences", resourceCulture);
+            }
+        }
+        
+        internal static string field_number_of_visitors {
+            get {
+                return ResourceManager.GetString("field_number_of_visitors", resourceCulture);
+            }
+        }
+        
+        internal static string field_prs_issues_submissions {
+            get {
+                return ResourceManager.GetString("field_prs_issues_submissions", resourceCulture);
+            }
+        }
+        
+        internal static string field_number_of_threads_moderated {
+            get {
+                return ResourceManager.GetString("field_number_of_threads_moderated", resourceCulture);
+            }
+        }
+        
+        internal static string field_number_of_answers {
+            get {
+                return ResourceManager.GetString("field_number_of_answers", resourceCulture);
+            }
+        }
+        
+        internal static string field_views_of_answers {
+            get {
+                return ResourceManager.GetString("field_views_of_answers", resourceCulture);
+            }
+        }
+        
+        internal static string field_number_of_mentorship_activity {
+            get {
+                return ResourceManager.GetString("field_number_of_mentorship_activity", resourceCulture);
+            }
+        }
+        
+        internal static string field_number_of_mentees {
+            get {
+                return ResourceManager.GetString("field_number_of_mentees", resourceCulture);
+            }
+        }
+        
+        internal static string field_number_of_projects {
+            get {
+                return ResourceManager.GetString("field_number_of_projects", resourceCulture);
+            }
+        }
+        
+        internal static string field_projects {
+            get {
+                return ResourceManager.GetString("field_projects", resourceCulture);
+            }
+        }
+        
+        internal static string field_contributions {
+            get {
+                return ResourceManager.GetString("field_contributions", resourceCulture);
+            }
+        }
+        
+        internal static string field_meetings {
+            get {
+                return ResourceManager.GetString("field_meetings", resourceCulture);
+            }
+        }
+        
+        internal static string field_members {
+            get {
+                return ResourceManager.GetString("field_members", resourceCulture);
+            }
+        }
+        
+        internal static string field_number_of_attendees {
+            get {
+                return ResourceManager.GetString("field_number_of_attendees", resourceCulture);
+            }
+        }
+        
+        internal static string field_annual_quantity {
+            get {
+                return ResourceManager.GetString("field_annual_quantity", resourceCulture);
+            }
+        }
+        
+        internal static string field_annual_reach {
+            get {
+                return ResourceManager.GetString("field_annual_reach", resourceCulture);
+            }
+        }
+        
+        internal static string field_number_of_events_participated {
+            get {
+                return ResourceManager.GetString("field_number_of_events_participated", resourceCulture);
+            }
+        }
+        
+        internal static string field_number_of_feedbacks_provided {
+            get {
+                return ResourceManager.GetString("field_number_of_feedbacks_provided", resourceCulture);
+            }
+        }
+        
+        internal static string field_number_of_samples {
+            get {
+                return ResourceManager.GetString("field_number_of_samples", resourceCulture);
+            }
+        }
+        
+        internal static string field_number_of_downloads {
+            get {
+                return ResourceManager.GetString("field_number_of_downloads", resourceCulture);
+            }
+        }
+        
+        internal static string field_number_of_sites {
+            get {
+                return ResourceManager.GetString("field_number_of_sites", resourceCulture);
+            }
+        }
+        
+        internal static string field_number_of_talks {
+            get {
+                return ResourceManager.GetString("field_number_of_talks", resourceCulture);
+            }
+        }
+        
+        internal static string field_attendees_of_talks {
+            get {
+                return ResourceManager.GetString("field_attendees_of_talks", resourceCulture);
+            }
+        }
+        
+        internal static string field_number_of_followers {
+            get {
+                return ResourceManager.GetString("field_number_of_followers", resourceCulture);
+            }
+        }
+        
+        internal static string field_number_of_videos {
+            get {
+                return ResourceManager.GetString("field_number_of_videos", resourceCulture);
+            }
+        }
+        
+        internal static string field_number_of_events {
+            get {
+                return ResourceManager.GetString("field_number_of_events", resourceCulture);
+            }
+        }
+        
+        internal static string onboarding_1_title {
+            get {
+                return ResourceManager.GetString("onboarding_1_title", resourceCulture);
+            }
+        }
+        
+        internal static string onboarding_1_description {
+            get {
+                return ResourceManager.GetString("onboarding_1_description", resourceCulture);
+            }
+        }
+        
+        internal static string onboarding_3_title {
+            get {
+                return ResourceManager.GetString("onboarding_3_title", resourceCulture);
+            }
+        }
+        
+        internal static string onboarding_3_description {
+            get {
+                return ResourceManager.GetString("onboarding_3_description", resourceCulture);
+            }
+        }
     }
 }

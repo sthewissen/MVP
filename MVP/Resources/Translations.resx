@@ -432,4 +432,118 @@
     <data name="error_couldntrefreshprofile" xml:space="preserve">
         <value>Couldn't refresh your profile information. We're not quite sure why but an error has been logged. Please try again later.</value>
     </data>
+    <data name="field_number_of_articles" xml:space="preserve">
+        <value>Number of Articles</value>
+    </data>
+    <data name="field_number_of_views" xml:space="preserve">
+        <value>Number of Views</value>
+    </data>
+    <data name="field_number_of_posts" xml:space="preserve">
+        <value>Number of Posts</value>
+    </data>
+    <data name="field_number_of_subscribers" xml:space="preserve">
+        <value>Number of Subscribers</value>
+    </data>
+    <data name="field_annual_unique_visitors" xml:space="preserve">
+        <value>Annual Unique Visitors</value>
+    </data>
+    <data name="field_number_of_books" xml:space="preserve">
+        <value>Number of Books</value>
+    </data>
+    <data name="field_copies_sold" xml:space="preserve">
+        <value>Copies Sold</value>
+    </data>
+    <data name="field_number_of_conferences" xml:space="preserve">
+        <value>Number of Conferences</value>
+    </data>
+    <data name="field_number_of_visitors" xml:space="preserve">
+        <value>Number of Visitors</value>
+    </data>
+    <data name="field_prs_issues_submissions" xml:space="preserve">
+        <value>Pull Requests/Issues/Submissions</value>
+    </data>
+    <data name="field_number_of_threads_moderated" xml:space="preserve">
+        <value>Number of Threads Moderated</value>
+    </data>
+    <data name="field_number_of_answers" xml:space="preserve">
+        <value>Number of Answers</value>
+    </data>
+    <data name="field_views_of_answers" xml:space="preserve">
+        <value>Views of Answers</value>
+    </data>
+    <data name="field_number_of_mentorship_activity" xml:space="preserve">
+        <value>Number of Mentorship Activity</value>
+    </data>
+    <data name="field_number_of_mentees" xml:space="preserve">
+        <value>Number of Mentees</value>
+    </data>
+    <data name="field_number_of_projects" xml:space="preserve">
+        <value>Number of Projects</value>
+    </data>
+    <data name="field_projects" xml:space="preserve">
+        <value>Project(s)</value>
+    </data>
+    <data name="field_contributions" xml:space="preserve">
+        <value>Contributions</value>
+    </data>
+    <data name="field_meetings" xml:space="preserve">
+        <value>Meetings</value>
+    </data>
+    <data name="field_members" xml:space="preserve">
+        <value>Members</value>
+    </data>
+    <data name="field_number_of_attendees" xml:space="preserve">
+        <value>Number of Attendees</value>
+    </data>
+    <data name="field_annual_quantity" xml:space="preserve">
+        <value>Annual Quantity</value>
+    </data>
+    <data name="field_annual_reach" xml:space="preserve">
+        <value>Annual Reach</value>
+    </data>
+    <data name="field_number_of_events_participated" xml:space="preserve">
+        <value>Number of Events Participated</value>
+    </data>
+    <data name="field_number_of_feedbacks_provided" xml:space="preserve">
+        <value>Number of Feedbacks Provided</value>
+    </data>
+    <data name="field_number_of_attendees" xml:space="preserve">
+        <value>Number of Attendees</value>
+    </data>
+    <data name="field_number_of_samples" xml:space="preserve">
+        <value>Number of Samples</value>
+    </data>
+    <data name="field_number_of_downloads" xml:space="preserve">
+        <value>Number of Downloads</value>
+    </data>
+    <data name="field_number_of_sites" xml:space="preserve">
+        <value>Number of Sites</value>
+    </data>
+    <data name="field_number_of_talks" xml:space="preserve">
+        <value>Number of Talks</value>
+    </data>
+    <data name="field_attendees_of_talks" xml:space="preserve">
+        <value>Attendees of Talks</value>
+    </data>
+    <data name="field_number_of_followers" xml:space="preserve">
+        <value>Number of Followers</value>
+    </data>
+    <data name="field_number_of_videos" xml:space="preserve">
+        <value>Number of Videos</value>
+    </data>
+    <data name="field_number_of_events" xml:space="preserve">
+        <value>Number of Events</value>
+    </data>
+    <data name="onboarding_1_title" xml:space="preserve">
+        <value>Simple and effective</value>
+    </data>
+    <data name="onboarding_1_description" xml:space="preserve">
+        <value>Manage all of your community activities from the palm of your hand.</value>
+    </data>
+    <data name="onboarding_3_title" xml:space="preserve">
+        <value>Quick Add</value>
+    </data>
+    <data name="onboarding_3_description" xml:space="preserve">
+        <value>Directly create contributions based on a URL on your clipboard. Pre-filling whatever we can for you allowing you to quickly add new contributions.</value>
+    </data>
 </root>
