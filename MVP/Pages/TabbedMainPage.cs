@@ -17,8 +17,6 @@ namespace MVP.Pages
     {
         readonly Xamarin.Forms.Page mainPage;
         readonly Xamarin.Forms.Page profilePage;
-        readonly Xamarin.Forms.Page badgesPage;
-        readonly Xamarin.Forms.Page statsPage;
         readonly Xamarin.Forms.NavigationPage navigationMainPage;
         readonly Xamarin.Forms.NavigationPage navigationProfilePage;
 
@@ -48,20 +46,6 @@ namespace MVP.Pages
             {
                 FontFamily = fontIcon,
                 Glyph = Icons.settings,
-                Size = 20
-            };
-
-            statsPage.IconImageSource = new FontImageSource()
-            {
-                FontFamily = fontIcon,
-                Glyph = Icons.activity,
-                Size = 20
-            };
-
-            badgesPage.IconImageSource = new FontImageSource()
-            {
-                FontFamily = fontIcon,
-                Glyph = Icons.award,
                 Size = 20
             };
 
