@@ -25,13 +25,13 @@
         <value>Activiteit maken via klembord</value>
     </data>
   <data name="setting_contributionfromurl_description" xml:space="preserve">
-        <value>Wanneer er zich een geldige URL op je klembord bevindt zodra je een activiteit gaat toevoegen, zal de app vragen of de metadata van deze URL gebruikt moet worden om je activiteit deels automatisch in te vullen.</value>
+        <value>Wanneer er zich een geldige URL op het klembord bevindt zodra een activiteit wordt toegevoegd, zal de app vragen of de metadata van deze URL gebruikt moet worden om de activiteit deels automatisch in te vullen.</value>
     </data>
   <data name="setting_apptheme_title" xml:space="preserve">
         <value>Weergave</value>
     </data>
   <data name="setting_apptheme_description" xml:space="preserve">
-        <value>Deze applicatie kan zowel in een lichte als een donkere weergave gebruikt worden. Standaard neemt de applicatie de instelling van het apparaat over. Wanneer een van beide weergaves je voorkeur heeft kan deze hier ingesteld worden.</value>
+        <value>Deze applicatie kan zowel in een lichte als een donkere weergave gebruikt worden. Standaard neemt de applicatie de instelling van het apparaat over. Wanneer een van beide weergaves de voorkeur heeft kan deze hier ingesteld worden.</value>
     </data>
   <data name="logout" xml:space="preserve">
         <value>Uitloggen</value>
@@ -250,7 +250,7 @@
         <value>Licenties</value>
     </data>
   <data name="about_licenses_description" xml:space="preserve">
-        <value>This app stands on the shoulders of giants without whom its creation would not be possible. If you want to know who they are, check out the licenses for their awesome pieces of software.</value>
+        <value>Deze applicatie zou niet mogelijk zijn zonder het geweldige werk van anderen. Als je wil weten wie dit zijn, bekijk dan de licenties van hun geweldige software.</value>
     </data>
   <data name="view_licenses" xml:space="preserve">
         <value>Bekijk licenties</value>
