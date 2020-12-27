@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <root>
-    <!-- 
+  <!-- 
     Microsoft ResX Schema 
     
     Version 2.0
@@ -59,494 +59,494 @@
             : using a System.ComponentModel.TypeConverter
             : and then encoded with base64 encoding.
     -->
-    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
-        <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
-        <xsd:element name="root" msdata:IsDataSet="true">
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
             <xsd:complexType>
-                <xsd:choice maxOccurs="unbounded">
-                    <xsd:element name="metadata">
-                        <xsd:complexType>
-                            <xsd:sequence>
-                                <xsd:element name="value" type="xsd:string" minOccurs="0" />
-                            </xsd:sequence>
-                            <xsd:attribute name="name" use="required" type="xsd:string" />
-                            <xsd:attribute name="type" type="xsd:string" />
-                            <xsd:attribute name="mimetype" type="xsd:string" />
-                            <xsd:attribute ref="xml:space" />
-                        </xsd:complexType>
-                    </xsd:element>
-                    <xsd:element name="assembly">
-                        <xsd:complexType>
-                            <xsd:attribute name="alias" type="xsd:string" />
-                            <xsd:attribute name="name" type="xsd:string" />
-                        </xsd:complexType>
-                    </xsd:element>
-                    <xsd:element name="data">
-                        <xsd:complexType>
-                            <xsd:sequence>
-                                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
-                                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
-                            </xsd:sequence>
-                            <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
-                            <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
-                            <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
-                            <xsd:attribute ref="xml:space" />
-                        </xsd:complexType>
-                    </xsd:element>
-                    <xsd:element name="resheader">
-                        <xsd:complexType>
-                            <xsd:sequence>
-                                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
-                            </xsd:sequence>
-                            <xsd:attribute name="name" type="xsd:string" use="required" />
-                        </xsd:complexType>
-                    </xsd:element>
-                </xsd:choice>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
             </xsd:complexType>
-        </xsd:element>
-    </xsd:schema>
-    <resheader name="resmimetype">
-        <value>text/microsoft-resx</value>
-    </resheader>
-    <resheader name="version">
-        <value>2.0</value>
-    </resheader>
-    <resheader name="reader">
-        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-    </resheader>
-    <resheader name="writer">
-        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-    </resheader>
-    <data name="contributions_title" xml:space="preserve">
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="contributions_title" xml:space="preserve">
       <value>Community activities</value>
   </data>
-    <data name="search_placeholder" xml:space="preserve">
+  <data name="search_placeholder" xml:space="preserve">
         <value>Search...</value>
     </data>
-    <data name="profile_title" xml:space="preserve">
+  <data name="profile_title" xml:space="preserve">
         <value>Settings</value>
     </data>
-    <data name="setting_contributionfromurl_title" xml:space="preserve">
+  <data name="setting_contributionfromurl_title" xml:space="preserve">
         <value>Create contribution from URL</value>
     </data>
-    <data name="setting_contributionfromurl_description" xml:space="preserve">
+  <data name="setting_contributionfromurl_description" xml:space="preserve">
         <value>If there's a valid URL on the clipboard while adding a contribution, the app will ask if metadata from that URL should be used to prefill the contribution.</value>
     </data>
-    <data name="setting_apptheme_title" xml:space="preserve">
+  <data name="setting_apptheme_title" xml:space="preserve">
         <value>App theme</value>
     </data>
-    <data name="setting_apptheme_description" xml:space="preserve">
+  <data name="setting_apptheme_description" xml:space="preserve">
         <value>This app can be used in both light and dark mode. By default it will pick whatever the device is set to. If either theme is preferred a specific theme can be chosen here.</value>
     </data>
-    <data name="logout" xml:space="preserve">
+  <data name="logout" xml:space="preserve">
         <value>Logout</value>
     </data>
-    <data name="tabs_activities" xml:space="preserve">
+  <data name="tabs_activities" xml:space="preserve">
         <value>Activities</value>
     </data>
-    <data name="tabs_statistics" xml:space="preserve">
+  <data name="tabs_statistics" xml:space="preserve">
         <value>Statistics</value>
     </data>
-    <data name="tabs_badges" xml:space="preserve">
+  <data name="tabs_badges" xml:space="preserve">
         <value>Badges</value>
     </data>
-    <data name="tabs_settings" xml:space="preserve">
+  <data name="tabs_settings" xml:space="preserve">
         <value>Settings</value>
     </data>
-    <data name="contributionform_title_add" xml:space="preserve">
+  <data name="contributionform_title_add" xml:space="preserve">
         <value>Add contribution</value>
     </data>
-    <data name="contributionform_title_edit" xml:space="preserve">
+  <data name="contributionform_title_edit" xml:space="preserve">
         <value>Edit contribution</value>
     </data>
-    <data name="language_english" xml:space="preserve">
+  <data name="language_english" xml:space="preserve">
         <value>English</value>
     </data>
-    <data name="language_dutch" xml:space="preserve">
+  <data name="language_dutch" xml:space="preserve">
         <value>Dutch</value>
     </data>
-    <data name="languagepicker_title" xml:space="preserve">
+  <data name="languagepicker_title" xml:space="preserve">
         <value>Language</value>
     </data>
-    <data name="contributiondetails_title" xml:space="preserve">
+  <data name="contributiondetails_title" xml:space="preserve">
         <value>Activity details</value>
     </data>
-    <data name="field_activity_type" xml:space="preserve">
+  <data name="field_activity_type" xml:space="preserve">
         <value>Activity type</value>
     </data>
-    <data name="field_url" xml:space="preserve">
+  <data name="field_url" xml:space="preserve">
         <value>URL</value>
     </data>
-    <data name="field_title" xml:space="preserve">
+  <data name="field_title" xml:space="preserve">
         <value>Title of activity</value>
     </data>
-    <data name="field_primary_contribution_area" xml:space="preserve">
+  <data name="field_primary_contribution_area" xml:space="preserve">
         <value>Primary contribution area</value>
     </data>
-    <data name="field_additional_contribution_areas" xml:space="preserve">
+  <data name="field_additional_contribution_areas" xml:space="preserve">
         <value>Additional contribution areas</value>
     </data>
-    <data name="field_activity_date" xml:space="preserve">
+  <data name="field_activity_date" xml:space="preserve">
         <value>Activity date</value>
     </data>
-    <data name="field_description" xml:space="preserve">
+  <data name="field_description" xml:space="preserve">
         <value>Description</value>
     </data>
-    <data name="field_visibility" xml:space="preserve">
+  <data name="field_visibility" xml:space="preserve">
         <value>Visibility</value>
     </data>
-    <data name="button_delete_contribution" xml:space="preserve">
+  <data name="button_delete_contribution" xml:space="preserve">
         <value>Delete contribution</value>
     </data>
-    <data name="about_title" xml:space="preserve">
+  <data name="about_title" xml:space="preserve">
         <value>About this app</value>
     </data>
-    <data name="about_why_title" xml:space="preserve">
+  <data name="about_why_title" xml:space="preserve">
         <value>Why was this app built?</value>
     </data>
-    <data name="about_why_description" xml:space="preserve">
+  <data name="about_why_description" xml:space="preserve">
         <value>There has always been a need for Microsoft MVPs to manage their community activities in an easier way. The online portal works fine, but having a similar thing in your pocket to create activities on the fly is really cool. Which is what this project is for!</value>
     </data>
-    <data name="about_opensource_title" xml:space="preserve">
+  <data name="about_opensource_title" xml:space="preserve">
         <value>Open source</value>
     </data>
-    <data name="about_opensource_description" xml:space="preserve">
+  <data name="about_opensource_description" xml:space="preserve">
         <value>This app is completely open source. If you like the app, feel free to become a GitHub sponsor, buying me a digital cup of coffee a month ☕️</value>
     </data>
-    <data name="becomesponsor" xml:space="preserve">
+  <data name="becomesponsor" xml:space="preserve">
         <value>Become a sponsor</value>
     </data>
-    <data name="contributionform_timeframememo" xml:space="preserve">
+  <data name="contributionform_timeframememo" xml:space="preserve">
         <value>Your contribution submission for the July award cycle must be for community activities between {0} to {1}. Community activities submitted from {1} and beyond will be held for future consideration.</value>
     </data>
-    <data name="contributionform_activitytype_placeholder" xml:space="preserve">
+  <data name="contributionform_activitytype_placeholder" xml:space="preserve">
         <value>Select the activity type that best fits this activity.</value>
     </data>
-    <data name="contributionform_technologyarea_placeholder" xml:space="preserve">
+  <data name="contributionform_technologyarea_placeholder" xml:space="preserve">
         <value>Select the technology area that is the primary focus of this activity.</value>
     </data>
-    <data name="contributionform_additionaltechnologyarea_placeholder" xml:space="preserve">
+  <data name="contributionform_additionaltechnologyarea_placeholder" xml:space="preserve">
         <value>Select up to 2 additional technology areas that may also apply to this activity.</value>
     </data>
-    <data name="contributionform_visibility_placeholder" xml:space="preserve">
+  <data name="contributionform_visibility_placeholder" xml:space="preserve">
         <value>Select the visibility level of this activity.</value>
     </data>
-    <data name="setting_language_title" xml:space="preserve">
+  <data name="setting_language_title" xml:space="preserve">
         <value>Language</value>
     </data>
-    <data name="setting_language_description" xml:space="preserve">
+  <data name="setting_language_description" xml:space="preserve">
         <value>By default, we select the language that you're using on your device if translations for it are available. However, if you want to use this app in a different language you can override it here.</value>
     </data>
-    <data name="themepicker_title" xml:space="preserve">
+  <data name="themepicker_title" xml:space="preserve">
         <value>App theme</value>
     </data>
-    <data name="contributiontypepicker_title" xml:space="preserve">
+  <data name="contributiontypepicker_title" xml:space="preserve">
         <value>Activity type</value>
     </data>
-    <data name="contributiontechnologypicker_title" xml:space="preserve">
+  <data name="contributiontechnologypicker_title" xml:space="preserve">
         <value>Primary contribution area</value>
     </data>
-    <data name="splash_contributionareas" xml:space="preserve">
+  <data name="splash_contributionareas" xml:space="preserve">
         <value>Grabbing the contribution areas...</value>
     </data>
-    <data name="splash_contributiontypes" xml:space="preserve">
+  <data name="splash_contributiontypes" xml:space="preserve">
         <value>Syncing the contribution types...</value>
     </data>
-    <data name="splash_visibilities" xml:space="preserve">
+  <data name="splash_visibilities" xml:space="preserve">
         <value>Putting visibilities in place...</value>
     </data>
-    <data name="splash_gettingready" xml:space="preserve">
+  <data name="splash_gettingready" xml:space="preserve">
         <value>Getting things ready...</value>
     </data>
-    <data name="theme_systemdefault" xml:space="preserve">
+  <data name="theme_systemdefault" xml:space="preserve">
         <value>System Default</value>
     </data>
-    <data name="theme_light" xml:space="preserve">
+  <data name="theme_light" xml:space="preserve">
         <value>Light</value>
     </data>
-    <data name="theme_dark" xml:space="preserve">
+  <data name="theme_dark" xml:space="preserve">
         <value>Dark</value>
     </data>
-    <data name="visibility_title" xml:space="preserve">
+  <data name="visibility_title" xml:space="preserve">
         <value>Visibility</value> 
     </data>
-    <data name="icon_default" xml:space="preserve">
+  <data name="icon_default" xml:space="preserve">
         <value>Default</value>
     </data>
-    <data name="icon_darkblue" xml:space="preserve">
+  <data name="icon_darkblue" xml:space="preserve">
         <value>Dark Blue</value>
     </data>
-    <data name="icon_black" xml:space="preserve">
+  <data name="icon_black" xml:space="preserve">
         <value>Black</value>
     </data>
-    <data name="icon_white" xml:space="preserve">
+  <data name="icon_white" xml:space="preserve">
         <value>White</value>
     </data>
-    <data name="icon_rainbow" xml:space="preserve">
+  <data name="icon_rainbow" xml:space="preserve">
         <value>Rainbow</value>
     </data>
-    <data name="setting_appicon_title" xml:space="preserve">
+  <data name="setting_appicon_title" xml:space="preserve">
         <value>App icon</value>
     </data>
-    <data name="setting_appicon_description" xml:space="preserve">
+  <data name="setting_appicon_description" xml:space="preserve">
         <value>Don't like the default app icon? Alternative options are available.</value>
     </data>
-    <data name="yes" xml:space="preserve">
+  <data name="yes" xml:space="preserve">
         <value>Yes</value>
     </data>
-    <data name="no" xml:space="preserve">
+  <data name="no" xml:space="preserve">
         <value>No</value>
     </data>
-    <data name="ok" xml:space="preserve">
+  <data name="ok" xml:space="preserve">
         <value>Ok</value>
     </data>
-    <data name="cancel" xml:space="preserve">
+  <data name="cancel" xml:space="preserve">
         <value>Cancel</value>
     </data>
-    <data name="warning_title" xml:space="preserve">
+  <data name="warning_title" xml:space="preserve">
         <value>Hold on...</value>
     </data>
-    <data name="contributiondetail_deleteconfirmation" xml:space="preserve">
+  <data name="contributiondetail_deleteconfirmation" xml:space="preserve">
         <value>Are you sure you want to delete this contribution? You cannot undo this.</value>
     </data>
-    <data name="error_unexpected" xml:space="preserve">
+  <data name="error_unexpected" xml:space="preserve">
         <value>Something went wrong. An error has been logged and we will look into it as soon as possible.</value>
     </data>
-    <data name="error_badrequest" xml:space="preserve">
+  <data name="error_badrequest" xml:space="preserve">
         <value>Couldn't process your request. Try again later.</value>
     </data>
-    <data name="error_servererror" xml:space="preserve">
+  <data name="error_servererror" xml:space="preserve">
         <value>Couldn't process your request. Try again later.</value>
     </data>
-    <data name="alert_error_unauthorized" xml:space="preserve">
+  <data name="alert_error_unauthorized" xml:space="preserve">
         <value>Your credentials have expired and they couldn't be refreshed. Therefore you were logged out. Please log in again to continue.</value>
     </data>
-    <data name="clipboard_title" xml:space="preserve">
+  <data name="clipboard_title" xml:space="preserve">
         <value>That looks cool!</value>
     </data>
-    <data name="clipboard_description" xml:space="preserve">
+  <data name="clipboard_description" xml:space="preserve">
         <value>We notice a URL on your clipboard. Do you want us to try to pre-fill an activity out of that?</value>
     </data>
-    <data name="contributiondetail_notdeleted" xml:space="preserve">
+  <data name="contributiondetail_notdeleted" xml:space="preserve">
         <value>Contribution could not be deleted. Perhaps it was already deleted, or it took place in the previous award period?</value>
     </data>
-    <data name="validation_variablefield" xml:space="preserve">
+  <data name="validation_variablefield" xml:space="preserve">
         <value>{0} is a required field.</value>
     </data>
-    <data name="warning_title_activitylocked" xml:space="preserve">
+  <data name="warning_title_activitylocked" xml:space="preserve">
         <value>Activity locked</value>
     </data>
-    <data name="warning_description_activitylocked" xml:space="preserve">
+  <data name="warning_description_activitylocked" xml:space="preserve">
         <value>This activity was recorded in the previous contribution window and therefore it cannot be edited or deleted.</value>
     </data>
-    <data name="additionaltechnologypicker_title" xml:space="preserve">
+  <data name="additionaltechnologypicker_title" xml:space="preserve">
         <value>Additional contribution areas</value>
     </data>
-    <data name="error_nomvpaccount" xml:space="preserve">
+  <data name="error_nomvpaccount" xml:space="preserve">
         <value>Couldn't authenticate you using the provided credentials. Are you sure you are using the account associated to your MVP ID?</value>
     </data>
-    <data name="progress_saving" xml:space="preserve">
+  <data name="progress_saving" xml:space="preserve">
         <value>Saving...</value>
     </data>
-    <data name="licenses_title" xml:space="preserve">
+  <data name="licenses_title" xml:space="preserve">
         <value>Licenses</value>
     </data>
-    <data name="about_licenses_title" xml:space="preserve">
+  <data name="about_licenses_title" xml:space="preserve">
         <value>Licenses</value>
     </data>
-    <data name="about_licenses_description" xml:space="preserve">
+  <data name="about_licenses_description" xml:space="preserve">
         <value>This app stands on the shoulders of giants without whom its creation would not be possible. If you want to know who they are, check out the licenses for their awesome pieces of software.</value>
     </data>
-    <data name="view_licenses" xml:space="preserve">
+  <data name="view_licenses" xml:space="preserve">
         <value>View licenses</value>
     </data>
-    <data name="progress_loading_url_data" xml:space="preserve">
+  <data name="progress_loading_url_data" xml:space="preserve">
         <value>Getting URL metadata...</value>
     </data>
-    <data name="contributionform_save" xml:space="preserve">
+  <data name="contributionform_save" xml:space="preserve">
         <value>Save</value>
     </data>
-    <data name="contributiondetails_edit" xml:space="preserve">
+  <data name="contributiondetails_edit" xml:space="preserve">
         <value>Edit</value>
     </data>
-    <data name="error_title_validationfailed" xml:space="preserve">
+  <data name="error_title_validationfailed" xml:space="preserve">
         <value>Validation failed</value>
     </data>
-    <data name="error_description_validationfailed" xml:space="preserve">
+  <data name="error_description_validationfailed" xml:space="preserve">
         <value>Not all required fields were completed. Please complete the form and try saving again.</value>
     </data>
-    <data name="empty_state_title" xml:space="preserve">
+  <data name="empty_state_title" xml:space="preserve">
         <value>Ooh...it's empty here!</value>
     </data>
-    <data name="empty_state_contributions" xml:space="preserve">
+  <data name="empty_state_contributions" xml:space="preserve">
         <value>Couldn't find any contributions. Add a new contribution or refresh to try and retrieve your existing data.</value>
     </data>
-    <data name="contribution_add" xml:space="preserve">
+  <data name="contribution_add" xml:space="preserve">
         <value>Add</value>
     </data>
-    <data name="empty_state_contributiontypes" xml:space="preserve">
+  <data name="empty_state_contributiontypes" xml:space="preserve">
         <value>Couldn't find any contribution types. Please try to refresh them.</value>
     </data>
-    <data name="empty_state_contributiontechnologies" xml:space="preserve">
+  <data name="empty_state_contributiontechnologies" xml:space="preserve">
         <value>Couldn't find any contribution areas. Please try to refresh them.</value>
     </data>
-    <data name="empty_state_noresultcontributiontechnologies" xml:space="preserve">
+  <data name="empty_state_noresultcontributiontechnologies" xml:space="preserve">
         <value>Your search query returned no results. Please try a different search query.</value>
     </data>
-    <data name="empty_state_visibilities" xml:space="preserve">
+  <data name="empty_state_visibilities" xml:space="preserve">
         <value>Couldn't find any visibilities. Please try to refresh them.</value>
     </data>
-    <data name="error_offline" xml:space="preserve">
+  <data name="error_offline" xml:space="preserve">
         <value>This action cannot be performed without an internet connection. Please try again later.</value>
     </data>
-    <data name="error_offline_title" xml:space="preserve">
+  <data name="error_offline_title" xml:space="preserve">
         <value>No internet connection</value>
     </data>
-    <data name="error_logoutwhileoffline" xml:space="preserve">
+  <data name="error_logoutwhileoffline" xml:space="preserve">
         <value>You currently have no internet connection. This may cause you to not be able to log back in again. Are you sure you want to continue?</value>
     </data>
-    <data name="offline_contributions" xml:space="preserve">
+  <data name="offline_contributions" xml:space="preserve">
         <value>You currently have no internet connection. This prevents us from loading your contributions. Please try again later.</value>
     </data>
-    <data name="error_couldntchangeicon" xml:space="preserve">
+  <data name="error_couldntchangeicon" xml:space="preserve">
         <value>Your icon couldn't be changed. Please try again later.</value>
     </data>
-    <data name="error_couldntchangetheme" xml:space="preserve">
+  <data name="error_couldntchangetheme" xml:space="preserve">
         <value>Your theme couldn't be changed. Please try again later.</value>
     </data>
-    <data name="error_couldntchangelanguage" xml:space="preserve">
+  <data name="error_couldntchangelanguage" xml:space="preserve">
         <value>Your language couldn't be changed. Please try again later.</value>
     </data>
-    <data name="error_title" xml:space="preserve">
+  <data name="error_title" xml:space="preserve">
         <value>Something went wrong</value>
     </data>
-    <data name="error_data_not_loaded" xml:space="preserve">
+  <data name="error_data_not_loaded" xml:space="preserve">
         <value>The data could not be loaded. We're not quite sure why but an error has been logged. You can try to refresh or try again later.</value>
     </data>
-    <data name="error_couldntloadmorecontributions" xml:space="preserve">
+  <data name="error_couldntloadmorecontributions" xml:space="preserve">
         <value>Couldn't load more contributions. We're not quite sure why but an error has been logged. Please try again later.</value>
     </data>
-    <data name="error_couldntsavecontribution" xml:space="preserve">
+  <data name="error_couldntsavecontribution" xml:space="preserve">
         <value>Couldn't save this contribution. We're not quite sure why but an error has been logged. Please try again later.</value>
     </data>
-    <data name="error_couldntrefreshprofile" xml:space="preserve">
+  <data name="error_couldntrefreshprofile" xml:space="preserve">
         <value>Couldn't refresh your profile information. We're not quite sure why but an error has been logged. Please try again later.</value>
     </data>
-    <data name="field_number_of_articles" xml:space="preserve">
+  <data name="field_number_of_articles" xml:space="preserve">
         <value>Number of Articles</value>
     </data>
-    <data name="field_number_of_views" xml:space="preserve">
+  <data name="field_number_of_views" xml:space="preserve">
         <value>Number of Views</value>
     </data>
-    <data name="field_number_of_posts" xml:space="preserve">
+  <data name="field_number_of_posts" xml:space="preserve">
         <value>Number of Posts</value>
     </data>
-    <data name="field_number_of_subscribers" xml:space="preserve">
+  <data name="field_number_of_subscribers" xml:space="preserve">
         <value>Number of Subscribers</value>
     </data>
-    <data name="field_annual_unique_visitors" xml:space="preserve">
+  <data name="field_annual_unique_visitors" xml:space="preserve">
         <value>Annual Unique Visitors</value>
     </data>
-    <data name="field_number_of_books" xml:space="preserve">
+  <data name="field_number_of_books" xml:space="preserve">
         <value>Number of Books</value>
     </data>
-    <data name="field_copies_sold" xml:space="preserve">
+  <data name="field_copies_sold" xml:space="preserve">
         <value>Copies Sold</value>
     </data>
-    <data name="field_number_of_conferences" xml:space="preserve">
+  <data name="field_number_of_conferences" xml:space="preserve">
         <value>Number of Conferences</value>
     </data>
-    <data name="field_number_of_visitors" xml:space="preserve">
+  <data name="field_number_of_visitors" xml:space="preserve">
         <value>Number of Visitors</value>
     </data>
-    <data name="field_prs_issues_submissions" xml:space="preserve">
+  <data name="field_prs_issues_submissions" xml:space="preserve">
         <value>Pull Requests/Issues/Submissions</value>
     </data>
-    <data name="field_number_of_threads_moderated" xml:space="preserve">
+  <data name="field_number_of_threads_moderated" xml:space="preserve">
         <value>Number of Threads Moderated</value>
     </data>
-    <data name="field_number_of_answers" xml:space="preserve">
+  <data name="field_number_of_answers" xml:space="preserve">
         <value>Number of Answers</value>
     </data>
-    <data name="field_views_of_answers" xml:space="preserve">
+  <data name="field_views_of_answers" xml:space="preserve">
         <value>Views of Answers</value>
     </data>
-    <data name="field_number_of_mentorship_activity" xml:space="preserve">
+  <data name="field_number_of_mentorship_activity" xml:space="preserve">
         <value>Number of Mentorship Activity</value>
     </data>
-    <data name="field_number_of_mentees" xml:space="preserve">
+  <data name="field_number_of_mentees" xml:space="preserve">
         <value>Number of Mentees</value>
     </data>
-    <data name="field_number_of_projects" xml:space="preserve">
+  <data name="field_number_of_projects" xml:space="preserve">
         <value>Number of Projects</value>
     </data>
-    <data name="field_projects" xml:space="preserve">
+  <data name="field_projects" xml:space="preserve">
         <value>Project(s)</value>
     </data>
-    <data name="field_contributions" xml:space="preserve">
+  <data name="field_contributions" xml:space="preserve">
         <value>Contributions</value>
     </data>
-    <data name="field_meetings" xml:space="preserve">
+  <data name="field_meetings" xml:space="preserve">
         <value>Meetings</value>
     </data>
-    <data name="field_members" xml:space="preserve">
+  <data name="field_members" xml:space="preserve">
         <value>Members</value>
     </data>
-    <data name="field_number_of_attendees" xml:space="preserve">
+  <data name="field_number_of_attendees" xml:space="preserve">
         <value>Number of Attendees</value>
     </data>
-    <data name="field_annual_quantity" xml:space="preserve">
+  <data name="field_annual_quantity" xml:space="preserve">
         <value>Annual Quantity</value>
     </data>
-    <data name="field_annual_reach" xml:space="preserve">
+  <data name="field_annual_reach" xml:space="preserve">
         <value>Annual Reach</value>
     </data>
-    <data name="field_number_of_events_participated" xml:space="preserve">
+  <data name="field_number_of_events_participated" xml:space="preserve">
         <value>Number of Events Participated</value>
     </data>
-    <data name="field_number_of_feedbacks_provided" xml:space="preserve">
+  <data name="field_number_of_feedbacks_provided" xml:space="preserve">
         <value>Number of Feedbacks Provided</value>
     </data>
-    <data name="field_number_of_samples" xml:space="preserve">
+  <data name="field_number_of_samples" xml:space="preserve">
         <value>Number of Samples</value>
     </data>
-    <data name="field_number_of_downloads" xml:space="preserve">
+  <data name="field_number_of_downloads" xml:space="preserve">
         <value>Number of Downloads</value>
     </data>
-    <data name="field_number_of_sites" xml:space="preserve">
+  <data name="field_number_of_sites" xml:space="preserve">
         <value>Number of Sites</value>
     </data>
-    <data name="field_number_of_talks" xml:space="preserve">
+  <data name="field_number_of_talks" xml:space="preserve">
         <value>Number of Talks</value>
     </data>
-    <data name="field_attendees_of_talks" xml:space="preserve">
+  <data name="field_attendees_of_talks" xml:space="preserve">
         <value>Attendees of Talks</value>
     </data>
-    <data name="field_number_of_followers" xml:space="preserve">
+  <data name="field_number_of_followers" xml:space="preserve">
         <value>Number of Followers</value>
     </data>
-    <data name="field_number_of_videos" xml:space="preserve">
+  <data name="field_number_of_videos" xml:space="preserve">
         <value>Number of Videos</value>
     </data>
-    <data name="field_number_of_events" xml:space="preserve">
+  <data name="field_number_of_events" xml:space="preserve">
         <value>Number of Events</value>
     </data>
-    <data name="onboarding_1_title" xml:space="preserve">
+  <data name="onboarding_1_title" xml:space="preserve">
         <value>Simple and effective</value>
     </data>
-    <data name="onboarding_1_description" xml:space="preserve">
+  <data name="onboarding_1_description" xml:space="preserve">
         <value>Manage all of your community activities from the palm of your hand.</value>
     </data>
-    <data name="onboarding_3_title" xml:space="preserve">
+  <data name="onboarding_3_title" xml:space="preserve">
         <value>Quick Add</value>
     </data>
-    <data name="onboarding_3_description" xml:space="preserve">
+  <data name="onboarding_3_description" xml:space="preserve">
         <value>Directly create contributions based on a URL on your clipboard. Pre-filling whatever Can for you allowing you to quickly add new contributions.</value>
     </data>
-    <data name="acknowledgementtype_translator" xml:space="preserve">
+  <data name="acknowledgementtype_translator" xml:space="preserve">
         <value>Translator</value>
     </data>
-    <data name="acknowledgementtype_tester" xml:space="preserve">
+  <data name="acknowledgementtype_tester" xml:space="preserve">
         <value>Tester</value>
     </data>
   <data name="about_credits_description" xml:space="preserve">
@@ -554,5 +554,8 @@
   </data>
   <data name="about_credits_title" xml:space="preserve">
     <value>Credits</value>
+  </data>
+  <data name="language_turkish" xml:space="preserve">
+    <value>Turkish</value>
   </data>
 </root>
