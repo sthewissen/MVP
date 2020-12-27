@@ -561,4 +561,7 @@
     <data name="contributionform_edit" xml:space="preserve">
       <value>Edit</value>
     </data>
+    <data name="language_german" xml:space="preserve">
+      <value>German</value>
+    </data>
 </root>
