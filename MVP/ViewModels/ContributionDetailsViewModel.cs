@@ -87,7 +87,8 @@ namespace MVP.ViewModels
                     // TODO: Be a bit more sensible with muh threads plz.
                     MainThread.BeginInvokeOnMainThread(() => HapticFeedback.Perform(HapticFeedbackType.LongPress));
                     AnalyticsService.Track("Contribution Deleted");
-                    await MainThread.InvokeOnMainThreadAsync(() => NavigationHelper.BackAsync());
+                    await MainThread.InvokeOnMainThreadAsync(() => BackAsync());
+                    MessagingService.Current.SendMessage(MessageKeys.RefreshNeeded);
                 }
                 else
                 {

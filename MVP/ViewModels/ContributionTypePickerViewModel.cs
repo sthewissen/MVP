@@ -113,10 +113,7 @@ namespace MVP.ViewModels
                 nameof(contribution.ContributionType),
                 vm.ContributionType.Name);
 
-            await NavigationHelper.BackAsync();
+            await BackAsync();
         }
-
-        public async override Task Back()
-            => await NavigationHelper.BackAsync(); // TODO: TinyMVVM 3.0 - ContributionTypes.FirstOrDefault(x => x.IsSelected)?.ContributionType);
     }
 }

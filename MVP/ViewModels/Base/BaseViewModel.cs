@@ -13,6 +13,8 @@ namespace MVP.ViewModels
 {
     public abstract class BaseViewModel : ViewModelBase
     {
+        bool isNavigating = false;
+
         protected App CurrentApp => (App)Xamarin.Forms.Application.Current;
 
         protected IMvpApiService MvpApiService => App.MvpApiService;
@@ -31,7 +33,7 @@ namespace MVP.ViewModels
         {
             AnalyticsService = analyticsService;
             NavigationHelper = navigationHelper;
-            BackCommand = new AsyncCommand(() => Back());
+            BackCommand = new AsyncCommand(() => BackAsync());
         }
 
         protected async Task<bool> VerifyInternetConnection()
@@ -45,7 +47,50 @@ namespace MVP.ViewModels
             return true;
         }
 
-        public async virtual Task Back()
-            => await NavigationHelper.BackAsync().ConfigureAwait(false);
+        protected Task NavigateAsync(string page, object param = null)
+        {
+            if (isNavigating)
+                return Task.CompletedTask;
+
+            isNavigating = true;
+
+            return NavigationHelper.NavigateToAsync(page, param);
+        }
+
+        protected Task OpenModalAsync(string page, object data, bool withNavigation)
+        {
+            if (isNavigating)
+                return Task.CompletedTask;
+
+            isNavigating = true;
+
+            return NavigationHelper.OpenModalAsync(page, data, withNavigation);
+        }
+
+        protected Task CloseModalAsync()
+        {
+            if (isNavigating)
+                return Task.CompletedTask;
+
+            isNavigating = true;
+
+            return NavigationHelper.CloseModalAsync();
+        }
+
+        public override async Task OnDisappearing()
+        {
+            await base.OnDisappearing();
+            isNavigating = false;
+        }
+
+        public virtual Task BackAsync()
+        {
+            if (isNavigating)
+                return Task.CompletedTask;
+
+            isNavigating = true;
+
+            return NavigationHelper.BackAsync();
+        }
     }
 }

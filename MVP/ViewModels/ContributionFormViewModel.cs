@@ -186,8 +186,8 @@ namespace MVP.ViewModels
 
                     MainThread.BeginInvokeOnMainThread(() => HapticFeedback.Perform(HapticFeedbackType.LongPress));
                     AnalyticsService.Track("Contribution Added");
-                    await NavigationHelper.CloseModalAsync();
-                    await NavigationHelper.BackAsync();
+                    await CloseModalAsync().ConfigureAwait(false); ;
+                    await BackAsync().ConfigureAwait(false);
                     MessagingService.Current.SendMessage(MessageKeys.RefreshNeeded);
                 }
                 else
@@ -196,15 +196,14 @@ namespace MVP.ViewModels
 
                     if (result == null)
                     {
-                        await DialogService.AlertAsync(Translations.error_couldntsavecontribution, Translations.error_title, Translations.ok
-                        ).ConfigureAwait(false);
+                        await DialogService.AlertAsync(Translations.error_couldntsavecontribution, Translations.error_title, Translations.ok).ConfigureAwait(false);
 
                         return;
                     }
 
                     AnalyticsService.Track("Contribution Edited");
                     MainThread.BeginInvokeOnMainThread(() => HapticFeedback.Perform(HapticFeedbackType.LongPress));
-                    await NavigationHelper.CloseModalAsync();
+                    await CloseModalAsync().ConfigureAwait(false);
                     MessagingService.Current.SendMessage(MessageKeys.RefreshNeeded);
                 }
             }
@@ -222,19 +221,19 @@ namespace MVP.ViewModels
 
         // Pop the entire modal stack instead of just going back one screen.
         // This means it's editing mode and there is no way to go back and change activity type.
-        public async override Task Back()
-            => await NavigationHelper.CloseModalAsync().ConfigureAwait(false);
+        public async override Task BackAsync()
+            => await CloseModalAsync().ConfigureAwait(false);
 
         async Task PickAdditionalTechnologies()
-            => await NavigationHelper.NavigateToAsync(nameof(AdditionalTechnologyPickerPage), Contribution).ConfigureAwait(false);
+            => await NavigateAsync(nameof(AdditionalTechnologyPickerPage), Contribution).ConfigureAwait(false);
 
         async Task PickContributionTechnology()
-            => await NavigationHelper.NavigateToAsync(nameof(ContributionTechnologyPickerPage), Contribution).ConfigureAwait(false);
+            => await NavigateAsync(nameof(ContributionTechnologyPickerPage), Contribution).ConfigureAwait(false);
 
         async Task PickVisibility()
-            => await NavigationHelper.NavigateToAsync(nameof(VisibilityPickerPage), Contribution).ConfigureAwait(false);
+            => await NavigateAsync(nameof(VisibilityPickerPage), Contribution).ConfigureAwait(false);
 
         async Task PickContributionType()
-            => await NavigationHelper.NavigateToAsync(nameof(ContributionTypePickerPage), Contribution).ConfigureAwait(false);
+            => await NavigateAsync(nameof(ContributionTypePickerPage), Contribution).ConfigureAwait(false);
     }
 }

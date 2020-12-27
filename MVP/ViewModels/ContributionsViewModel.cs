@@ -145,9 +145,9 @@ namespace MVP.ViewModels
         }
 
         async Task OpenAddContribution(Contribution prefilledData = null)
-            => await NavigationHelper.OpenModalAsync(nameof(ContributionFormPage), prefilledData, true).ConfigureAwait(false);
+            => await OpenModalAsync(nameof(ContributionFormPage), prefilledData, true).ConfigureAwait(false);
 
         async Task OpenContribution(Contribution contribution)
-            => await NavigationHelper.NavigateToAsync(nameof(ContributionDetailsPage), contribution).ConfigureAwait(false);
+            => await NavigateAsync(nameof(ContributionDetailsPage), contribution).ConfigureAwait(false);
     }
 }

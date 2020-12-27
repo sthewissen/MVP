@@ -137,10 +137,7 @@ namespace MVP.ViewModels
                 nameof(contribution.ContributionTechnology),
                 vm.ContributionTechnology.Name);
 
-            await NavigationHelper.BackAsync();
+            await BackAsync();
         }
-
-        public async override Task Back()
-            => await NavigationHelper.BackAsync(); // TODO: TinyMVVM 3.0 - GroupedContributionTechnologies.SelectMany(x => x).FirstOrDefault(x => x.IsSelected)?.ContributionTechnology);
     }
 }

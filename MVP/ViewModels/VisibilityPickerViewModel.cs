@@ -97,8 +97,5 @@ namespace MVP.ViewModels
                     State = Visibilities.Count > 0 ? LayoutState.None : LayoutState.Empty;
             }
         }
-
-        public async override Task Back()
-            => await NavigationHelper.BackAsync(); // TODO: TinyMVVM 3.0 - Visibilities.FirstOrDefault(x => x.IsSelected)?.Visibility);
     }
 }

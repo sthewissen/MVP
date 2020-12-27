@@ -132,15 +132,15 @@ namespace MVP.ViewModels
         }
 
         async Task OpenThemePicker()
-            => await NavigationHelper.NavigateToAsync(nameof(ThemePickerPage)).ConfigureAwait(false);
+            => await NavigateAsync(nameof(ThemePickerPage)).ConfigureAwait(false);
 
         async Task OpenLanguagePicker()
-            => await NavigationHelper.NavigateToAsync(nameof(LanguagePickerPage)).ConfigureAwait(false);
+            => await NavigateAsync(nameof(LanguagePickerPage)).ConfigureAwait(false);
 
         async Task OpenIconPicker()
-            => await NavigationHelper.NavigateToAsync(nameof(AppIconPickerPage)).ConfigureAwait(false);
+            => await NavigateAsync(nameof(AppIconPickerPage)).ConfigureAwait(false);
 
         async Task OpenAbout()
-            => await NavigationHelper.NavigateToAsync(nameof(AboutPage)).ConfigureAwait(false);
+            => await NavigateAsync(nameof(AboutPage)).ConfigureAwait(false);
     }
 }

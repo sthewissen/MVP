@@ -79,7 +79,7 @@ namespace MVP.ViewModels
                 LoadLanguages();
 
                 // Also force the tabs to change
-                (CurrentApp.MainPage as TabbedMainPage).SetTitles();
+                (CurrentApp.MainPage as TabbedMainPage)?.SetTitles();
 
                 AnalyticsService.Track("Preferred Language Changed", nameof(language.CI), language.CI ?? "null");
 
