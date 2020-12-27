@@ -1,8 +1,5 @@
-﻿using System;
-using System.Collections.Specialized;
-using MVP.Styles;
+﻿using MVP.Styles;
 using TinyMvvm.Forms;
-using TinyMvvm;
 using Xamarin.Forms;
 using Xamarin.Forms.PlatformConfiguration;
 using Xamarin.Forms.PlatformConfiguration.iOSSpecific;
