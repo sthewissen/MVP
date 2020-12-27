@@ -555,4 +555,7 @@
   <data name="about_credits_title" xml:space="preserve">
     <value>Credits</value>
   </data>
+    <data name="language_spanish" xml:space="preserve">
+      <value>Español</value>
+    </data>
 </root>

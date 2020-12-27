@@ -19,17 +19,17 @@ namespace MVP.Resources {
     // class via a tool like ResGen or Visual Studio.
     // To add or remove a member, edit your .ResX file then rerun ResGen
     // with the /str option, or rebuild your VS project.
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "4.0.0.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "16.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    internal class Translations_es {
+    internal class Translations {
         
         private static global::System.Resources.ResourceManager resourceMan;
         
         private static global::System.Globalization.CultureInfo resourceCulture;
         
         [global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]
-        internal Translations_es() {
+        internal Translations() {
         }
         
         /// <summary>
@@ -39,7 +39,7 @@ namespace MVP.Resources {
         internal static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("MVP.Resources.Translations.es", typeof(Translations_es).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("MVP.Resources.Translations", typeof(Translations).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;
@@ -61,25 +61,7 @@ namespace MVP.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Sin las increíbles personas que se enumeran a continuación, esta aplicación no habría sido posible. Por lo tanto, se han ganado un lugar aquí para celebrar sus contribuciones..
-        /// </summary>
-        internal static string about_credits_description {
-            get {
-                return ResourceManager.GetString("about_credits_description", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Créditos.
-        /// </summary>
-        internal static string about_credits_title {
-            get {
-                return ResourceManager.GetString("about_credits_title", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Esta app se para sobre los hombros de gigantes sin los cuales su creación no sería posible. Si deseas saber quiénes son, consulta las licencias de sus increíbles piezas de software..
+        ///   Looks up a localized string similar to This app stands on the shoulders of giants without whom its creation would not be possible. If you want to know who they are, check out the licenses for their awesome pieces of software..
         /// </summary>
         internal static string about_licenses_description {
             get {
@@ -88,7 +70,7 @@ namespace MVP.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Licencias.
+        ///   Looks up a localized string similar to Licenses.
         /// </summary>
         internal static string about_licenses_title {
             get {
@@ -97,7 +79,7 @@ namespace MVP.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Esta app es completamente de código abierto. Si te gusta la aplicación, siéntete libre de convertirte en patrocinador de GitHub, comprándome una taza de café digital al mes ☕️.
+        ///   Looks up a localized string similar to This app is completely open source. If you like the app, feel free to become a GitHub sponsor, buying me a digital cup of coffee a month ☕️.
         /// </summary>
         internal static string about_opensource_description {
             get {
@@ -106,7 +88,7 @@ namespace MVP.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Código abierto.
+        ///   Looks up a localized string similar to Open source.
         /// </summary>
         internal static string about_opensource_title {
             get {
@@ -115,7 +97,7 @@ namespace MVP.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Acerca de esta app.
+        ///   Looks up a localized string similar to About this app.
         /// </summary>
         internal static string about_title {
             get {
@@ -124,7 +106,7 @@ namespace MVP.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Siempre ha existido la necesidad de que los MVP de Microsoft gestionen las actividades de su comunidad de una forma más sencilla. El portal en línea funciona bien, pero tener algo similar en el bolsillo para crear actividades sobre la marcha es realmente genial. ¡Para eso es este proyecto!.
+        ///   Looks up a localized string similar to There has always been a need for Microsoft MVPs to manage their community activities in an easier way. The online portal works fine, but having a similar thing in your pocket to create activities on the fly is really cool. Which is what this project is for!.
         /// </summary>
         internal static string about_why_description {
             get {
@@ -133,7 +115,7 @@ namespace MVP.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to ¿Por qué creaste esta app?.
+        ///   Looks up a localized string similar to Why did you build  this app?.
         /// </summary>
         internal static string about_why_title {
             get {
@@ -142,25 +124,7 @@ namespace MVP.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Tester.
-        /// </summary>
-        internal static string acknowledgementtype_tester {
-            get {
-                return ResourceManager.GetString("acknowledgementtype_tester", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Traductor.
-        /// </summary>
-        internal static string acknowledgementtype_translator {
-            get {
-                return ResourceManager.GetString("acknowledgementtype_translator", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Áreas de contribución adicionales.
+        ///   Looks up a localized string similar to Additional contribution areas.
         /// </summary>
         internal static string additionaltechnologypicker_title {
             get {
@@ -169,7 +133,7 @@ namespace MVP.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Sus credenciales caducaron y no pudimos salvar el día. Por lo tanto, has sido desconectado. Vuelve a iniciar sesión para continuar..
+        ///   Looks up a localized string similar to Your credentials have expired and we couldn&apos;t save the day. Therefore you were logged out. Please log in again to continue..
         /// </summary>
         internal static string alert_error_unauthorized {
             get {
@@ -178,7 +142,7 @@ namespace MVP.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Conviértete en patrocinador.
+        ///   Looks up a localized string similar to Become a sponsor.
         /// </summary>
         internal static string becomesponsor {
             get {
@@ -187,7 +151,7 @@ namespace MVP.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Eliminar contribución.
+        ///   Looks up a localized string similar to Delete contribution.
         /// </summary>
         internal static string button_delete_contribution {
             get {
@@ -196,7 +160,7 @@ namespace MVP.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Cancelar.
+        ///   Looks up a localized string similar to Cancel.
         /// </summary>
         internal static string cancel {
             get {
@@ -205,7 +169,7 @@ namespace MVP.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Notamos una URL en su portapapeles. ¿Quieres que intentemos precompletar una actividad a partir de eso?.
+        ///   Looks up a localized string similar to We notice a URL on your clipboard. Do you want us to try to pre-fill an activity out of that?.
         /// </summary>
         internal static string clipboard_description {
             get {
@@ -214,7 +178,7 @@ namespace MVP.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to ¡Eso luce genial!.
+        ///   Looks up a localized string similar to That looks cool!.
         /// </summary>
         internal static string clipboard_title {
             get {
@@ -223,7 +187,7 @@ namespace MVP.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Agregar.
+        ///   Looks up a localized string similar to Add.
         /// </summary>
         internal static string contribution_add {
             get {
@@ -232,7 +196,7 @@ namespace MVP.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to ¿Estás seguro de que deseas eliminar esta contribución? No puedes deshacer esto..
+        ///   Looks up a localized string similar to Are you sure you want to delete this contribution? You cannot undo this..
         /// </summary>
         internal static string contributiondetail_deleteconfirmation {
             get {
@@ -241,7 +205,7 @@ namespace MVP.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to No se pudo borrar tu contribución. ¿Quizás ya se eliminó o tuvo lugar en el período de adjudicación anterior?.
+        ///   Looks up a localized string similar to Your contribution could not be deleted. Perhaps it was already deleted, or it took place in the previous award period?.
         /// </summary>
         internal static string contributiondetail_notdeleted {
             get {
@@ -250,7 +214,7 @@ namespace MVP.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Editar.
+        ///   Looks up a localized string similar to Edit.
         /// </summary>
         internal static string contributiondetails_edit {
             get {
@@ -259,7 +223,7 @@ namespace MVP.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Detalles de la actividad.
+        ///   Looks up a localized string similar to Activity details.
         /// </summary>
         internal static string contributiondetails_title {
             get {
@@ -268,7 +232,7 @@ namespace MVP.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Selecciona el tipo de actividad que mejor se adapte a esta actividad..
+        ///   Looks up a localized string similar to Select the activity type that best fits this activity..
         /// </summary>
         internal static string contributionform_activitytype_placeholder {
             get {
@@ -277,7 +241,7 @@ namespace MVP.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Selecciona hasta 2 áreas tecnológicas adicionales que también pueden aplicarse a esta actividad..
+        ///   Looks up a localized string similar to Select up to 2 additional technology areas that may also apply to this activity..
         /// </summary>
         internal static string contributionform_additionaltechnologyarea_placeholder {
             get {
@@ -286,7 +250,7 @@ namespace MVP.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Guardar.
+        ///   Looks up a localized string similar to Save.
         /// </summary>
         internal static string contributionform_save {
             get {
@@ -295,7 +259,7 @@ namespace MVP.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Selecciona el área de tecnología que es el enfoque principal de esta actividad..
+        ///   Looks up a localized string similar to Select the technology area that is the primary focus of this activity..
         /// </summary>
         internal static string contributionform_technologyarea_placeholder {
             get {
@@ -304,7 +268,7 @@ namespace MVP.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Su envío de contribución para el ciclo de premios de julio debe ser para actividades comunitarias entre {0} y {1}. Las actividades de la comunidad enviadas desde {1} y posteriores se llevarán a cabo para su consideración futura..
+        ///   Looks up a localized string similar to Your contribution submission for the July award cycle must be for community activities between {0} to {1}. Community activities submitted from {1} and beyond will be held for future consideration..
         /// </summary>
         internal static string contributionform_timeframememo {
             get {
@@ -313,7 +277,7 @@ namespace MVP.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Agregar contribución.
+        ///   Looks up a localized string similar to Add contribution.
         /// </summary>
         internal static string contributionform_title_add {
             get {
@@ -322,7 +286,7 @@ namespace MVP.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Editar contribución.
+        ///   Looks up a localized string similar to Edit contribution.
         /// </summary>
         internal static string contributionform_title_edit {
             get {
@@ -331,7 +295,7 @@ namespace MVP.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Selecciona el nivel de visibilidad de esta actividad..
+        ///   Looks up a localized string similar to Select the visibility level of this activity..
         /// </summary>
         internal static string contributionform_visibility_placeholder {
             get {
@@ -340,7 +304,7 @@ namespace MVP.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Actividades de la comunidad.
+        ///   Looks up a localized string similar to Community activities.
         /// </summary>
         internal static string contributions_title {
             get {
@@ -349,7 +313,7 @@ namespace MVP.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Área de contribución primaria.
+        ///   Looks up a localized string similar to Primary contribution area.
         /// </summary>
         internal static string contributiontechnologypicker_title {
             get {
@@ -358,7 +322,7 @@ namespace MVP.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Tipo de actividad.
+        ///   Looks up a localized string similar to Activity type.
         /// </summary>
         internal static string contributiontypepicker_title {
             get {
@@ -367,7 +331,7 @@ namespace MVP.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to No pudimos encontrar ninguna contribución. Agregue una nueva contribución o actualice para intentar recuperar sus datos existentes..
+        ///   Looks up a localized string similar to We couldn&apos;t find any contributions. Add a new contribution or refresh to try and retrieve your existing data..
         /// </summary>
         internal static string empty_state_contributions {
             get {
@@ -376,7 +340,7 @@ namespace MVP.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to No pudimos encontrar áreas de contribución. Intente actualizar..
+        ///   Looks up a localized string similar to We couldn&apos;t find any contribution areas. Please try to refresh them..
         /// </summary>
         internal static string empty_state_contributiontechnologies {
             get {
@@ -385,7 +349,7 @@ namespace MVP.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to No pudimos encontrar ningún tipo de contribución. Intente actualizar..
+        ///   Looks up a localized string similar to We couldn&apos;t find any contribution types. Please try to refresh them..
         /// </summary>
         internal static string empty_state_contributiontypes {
             get {
@@ -394,7 +358,7 @@ namespace MVP.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Su consulta de búsqueda no arrojó resultados. Pruebe con una consulta de búsqueda diferente..
+        ///   Looks up a localized string similar to Your search query returned no results. Please try a different search query..
         /// </summary>
         internal static string empty_state_noresultcontributiontechnologies {
             get {
@@ -403,7 +367,7 @@ namespace MVP.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Aah... ¡Está vacío aquí!.
+        ///   Looks up a localized string similar to Ooh...it&apos;s empty here!.
         /// </summary>
         internal static string empty_state_title {
             get {
@@ -412,7 +376,7 @@ namespace MVP.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to No pudimos encontrar ninguna visibilidad. Intente actualizar..
+        ///   Looks up a localized string similar to We couldn&apos;t find any visibilities. Please try to refresh them..
         /// </summary>
         internal static string empty_state_visibilities {
             get {
@@ -421,7 +385,7 @@ namespace MVP.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Logramos hacer una solicitud que no estaba del todo bien. Inténtelo de nuevo más tarde..
+        ///   Looks up a localized string similar to We managed to do a request that wasn&apos;t quite right. Try again later..
         /// </summary>
         internal static string error_badrequest {
             get {
@@ -430,7 +394,7 @@ namespace MVP.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Tu icono no se pudo cambiar. Por favor, inténtelo de nuevo más tarde..
+        ///   Looks up a localized string similar to Your icon couldn&apos;t be changed. Please try again later..
         /// </summary>
         internal static string error_couldntchangeicon {
             get {
@@ -439,7 +403,7 @@ namespace MVP.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to No se pudo cambiar tu idioma. Por favor, inténtelo de nuevo más tarde..
+        ///   Looks up a localized string similar to Your language couldn&apos;t be changed. Please try again later..
         /// </summary>
         internal static string error_couldntchangelanguage {
             get {
@@ -448,7 +412,7 @@ namespace MVP.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Tu tema no se pudo cambiar. Por favor, inténtelo de nuevo más tarde..
+        ///   Looks up a localized string similar to Your theme couldn&apos;t be changed. Please try again later..
         /// </summary>
         internal static string error_couldntchangetheme {
             get {
@@ -457,7 +421,7 @@ namespace MVP.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to No se pudieron cargar más contribuciones. No estamos muy seguros de por qué, pero se ha registrado un error. Por favor, inténtelo de nuevo más tarde..
+        ///   Looks up a localized string similar to Couldn&apos;t load more contributions. We&apos;re not quite sure why but an error has been logged. Please try again later..
         /// </summary>
         internal static string error_couldntloadmorecontributions {
             get {
@@ -466,7 +430,7 @@ namespace MVP.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to No se pudo actualizar la información de tu perfil. No estamos muy seguros de por qué, pero se ha registrado un error. Por favor, inténtelo de nuevo más tarde..
+        ///   Looks up a localized string similar to Couldn&apos;t refresh your profile information. We&apos;re not quite sure why but an error has been logged. Please try again later..
         /// </summary>
         internal static string error_couldntrefreshprofile {
             get {
@@ -475,7 +439,7 @@ namespace MVP.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to No se pudo guardar esta contribución. No estamos muy seguros de por qué, pero se ha registrado un error. Por favor, inténtelo de nuevo más tarde..
+        ///   Looks up a localized string similar to Couldn&apos;t save this contribution. We&apos;re not quite sure why but an error has been logged. Please try again later..
         /// </summary>
         internal static string error_couldntsavecontribution {
             get {
@@ -484,7 +448,7 @@ namespace MVP.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to No se pudieron cargar los datos. No estamos muy seguros de por qué, pero se ha registrado un error. Puede intentar actualizar o volver a intentarlo más tarde..
+        ///   Looks up a localized string similar to The data could not be loaded. We&apos;re not quite sure why but an error has been logged. You can try to refresh or try again later..
         /// </summary>
         internal static string error_data_not_loaded {
             get {
@@ -493,7 +457,7 @@ namespace MVP.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to No se completaron todos los campos obligatorios. Complete el formulario e intente guardar nuevamente..
+        ///   Looks up a localized string similar to Not all required fields were completed. Please complete the form and try saving again..
         /// </summary>
         internal static string error_description_validationfailed {
             get {
@@ -502,7 +466,7 @@ namespace MVP.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Actualmente no tienes conexión a Internet. Esto puede hacer que no pueda volver a iniciar sesión. ¿Estás seguro de que quieres continuar?.
+        ///   Looks up a localized string similar to You currently have no internet connection. This may cause you to not be able to log back in again. Are you sure you want to continue?.
         /// </summary>
         internal static string error_logoutwhileoffline {
             get {
@@ -511,7 +475,7 @@ namespace MVP.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to No se pudo autenticarlo con las credenciales proporcionadas. ¿Está seguro de que está utilizando la cuenta asociada a su ID de MVP?.
+        ///   Looks up a localized string similar to Couldn&apos;t authenticate you using the provided credentials. Are you sure you are using the account associated to your MVP ID?.
         /// </summary>
         internal static string error_nomvpaccount {
             get {
@@ -520,7 +484,7 @@ namespace MVP.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Esta acción no se puede realizar sin una conexión a Internet. Por favor, inténtelo de nuevo más tarde..
+        ///   Looks up a localized string similar to This action cannot be performed without an internet connection. Please try again later..
         /// </summary>
         internal static string error_offline {
             get {
@@ -529,7 +493,7 @@ namespace MVP.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Sin conexión a Internet.
+        ///   Looks up a localized string similar to No internet connection.
         /// </summary>
         internal static string error_offline_title {
             get {
@@ -538,7 +502,7 @@ namespace MVP.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to No se pudo procesar su solicitud. Inténtelo de nuevo más tarde..
+        ///   Looks up a localized string similar to The MVP API messed something up. Couldn&apos;t process your request. Try again later..
         /// </summary>
         internal static string error_servererror {
             get {
@@ -547,7 +511,7 @@ namespace MVP.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Algo salió mal.
+        ///   Looks up a localized string similar to Something went wrong.
         /// </summary>
         internal static string error_title {
             get {
@@ -556,7 +520,7 @@ namespace MVP.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Validación fallida.
+        ///   Looks up a localized string similar to Validation failed.
         /// </summary>
         internal static string error_title_validationfailed {
             get {
@@ -565,7 +529,7 @@ namespace MVP.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Algo salió mal que no esperábamos que sucediera. Se ha registrado un error y lo investigaremos lo antes posible..
+        ///   Looks up a localized string similar to Something went wrong that we didn&apos;t expect could happen. An error has been logged and we will look into it as soon as possible..
         /// </summary>
         internal static string error_unexpected {
             get {
@@ -574,7 +538,7 @@ namespace MVP.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Fecha de actividad.
+        ///   Looks up a localized string similar to Activity date.
         /// </summary>
         internal static string field_activity_date {
             get {
@@ -583,7 +547,7 @@ namespace MVP.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Tipo de actividad.
+        ///   Looks up a localized string similar to Activity type.
         /// </summary>
         internal static string field_activity_type {
             get {
@@ -592,7 +556,7 @@ namespace MVP.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Áreas de contribución adicionales.
+        ///   Looks up a localized string similar to Additional contribution areas.
         /// </summary>
         internal static string field_additional_contribution_areas {
             get {
@@ -601,7 +565,7 @@ namespace MVP.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Cantidad Anual.
+        ///   Looks up a localized string similar to Annual Quantity.
         /// </summary>
         internal static string field_annual_quantity {
             get {
@@ -610,7 +574,7 @@ namespace MVP.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Alcance Anual.
+        ///   Looks up a localized string similar to Annual Reach.
         /// </summary>
         internal static string field_annual_reach {
             get {
@@ -619,7 +583,7 @@ namespace MVP.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Visitantes Únicos Anuales.
+        ///   Looks up a localized string similar to Annual Unique Visitors.
         /// </summary>
         internal static string field_annual_unique_visitors {
             get {
@@ -628,7 +592,7 @@ namespace MVP.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Asistentes a Charlas.
+        ///   Looks up a localized string similar to Attendees of Talks.
         /// </summary>
         internal static string field_attendees_of_talks {
             get {
@@ -637,7 +601,7 @@ namespace MVP.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Contribuciones.
+        ///   Looks up a localized string similar to Contributions.
         /// </summary>
         internal static string field_contributions {
             get {
@@ -646,7 +610,7 @@ namespace MVP.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Copias Vendidas.
+        ///   Looks up a localized string similar to Copies Sold.
         /// </summary>
         internal static string field_copies_sold {
             get {
@@ -655,7 +619,7 @@ namespace MVP.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Descripción.
+        ///   Looks up a localized string similar to Description.
         /// </summary>
         internal static string field_description {
             get {
@@ -664,7 +628,7 @@ namespace MVP.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Reuniones.
+        ///   Looks up a localized string similar to Meetings.
         /// </summary>
         internal static string field_meetings {
             get {
@@ -673,7 +637,7 @@ namespace MVP.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Miembros.
+        ///   Looks up a localized string similar to Members.
         /// </summary>
         internal static string field_members {
             get {
@@ -682,7 +646,7 @@ namespace MVP.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Numero de Respuestas.
+        ///   Looks up a localized string similar to Number of Answers.
         /// </summary>
         internal static string field_number_of_answers {
             get {
@@ -691,7 +655,7 @@ namespace MVP.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Número de Artículos.
+        ///   Looks up a localized string similar to Number of Articles.
         /// </summary>
         internal static string field_number_of_articles {
             get {
@@ -700,7 +664,7 @@ namespace MVP.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Número de Asistentes.
+        ///   Looks up a localized string similar to Number of Attendees.
         /// </summary>
         internal static string field_number_of_attendees {
             get {
@@ -709,7 +673,7 @@ namespace MVP.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Numero de Libros.
+        ///   Looks up a localized string similar to Number of Books.
         /// </summary>
         internal static string field_number_of_books {
             get {
@@ -718,7 +682,7 @@ namespace MVP.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Numero de Conferencias.
+        ///   Looks up a localized string similar to Number of Conferences.
         /// </summary>
         internal static string field_number_of_conferences {
             get {
@@ -727,7 +691,7 @@ namespace MVP.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Número de Descargas.
+        ///   Looks up a localized string similar to Number of Downloads.
         /// </summary>
         internal static string field_number_of_downloads {
             get {
@@ -736,7 +700,7 @@ namespace MVP.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Numero de Eventos.
+        ///   Looks up a localized string similar to Number of Events.
         /// </summary>
         internal static string field_number_of_events {
             get {
@@ -745,7 +709,7 @@ namespace MVP.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Número de Eventos Participados.
+        ///   Looks up a localized string similar to Number of Events Participated.
         /// </summary>
         internal static string field_number_of_events_participated {
             get {
@@ -754,7 +718,7 @@ namespace MVP.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Número de Comentarios Proporcionados.
+        ///   Looks up a localized string similar to Number of Feedbacks Provided.
         /// </summary>
         internal static string field_number_of_feedbacks_provided {
             get {
@@ -763,7 +727,7 @@ namespace MVP.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Numero de Seguidores.
+        ///   Looks up a localized string similar to Number of Followers.
         /// </summary>
         internal static string field_number_of_followers {
             get {
@@ -772,7 +736,7 @@ namespace MVP.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Número de Aprendices.
+        ///   Looks up a localized string similar to Number of Mentees.
         /// </summary>
         internal static string field_number_of_mentees {
             get {
@@ -781,7 +745,7 @@ namespace MVP.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Número de Actividad de Tutoría.
+        ///   Looks up a localized string similar to Number of Mentorship Activity.
         /// </summary>
         internal static string field_number_of_mentorship_activity {
             get {
@@ -790,7 +754,7 @@ namespace MVP.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Número de Publicaciones.
+        ///   Looks up a localized string similar to Number of Posts.
         /// </summary>
         internal static string field_number_of_posts {
             get {
@@ -799,7 +763,7 @@ namespace MVP.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Numero de Proyectos.
+        ///   Looks up a localized string similar to Number of Projects.
         /// </summary>
         internal static string field_number_of_projects {
             get {
@@ -808,7 +772,7 @@ namespace MVP.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Número de Ejemplos.
+        ///   Looks up a localized string similar to Number of Samples.
         /// </summary>
         internal static string field_number_of_samples {
             get {
@@ -817,7 +781,7 @@ namespace MVP.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Número de Sitios.
+        ///   Looks up a localized string similar to Number of Sites.
         /// </summary>
         internal static string field_number_of_sites {
             get {
@@ -826,7 +790,7 @@ namespace MVP.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Numero de Suscriptores.
+        ///   Looks up a localized string similar to Number of Subscribers.
         /// </summary>
         internal static string field_number_of_subscribers {
             get {
@@ -835,7 +799,7 @@ namespace MVP.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Número de Charlas.
+        ///   Looks up a localized string similar to Number of Talks.
         /// </summary>
         internal static string field_number_of_talks {
             get {
@@ -844,7 +808,7 @@ namespace MVP.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Número de Hilos Moderados.
+        ///   Looks up a localized string similar to Number of Threads Moderated.
         /// </summary>
         internal static string field_number_of_threads_moderated {
             get {
@@ -853,7 +817,7 @@ namespace MVP.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Número de Videos.
+        ///   Looks up a localized string similar to Number of Videos.
         /// </summary>
         internal static string field_number_of_videos {
             get {
@@ -862,7 +826,7 @@ namespace MVP.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Número de Vistas.
+        ///   Looks up a localized string similar to Number of Views.
         /// </summary>
         internal static string field_number_of_views {
             get {
@@ -871,7 +835,7 @@ namespace MVP.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Número de Visitantes.
+        ///   Looks up a localized string similar to Number of Visitors.
         /// </summary>
         internal static string field_number_of_visitors {
             get {
@@ -880,7 +844,7 @@ namespace MVP.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Área de contribución primaria.
+        ///   Looks up a localized string similar to Primary contribution area.
         /// </summary>
         internal static string field_primary_contribution_area {
             get {
@@ -889,7 +853,7 @@ namespace MVP.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Proyecto(s).
+        ///   Looks up a localized string similar to Project(s).
         /// </summary>
         internal static string field_projects {
             get {
@@ -907,7 +871,7 @@ namespace MVP.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Título de la actividad.
+        ///   Looks up a localized string similar to Title of activity.
         /// </summary>
         internal static string field_title {
             get {
@@ -925,7 +889,7 @@ namespace MVP.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Vistas de Respuestas.
+        ///   Looks up a localized string similar to Views of Answers.
         /// </summary>
         internal static string field_views_of_answers {
             get {
@@ -934,7 +898,7 @@ namespace MVP.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Visibilidad.
+        ///   Looks up a localized string similar to Visibility.
         /// </summary>
         internal static string field_visibility {
             get {
@@ -943,7 +907,7 @@ namespace MVP.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Negro.
+        ///   Looks up a localized string similar to Black.
         /// </summary>
         internal static string icon_black {
             get {
@@ -952,7 +916,7 @@ namespace MVP.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Azul oscuro.
+        ///   Looks up a localized string similar to Dark Blue.
         /// </summary>
         internal static string icon_darkblue {
             get {
@@ -961,7 +925,7 @@ namespace MVP.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Predeterminado.
+        ///   Looks up a localized string similar to Default.
         /// </summary>
         internal static string icon_default {
             get {
@@ -970,7 +934,7 @@ namespace MVP.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Arco iris.
+        ///   Looks up a localized string similar to Rainbow.
         /// </summary>
         internal static string icon_rainbow {
             get {
@@ -979,7 +943,7 @@ namespace MVP.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Blanco.
+        ///   Looks up a localized string similar to White.
         /// </summary>
         internal static string icon_white {
             get {
@@ -988,7 +952,7 @@ namespace MVP.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Nederlands.
+        ///   Looks up a localized string similar to Dutch.
         /// </summary>
         internal static string language_dutch {
             get {
@@ -1006,16 +970,7 @@ namespace MVP.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Español.
-        /// </summary>
-        internal static string language_spanish {
-            get {
-                return ResourceManager.GetString("language_spanish", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Lenguaje.
+        ///   Looks up a localized string similar to Language.
         /// </summary>
         internal static string languagepicker_title {
             get {
@@ -1024,7 +979,7 @@ namespace MVP.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Licencias.
+        ///   Looks up a localized string similar to Licenses.
         /// </summary>
         internal static string licenses_title {
             get {
@@ -1033,7 +988,7 @@ namespace MVP.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Cerrar sesión.
+        ///   Looks up a localized string similar to Logout.
         /// </summary>
         internal static string logout {
             get {
@@ -1051,7 +1006,7 @@ namespace MVP.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Actualmente no tienes conexión a Internet. Esto nos impide cargar tus contribuciones. Por favor, inténtelo de nuevo más tarde..
+        ///   Looks up a localized string similar to You currently have no internet connection. This prevents us from loading your contributions. Please try again later..
         /// </summary>
         internal static string offline_contributions {
             get {
@@ -1069,7 +1024,7 @@ namespace MVP.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Administra todas las actividades de tu comunidad desde la palma de tu mano..
+        ///   Looks up a localized string similar to Manage all of your community activities from the palm of your hand..
         /// </summary>
         internal static string onboarding_1_description {
             get {
@@ -1078,7 +1033,7 @@ namespace MVP.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Simple y eficaz.
+        ///   Looks up a localized string similar to Simple and effective.
         /// </summary>
         internal static string onboarding_1_title {
             get {
@@ -1087,7 +1042,7 @@ namespace MVP.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Crea contribuciones directamente basadas en una URL en su portapapeles. Prellenando todo lo que podamos para que puedas agregar rápidamente nuevas contribuciones..
+        ///   Looks up a localized string similar to Directly create contributions based on a URL on your clipboard. Pre-filling whatever we can for you allowing you to quickly add new contributions..
         /// </summary>
         internal static string onboarding_3_description {
             get {
@@ -1096,7 +1051,7 @@ namespace MVP.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Agregar Rápido.
+        ///   Looks up a localized string similar to Quick Add.
         /// </summary>
         internal static string onboarding_3_title {
             get {
@@ -1105,7 +1060,7 @@ namespace MVP.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Configuraciones.
+        ///   Looks up a localized string similar to Settings.
         /// </summary>
         internal static string profile_title {
             get {
@@ -1114,7 +1069,7 @@ namespace MVP.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Obteniendo metadatos de URL....
+        ///   Looks up a localized string similar to Getting URL metadata....
         /// </summary>
         internal static string progress_loading_url_data {
             get {
@@ -1123,7 +1078,7 @@ namespace MVP.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Guardando....
+        ///   Looks up a localized string similar to Saving....
         /// </summary>
         internal static string progress_saving {
             get {
@@ -1132,7 +1087,7 @@ namespace MVP.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Buscando....
+        ///   Looks up a localized string similar to Search....
         /// </summary>
         internal static string search_placeholder {
             get {
@@ -1141,7 +1096,7 @@ namespace MVP.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to ¿No te gusta el ícono de la aplicación que elegimos para ti? Tenemos opciones alternativas disponibles. Si tiene ideas para otras, ¡No dudes en contactarnos!.
+        ///   Looks up a localized string similar to Don&apos;t like the app icon we picked for you? We have alternative options available. If you have ideas for additional ones, feel free to reach out!.
         /// </summary>
         internal static string setting_appicon_description {
             get {
@@ -1150,7 +1105,7 @@ namespace MVP.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Icono de la aplicación.
+        ///   Looks up a localized string similar to App icon.
         /// </summary>
         internal static string setting_appicon_title {
             get {
@@ -1159,7 +1114,7 @@ namespace MVP.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Esta aplicación se puede utilizar tanto en modo claro como oscuro. De forma predeterminada, elegirá lo que esté configurado en su dispositivo. Si alguno de los temas te gusta, también puedes forzar un tema específico aquí..
+        ///   Looks up a localized string similar to This app can be used in both light and dark mode. By default it will pick whatever your device is set to. If either theme tickles your fancy you can also force a specific theme here..
         /// </summary>
         internal static string setting_apptheme_description {
             get {
@@ -1168,7 +1123,7 @@ namespace MVP.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Tema de la aplicación.
+        ///   Looks up a localized string similar to App theme.
         /// </summary>
         internal static string setting_apptheme_title {
             get {
@@ -1177,7 +1132,7 @@ namespace MVP.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Si tienes una URL válida en tu portapapeles mientras agregas una contribución, se te preguntará si los metadatos de esa URL deben usarse para completar tu contribución..
+        ///   Looks up a localized string similar to If you have a valid URL on your clipboard while adding a contribution, you will be asked if metadata from that URL should be used to prefill your contribution..
         /// </summary>
         internal static string setting_contributionfromurl_description {
             get {
@@ -1186,7 +1141,7 @@ namespace MVP.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Crear contribución desde URL.
+        ///   Looks up a localized string similar to Create contribution from URL.
         /// </summary>
         internal static string setting_contributionfromurl_title {
             get {
@@ -1195,7 +1150,7 @@ namespace MVP.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to De forma predeterminada, seleccionamos el idioma que está utilizando en su dispositivo si hay traducciones disponibles. Sin embargo, si deseas utilizar esta aplicación en un idioma diferente, puedes remplazarlo aquí..
+        ///   Looks up a localized string similar to By default, we select the language that you&apos;re using on your device if translations for it are available. However, if you want to use this app in a different language you can override it here..
         /// </summary>
         internal static string setting_language_description {
             get {
@@ -1204,7 +1159,7 @@ namespace MVP.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Lenguaje.
+        ///   Looks up a localized string similar to Language.
         /// </summary>
         internal static string setting_language_title {
             get {
@@ -1213,7 +1168,7 @@ namespace MVP.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Tomando las áreas de contribución....
+        ///   Looks up a localized string similar to Grabbing the contribution areas....
         /// </summary>
         internal static string splash_contributionareas {
             get {
@@ -1222,7 +1177,7 @@ namespace MVP.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Sincronizando los tipos de contribución....
+        ///   Looks up a localized string similar to Syncing the contribution types....
         /// </summary>
         internal static string splash_contributiontypes {
             get {
@@ -1231,7 +1186,7 @@ namespace MVP.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Preparando las cosas....
+        ///   Looks up a localized string similar to Getting things ready....
         /// </summary>
         internal static string splash_gettingready {
             get {
@@ -1240,7 +1195,7 @@ namespace MVP.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Poniendo visibilidades en su lugar....
+        ///   Looks up a localized string similar to Putting visibilities in place....
         /// </summary>
         internal static string splash_visibilities {
             get {
@@ -1249,7 +1204,7 @@ namespace MVP.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Actividades.
+        ///   Looks up a localized string similar to Activities.
         /// </summary>
         internal static string tabs_activities {
             get {
@@ -1258,7 +1213,7 @@ namespace MVP.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Insignias.
+        ///   Looks up a localized string similar to Badges.
         /// </summary>
         internal static string tabs_badges {
             get {
@@ -1267,7 +1222,7 @@ namespace MVP.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Configuraciones.
+        ///   Looks up a localized string similar to Settings.
         /// </summary>
         internal static string tabs_settings {
             get {
@@ -1276,7 +1231,7 @@ namespace MVP.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Estadísticas.
+        ///   Looks up a localized string similar to Statistics.
         /// </summary>
         internal static string tabs_statistics {
             get {
@@ -1285,7 +1240,7 @@ namespace MVP.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Oscuro.
+        ///   Looks up a localized string similar to Dark.
         /// </summary>
         internal static string theme_dark {
             get {
@@ -1294,7 +1249,7 @@ namespace MVP.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Claro.
+        ///   Looks up a localized string similar to Light.
         /// </summary>
         internal static string theme_light {
             get {
@@ -1303,7 +1258,7 @@ namespace MVP.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Predeterminado de Sistema.
+        ///   Looks up a localized string similar to System Default.
         /// </summary>
         internal static string theme_systemdefault {
             get {
@@ -1312,7 +1267,7 @@ namespace MVP.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Tema de la aplicación.
+        ///   Looks up a localized string similar to App theme.
         /// </summary>
         internal static string themepicker_title {
             get {
@@ -1321,7 +1276,7 @@ namespace MVP.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to {0} es un campo obligatorio..
+        ///   Looks up a localized string similar to {0} is a required field..
         /// </summary>
         internal static string validation_variablefield {
             get {
@@ -1330,7 +1285,7 @@ namespace MVP.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Ver licencias.
+        ///   Looks up a localized string similar to View licenses.
         /// </summary>
         internal static string view_licenses {
             get {
@@ -1339,7 +1294,7 @@ namespace MVP.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Visibilidad.
+        ///   Looks up a localized string similar to Visibility.
         /// </summary>
         internal static string visibility_title {
             get {
@@ -1348,7 +1303,7 @@ namespace MVP.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Esta actividad se registró en la ventana de contribución anterior y, por lo tanto, no se puede editar ni eliminar..
+        ///   Looks up a localized string similar to This activity was recorded in the previous contribution window and therefore it cannot be edited or deleted..
         /// </summary>
         internal static string warning_description_activitylocked {
             get {
@@ -1357,7 +1312,7 @@ namespace MVP.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Espere....
+        ///   Looks up a localized string similar to Hold on....
         /// </summary>
         internal static string warning_title {
             get {
@@ -1366,7 +1321,7 @@ namespace MVP.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Actividad bloqueada.
+        ///   Looks up a localized string similar to Activity locked.
         /// </summary>
         internal static string warning_title_activitylocked {
             get {
@@ -1375,7 +1330,7 @@ namespace MVP.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Si.
+        ///   Looks up a localized string similar to Yes.
         /// </summary>
         internal static string yes {
             get {
