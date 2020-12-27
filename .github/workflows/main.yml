@@ -1,8 +1,8 @@
-name: CI on Pull Request
+# name: CI on Pull Request
 
-on: [push, pull_request]
+# on: [push, pull_request]
 
-jobs:   
+# jobs:   
 #   Android:
 #     runs-on: macos-latest
 #     steps:
