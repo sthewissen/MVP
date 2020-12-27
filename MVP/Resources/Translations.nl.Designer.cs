@@ -539,12 +539,6 @@ namespace MVP.Resources {
             }
         }
         
-        internal static string contributionform_edit {
-            get {
-                return ResourceManager.GetString("contributionform_edit", resourceCulture);
-            }
-        }
-        
         internal static string contributiondetails_edit {
             get {
                 return ResourceManager.GetString("contributiondetails_edit", resourceCulture);
@@ -848,6 +842,60 @@ namespace MVP.Resources {
         internal static string field_number_of_events {
             get {
                 return ResourceManager.GetString("field_number_of_events", resourceCulture);
+            }
+        }
+        
+        internal static string contributionform_save {
+            get {
+                return ResourceManager.GetString("contributionform_save", resourceCulture);
+            }
+        }
+        
+        internal static string error_logoutwhileoffline {
+            get {
+                return ResourceManager.GetString("error_logoutwhileoffline", resourceCulture);
+            }
+        }
+        
+        internal static string error_offline {
+            get {
+                return ResourceManager.GetString("error_offline", resourceCulture);
+            }
+        }
+        
+        internal static string error_offline_title {
+            get {
+                return ResourceManager.GetString("error_offline_title", resourceCulture);
+            }
+        }
+        
+        internal static string offline_contributions {
+            get {
+                return ResourceManager.GetString("offline_contributions", resourceCulture);
+            }
+        }
+        
+        internal static string onboarding_1_description {
+            get {
+                return ResourceManager.GetString("onboarding_1_description", resourceCulture);
+            }
+        }
+        
+        internal static string onboarding_1_title {
+            get {
+                return ResourceManager.GetString("onboarding_1_title", resourceCulture);
+            }
+        }
+        
+        internal static string onboarding_3_description {
+            get {
+                return ResourceManager.GetString("onboarding_3_description", resourceCulture);
+            }
+        }
+        
+        internal static string onboarding_3_title {
+            get {
+                return ResourceManager.GetString("onboarding_3_title", resourceCulture);
             }
         }
     }
