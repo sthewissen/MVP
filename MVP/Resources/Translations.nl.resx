@@ -184,7 +184,7 @@
         <value>Regenboog</value>
     </data>
   <data name="setting_appicon_title" xml:space="preserve">
-        <value>Applicatieicoon</value>
+        <value>Icoon</value>
     </data>
   <data name="setting_appicon_description" xml:space="preserve">
         <value>Vind je het standaardicoon niet mooi? Er zijn een aantal alternatieve opties beschikbaar.</value>
@@ -437,5 +437,17 @@
   </data>
   <data name="onboarding_3_title" xml:space="preserve">
     <value>Snel toevoegen</value>
+  </data>
+  <data name="acknowledgementtype_translator" xml:space="preserve">
+    <value>Vertaler</value>
+  </data>
+  <data name="acknowledgementtype_tester" xml:space="preserve">
+    <value>Tester</value>
+  </data>
+  <data name="about_credits_description" xml:space="preserve">
+    <value>Zonder de onderstaande personen zou deze applicatie niet mogelijk zijn geweest. Daarom hebben zij een plekje verdiend in onderstaande lijst om hun bijdrage te vieren.</value>
+  </data>
+  <data name="about_credits_title" xml:space="preserve">
+    <value>Credits</value>
   </data>
 </root>

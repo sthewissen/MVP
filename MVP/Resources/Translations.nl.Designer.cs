@@ -898,5 +898,29 @@ namespace MVP.Resources {
                 return ResourceManager.GetString("onboarding_3_title", resourceCulture);
             }
         }
+        
+        internal static string acknowledgementtype_translator {
+            get {
+                return ResourceManager.GetString("acknowledgementtype_translator", resourceCulture);
+            }
+        }
+        
+        internal static string acknowledgementtype_tester {
+            get {
+                return ResourceManager.GetString("acknowledgementtype_tester", resourceCulture);
+            }
+        }
+        
+        internal static string about_credits_description {
+            get {
+                return ResourceManager.GetString("about_credits_description", resourceCulture);
+            }
+        }
+        
+        internal static string about_credits_title {
+            get {
+                return ResourceManager.GetString("about_credits_title", resourceCulture);
+            }
+        }
     }
 }
