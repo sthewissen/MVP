@@ -136,7 +136,7 @@
     <value>Tema de la aplicación</value>
   </data>
   <data name="setting_apptheme_description" xml:space="preserve">
-    <value>Esta aplicación se puede utilizar tanto en modo claro como oscuro. De forma predeterminada, elegirá lo que esté configurado en su dispositivo. Si alguno de los temas te gusta, también puedes forzar un tema específico aquí.</value>
+    <value>Esta aplicación se puede utilizar tanto en modo claro como oscuro. De forma predeterminada, elegirá lo que esté configurado en tu dispositivo. Si alguno de los temas te gusta, también puedes forzar un tema específico aquí.</value>
   </data>
   <data name="logout" xml:space="preserve">
     <value>Cerrar sesión</value>
@@ -196,7 +196,7 @@
     <value>Acerca de esta app</value>
   </data>
   <data name="about_why_title" xml:space="preserve">
-    <value>¿Por qué creaste esta app?</value>
+    <value>¿Por qué se desarrollo esta app?</value>
   </data>
   <data name="about_why_description" xml:space="preserve">
     <value>Siempre ha existido la necesidad de que los MVP de Microsoft gestionen las actividades de su comunidad de una forma más sencilla. El portal en línea funciona bien, pero tener algo similar en el bolsillo para crear actividades sobre la marcha es realmente genial. ¡Para eso es este proyecto!</value>
@@ -211,7 +211,7 @@
     <value>Conviértete en patrocinador</value>
   </data>
   <data name="contributionform_timeframememo" xml:space="preserve">
-    <value>Su envío de contribución para el ciclo de premios de julio debe ser para actividades comunitarias entre {0} y {1}. Las actividades de la comunidad enviadas desde {1} y posteriores se llevarán a cabo para su consideración futura.</value>
+    <value>Tu envío de contribución para el ciclo de premios de julio debe ser para actividades comunitarias entre {0} y {1}. Las actividades de la comunidad enviadas desde {1} y posteriores se llevarán a cabo para su consideración futura.</value>
   </data>
   <data name="contributionform_activitytype_placeholder" xml:space="preserve">
     <value>Selecciona el tipo de actividad que mejor se adapte a esta actividad.</value>
@@ -298,7 +298,7 @@
     <value>Cancelar</value>
   </data>
   <data name="warning_title" xml:space="preserve">
-    <value>Espere...</value>
+    <value>Espera...</value>
   </data>
   <data name="contributiondetail_deleteconfirmation" xml:space="preserve">
     <value>¿Estás seguro de que deseas eliminar esta contribución? No puedes deshacer esto.</value>
@@ -307,13 +307,13 @@
     <value>Algo salió mal que no esperábamos que sucediera. Se ha registrado un error y lo investigaremos lo antes posible.</value>
   </data>
   <data name="error_badrequest" xml:space="preserve">
-    <value>Logramos hacer una solicitud que no estaba del todo bien. Inténtelo de nuevo más tarde.</value>
+    <value>Logramos hacer una solicitud que no estaba del todo bien. Inténtalo de nuevo más tarde.</value>
   </data>
   <data name="error_servererror" xml:space="preserve">
-    <value>No se pudo procesar su solicitud. Inténtelo de nuevo más tarde.</value>
+    <value>No se pudo procesar su solicitud. Inténtalo de nuevo más tarde.</value>
   </data>
   <data name="alert_error_unauthorized" xml:space="preserve">
-    <value>Sus credenciales caducaron y no pudimos salvar el día. Por lo tanto, has sido desconectado. Vuelve a iniciar sesión para continuar.</value>
+    <value>Tus credenciales caducaron y no pudimos salvar el día. Por lo tanto, has sido desconectado. Vuelve a iniciar sesión para continuar.</value>
   </data>
   <data name="clipboard_title" xml:space="preserve">
     <value>¡Eso luce genial!</value>
@@ -337,7 +337,7 @@
     <value>Áreas de contribución adicionales</value>
   </data>
   <data name="error_nomvpaccount" xml:space="preserve">
-    <value>No se pudo autenticarlo con las credenciales proporcionadas. ¿Está seguro de que está utilizando la cuenta asociada a su ID de MVP?</value>
+    <value>No se pudo autenticarlo con las credenciales proporcionadas. ¿Estás seguro de que está utilizando la cuenta asociada a su ID de MVP?</value>
   </data>
   <data name="progress_saving" xml:space="preserve">
     <value>Guardando...</value>
@@ -367,31 +367,31 @@
     <value>Validación fallida</value>
   </data>
   <data name="error_description_validationfailed" xml:space="preserve">
-    <value>No se completaron todos los campos obligatorios. Complete el formulario e intente guardar nuevamente.</value>
+    <value>No se completaron todos los campos obligatorios. Completa el formulario e intenta guardar nuevamente.</value>
   </data>
   <data name="empty_state_title" xml:space="preserve">
     <value>Aah... ¡Está vacío aquí!</value>
   </data>
   <data name="empty_state_contributions" xml:space="preserve">
-    <value>No pudimos encontrar ninguna contribución. Agregue una nueva contribución o actualice para intentar recuperar sus datos existentes.</value>
+    <value>No pudimos encontrar ninguna contribución. Agrega una nueva contribución o actualice para intentar recuperar sus datos existentes.</value>
   </data>
   <data name="contribution_add" xml:space="preserve">
     <value>Agregar</value>
   </data>
   <data name="empty_state_contributiontypes" xml:space="preserve">
-    <value>No pudimos encontrar ningún tipo de contribución. Intente actualizar.</value>
+    <value>No pudimos encontrar ningún tipo de contribución. Intenta actualizar.</value>
   </data>
   <data name="empty_state_contributiontechnologies" xml:space="preserve">
-    <value>No pudimos encontrar áreas de contribución. Intente actualizar.</value>
+    <value>No pudimos encontrar áreas de contribución. Intenta actualizar.</value>
   </data>
   <data name="empty_state_noresultcontributiontechnologies" xml:space="preserve">
-    <value>Su consulta de búsqueda no arrojó resultados. Pruebe con una consulta de búsqueda diferente.</value>
+    <value>Tu consulta de búsqueda no arrojó resultados. Prueba con una consulta de búsqueda diferente.</value>
   </data>
   <data name="empty_state_visibilities" xml:space="preserve">
-    <value>No pudimos encontrar ninguna visibilidad. Intente actualizar.</value>
+    <value>No pudimos encontrar ninguna visibilidad. Intenta actualizar.</value>
   </data>
   <data name="error_offline" xml:space="preserve">
-    <value>Esta acción no se puede realizar sin una conexión a Internet. Por favor, inténtelo de nuevo más tarde.</value>
+    <value>Esta acción no se puede realizar sin una conexión a Internet. Por favor, inténtalo de nuevo más tarde.</value>
   </data>
   <data name="error_offline_title" xml:space="preserve">
     <value>Sin conexión a Internet</value>
@@ -400,31 +400,31 @@
     <value>Actualmente no tienes conexión a Internet. Esto puede hacer que no pueda volver a iniciar sesión. ¿Estás seguro de que quieres continuar?</value>
   </data>
   <data name="offline_contributions" xml:space="preserve">
-    <value>Actualmente no tienes conexión a Internet. Esto nos impide cargar tus contribuciones. Por favor, inténtelo de nuevo más tarde.</value>
+    <value>Actualmente no tienes conexión a Internet. Esto nos impide cargar tus contribuciones. Por favor, inténtalo de nuevo más tarde.</value>
   </data>
   <data name="error_couldntchangeicon" xml:space="preserve">
-    <value>Tu icono no se pudo cambiar. Por favor, inténtelo de nuevo más tarde.</value>
+    <value>Tu icono no se pudo cambiar. Por favor, inténtalo de nuevo más tarde.</value>
   </data>
   <data name="error_couldntchangetheme" xml:space="preserve">
-    <value>Tu tema no se pudo cambiar. Por favor, inténtelo de nuevo más tarde.</value>
+    <value>Tu tema no se pudo cambiar. Por favor, inténtalo de nuevo más tarde.</value>
   </data>
   <data name="error_couldntchangelanguage" xml:space="preserve">
-    <value>No se pudo cambiar tu idioma. Por favor, inténtelo de nuevo más tarde.</value>
+    <value>No se pudo cambiar tu idioma. Por favor, inténtalo de nuevo más tarde.</value>
   </data>
   <data name="error_title" xml:space="preserve">
     <value>Algo salió mal</value>
   </data>
   <data name="error_data_not_loaded" xml:space="preserve">
-    <value>No se pudieron cargar los datos. No estamos muy seguros de por qué, pero se ha registrado un error. Puede intentar actualizar o volver a intentarlo más tarde.</value>
+    <value>No se pudieron cargar los datos. No estamos muy seguros de por qué, pero se ha registrado un error. Puedes intentar actualizar o volver a intentarlo más tarde.</value>
   </data>
   <data name="error_couldntloadmorecontributions" xml:space="preserve">
-    <value>No se pudieron cargar más contribuciones. No estamos muy seguros de por qué, pero se ha registrado un error. Por favor, inténtelo de nuevo más tarde.</value>
+    <value>No se pudieron cargar más contribuciones. No estamos muy seguros de por qué, pero se ha registrado un error. Por favor, inténtalo de nuevo más tarde.</value>
   </data>
   <data name="error_couldntsavecontribution" xml:space="preserve">
-    <value>No se pudo guardar esta contribución. No estamos muy seguros de por qué, pero se ha registrado un error. Por favor, inténtelo de nuevo más tarde.</value>
+    <value>No se pudo guardar esta contribución. No estamos muy seguros de por qué, pero se ha registrado un error. Por favor, inténtalo de nuevo más tarde.</value>
   </data>
   <data name="error_couldntrefreshprofile" xml:space="preserve">
-    <value>No se pudo actualizar la información de tu perfil. No estamos muy seguros de por qué, pero se ha registrado un error. Por favor, inténtelo de nuevo más tarde.</value>
+    <value>No se pudo actualizar la información de tu perfil. No estamos muy seguros de por qué, pero se ha registrado un error. Por favor, inténtalo de nuevo más tarde.</value>
   </data>
   <data name="field_number_of_articles" xml:space="preserve">
     <value>Número de Artículos</value>
@@ -544,7 +544,7 @@
     <value>Nederlands</value>
   </data>
   <data name="about_credits_description" xml:space="preserve">
-    <value>Sin las increíbles personas que se enumeran a continuación, esta aplicación no habría sido posible. Por lo tanto, se han ganado un lugar aquí para celebrar sus contribuciones.</value>
+    <value>Sin las increíbles personas que se enumeran a continuación, esta app no habría sido posible. Por lo tanto, se han ganado un lugar aquí para celebrar sus contribuciones.</value>
   </data>
   <data name="about_credits_title" xml:space="preserve">
     <value>Créditos</value>

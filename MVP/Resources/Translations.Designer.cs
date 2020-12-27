@@ -61,7 +61,7 @@ namespace MVP.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Sin las increíbles personas que se enumeran a continuación, esta aplicación no habría sido posible. Por lo tanto, se han ganado un lugar aquí para celebrar sus contribuciones..
+        ///   Looks up a localized string similar to Sin las increíbles personas que se enumeran a continuación, esta app no habría sido posible. Por lo tanto, se han ganado un lugar aquí para celebrar sus contribuciones..
         /// </summary>
         internal static string about_credits_description {
             get {
@@ -133,7 +133,7 @@ namespace MVP.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to ¿Por qué creaste esta app?.
+        ///   Looks up a localized string similar to ¿Por qué se desarrollo esta app?.
         /// </summary>
         internal static string about_why_title {
             get {
@@ -169,7 +169,7 @@ namespace MVP.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Sus credenciales caducaron y no pudimos salvar el día. Por lo tanto, has sido desconectado. Vuelve a iniciar sesión para continuar..
+        ///   Looks up a localized string similar to Tus credenciales caducaron y no pudimos salvar el día. Por lo tanto, has sido desconectado. Vuelve a iniciar sesión para continuar..
         /// </summary>
         internal static string alert_error_unauthorized {
             get {
@@ -304,7 +304,7 @@ namespace MVP.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Su envío de contribución para el ciclo de premios de julio debe ser para actividades comunitarias entre {0} y {1}. Las actividades de la comunidad enviadas desde {1} y posteriores se llevarán a cabo para su consideración futura..
+        ///   Looks up a localized string similar to Tu envío de contribución para el ciclo de premios de julio debe ser para actividades comunitarias entre {0} y {1}. Las actividades de la comunidad enviadas desde {1} y posteriores se llevarán a cabo para su consideración futura..
         /// </summary>
         internal static string contributionform_timeframememo {
             get {
@@ -367,7 +367,7 @@ namespace MVP.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to No pudimos encontrar ninguna contribución. Agregue una nueva contribución o actualice para intentar recuperar sus datos existentes..
+        ///   Looks up a localized string similar to No pudimos encontrar ninguna contribución. Agrega una nueva contribución o actualice para intentar recuperar sus datos existentes..
         /// </summary>
         internal static string empty_state_contributions {
             get {
@@ -376,7 +376,7 @@ namespace MVP.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to No pudimos encontrar áreas de contribución. Intente actualizar..
+        ///   Looks up a localized string similar to No pudimos encontrar áreas de contribución. Intenta actualizar..
         /// </summary>
         internal static string empty_state_contributiontechnologies {
             get {
@@ -385,7 +385,7 @@ namespace MVP.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to No pudimos encontrar ningún tipo de contribución. Intente actualizar..
+        ///   Looks up a localized string similar to No pudimos encontrar ningún tipo de contribución. Intenta actualizar..
         /// </summary>
         internal static string empty_state_contributiontypes {
             get {
@@ -394,7 +394,7 @@ namespace MVP.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Su consulta de búsqueda no arrojó resultados. Pruebe con una consulta de búsqueda diferente..
+        ///   Looks up a localized string similar to Tu consulta de búsqueda no arrojó resultados. Prueba con una consulta de búsqueda diferente..
         /// </summary>
         internal static string empty_state_noresultcontributiontechnologies {
             get {
@@ -412,7 +412,7 @@ namespace MVP.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to No pudimos encontrar ninguna visibilidad. Intente actualizar..
+        ///   Looks up a localized string similar to No pudimos encontrar ninguna visibilidad. Intenta actualizar..
         /// </summary>
         internal static string empty_state_visibilities {
             get {
@@ -421,7 +421,7 @@ namespace MVP.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Logramos hacer una solicitud que no estaba del todo bien. Inténtelo de nuevo más tarde..
+        ///   Looks up a localized string similar to Logramos hacer una solicitud que no estaba del todo bien. Inténtalo de nuevo más tarde..
         /// </summary>
         internal static string error_badrequest {
             get {
@@ -430,7 +430,7 @@ namespace MVP.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Tu icono no se pudo cambiar. Por favor, inténtelo de nuevo más tarde..
+        ///   Looks up a localized string similar to Tu icono no se pudo cambiar. Por favor, inténtalo de nuevo más tarde..
         /// </summary>
         internal static string error_couldntchangeicon {
             get {
@@ -439,7 +439,7 @@ namespace MVP.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to No se pudo cambiar tu idioma. Por favor, inténtelo de nuevo más tarde..
+        ///   Looks up a localized string similar to No se pudo cambiar tu idioma. Por favor, inténtalo de nuevo más tarde..
         /// </summary>
         internal static string error_couldntchangelanguage {
             get {
@@ -448,7 +448,7 @@ namespace MVP.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Tu tema no se pudo cambiar. Por favor, inténtelo de nuevo más tarde..
+        ///   Looks up a localized string similar to Tu tema no se pudo cambiar. Por favor, inténtalo de nuevo más tarde..
         /// </summary>
         internal static string error_couldntchangetheme {
             get {
@@ -457,7 +457,7 @@ namespace MVP.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to No se pudieron cargar más contribuciones. No estamos muy seguros de por qué, pero se ha registrado un error. Por favor, inténtelo de nuevo más tarde..
+        ///   Looks up a localized string similar to No se pudieron cargar más contribuciones. No estamos muy seguros de por qué, pero se ha registrado un error. Por favor, inténtalo de nuevo más tarde..
         /// </summary>
         internal static string error_couldntloadmorecontributions {
             get {
@@ -466,7 +466,7 @@ namespace MVP.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to No se pudo actualizar la información de tu perfil. No estamos muy seguros de por qué, pero se ha registrado un error. Por favor, inténtelo de nuevo más tarde..
+        ///   Looks up a localized string similar to No se pudo actualizar la información de tu perfil. No estamos muy seguros de por qué, pero se ha registrado un error. Por favor, inténtalo de nuevo más tarde..
         /// </summary>
         internal static string error_couldntrefreshprofile {
             get {
@@ -475,7 +475,7 @@ namespace MVP.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to No se pudo guardar esta contribución. No estamos muy seguros de por qué, pero se ha registrado un error. Por favor, inténtelo de nuevo más tarde..
+        ///   Looks up a localized string similar to No se pudo guardar esta contribución. No estamos muy seguros de por qué, pero se ha registrado un error. Por favor, inténtalo de nuevo más tarde..
         /// </summary>
         internal static string error_couldntsavecontribution {
             get {
@@ -484,7 +484,7 @@ namespace MVP.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to No se pudieron cargar los datos. No estamos muy seguros de por qué, pero se ha registrado un error. Puede intentar actualizar o volver a intentarlo más tarde..
+        ///   Looks up a localized string similar to No se pudieron cargar los datos. No estamos muy seguros de por qué, pero se ha registrado un error. Puedes intentar actualizar o volver a intentarlo más tarde..
         /// </summary>
         internal static string error_data_not_loaded {
             get {
@@ -493,7 +493,7 @@ namespace MVP.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to No se completaron todos los campos obligatorios. Complete el formulario e intente guardar nuevamente..
+        ///   Looks up a localized string similar to No se completaron todos los campos obligatorios. Completa el formulario e intenta guardar nuevamente..
         /// </summary>
         internal static string error_description_validationfailed {
             get {
@@ -511,7 +511,7 @@ namespace MVP.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to No se pudo autenticarlo con las credenciales proporcionadas. ¿Está seguro de que está utilizando la cuenta asociada a su ID de MVP?.
+        ///   Looks up a localized string similar to No se pudo autenticarlo con las credenciales proporcionadas. ¿Estás seguro de que está utilizando la cuenta asociada a su ID de MVP?.
         /// </summary>
         internal static string error_nomvpaccount {
             get {
@@ -520,7 +520,7 @@ namespace MVP.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Esta acción no se puede realizar sin una conexión a Internet. Por favor, inténtelo de nuevo más tarde..
+        ///   Looks up a localized string similar to Esta acción no se puede realizar sin una conexión a Internet. Por favor, inténtalo de nuevo más tarde..
         /// </summary>
         internal static string error_offline {
             get {
@@ -538,7 +538,7 @@ namespace MVP.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to No se pudo procesar su solicitud. Inténtelo de nuevo más tarde..
+        ///   Looks up a localized string similar to No se pudo procesar su solicitud. Inténtalo de nuevo más tarde..
         /// </summary>
         internal static string error_servererror {
             get {
@@ -1051,7 +1051,7 @@ namespace MVP.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Actualmente no tienes conexión a Internet. Esto nos impide cargar tus contribuciones. Por favor, inténtelo de nuevo más tarde..
+        ///   Looks up a localized string similar to Actualmente no tienes conexión a Internet. Esto nos impide cargar tus contribuciones. Por favor, inténtalo de nuevo más tarde..
         /// </summary>
         internal static string offline_contributions {
             get {
@@ -1159,7 +1159,7 @@ namespace MVP.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Esta aplicación se puede utilizar tanto en modo claro como oscuro. De forma predeterminada, elegirá lo que esté configurado en su dispositivo. Si alguno de los temas te gusta, también puedes forzar un tema específico aquí..
+        ///   Looks up a localized string similar to Esta aplicación se puede utilizar tanto en modo claro como oscuro. De forma predeterminada, elegirá lo que esté configurado en tu dispositivo. Si alguno de los temas te gusta, también puedes forzar un tema específico aquí..
         /// </summary>
         internal static string setting_apptheme_description {
             get {
@@ -1357,7 +1357,7 @@ namespace MVP.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Espere....
+        ///   Looks up a localized string similar to Espera....
         /// </summary>
         internal static string warning_title {
             get {
