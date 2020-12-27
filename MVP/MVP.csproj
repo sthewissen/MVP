@@ -24,7 +24,7 @@
         <PackageReference Include="Com.Airbnb.Xamarin.Forms.Lottie" Version="4.0.8" />
         <PackageReference Include="TinyMvvm.Autofac" Version="2.4.14" />
         <PackageReference Include="TinyMvvm.Forms" Version="2.4.14" />
-        <PackageReference Include="Xamarin.CommunityToolkit" Version="1.0.0-preview1120" />
+        <PackageReference Include="Xamarin.CommunityToolkit" Version="1.0.0-pre6" />
         <PackageReference Include="Sharpnado.Shadows" Version="1.2.0" />
         <PackageReference Include="IsoNames.NETStandard" Version="1.2.1" />
     </ItemGroup>
@@ -104,6 +104,9 @@
         <EmbeddedResource Include="Resources\no_contributions.svg">
             <LogicalName>no_contributions.svg</LogicalName>
         </EmbeddedResource>
+        <EmbeddedResource Update="Resources\Translations.de.resx">
+          <Generator>ResXFileCodeGenerator</Generator>
+        </EmbeddedResource>
     </ItemGroup>
     <ItemGroup>
         <Compile Update="Resources\Translations.no.Designer.cs">
@@ -129,6 +132,9 @@
         </Compile>
         <Compile Update="Resources\Translations.tr.Designer.cs">
             <DependentUpon>Translations.tr.resx</DependentUpon>
+        </Compile>
+        <Compile Update="Resources\Translations.de.Designer.cs">
+          <DependentUpon>Translations.de.resx</DependentUpon>
         </Compile>
     </ItemGroup>
     <ItemGroup>
