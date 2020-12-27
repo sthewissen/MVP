@@ -188,7 +188,7 @@
                           effects:TouchEffect.Command="{Binding OpenAboutCommand}">
 
                         <Label Style="{StaticResource field_title}" 
-                               Text="About this app"/>
+                               Text="{extensions:Translate about_title}"/>
 
                         <Label Grid.Row="1"
                                Text="{Binding AppVersion}"/>
@@ -204,7 +204,7 @@
 
                     <sh:Shadows Style="{StaticResource shade_error}" >
                         <Button Style="{StaticResource destructive_primary_button}"
-                                Margin="24,16,24,32"
+                                Margin="24,32"
                                 Command="{Binding LogoutCommand}"
                                 ImageSource="{FontImage FontFamily={StaticResource font_icon}, Color={StaticResource white}, Size=20, Glyph={x:Static icons:Icons.logout}}"
                                 Text="{extensions:Translate logout}"/>

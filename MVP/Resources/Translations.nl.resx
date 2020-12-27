@@ -25,13 +25,13 @@
         <value>Activiteit maken via klembord</value>
     </data>
   <data name="setting_contributionfromurl_description" xml:space="preserve">
-        <value>Wanneer er zich een geldige URL op je klembord bevindt zodra je een activiteit gaat toevoegen, zal de app vragen of de metadata van deze URL gebruikt moet worden om je activiteit deels automatisch in te vullen.</value>
+        <value>Wanneer er zich een geldige URL op het klembord bevindt zodra een activiteit wordt toegevoegd, zal de app vragen of de metadata van deze URL gebruikt moet worden om de activiteit deels automatisch in te vullen.</value>
     </data>
   <data name="setting_apptheme_title" xml:space="preserve">
         <value>Weergave</value>
     </data>
   <data name="setting_apptheme_description" xml:space="preserve">
-        <value>Deze applicatie kan zowel in een lichte als een donkere weergave gebruikt worden. Standaard neemt de app de instelling van het apparaat over. Wanneer een van beide weergaves je voorkeur heeft kan deze hier ingesteld worden.</value>
+        <value>Deze applicatie kan zowel in een lichte als een donkere weergave gebruikt worden. Standaard neemt de applicatie de instelling van het apparaat over. Wanneer een van beide weergaves de voorkeur heeft kan deze hier ingesteld worden.</value>
     </data>
   <data name="logout" xml:space="preserve">
         <value>Uitloggen</value>
@@ -112,7 +112,7 @@
         <value>Wordt een sponsor</value>
     </data>
   <data name="contributionform_timeframememo" xml:space="preserve">
-        <value>Je activiteiten voor de toekenningscyclus van juli moeten plaatsvinden tussen {0} en {1}. Activiteiten die zijn ingediend na {0} zullen voor een toekomstige cyclus worden overwogen.</value>
+        <value>Activiteiten voor de toekenningscyclus van juli moeten plaatsvinden tussen {0} en {1}. Activiteiten die zijn ingediend na {0} zullen voor een toekomstige cyclus worden overwogen.</value>
     </data>
   <data name="contributionform_activitytype_placeholder" xml:space="preserve">
         <value>Kies het activiteitstype dat het beste past bij deze activiteit.</value>
@@ -184,10 +184,10 @@
         <value>Regenboog</value>
     </data>
   <data name="setting_appicon_title" xml:space="preserve">
-        <value>Applicatieicoon</value>
+        <value>Icoon</value>
     </data>
   <data name="setting_appicon_description" xml:space="preserve">
-        <value>Vind je het standaard applicatieicoon niet mooi? We hebben een aantal alternatieve opties beschikbaar. Wanneer je ideeën hebt voor alternatieve iconen kun je ons altijd contacteren!</value>
+        <value>Vind je het standaardicoon niet mooi? Er zijn een aantal alternatieve opties beschikbaar.</value>
     </data>
   <data name="yes" xml:space="preserve">
         <value>Ja</value>
@@ -208,25 +208,25 @@
         <value>Weet je zeker dat je deze activiteit wil verwijderen? Dit kan niet ongedaan gemaakt worden.</value>
     </data>
   <data name="error_unexpected" xml:space="preserve">
-        <value>Something went wrong that we didn't expect could happen. An error has been logged and we will look into it as soon as possible.</value>
+        <value>Er ging iets mis. Er is een melding gemaakt en we zullen dit zo snel mogelijk onderzoeken.</value>
     </data>
   <data name="error_badrequest" xml:space="preserve">
-        <value>We managed to do a request that wasn't quite right. Try again later.</value>
+        <value>Verzoek kom niet verwerkt worden. Probeer het later opnieuw.</value>
     </data>
   <data name="error_servererror" xml:space="preserve">
-        <value>The MVP API messed something up. Couldn't process your request. Try again later.</value>
+        <value>Verzoek kon niet verwerkt worden. Probeer het later opnieuw.</value>
     </data>
   <data name="alert_error_unauthorized" xml:space="preserve">
-        <value>Your credentials have expired and we couldn't save the day. Therefore you were logged out. Please log in again to continue.</value>
+        <value>Logingegevens zijn verlopen en we konden deze niet verversen. Daarom ben je uitgelogd. Log opnieuw in om verder te gaan.</value>
     </data>
   <data name="clipboard_title" xml:space="preserve">
         <value>Dat ziet er goed uit!</value>
     </data>
   <data name="clipboard_description" xml:space="preserve">
-        <value>We notice a URL on your clipboard. Do you want us to try to pre-fill an activity out of that?</value>
+        <value>We zien dat er een URL op het klembord staat. Moet er een activiteit gemaakt worden op basis van deze URL?</value>
     </data>
   <data name="contributiondetail_notdeleted" xml:space="preserve">
-        <value>Your contribution could not be deleted. Perhaps it was already deleted, or it took place in the previous award period?</value>
+        <value>Activiteit kon niet verwijderd worden. Wellicht was deze al verwijderd of vond deze plaats in een voorgaande toekenningscyclus?</value>
     </data>
   <data name="validation_variablefield" xml:space="preserve">
         <value>{0} is een verplicht veld.</value>
@@ -235,207 +235,219 @@
         <value>Activiteit gesloten</value>
     </data>
   <data name="warning_description_activitylocked" xml:space="preserve">
-        <value>Deze activiteit is geregistreerd in de voorgaande toekenningstermijn en kan daarom niet meer bewerkt of verwijderd worden.</value>
+        <value>Deze activiteit is geregistreerd in de voorgaande toekenningscyclus en kan daarom niet meer bewerkt of verwijderd worden.</value>
     </data>
   <data name="error_nomvpaccount" xml:space="preserve">
-        <value>Couldn't authenticate you using the provided credentials. Are you sure you are using the account associated to your MVP ID?</value>
+        <value>We konden je niet authenticeren met de aangeleverde gegevens. Weet je zeker dat je het account gebruikt dat geassocieerd is met je MVP ID?</value>
     </data>
   <data name="progress_saving" xml:space="preserve">
-        <value>Saving...</value>
+        <value>Bezig met opslaan...</value>
     </data>
   <data name="licenses_title" xml:space="preserve">
-        <value>Licenses</value>
+        <value>Licenties</value>
     </data>
   <data name="about_licenses_title" xml:space="preserve">
         <value>Licenties</value>
     </data>
   <data name="about_licenses_description" xml:space="preserve">
-        <value>This app stands on the shoulders of giants without whom its creation would not be possible. If you want to know who they are, check out the licenses for their awesome pieces of software.</value>
+        <value>Deze applicatie zou niet mogelijk zijn zonder het geweldige werk van anderen. Als je wil weten wie dit zijn, bekijk dan de licenties van hun geweldige software.</value>
     </data>
   <data name="view_licenses" xml:space="preserve">
         <value>Bekijk licenties</value>
     </data>
   <data name="progress_loading_url_data" xml:space="preserve">
-        <value>Getting URL metadata...</value>
+        <value>Bezig met URL metadata ophalen...</value>
     </data>
   <data name="contributiondetails_edit" xml:space="preserve">
-        <value>Wijzig</value>
+        <value>Wijzigen</value>
     </data>
   <data name="error_title_validationfailed" xml:space="preserve">
-        <value>Validation failed</value>
+        <value>Validatie mislukt</value>
     </data>
   <data name="error_description_validationfailed" xml:space="preserve">
-        <value>Not all required fields were completed. Please complete the form and try saving again.</value>
+        <value>Niet alle verplichte velden zijn ingevuld. Vul deze in en probeer het opnieuw.</value>
     </data>
   <data name="empty_state_title" xml:space="preserve">
-        <value>Ooh...it's empty here!</value>
+        <value>Ooh...het is leeg hier!</value>
     </data>
   <data name="empty_state_contributions" xml:space="preserve">
-        <value>We couldn't find any contributions. Add a new contribution or refresh to try and retrieve your existing data.</value>
+        <value>Geen activiteiten gevonden. Voeg een nieuwe activiteit toe of ververs het overzicht om bestaande activiteiten op te halen.</value>
     </data>
   <data name="contribution_add" xml:space="preserve">
         <value>Toevoegen</value>
     </data>
   <data name="empty_state_contributiontypes" xml:space="preserve">
-        <value>We couldn't find any contributions types.</value>
+        <value>Geen activiteitstypes gevonden.</value>
     </data>
   <data name="empty_state_contributiontechnologies" xml:space="preserve">
-        <value>We couldn't find any contributions areas.</value>
+        <value>Geen kennisgebieden gevonden.</value>
     </data>
   <data name="empty_state_noresultcontributiontechnologies" xml:space="preserve">
-        <value>Your search query returned no results. Please try a different search query.</value>
+        <value>Zoekopdracht leverde geen resultaten op. Probeer een andere zoekopdracht.</value>
     </data>
   <data name="empty_state_visibilities" xml:space="preserve">
-        <value>We couldn't find any visibilities.</value>
+        <value>Geen zichtbaarheden gevonden.</value>
     </data>
   <data name="error_couldntchangeicon" xml:space="preserve">
-        <value>Your icon couldn't be changed. Please try again later.</value>
+        <value>Applicatieicoon kon niet veranderd worden. Probeer het later opnieuw.</value>
     </data>
   <data name="error_couldntchangetheme" xml:space="preserve">
-        <value>Your theme couldn't be changed. Please try again later.</value>
+        <value>Applicatiethema kon niet veranderd worden. Probeer het later opnieuw.</value>
     </data>
   <data name="error_couldntchangelanguage" xml:space="preserve">
-        <value>Your language couldn't be changed. Please try again later.</value>
+        <value>Taal kon niet veranderd worden. Probeer het later opnieuw.</value>
     </data>
   <data name="error_title" xml:space="preserve">
-        <value>Something went wrong</value>
+        <value>Er ging iets mis</value>
     </data>
   <data name="error_data_not_loaded" xml:space="preserve">
-        <value>The data could not be loaded. We're not quite sure why but an error has been logged. You can try to refresh or try again later.</value>
+        <value>Deze gegevens konden niet worden geladen. We weten niet precies waarom, maar er is een melding gemaakt. Probeer het later opnieuw.</value>
     </data>
   <data name="error_couldntloadmorecontributions" xml:space="preserve">
-        <value>Couldn't load more contributions. We're not quite sure why but an error has been logged. Please try again later.</value>
+        <value>Activiteiten konden niet worden geladen. We weten niet precies waarom, maar er is een melding gemaakt. Probeer het later opnieuw.</value>
     </data>
   <data name="error_couldntsavecontribution" xml:space="preserve">
-        <value>Couldn't save this contribution. We're not quite sure why but an error has been logged. Please try again later.</value>
+        <value>Activiteit kon niet worden opgeslagen. We weten niet precies waarom, maar er is een melding gemaakt. Probeer het later opnieuw.</value>
     </data>
   <data name="error_couldntrefreshprofile" xml:space="preserve">
-        <value>Couldn't refresh your profile information. We're not quite sure why but an error has been logged. Please try again later.</value>
+        <value>Profielinformatie kon niet ververst worden. We weten niet precies waarom, maar er is een melding gemaakt. Probeer het later opnieuw.</value>
     </data>
   <data name="field_number_of_articles" xml:space="preserve">
-        <value>Number of Articles</value>
+        <value>Aantal artikelen</value>
     </data>
   <data name="field_number_of_views" xml:space="preserve">
-        <value>Number of Views</value>
+        <value>Aantal weergaves</value>
     </data>
   <data name="field_number_of_posts" xml:space="preserve">
-        <value>Number of Posts</value>
+        <value>Aantal berichten</value>
     </data>
   <data name="field_number_of_subscribers" xml:space="preserve">
-        <value>Number of Subscribers</value>
+        <value>Aantal abonnees</value>
     </data>
   <data name="field_annual_unique_visitors" xml:space="preserve">
-        <value>Annual Unique Visitors</value>
+        <value>Jaarlijkse unieke bezoekers</value>
     </data>
   <data name="field_number_of_books" xml:space="preserve">
-        <value>Number of Books</value>
+        <value>Aantal boeken</value>
     </data>
   <data name="field_copies_sold" xml:space="preserve">
-        <value>Copies Sold</value>
+        <value>Verkochte exemplaren</value>
     </data>
   <data name="field_number_of_conferences" xml:space="preserve">
-        <value>Number of Conferences</value>
+        <value>Aantal conferenties</value>
     </data>
   <data name="field_number_of_visitors" xml:space="preserve">
-        <value>Number of Visitors</value>
+        <value>Aantal bezoekers</value>
     </data>
   <data name="field_prs_issues_submissions" xml:space="preserve">
         <value>Pull Requests/Issues/Submissions</value>
     </data>
   <data name="field_number_of_threads_moderated" xml:space="preserve">
-        <value>Number of Threads Moderated</value>
+        <value>Aantal gemodereerde threads</value>
     </data>
   <data name="field_number_of_answers" xml:space="preserve">
-        <value>Number of Answers</value>
+        <value>Aantal antwoorden</value>
     </data>
   <data name="field_views_of_answers" xml:space="preserve">
-        <value>Views of Answers</value>
+        <value>Aantal antwoordweergaces</value>
     </data>
   <data name="field_number_of_mentorship_activity" xml:space="preserve">
-        <value>Number of Mentorship Activity</value>
+        <value>Aantal mentorschap activiteiten</value>
     </data>
   <data name="field_number_of_mentees" xml:space="preserve">
-        <value>Number of Mentees</value>
+        <value>Aantal mentees</value>
     </data>
   <data name="field_number_of_projects" xml:space="preserve">
-        <value>Number of Projects</value>
+        <value>Aantal projecten</value>
     </data>
   <data name="field_projects" xml:space="preserve">
-        <value>Project(s)</value>
+        <value>Project(en)</value>
     </data>
   <data name="field_contributions" xml:space="preserve">
-        <value>Contributions</value>
+        <value>Activiteiten</value>
     </data>
   <data name="field_meetings" xml:space="preserve">
         <value>Meetings</value>
     </data>
   <data name="field_members" xml:space="preserve">
-        <value>Members</value>
+        <value>Leden</value>
     </data>
   <data name="field_number_of_attendees" xml:space="preserve">
-        <value>Number of Attendees</value>
+        <value>Aantal aanwezigen</value>
     </data>
   <data name="field_annual_quantity" xml:space="preserve">
-        <value>Annual Quantity</value>
+        <value>Jaarlijkse hoeveelheid</value>
     </data>
   <data name="field_annual_reach" xml:space="preserve">
-        <value>Annual Reach</value>
+        <value>Jaarlijkse bereik</value>
     </data>
   <data name="field_number_of_events_participated" xml:space="preserve">
-        <value>Number of Events Participated</value>
+        <value>Aantal evenementdeelnames</value>
     </data>
   <data name="field_number_of_feedbacks_provided" xml:space="preserve">
-        <value>Number of Feedbacks Provided</value>
+        <value>Aantal gegeven feedback</value>
     </data>
   <data name="field_number_of_samples" xml:space="preserve">
-        <value>Number of Samples</value>
+        <value>Aantal voorbeelden</value>
     </data>
   <data name="field_number_of_downloads" xml:space="preserve">
-        <value>Number of Downloads</value>
+        <value>Aantal downloads</value>
     </data>
   <data name="field_number_of_sites" xml:space="preserve">
-        <value>Number of Sites</value>
+        <value>Aantal sites</value>
     </data>
   <data name="field_number_of_talks" xml:space="preserve">
-        <value>Number of Talks</value>
+        <value>Aantal sessies</value>
     </data>
   <data name="field_attendees_of_talks" xml:space="preserve">
-        <value>Attendees of Talks</value>
+        <value>Aanwezigen bij sessies</value>
     </data>
   <data name="field_number_of_followers" xml:space="preserve">
-        <value>Number of Followers</value>
+        <value>Aantal volgers</value>
     </data>
   <data name="field_number_of_videos" xml:space="preserve">
-        <value>Number of Videos</value>
+        <value>Aantal videos</value>
     </data>
   <data name="field_number_of_events" xml:space="preserve">
-        <value>Number of Events</value>
+        <value>Aantal evenementen</value>
     </data>
   <data name="contributionform_save" xml:space="preserve">
     <value>Opslaan</value>
   </data>
   <data name="error_logoutwhileoffline" xml:space="preserve">
-    <value>You currently have no internet connection. This may cause you to not be able to log back in again. Are you sure you want to continue?</value>
+    <value>Er is momenteel geen internetverbinding. Dit kan ervoor zorgen dat je niet opnieuw kunt inloggen. Weet je zeker dat je verder wil gaan?</value>
   </data>
   <data name="error_offline" xml:space="preserve">
-    <value>This action cannot be performed without an internet connection. Please try again later.</value>
+    <value>Dit verzoek kan niet uitgevoerd worden zonder internetverbinding. Probeer het later opnieuw.</value>
   </data>
   <data name="error_offline_title" xml:space="preserve">
-    <value>No internet connection</value>
+    <value>Geen internetverbinding</value>
   </data>
   <data name="offline_contributions" xml:space="preserve">
-    <value>You currently have no internet connection. This prevents us from loading your contributions. Please try again later.</value>
+    <value>Er is momenteel geen internetverbinding. Hierdoor kunnen activiteiten niet geladen worden. Probeer het later opnieuw.</value>
   </data>
   <data name="onboarding_1_description" xml:space="preserve">
-    <value>Manage all of your community activities from the palm of your hand.</value>
+    <value>Beheer al je activiteiten vanuit je broekzak.</value>
   </data>
   <data name="onboarding_1_title" xml:space="preserve">
-    <value>Simple and effective</value>
+    <value>Simpel en effectief</value>
   </data>
   <data name="onboarding_3_description" xml:space="preserve">
-    <value>Directly create contributions based on a URL on your clipboard. Pre-filling whatever we can for you allowing you to quickly add new contributions.</value>
+    <value>Voeg direct activiteiten toe op basis van een URL op je klembord. Wij zorgen ervoor dat we zoveel mogelijk invullen zodat je snel verder kan met toevoegen.</value>
   </data>
   <data name="onboarding_3_title" xml:space="preserve">
-    <value>Quick Add</value>
+    <value>Snel toevoegen</value>
+  </data>
+  <data name="acknowledgementtype_translator" xml:space="preserve">
+    <value>Vertaler</value>
+  </data>
+  <data name="acknowledgementtype_tester" xml:space="preserve">
+    <value>Tester</value>
+  </data>
+  <data name="about_credits_description" xml:space="preserve">
+    <value>Zonder de onderstaande personen zou deze applicatie niet mogelijk zijn geweest. Daarom hebben zij een plekje verdiend in onderstaande lijst om hun bijdrage te vieren.</value>
+  </data>
+  <data name="about_credits_title" xml:space="preserve">
+    <value>Credits</value>
   </data>
 </root>

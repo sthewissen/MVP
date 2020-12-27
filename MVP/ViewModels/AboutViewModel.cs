@@ -1,4 +1,7 @@
-﻿using System.Threading.Tasks;
+﻿using System.Collections;
+using System.Collections.Generic;
+using System.Threading.Tasks;
+using MVP.Models;
 using MVP.Pages;
 using MVP.Services.Interfaces;
 using TinyNavigationHelper;
@@ -12,11 +15,18 @@ namespace MVP.ViewModels
         public IAsyncCommand OpenLicensesCommand { get; set; }
         public IAsyncCommand OpenSponsorCommand { get; set; }
 
+        public IList Acknowledgements { get; set; } = new List<Acknowledgement>();
+
         public AboutViewModel(IAnalyticsService analyticsService, INavigationHelper navigationHelper)
             : base(analyticsService, navigationHelper)
         {
             OpenSponsorCommand = new AsyncCommand(OpenSponsors);
             OpenLicensesCommand = new AsyncCommand(OpenLicenses);
+
+            Acknowledgements = new List<Acknowledgement>
+            {
+                new Acknowledgement { Name = "Mark Allibone", Type = AcknowledgementTypes.Translator }
+            };
         }
 
         async Task OpenSponsors()
