@@ -558,4 +558,7 @@
     <data name="try_with_demo_account" xml:space="preserve">
         <value>Try with a demo account</value>
     </data>
+    <data name="contributionform_edit" xml:space="preserve">
+      <value>Edit</value>
+    </data>
 </root>
