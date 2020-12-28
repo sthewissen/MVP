@@ -136,7 +136,7 @@
     <value>Tema de la aplicación</value>
   </data>
   <data name="setting_apptheme_description" xml:space="preserve">
-    <value>Esta aplicación se puede utilizar tanto en modo claro como oscuro. De forma predeterminada, elegirá lo que esté configurado en tu dispositivo. Si alguno de los temas te gusta, también puedes forzar un tema específico aquí.</value>
+    <value>Esta aplicación se puede utilizar tanto en modo claro como oscuro. De forma predeterminada, elegirá lo que esté configurado en tu dispositivo. Si alguno de los temas te gusta, también puedes establecer un tema específico aquí.</value>
   </data>
   <data name="logout" xml:space="preserve">
     <value>Cerrar sesión</value>
@@ -337,7 +337,7 @@
     <value>Áreas de contribución adicionales</value>
   </data>
   <data name="error_nomvpaccount" xml:space="preserve">
-    <value>No se pudo autenticarlo con las credenciales proporcionadas. ¿Estás seguro de que está utilizando la cuenta asociada a su ID de MVP?</value>
+    <value>No se pudo autenticar con las credenciales proporcionadas. ¿Estás seguro de que estás utilizando la cuenta asociada a su ID de MVP?</value>
   </data>
   <data name="progress_saving" xml:space="preserve">
     <value>Guardando...</value>
@@ -397,7 +397,7 @@
     <value>Sin conexión a Internet</value>
   </data>
   <data name="error_logoutwhileoffline" xml:space="preserve">
-    <value>Actualmente no tienes conexión a Internet. Esto puede hacer que no pueda volver a iniciar sesión. ¿Estás seguro de que quieres continuar?</value>
+    <value>Actualmente no tienes conexión a Internet. Esto puede hacer que no puedas volver a iniciar sesión. ¿Estás seguro de que quieres continuar?</value>
   </data>
   <data name="offline_contributions" xml:space="preserve">
     <value>Actualmente no tienes conexión a Internet. Esto nos impide cargar tus contribuciones. Por favor, inténtalo de nuevo más tarde.</value>

@@ -502,7 +502,7 @@ namespace MVP.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Actualmente no tienes conexión a Internet. Esto puede hacer que no pueda volver a iniciar sesión. ¿Estás seguro de que quieres continuar?.
+        ///   Looks up a localized string similar to Actualmente no tienes conexión a Internet. Esto puede hacer que no puedas volver a iniciar sesión. ¿Estás seguro de que quieres continuar?.
         /// </summary>
         internal static string error_logoutwhileoffline {
             get {
@@ -511,7 +511,7 @@ namespace MVP.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to No se pudo autenticarlo con las credenciales proporcionadas. ¿Estás seguro de que está utilizando la cuenta asociada a su ID de MVP?.
+        ///   Looks up a localized string similar to No se pudo autenticar con las credenciales proporcionadas. ¿Estás seguro de que estás utilizando la cuenta asociada a su ID de MVP?.
         /// </summary>
         internal static string error_nomvpaccount {
             get {
@@ -1159,7 +1159,7 @@ namespace MVP.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Esta aplicación se puede utilizar tanto en modo claro como oscuro. De forma predeterminada, elegirá lo que esté configurado en tu dispositivo. Si alguno de los temas te gusta, también puedes forzar un tema específico aquí..
+        ///   Looks up a localized string similar to Esta aplicación se puede utilizar tanto en modo claro como oscuro. De forma predeterminada, elegirá lo que esté configurado en tu dispositivo. Si alguno de los temas te gusta, también puedes establecer un tema específico aquí..
         /// </summary>
         internal static string setting_apptheme_description {
             get {
