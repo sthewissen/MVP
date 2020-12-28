@@ -40,6 +40,7 @@ namespace MVP.ViewModels
             SupportedLanguages = new List<LanguageViewModel>()
             {
                 { new LanguageViewModel{ Description = "English", CurrentLanguageDescription=Resources.Translations.language_english, CI = "en" } },
+                { new LanguageViewModel{ Description = "Hungarian", CurrentLanguageDescription=Resources.Translations.language_hungarian, CI = "hu" } },
                 { new LanguageViewModel{ Description = "Nederlands", CurrentLanguageDescription=Resources.Translations.language_dutch, CI = "nl" } }
             };
 
