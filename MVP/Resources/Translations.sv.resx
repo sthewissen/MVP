@@ -124,7 +124,7 @@
     <value>Medverkande</value>
   </data>
   <data name="about_licenses_description" xml:space="preserve">
-    <value>Den här appen står på axlarna av de jättar utom vilka dess skapande inte vore möjlig. Om du vill veta vilka de är, kolla på licenserna för deras fantastiska mjukvaror.</value>
+    <value>Den här appen står på axlarna av de jättar utan vilka dess skapande inte vore möjlig. Om du vill veta vilka de är, kolla på licenserna för deras fantastiska mjukvaror.</value>
   </data>
   <data name="about_licenses_title" xml:space="preserve">
     <value>Licenser</value>
@@ -166,7 +166,7 @@
     <value>Avbryt</value>
   </data>
   <data name="clipboard_description" xml:space="preserve">
-    <value>Vi har noterat en URL i dina urklipp. Vill du att vi ska försöka förifylla en aktvitet ifrån den?</value>
+    <value>Vi har noterat en URL i dina urklipp. Vill du att vi ska försöka för-ifylla en aktivitet ifrån den?</value>
   </data>
   <data name="clipboard_title" xml:space="preserve">
     <value>Det ser coolt ut!</value>
@@ -184,10 +184,10 @@
     <value>Bidraget kunde inte raderas. Det kan redan ha raderats, eller ha varit med i tidigare utmärkelser.</value>
   </data>
   <data name="contributionform_activitytype_placeholder" xml:space="preserve">
-    <value>Välj den aktiviteststyp som bäst passar denna aktivitet.</value>
+    <value>Välj den aktivitetstyp som bäst passar denna aktivitet.</value>
   </data>
   <data name="contributionform_additionaltechnologyarea_placeholder" xml:space="preserve">
-    <value>Välj upp till 2 ytterliggare teknologier som också kan passa denna aktivitet.</value>
+    <value>Välj upp till 2 ytterligare teknologier som också kan passa denna aktivitet.</value>
   </data>
   <data name="contributionform_save" xml:space="preserve">
     <value>Spara</value>
@@ -268,7 +268,7 @@
     <value>Du är för närvarande inte ansluten till internet. Detta kan göra att du inte kan logga in igen. Är du säker på att du vill fortsätta?</value>
   </data>
   <data name="error_nomvpaccount" xml:space="preserve">
-    <value>Autentiseringen misslyckades med de uppgifter du angav. Är du säker på att du använder det konto som är kopplat till ditt mvp MVP ID?</value>
+    <value>Autentiseringen misslyckades med de uppgifter du angav. Är du säker på att du använder det konto som är kopplat till ditt MVP ID?</value>
   </data>
   <data name="error_offline" xml:space="preserve">
     <value>Denna åtgärd kan inte utföras utan internetuppkoppling. Var vänlig försök senare.</value>
@@ -422,7 +422,7 @@
     <value>Standard</value>
   </data>
   <data name="icon_rainbow" xml:space="preserve">
-    <value>Rengbåge</value>
+    <value>Regnbåge</value>
   </data>
   <data name="icon_white" xml:space="preserve">
     <value>Vit</value>
@@ -435,6 +435,9 @@
   </data>
   <data name="language_english" xml:space="preserve">
     <value>Engelska</value>
+  </data>
+  <data name="language_swedish" xml:space="preserve">
+    <value>Svenska</value>
   </data>
   <data name="licenses_title" xml:space="preserve">
     <value>Licenser</value>
@@ -488,7 +491,7 @@
     <value>Apptema</value>
   </data>
   <data name="setting_contributionfromurl_description" xml:space="preserve">
-    <value>Om det finns en giltig URL i dina urklipp så kommer appen fråga om metadata från den skall användas för att förifylla ett bidrag.</value>
+    <value>Om det finns en giltig URL i dina urklipp så kommer appen fråga om metadata från den skall användas för att för-ifylla ett bidrag.</value>
   </data>
   <data name="setting_contributionfromurl_title" xml:space="preserve">
     <value>Skapa bidrag från URL</value>

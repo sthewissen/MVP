@@ -41,7 +41,7 @@ namespace MVP.ViewModels
             {
                 { new LanguageViewModel{ Description = "English", CurrentLanguageDescription=Resources.Translations.language_english, CI = "en" } },
                 { new LanguageViewModel{ Description = "Nederlands", CurrentLanguageDescription=Resources.Translations.language_dutch, CI = "nl" } },
-                { new LanguageViewModel{ Description = "Swedish", CurrentLanguageDescription=Resources.Translations.language_dutch, CI = "sv" } }
+                { new LanguageViewModel{ Description = "Swedish", CurrentLanguageDescription=Resources.Translations.language_swedish, CI = "sv" } }
             };
 
             // Set current selection
