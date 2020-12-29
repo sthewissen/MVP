@@ -4,7 +4,6 @@ using MVP.Resources;
 using MVP.Services;
 using MVP.Services.Interfaces;
 using TinyMvvm;
-using TinyMvvm.IoC;
 using TinyNavigationHelper;
 using Xamarin.CommunityToolkit.ObjectModel;
 using Xamarin.CommunityToolkit.UI.Views;
