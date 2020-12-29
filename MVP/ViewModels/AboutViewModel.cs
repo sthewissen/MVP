@@ -29,7 +29,8 @@ namespace MVP.ViewModels
                 new Acknowledgement { Name = "Rodrigo Juarez", Type = AcknowledgementTypes.Translator },
                 new Acknowledgement { Name = "Luis Pujols", Type = AcknowledgementTypes.Translator },
                 new Acknowledgement { Name = "Cihan Yakar", Type = AcknowledgementTypes.Translator },
-                new Acknowledgement { Name = "Polat Pınar", Type = AcknowledgementTypes.Translator }
+                new Acknowledgement { Name = "Polat Pınar", Type = AcknowledgementTypes.Translator },
+                new Acknowledgement { Name = "Miklos Kanyo", Type = AcknowledgementTypes.Translator }
             };
         }
 
