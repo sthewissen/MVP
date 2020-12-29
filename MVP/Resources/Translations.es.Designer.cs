@@ -19,17 +19,17 @@ namespace MVP.Resources {
     // class via a tool like ResGen or Visual Studio.
     // To add or remove a member, edit your .ResX file then rerun ResGen
     // with the /str option, or rebuild your VS project.
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "4.0.0.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "16.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    internal class Translations_nl {
+    internal class Translations {
         
         private static global::System.Resources.ResourceManager resourceMan;
         
         private static global::System.Globalization.CultureInfo resourceCulture;
         
         [global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]
-        internal Translations_nl() {
+        internal Translations() {
         }
         
         /// <summary>
@@ -39,7 +39,7 @@ namespace MVP.Resources {
         internal static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("MVP.Resources.Translations.nl", typeof(Translations_nl).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("MVP.Resources.Translations", typeof(Translations).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;
@@ -61,25 +61,7 @@ namespace MVP.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Zonder de onderstaande personen zou deze applicatie niet mogelijk zijn geweest. Daarom hebben zij een plekje verdiend in onderstaande lijst om hun bijdrage te vieren..
-        /// </summary>
-        internal static string about_credits_description {
-            get {
-                return ResourceManager.GetString("about_credits_description", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Credits.
-        /// </summary>
-        internal static string about_credits_title {
-            get {
-                return ResourceManager.GetString("about_credits_title", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Deze applicatie zou niet mogelijk zijn zonder het geweldige werk van anderen. Als je wil weten wie dit zijn, bekijk dan de licenties van hun geweldige software..
+        ///   Looks up a localized string similar to This app stands on the shoulders of giants without whom its creation would not be possible. If you want to know who they are, check out the licenses for their awesome pieces of software..
         /// </summary>
         internal static string about_licenses_description {
             get {
@@ -88,7 +70,7 @@ namespace MVP.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Licenties.
+        ///   Looks up a localized string similar to Licenses.
         /// </summary>
         internal static string about_licenses_title {
             get {
@@ -97,7 +79,7 @@ namespace MVP.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Deze applicatie is volledig open source. Als je deze applicatie met plezier gebruikt, overweeg dan om GitHub sponsor te worden. Hiermee koop je mij een digitale kop koffie per maand ☕️.
+        ///   Looks up a localized string similar to This app is completely open source. If you like the app, feel free to become a GitHub sponsor, buying me a digital cup of coffee a month ☕️.
         /// </summary>
         internal static string about_opensource_description {
             get {
@@ -115,7 +97,7 @@ namespace MVP.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Over deze app.
+        ///   Looks up a localized string similar to About this app.
         /// </summary>
         internal static string about_title {
             get {
@@ -124,7 +106,7 @@ namespace MVP.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Er is altijd al een behoefte geweest om Microsoft MVPs hun activiteiten op een makkelijkere manier te laten beheren. Het bestaande online portaal werk prima, maar soortgelijke functionaliteit in compacte vorm op je mobiele apparaat is pas echt cool. En daarom is dit project ontstaan!.
+        ///   Looks up a localized string similar to There has always been a need for Microsoft MVPs to manage their community activities in an easier way. The online portal works fine, but having a similar thing in your pocket to create activities on the fly is really cool. Which is what this project is for!.
         /// </summary>
         internal static string about_why_description {
             get {
@@ -133,7 +115,7 @@ namespace MVP.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Waarom is deze app gebouwd?.
+        ///   Looks up a localized string similar to Why did you build  this app?.
         /// </summary>
         internal static string about_why_title {
             get {
@@ -142,25 +124,7 @@ namespace MVP.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Tester.
-        /// </summary>
-        internal static string acknowledgementtype_tester {
-            get {
-                return ResourceManager.GetString("acknowledgementtype_tester", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Vertaler.
-        /// </summary>
-        internal static string acknowledgementtype_translator {
-            get {
-                return ResourceManager.GetString("acknowledgementtype_translator", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Additionele kennisgebieden.
+        ///   Looks up a localized string similar to Additional contribution areas.
         /// </summary>
         internal static string additionaltechnologypicker_title {
             get {
@@ -169,7 +133,7 @@ namespace MVP.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Logingegevens zijn verlopen en we konden deze niet verversen. Daarom ben je uitgelogd. Log opnieuw in om verder te gaan..
+        ///   Looks up a localized string similar to Your credentials have expired and we couldn&apos;t save the day. Therefore you were logged out. Please log in again to continue..
         /// </summary>
         internal static string alert_error_unauthorized {
             get {
@@ -178,7 +142,7 @@ namespace MVP.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Wordt een sponsor.
+        ///   Looks up a localized string similar to Become a sponsor.
         /// </summary>
         internal static string becomesponsor {
             get {
@@ -187,7 +151,7 @@ namespace MVP.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Verwijder activiteit.
+        ///   Looks up a localized string similar to Delete contribution.
         /// </summary>
         internal static string button_delete_contribution {
             get {
@@ -196,7 +160,7 @@ namespace MVP.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Annuleren.
+        ///   Looks up a localized string similar to Cancel.
         /// </summary>
         internal static string cancel {
             get {
@@ -205,7 +169,7 @@ namespace MVP.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to We zien dat er een URL op het klembord staat. Moet er een activiteit gemaakt worden op basis van deze URL?.
+        ///   Looks up a localized string similar to We notice a URL on your clipboard. Do you want us to try to pre-fill an activity out of that?.
         /// </summary>
         internal static string clipboard_description {
             get {
@@ -214,7 +178,7 @@ namespace MVP.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Dat ziet er goed uit!.
+        ///   Looks up a localized string similar to That looks cool!.
         /// </summary>
         internal static string clipboard_title {
             get {
@@ -223,7 +187,7 @@ namespace MVP.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Toevoegen.
+        ///   Looks up a localized string similar to Add.
         /// </summary>
         internal static string contribution_add {
             get {
@@ -232,7 +196,7 @@ namespace MVP.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Weet je zeker dat je deze activiteit wil verwijderen? Dit kan niet ongedaan gemaakt worden..
+        ///   Looks up a localized string similar to Are you sure you want to delete this contribution? You cannot undo this..
         /// </summary>
         internal static string contributiondetail_deleteconfirmation {
             get {
@@ -241,7 +205,7 @@ namespace MVP.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Activiteit kon niet verwijderd worden. Wellicht was deze al verwijderd of vond deze plaats in een voorgaande toekenningscyclus?.
+        ///   Looks up a localized string similar to Your contribution could not be deleted. Perhaps it was already deleted, or it took place in the previous award period?.
         /// </summary>
         internal static string contributiondetail_notdeleted {
             get {
@@ -250,7 +214,7 @@ namespace MVP.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Wijzigen.
+        ///   Looks up a localized string similar to Edit.
         /// </summary>
         internal static string contributiondetails_edit {
             get {
@@ -259,7 +223,7 @@ namespace MVP.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Activiteitsdetails.
+        ///   Looks up a localized string similar to Activity details.
         /// </summary>
         internal static string contributiondetails_title {
             get {
@@ -268,7 +232,7 @@ namespace MVP.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Kies het activiteitstype dat het beste past bij deze activiteit..
+        ///   Looks up a localized string similar to Select the activity type that best fits this activity..
         /// </summary>
         internal static string contributionform_activitytype_placeholder {
             get {
@@ -277,7 +241,7 @@ namespace MVP.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Kies maximaal 2 additionele kennisgebieden die ook van toepassing zijn op deze activiteit..
+        ///   Looks up a localized string similar to Select up to 2 additional technology areas that may also apply to this activity..
         /// </summary>
         internal static string contributionform_additionaltechnologyarea_placeholder {
             get {
@@ -286,7 +250,7 @@ namespace MVP.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Opslaan.
+        ///   Looks up a localized string similar to Save.
         /// </summary>
         internal static string contributionform_save {
             get {
@@ -295,7 +259,7 @@ namespace MVP.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Kies het kennisgebied dat de primaire focus van deze activiteit is..
+        ///   Looks up a localized string similar to Select the technology area that is the primary focus of this activity..
         /// </summary>
         internal static string contributionform_technologyarea_placeholder {
             get {
@@ -304,7 +268,7 @@ namespace MVP.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Activiteiten voor de toekenningscyclus van juli moeten plaatsvinden tussen {0} en {1}. Activiteiten die zijn ingediend na {0} zullen voor een toekomstige cyclus worden overwogen..
+        ///   Looks up a localized string similar to Your contribution submission for the July award cycle must be for community activities between {0} to {1}. Community activities submitted from {1} and beyond will be held for future consideration..
         /// </summary>
         internal static string contributionform_timeframememo {
             get {
@@ -313,7 +277,7 @@ namespace MVP.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Activiteit toevoegen.
+        ///   Looks up a localized string similar to Add contribution.
         /// </summary>
         internal static string contributionform_title_add {
             get {
@@ -322,7 +286,7 @@ namespace MVP.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Activiteit bewerken.
+        ///   Looks up a localized string similar to Edit contribution.
         /// </summary>
         internal static string contributionform_title_edit {
             get {
@@ -331,7 +295,7 @@ namespace MVP.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Kies het zichtbaarheidsniveau van deze activiteit..
+        ///   Looks up a localized string similar to Select the visibility level of this activity..
         /// </summary>
         internal static string contributionform_visibility_placeholder {
             get {
@@ -340,7 +304,7 @@ namespace MVP.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Activiteiten.
+        ///   Looks up a localized string similar to Community activities.
         /// </summary>
         internal static string contributions_title {
             get {
@@ -349,7 +313,7 @@ namespace MVP.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Primaire kennisgebied.
+        ///   Looks up a localized string similar to Primary contribution area.
         /// </summary>
         internal static string contributiontechnologypicker_title {
             get {
@@ -358,7 +322,7 @@ namespace MVP.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Activiteitstype.
+        ///   Looks up a localized string similar to Activity type.
         /// </summary>
         internal static string contributiontypepicker_title {
             get {
@@ -367,7 +331,7 @@ namespace MVP.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Geen activiteiten gevonden. Voeg een nieuwe activiteit toe of ververs het overzicht om bestaande activiteiten op te halen..
+        ///   Looks up a localized string similar to We couldn&apos;t find any contributions. Add a new contribution or refresh to try and retrieve your existing data..
         /// </summary>
         internal static string empty_state_contributions {
             get {
@@ -376,7 +340,7 @@ namespace MVP.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Geen kennisgebieden gevonden..
+        ///   Looks up a localized string similar to We couldn&apos;t find any contribution areas. Please try to refresh them..
         /// </summary>
         internal static string empty_state_contributiontechnologies {
             get {
@@ -385,7 +349,7 @@ namespace MVP.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Geen activiteitstypes gevonden..
+        ///   Looks up a localized string similar to We couldn&apos;t find any contribution types. Please try to refresh them..
         /// </summary>
         internal static string empty_state_contributiontypes {
             get {
@@ -394,7 +358,7 @@ namespace MVP.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Zoekopdracht leverde geen resultaten op. Probeer een andere zoekopdracht..
+        ///   Looks up a localized string similar to Your search query returned no results. Please try a different search query..
         /// </summary>
         internal static string empty_state_noresultcontributiontechnologies {
             get {
@@ -403,7 +367,7 @@ namespace MVP.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Ooh...het is leeg hier!.
+        ///   Looks up a localized string similar to Ooh...it&apos;s empty here!.
         /// </summary>
         internal static string empty_state_title {
             get {
@@ -412,7 +376,7 @@ namespace MVP.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Geen zichtbaarheden gevonden..
+        ///   Looks up a localized string similar to We couldn&apos;t find any visibilities. Please try to refresh them..
         /// </summary>
         internal static string empty_state_visibilities {
             get {
@@ -421,7 +385,7 @@ namespace MVP.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Verzoek kom niet verwerkt worden. Probeer het later opnieuw..
+        ///   Looks up a localized string similar to We managed to do a request that wasn&apos;t quite right. Try again later..
         /// </summary>
         internal static string error_badrequest {
             get {
@@ -430,7 +394,7 @@ namespace MVP.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Applicatieicoon kon niet veranderd worden. Probeer het later opnieuw..
+        ///   Looks up a localized string similar to Your icon couldn&apos;t be changed. Please try again later..
         /// </summary>
         internal static string error_couldntchangeicon {
             get {
@@ -439,7 +403,7 @@ namespace MVP.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Taal kon niet veranderd worden. Probeer het later opnieuw..
+        ///   Looks up a localized string similar to Your language couldn&apos;t be changed. Please try again later..
         /// </summary>
         internal static string error_couldntchangelanguage {
             get {
@@ -448,7 +412,7 @@ namespace MVP.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Applicatiethema kon niet veranderd worden. Probeer het later opnieuw..
+        ///   Looks up a localized string similar to Your theme couldn&apos;t be changed. Please try again later..
         /// </summary>
         internal static string error_couldntchangetheme {
             get {
@@ -457,7 +421,7 @@ namespace MVP.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Activiteiten konden niet worden geladen. We weten niet precies waarom, maar er is een melding gemaakt. Probeer het later opnieuw..
+        ///   Looks up a localized string similar to Couldn&apos;t load more contributions. We&apos;re not quite sure why but an error has been logged. Please try again later..
         /// </summary>
         internal static string error_couldntloadmorecontributions {
             get {
@@ -466,7 +430,7 @@ namespace MVP.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Profielinformatie kon niet ververst worden. We weten niet precies waarom, maar er is een melding gemaakt. Probeer het later opnieuw..
+        ///   Looks up a localized string similar to Couldn&apos;t refresh your profile information. We&apos;re not quite sure why but an error has been logged. Please try again later..
         /// </summary>
         internal static string error_couldntrefreshprofile {
             get {
@@ -475,7 +439,7 @@ namespace MVP.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Activiteit kon niet worden opgeslagen. We weten niet precies waarom, maar er is een melding gemaakt. Probeer het later opnieuw..
+        ///   Looks up a localized string similar to Couldn&apos;t save this contribution. We&apos;re not quite sure why but an error has been logged. Please try again later..
         /// </summary>
         internal static string error_couldntsavecontribution {
             get {
@@ -484,7 +448,7 @@ namespace MVP.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Deze gegevens konden niet worden geladen. We weten niet precies waarom, maar er is een melding gemaakt. Probeer het later opnieuw..
+        ///   Looks up a localized string similar to The data could not be loaded. We&apos;re not quite sure why but an error has been logged. You can try to refresh or try again later..
         /// </summary>
         internal static string error_data_not_loaded {
             get {
@@ -493,7 +457,7 @@ namespace MVP.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Niet alle verplichte velden zijn ingevuld. Vul deze in en probeer het opnieuw..
+        ///   Looks up a localized string similar to Not all required fields were completed. Please complete the form and try saving again..
         /// </summary>
         internal static string error_description_validationfailed {
             get {
@@ -502,7 +466,7 @@ namespace MVP.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Er is momenteel geen internetverbinding. Dit kan ervoor zorgen dat je niet opnieuw kunt inloggen. Weet je zeker dat je verder wil gaan?.
+        ///   Looks up a localized string similar to You currently have no internet connection. This may cause you to not be able to log back in again. Are you sure you want to continue?.
         /// </summary>
         internal static string error_logoutwhileoffline {
             get {
@@ -511,7 +475,7 @@ namespace MVP.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to We konden je niet authenticeren met de aangeleverde gegevens. Weet je zeker dat je het account gebruikt dat geassocieerd is met je MVP ID?.
+        ///   Looks up a localized string similar to Couldn&apos;t authenticate you using the provided credentials. Are you sure you are using the account associated to your MVP ID?.
         /// </summary>
         internal static string error_nomvpaccount {
             get {
@@ -520,7 +484,7 @@ namespace MVP.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Dit verzoek kan niet uitgevoerd worden zonder internetverbinding. Probeer het later opnieuw..
+        ///   Looks up a localized string similar to This action cannot be performed without an internet connection. Please try again later..
         /// </summary>
         internal static string error_offline {
             get {
@@ -529,7 +493,7 @@ namespace MVP.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Geen internetverbinding.
+        ///   Looks up a localized string similar to No internet connection.
         /// </summary>
         internal static string error_offline_title {
             get {
@@ -538,7 +502,7 @@ namespace MVP.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Verzoek kon niet verwerkt worden. Probeer het later opnieuw..
+        ///   Looks up a localized string similar to The MVP API messed something up. Couldn&apos;t process your request. Try again later..
         /// </summary>
         internal static string error_servererror {
             get {
@@ -547,7 +511,7 @@ namespace MVP.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Er ging iets mis.
+        ///   Looks up a localized string similar to Something went wrong.
         /// </summary>
         internal static string error_title {
             get {
@@ -556,7 +520,7 @@ namespace MVP.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Validatie mislukt.
+        ///   Looks up a localized string similar to Validation failed.
         /// </summary>
         internal static string error_title_validationfailed {
             get {
@@ -565,7 +529,7 @@ namespace MVP.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Er ging iets mis. Er is een melding gemaakt en we zullen dit zo snel mogelijk onderzoeken..
+        ///   Looks up a localized string similar to Something went wrong that we didn&apos;t expect could happen. An error has been logged and we will look into it as soon as possible..
         /// </summary>
         internal static string error_unexpected {
             get {
@@ -574,7 +538,7 @@ namespace MVP.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Activiteitsdatum.
+        ///   Looks up a localized string similar to Activity date.
         /// </summary>
         internal static string field_activity_date {
             get {
@@ -583,7 +547,7 @@ namespace MVP.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Activiteitstype.
+        ///   Looks up a localized string similar to Activity type.
         /// </summary>
         internal static string field_activity_type {
             get {
@@ -592,7 +556,7 @@ namespace MVP.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Additionele kennisgebieden.
+        ///   Looks up a localized string similar to Additional contribution areas.
         /// </summary>
         internal static string field_additional_contribution_areas {
             get {
@@ -601,7 +565,7 @@ namespace MVP.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Jaarlijkse hoeveelheid.
+        ///   Looks up a localized string similar to Annual Quantity.
         /// </summary>
         internal static string field_annual_quantity {
             get {
@@ -610,7 +574,7 @@ namespace MVP.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Jaarlijkse bereik.
+        ///   Looks up a localized string similar to Annual Reach.
         /// </summary>
         internal static string field_annual_reach {
             get {
@@ -619,7 +583,7 @@ namespace MVP.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Jaarlijkse unieke bezoekers.
+        ///   Looks up a localized string similar to Annual Unique Visitors.
         /// </summary>
         internal static string field_annual_unique_visitors {
             get {
@@ -628,7 +592,7 @@ namespace MVP.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Aanwezigen bij sessies.
+        ///   Looks up a localized string similar to Attendees of Talks.
         /// </summary>
         internal static string field_attendees_of_talks {
             get {
@@ -637,7 +601,7 @@ namespace MVP.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Activiteiten.
+        ///   Looks up a localized string similar to Contributions.
         /// </summary>
         internal static string field_contributions {
             get {
@@ -646,7 +610,7 @@ namespace MVP.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Verkochte exemplaren.
+        ///   Looks up a localized string similar to Copies Sold.
         /// </summary>
         internal static string field_copies_sold {
             get {
@@ -655,7 +619,7 @@ namespace MVP.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Omschrijving.
+        ///   Looks up a localized string similar to Description.
         /// </summary>
         internal static string field_description {
             get {
@@ -673,7 +637,7 @@ namespace MVP.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Leden.
+        ///   Looks up a localized string similar to Members.
         /// </summary>
         internal static string field_members {
             get {
@@ -682,7 +646,7 @@ namespace MVP.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Aantal antwoorden.
+        ///   Looks up a localized string similar to Number of Answers.
         /// </summary>
         internal static string field_number_of_answers {
             get {
@@ -691,7 +655,7 @@ namespace MVP.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Aantal artikelen.
+        ///   Looks up a localized string similar to Number of Articles.
         /// </summary>
         internal static string field_number_of_articles {
             get {
@@ -700,7 +664,7 @@ namespace MVP.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Aantal aanwezigen.
+        ///   Looks up a localized string similar to Number of Attendees.
         /// </summary>
         internal static string field_number_of_attendees {
             get {
@@ -709,7 +673,7 @@ namespace MVP.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Aantal boeken.
+        ///   Looks up a localized string similar to Number of Books.
         /// </summary>
         internal static string field_number_of_books {
             get {
@@ -718,7 +682,7 @@ namespace MVP.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Aantal conferenties.
+        ///   Looks up a localized string similar to Number of Conferences.
         /// </summary>
         internal static string field_number_of_conferences {
             get {
@@ -727,7 +691,7 @@ namespace MVP.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Aantal downloads.
+        ///   Looks up a localized string similar to Number of Downloads.
         /// </summary>
         internal static string field_number_of_downloads {
             get {
@@ -736,7 +700,7 @@ namespace MVP.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Aantal evenementen.
+        ///   Looks up a localized string similar to Number of Events.
         /// </summary>
         internal static string field_number_of_events {
             get {
@@ -745,7 +709,7 @@ namespace MVP.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Aantal evenementdeelnames.
+        ///   Looks up a localized string similar to Number of Events Participated.
         /// </summary>
         internal static string field_number_of_events_participated {
             get {
@@ -754,7 +718,7 @@ namespace MVP.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Aantal gegeven feedback.
+        ///   Looks up a localized string similar to Number of Feedbacks Provided.
         /// </summary>
         internal static string field_number_of_feedbacks_provided {
             get {
@@ -763,7 +727,7 @@ namespace MVP.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Aantal volgers.
+        ///   Looks up a localized string similar to Number of Followers.
         /// </summary>
         internal static string field_number_of_followers {
             get {
@@ -772,7 +736,7 @@ namespace MVP.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Aantal mentees.
+        ///   Looks up a localized string similar to Number of Mentees.
         /// </summary>
         internal static string field_number_of_mentees {
             get {
@@ -781,7 +745,7 @@ namespace MVP.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Aantal mentorschap activiteiten.
+        ///   Looks up a localized string similar to Number of Mentorship Activity.
         /// </summary>
         internal static string field_number_of_mentorship_activity {
             get {
@@ -790,7 +754,7 @@ namespace MVP.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Aantal berichten.
+        ///   Looks up a localized string similar to Number of Posts.
         /// </summary>
         internal static string field_number_of_posts {
             get {
@@ -799,7 +763,7 @@ namespace MVP.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Aantal projecten.
+        ///   Looks up a localized string similar to Number of Projects.
         /// </summary>
         internal static string field_number_of_projects {
             get {
@@ -808,7 +772,7 @@ namespace MVP.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Aantal voorbeelden.
+        ///   Looks up a localized string similar to Number of Samples.
         /// </summary>
         internal static string field_number_of_samples {
             get {
@@ -817,7 +781,7 @@ namespace MVP.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Aantal sites.
+        ///   Looks up a localized string similar to Number of Sites.
         /// </summary>
         internal static string field_number_of_sites {
             get {
@@ -826,7 +790,7 @@ namespace MVP.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Aantal abonnees.
+        ///   Looks up a localized string similar to Number of Subscribers.
         /// </summary>
         internal static string field_number_of_subscribers {
             get {
@@ -835,7 +799,7 @@ namespace MVP.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Aantal sessies.
+        ///   Looks up a localized string similar to Number of Talks.
         /// </summary>
         internal static string field_number_of_talks {
             get {
@@ -844,7 +808,7 @@ namespace MVP.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Aantal gemodereerde threads.
+        ///   Looks up a localized string similar to Number of Threads Moderated.
         /// </summary>
         internal static string field_number_of_threads_moderated {
             get {
@@ -853,7 +817,7 @@ namespace MVP.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Aantal videos.
+        ///   Looks up a localized string similar to Number of Videos.
         /// </summary>
         internal static string field_number_of_videos {
             get {
@@ -862,7 +826,7 @@ namespace MVP.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Aantal weergaves.
+        ///   Looks up a localized string similar to Number of Views.
         /// </summary>
         internal static string field_number_of_views {
             get {
@@ -871,7 +835,7 @@ namespace MVP.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Aantal bezoekers.
+        ///   Looks up a localized string similar to Number of Visitors.
         /// </summary>
         internal static string field_number_of_visitors {
             get {
@@ -880,7 +844,7 @@ namespace MVP.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Primaire kennisgebied.
+        ///   Looks up a localized string similar to Primary contribution area.
         /// </summary>
         internal static string field_primary_contribution_area {
             get {
@@ -889,7 +853,7 @@ namespace MVP.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Project(en).
+        ///   Looks up a localized string similar to Project(s).
         /// </summary>
         internal static string field_projects {
             get {
@@ -907,7 +871,7 @@ namespace MVP.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Titel van activiteit.
+        ///   Looks up a localized string similar to Title of activity.
         /// </summary>
         internal static string field_title {
             get {
@@ -925,7 +889,7 @@ namespace MVP.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Aantal antwoordweergaces.
+        ///   Looks up a localized string similar to Views of Answers.
         /// </summary>
         internal static string field_views_of_answers {
             get {
@@ -934,7 +898,7 @@ namespace MVP.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Zichtbaarheid.
+        ///   Looks up a localized string similar to Visibility.
         /// </summary>
         internal static string field_visibility {
             get {
@@ -943,7 +907,7 @@ namespace MVP.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Zwart.
+        ///   Looks up a localized string similar to Black.
         /// </summary>
         internal static string icon_black {
             get {
@@ -952,7 +916,7 @@ namespace MVP.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Donkerblauw.
+        ///   Looks up a localized string similar to Dark Blue.
         /// </summary>
         internal static string icon_darkblue {
             get {
@@ -961,7 +925,7 @@ namespace MVP.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Standaard.
+        ///   Looks up a localized string similar to Default.
         /// </summary>
         internal static string icon_default {
             get {
@@ -970,7 +934,7 @@ namespace MVP.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Regenboog.
+        ///   Looks up a localized string similar to Rainbow.
         /// </summary>
         internal static string icon_rainbow {
             get {
@@ -979,7 +943,7 @@ namespace MVP.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Wit.
+        ///   Looks up a localized string similar to White.
         /// </summary>
         internal static string icon_white {
             get {
@@ -988,7 +952,7 @@ namespace MVP.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Nederlands.
+        ///   Looks up a localized string similar to Dutch.
         /// </summary>
         internal static string language_dutch {
             get {
@@ -997,7 +961,7 @@ namespace MVP.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Engels.
+        ///   Looks up a localized string similar to English.
         /// </summary>
         internal static string language_english {
             get {
@@ -1006,16 +970,7 @@ namespace MVP.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Español.
-        /// </summary>
-        internal static string language_spanish {
-            get {
-                return ResourceManager.GetString("language_spanish", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Taal.
+        ///   Looks up a localized string similar to Language.
         /// </summary>
         internal static string languagepicker_title {
             get {
@@ -1024,7 +979,7 @@ namespace MVP.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Licenties.
+        ///   Looks up a localized string similar to Licenses.
         /// </summary>
         internal static string licenses_title {
             get {
@@ -1033,7 +988,7 @@ namespace MVP.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Uitloggen.
+        ///   Looks up a localized string similar to Logout.
         /// </summary>
         internal static string logout {
             get {
@@ -1042,7 +997,7 @@ namespace MVP.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Nee.
+        ///   Looks up a localized string similar to No.
         /// </summary>
         internal static string no {
             get {
@@ -1051,7 +1006,7 @@ namespace MVP.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Er is momenteel geen internetverbinding. Hierdoor kunnen activiteiten niet geladen worden. Probeer het later opnieuw..
+        ///   Looks up a localized string similar to You currently have no internet connection. This prevents us from loading your contributions. Please try again later..
         /// </summary>
         internal static string offline_contributions {
             get {
@@ -1069,7 +1024,7 @@ namespace MVP.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Beheer al je activiteiten vanuit je broekzak..
+        ///   Looks up a localized string similar to Manage all of your community activities from the palm of your hand..
         /// </summary>
         internal static string onboarding_1_description {
             get {
@@ -1078,7 +1033,7 @@ namespace MVP.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Simpel en effectief.
+        ///   Looks up a localized string similar to Simple and effective.
         /// </summary>
         internal static string onboarding_1_title {
             get {
@@ -1087,7 +1042,7 @@ namespace MVP.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Voeg direct activiteiten toe op basis van een URL op je klembord. Wij zorgen ervoor dat we zoveel mogelijk invullen zodat je snel verder kan met toevoegen..
+        ///   Looks up a localized string similar to Directly create contributions based on a URL on your clipboard. Pre-filling whatever we can for you allowing you to quickly add new contributions..
         /// </summary>
         internal static string onboarding_3_description {
             get {
@@ -1096,7 +1051,7 @@ namespace MVP.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Snel toevoegen.
+        ///   Looks up a localized string similar to Quick Add.
         /// </summary>
         internal static string onboarding_3_title {
             get {
@@ -1105,7 +1060,7 @@ namespace MVP.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Instellingen.
+        ///   Looks up a localized string similar to Settings.
         /// </summary>
         internal static string profile_title {
             get {
@@ -1114,7 +1069,7 @@ namespace MVP.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Bezig met URL metadata ophalen....
+        ///   Looks up a localized string similar to Getting URL metadata....
         /// </summary>
         internal static string progress_loading_url_data {
             get {
@@ -1123,7 +1078,7 @@ namespace MVP.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Bezig met opslaan....
+        ///   Looks up a localized string similar to Saving....
         /// </summary>
         internal static string progress_saving {
             get {
@@ -1132,7 +1087,7 @@ namespace MVP.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Zoeken....
+        ///   Looks up a localized string similar to Search....
         /// </summary>
         internal static string search_placeholder {
             get {
@@ -1141,7 +1096,7 @@ namespace MVP.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Vind je het standaardicoon niet mooi? Er zijn een aantal alternatieve opties beschikbaar..
+        ///   Looks up a localized string similar to Don&apos;t like the app icon we picked for you? We have alternative options available. If you have ideas for additional ones, feel free to reach out!.
         /// </summary>
         internal static string setting_appicon_description {
             get {
@@ -1150,7 +1105,7 @@ namespace MVP.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Icoon.
+        ///   Looks up a localized string similar to App icon.
         /// </summary>
         internal static string setting_appicon_title {
             get {
@@ -1159,7 +1114,7 @@ namespace MVP.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Deze applicatie kan zowel in een lichte als een donkere weergave gebruikt worden. Standaard neemt de applicatie de instelling van het apparaat over. Wanneer een van beide weergaves de voorkeur heeft kan deze hier ingesteld worden..
+        ///   Looks up a localized string similar to This app can be used in both light and dark mode. By default it will pick whatever your device is set to. If either theme tickles your fancy you can also force a specific theme here..
         /// </summary>
         internal static string setting_apptheme_description {
             get {
@@ -1168,7 +1123,7 @@ namespace MVP.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Weergave.
+        ///   Looks up a localized string similar to App theme.
         /// </summary>
         internal static string setting_apptheme_title {
             get {
@@ -1177,7 +1132,7 @@ namespace MVP.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Wanneer er zich een geldige URL op het klembord bevindt zodra een activiteit wordt toegevoegd, zal de app vragen of de metadata van deze URL gebruikt moet worden om de activiteit deels automatisch in te vullen..
+        ///   Looks up a localized string similar to If you have a valid URL on your clipboard while adding a contribution, you will be asked if metadata from that URL should be used to prefill your contribution..
         /// </summary>
         internal static string setting_contributionfromurl_description {
             get {
@@ -1186,7 +1141,7 @@ namespace MVP.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Activiteit maken via klembord.
+        ///   Looks up a localized string similar to Create contribution from URL.
         /// </summary>
         internal static string setting_contributionfromurl_title {
             get {
@@ -1195,7 +1150,7 @@ namespace MVP.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Standaard selecteren we de taal die je op jouw apparaat gebruikt, mits hier vertalingen beschikbaar voor zijn. Wanneer je deze applicatie in een andere taal wil gebruiken kun je dat hier aanpassen..
+        ///   Looks up a localized string similar to By default, we select the language that you&apos;re using on your device if translations for it are available. However, if you want to use this app in a different language you can override it here..
         /// </summary>
         internal static string setting_language_description {
             get {
@@ -1204,7 +1159,7 @@ namespace MVP.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Taal.
+        ///   Looks up a localized string similar to Language.
         /// </summary>
         internal static string setting_language_title {
             get {
@@ -1213,7 +1168,7 @@ namespace MVP.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Kennisgebieden bijeenharken....
+        ///   Looks up a localized string similar to Grabbing the contribution areas....
         /// </summary>
         internal static string splash_contributionareas {
             get {
@@ -1222,7 +1177,7 @@ namespace MVP.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Activiteitstypes synchroniseren....
+        ///   Looks up a localized string similar to Syncing the contribution types....
         /// </summary>
         internal static string splash_contributiontypes {
             get {
@@ -1231,7 +1186,7 @@ namespace MVP.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Bezig om alles klaar te zetten....
+        ///   Looks up a localized string similar to Getting things ready....
         /// </summary>
         internal static string splash_gettingready {
             get {
@@ -1240,7 +1195,7 @@ namespace MVP.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Zichtbaarheden visualiseren....
+        ///   Looks up a localized string similar to Putting visibilities in place....
         /// </summary>
         internal static string splash_visibilities {
             get {
@@ -1249,7 +1204,7 @@ namespace MVP.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Activiteiten.
+        ///   Looks up a localized string similar to Activities.
         /// </summary>
         internal static string tabs_activities {
             get {
@@ -1267,7 +1222,7 @@ namespace MVP.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Instellingen.
+        ///   Looks up a localized string similar to Settings.
         /// </summary>
         internal static string tabs_settings {
             get {
@@ -1276,7 +1231,7 @@ namespace MVP.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Statistieken.
+        ///   Looks up a localized string similar to Statistics.
         /// </summary>
         internal static string tabs_statistics {
             get {
@@ -1285,7 +1240,7 @@ namespace MVP.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Donker.
+        ///   Looks up a localized string similar to Dark.
         /// </summary>
         internal static string theme_dark {
             get {
@@ -1294,7 +1249,7 @@ namespace MVP.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Licht.
+        ///   Looks up a localized string similar to Light.
         /// </summary>
         internal static string theme_light {
             get {
@@ -1303,7 +1258,7 @@ namespace MVP.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Standaardwaarde van apparaat.
+        ///   Looks up a localized string similar to System Default.
         /// </summary>
         internal static string theme_systemdefault {
             get {
@@ -1312,7 +1267,7 @@ namespace MVP.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Applicatiethema.
+        ///   Looks up a localized string similar to App theme.
         /// </summary>
         internal static string themepicker_title {
             get {
@@ -1321,7 +1276,7 @@ namespace MVP.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to {0} is een verplicht veld..
+        ///   Looks up a localized string similar to {0} is a required field..
         /// </summary>
         internal static string validation_variablefield {
             get {
@@ -1330,7 +1285,7 @@ namespace MVP.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Bekijk licenties.
+        ///   Looks up a localized string similar to View licenses.
         /// </summary>
         internal static string view_licenses {
             get {
@@ -1339,7 +1294,7 @@ namespace MVP.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Zichtbaarheid.
+        ///   Looks up a localized string similar to Visibility.
         /// </summary>
         internal static string visibility_title {
             get {
@@ -1348,7 +1303,7 @@ namespace MVP.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Deze activiteit is geregistreerd in de voorgaande toekenningscyclus en kan daarom niet meer bewerkt of verwijderd worden..
+        ///   Looks up a localized string similar to This activity was recorded in the previous contribution window and therefore it cannot be edited or deleted..
         /// </summary>
         internal static string warning_description_activitylocked {
             get {
@@ -1357,7 +1312,7 @@ namespace MVP.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Wacht even....
+        ///   Looks up a localized string similar to Hold on....
         /// </summary>
         internal static string warning_title {
             get {
@@ -1366,7 +1321,7 @@ namespace MVP.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Activiteit gesloten.
+        ///   Looks up a localized string similar to Activity locked.
         /// </summary>
         internal static string warning_title_activitylocked {
             get {
@@ -1375,7 +1330,7 @@ namespace MVP.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Ja.
+        ///   Looks up a localized string similar to Yes.
         /// </summary>
         internal static string yes {
             get {
