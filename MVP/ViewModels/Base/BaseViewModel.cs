@@ -54,7 +54,7 @@ namespace MVP.ViewModels
 
             isNavigating = true;
 
-            return NavigationHelper.NavigateToAsync(page, param);
+            return NavigationHelper.NavigateToAsync(page, param).ContinueWith((x) => isNavigating = false);
         }
 
         protected Task OpenModalAsync(string page, object data, bool withNavigation)
@@ -64,7 +64,7 @@ namespace MVP.ViewModels
 
             isNavigating = true;
 
-            return NavigationHelper.OpenModalAsync(page, data, withNavigation);
+            return NavigationHelper.OpenModalAsync(page, data, withNavigation).ContinueWith((x) => isNavigating = false);
         }
 
         protected Task CloseModalAsync()
@@ -74,13 +74,7 @@ namespace MVP.ViewModels
 
             isNavigating = true;
 
-            return NavigationHelper.CloseModalAsync();
-        }
-
-        public override async Task OnDisappearing()
-        {
-            await base.OnDisappearing();
-            isNavigating = false;
+            return NavigationHelper.CloseModalAsync().ContinueWith((x) => isNavigating = false);
         }
 
         public virtual Task BackAsync()
@@ -90,7 +84,7 @@ namespace MVP.ViewModels
 
             isNavigating = true;
 
-            return NavigationHelper.BackAsync();
+            return NavigationHelper.BackAsync().ContinueWith((x) => isNavigating = false);
         }
     }
 }
