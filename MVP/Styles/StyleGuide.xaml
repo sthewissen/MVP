@@ -153,6 +153,7 @@
         <Setter Property="FontFamily" Value="{StaticResource font_regular}" />
         <Setter Property="FontSize" Value="{StaticResource fontsize_medium}" />
         <Setter Property="TextColor" Value="{AppThemeBinding Light={StaticResource black}, Dark={StaticResource white}}" />
+        <Setter Property="TextTransform" Value="None" />
     </Style>
 
     <Style TargetType="DatePicker">
