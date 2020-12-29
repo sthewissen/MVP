@@ -159,12 +159,6 @@
   <data name="contributionform_title_edit" xml:space="preserve">
     <value>Hozzájárulás szerkesztése</value>
   </data>
-  <data name="language_english" xml:space="preserve">
-    <value>Angol</value>
-  </data>
-  <data name="language_dutch" xml:space="preserve">
-    <value>Holland</value>
-  </data>
   <data name="languagepicker_title" xml:space="preserve">
     <value>Nyelv</value>
   </data>
@@ -555,7 +549,13 @@
   <data name="about_credits_title" xml:space="preserve">
     <value>Köszönet</value>
   </data>
-  <data name="language_hungarian" xml:space="preserve">
-    <value>magyar</value>
+  <data name="sign_in" xml:space="preserve">
+    <value>Bejelentkezés</value>
+  </data>
+  <data name="swipe_to_continue" xml:space="preserve">
+    <value>Legyints a folytatáshoz</value>
+  </data>
+  <data name="try_with_demo_account" xml:space="preserve">
+    <value>Kipróbálom próba fiókkal</value>
   </data>
 </root>
