@@ -454,12 +454,12 @@
     <value>Çevirmen</value>
   </data>
   <data name="sign_in" xml:space="preserve">
-    <value>Sign in</value>
+    <value>Oturum Aç</value>
   </data>
   <data name="swipe_to_continue" xml:space="preserve">
-    <value>Swipe to continue</value>
+    <value>Devam etmek için kaydırın</value>
   </data>
   <data name="try_with_demo_account" xml:space="preserve">
-    <value>Try with a demo account</value>
+    <value>Bir demo hesap ile deneyin</value>
   </data>
 </root>
