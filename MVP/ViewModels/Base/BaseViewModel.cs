@@ -4,6 +4,7 @@ using MVP.Resources;
 using MVP.Services;
 using MVP.Services.Interfaces;
 using TinyMvvm;
+using TinyMvvm.IoC;
 using TinyNavigationHelper;
 using Xamarin.CommunityToolkit.ObjectModel;
 using Xamarin.CommunityToolkit.UI.Views;
@@ -20,7 +21,7 @@ namespace MVP.ViewModels
         protected IMvpApiService MvpApiService => App.MvpApiService;
         protected IAnalyticsService AnalyticsService { get; }
         protected IAuthService AuthService => App.AuthService;
-        protected INavigationHelper NavigationHelper { get; }
+        protected INavigationHelper NavigationHelper => App.NavigationHelper;
 
         public virtual IAsyncCommand BackCommand { get; set; }
         public virtual ICommand PrimaryCommand { get; set; }
@@ -29,10 +30,9 @@ namespace MVP.ViewModels
         public LayoutState State { get; set; }
         public string CustomStateKey { get; set; }
 
-        public BaseViewModel(IAnalyticsService analyticsService, INavigationHelper navigationHelper)
+        public BaseViewModel(IAnalyticsService analyticsService)
         {
             AnalyticsService = analyticsService;
-            NavigationHelper = navigationHelper;
             BackCommand = new AsyncCommand(() => BackAsync());
         }
 

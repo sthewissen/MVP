@@ -10,7 +10,6 @@ using TinyNavigationHelper;
 using MVP.Services;
 using System.Threading.Tasks;
 using Xamarin.CommunityToolkit.ObjectModel;
-using System.Globalization;
 using MVP.Extensions;
 
 namespace MVP.ViewModels
@@ -25,7 +24,7 @@ namespace MVP.ViewModels
         public IAsyncCommand<LanguageViewModel> SetAppLanguageCommand { get; set; }
 
         public LanguagePickerViewModel(IAnalyticsService analyticsService, INavigationHelper navigationHelper, LanguageService languageService)
-            : base(analyticsService, navigationHelper)
+            : base(analyticsService)
         {
             this.languageService = languageService;
 

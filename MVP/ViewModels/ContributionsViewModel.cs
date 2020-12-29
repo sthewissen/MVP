@@ -8,7 +8,6 @@ using MVP.Pages;
 using MVP.Resources;
 using MVP.Services;
 using MVP.Services.Interfaces;
-using TinyNavigationHelper;
 using Xamarin.CommunityToolkit.ObjectModel;
 using Xamarin.CommunityToolkit.UI.Views;
 using Xamarin.Essentials;
@@ -31,8 +30,8 @@ namespace MVP.ViewModels
         public bool IsRefreshing { get; set; }
         public bool IsLoadingMore { get; set; }
 
-        public ContributionsViewModel(IAnalyticsService analyticsService, INavigationHelper navigationHelper)
-            : base(analyticsService, navigationHelper)
+        public ContributionsViewModel(IAnalyticsService analyticsService)
+            : base(analyticsService)
         {
             OpenContributionCommand = new AsyncCommand<Contribution>((Contribution c) => OpenContribution(c));
             SecondaryCommand = new AsyncCommand(() => OpenAddContribution());

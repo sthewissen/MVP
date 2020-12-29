@@ -7,7 +7,6 @@ using MVP.Extensions;
 using MVP.Helpers;
 using MVP.Services.Interfaces;
 using MVP.ViewModels.Data;
-using TinyNavigationHelper;
 using Xamarin.CommunityToolkit.ObjectModel;
 using Xamarin.CommunityToolkit.UI.Views;
 using Xamarin.Forms;
@@ -28,8 +27,8 @@ namespace MVP.ViewModels
 
         public IList<Grouping<string, ContributionTechnologyViewModel>> GroupedContributionTechnologies { get; set; } = new List<Grouping<string, ContributionTechnologyViewModel>>();
 
-        public AdditionalTechnologyPickerViewModel(IAnalyticsService analyticsService, INavigationHelper navigationHelper)
-            : base(analyticsService, navigationHelper)
+        public AdditionalTechnologyPickerViewModel(IAnalyticsService analyticsService)
+            : base(analyticsService)
         {
             SearchCommand = new Command(() => PopulateList());
             RefreshDataCommand = new AsyncCommand(() => LoadContributionAreas(true));

@@ -10,7 +10,6 @@ using MVP.Resources;
 using MVP.Services;
 using MVP.Services.Interfaces;
 using MVP.ViewModels.Data;
-using TinyNavigationHelper;
 using Xamarin.CommunityToolkit.ObjectModel;
 using Xamarin.CommunityToolkit.UI.Views;
 using Xamarin.Essentials;
@@ -45,8 +44,8 @@ namespace MVP.ViewModels
         public IAsyncCommand PickVisibilityCommand { get; set; }
         public IAsyncCommand PickContributionTechnologyCommand { get; set; }
 
-        public ContributionFormViewModel(IAnalyticsService analyticsService, INavigationHelper navigationHelper)
-            : base(analyticsService, navigationHelper)
+        public ContributionFormViewModel(IAnalyticsService analyticsService)
+            : base(analyticsService)
         {
             PickAdditionalTechnologiesCommand = new AsyncCommand(() => PickAdditionalTechnologies());
             PickContributionTypeCommand = new AsyncCommand(() => PickContributionType(), (x) => !IsEditing);

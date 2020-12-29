@@ -6,7 +6,6 @@ using MVP.Pages;
 using MVP.Resources;
 using MVP.Services;
 using MVP.Services.Interfaces;
-using TinyNavigationHelper;
 using Xamarin.CommunityToolkit.ObjectModel;
 using Xamarin.Essentials;
 
@@ -21,8 +20,8 @@ namespace MVP.ViewModels
         public IAsyncCommand OpenUrlCommand { get; set; }
         public ContributionTypeConfig ContributionTypeConfig { get; set; }
 
-        public ContributionDetailsViewModel(IAnalyticsService analyticsService, INavigationHelper navigationHelper)
-            : base(analyticsService, navigationHelper)
+        public ContributionDetailsViewModel(IAnalyticsService analyticsService)
+            : base(analyticsService)
         {
             DeleteContributionCommand = new AsyncCommand(() => DeleteContribution());
             SecondaryCommand = new AsyncCommand(() => EditContribution(), (x) => CanBeEdited);
@@ -56,7 +55,7 @@ namespace MVP.ViewModels
             if (!CanBeEdited)
                 return;
 
-            await NavigationHelper.OpenModalAsync(nameof(ContributionFormPage), Contribution, true).ConfigureAwait(false);
+            await OpenModalAsync(nameof(ContributionFormPage), Contribution, true).ConfigureAwait(false);
         }
 
         /// <summary>
