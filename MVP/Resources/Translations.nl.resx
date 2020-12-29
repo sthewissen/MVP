@@ -1,456 +1,465 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <root>
-  <resheader name="resmimetype">
-    <value>text/microsoft-resx</value>
-  </resheader>
-  <resheader name="version">
-    <value>2.0</value>
-  </resheader>
-  <resheader name="reader">
-    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </resheader>
-  <resheader name="writer">
-    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </resheader>
-  <data name="contributions_title" xml:space="preserve">
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>2.0</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <data name="contributions_title" xml:space="preserve">
       <value>Activiteiten</value>
     </data>
-  <data name="search_placeholder" xml:space="preserve">
+    <data name="search_placeholder" xml:space="preserve">
         <value>Zoeken...</value>
     </data>
-  <data name="profile_title" xml:space="preserve">
+    <data name="profile_title" xml:space="preserve">
         <value>Instellingen</value>
     </data>
-  <data name="setting_contributionfromurl_title" xml:space="preserve">
+    <data name="setting_contributionfromurl_title" xml:space="preserve">
         <value>Activiteit maken via klembord</value>
     </data>
-  <data name="setting_contributionfromurl_description" xml:space="preserve">
+    <data name="setting_contributionfromurl_description" xml:space="preserve">
         <value>Wanneer er zich een geldige URL op het klembord bevindt zodra een activiteit wordt toegevoegd, zal de app vragen of de metadata van deze URL gebruikt moet worden om de activiteit deels automatisch in te vullen.</value>
     </data>
-  <data name="setting_apptheme_title" xml:space="preserve">
+    <data name="setting_apptheme_title" xml:space="preserve">
         <value>Weergave</value>
     </data>
-  <data name="setting_apptheme_description" xml:space="preserve">
+    <data name="setting_apptheme_description" xml:space="preserve">
         <value>Deze applicatie kan zowel in een lichte als een donkere weergave gebruikt worden. Standaard neemt de applicatie de instelling van het apparaat over. Wanneer een van beide weergaves de voorkeur heeft kan deze hier ingesteld worden.</value>
     </data>
-  <data name="logout" xml:space="preserve">
+    <data name="logout" xml:space="preserve">
         <value>Uitloggen</value>
     </data>
-  <data name="tabs_activities" xml:space="preserve">
+    <data name="tabs_activities" xml:space="preserve">
         <value>Activiteiten</value>
     </data>
-  <data name="tabs_statistics" xml:space="preserve">
+    <data name="tabs_statistics" xml:space="preserve">
         <value>Statistieken</value>
     </data>
-  <data name="tabs_badges" xml:space="preserve">
+    <data name="tabs_badges" xml:space="preserve">
         <value>Badges</value>
     </data>
-  <data name="tabs_settings" xml:space="preserve">
+    <data name="tabs_settings" xml:space="preserve">
         <value>Instellingen</value>
     </data>
-  <data name="contributionform_title_add" xml:space="preserve">
+    <data name="contributionform_title_add" xml:space="preserve">
         <value>Activiteit toevoegen</value>
     </data>
-  <data name="contributionform_title_edit" xml:space="preserve">
+    <data name="contributionform_title_edit" xml:space="preserve">
         <value>Activiteit bewerken</value>
     </data>
-  <data name="language_english" xml:space="preserve">
+    <data name="language_english" xml:space="preserve">
         <value>Engels</value>
     </data>
-  <data name="language_dutch" xml:space="preserve">
+    <data name="language_dutch" xml:space="preserve">
         <value>Nederlands</value>
     </data>
-  <data name="languagepicker_title" xml:space="preserve">
+    <data name="languagepicker_title" xml:space="preserve">
         <value>Taal</value>
     </data>
-  <data name="contributiondetails_title" xml:space="preserve">
+    <data name="contributiondetails_title" xml:space="preserve">
         <value>Activiteitsdetails</value>
     </data>
-  <data name="field_activity_type" xml:space="preserve">
+    <data name="field_activity_type" xml:space="preserve">
         <value>Activiteitstype</value>
     </data>
-  <data name="field_title" xml:space="preserve">
+    <data name="field_title" xml:space="preserve">
         <value>Titel van activiteit</value>
     </data>
-  <data name="field_primary_contribution_area" xml:space="preserve">
+    <data name="field_primary_contribution_area" xml:space="preserve">
         <value>Primaire kennisgebied</value>
     </data>
-  <data name="field_url" xml:space="preserve">
+    <data name="field_url" xml:space="preserve">
         <value>URL</value>
     </data>
-  <data name="field_additional_contribution_areas" xml:space="preserve">
+    <data name="field_additional_contribution_areas" xml:space="preserve">
         <value>Additionele kennisgebieden</value>
     </data>
-  <data name="field_activity_date" xml:space="preserve">
+    <data name="field_activity_date" xml:space="preserve">
         <value>Activiteitsdatum</value>
     </data>
-  <data name="field_description" xml:space="preserve">
+    <data name="field_description" xml:space="preserve">
         <value>Omschrijving</value>
     </data>
-  <data name="field_visibility" xml:space="preserve">
+    <data name="field_visibility" xml:space="preserve">
         <value>Zichtbaarheid</value>
     </data>
-  <data name="button_delete_contribution" xml:space="preserve">
+    <data name="button_delete_contribution" xml:space="preserve">
         <value>Verwijder activiteit</value>
     </data>
-  <data name="about_title" xml:space="preserve">
+    <data name="about_title" xml:space="preserve">
         <value>Over deze app</value>
     </data>
-  <data name="about_why_title" xml:space="preserve">
+    <data name="about_why_title" xml:space="preserve">
         <value>Waarom is deze app gebouwd?</value>
     </data>
-  <data name="about_why_description" xml:space="preserve">
+    <data name="about_why_description" xml:space="preserve">
         <value>Er is altijd al een behoefte geweest om Microsoft MVPs hun activiteiten op een makkelijkere manier te laten beheren. Het bestaande online portaal werk prima, maar soortgelijke functionaliteit in compacte vorm op je mobiele apparaat is pas echt cool. En daarom is dit project ontstaan!</value>
     </data>
-  <data name="about_opensource_title" xml:space="preserve">
+    <data name="about_opensource_title" xml:space="preserve">
         <value>Open source</value>
     </data>
-  <data name="about_opensource_description" xml:space="preserve">
+    <data name="about_opensource_description" xml:space="preserve">
         <value>Deze applicatie is volledig open source. Als je deze applicatie met plezier gebruikt, overweeg dan om GitHub sponsor te worden. Hiermee koop je mij een digitale kop koffie per maand ☕️</value>
     </data>
-  <data name="becomesponsor" xml:space="preserve">
+    <data name="becomesponsor" xml:space="preserve">
         <value>Wordt een sponsor</value>
     </data>
-  <data name="contributionform_timeframememo" xml:space="preserve">
+    <data name="contributionform_timeframememo" xml:space="preserve">
         <value>Activiteiten voor de toekenningscyclus van juli moeten plaatsvinden tussen {0} en {1}. Activiteiten die zijn ingediend na {0} zullen voor een toekomstige cyclus worden overwogen.</value>
     </data>
-  <data name="contributionform_activitytype_placeholder" xml:space="preserve">
+    <data name="contributionform_activitytype_placeholder" xml:space="preserve">
         <value>Kies het activiteitstype dat het beste past bij deze activiteit.</value>
     </data>
-  <data name="contributionform_technologyarea_placeholder" xml:space="preserve">
+    <data name="contributionform_technologyarea_placeholder" xml:space="preserve">
         <value>Kies het kennisgebied dat de primaire focus van deze activiteit is.</value>
     </data>
-  <data name="contributionform_additionaltechnologyarea_placeholder" xml:space="preserve">
+    <data name="contributionform_additionaltechnologyarea_placeholder" xml:space="preserve">
         <value>Kies maximaal 2 additionele kennisgebieden die ook van toepassing zijn op deze activiteit.</value>
     </data>
-  <data name="contributionform_visibility_placeholder" xml:space="preserve">
+    <data name="contributionform_visibility_placeholder" xml:space="preserve">
         <value>Kies het zichtbaarheidsniveau van deze activiteit.</value>
     </data>
-  <data name="setting_language_title" xml:space="preserve">
+    <data name="setting_language_title" xml:space="preserve">
         <value>Taal</value>
     </data>
-  <data name="setting_language_description" xml:space="preserve">
+    <data name="setting_language_description" xml:space="preserve">
         <value>Standaard selecteren we de taal die je op jouw apparaat gebruikt, mits hier vertalingen beschikbaar voor zijn. Wanneer je deze applicatie in een andere taal wil gebruiken kun je dat hier aanpassen.</value>
     </data>
-  <data name="themepicker_title" xml:space="preserve">
+    <data name="themepicker_title" xml:space="preserve">
         <value>Applicatiethema</value>
     </data>
-  <data name="additionaltechnologypicker_title" xml:space="preserve">
+    <data name="additionaltechnologypicker_title" xml:space="preserve">
         <value>Additionele kennisgebieden</value>
     </data>
-  <data name="contributiontechnologypicker_title" xml:space="preserve">
+    <data name="contributiontechnologypicker_title" xml:space="preserve">
         <value>Primaire kennisgebied</value>
     </data>
-  <data name="contributiontypepicker_title" xml:space="preserve">
+    <data name="contributiontypepicker_title" xml:space="preserve">
         <value>Activiteitstype</value>
     </data>
-  <data name="splash_contributionareas" xml:space="preserve">
+    <data name="splash_contributionareas" xml:space="preserve">
         <value>Kennisgebieden bijeenharken...</value>
     </data>
-  <data name="splash_contributiontypes" xml:space="preserve">
+    <data name="splash_contributiontypes" xml:space="preserve">
         <value>Activiteitstypes synchroniseren...</value>
     </data>
-  <data name="splash_visibilities" xml:space="preserve">
+    <data name="splash_visibilities" xml:space="preserve">
         <value>Zichtbaarheden visualiseren...</value>
     </data>
-  <data name="splash_gettingready" xml:space="preserve">
+    <data name="splash_gettingready" xml:space="preserve">
         <value>Bezig om alles klaar te zetten...</value>
     </data>
-  <data name="theme_systemdefault" xml:space="preserve">
+    <data name="theme_systemdefault" xml:space="preserve">
         <value>Standaardwaarde van apparaat</value>
     </data>
-  <data name="theme_light" xml:space="preserve">
+    <data name="theme_light" xml:space="preserve">
         <value>Licht</value>
     </data>
-  <data name="theme_dark" xml:space="preserve">
+    <data name="theme_dark" xml:space="preserve">
         <value>Donker</value>
     </data>
-  <data name="visibility_title" xml:space="preserve">
+    <data name="visibility_title" xml:space="preserve">
         <value>Zichtbaarheid</value>
     </data>
-  <data name="icon_default" xml:space="preserve">
+    <data name="icon_default" xml:space="preserve">
         <value>Standaard</value>
     </data>
-  <data name="icon_darkblue" xml:space="preserve">
+    <data name="icon_darkblue" xml:space="preserve">
         <value>Donkerblauw</value>
     </data>
-  <data name="icon_black" xml:space="preserve">
+    <data name="icon_black" xml:space="preserve">
         <value>Zwart</value>
     </data>
-  <data name="icon_white" xml:space="preserve">
+    <data name="icon_white" xml:space="preserve">
         <value>Wit</value>
     </data>
-  <data name="icon_rainbow" xml:space="preserve">
+    <data name="icon_rainbow" xml:space="preserve">
         <value>Regenboog</value>
     </data>
-  <data name="setting_appicon_title" xml:space="preserve">
+    <data name="setting_appicon_title" xml:space="preserve">
         <value>Icoon</value>
     </data>
-  <data name="setting_appicon_description" xml:space="preserve">
+    <data name="setting_appicon_description" xml:space="preserve">
         <value>Vind je het standaardicoon niet mooi? Er zijn een aantal alternatieve opties beschikbaar.</value>
     </data>
-  <data name="yes" xml:space="preserve">
+    <data name="yes" xml:space="preserve">
         <value>Ja</value>
     </data>
-  <data name="no" xml:space="preserve">
+    <data name="no" xml:space="preserve">
         <value>Nee</value>
     </data>
-  <data name="ok" xml:space="preserve">
+    <data name="ok" xml:space="preserve">
         <value>Ok</value>
     </data>
-  <data name="cancel" xml:space="preserve">
+    <data name="cancel" xml:space="preserve">
         <value>Annuleren</value>
     </data>
-  <data name="warning_title" xml:space="preserve">
+    <data name="warning_title" xml:space="preserve">
         <value>Wacht even...</value>
     </data>
-  <data name="contributiondetail_deleteconfirmation" xml:space="preserve">
+    <data name="contributiondetail_deleteconfirmation" xml:space="preserve">
         <value>Weet je zeker dat je deze activiteit wil verwijderen? Dit kan niet ongedaan gemaakt worden.</value>
     </data>
-  <data name="error_unexpected" xml:space="preserve">
+    <data name="error_unexpected" xml:space="preserve">
         <value>Er ging iets mis. Er is een melding gemaakt en we zullen dit zo snel mogelijk onderzoeken.</value>
     </data>
-  <data name="error_badrequest" xml:space="preserve">
+    <data name="error_badrequest" xml:space="preserve">
         <value>Verzoek kom niet verwerkt worden. Probeer het later opnieuw.</value>
     </data>
-  <data name="error_servererror" xml:space="preserve">
+    <data name="error_servererror" xml:space="preserve">
         <value>Verzoek kon niet verwerkt worden. Probeer het later opnieuw.</value>
     </data>
-  <data name="alert_error_unauthorized" xml:space="preserve">
+    <data name="alert_error_unauthorized" xml:space="preserve">
         <value>Logingegevens zijn verlopen en we konden deze niet verversen. Daarom ben je uitgelogd. Log opnieuw in om verder te gaan.</value>
     </data>
-  <data name="clipboard_title" xml:space="preserve">
+    <data name="clipboard_title" xml:space="preserve">
         <value>Dat ziet er goed uit!</value>
     </data>
-  <data name="clipboard_description" xml:space="preserve">
+    <data name="clipboard_description" xml:space="preserve">
         <value>We zien dat er een URL op het klembord staat. Moet er een activiteit gemaakt worden op basis van deze URL?</value>
     </data>
-  <data name="contributiondetail_notdeleted" xml:space="preserve">
+    <data name="contributiondetail_notdeleted" xml:space="preserve">
         <value>Activiteit kon niet verwijderd worden. Wellicht was deze al verwijderd of vond deze plaats in een voorgaande toekenningscyclus?</value>
     </data>
-  <data name="validation_variablefield" xml:space="preserve">
+    <data name="validation_variablefield" xml:space="preserve">
         <value>{0} is een verplicht veld.</value>
     </data>
-  <data name="warning_title_activitylocked" xml:space="preserve">
+    <data name="warning_title_activitylocked" xml:space="preserve">
         <value>Activiteit gesloten</value>
     </data>
-  <data name="warning_description_activitylocked" xml:space="preserve">
+    <data name="warning_description_activitylocked" xml:space="preserve">
         <value>Deze activiteit is geregistreerd in de voorgaande toekenningscyclus en kan daarom niet meer bewerkt of verwijderd worden.</value>
     </data>
-  <data name="error_nomvpaccount" xml:space="preserve">
+    <data name="error_nomvpaccount" xml:space="preserve">
         <value>We konden je niet authenticeren met de aangeleverde gegevens. Weet je zeker dat je het account gebruikt dat geassocieerd is met je MVP ID?</value>
     </data>
-  <data name="progress_saving" xml:space="preserve">
+    <data name="progress_saving" xml:space="preserve">
         <value>Bezig met opslaan...</value>
     </data>
-  <data name="licenses_title" xml:space="preserve">
+    <data name="licenses_title" xml:space="preserve">
         <value>Licenties</value>
     </data>
-  <data name="about_licenses_title" xml:space="preserve">
+    <data name="about_licenses_title" xml:space="preserve">
         <value>Licenties</value>
     </data>
-  <data name="about_licenses_description" xml:space="preserve">
+    <data name="about_licenses_description" xml:space="preserve">
         <value>Deze applicatie zou niet mogelijk zijn zonder het geweldige werk van anderen. Als je wil weten wie dit zijn, bekijk dan de licenties van hun geweldige software.</value>
     </data>
-  <data name="view_licenses" xml:space="preserve">
+    <data name="view_licenses" xml:space="preserve">
         <value>Bekijk licenties</value>
     </data>
-  <data name="progress_loading_url_data" xml:space="preserve">
+    <data name="progress_loading_url_data" xml:space="preserve">
         <value>Bezig met URL metadata ophalen...</value>
     </data>
-  <data name="contributiondetails_edit" xml:space="preserve">
+    <data name="contributiondetails_edit" xml:space="preserve">
         <value>Wijzigen</value>
     </data>
-  <data name="error_title_validationfailed" xml:space="preserve">
+    <data name="error_title_validationfailed" xml:space="preserve">
         <value>Validatie mislukt</value>
     </data>
-  <data name="error_description_validationfailed" xml:space="preserve">
+    <data name="error_description_validationfailed" xml:space="preserve">
         <value>Niet alle verplichte velden zijn ingevuld. Vul deze in en probeer het opnieuw.</value>
     </data>
-  <data name="empty_state_title" xml:space="preserve">
+    <data name="empty_state_title" xml:space="preserve">
         <value>Ooh...het is leeg hier!</value>
     </data>
-  <data name="empty_state_contributions" xml:space="preserve">
+    <data name="empty_state_contributions" xml:space="preserve">
         <value>Geen activiteiten gevonden. Voeg een nieuwe activiteit toe of ververs het overzicht om bestaande activiteiten op te halen.</value>
     </data>
-  <data name="contribution_add" xml:space="preserve">
+    <data name="contribution_add" xml:space="preserve">
         <value>Toevoegen</value>
     </data>
-  <data name="empty_state_contributiontypes" xml:space="preserve">
+    <data name="empty_state_contributiontypes" xml:space="preserve">
         <value>Geen activiteitstypes gevonden.</value>
     </data>
-  <data name="empty_state_contributiontechnologies" xml:space="preserve">
+    <data name="empty_state_contributiontechnologies" xml:space="preserve">
         <value>Geen kennisgebieden gevonden.</value>
     </data>
-  <data name="empty_state_noresultcontributiontechnologies" xml:space="preserve">
+    <data name="empty_state_noresultcontributiontechnologies" xml:space="preserve">
         <value>Zoekopdracht leverde geen resultaten op. Probeer een andere zoekopdracht.</value>
     </data>
-  <data name="empty_state_visibilities" xml:space="preserve">
+    <data name="empty_state_visibilities" xml:space="preserve">
         <value>Geen zichtbaarheden gevonden.</value>
     </data>
-  <data name="error_couldntchangeicon" xml:space="preserve">
+    <data name="error_couldntchangeicon" xml:space="preserve">
         <value>Applicatieicoon kon niet veranderd worden. Probeer het later opnieuw.</value>
     </data>
-  <data name="error_couldntchangetheme" xml:space="preserve">
+    <data name="error_couldntchangetheme" xml:space="preserve">
         <value>Applicatiethema kon niet veranderd worden. Probeer het later opnieuw.</value>
     </data>
-  <data name="error_couldntchangelanguage" xml:space="preserve">
+    <data name="error_couldntchangelanguage" xml:space="preserve">
         <value>Taal kon niet veranderd worden. Probeer het later opnieuw.</value>
     </data>
-  <data name="error_title" xml:space="preserve">
+    <data name="error_title" xml:space="preserve">
         <value>Er ging iets mis</value>
     </data>
-  <data name="error_data_not_loaded" xml:space="preserve">
+    <data name="error_data_not_loaded" xml:space="preserve">
         <value>Deze gegevens konden niet worden geladen. We weten niet precies waarom, maar er is een melding gemaakt. Probeer het later opnieuw.</value>
     </data>
-  <data name="error_couldntloadmorecontributions" xml:space="preserve">
+    <data name="error_couldntloadmorecontributions" xml:space="preserve">
         <value>Activiteiten konden niet worden geladen. We weten niet precies waarom, maar er is een melding gemaakt. Probeer het later opnieuw.</value>
     </data>
-  <data name="error_couldntsavecontribution" xml:space="preserve">
+    <data name="error_couldntsavecontribution" xml:space="preserve">
         <value>Activiteit kon niet worden opgeslagen. We weten niet precies waarom, maar er is een melding gemaakt. Probeer het later opnieuw.</value>
     </data>
-  <data name="error_couldntrefreshprofile" xml:space="preserve">
+    <data name="error_couldntrefreshprofile" xml:space="preserve">
         <value>Profielinformatie kon niet ververst worden. We weten niet precies waarom, maar er is een melding gemaakt. Probeer het later opnieuw.</value>
     </data>
-  <data name="field_number_of_articles" xml:space="preserve">
+    <data name="field_number_of_articles" xml:space="preserve">
         <value>Aantal artikelen</value>
     </data>
-  <data name="field_number_of_views" xml:space="preserve">
+    <data name="field_number_of_views" xml:space="preserve">
         <value>Aantal weergaves</value>
     </data>
-  <data name="field_number_of_posts" xml:space="preserve">
+    <data name="field_number_of_posts" xml:space="preserve">
         <value>Aantal berichten</value>
     </data>
-  <data name="field_number_of_subscribers" xml:space="preserve">
+    <data name="field_number_of_subscribers" xml:space="preserve">
         <value>Aantal abonnees</value>
     </data>
-  <data name="field_annual_unique_visitors" xml:space="preserve">
+    <data name="field_annual_unique_visitors" xml:space="preserve">
         <value>Jaarlijkse unieke bezoekers</value>
     </data>
-  <data name="field_number_of_books" xml:space="preserve">
+    <data name="field_number_of_books" xml:space="preserve">
         <value>Aantal boeken</value>
     </data>
-  <data name="field_copies_sold" xml:space="preserve">
+    <data name="field_copies_sold" xml:space="preserve">
         <value>Verkochte exemplaren</value>
     </data>
-  <data name="field_number_of_conferences" xml:space="preserve">
+    <data name="field_number_of_conferences" xml:space="preserve">
         <value>Aantal conferenties</value>
     </data>
-  <data name="field_number_of_visitors" xml:space="preserve">
+    <data name="field_number_of_visitors" xml:space="preserve">
         <value>Aantal bezoekers</value>
     </data>
-  <data name="field_prs_issues_submissions" xml:space="preserve">
+    <data name="field_prs_issues_submissions" xml:space="preserve">
         <value>Pull Requests/Issues/Submissions</value>
     </data>
-  <data name="field_number_of_threads_moderated" xml:space="preserve">
+    <data name="field_number_of_threads_moderated" xml:space="preserve">
         <value>Aantal gemodereerde threads</value>
     </data>
-  <data name="field_number_of_answers" xml:space="preserve">
+    <data name="field_number_of_answers" xml:space="preserve">
         <value>Aantal antwoorden</value>
     </data>
-  <data name="field_views_of_answers" xml:space="preserve">
+    <data name="field_views_of_answers" xml:space="preserve">
         <value>Aantal antwoordweergaces</value>
     </data>
-  <data name="field_number_of_mentorship_activity" xml:space="preserve">
+    <data name="field_number_of_mentorship_activity" xml:space="preserve">
         <value>Aantal mentorschap activiteiten</value>
     </data>
-  <data name="field_number_of_mentees" xml:space="preserve">
+    <data name="field_number_of_mentees" xml:space="preserve">
         <value>Aantal mentees</value>
     </data>
-  <data name="field_number_of_projects" xml:space="preserve">
+    <data name="field_number_of_projects" xml:space="preserve">
         <value>Aantal projecten</value>
     </data>
-  <data name="field_projects" xml:space="preserve">
+    <data name="field_projects" xml:space="preserve">
         <value>Project(en)</value>
     </data>
-  <data name="field_contributions" xml:space="preserve">
+    <data name="field_contributions" xml:space="preserve">
         <value>Activiteiten</value>
     </data>
-  <data name="field_meetings" xml:space="preserve">
+    <data name="field_meetings" xml:space="preserve">
         <value>Meetings</value>
     </data>
-  <data name="field_members" xml:space="preserve">
+    <data name="field_members" xml:space="preserve">
         <value>Leden</value>
     </data>
-  <data name="field_number_of_attendees" xml:space="preserve">
+    <data name="field_number_of_attendees" xml:space="preserve">
         <value>Aantal aanwezigen</value>
     </data>
-  <data name="field_annual_quantity" xml:space="preserve">
+    <data name="field_annual_quantity" xml:space="preserve">
         <value>Jaarlijkse hoeveelheid</value>
     </data>
-  <data name="field_annual_reach" xml:space="preserve">
+    <data name="field_annual_reach" xml:space="preserve">
         <value>Jaarlijkse bereik</value>
     </data>
-  <data name="field_number_of_events_participated" xml:space="preserve">
+    <data name="field_number_of_events_participated" xml:space="preserve">
         <value>Aantal evenementdeelnames</value>
     </data>
-  <data name="field_number_of_feedbacks_provided" xml:space="preserve">
+    <data name="field_number_of_feedbacks_provided" xml:space="preserve">
         <value>Aantal gegeven feedback</value>
     </data>
-  <data name="field_number_of_samples" xml:space="preserve">
+    <data name="field_number_of_samples" xml:space="preserve">
         <value>Aantal voorbeelden</value>
     </data>
-  <data name="field_number_of_downloads" xml:space="preserve">
+    <data name="field_number_of_downloads" xml:space="preserve">
         <value>Aantal downloads</value>
     </data>
-  <data name="field_number_of_sites" xml:space="preserve">
+    <data name="field_number_of_sites" xml:space="preserve">
         <value>Aantal sites</value>
     </data>
-  <data name="field_number_of_talks" xml:space="preserve">
+    <data name="field_number_of_talks" xml:space="preserve">
         <value>Aantal sessies</value>
     </data>
-  <data name="field_attendees_of_talks" xml:space="preserve">
+    <data name="field_attendees_of_talks" xml:space="preserve">
         <value>Aanwezigen bij sessies</value>
     </data>
-  <data name="field_number_of_followers" xml:space="preserve">
+    <data name="field_number_of_followers" xml:space="preserve">
         <value>Aantal volgers</value>
     </data>
-  <data name="field_number_of_videos" xml:space="preserve">
+    <data name="field_number_of_videos" xml:space="preserve">
         <value>Aantal videos</value>
     </data>
-  <data name="field_number_of_events" xml:space="preserve">
+    <data name="field_number_of_events" xml:space="preserve">
         <value>Aantal evenementen</value>
     </data>
-  <data name="contributionform_save" xml:space="preserve">
+    <data name="contributionform_save" xml:space="preserve">
     <value>Opslaan</value>
   </data>
-  <data name="error_logoutwhileoffline" xml:space="preserve">
+    <data name="error_logoutwhileoffline" xml:space="preserve">
     <value>Er is momenteel geen internetverbinding. Dit kan ervoor zorgen dat je niet opnieuw kunt inloggen. Weet je zeker dat je verder wil gaan?</value>
   </data>
-  <data name="error_offline" xml:space="preserve">
+    <data name="error_offline" xml:space="preserve">
     <value>Dit verzoek kan niet uitgevoerd worden zonder internetverbinding. Probeer het later opnieuw.</value>
   </data>
-  <data name="error_offline_title" xml:space="preserve">
+    <data name="error_offline_title" xml:space="preserve">
     <value>Geen internetverbinding</value>
   </data>
-  <data name="offline_contributions" xml:space="preserve">
+    <data name="offline_contributions" xml:space="preserve">
     <value>Er is momenteel geen internetverbinding. Hierdoor kunnen activiteiten niet geladen worden. Probeer het later opnieuw.</value>
   </data>
-  <data name="onboarding_1_description" xml:space="preserve">
+    <data name="onboarding_1_description" xml:space="preserve">
     <value>Beheer al je activiteiten vanuit je broekzak.</value>
   </data>
-  <data name="onboarding_1_title" xml:space="preserve">
+    <data name="onboarding_1_title" xml:space="preserve">
     <value>Simpel en effectief</value>
   </data>
-  <data name="onboarding_3_description" xml:space="preserve">
+    <data name="onboarding_3_description" xml:space="preserve">
     <value>Voeg direct activiteiten toe op basis van een URL op je klembord. Wij zorgen ervoor dat we zoveel mogelijk invullen zodat je snel verder kan met toevoegen.</value>
   </data>
-  <data name="onboarding_3_title" xml:space="preserve">
+    <data name="onboarding_3_title" xml:space="preserve">
     <value>Snel toevoegen</value>
   </data>
-  <data name="acknowledgementtype_translator" xml:space="preserve">
+    <data name="acknowledgementtype_translator" xml:space="preserve">
     <value>Vertaler</value>
   </data>
-  <data name="acknowledgementtype_tester" xml:space="preserve">
+    <data name="acknowledgementtype_tester" xml:space="preserve">
     <value>Tester</value>
   </data>
-  <data name="about_credits_description" xml:space="preserve">
+    <data name="about_credits_description" xml:space="preserve">
     <value>Zonder de onderstaande personen zou deze applicatie niet mogelijk zijn geweest. Daarom hebben zij een plekje verdiend in onderstaande lijst om hun bijdrage te vieren.</value>
   </data>
-  <data name="about_credits_title" xml:space="preserve">
+    <data name="about_credits_title" xml:space="preserve">
     <value>Credits</value>
   </data>
-  <data name="language_spanish" xml:space="preserve">
+    <data name="language_spanish" xml:space="preserve">
     <value>Español</value>
+  </data>
+    <data name="sign_in" xml:space="preserve">
+    <value>Inloggen</value>
+  </data>
+    <data name="swipe_to_continue" xml:space="preserve">
+    <value>Swipe naar links</value>
+  </data>
+    <data name="try_with_demo_account" xml:space="preserve">
+    <value>Probeer de demo</value>
   </data>
 </root>

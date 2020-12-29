@@ -549,13 +549,22 @@
     <data name="acknowledgementtype_tester" xml:space="preserve">
         <value>Tester</value>
     </data>
-  <data name="about_credits_description" xml:space="preserve">
+    <data name="about_credits_description" xml:space="preserve">
     <value>Without the awesome people listed below this app would not have been possible. Therefore they have earned a spot in here to celebrate their contributions.</value>
   </data>
-  <data name="about_credits_title" xml:space="preserve">
+    <data name="about_credits_title" xml:space="preserve">
     <value>Credits</value>
   </data>
     <data name="language_spanish" xml:space="preserve">
-      <value>Español</value>
+    <value>Español</value>
+  </data>
+    <data name="sign_in" xml:space="preserve">
+        <value>Sign in</value>
+    </data>
+    <data name="swipe_to_continue" xml:space="preserve">
+        <value>Swipe to continue</value>
+    </data>
+    <data name="try_with_demo_account" xml:space="preserve">
+        <value>Try with a demo account</value>
     </data>
 </root>
