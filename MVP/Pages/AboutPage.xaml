@@ -35,11 +35,11 @@
                            Text="{extensions:Translate about_opensource_description}" />
 
 
-                    <sh:Shadows Style="{StaticResource shade_secondary}" >
+                    <sh:Shadows Style="{StaticResource shade_secondary}">
                         <Button Text="{extensions:Translate becomesponsor}"
                                 Command="{Binding OpenSponsorCommand}"
                                 Margin="0,0,0,24"
-                                ImageSource="{AppThemeBinding Light={FontImage FontFamily={StaticResource font_icon}, Color={StaticResource black}, Size=20, Glyph={x:Static icons:Icons.coffee}}, Dark={FontImage FontFamily={StaticResource font_icon}, Color={StaticResource white}, Size=20, Glyph={x:Static icons:Icons.coffee}}}"
+                                ImageSource="{OnPlatform iOS={AppThemeBinding Light={FontImage FontFamily={StaticResource font_icon}, Color={StaticResource black}, Size=20, Glyph={x:Static icons:Icons.coffee}}, Dark={FontImage FontFamily={StaticResource font_icon}, Color={StaticResource white}, Size=20, Glyph={x:Static icons:Icons.coffee}}}}"
                                 Style="{StaticResource secondary_button}" />
                     </sh:Shadows>
 
@@ -50,11 +50,11 @@
                            Margin="0,0,0,24"
                            Text="{extensions:Translate about_licenses_description}" />
 
-                    <sh:Shadows Style="{StaticResource shade_secondary}" >
+                    <sh:Shadows Style="{StaticResource shade_secondary}">
                         <Button Text="{extensions:Translate view_licenses}"
                                 Command="{Binding OpenLicensesCommand}"
                                 Margin="0,0,0,24"
-                                ImageSource="{AppThemeBinding Light={FontImage FontFamily={StaticResource font_icon}, Color={StaticResource black}, Size=20, Glyph={x:Static icons:Icons.file_text}}, Dark={FontImage FontFamily={StaticResource font_icon}, Color={StaticResource white}, Size=20, Glyph={x:Static icons:Icons.file_text}}}"
+                                ImageSource="{OnPlatform iOS={AppThemeBinding Light={FontImage FontFamily={StaticResource font_icon}, Color={StaticResource black}, Size=20, Glyph={x:Static icons:Icons.file_text}}, Dark={FontImage FontFamily={StaticResource font_icon}, Color={StaticResource white}, Size=20, Glyph={x:Static icons:Icons.file_text}}}}"
                                 Style="{StaticResource secondary_button}"  />
                     </sh:Shadows>
 
