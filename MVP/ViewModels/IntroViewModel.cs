@@ -6,7 +6,6 @@ using MVP.Pages;
 using MVP.Resources;
 using MVP.Services;
 using MVP.Services.Interfaces;
-using TinyNavigationHelper;
 using Xamarin.CommunityToolkit.ObjectModel;
 using Xamarin.Essentials;
 using Xamarin.Forms;
@@ -18,8 +17,8 @@ namespace MVP.ViewModels
         public IAsyncCommand SignInAsDemoCommand { get; set; }
         public List<OnboardingItem> OnboardingItems { get; }
 
-        public IntroViewModel(IAnalyticsService analyticsService, INavigationHelper navigationHelper)
-            : base(analyticsService, navigationHelper)
+        public IntroViewModel(IAnalyticsService analyticsService)
+            : base(analyticsService)
         {
             SecondaryCommand = new AsyncCommand(() => SignIn());
             SignInAsDemoCommand = new AsyncCommand(() => SignInAsDemo());

@@ -206,7 +206,7 @@
                         <Button Style="{StaticResource destructive_primary_button}"
                                 Margin="24,32"
                                 Command="{Binding LogoutCommand}"
-                                ImageSource="{FontImage FontFamily={StaticResource font_icon}, Color={StaticResource white}, Size=20, Glyph={x:Static icons:Icons.logout}}"
+                                ImageSource="{OnPlatform iOS={FontImage FontFamily={StaticResource font_icon}, Color={StaticResource white}, Size=20, Glyph={x:Static icons:Icons.logout}}}"
                                 Text="{extensions:Translate logout}"/>
                     </sh:Shadows>
                 </StackLayout>
