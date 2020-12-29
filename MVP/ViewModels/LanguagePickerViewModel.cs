@@ -18,7 +18,7 @@ namespace MVP.ViewModels
     {
         readonly LanguageService languageService;
 
-        public List<string> supportedLanguages = new List<string> { "en", "nl", "es", "tr" };
+        public List<string> supportedLanguages = new List<string> { "en", "nl", "es", "tr", "hu" };
 
         public IList<LanguageViewModel> SupportedLanguages { get; set; } = new List<LanguageViewModel>();
         public IAsyncCommand<LanguageViewModel> SetAppLanguageCommand { get; set; }
