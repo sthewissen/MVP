@@ -432,12 +432,6 @@
     <data name="onboarding_3_description" xml:space="preserve">
     <value>Crea contribuciones directamente basadas en una URL en su portapapeles. Prellenando todo lo que podamos para que puedas agregar rápidamente nuevas contribuciones.</value>
   </data>
-    <data name="language_english" xml:space="preserve">
-    <value>English</value>
-  </data>
-    <data name="language_dutch" xml:space="preserve">
-    <value>Nederlands</value>
-  </data>
     <data name="about_credits_description" xml:space="preserve">
     <value>Sin las increíbles personas que se enumeran a continuación, esta app no habría sido posible. Por lo tanto, se han ganado un lugar aquí para celebrar sus contribuciones.</value>
   </data>
@@ -449,9 +443,6 @@
   </data>
     <data name="acknowledgementtype_translator" xml:space="preserve">
     <value>Traductor</value>
-  </data>
-    <data name="language_spanish" xml:space="preserve">
-    <value>Español</value>
   </data>
     <data name="sign_in" xml:space="preserve">
         <value>Iniciar sesión</value>

@@ -131,18 +131,6 @@ namespace MVP.Resources {
             }
         }
         
-        internal static string language_english {
-            get {
-                return ResourceManager.GetString("language_english", resourceCulture);
-            }
-        }
-        
-        internal static string language_dutch {
-            get {
-                return ResourceManager.GetString("language_dutch", resourceCulture);
-            }
-        }
-        
         internal static string languagepicker_title {
             get {
                 return ResourceManager.GetString("languagepicker_title", resourceCulture);
@@ -920,12 +908,6 @@ namespace MVP.Resources {
         internal static string about_credits_title {
             get {
                 return ResourceManager.GetString("about_credits_title", resourceCulture);
-            }
-        }
-        
-        internal static string language_spanish {
-            get {
-                return ResourceManager.GetString("language_spanish", resourceCulture);
             }
         }
         
