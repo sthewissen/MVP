@@ -75,7 +75,8 @@
 
                 <IndicatorView Grid.Row="2"
                                ItemsSource="{Binding OnboardingItems}"
-                               x:Name="indicator"/>
+                               x:Name="indicator"
+                               Margin="0,0,0,24"/>
             </Grid>
         </mvp:AppFrame.Content>
     </mvp:AppFrame>
