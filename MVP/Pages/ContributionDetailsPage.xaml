@@ -166,7 +166,7 @@
 
                     <sh:Shadows Style="{StaticResource shade_error}" >
                         <Button Command="{Binding DeleteContributionCommand}"
-                                ImageSource="{FontImage FontFamily={StaticResource font_icon}, Color={StaticResource white}, Size=20, Glyph={x:Static icons:Icons.trash2}}"
+                                ImageSource="{OnPlatform iOS={FontImage FontFamily={StaticResource font_icon}, Color={StaticResource white}, Size=20, Glyph={x:Static icons:Icons.trash2}}}"
                                 IsVisible="{Binding CanBeEdited}"
                                 Style="{StaticResource destructive_primary_button}"
                                 Text="{extensions:Translate button_delete_contribution}"/>

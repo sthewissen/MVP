@@ -5,7 +5,6 @@ using System.Threading.Tasks;
 using MVP.Resources;
 using MVP.Services;
 using MVP.Services.Interfaces;
-using TinyNavigationHelper;
 using Xamarin.CommunityToolkit.ObjectModel;
 using Xamarin.Essentials;
 using Xamarin.Forms;
@@ -22,8 +21,8 @@ namespace MVP.ViewModels
 
         public IAsyncCommand<AppThemeViewModel> SetAppThemeCommand { get; set; }
 
-        public ThemePickerViewModel(IAnalyticsService analyticsService, INavigationHelper navigationHelper)
-            : base(analyticsService, navigationHelper)
+        public ThemePickerViewModel(IAnalyticsService analyticsService)
+            : base(analyticsService)
         {
             SetAppThemeCommand = new AsyncCommand<AppThemeViewModel>((x) => SetAppTheme(x));
             AppThemes.FirstOrDefault(x => x.Key == Preferences.Get(Settings.AppTheme, Settings.AppThemeDefault)).IsSelected = true;

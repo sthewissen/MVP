@@ -21,6 +21,7 @@ namespace MVP
         public IAnalyticsService AnalyticsService { get; set; }
         public static IMvpApiService MvpApiService { get; set; }
         public static IAuthService AuthService { get; set; }
+        public static INavigationHelper NavigationHelper { get; set; }
 
         public App(IAnalyticsService analyticsService, IMvpApiService mvpApiService, IAuthService authService, LanguageService languageService)
         {
@@ -49,8 +50,8 @@ namespace MVP
 
             // Set our start page to the splash screen, as that is what we want
             // everyone to see first. It's glorious.
-            var navHelper = Resolver.Resolve<INavigationHelper>();
-            navHelper.SetRootView(nameof(SplashScreenPage));
+            NavigationHelper = Resolver.Resolve<INavigationHelper>();
+            NavigationHelper.SetRootView(nameof(SplashScreenPage));
         }
 
         /// <summary>
