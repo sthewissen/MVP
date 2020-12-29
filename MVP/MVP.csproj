@@ -26,6 +26,7 @@
         <PackageReference Include="TinyMvvm.Forms" Version="2.4.14" />
         <PackageReference Include="Xamarin.CommunityToolkit" Version="1.0.0-preview1120" />
         <PackageReference Include="Sharpnado.Shadows" Version="1.2.0" />
+        <PackageReference Include="IsoNames.NETStandard" Version="1.2.1" />
     </ItemGroup>
     <ItemGroup>
         <Folder Include="Models\" />
@@ -105,6 +106,9 @@
         </EmbeddedResource>
     </ItemGroup>
     <ItemGroup>
+        <Compile Update="Resources\Translations.es.Designer.cs">
+            <DependentUpon>Translations.es.resx</DependentUpon>
+        </Compile>
         <Compile Update="Resources\Translations.Designer.cs">
             <DependentUpon>Translations.resx</DependentUpon>
         </Compile>
@@ -127,6 +131,10 @@
         <EmbeddedResource Update="Resources\Translations.nl.resx">
             <Generator>ResXFileCodeGenerator</Generator>
             <LastGenOutput>Translations.nl.Designer.cs</LastGenOutput>
+        </EmbeddedResource>
+        <EmbeddedResource Update="Resources\Translations.es.resx">
+            <Generator>ResXFileCodeGenerator</Generator>
+            <LastGenOutput>Translations.es.Designer.cs</LastGenOutput>
         </EmbeddedResource>
     </ItemGroup>
 </Project>
