@@ -1,446 +1,456 @@
+<?xml version="1.0" encoding="UTF-8"?>
 <root>
-  <resheader name="resmimetype">
-    <value>text/microsoft-resx</value>
-  </resheader>
-  <resheader name="version">
-    <value>1.3</value>
-  </resheader>
-  <resheader name="reader">
-    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </resheader>
-  <resheader name="writer">
-    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </resheader>
-  <data name="about_licenses_description" xml:space="preserve">
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>1.3</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <data name="about_licenses_description" xml:space="preserve">
     <value>Diese App steht auf den Schultern von Riesen. Ohne sie wäre die Entstehung dieser App nicht möglich gewesen. Genauere Infos zu diesen aussergewöhnlichen Persönlichkeiten finden sie bei den Lizenzen der grossartigen Bibliotheken, welche in dieser App verwendet werden.</value>
   </data>
-  <data name="about_licenses_title" xml:space="preserve">
+    <data name="about_licenses_title" xml:space="preserve">
     <value>Lizenzen</value>
   </data>
-  <data name="about_opensource_description" xml:space="preserve">
+    <data name="about_opensource_description" xml:space="preserve">
     <value>Diese App ist komplett Open Source. Wenn die App auf gefallen stösst, kannst Du gerne ein GitHub-Sponsor werden und so mir eine digitale Tasse Kaffee pro Monat kaufen ☕️.</value>
   </data>
-  <data name="about_opensource_title" xml:space="preserve">
+    <data name="about_opensource_title" xml:space="preserve">
     <value>Open Source</value>
   </data>
-  <data name="about_title" xml:space="preserve">
+    <data name="about_title" xml:space="preserve">
     <value>Über diese App</value>
   </data>
-  <data name="about_why_description" xml:space="preserve">
+    <data name="about_why_description" xml:space="preserve">
     <value>Es gab schon immer ein Bedürfnis für Microsoft MVPs, ihre Community-Aktivitäten auf einfachere Weise zu verwalten. Das Online-Portal funktioniert gut, aber ein ähnliches Ding in der Tasche zu haben, um Aktivitäten on the fly zu erstellen, ist wirklich cool. Und genau dafür ist dieses Projekt da!</value>
   </data>
-  <data name="about_why_title" xml:space="preserve">
+    <data name="about_why_title" xml:space="preserve">
     <value>Warum hast du die App gemacht?</value>
   </data>
-  <data name="additionaltechnologypicker_title" xml:space="preserve">
+    <data name="additionaltechnologypicker_title" xml:space="preserve">
     <value>Zusätzliche Beitragsbereiche</value>
   </data>
-  <data name="alert_error_unauthorized" xml:space="preserve">
+    <data name="alert_error_unauthorized" xml:space="preserve">
     <value>Ihre Anmeldedaten sind leider abgelaufen, trotz all unserer Bemühungen wurdest du ausgeloggt. Die gute Nachricht ist jedoch, dass nach einem kurzen Login nichts mehr im Wege steht um fortzufahren.</value>
   </data>
-  <data name="becomesponsor" xml:space="preserve">
+    <data name="becomesponsor" xml:space="preserve">
     <value>Werde ein Sponsor</value>
   </data>
-  <data name="button_delete_contribution" xml:space="preserve">
+    <data name="button_delete_contribution" xml:space="preserve">
     <value>Beitrag löschen</value>
   </data>
-  <data name="cancel" xml:space="preserve">
+    <data name="cancel" xml:space="preserve">
     <value>Abbrechen</value>
   </data>
-  <data name="clipboard_description" xml:space="preserve">
+    <data name="clipboard_description" xml:space="preserve">
     <value>Wir bemerken eine URL in deiner Zwischenablage. Möchtest du es wagen, dass wir versuchen, eine Aktivität daraus vorauszufüllen?</value>
   </data>
-  <data name="clipboard_title" xml:space="preserve">
+    <data name="clipboard_title" xml:space="preserve">
     <value>Das sieht cool aus!</value>
   </data>
-  <data name="contributiondetails_edit" xml:space="preserve">
+    <data name="contributiondetails_edit" xml:space="preserve">
     <value>Editieren</value>
   </data>
-  <data name="contributiondetails_title" xml:space="preserve">
+    <data name="contributiondetails_title" xml:space="preserve">
     <value>Details zur Aktivität</value>
   </data>
-  <data name="contributiondetail_deleteconfirmation" xml:space="preserve">
+    <data name="contributiondetail_deleteconfirmation" xml:space="preserve">
     <value>Bist du sicher, dass dieser Beitrag gelöscht werden soll? Dies kann nicht rückgängig gemacht werden.</value>
   </data>
-  <data name="contributionform_save" xml:space="preserve">
+    <data name="contributionform_save" xml:space="preserve">
     <value>Speichern</value>
   </data>
-  <data name="contributiondetail_notdeleted" xml:space="preserve">
+    <data name="contributiondetail_notdeleted" xml:space="preserve">
     <value>Dein Beitrag konnte nicht gelöscht werden. Vielleicht wurde er bereits gelöscht, oder er befand sich im vorjährigen Zyklus?</value>
   </data>
-  <data name="contributionform_activitytype_placeholder" xml:space="preserve">
+    <data name="contributionform_activitytype_placeholder" xml:space="preserve">
     <value>Wähle den Aktivitätstyp, der am besten zu dieser Aktivität passt.</value>
   </data>
-  <data name="contributionform_additionaltechnologyarea_placeholder" xml:space="preserve">
+    <data name="contributionform_additionaltechnologyarea_placeholder" xml:space="preserve">
     <value>Wähle bis zu zwei weitere Technologiebereiche aus, die ebenfalls für diese Aktivität gelten können.</value>
   </data>
-  <data name="contributionform_technologyarea_placeholder" xml:space="preserve">
+    <data name="contributionform_technologyarea_placeholder" xml:space="preserve">
     <value>Wähle den Technologiebereich aus, der primär im Fokus dieser Aktivität steht.</value>
   </data>
-  <data name="contributionform_timeframememo" xml:space="preserve">
+    <data name="contributionform_timeframememo" xml:space="preserve">
     <value>Deine Beitrag für den Juli Award-Cycle muss für Communityaktivitäten zwischen {0} und {1} erfolgen. Community-Aktivitäten, die ab dem {1} und darüber hinaus eingereicht werden, werden für eine spätere Berücksichtigung zurückgehalten.</value>
   </data>
-  <data name="contributionform_title_add" xml:space="preserve">
+    <data name="contributionform_title_add" xml:space="preserve">
     <value>Beitrag hinzufügen</value>
   </data>
-  <data name="contributionform_title_edit" xml:space="preserve">
+    <data name="contributionform_title_edit" xml:space="preserve">
     <value>Beitrag bearbeiten</value>
   </data>
-  <data name="contributionform_visibility_placeholder" xml:space="preserve">
+    <data name="contributionform_visibility_placeholder" xml:space="preserve">
     <value>Wähle die Sichtbarkeitsstufe dieser Aktivität.</value>
   </data>
-  <data name="contributions_title" xml:space="preserve">
+    <data name="contributions_title" xml:space="preserve">
     <value>Aktivitäten</value>
   </data>
-  <data name="contributiontypepicker_title" xml:space="preserve">
+    <data name="contributiontypepicker_title" xml:space="preserve">
     <value>Aktivitätstyp</value>
   </data>
-  <data name="contribution_add" xml:space="preserve">
+    <data name="contribution_add" xml:space="preserve">
     <value>Hinzufügen</value>
   </data>
-  <data name="contributiontechnologypicker_title" xml:space="preserve">
+    <data name="contributiontechnologypicker_title" xml:space="preserve">
     <value>Primärer Aktivitätenbereich</value>
   </data>
-  <data name="empty_state_contributions" xml:space="preserve">
+    <data name="empty_state_contributions" xml:space="preserve">
     <value>Wir konnten keine Aktivitäten finden. Füge eine neue Aktivität hinzu oder aktualisiere die Ansicht, um zu versuchen, Deine vorhandenen Daten abzurufen.</value>
   </data>
-  <data name="empty_state_contributiontechnologies" xml:space="preserve">
+    <data name="empty_state_contributiontechnologies" xml:space="preserve">
     <value>Wir konnten keine Aktivitätsbereiche finden. Bitte versuche sie erneut zu laden.</value>
   </data>
-  <data name="empty_state_contributiontypes" xml:space="preserve">
+    <data name="empty_state_contributiontypes" xml:space="preserve">
     <value>Wir konnten keine Aktivitätstypen finden. Bitte versuche sie erneut zu laden.</value>
   </data>
-  <data name="empty_state_noresultcontributiontechnologies" xml:space="preserve">
+    <data name="empty_state_noresultcontributiontechnologies" xml:space="preserve">
     <value>Deine Suchanfrage ergab keine Ergebnisse. Bitte versuch eine andere Suchanfrage.</value>
   </data>
-  <data name="empty_state_title" xml:space="preserve">
+    <data name="empty_state_title" xml:space="preserve">
     <value>Oha, ganz schön leer hier...</value>
   </data>
-  <data name="empty_state_visibilities" xml:space="preserve">
+    <data name="empty_state_visibilities" xml:space="preserve">
     <value>Wir konnten keine Sichtbarkeitskategorien finden. Bitte versuchen diese erneut zu laden.</value>
   </data>
-  <data name="error_badrequest" xml:space="preserve">
+    <data name="error_badrequest" xml:space="preserve">
     <value>Wir haben es irgendwie hinbekommen, eine Anfrage zu machen, die nicht ganz richtig war. Versuche es später noch einmal.</value>
   </data>
-  <data name="error_couldntchangeicon" xml:space="preserve">
+    <data name="error_couldntchangeicon" xml:space="preserve">
     <value>Dein Icon konnte nicht geändert werden. Versuche es später bitte erneut.</value>
   </data>
-  <data name="error_couldntchangelanguage" xml:space="preserve">
+    <data name="error_couldntchangelanguage" xml:space="preserve">
     <value>Deine Sprache konnte nicht geändert werden. Bitte versuche es später erneut.</value>
   </data>
-  <data name="error_couldntchangetheme" xml:space="preserve">
+    <data name="error_couldntchangetheme" xml:space="preserve">
     <value>Dein Theme konnte nicht geändert werden. Bitte versuche es später erneut.</value>
   </data>
-  <data name="error_couldntloadmorecontributions" xml:space="preserve">
+    <data name="error_couldntloadmorecontributions" xml:space="preserve">
     <value>Es konnten keine weiteren Aktivitäten geladen werden. Wir sind uns nicht ganz sicher warum, aber es wurde ein Fehler protokolliert. Bitte versuchen es später noch einmal.</value>
   </data>
-  <data name="error_couldntrefreshprofile" xml:space="preserve">
+    <data name="error_couldntrefreshprofile" xml:space="preserve">
     <value>Deine Profilinformationen konnten nicht aktualisiert werden. Wir sind uns nicht ganz sicher warum, aber es wurde ein Fehler protokolliert. Bitte versuche es später noch einmal.</value>
   </data>
-  <data name="error_couldntsavecontribution" xml:space="preserve">
+    <data name="error_couldntsavecontribution" xml:space="preserve">
     <value>Dieser Beitrag konnte nicht gespeichert werden. Wir sind uns nicht ganz sicher warum, aber es wurde ein Fehler protokolliert. Bitte versuche es später noch einmal.</value>
   </data>
-  <data name="error_data_not_loaded" xml:space="preserve">
+    <data name="error_data_not_loaded" xml:space="preserve">
     <value>Die Daten konnten nicht geladen werden. Wir sind uns nicht ganz sicher warum, aber es wurde ein Fehler protokolliert. Bitte versuche es später noch einmal.</value>
   </data>
-  <data name="error_description_validationfailed" xml:space="preserve">
+    <data name="error_description_validationfailed" xml:space="preserve">
     <value>Es wurden nicht alle erforderlichen Felder ausgefüllt. Bitte fülle alle nötigen Felder im Formular aus und versuche es erneut zu speichern.</value>
   </data>
-  <data name="error_logoutwhileoffline" xml:space="preserve">
+    <data name="error_logoutwhileoffline" xml:space="preserve">
     <value>Derzeit ist keine Internetverbindung vorhanden. Dies könnte dazu führen, dass die Anmeldung nicht klappt. Sicher, dass du fortfahren möchtest?</value>
   </data>
-  <data name="error_nomvpaccount" xml:space="preserve">
+    <data name="error_nomvpaccount" xml:space="preserve">
     <value>Wir konnten dich mit den angegebenen Anmeldeinformationen nicht authentifizieren. Ganz sicher, dass es das Konto ist, welches mit deiner MVP-ID verknüpft ist?</value>
   </data>
-  <data name="error_offline" xml:space="preserve">
+    <data name="error_offline" xml:space="preserve">
     <value>Diese Aktion kann ohne Internetverbindung nicht durchgeführt werden. Bitte versuche es später erneut.</value>
   </data>
-  <data name="error_offline_title" xml:space="preserve">
+    <data name="error_offline_title" xml:space="preserve">
     <value>Keine Internetverbindung</value>
   </data>
-  <data name="error_servererror" xml:space="preserve">
+    <data name="error_servererror" xml:space="preserve">
     <value>Die MVP-API hat etwas durcheinander gebracht. Ihre Anfrage konnte nicht verarbeitet werden. Versuche es später noch einmal.</value>
   </data>
-  <data name="error_title" xml:space="preserve">
+    <data name="error_title" xml:space="preserve">
     <value>Etwas ist schief gelaufen</value>
   </data>
-  <data name="error_title_validationfailed" xml:space="preserve">
+    <data name="error_title_validationfailed" xml:space="preserve">
     <value>Validierung fehlgeschlagen</value>
   </data>
-  <data name="error_unexpected" xml:space="preserve">
+    <data name="error_unexpected" xml:space="preserve">
     <value>Es ist etwas schief gelaufen, womit wir nicht gerechnet haben, dass es passieren könnte. Ein Fehler wurde protokolliert und wir werden ihn so schnell wie möglich untersuchen.</value>
   </data>
-  <data name="field_activity_date" xml:space="preserve">
+    <data name="field_activity_date" xml:space="preserve">
     <value>Aktivitätsdatum</value>
   </data>
-  <data name="field_activity_type" xml:space="preserve">
+    <data name="field_activity_type" xml:space="preserve">
     <value>Aktivitätstyp</value>
   </data>
-  <data name="field_additional_contribution_areas" xml:space="preserve">
+    <data name="field_additional_contribution_areas" xml:space="preserve">
     <value>Zusätzliche Beitragsbereiche</value>
   </data>
-  <data name="field_annual_quantity" xml:space="preserve">
+    <data name="field_annual_quantity" xml:space="preserve">
     <value>Jährliche Menge</value>
   </data>
-  <data name="field_annual_reach" xml:space="preserve">
+    <data name="field_annual_reach" xml:space="preserve">
     <value>Jährliche Reichweite</value>
   </data>
-  <data name="field_annual_unique_visitors" xml:space="preserve">
+    <data name="field_annual_unique_visitors" xml:space="preserve">
     <value>Jährliche eindeutige Besucher</value>
   </data>
-  <data name="field_attendees_of_talks" xml:space="preserve">
+    <data name="field_attendees_of_talks" xml:space="preserve">
     <value>Vortragteilnehmer</value>
   </data>
-  <data name="field_contributions" xml:space="preserve">
+    <data name="field_contributions" xml:space="preserve">
     <value>Beiträge</value>
   </data>
-  <data name="field_copies_sold" xml:space="preserve">
+    <data name="field_copies_sold" xml:space="preserve">
     <value>Verkaufte Exemplare</value>
   </data>
-  <data name="field_description" xml:space="preserve">
+    <data name="field_description" xml:space="preserve">
     <value>Beschreibung</value>
   </data>
-  <data name="field_meetings" xml:space="preserve">
+    <data name="field_meetings" xml:space="preserve">
     <value>Treffen</value>
   </data>
-  <data name="field_members" xml:space="preserve">
+    <data name="field_members" xml:space="preserve">
     <value>Mitglieder</value>
   </data>
-  <data name="field_number_of_answers" xml:space="preserve">
+    <data name="field_number_of_answers" xml:space="preserve">
     <value>Anzahl der Antworten</value>
   </data>
-  <data name="field_number_of_articles" xml:space="preserve">
+    <data name="field_number_of_articles" xml:space="preserve">
     <value>Anzahl der Artikel</value>
   </data>
-  <data name="field_number_of_attendees" xml:space="preserve">
+    <data name="field_number_of_attendees" xml:space="preserve">
     <value>Anzahl der Teilnehmerinnen und Teilnehmer</value>
   </data>
-  <data name="field_number_of_books" xml:space="preserve">
+    <data name="field_number_of_books" xml:space="preserve">
     <value>Anzahl der Bücher</value>
   </data>
-  <data name="field_number_of_conferences" xml:space="preserve">
+    <data name="field_number_of_conferences" xml:space="preserve">
     <value>Anzahl der Konferenzen</value>
   </data>
-  <data name="field_number_of_downloads" xml:space="preserve">
+    <data name="field_number_of_downloads" xml:space="preserve">
     <value>Anzahl der Downloads</value>
   </data>
-  <data name="field_number_of_events" xml:space="preserve">
+    <data name="field_number_of_events" xml:space="preserve">
     <value>Anzahl der Events</value>
   </data>
-  <data name="field_number_of_events_participated" xml:space="preserve">
+    <data name="field_number_of_events_participated" xml:space="preserve">
     <value>Anzahl der teilgenommenen Events</value>
   </data>
-  <data name="field_number_of_feedbacks_provided" xml:space="preserve">
+    <data name="field_number_of_feedbacks_provided" xml:space="preserve">
     <value>Anzahl der erhaltenen Feedbacks</value>
   </data>
-  <data name="field_number_of_followers" xml:space="preserve">
+    <data name="field_number_of_followers" xml:space="preserve">
     <value>Anzahl der Follower</value>
   </data>
-  <data name="field_number_of_mentees" xml:space="preserve">
+    <data name="field_number_of_mentees" xml:space="preserve">
     <value>Anzahl der Mentees</value>
   </data>
-  <data name="field_number_of_mentorship_activity" xml:space="preserve">
+    <data name="field_number_of_mentorship_activity" xml:space="preserve">
     <value>Anzahl der Mentoraktivitäten</value>
   </data>
-  <data name="field_number_of_posts" xml:space="preserve">
+    <data name="field_number_of_posts" xml:space="preserve">
     <value>Anzahl der Posts</value>
   </data>
-  <data name="field_number_of_projects" xml:space="preserve">
+    <data name="field_number_of_projects" xml:space="preserve">
     <value>Anzahl der Projekte</value>
   </data>
-  <data name="field_number_of_samples" xml:space="preserve">
+    <data name="field_number_of_samples" xml:space="preserve">
     <value>Anzahl der Beispiele</value>
   </data>
-  <data name="field_number_of_sites" xml:space="preserve">
+    <data name="field_number_of_sites" xml:space="preserve">
     <value>Anzahl der Seiten</value>
   </data>
-  <data name="field_number_of_subscribers" xml:space="preserve">
+    <data name="field_number_of_subscribers" xml:space="preserve">
     <value>Anzahl der Abonnentinnen und Abonnenten</value>
   </data>
-  <data name="field_number_of_talks" xml:space="preserve">
+    <data name="field_number_of_talks" xml:space="preserve">
     <value>Anzahl der Referate</value>
   </data>
-  <data name="field_number_of_threads_moderated" xml:space="preserve">
+    <data name="field_number_of_threads_moderated" xml:space="preserve">
     <value>Anzahl der moderierten Threads</value>
   </data>
-  <data name="field_number_of_videos" xml:space="preserve">
+    <data name="field_number_of_videos" xml:space="preserve">
     <value>Anzahl der Videos</value>
   </data>
-  <data name="field_number_of_views" xml:space="preserve">
+    <data name="field_number_of_views" xml:space="preserve">
     <value>Anzahl der Aufrufe</value>
   </data>
-  <data name="field_number_of_visitors" xml:space="preserve">
+    <data name="field_number_of_visitors" xml:space="preserve">
     <value>Anzahl der Besucherinnen und Besucher</value>
   </data>
-  <data name="field_primary_contribution_area" xml:space="preserve">
+    <data name="field_primary_contribution_area" xml:space="preserve">
     <value>Primärer Beitragsbereich</value>
   </data>
-  <data name="field_projects" xml:space="preserve">
+    <data name="field_projects" xml:space="preserve">
     <value>Projekt(e)</value>
   </data>
-  <data name="field_prs_issues_submissions" xml:space="preserve">
+    <data name="field_prs_issues_submissions" xml:space="preserve">
     <value>Pull Requests/Issues/Submissions</value>
   </data>
-  <data name="field_title" xml:space="preserve">
+    <data name="field_title" xml:space="preserve">
     <value>Titel der Aktivität</value>
   </data>
-  <data name="field_url" xml:space="preserve">
+    <data name="field_url" xml:space="preserve">
     <value>URL</value>
   </data>
-  <data name="field_views_of_answers" xml:space="preserve">
+    <data name="field_views_of_answers" xml:space="preserve">
     <value>Aufrufe der Antworten</value>
   </data>
-  <data name="field_visibility" xml:space="preserve">
+    <data name="field_visibility" xml:space="preserve">
     <value>Sichtbarkeit</value>
   </data>
-  <data name="icon_black" xml:space="preserve">
+    <data name="icon_black" xml:space="preserve">
     <value>Schwarz</value>
   </data>
-  <data name="icon_darkblue" xml:space="preserve">
+    <data name="icon_darkblue" xml:space="preserve">
     <value>Dunkelblau</value>
   </data>
-  <data name="icon_default" xml:space="preserve">
+    <data name="icon_default" xml:space="preserve">
     <value>Standard</value>
   </data>
-  <data name="icon_rainbow" xml:space="preserve">
+    <data name="icon_rainbow" xml:space="preserve">
     <value>Regenbogen</value>
   </data>
-  <data name="icon_white" xml:space="preserve">
+    <data name="icon_white" xml:space="preserve">
     <value>Weiss</value>
   </data>
-  <data name="languagepicker_title" xml:space="preserve">
+    <data name="languagepicker_title" xml:space="preserve">
     <value>Sprache</value>
   </data>
-  <data name="language_dutch" xml:space="preserve">
+    <data name="language_dutch" xml:space="preserve">
     <value>Niederländisch</value>
   </data>
-  <data name="language_english" xml:space="preserve">
+    <data name="language_english" xml:space="preserve">
     <value>Englisch</value>
   </data>
-  <data name="language_german" xml:space="preserve">
+    <data name="language_german" xml:space="preserve">
     <value>Deutsch</value>
   </data>
-  <data name="licenses_title" xml:space="preserve">
+    <data name="licenses_title" xml:space="preserve">
     <value>Lizenz</value>
   </data>
-  <data name="logout" xml:space="preserve">
+    <data name="logout" xml:space="preserve">
     <value>Ausloggen</value>
   </data>
-  <data name="no" xml:space="preserve">
+    <data name="no" xml:space="preserve">
     <value>Nein</value>
   </data>
-  <data name="ok" xml:space="preserve">
+    <data name="ok" xml:space="preserve">
     <value>Ok</value>
   </data>
-  <data name="offline_contributions" xml:space="preserve">
+    <data name="offline_contributions" xml:space="preserve">
     <value>Du hast derzeit keine Internetverbindung. Deshalb können wir deine Beiträge nicht laden. Bitte versuche es später noch einmal.</value>
   </data>
-  <data name="onboarding_1_description" xml:space="preserve">
+    <data name="onboarding_1_description" xml:space="preserve">
     <value>Verwalte alle deine Community-Aktivitäten wo auch immer du bist bequem von deinem Handy aus.</value>
   </data>
-  <data name="onboarding_1_title" xml:space="preserve">
+    <data name="onboarding_1_title" xml:space="preserve">
     <value>Einfach und effektiv</value>
   </data>
-  <data name="onboarding_3_description" xml:space="preserve">
+    <data name="onboarding_3_description" xml:space="preserve">
     <value>Direktes Erstellen von Beiträgen basierend auf einer URL in deiner Zwischenablage. Wir füllen alles, was wir können, für dich automatisch aus, sodass du möglichst schnell neue Beiträge hinzufügen kannst.</value>
   </data>
-  <data name="onboarding_3_title" xml:space="preserve">
+    <data name="onboarding_3_title" xml:space="preserve">
     <value>Schnelles Hinzufügen</value>
   </data>
-  <data name="profile_title" xml:space="preserve">
+    <data name="profile_title" xml:space="preserve">
     <value>Einstellungen</value>
   </data>
-  <data name="progress_saving" xml:space="preserve">
+    <data name="progress_saving" xml:space="preserve">
     <value>Speichern...</value>
   </data>
-  <data name="search_placeholder" xml:space="preserve">
+    <data name="search_placeholder" xml:space="preserve">
     <value>Suchen...</value>
   </data>
-  <data name="progress_loading_url_data" xml:space="preserve">
+    <data name="progress_loading_url_data" xml:space="preserve">
     <value>URL metadaten werden abgerufen...</value>
   </data>
-  <data name="setting_appicon_description" xml:space="preserve">
+    <data name="setting_appicon_description" xml:space="preserve">
     <value>Gefällt dir das App-Symbol nicht, welches wir für dich ausgewählt haben? Wir haben alternative Optionen. Falls du weitere App-Symbol-Ideen hast, melde dich einfach!</value>
   </data>
-  <data name="setting_appicon_title" xml:space="preserve">
+    <data name="setting_appicon_title" xml:space="preserve">
     <value>App-Symbol</value>
   </data>
-  <data name="setting_apptheme_description" xml:space="preserve">
+    <data name="setting_apptheme_description" xml:space="preserve">
     <value>Diese App kann sowohl im hellen als auch im dunklen Modus verwendet werden. Standardmässig wählt sie das Thema, welches auf deinem Smartphone eingestellt ist. Wenn dir eines der beiden Themen besonders zusagt, kannst du es hier für die App definieren.</value>
   </data>
-  <data name="setting_apptheme_title" xml:space="preserve">
+    <data name="setting_apptheme_title" xml:space="preserve">
     <value>App Modus</value>
   </data>
-  <data name="setting_contributionfromurl_description" xml:space="preserve">
+    <data name="setting_contributionfromurl_description" xml:space="preserve">
     <value>Falls beim Hinzufügen eines Beitrags eine gültige URL in der Zwischenablage ist, werden wirst du gefragt, ob die Metadaten aus dieser URL zum Vorbefüllen des Beitrags verwendet werden sollen.</value>
   </data>
-  <data name="setting_contributionfromurl_title" xml:space="preserve">
+    <data name="setting_contributionfromurl_title" xml:space="preserve">
     <value>Beitrag aus URL erstellen</value>
   </data>
-  <data name="setting_language_description" xml:space="preserve">
+    <data name="setting_language_description" xml:space="preserve">
     <value>Standardmässig wählen wir die Sprache, die auf deinem Gerät verwendet wird. Falls eine Übersetzung dafür verfügbar sind. Wenn du die App jedoch in einer anderen Sprache verwenden möchtest, kannst du dies hier festlegen.</value>
   </data>
-  <data name="setting_language_title" xml:space="preserve">
+    <data name="setting_language_title" xml:space="preserve">
     <value>Sprache</value>
   </data>
-  <data name="splash_contributionareas" xml:space="preserve">
+    <data name="splash_contributionareas" xml:space="preserve">
     <value>Laden der Beitragsbereiche...</value>
   </data>
-  <data name="splash_contributiontypes" xml:space="preserve">
+    <data name="splash_contributiontypes" xml:space="preserve">
     <value>Synchronisieren der Beitragstypen...</value>
   </data>
-  <data name="tabs_activities" xml:space="preserve">
+    <data name="tabs_activities" xml:space="preserve">
     <value>Aktivitäten</value>
   </data>
-  <data name="tabs_badges" xml:space="preserve">
+    <data name="tabs_badges" xml:space="preserve">
     <value>Abzeichen</value>
   </data>
-  <data name="tabs_settings" xml:space="preserve">
+    <data name="tabs_settings" xml:space="preserve">
     <value>Einstellungen</value>
   </data>
-  <data name="tabs_statistics" xml:space="preserve">
+    <data name="tabs_statistics" xml:space="preserve">
     <value>Statistik</value>
   </data>
-  <data name="themepicker_title" xml:space="preserve">
+    <data name="themepicker_title" xml:space="preserve">
     <value>App Modus</value>
   </data>
-  <data name="theme_dark" xml:space="preserve">
+    <data name="theme_dark" xml:space="preserve">
     <value>Dunkel</value>
   </data>
-  <data name="theme_light" xml:space="preserve">
+    <data name="theme_light" xml:space="preserve">
     <value>Hell</value>
   </data>
-  <data name="theme_systemdefault" xml:space="preserve">
+    <data name="theme_systemdefault" xml:space="preserve">
     <value>Standard</value>
   </data>
-  <data name="validation_variablefield" xml:space="preserve">
+    <data name="validation_variablefield" xml:space="preserve">
     <value>{0} ist ein Pflichtfeld.</value>
   </data>
-  <data name="view_licenses" xml:space="preserve">
+    <data name="view_licenses" xml:space="preserve">
     <value>Lizenzen ansehen</value>
   </data>
-  <data name="visibility_title" xml:space="preserve">
+    <data name="visibility_title" xml:space="preserve">
     <value>Sichtbarkeit</value>
   </data>
-  <data name="warning_description_activitylocked" xml:space="preserve">
+    <data name="warning_description_activitylocked" xml:space="preserve">
     <value>Diese Aktivität wurde im vorherigen Beitragsjahr aufgezeichnet und kann daher nicht bearbeitet oder gelöscht werden</value>
   </data>
-  <data name="warning_title" xml:space="preserve">
+    <data name="warning_title" xml:space="preserve">
     <value>Einen Moment bitte...</value>
   </data>
-  <data name="warning_title_activitylocked" xml:space="preserve">
+    <data name="warning_title_activitylocked" xml:space="preserve">
     <value>Aktivität gesperrt</value>
   </data>
-  <data name="yes" xml:space="preserve">
+    <data name="yes" xml:space="preserve">
     <value>Ja</value>
   </data>
-  <data name="splash_visibilities" xml:space="preserve">
+    <data name="splash_visibilities" xml:space="preserve">
     <value>Anzeigen einrichten...</value>
   </data>
-  <data name="splash_gettingready" xml:space="preserve">
+    <data name="splash_gettingready" xml:space="preserve">
     <value>Vorbereitungen sind im Gange...</value>
   </data>
-  <data name="contributionform_edit" xml:space="preserve">
+    <data name="contributionform_edit" xml:space="preserve">
     <value>Editieren</value>
+  </data>
+    <data name="sign_in" xml:space="preserve">
+    <value>Einloggen</value>
+  </data>
+    <data name="swipe_to_continue" xml:space="preserve">
+    <value>Swipe to continue</value>
+  </data>
+    <data name="try_with_demo_account" xml:space="preserve">
+    <value>Try with a demo account</value>
   </data>
 </root>
