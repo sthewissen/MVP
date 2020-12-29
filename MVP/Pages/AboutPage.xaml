@@ -18,7 +18,7 @@
         <mvp:AppFrame.Content>
 
             <ScrollView Scrolled="ScrollView_Scrolled"
-                        Padding="32,16,32,32">
+                        Padding="32,16,32,64">
 
                 <StackLayout>
                     <Label Style="{StaticResource about_title}"

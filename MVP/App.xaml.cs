@@ -13,6 +13,7 @@ using Xamarin.Essentials;
 using MVP.Resources;
 using MVP.Services.Demo;
 using TinyNavigationHelper;
+using MVP.Helpers;
 
 namespace MVP
 {
@@ -46,6 +47,8 @@ namespace MVP
 
             // Set the theme that the user has picked.
             Current.UserAppTheme = (OSAppTheme)Preferences.Get(Settings.AppTheme, Settings.AppThemeDefault);
+            var statusBar = DependencyService.Get<IStatusBar>();
+            statusBar?.SetStatusBarColor(Current.UserAppTheme);
 
             // Set our start page to the splash screen, as that is what we want
             // everyone to see first. It's glorious.

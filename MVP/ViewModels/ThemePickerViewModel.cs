@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using MVP.Helpers;
 using MVP.Resources;
 using MVP.Services;
 using MVP.Services.Interfaces;
@@ -44,6 +45,9 @@ namespace MVP.ViewModels
 
                 AppThemes.FirstOrDefault(x => x.Key == Preferences.Get(Settings.AppTheme, Settings.AppThemeDefault)).IsSelected = true;
                 RaisePropertyChanged(nameof(AppThemes));
+
+                var statusBar = DependencyService.Get<IStatusBar>();
+                statusBar?.SetStatusBarColor(((OSAppTheme)theme.Key));
 
                 HapticFeedback.Perform(HapticFeedbackType.Click);
 
