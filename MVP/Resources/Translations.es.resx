@@ -1,0 +1,456 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>2.0</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <data name="contributions_title" xml:space="preserve">
+    <value>Actividades de la comunidad</value>
+  </data>
+    <data name="search_placeholder" xml:space="preserve">
+    <value>Buscando...</value>
+  </data>
+    <data name="profile_title" xml:space="preserve">
+    <value>Configuraciones</value>
+  </data>
+    <data name="setting_contributionfromurl_title" xml:space="preserve">
+    <value>Crear contribución desde URL</value>
+  </data>
+    <data name="setting_contributionfromurl_description" xml:space="preserve">
+    <value>Si tienes una URL válida en tu portapapeles mientras agregas una contribución, se te preguntará si los metadatos de esa URL deben usarse para completar tu contribución.</value>
+  </data>
+    <data name="setting_apptheme_title" xml:space="preserve">
+    <value>Tema de la aplicación</value>
+  </data>
+    <data name="setting_apptheme_description" xml:space="preserve">
+    <value>Esta aplicación se puede utilizar tanto en modo claro como oscuro. De forma predeterminada, elegirá lo que esté configurado en tu dispositivo. Si alguno de los temas te gusta, también puedes establecer un tema específico aquí.</value>
+  </data>
+    <data name="logout" xml:space="preserve">
+    <value>Cerrar sesión</value>
+  </data>
+    <data name="tabs_activities" xml:space="preserve">
+    <value>Actividades</value>
+  </data>
+    <data name="tabs_statistics" xml:space="preserve">
+    <value>Estadísticas</value>
+  </data>
+    <data name="tabs_badges" xml:space="preserve">
+    <value>Insignias</value>
+  </data>
+    <data name="tabs_settings" xml:space="preserve">
+    <value>Configuraciones</value>
+  </data>
+    <data name="contributionform_title_add" xml:space="preserve">
+    <value>Agregar contribución</value>
+  </data>
+    <data name="contributionform_title_edit" xml:space="preserve">
+    <value>Editar contribución</value>
+  </data>
+    <data name="languagepicker_title" xml:space="preserve">
+    <value>Lenguaje</value>
+  </data>
+    <data name="contributiondetails_title" xml:space="preserve">
+    <value>Detalles de la actividad</value>
+  </data>
+    <data name="field_activity_type" xml:space="preserve">
+    <value>Tipo de actividad</value>
+  </data>
+    <data name="field_url" xml:space="preserve">
+        <value>URL</value>
+    </data>
+    <data name="field_title" xml:space="preserve">
+    <value>Título de la actividad</value>
+  </data>
+    <data name="field_primary_contribution_area" xml:space="preserve">
+    <value>Área de contribución primaria</value>
+  </data>
+    <data name="field_additional_contribution_areas" xml:space="preserve">
+    <value>Áreas de contribución adicionales</value>
+  </data>
+    <data name="field_activity_date" xml:space="preserve">
+    <value>Fecha de actividad</value>
+  </data>
+    <data name="field_description" xml:space="preserve">
+    <value>Descripción</value>
+  </data>
+    <data name="field_visibility" xml:space="preserve">
+    <value>Visibilidad</value>
+  </data>
+    <data name="button_delete_contribution" xml:space="preserve">
+    <value>Eliminar contribución</value>
+  </data>
+    <data name="about_title" xml:space="preserve">
+    <value>Acerca de esta app</value>
+  </data>
+    <data name="about_why_title" xml:space="preserve">
+    <value>¿Por qué se desarrollo esta app?</value>
+  </data>
+    <data name="about_why_description" xml:space="preserve">
+    <value>Siempre ha existido la necesidad de que los MVP de Microsoft gestionen las actividades de su comunidad de una forma más sencilla. El portal en línea funciona bien, pero tener algo similar en el bolsillo para crear actividades sobre la marcha es realmente genial. ¡Para eso es este proyecto!</value>
+  </data>
+    <data name="about_opensource_title" xml:space="preserve">
+    <value>Código abierto</value>
+  </data>
+    <data name="about_opensource_description" xml:space="preserve">
+    <value>Esta app es completamente de código abierto. Si te gusta la aplicación, siéntete libre de convertirte en patrocinador de GitHub, comprándome una taza de café digital al mes ☕️</value>
+  </data>
+    <data name="becomesponsor" xml:space="preserve">
+    <value>Conviértete en patrocinador</value>
+  </data>
+    <data name="contributionform_timeframememo" xml:space="preserve">
+    <value>Tu envío de contribución para el ciclo de premios de julio debe ser para actividades comunitarias entre {0} y {1}. Las actividades de la comunidad enviadas desde {1} y posteriores se llevarán a cabo para su consideración futura.</value>
+  </data>
+    <data name="contributionform_activitytype_placeholder" xml:space="preserve">
+    <value>Selecciona el tipo de actividad que mejor se adapte a esta actividad.</value>
+  </data>
+    <data name="contributionform_technologyarea_placeholder" xml:space="preserve">
+    <value>Selecciona el área de tecnología que es el enfoque principal de esta actividad.</value>
+  </data>
+    <data name="contributionform_additionaltechnologyarea_placeholder" xml:space="preserve">
+    <value>Selecciona hasta 2 áreas tecnológicas adicionales que también pueden aplicarse a esta actividad.</value>
+  </data>
+    <data name="contributionform_visibility_placeholder" xml:space="preserve">
+    <value>Selecciona el nivel de visibilidad de esta actividad.</value>
+  </data>
+    <data name="setting_language_title" xml:space="preserve">
+    <value>Lenguaje</value>
+  </data>
+    <data name="setting_language_description" xml:space="preserve">
+    <value>De forma predeterminada, seleccionamos el idioma que está utilizando en su dispositivo si hay traducciones disponibles. Sin embargo, si deseas utilizar esta aplicación en un idioma diferente, puedes remplazarlo aquí.</value>
+  </data>
+    <data name="themepicker_title" xml:space="preserve">
+    <value>Tema de la aplicación</value>
+  </data>
+    <data name="contributiontypepicker_title" xml:space="preserve">
+    <value>Tipo de actividad</value>
+  </data>
+    <data name="contributiontechnologypicker_title" xml:space="preserve">
+    <value>Área de contribución primaria</value>
+  </data>
+    <data name="splash_contributionareas" xml:space="preserve">
+    <value>Tomando las áreas de contribución...</value>
+  </data>
+    <data name="splash_contributiontypes" xml:space="preserve">
+    <value>Sincronizando los tipos de contribución...</value>
+  </data>
+    <data name="splash_visibilities" xml:space="preserve">
+    <value>Poniendo visibilidades en su lugar...</value>
+  </data>
+    <data name="splash_gettingready" xml:space="preserve">
+    <value>Preparando las cosas...</value>
+  </data>
+    <data name="theme_systemdefault" xml:space="preserve">
+    <value>Predeterminado de Sistema</value>
+  </data>
+    <data name="theme_light" xml:space="preserve">
+    <value>Claro</value>
+  </data>
+    <data name="theme_dark" xml:space="preserve">
+    <value>Oscuro</value>
+  </data>
+    <data name="visibility_title" xml:space="preserve">
+    <value>Visibilidad</value> 
+  </data>
+    <data name="icon_default" xml:space="preserve">
+    <value>Predeterminado</value>
+  </data>
+    <data name="icon_darkblue" xml:space="preserve">
+    <value>Azul oscuro</value>
+  </data>
+    <data name="icon_black" xml:space="preserve">
+    <value>Negro</value>
+  </data>
+    <data name="icon_white" xml:space="preserve">
+    <value>Blanco</value>
+  </data>
+    <data name="icon_rainbow" xml:space="preserve">
+    <value>Arco iris</value>
+  </data>
+    <data name="setting_appicon_title" xml:space="preserve">
+    <value>Icono de la aplicación</value>
+  </data>
+    <data name="setting_appicon_description" xml:space="preserve">
+    <value>¿No te gusta el ícono de la aplicación que elegimos para ti? Tenemos opciones alternativas disponibles. Si tiene ideas para otras, ¡No dudes en contactarnos!</value>
+  </data>
+    <data name="yes" xml:space="preserve">
+    <value>Si</value>
+  </data>
+    <data name="no" xml:space="preserve">
+        <value>No</value>
+    </data>
+    <data name="ok" xml:space="preserve">
+        <value>Ok</value>
+    </data>
+    <data name="cancel" xml:space="preserve">
+    <value>Cancelar</value>
+  </data>
+    <data name="warning_title" xml:space="preserve">
+    <value>Espera...</value>
+  </data>
+    <data name="contributiondetail_deleteconfirmation" xml:space="preserve">
+    <value>¿Estás seguro de que deseas eliminar esta contribución? No puedes deshacer esto.</value>
+  </data>
+    <data name="error_unexpected" xml:space="preserve">
+    <value>Algo salió mal que no esperábamos que sucediera. Se ha registrado un error y lo investigaremos lo antes posible.</value>
+  </data>
+    <data name="error_badrequest" xml:space="preserve">
+    <value>Logramos hacer una solicitud que no estaba del todo bien. Inténtalo de nuevo más tarde.</value>
+  </data>
+    <data name="error_servererror" xml:space="preserve">
+    <value>No se pudo procesar su solicitud. Inténtalo de nuevo más tarde.</value>
+  </data>
+    <data name="alert_error_unauthorized" xml:space="preserve">
+    <value>Tus credenciales caducaron y no pudimos salvar el día. Por lo tanto, has sido desconectado. Vuelve a iniciar sesión para continuar.</value>
+  </data>
+    <data name="clipboard_title" xml:space="preserve">
+    <value>¡Eso luce genial!</value>
+  </data>
+    <data name="clipboard_description" xml:space="preserve">
+    <value>Notamos una URL en su portapapeles. ¿Quieres que intentemos precompletar una actividad a partir de eso?</value>
+  </data>
+    <data name="contributiondetail_notdeleted" xml:space="preserve">
+    <value>No se pudo borrar tu contribución. ¿Quizás ya se eliminó o tuvo lugar en el período de adjudicación anterior?</value>
+  </data>
+    <data name="validation_variablefield" xml:space="preserve">
+    <value>{0} es un campo obligatorio.</value>
+  </data>
+    <data name="warning_title_activitylocked" xml:space="preserve">
+    <value>Actividad bloqueada</value>
+  </data>
+    <data name="warning_description_activitylocked" xml:space="preserve">
+    <value>Esta actividad se registró en la ventana de contribución anterior y, por lo tanto, no se puede editar ni eliminar.</value>
+  </data>
+    <data name="additionaltechnologypicker_title" xml:space="preserve">
+    <value>Áreas de contribución adicionales</value>
+  </data>
+    <data name="error_nomvpaccount" xml:space="preserve">
+    <value>No se pudo autenticar con las credenciales proporcionadas. ¿Estás seguro de que estás utilizando la cuenta asociada a su ID de MVP?</value>
+  </data>
+    <data name="progress_saving" xml:space="preserve">
+    <value>Guardando...</value>
+  </data>
+    <data name="licenses_title" xml:space="preserve">
+    <value>Licencias</value>
+  </data>
+    <data name="about_licenses_title" xml:space="preserve">
+    <value>Licencias</value>
+  </data>
+    <data name="about_licenses_description" xml:space="preserve">
+    <value>Esta app se para sobre los hombros de gigantes sin los cuales su creación no sería posible. Si deseas saber quiénes son, consulta las licencias de sus increíbles piezas de software.</value>
+  </data>
+    <data name="view_licenses" xml:space="preserve">
+    <value>Ver licencias</value>
+  </data>
+    <data name="progress_loading_url_data" xml:space="preserve">
+    <value>Obteniendo metadatos de URL...</value>
+  </data>
+    <data name="contributionform_save" xml:space="preserve">
+    <value>Guardar</value>
+  </data>
+    <data name="contributiondetails_edit" xml:space="preserve">
+    <value>Editar</value>
+  </data>
+    <data name="error_title_validationfailed" xml:space="preserve">
+    <value>Validación fallida</value>
+  </data>
+    <data name="error_description_validationfailed" xml:space="preserve">
+    <value>No se completaron todos los campos obligatorios. Completa el formulario e intenta guardar nuevamente.</value>
+  </data>
+    <data name="empty_state_title" xml:space="preserve">
+    <value>Aah... ¡Está vacío aquí!</value>
+  </data>
+    <data name="empty_state_contributions" xml:space="preserve">
+    <value>No pudimos encontrar ninguna contribución. Agrega una nueva contribución o actualice para intentar recuperar sus datos existentes.</value>
+  </data>
+    <data name="contribution_add" xml:space="preserve">
+    <value>Agregar</value>
+  </data>
+    <data name="empty_state_contributiontypes" xml:space="preserve">
+    <value>No pudimos encontrar ningún tipo de contribución. Intenta actualizar.</value>
+  </data>
+    <data name="empty_state_contributiontechnologies" xml:space="preserve">
+    <value>No pudimos encontrar áreas de contribución. Intenta actualizar.</value>
+  </data>
+    <data name="empty_state_noresultcontributiontechnologies" xml:space="preserve">
+    <value>Tu consulta de búsqueda no arrojó resultados. Prueba con una consulta de búsqueda diferente.</value>
+  </data>
+    <data name="empty_state_visibilities" xml:space="preserve">
+    <value>No pudimos encontrar ninguna visibilidad. Intenta actualizar.</value>
+  </data>
+    <data name="error_offline" xml:space="preserve">
+    <value>Esta acción no se puede realizar sin una conexión a Internet. Por favor, inténtalo de nuevo más tarde.</value>
+  </data>
+    <data name="error_offline_title" xml:space="preserve">
+    <value>Sin conexión a Internet</value>
+  </data>
+    <data name="error_logoutwhileoffline" xml:space="preserve">
+    <value>Actualmente no tienes conexión a Internet. Esto puede hacer que no puedas volver a iniciar sesión. ¿Estás seguro de que quieres continuar?</value>
+  </data>
+    <data name="offline_contributions" xml:space="preserve">
+    <value>Actualmente no tienes conexión a Internet. Esto nos impide cargar tus contribuciones. Por favor, inténtalo de nuevo más tarde.</value>
+  </data>
+    <data name="error_couldntchangeicon" xml:space="preserve">
+    <value>Tu icono no se pudo cambiar. Por favor, inténtalo de nuevo más tarde.</value>
+  </data>
+    <data name="error_couldntchangetheme" xml:space="preserve">
+    <value>Tu tema no se pudo cambiar. Por favor, inténtalo de nuevo más tarde.</value>
+  </data>
+    <data name="error_couldntchangelanguage" xml:space="preserve">
+    <value>No se pudo cambiar tu idioma. Por favor, inténtalo de nuevo más tarde.</value>
+  </data>
+    <data name="error_title" xml:space="preserve">
+    <value>Algo salió mal</value>
+  </data>
+    <data name="error_data_not_loaded" xml:space="preserve">
+    <value>No se pudieron cargar los datos. No estamos muy seguros de por qué, pero se ha registrado un error. Puedes intentar actualizar o volver a intentarlo más tarde.</value>
+  </data>
+    <data name="error_couldntloadmorecontributions" xml:space="preserve">
+    <value>No se pudieron cargar más contribuciones. No estamos muy seguros de por qué, pero se ha registrado un error. Por favor, inténtalo de nuevo más tarde.</value>
+  </data>
+    <data name="error_couldntsavecontribution" xml:space="preserve">
+    <value>No se pudo guardar esta contribución. No estamos muy seguros de por qué, pero se ha registrado un error. Por favor, inténtalo de nuevo más tarde.</value>
+  </data>
+    <data name="error_couldntrefreshprofile" xml:space="preserve">
+    <value>No se pudo actualizar la información de tu perfil. No estamos muy seguros de por qué, pero se ha registrado un error. Por favor, inténtalo de nuevo más tarde.</value>
+  </data>
+    <data name="field_number_of_articles" xml:space="preserve">
+    <value>Número de Artículos</value>
+  </data>
+    <data name="field_number_of_views" xml:space="preserve">
+    <value>Número de Vistas</value>
+  </data>
+    <data name="field_number_of_posts" xml:space="preserve">
+    <value>Número de Publicaciones</value>
+  </data>
+    <data name="field_number_of_subscribers" xml:space="preserve">
+    <value>Numero de Suscriptores</value>
+  </data>
+    <data name="field_annual_unique_visitors" xml:space="preserve">
+    <value>Visitantes Únicos Anuales</value>
+  </data>
+    <data name="field_number_of_books" xml:space="preserve">
+    <value>Numero de Libros</value>
+  </data>
+    <data name="field_copies_sold" xml:space="preserve">
+    <value>Copias Vendidas</value>
+  </data>
+    <data name="field_number_of_conferences" xml:space="preserve">
+    <value>Numero de Conferencias</value>
+  </data>
+    <data name="field_number_of_visitors" xml:space="preserve">
+    <value>Número de Visitantes</value>
+  </data>
+    <data name="field_prs_issues_submissions" xml:space="preserve">
+        <value>Pull Requests/Issues/Submissions</value>
+    </data>
+    <data name="field_number_of_threads_moderated" xml:space="preserve">
+    <value>Número de Hilos Moderados</value>
+  </data>
+    <data name="field_number_of_answers" xml:space="preserve">
+    <value>Numero de Respuestas</value>
+  </data>
+    <data name="field_views_of_answers" xml:space="preserve">
+    <value>Vistas de Respuestas</value>
+  </data>
+    <data name="field_number_of_mentorship_activity" xml:space="preserve">
+    <value>Número de Actividad de Tutoría</value>
+  </data>
+    <data name="field_number_of_mentees" xml:space="preserve">
+    <value>Número de Aprendices</value>
+  </data>
+    <data name="field_number_of_projects" xml:space="preserve">
+    <value>Numero de Proyectos</value>
+  </data>
+    <data name="field_projects" xml:space="preserve">
+    <value>Proyecto(s)</value>
+  </data>
+    <data name="field_contributions" xml:space="preserve">
+    <value>Contribuciones</value>
+  </data>
+    <data name="field_meetings" xml:space="preserve">
+    <value>Reuniones</value>
+  </data>
+    <data name="field_members" xml:space="preserve">
+    <value>Miembros</value>
+  </data>
+    <data name="field_number_of_attendees" xml:space="preserve">
+    <value>Número de Asistentes</value>
+  </data>
+    <data name="field_annual_quantity" xml:space="preserve">
+    <value>Cantidad Anual</value>
+  </data>
+    <data name="field_annual_reach" xml:space="preserve">
+    <value>Alcance Anual</value>
+  </data>
+    <data name="field_number_of_events_participated" xml:space="preserve">
+    <value>Número de Eventos Participados</value>
+  </data>
+    <data name="field_number_of_feedbacks_provided" xml:space="preserve">
+    <value>Número de Comentarios Proporcionados</value>
+  </data>
+    <data name="field_number_of_samples" xml:space="preserve">
+    <value>Número de Ejemplos</value>
+  </data>
+    <data name="field_number_of_downloads" xml:space="preserve">
+    <value>Número de Descargas</value>
+  </data>
+    <data name="field_number_of_sites" xml:space="preserve">
+    <value>Número de Sitios</value>
+  </data>
+    <data name="field_number_of_talks" xml:space="preserve">
+    <value>Número de Charlas</value>
+  </data>
+    <data name="field_attendees_of_talks" xml:space="preserve">
+    <value>Asistentes a Charlas</value>
+  </data>
+    <data name="field_number_of_followers" xml:space="preserve">
+    <value>Numero de Seguidores</value>
+  </data>
+    <data name="field_number_of_videos" xml:space="preserve">
+    <value>Número de Videos</value>
+  </data>
+    <data name="field_number_of_events" xml:space="preserve">
+    <value>Numero de Eventos</value>
+  </data>
+    <data name="onboarding_1_title" xml:space="preserve">
+    <value>Simple y eficaz</value>
+  </data>
+    <data name="onboarding_1_description" xml:space="preserve">
+    <value>Administra todas las actividades de tu comunidad desde la palma de tu mano.</value>
+  </data>
+    <data name="onboarding_3_title" xml:space="preserve">
+    <value>Agregar Rápido</value>
+  </data>
+    <data name="onboarding_3_description" xml:space="preserve">
+    <value>Crea contribuciones directamente basadas en una URL en su portapapeles. Prellenando todo lo que podamos para que puedas agregar rápidamente nuevas contribuciones.</value>
+  </data>
+    <data name="about_credits_description" xml:space="preserve">
+    <value>Sin las increíbles personas que se enumeran a continuación, esta app no habría sido posible. Por lo tanto, se han ganado un lugar aquí para celebrar sus contribuciones.</value>
+  </data>
+    <data name="about_credits_title" xml:space="preserve">
+    <value>Créditos</value>
+  </data>
+    <data name="acknowledgementtype_tester" xml:space="preserve">
+    <value>Tester</value>
+  </data>
+    <data name="acknowledgementtype_translator" xml:space="preserve">
+    <value>Traductor</value>
+  </data>
+    <data name="sign_in" xml:space="preserve">
+        <value>Iniciar sesión</value>
+    </data>
+    <data name="swipe_to_continue" xml:space="preserve">
+        <value>Desliza para continuar</value>
+    </data>
+    <data name="try_with_demo_account" xml:space="preserve">
+        <value>Prueba con una cuenta demo</value>
+    </data>
+</root>

@@ -2,6 +2,7 @@
 <pages:BaseContentPage xmlns="http://xamarin.com/schemas/2014/forms"
                        xmlns:converters="clr-namespace:Xamarin.CommunityToolkit.Converters;assembly=Xamarin.CommunityToolkit"
                        xmlns:effects="clr-namespace:Xamarin.CommunityToolkit.Effects;assembly=Xamarin.CommunityToolkit"
+                       xmlns:extensions="clr-namespace:Xamarin.CommunityToolkit.Extensions;assembly=Xamarin.CommunityToolkit"
                        xmlns:mvp="clr-namespace:MVP"
                        xmlns:models="clr-namespace:MVP.Models"
                        xmlns:pages="clr-namespace:MVP.Pages"
@@ -9,13 +10,14 @@
                        xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
                        x:Class="MVP.Pages.IntroPage"
                        x:DataType="vm:IntroViewModel"
-                       x:TypeArguments="vm:IntroViewModel" xmlns:sh="clr-namespace:Sharpnado.Shades;assembly=Sharpnado.Shadows">
+                       x:TypeArguments="vm:IntroViewModel"
+                       xmlns:sh="clr-namespace:Sharpnado.Shades;assembly=Sharpnado.Shadows">
 
     <pages:BaseContentPage.Resources>
         <x:Int32 x:Key="LastItemIndex">2</x:Int32>
     </pages:BaseContentPage.Resources>
 
-    <mvp:AppFrame SecondaryButtonText="Sign in"
+    <mvp:AppFrame SecondaryButtonText="{extensions:Translate sign_in}"
                   ShadowOpacity="0"
                   ShowTabShadow="False"
                   ShowSecondaryButton="True"
@@ -58,7 +60,7 @@
                        HorizontalTextAlignment="Center"
                        InputTransparent="True"
                        IsVisible="{Binding Path=Position, Source={x:Reference carousel}, Converter={converters:NotEqualConverter}, ConverterParameter={StaticResource LastItemIndex}}"
-                       Text="Swipe to continue"
+                       Text="{extensions:Translate swipe_to_continue}"
                        VerticalOptions="Center"/>
 
                 <sh:Shadows Style="{StaticResource shade_primary}" 
@@ -67,7 +69,7 @@
                     <Button Command="{Binding SignInAsDemoCommand}"
                             HorizontalOptions="CenterAndExpand"
                             Style="{StaticResource primary_button}"
-                            Text="Try with a demo account"
+                            Text="{extensions:Translate try_with_demo_account}"
                             VerticalOptions="Center"/>
                 </sh:Shadows>
 

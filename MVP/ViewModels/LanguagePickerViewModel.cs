@@ -10,12 +10,16 @@ using TinyNavigationHelper;
 using MVP.Services;
 using System.Threading.Tasks;
 using Xamarin.CommunityToolkit.ObjectModel;
+using System.Globalization;
+using MVP.Extensions;
 
 namespace MVP.ViewModels
 {
     public class LanguagePickerViewModel : BaseViewModel
     {
         readonly LanguageService languageService;
+
+        public List<string> supportedLanguages = new List<string> { "en", "nl", "es", "sv" };
 
         public IList<LanguageViewModel> SupportedLanguages { get; set; } = new List<LanguageViewModel>();
         public IAsyncCommand<LanguageViewModel> SetAppLanguageCommand { get; set; }
@@ -37,12 +41,21 @@ namespace MVP.ViewModels
         {
             // Not going to translate the top name, as it's the
             // language's native name, which should be the same across all languages.
-            SupportedLanguages = new List<LanguageViewModel>()
+
+            var languages = new List<LanguageViewModel>();
+            var text = LocalizationResourceManager.Current.CurrentCulture.TextInfo;
+
+            foreach (var item in supportedLanguages)
             {
-                { new LanguageViewModel{ Description = "English", CurrentLanguageDescription=Resources.Translations.language_english, CI = "en" } },
-                { new LanguageViewModel{ Description = "Nederlands", CurrentLanguageDescription=Resources.Translations.language_dutch, CI = "nl" } },
-                { new LanguageViewModel{ Description = "Swedish", CurrentLanguageDescription=Resources.Translations.language_swedish, CI = "sv" } }
-            };
+                languages.Add(new LanguageViewModel
+                {
+                    Description = text.ToTitleCase(item.GetNativeName()),
+                    CurrentLanguageDescription = text.ToTitleCase(IsoNames.LanguageNames.GetName(LocalizationResourceManager.Current.CurrentCulture, item)),
+                    CI = item
+                });
+            }
+
+            SupportedLanguages = languages;
 
             // Set current selection
             var selected = SupportedLanguages.FirstOrDefault(pro => pro.CI == LocalizationResourceManager.Current.CurrentCulture.TwoLetterISOLanguageName);
