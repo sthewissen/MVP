@@ -25,7 +25,10 @@ namespace MVP.ViewModels
 
             Acknowledgements = new List<Acknowledgement>
             {
-                new Acknowledgement { Name = "Mark Allibone", Type = AcknowledgementTypes.Translator }
+                new Acknowledgement { Name = "Mark Allibone", Type = AcknowledgementTypes.Translator },
+                new Acknowledgement { Name = "Jorge Castro", Type = AcknowledgementTypes.Translator },
+                new Acknowledgement { Name = "Rodrigo Juarez", Type = AcknowledgementTypes.Translator },
+                new Acknowledgement { Name = "Luis Pujols", Type = AcknowledgementTypes.Translator }
             };
         }
 
