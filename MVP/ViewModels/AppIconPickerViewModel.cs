@@ -8,7 +8,6 @@ using MVP.Resources;
 using MVP.Services;
 using MVP.Services.Interfaces;
 using MVP.ViewModels.Data;
-using TinyNavigationHelper;
 using Xamarin.CommunityToolkit.ObjectModel;
 using Xamarin.Essentials;
 using Xamarin.Forms;
@@ -26,8 +25,8 @@ namespace MVP.ViewModels
 
         public ICommand SetAppIconCommand { get; set; }
 
-        public AppIconPickerViewModel(IAnalyticsService analyticsService, INavigationHelper navigationHelper)
-            : base(analyticsService, navigationHelper)
+        public AppIconPickerViewModel(IAnalyticsService analyticsService)
+            : base(analyticsService)
         {
             SetAppIconCommand = new AsyncCommand<AppIconViewModel>((x) => SetAppIcon(x));
             AppIcons.FirstOrDefault(x => x.Key == Preferences.Get(Settings.AppIcon, Settings.AppIconDefault)).IsSelected = true;

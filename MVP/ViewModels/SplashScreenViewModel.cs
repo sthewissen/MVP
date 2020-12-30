@@ -3,7 +3,6 @@ using System.Threading.Tasks;
 using MVP.Extensions;
 using MVP.Pages;
 using MVP.Services.Interfaces;
-using TinyNavigationHelper;
 using Xamarin.CommunityToolkit.ObjectModel;
 using Xamarin.Essentials;
 
@@ -21,8 +20,8 @@ namespace MVP.ViewModels
             set => Set(ref fetchText, value);
         }
 
-        public SplashScreenViewModel(IAnalyticsService analyticsService, INavigationHelper navigationHelper)
-            : base(analyticsService, navigationHelper)
+        public SplashScreenViewModel(IAnalyticsService analyticsService)
+            : base(analyticsService)
         {
             PrefetchDataCommand = new AsyncCommand(() => PrefetchData());
         }

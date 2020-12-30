@@ -5,7 +5,6 @@ using MVP.Models;
 using MVP.Services;
 using MVP.Services.Interfaces;
 using Newtonsoft.Json;
-using TinyNavigationHelper;
 using Xamarin.CommunityToolkit.ObjectModel;
 using Xamarin.Essentials;
 
@@ -17,8 +16,8 @@ namespace MVP.ViewModels
 
         public IList<OpenSourceSoftware> Licenses { get; set; } = new List<OpenSourceSoftware>();
 
-        public LicensesViewModel(IAnalyticsService analyticsService, INavigationHelper navigationHelper)
-            : base(analyticsService, navigationHelper)
+        public LicensesViewModel(IAnalyticsService analyticsService)
+            : base(analyticsService)
         {
             OpenLicenseCommand = new AsyncCommand<OpenSourceSoftware>(OpenLicense);
         }

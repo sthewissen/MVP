@@ -10,7 +10,6 @@ using TinyNavigationHelper;
 using MVP.Services;
 using System.Threading.Tasks;
 using Xamarin.CommunityToolkit.ObjectModel;
-using System.Globalization;
 using MVP.Extensions;
 
 namespace MVP.ViewModels
@@ -19,13 +18,13 @@ namespace MVP.ViewModels
     {
         readonly LanguageService languageService;
 
-        public List<string> supportedLanguages = new List<string> { "en", "nl", "es", "sv" };
+        public List<string> supportedLanguages = new List<string> { "en", "nl", "es", "tr", "hu", "sv" };
 
         public IList<LanguageViewModel> SupportedLanguages { get; set; } = new List<LanguageViewModel>();
         public IAsyncCommand<LanguageViewModel> SetAppLanguageCommand { get; set; }
 
         public LanguagePickerViewModel(IAnalyticsService analyticsService, INavigationHelper navigationHelper, LanguageService languageService)
-            : base(analyticsService, navigationHelper)
+            : base(analyticsService)
         {
             this.languageService = languageService;
 
@@ -79,7 +78,7 @@ namespace MVP.ViewModels
                 LoadLanguages();
 
                 // Also force the tabs to change
-                (CurrentApp.MainPage as TabbedMainPage).SetTitles();
+                (CurrentApp.MainPage as TabbedMainPage)?.SetTitles();
 
                 AnalyticsService.Track("Preferred Language Changed", nameof(language.CI), language.CI ?? "null");
 

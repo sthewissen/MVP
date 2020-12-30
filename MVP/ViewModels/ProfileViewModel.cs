@@ -7,7 +7,6 @@ using MVP.Pages;
 using MVP.Resources;
 using MVP.Services;
 using MVP.Services.Interfaces;
-using TinyNavigationHelper;
 using Xamarin.CommunityToolkit.ObjectModel;
 using Xamarin.CommunityToolkit.UI.Views;
 using Xamarin.Essentials;
@@ -39,8 +38,8 @@ namespace MVP.ViewModels
             }
         }
 
-        public ProfileViewModel(IAnalyticsService analyticsService, INavigationHelper navigationHelper)
-            : base(analyticsService, navigationHelper)
+        public ProfileViewModel(IAnalyticsService analyticsService)
+            : base(analyticsService)
         {
             LogoutCommand = new AsyncCommand(() => Logout());
             LoadProfileCommand = new AsyncCommand(() => LoadProfile(true));
@@ -132,15 +131,15 @@ namespace MVP.ViewModels
         }
 
         async Task OpenThemePicker()
-            => await NavigationHelper.NavigateToAsync(nameof(ThemePickerPage)).ConfigureAwait(false);
+            => await NavigateAsync(nameof(ThemePickerPage)).ConfigureAwait(false);
 
         async Task OpenLanguagePicker()
-            => await NavigationHelper.NavigateToAsync(nameof(LanguagePickerPage)).ConfigureAwait(false);
+            => await NavigateAsync(nameof(LanguagePickerPage)).ConfigureAwait(false);
 
         async Task OpenIconPicker()
-            => await NavigationHelper.NavigateToAsync(nameof(AppIconPickerPage)).ConfigureAwait(false);
+            => await NavigateAsync(nameof(AppIconPickerPage)).ConfigureAwait(false);
 
         async Task OpenAbout()
-            => await NavigationHelper.NavigateToAsync(nameof(AboutPage)).ConfigureAwait(false);
+            => await NavigateAsync(nameof(AboutPage)).ConfigureAwait(false);
     }
 }

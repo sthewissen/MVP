@@ -13,12 +13,14 @@ namespace MVP.ViewModels
 {
     public abstract class BaseViewModel : ViewModelBase
     {
+        bool isNavigating = false;
+
         protected App CurrentApp => (App)Xamarin.Forms.Application.Current;
 
         protected IMvpApiService MvpApiService => App.MvpApiService;
         protected IAnalyticsService AnalyticsService { get; }
         protected IAuthService AuthService => App.AuthService;
-        protected INavigationHelper NavigationHelper { get; }
+        protected INavigationHelper NavigationHelper => App.NavigationHelper;
 
         public virtual IAsyncCommand BackCommand { get; set; }
         public virtual ICommand PrimaryCommand { get; set; }
@@ -27,11 +29,10 @@ namespace MVP.ViewModels
         public LayoutState State { get; set; }
         public string CustomStateKey { get; set; }
 
-        public BaseViewModel(IAnalyticsService analyticsService, INavigationHelper navigationHelper)
+        public BaseViewModel(IAnalyticsService analyticsService)
         {
             AnalyticsService = analyticsService;
-            NavigationHelper = navigationHelper;
-            BackCommand = new AsyncCommand(() => Back());
+            BackCommand = new AsyncCommand(() => BackAsync());
         }
 
         protected async Task<bool> VerifyInternetConnection()
@@ -45,7 +46,44 @@ namespace MVP.ViewModels
             return true;
         }
 
-        public async virtual Task Back()
-            => await NavigationHelper.BackAsync().ConfigureAwait(false);
+        protected Task NavigateAsync(string page, object param = null)
+        {
+            if (isNavigating)
+                return Task.CompletedTask;
+
+            isNavigating = true;
+
+            return NavigationHelper.NavigateToAsync(page, param).ContinueWith((x) => isNavigating = false);
+        }
+
+        protected Task OpenModalAsync(string page, object data, bool withNavigation)
+        {
+            if (isNavigating)
+                return Task.CompletedTask;
+
+            isNavigating = true;
+
+            return NavigationHelper.OpenModalAsync(page, data, withNavigation).ContinueWith((x) => isNavigating = false);
+        }
+
+        protected Task CloseModalAsync()
+        {
+            if (isNavigating)
+                return Task.CompletedTask;
+
+            isNavigating = true;
+
+            return NavigationHelper.CloseModalAsync().ContinueWith((x) => isNavigating = false);
+        }
+
+        public virtual Task BackAsync()
+        {
+            if (isNavigating)
+                return Task.CompletedTask;
+
+            isNavigating = true;
+
+            return NavigationHelper.BackAsync().ContinueWith((x) => isNavigating = false);
+        }
     }
 }
