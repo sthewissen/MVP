@@ -1,0 +1,571 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="about_credits_description" xml:space="preserve">
+    <value>Denna app vore inte möjlig utan de fantastiska människorna här nedanför. Därför har de förtjänat en plats att fira sina bidrag.</value>
+  </data>
+  <data name="about_credits_title" xml:space="preserve">
+    <value>Medverkande</value>
+  </data>
+  <data name="about_licenses_description" xml:space="preserve">
+    <value>Den här appen står på axlarna av de jättar utan vilka dess skapande inte vore möjlig. Om du vill veta vilka de är, kolla på licenserna för deras fantastiska mjukvaror.</value>
+  </data>
+  <data name="about_licenses_title" xml:space="preserve">
+    <value>Licenser</value>
+  </data>
+  <data name="about_opensource_description" xml:space="preserve">
+    <value>Den här appen består helt av öppen källkod. Om du gillar den, bli gärna en GitHub sponsor och bjud mig på en digital kopp kaffe i månaden ☕️</value>
+  </data>
+  <data name="about_opensource_title" xml:space="preserve">
+    <value>Öppen källkod</value>
+  </data>
+  <data name="about_title" xml:space="preserve">
+    <value>Om den här appen</value>
+  </data>
+  <data name="about_why_description" xml:space="preserve">
+    <value>Det har alltid funnits ett behov för Microsofts MVP:er att hantera sina nätverksaktiviteter på ett enklare sätt. Portalen fungerar ok, men att ha en liknande sak i fickan för att skapa aktiviteter på språng är väldigt coolt. Det är det som det här projektet är till för!</value>
+  </data>
+  <data name="about_why_title" xml:space="preserve">
+    <value>Varför byggdes denna appen?</value>
+  </data>
+  <data name="acknowledgementtype_tester" xml:space="preserve">
+    <value>Tester</value>
+  </data>
+  <data name="acknowledgementtype_translator" xml:space="preserve">
+    <value>Översättare</value>
+  </data>
+  <data name="additionaltechnologypicker_title" xml:space="preserve">
+    <value>Ytterligare områden att bidra</value>
+  </data>
+  <data name="alert_error_unauthorized" xml:space="preserve">
+    <value>Dina autentiseringsuppgifter har gått ut och kunde inte uppdateras. Du har därför blivit utloggad. Vänligen logga in igen för att fortsätta.</value>
+  </data>
+  <data name="becomesponsor" xml:space="preserve">
+    <value>Bli en sponsor</value>
+  </data>
+  <data name="button_delete_contribution" xml:space="preserve">
+    <value>Radera bidrag</value>
+  </data>
+  <data name="cancel" xml:space="preserve">
+    <value>Avbryt</value>
+  </data>
+  <data name="clipboard_description" xml:space="preserve">
+    <value>Vi har noterat en URL i dina urklipp. Vill du att vi ska försöka för-ifylla en aktivitet ifrån den?</value>
+  </data>
+  <data name="clipboard_title" xml:space="preserve">
+    <value>Det ser coolt ut!</value>
+  </data>
+  <data name="contributiondetails_edit" xml:space="preserve">
+    <value>Editera</value>
+  </data>
+  <data name="contributiondetails_title" xml:space="preserve">
+    <value>Aktivitetsdetaljer</value>
+  </data>
+  <data name="contributiondetail_deleteconfirmation" xml:space="preserve">
+    <value>Är du säker på att du vill radera detta bidrag? Det går inte att ångra detta.</value>
+  </data>
+  <data name="contributiondetail_notdeleted" xml:space="preserve">
+    <value>Bidraget kunde inte raderas. Det kan redan ha raderats, eller ha varit med i tidigare utmärkelser.</value>
+  </data>
+  <data name="contributionform_activitytype_placeholder" xml:space="preserve">
+    <value>Välj den aktivitetstyp som bäst passar denna aktivitet.</value>
+  </data>
+  <data name="contributionform_additionaltechnologyarea_placeholder" xml:space="preserve">
+    <value>Välj upp till 2 ytterligare teknologier som också kan passa denna aktivitet.</value>
+  </data>
+  <data name="contributionform_save" xml:space="preserve">
+    <value>Spara</value>
+  </data>
+  <data name="contributionform_technologyarea_placeholder" xml:space="preserve">
+    <value>Välj den teknologi som är det primära fokuset för denna aktivitet.</value>
+  </data>
+  <data name="contributionform_timeframememo" xml:space="preserve">
+    <value>Ditt bidrag för julis utmärkelsecykel måste vara för nätverksaktiviteter mellan {0} och {1}.</value>
+  </data>
+  <data name="contributionform_title_add" xml:space="preserve">
+    <value>Lägg till bidrag</value>
+  </data>
+  <data name="contributionform_title_edit" xml:space="preserve">
+    <value>Redigera bidrag</value>
+  </data>
+  <data name="contributionform_visibility_placeholder" xml:space="preserve">
+    <value>Välj synlighet för denna aktivitet</value>
+  </data>
+  <data name="contributions_title" xml:space="preserve">
+    <value>Nätverksaktiviteter</value>
+  </data>
+  <data name="contributiontechnologypicker_title" xml:space="preserve">
+    <value>Primärt bidragsområde</value>
+  </data>
+  <data name="contributiontypepicker_title" xml:space="preserve">
+    <value>Aktivitetstyp</value>
+  </data>
+  <data name="contribution_add" xml:space="preserve">
+    <value>Lägg till</value>
+  </data>
+  <data name="empty_state_contributions" xml:space="preserve">
+    <value>Kunde inte hitta några bidrag. Lägg till ett nytt bidrag eller uppdatera för att försöka hämta existerande data.</value>
+  </data>
+  <data name="empty_state_contributiontechnologies" xml:space="preserve">
+    <value>Kunde inte hitta några bidragsområden. Var vänlig uppdatera dem.</value>
+  </data>
+  <data name="empty_state_contributiontypes" xml:space="preserve">
+    <value>Kunde inte hitta några bidragstyper. Var vänlig uppdatera dem.</value>
+  </data>
+  <data name="empty_state_noresultcontributiontechnologies" xml:space="preserve">
+    <value>Din sökning gav inga resultat. Var vänlig försök med en annan.</value>
+  </data>
+  <data name="empty_state_title" xml:space="preserve">
+    <value>Ojoj... Det är tomt här!</value>
+  </data>
+  <data name="empty_state_visibilities" xml:space="preserve">
+    <value>Kunde inte hitta några synligheter. Var vänlig uppdatera dem.</value>
+  </data>
+  <data name="error_badrequest" xml:space="preserve">
+    <value>Din förfrågan kunde inte slutföras. Var vänlig försök senare.</value>
+  </data>
+  <data name="error_couldntchangeicon" xml:space="preserve">
+    <value>Din ikon kunde inte ändras. Var vänlig försök senare.</value>
+  </data>
+  <data name="error_couldntchangelanguage" xml:space="preserve">
+    <value>Ditt språk kunde inte ändras. Var vänlig försök senare.</value>
+  </data>
+  <data name="error_couldntchangetheme" xml:space="preserve">
+    <value>Ditt tema kunde inte ändras. Var vänlig försök senare.</value>
+  </data>
+  <data name="error_couldntloadmorecontributions" xml:space="preserve">
+    <value>Kunde inte ladda fler bidrag. Vi vet inte varför, men ett fel har loggats. Var vänlig försök senare.</value>
+  </data>
+  <data name="error_couldntrefreshprofile" xml:space="preserve">
+    <value>Kunde inte uppdatera din profil. Vi vet inte varför, men ett fel har loggats. Var vänlig försök senare.</value>
+  </data>
+  <data name="error_couldntsavecontribution" xml:space="preserve">
+    <value>Kunde inte spara detta bidrag. Vi vet inte varför, men ett fel har loggats. Var vänlig försök senare.</value>
+  </data>
+  <data name="error_data_not_loaded" xml:space="preserve">
+    <value>Data kunde inte laddas. Vi vet inte varför, men ett fel har loggats. Var vänlig försök senare.</value>
+  </data>
+  <data name="error_description_validationfailed" xml:space="preserve">
+    <value>Alla tvingade fält måste fyllas i. Var vänlig fyll i dem och spara igen.</value>
+  </data>
+  <data name="error_logoutwhileoffline" xml:space="preserve">
+    <value>Du är för närvarande inte ansluten till internet. Detta kan göra att du inte kan logga in igen. Är du säker på att du vill fortsätta?</value>
+  </data>
+  <data name="error_nomvpaccount" xml:space="preserve">
+    <value>Autentiseringen misslyckades med de uppgifter du angav. Är du säker på att du använder det konto som är kopplat till ditt MVP ID?</value>
+  </data>
+  <data name="error_offline" xml:space="preserve">
+    <value>Denna åtgärd kan inte utföras utan internetuppkoppling. Var vänlig försök senare.</value>
+  </data>
+  <data name="error_offline_title" xml:space="preserve">
+    <value>Ingen internetuppkoppling</value>
+  </data>
+  <data name="error_servererror" xml:space="preserve">
+    <value>Kunde inte utföra begärd förfrågan. Var vänlig försök senare.</value>
+  </data>
+  <data name="error_title" xml:space="preserve">
+    <value>Något gick fel</value>
+  </data>
+  <data name="error_title_validationfailed" xml:space="preserve">
+    <value>Validering misslyckades.</value>
+  </data>
+  <data name="error_unexpected" xml:space="preserve">
+    <value>Något gick fel. Ett fel har loggats och vi undersöker det snarast.</value>
+  </data>
+  <data name="field_activity_date" xml:space="preserve">
+    <value>Aktivitetsdatum</value>
+  </data>
+  <data name="field_activity_type" xml:space="preserve">
+    <value>Aktivitetstyp</value>
+  </data>
+  <data name="field_additional_contribution_areas" xml:space="preserve">
+    <value>Ytterligare bidragsområden</value>
+  </data>
+  <data name="field_annual_quantity" xml:space="preserve">
+    <value>Årlig kvantitet</value>
+  </data>
+  <data name="field_annual_reach" xml:space="preserve">
+    <value>Årlig räckvidd</value>
+  </data>
+  <data name="field_annual_unique_visitors" xml:space="preserve">
+    <value>Unikt antal årliga besökare</value>
+  </data>
+  <data name="field_attendees_of_talks" xml:space="preserve">
+    <value>Besökare på presentationer</value>
+  </data>
+  <data name="field_contributions" xml:space="preserve">
+    <value>Bidrag</value>
+  </data>
+  <data name="field_copies_sold" xml:space="preserve">
+    <value>Sålda kopior</value>
+  </data>
+  <data name="field_description" xml:space="preserve">
+    <value>Beskrivning</value>
+  </data>
+  <data name="field_meetings" xml:space="preserve">
+    <value>Möten</value>
+  </data>
+  <data name="field_members" xml:space="preserve">
+    <value>Medlemmar</value>
+  </data>
+  <data name="field_number_of_answers" xml:space="preserve">
+    <value>Antal svar</value>
+  </data>
+  <data name="field_number_of_articles" xml:space="preserve">
+    <value>Antal artiklar</value>
+  </data>
+  <data name="field_number_of_attendees" xml:space="preserve">
+    <value>Antal medverkande</value>
+  </data>
+  <data name="field_number_of_books" xml:space="preserve">
+    <value>Antal böcker</value>
+  </data>
+  <data name="field_number_of_conferences" xml:space="preserve">
+    <value>Antal konferenser</value>
+  </data>
+  <data name="field_number_of_downloads" xml:space="preserve">
+    <value>Antal nedladdningar</value>
+  </data>
+  <data name="field_number_of_events" xml:space="preserve">
+    <value>Antal event</value>
+  </data>
+  <data name="field_number_of_events_participated" xml:space="preserve">
+    <value>Antal event som deltagare</value>
+  </data>
+  <data name="field_number_of_feedbacks_provided" xml:space="preserve">
+    <value>Antal omdömen lämnade</value>
+  </data>
+  <data name="field_number_of_followers" xml:space="preserve">
+    <value>Antal följare</value>
+  </data>
+  <data name="field_number_of_mentees" xml:space="preserve">
+    <value>Antal adepter</value>
+  </data>
+  <data name="field_number_of_mentorship_activity" xml:space="preserve">
+    <value>Antal mentortillfällen</value>
+  </data>
+  <data name="field_number_of_posts" xml:space="preserve">
+    <value>Antal inlägg</value>
+  </data>
+  <data name="field_number_of_projects" xml:space="preserve">
+    <value>Antal projekt</value>
+  </data>
+  <data name="field_number_of_samples" xml:space="preserve">
+    <value>Antal exempel</value>
+  </data>
+  <data name="field_number_of_sites" xml:space="preserve">
+    <value>Antal websidor</value>
+  </data>
+  <data name="field_number_of_subscribers" xml:space="preserve">
+    <value>Antal följare</value>
+  </data>
+  <data name="field_number_of_talks" xml:space="preserve">
+    <value>Antal presentationer</value>
+  </data>
+  <data name="field_number_of_threads_moderated" xml:space="preserve">
+    <value>Antal inlägg modererade</value>
+  </data>
+  <data name="field_number_of_videos" xml:space="preserve">
+    <value>Antal videor</value>
+  </data>
+  <data name="field_number_of_views" xml:space="preserve">
+    <value>Antal visningar</value>
+  </data>
+  <data name="field_number_of_visitors" xml:space="preserve">
+    <value>Antal besökare</value>
+  </data>
+  <data name="field_primary_contribution_area" xml:space="preserve">
+    <value>Primärt bidragsområde</value>
+  </data>
+  <data name="field_projects" xml:space="preserve">
+    <value>Projekt</value>
+  </data>
+  <data name="field_prs_issues_submissions" xml:space="preserve">
+    <value>Pull Requests/Issues/Submissions</value>
+    <comment>Not sure this would work translated, these terms are most often used even in Swedish.</comment>
+  </data>
+  <data name="field_title" xml:space="preserve">
+    <value>Aktivitetstitel</value>
+  </data>
+  <data name="field_url" xml:space="preserve">
+    <value>URL</value>
+  </data>
+  <data name="field_views_of_answers" xml:space="preserve">
+    <value>Antal visningar av svar</value>
+  </data>
+  <data name="field_visibility" xml:space="preserve">
+    <value>Synlighet</value>
+  </data>
+  <data name="icon_black" xml:space="preserve">
+    <value>Svart</value>
+  </data>
+  <data name="icon_darkblue" xml:space="preserve">
+    <value>Mörkblå</value>
+  </data>
+  <data name="icon_default" xml:space="preserve">
+    <value>Standard</value>
+  </data>
+  <data name="icon_rainbow" xml:space="preserve">
+    <value>Regnbåge</value>
+  </data>
+  <data name="icon_white" xml:space="preserve">
+    <value>Vit</value>
+  </data>
+  <data name="languagepicker_title" xml:space="preserve">
+    <value>Språk</value>
+  </data>
+  <data name="language_dutch" xml:space="preserve">
+    <value>Holländska</value>
+  </data>
+  <data name="language_english" xml:space="preserve">
+    <value>Engelska</value>
+  </data>
+  <data name="language_swedish" xml:space="preserve">
+    <value>Svenska</value>
+  </data>
+  <data name="licenses_title" xml:space="preserve">
+    <value>Licenser</value>
+  </data>
+  <data name="logout" xml:space="preserve">
+    <value>Logga ut</value>
+  </data>
+  <data name="no" xml:space="preserve">
+    <value>Nej</value>
+  </data>
+  <data name="offline_contributions" xml:space="preserve">
+    <value>Du har för närvarande ingen internetuppkoppling. Detta gör att vi inte kan ladda dina bidrag. Var vänlig försök senare.</value>
+  </data>
+  <data name="ok" xml:space="preserve">
+    <value>Ok</value>
+  </data>
+  <data name="onboarding_1_description" xml:space="preserve">
+    <value>Hantera alla dina nätverksaktiviteter i din handflata.</value>
+  </data>
+  <data name="onboarding_1_title" xml:space="preserve">
+    <value>Enkelt och effektivt</value>
+  </data>
+  <data name="onboarding_3_description" xml:space="preserve">
+    <value>Skapa ett bidrag baserat på en URL i dina urklipp. Vi för-ifyller det vi kan, detta tillåter dig att snabbt skapa nya bidrag.</value>
+  </data>
+  <data name="onboarding_3_title" xml:space="preserve">
+    <value>Snabbtillägg</value>
+  </data>
+  <data name="profile_title" xml:space="preserve">
+    <value>Inställningar</value>
+  </data>
+  <data name="progress_loading_url_data" xml:space="preserve">
+    <value>Hämtar URL metadata...</value>
+  </data>
+  <data name="progress_saving" xml:space="preserve">
+    <value>Sparar...</value>
+  </data>
+  <data name="search_placeholder" xml:space="preserve">
+    <value>Sök...</value>
+  </data>
+  <data name="setting_appicon_description" xml:space="preserve">
+    <value>Gillar du inte default ikonen? Ett flertal val finns.</value>
+  </data>
+  <data name="setting_appicon_title" xml:space="preserve">
+    <value>Appikon</value>
+  </data>
+  <data name="setting_apptheme_description" xml:space="preserve">
+    <value>Den här appen kan använda både mörkt och ljust tema. Standardvalet är samma som din enhet är inställd på. Om du föredrar endera temat så kan det väljas här.</value>
+  </data>
+  <data name="setting_apptheme_title" xml:space="preserve">
+    <value>Apptema</value>
+  </data>
+  <data name="setting_contributionfromurl_description" xml:space="preserve">
+    <value>Om det finns en giltig URL i dina urklipp så kommer appen fråga om metadata från den skall användas för att för-ifylla ett bidrag.</value>
+  </data>
+  <data name="setting_contributionfromurl_title" xml:space="preserve">
+    <value>Skapa bidrag från URL</value>
+  </data>
+  <data name="setting_language_description" xml:space="preserve">
+    <value>Standardspråket för appen är det du valt i din enhet, om det finns tillgängligt. Om du däremot vill använda ett specifikt språk, kan du välja det här. </value>
+  </data>
+  <data name="setting_language_title" xml:space="preserve">
+    <value>Språk</value>
+  </data>
+  <data name="splash_contributionareas" xml:space="preserve">
+    <value>Hämtar bidragsområden...</value>
+  </data>
+  <data name="splash_contributiontypes" xml:space="preserve">
+    <value>Synkroniserar bidragstyper...</value>
+  </data>
+  <data name="splash_gettingready" xml:space="preserve">
+    <value>Färdigställer...</value>
+  </data>
+  <data name="splash_visibilities" xml:space="preserve">
+    <value>Anger synlighet...</value>
+  </data>
+  <data name="tabs_activities" xml:space="preserve">
+    <value>Aktiviteter</value>
+  </data>
+  <data name="tabs_badges" xml:space="preserve">
+    <value>Märken</value>
+  </data>
+  <data name="tabs_settings" xml:space="preserve">
+    <value>Inställningar</value>
+  </data>
+  <data name="tabs_statistics" xml:space="preserve">
+    <value>Statistik</value>
+  </data>
+  <data name="themepicker_title" xml:space="preserve">
+    <value>Apptema</value>
+  </data>
+  <data name="theme_dark" xml:space="preserve">
+    <value>Mörkt</value>
+  </data>
+  <data name="theme_light" xml:space="preserve">
+    <value>Ljust</value>
+  </data>
+  <data name="theme_systemdefault" xml:space="preserve">
+    <value>Systemstandard</value>
+  </data>
+  <data name="validation_variablefield" xml:space="preserve">
+    <value>Fältet {0} måste anges</value>
+  </data>
+  <data name="view_licenses" xml:space="preserve">
+    <value>Visa licenser</value>
+  </data>
+  <data name="visibility_title" xml:space="preserve">
+    <value>Synlighet</value>
+  </data>
+  <data name="warning_description_activitylocked" xml:space="preserve">
+    <value>Den här aktiviteten registrerades i förgående bidragsperiod och kan därför inte ändras eller raderas.</value>
+  </data>
+  <data name="warning_title" xml:space="preserve">
+    <value>Vänta...</value>
+  </data>
+  <data name="warning_title_activitylocked" xml:space="preserve">
+    <value>Aktivitet låst</value>
+  </data>
+  <data name="yes" xml:space="preserve">
+    <value>Ja</value>
+  </data>
+  <data name="sign_in" xml:space="preserve">
+    <value>Logga in</value>
+  </data>
+  <data name="swipe_to_continue" xml:space="preserve">
+    <value>Svep för att gå vidare</value>
+  </data>
+  <data name="try_with_demo_account" xml:space="preserve">
+    <value>Prova med ett demokonto</value>
+  </data>  
+</root>
