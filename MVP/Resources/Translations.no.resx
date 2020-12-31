@@ -124,7 +124,7 @@
         <value>Språk</value>
     </data>
     <data name="setting_language_description" xml:space="preserve">
-        <value>Som satdard velger vi språket som du bruker på enheten din hvis oversettelser ar tilgjengelig. Hvis du derimot ønsker å bruke denne appen på et annet språk, kan du overstyre det her.</value>
+        <value>Som standard velger vi språket som du bruker på enheten din hvis oversettelser ar tilgjengelig. Hvis du derimot ønsker å bruke denne appen på et annet språk, kan du overstyre det her.</value>
     </data>
     <data name="themepicker_title" xml:space="preserve">
         <value>App-tema</value>
