@@ -15,6 +15,7 @@
 
         <ff:SvgCachedImage Source="Resource://mvp_logo.svg"
                            Style="{StaticResource splash_image}"
+                           Margin="0,40,0,0"
                            x:Name="logo"/>
 
         <Label Style="{StaticResource splash_description}"
