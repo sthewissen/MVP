@@ -10,6 +10,7 @@ using TinyNavigationHelper;
 using MVP.Services;
 using System.Threading.Tasks;
 using Xamarin.CommunityToolkit.ObjectModel;
+using MVP.Extensions;
 
 namespace MVP.ViewModels
 {
@@ -17,11 +18,13 @@ namespace MVP.ViewModels
     {
         readonly LanguageService languageService;
 
+        public List<string> supportedLanguages = new List<string> { "en", "nl", "es", "tr", "hu", "sv", "no", "it" };
+
         public IList<LanguageViewModel> SupportedLanguages { get; set; } = new List<LanguageViewModel>();
         public IAsyncCommand<LanguageViewModel> SetAppLanguageCommand { get; set; }
 
         public LanguagePickerViewModel(IAnalyticsService analyticsService, INavigationHelper navigationHelper, LanguageService languageService)
-            : base(analyticsService, navigationHelper)
+            : base(analyticsService)
         {
             this.languageService = languageService;
 
@@ -37,11 +40,21 @@ namespace MVP.ViewModels
         {
             // Not going to translate the top name, as it's the
             // language's native name, which should be the same across all languages.
-            SupportedLanguages = new List<LanguageViewModel>()
+
+            var languages = new List<LanguageViewModel>();
+            var text = LocalizationResourceManager.Current.CurrentCulture.TextInfo;
+
+            foreach (var item in supportedLanguages)
             {
-                { new LanguageViewModel{ Description = "English", CurrentLanguageDescription=Resources.Translations.language_english, CI = "en" } },
-                { new LanguageViewModel{ Description = "Nederlands", CurrentLanguageDescription=Resources.Translations.language_dutch, CI = "nl" } }
-            };
+                languages.Add(new LanguageViewModel
+                {
+                    Description = text.ToTitleCase(item.GetNativeName()),
+                    CurrentLanguageDescription = text.ToTitleCase(IsoNames.LanguageNames.GetName(LocalizationResourceManager.Current.CurrentCulture, item)),
+                    CI = item
+                });
+            }
+
+            SupportedLanguages = languages;
 
             // Set current selection
             var selected = SupportedLanguages.FirstOrDefault(pro => pro.CI == LocalizationResourceManager.Current.CurrentCulture.TwoLetterISOLanguageName);
@@ -65,7 +78,7 @@ namespace MVP.ViewModels
                 LoadLanguages();
 
                 // Also force the tabs to change
-                (CurrentApp.MainPage as TabbedMainPage).SetTitles();
+                (CurrentApp.MainPage as TabbedMainPage)?.SetTitles();
 
                 AnalyticsService.Track("Preferred Language Changed", nameof(language.CI), language.CI ?? "null");
 
