@@ -54,7 +54,7 @@ namespace MVP.ViewModels
                 });
             }
 
-            SupportedLanguages = languages;
+            SupportedLanguages = languages.OrderBy(x => x.Description).ToList();
 
             // Set current selection
             var selected = SupportedLanguages.FirstOrDefault(pro => pro.CI == LocalizationResourceManager.Current.CurrentCulture.TwoLetterISOLanguageName);
