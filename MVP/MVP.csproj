@@ -47,6 +47,7 @@
         <Folder Include="Models\Enums\" />
         <Folder Include="Services\Demo\" />
         <Folder Include="Services\Demo\Files\" />
+        <Folder Include="Resources\" />
     </ItemGroup>
     <ItemGroup>
         <None Remove="Resources\mvp_logo.svg" />
