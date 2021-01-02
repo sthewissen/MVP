@@ -1,0 +1,456 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>2.0</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <data name="contributions_title" xml:space="preserve">
+    <value>Topluluk etkinlikleri</value>
+  </data>
+    <data name="search_placeholder" xml:space="preserve">
+    <value>Ara...</value>
+  </data>
+    <data name="profile_title" xml:space="preserve">
+    <value>Ayarlar</value>
+  </data>
+    <data name="setting_contributionfromurl_title" xml:space="preserve">
+    <value>URL'den katkı ekle</value>
+  </data>
+    <data name="setting_contributionfromurl_description" xml:space="preserve">
+    <value>Bir katkı eklerken kopyaladığınız geçerli bir URL'niz varsa, katkınızı önceden doldurmak için bu URL'den meta verilerin kullanılması gerekip gerekmediği sorulacaktır.</value>
+  </data>
+    <data name="setting_apptheme_title" xml:space="preserve">
+    <value>Uygulama teması</value>
+  </data>
+    <data name="setting_apptheme_description" xml:space="preserve">
+    <value>Bu uygulama hem aydınlık hem de karanlık modda kullanılabilir. Varsayılan olarak, cihazınızın ayarlandığı şeyi seçecektir. Özellikle kullanmak istediğiniz modu buradan seçebilirsiniz.</value>
+  </data>
+    <data name="logout" xml:space="preserve">
+    <value>Çıkış</value>
+  </data>
+    <data name="tabs_activities" xml:space="preserve">
+    <value>Etkinlikler</value>
+  </data>
+    <data name="tabs_statistics" xml:space="preserve">
+    <value>İstatistik</value>
+  </data>
+    <data name="tabs_badges" xml:space="preserve">
+    <value>Badges</value>
+  </data>
+    <data name="tabs_settings" xml:space="preserve">
+    <value>Ayarlar</value>
+  </data>
+    <data name="contributionform_title_add" xml:space="preserve">
+    <value>Katkı ekle</value>
+  </data>
+    <data name="contributionform_title_edit" xml:space="preserve">
+    <value>Katkı düzenle</value>
+  </data>
+    <data name="languagepicker_title" xml:space="preserve">
+    <value>Dil</value>
+  </data>
+    <data name="contributiondetails_title" xml:space="preserve">
+    <value>Etkinlik ayrıntıları</value>
+  </data>
+    <data name="field_activity_type" xml:space="preserve">
+    <value>Etkinlik türü</value>
+  </data>
+    <data name="field_url" xml:space="preserve">
+    <value>URL</value>
+  </data>
+    <data name="field_title" xml:space="preserve">
+    <value>Etkinlik başlığı</value>
+  </data>
+    <data name="field_primary_contribution_area" xml:space="preserve">
+    <value>Birincil katkı alanı</value>
+  </data>
+    <data name="field_additional_contribution_areas" xml:space="preserve">
+    <value>Additional contribution areas</value>
+  </data>
+    <data name="field_activity_date" xml:space="preserve">
+    <value>Etkinlik tarihi</value>
+  </data>
+    <data name="field_description" xml:space="preserve">
+    <value>Açıklama</value>
+  </data>
+    <data name="field_visibility" xml:space="preserve">
+    <value>Görünürlük</value>
+  </data>
+    <data name="button_delete_contribution" xml:space="preserve">
+    <value>Katkıyı sil</value>
+  </data>
+    <data name="about_title" xml:space="preserve">
+    <value>Uygulama hakkında</value>
+  </data>
+    <data name="about_why_title" xml:space="preserve">
+    <value>Neden bu uygulama?</value>
+  </data>
+    <data name="about_why_description" xml:space="preserve">
+    <value>Microsoft MVP'leri için topluluk etkinliklerini kolayca yönetme ihtiyacı hep olmuştur. Mevcut online portal iyi çalışıyor ama bu işi hızlıca cepten yapmak efsane olmaz mı? Bu projenin gayesi de tam olarak bu!</value>
+  </data>
+    <data name="about_opensource_title" xml:space="preserve">
+    <value>Açık kaynak</value>
+  </data>
+    <data name="about_opensource_description" xml:space="preserve">
+    <value>Bu uygulama tamamen açık kaynaktır. Uygulamayı beğendiyseniz, GitHub sponsoru olabilir ve bana ayda bir dijital fincan kahve satın alabilirsiniz ☕️.</value>
+  </data>
+    <data name="becomesponsor" xml:space="preserve">
+    <value>Sponsor olun</value>
+  </data>
+    <data name="contributionform_timeframememo" xml:space="preserve">
+    <value>Temmuz ödül döngüsü için göndereceğiniz katkı, {0} ile {1} arasındaki topluluk etkinlikleri için olmalıdır. {1} ve sonrasında gönderilen topluluk etkinlikleri, ileride değerlendirilecektir.</value>
+  </data>
+    <data name="contributionform_activitytype_placeholder" xml:space="preserve">
+    <value>Bu etkinliğe en iyi uyan türü seçin.</value>
+  </data>
+    <data name="contributionform_technologyarea_placeholder" xml:space="preserve">
+    <value>Bu etkinliğin birincil odaklandığı teknoloji alanını seçin.</value>
+  </data>
+    <data name="contributionform_additionaltechnologyarea_placeholder" xml:space="preserve">
+    <value>En fazla 2 adede kadar ek alan seçebilirsiniz.</value>
+  </data>
+    <data name="contributionform_visibility_placeholder" xml:space="preserve">
+    <value>Bu etkinliğin görünürlük seviyesini seçin.</value>
+  </data>
+    <data name="setting_language_title" xml:space="preserve">
+    <value>Dil</value>
+  </data>
+    <data name="setting_language_description" xml:space="preserve">
+    <value>Varsayılan olarak, çeviriler mevcutsa, cihazınızda kullandığınız dili seçilir. Ancak, bu uygulamayı farklı bir dilde kullanmak istiyorsanız, buradan geçersiz kılabilirsiniz.</value>
+  </data>
+    <data name="themepicker_title" xml:space="preserve">
+    <value>Uygulama teması</value>
+  </data>
+    <data name="contributiontypepicker_title" xml:space="preserve">
+    <value>Etkinlik türü</value>
+  </data>
+    <data name="contributiontechnologypicker_title" xml:space="preserve">
+    <value>Birincil katkı alanı</value>
+  </data>
+    <data name="splash_contributionareas" xml:space="preserve">
+    <value>Katkı alanları alınıyor...</value>
+  </data>
+    <data name="splash_contributiontypes" xml:space="preserve">
+    <value>Katkı tipleri eşitleniyor...</value>
+  </data>
+    <data name="splash_visibilities" xml:space="preserve">
+    <value>Görünürlükler devreye alınıyor...</value>
+  </data>
+    <data name="splash_gettingready" xml:space="preserve">
+    <value>Hazırlanıyor...</value>
+  </data>
+    <data name="theme_systemdefault" xml:space="preserve">
+    <value>Sistem Varsayılanı</value>
+  </data>
+    <data name="theme_light" xml:space="preserve">
+    <value>Açık</value>
+  </data>
+    <data name="theme_dark" xml:space="preserve">
+    <value>Koyu</value>
+  </data>
+    <data name="visibility_title" xml:space="preserve">
+    <value>Visibility</value>
+  </data>
+    <data name="icon_default" xml:space="preserve">
+    <value>Varsayılan</value>
+  </data>
+    <data name="icon_darkblue" xml:space="preserve">
+    <value>Koyu Mavi</value>
+  </data>
+    <data name="icon_black" xml:space="preserve">
+    <value>Siyah</value>
+  </data>
+    <data name="icon_white" xml:space="preserve">
+    <value>Beyaz</value>
+  </data>
+    <data name="icon_rainbow" xml:space="preserve">
+    <value>Gökkuşağı</value>
+  </data>
+    <data name="setting_appicon_title" xml:space="preserve">
+    <value>Uygulama simgesi</value>
+  </data>
+    <data name="setting_appicon_description" xml:space="preserve">
+    <value>Uygulama simgesini beğenmediniz mi? Başka fikirler için fikirleriniz varsa, bizimle iletişime geçmekten çekinmeyin!</value>
+  </data>
+    <data name="yes" xml:space="preserve">
+    <value>Evet</value>
+  </data>
+    <data name="no" xml:space="preserve">
+    <value>Hayır</value>
+  </data>
+    <data name="ok" xml:space="preserve">
+    <value>Tamam</value>
+  </data>
+    <data name="cancel" xml:space="preserve">
+    <value>İptal</value>
+  </data>
+    <data name="warning_title" xml:space="preserve">
+    <value>Bekleyin...</value>
+  </data>
+    <data name="contributiondetail_deleteconfirmation" xml:space="preserve">
+    <value>Katkıyı silmek istediğine emin misiniz? Bu işlem geri alınamaz.</value>
+  </data>
+    <data name="error_unexpected" xml:space="preserve">
+    <value>Bir şeyler ters gitti. Bunu en kısa süre içinde incelemek üzere kaydettik.</value>
+  </data>
+    <data name="error_badrequest" xml:space="preserve">
+    <value>Talebi işlenemedi. Daha sonra tekrar deneyin.</value>
+  </data>
+    <data name="error_servererror" xml:space="preserve">
+    <value>İsteğiniz işlenemiyor. Daha sonra tekrar deneyiniz.</value>
+  </data>
+    <data name="alert_error_unauthorized" xml:space="preserve">
+    <value>Kimlik bilgilerinizin süresi doldu. Bu nedenle çıkış yaptınız. Devam etmek için lütfen tekrar giriş yapın.</value>
+  </data>
+    <data name="clipboard_title" xml:space="preserve">
+    <value>Efsane duruyor!</value>
+  </data>
+    <data name="clipboard_description" xml:space="preserve">
+    <value>Halihazırda bir URL kopyalamışsınız. Etkinliğe bunu yazmamızı ister misiniz?</value>
+  </data>
+    <data name="contributiondetail_notdeleted" xml:space="preserve">
+    <value>Katkı silinemedi. Muhtemelen ya zaten silmiştiniz ya da bir önceki dönemin katkıları arasında bulunuyor.</value>
+  </data>
+    <data name="validation_variablefield" xml:space="preserve">
+    <value>{0} gerekli.</value>
+  </data>
+    <data name="warning_title_activitylocked" xml:space="preserve">
+    <value>Etkinlik kilitlendi</value>
+  </data>
+    <data name="warning_description_activitylocked" xml:space="preserve">
+    <value>Bu aktivite eski bir dönem için kaydedildiği için silinemez veya düzenlenemez.</value>
+  </data>
+    <data name="additionaltechnologypicker_title" xml:space="preserve">
+    <value>Ek katkı alanlar</value>
+  </data>
+    <data name="error_nomvpaccount" xml:space="preserve">
+    <value>Giriş bilgileri geçersiz. MVP ID'nizin bağlı olduğu hesap ile giriş yapmaya çalıştığınızdan emin misiniz?</value>
+  </data>
+    <data name="progress_saving" xml:space="preserve">
+    <value>Kaydediliyor...</value>
+  </data>
+    <data name="licenses_title" xml:space="preserve">
+    <value>Lisanslar</value>
+  </data>
+    <data name="about_licenses_title" xml:space="preserve">
+    <value>Lisanslar</value>
+  </data>
+    <data name="about_licenses_description" xml:space="preserve">
+    <value>Bu uygulama devlerin omuzlarında duruyor. Onlar olmadan bu uygulama mümkün olamazdı. Bu olağanüstü kişilikler hakkında daha ayrıntılı bilgileri, bu uygulamada kullanılan harika kütüphanelerin lisansları altında bulabilirsiniz.</value>
+  </data>
+    <data name="view_licenses" xml:space="preserve">
+    <value>Lisansları görüntüle</value>
+  </data>
+    <data name="progress_loading_url_data" xml:space="preserve">
+    <value>URL meta verisi alınıyor...</value>
+  </data>
+    <data name="contributionform_save" xml:space="preserve">
+    <value>Kaydet</value>
+  </data>
+    <data name="contributiondetails_edit" xml:space="preserve">
+    <value>Düzenle</value>
+  </data>
+    <data name="error_title_validationfailed" xml:space="preserve">
+    <value>Doğrulanamadı</value>
+  </data>
+    <data name="error_description_validationfailed" xml:space="preserve">
+    <value>Zorunlu alanların hepsi doldurulmadı. Tamamlayıp tekrar deneyiniz.</value>
+  </data>
+    <data name="empty_state_title" xml:space="preserve">
+    <value>Ooh ... burası boş!</value>
+  </data>
+    <data name="empty_state_contributions" xml:space="preserve">
+    <value>Herhangi bir katkı bulamadık. Yeni bir katkı ekleyin veya mevcut verilerinizi almaya çalışmak için yenileyin.</value>
+  </data>
+    <data name="contribution_add" xml:space="preserve">
+    <value>Ekle</value>
+  </data>
+    <data name="empty_state_contributiontypes" xml:space="preserve">
+    <value>Herhangi bir katkı türü bulamadık. Yenilemeyi deneyiniz.</value>
+  </data>
+    <data name="empty_state_contributiontechnologies" xml:space="preserve">
+    <value>Herhangi bir katkı alanı bulamadık. Yenilemeyi deneyiniz.</value>
+  </data>
+    <data name="empty_state_noresultcontributiontechnologies" xml:space="preserve">
+    <value>Arama sorgunuz hiçbir sonuç döndürmedi. Lütfen farklı bir arama sorgusu deneyin.</value>
+  </data>
+    <data name="empty_state_visibilities" xml:space="preserve">
+    <value>Herhangi görünüm bulamadık. Yenilemeyi deneyiniz.</value>
+  </data>
+    <data name="error_offline" xml:space="preserve">
+    <value>Bu eylem Internet bağlantısı olmadan yapılamaz.</value>
+  </data>
+    <data name="error_offline_title" xml:space="preserve">
+    <value>Internet bağlantısı yok</value>
+  </data>
+    <data name="error_logoutwhileoffline" xml:space="preserve">
+    <value>Şu anda Internet'e bağlı değilsiniz. Bu işlem sonrasında tekrar giriş yapamayabilirsiniz. Emin misiniz?</value>
+  </data>
+    <data name="offline_contributions" xml:space="preserve">
+    <value>Internet bağlantınız yok. Bu sebeple katkılarınızı alamıyoruz. Lütfen daha sonra tekrar deneyiniz.</value>
+  </data>
+    <data name="error_couldntchangeicon" xml:space="preserve">
+    <value>Simgeniz değiştirilemedi. Lütfen daha sonra tekrar deneyiniz.</value>
+  </data>
+    <data name="error_couldntchangetheme" xml:space="preserve">
+    <value>Temanız değiştirilemedi. Lütfen daha sonra tekrar deneyiniz.</value>
+  </data>
+    <data name="error_couldntchangelanguage" xml:space="preserve">
+    <value>Diliniz değiştirilemedi. Lütfen daha sonra tekrar deneyiniz.</value>
+  </data>
+    <data name="error_title" xml:space="preserve">
+    <value>Bir şeyler ters gitti</value>
+  </data>
+    <data name="error_data_not_loaded" xml:space="preserve">
+    <value>Veri alınamadı. Neden olduğundan tam olarak emin değiliz, ancak hata kaydedildi. Lütfen daha sonra tekrar deneyiniz.</value>
+  </data>
+    <data name="error_couldntloadmorecontributions" xml:space="preserve">
+    <value>Katkıların devamı yüklenemedi. Neden olduğundan tam olarak emin değiliz, ancak hata kaydedildi. Lütfen daha sonra tekrar deneyiniz.</value>
+  </data>
+    <data name="error_couldntsavecontribution" xml:space="preserve">
+    <value>Katkı kaydedilemedi. Neden olduğundan tam olarak emin değiliz, ancak hata kaydedildi. Lütfen daha sonra tekrar deneyiniz.</value>
+  </data>
+    <data name="error_couldntrefreshprofile" xml:space="preserve">
+    <value>Profil bilgileriniz yenilenemedi. Neden olduğundan tam olarak emin değiliz, ancak hata kaydedildi. Lütfen daha sonra tekrar deneyiniz.</value>
+  </data>
+    <data name="field_number_of_articles" xml:space="preserve">
+    <value>Makale sayısı</value>
+  </data>
+    <data name="field_number_of_views" xml:space="preserve">
+    <value>Gösterim sayısı</value>
+  </data>
+    <data name="field_number_of_posts" xml:space="preserve">
+    <value>Gönderi sayısı</value>
+  </data>
+    <data name="field_number_of_subscribers" xml:space="preserve">
+    <value>Abone sayısı</value>
+  </data>
+    <data name="field_annual_unique_visitors" xml:space="preserve">
+    <value>Yıllık tekil ziyaretçi</value>
+  </data>
+    <data name="field_number_of_books" xml:space="preserve">
+    <value>Kitap sayısı</value>
+  </data>
+    <data name="field_copies_sold" xml:space="preserve">
+    <value>Satılan Kopya</value>
+  </data>
+    <data name="field_number_of_conferences" xml:space="preserve">
+    <value>Konferans sayısı</value>
+  </data>
+    <data name="field_number_of_visitors" xml:space="preserve">
+    <value>Ziyaretçi sayısı</value>
+  </data>
+    <data name="field_prs_issues_submissions" xml:space="preserve">
+    <value>Pull Requests/Issues/Submissions</value>
+  </data>
+    <data name="field_number_of_threads_moderated" xml:space="preserve">
+    <value>Modere edilen içerik sayısı</value>
+  </data>
+    <data name="field_number_of_answers" xml:space="preserve">
+    <value>Yanıt sayısı</value>
+  </data>
+    <data name="field_views_of_answers" xml:space="preserve">
+    <value>Cevap gösterimleri</value>
+  </data>
+    <data name="field_number_of_mentorship_activity" xml:space="preserve">
+    <value>Mentorluk faaliyeti sayısı</value>
+  </data>
+    <data name="field_number_of_mentees" xml:space="preserve">
+    <value>Mentorluk verilen kişi sayısı</value>
+  </data>
+    <data name="field_number_of_projects" xml:space="preserve">
+    <value>Proje sayısı</value>
+  </data>
+    <data name="field_projects" xml:space="preserve">
+    <value>Proje</value>
+  </data>
+    <data name="field_contributions" xml:space="preserve">
+    <value>Katkılar</value>
+  </data>
+    <data name="field_meetings" xml:space="preserve">
+    <value>Toplantılar</value>
+  </data>
+    <data name="field_members" xml:space="preserve">
+    <value>Üyeler</value>
+  </data>
+    <data name="field_number_of_attendees" xml:space="preserve">
+    <value>Katılımcı sayısı</value>
+  </data>
+    <data name="field_annual_quantity" xml:space="preserve">
+    <value>Yıllık miktar</value>
+  </data>
+    <data name="field_annual_reach" xml:space="preserve">
+    <value>Yıllık erişim</value>
+  </data>
+    <data name="field_number_of_events_participated" xml:space="preserve">
+    <value>Katılınan Etkinlik sayısı</value>
+  </data>
+    <data name="field_number_of_feedbacks_provided" xml:space="preserve">
+    <value>Sağlanan geri dönüş adedi</value>
+  </data>
+    <data name="field_number_of_samples" xml:space="preserve">
+    <value>Örnek sayısı</value>
+  </data>
+    <data name="field_number_of_downloads" xml:space="preserve">
+    <value>İndirme adedi</value>
+  </data>
+    <data name="field_number_of_sites" xml:space="preserve">
+    <value>Site sayısı</value>
+  </data>
+    <data name="field_number_of_talks" xml:space="preserve">
+    <value>Konuşma sayısı</value>
+  </data>
+    <data name="field_attendees_of_talks" xml:space="preserve">
+    <value>Konuşmaların katılımcı sayısı</value>
+  </data>
+    <data name="field_number_of_followers" xml:space="preserve">
+    <value>Takipçi sayısı</value>
+  </data>
+    <data name="field_number_of_videos" xml:space="preserve">
+    <value>Video sayısı</value>
+  </data>
+    <data name="field_number_of_events" xml:space="preserve">
+    <value>Organizasyon sayısı</value>
+  </data>
+    <data name="onboarding_1_title" xml:space="preserve">
+    <value>Basit ve etkili</value>
+  </data>
+    <data name="onboarding_1_description" xml:space="preserve">
+    <value>Tüm topluluk etkinliklerinizi avuç içinizden yönetin.</value>
+  </data>
+    <data name="onboarding_3_title" xml:space="preserve">
+    <value>Hızlı Ekle</value>
+  </data>
+    <data name="onboarding_3_description" xml:space="preserve">
+    <value>Kopyaladığınız URL'leri doğruca katkıya çevirin. Katkılara ilişkin erişebildiğimiz tüm bilgileri sizin için dolduracağız.</value>
+  </data>
+    <data name="about_credits_description" xml:space="preserve">
+    <value>Aşağıda listelenen harika insanlar olmasaydı bu uygulama mümkün olamazdı. Bu nedenle katkılarını kutlamak için burada bir yer kazandılar.</value>
+  </data>
+    <data name="about_credits_title" xml:space="preserve">
+    <value>Emeği Geçenler</value>
+  </data>
+    <data name="acknowledgementtype_tester" xml:space="preserve">
+    <value>Tester</value>
+  </data>
+    <data name="acknowledgementtype_translator" xml:space="preserve">
+    <value>Çevirmen</value>
+  </data>
+    <data name="sign_in" xml:space="preserve">
+    <value>Oturum Aç</value>
+  </data>
+    <data name="swipe_to_continue" xml:space="preserve">
+    <value>Devam etmek için kaydırın</value>
+  </data>
+    <data name="try_with_demo_account" xml:space="preserve">
+    <value>Bir demo hesap ile deneyin</value>
+  </data>
+</root>

@@ -1,8 +1,5 @@
-﻿using System;
-using System.Collections.Specialized;
-using MVP.Styles;
+﻿using MVP.Styles;
 using TinyMvvm.Forms;
-using TinyMvvm;
 using Xamarin.Forms;
 using Xamarin.Forms.PlatformConfiguration;
 using Xamarin.Forms.PlatformConfiguration.iOSSpecific;
@@ -17,8 +14,6 @@ namespace MVP.Pages
     {
         readonly Xamarin.Forms.Page mainPage;
         readonly Xamarin.Forms.Page profilePage;
-        readonly Xamarin.Forms.Page badgesPage;
-        readonly Xamarin.Forms.Page statsPage;
         readonly Xamarin.Forms.NavigationPage navigationMainPage;
         readonly Xamarin.Forms.NavigationPage navigationProfilePage;
 
@@ -28,8 +23,6 @@ namespace MVP.Pages
 
             mainPage = viewCreator.Create(typeof(ContributionsPage));
             profilePage = viewCreator.Create(typeof(ProfilePage));
-            badgesPage = viewCreator.Create(typeof(BadgesPage));
-            statsPage = viewCreator.Create(typeof(StatisticsPage));
 
             navigationMainPage = new Xamarin.Forms.NavigationPage(mainPage);
             navigationProfilePage = new Xamarin.Forms.NavigationPage(profilePage);
@@ -53,23 +46,7 @@ namespace MVP.Pages
                 Size = 20
             };
 
-            statsPage.IconImageSource = new FontImageSource()
-            {
-                FontFamily = fontIcon,
-                Glyph = Icons.activity,
-                Size = 20
-            };
-
-            badgesPage.IconImageSource = new FontImageSource()
-            {
-                FontFamily = fontIcon,
-                Glyph = Icons.award,
-                Size = 20
-            };
-
             navigationMainPage.Title = Translations.tabs_activities;
-            statsPage.Title = Translations.tabs_statistics;
-            badgesPage.Title = Translations.tabs_badges;
             navigationProfilePage.Title = Translations.tabs_settings;
 
             Children.Add(navigationMainPage);
@@ -83,8 +60,6 @@ namespace MVP.Pages
         public void SetTitles()
         {
             navigationMainPage.Title = Translations.tabs_activities;
-            statsPage.Title = Translations.tabs_statistics;
-            badgesPage.Title = Translations.tabs_badges;
             navigationProfilePage.Title = Translations.tabs_settings;
         }
     }

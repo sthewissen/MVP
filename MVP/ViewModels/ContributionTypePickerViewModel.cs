@@ -2,17 +2,12 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using System.Windows.Input;
 using MVP.Extensions;
 using MVP.Models;
 using MVP.Services.Interfaces;
 using MVP.ViewModels.Data;
-using TinyMvvm;
-using TinyNavigationHelper;
 using Xamarin.CommunityToolkit.ObjectModel;
 using Xamarin.CommunityToolkit.UI.Views;
-using Xamarin.Essentials;
-using Xamarin.Forms;
 
 namespace MVP.ViewModels
 {
@@ -25,8 +20,8 @@ namespace MVP.ViewModels
 
         public List<ContributionTypeViewModel> ContributionTypes { get; set; } = new List<ContributionTypeViewModel>();
 
-        public ContributionTypePickerViewModel(IAnalyticsService analyticsService, INavigationHelper navigationHelper)
-            : base(analyticsService, navigationHelper)
+        public ContributionTypePickerViewModel(IAnalyticsService analyticsService)
+            : base(analyticsService)
         {
             RefreshDataCommand = new AsyncCommand(() => LoadContributionTypes(true));
             SelectContributionTypeCommand = new AsyncCommand<ContributionTypeViewModel>((x) => SelectContributionType(x));
@@ -113,10 +108,7 @@ namespace MVP.ViewModels
                 nameof(contribution.ContributionType),
                 vm.ContributionType.Name);
 
-            await NavigationHelper.BackAsync();
+            await BackAsync();
         }
-
-        public async override Task Back()
-            => await NavigationHelper.BackAsync(); // TODO: TinyMVVM 3.0 - ContributionTypes.FirstOrDefault(x => x.IsSelected)?.ContributionType);
     }
 }

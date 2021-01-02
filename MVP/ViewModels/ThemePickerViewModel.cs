@@ -2,10 +2,10 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using MVP.Helpers;
 using MVP.Resources;
 using MVP.Services;
 using MVP.Services.Interfaces;
-using TinyNavigationHelper;
 using Xamarin.CommunityToolkit.ObjectModel;
 using Xamarin.Essentials;
 using Xamarin.Forms;
@@ -22,8 +22,8 @@ namespace MVP.ViewModels
 
         public IAsyncCommand<AppThemeViewModel> SetAppThemeCommand { get; set; }
 
-        public ThemePickerViewModel(IAnalyticsService analyticsService, INavigationHelper navigationHelper)
-            : base(analyticsService, navigationHelper)
+        public ThemePickerViewModel(IAnalyticsService analyticsService)
+            : base(analyticsService)
         {
             SetAppThemeCommand = new AsyncCommand<AppThemeViewModel>((x) => SetAppTheme(x));
             AppThemes.FirstOrDefault(x => x.Key == Preferences.Get(Settings.AppTheme, Settings.AppThemeDefault)).IsSelected = true;
@@ -44,6 +44,9 @@ namespace MVP.ViewModels
 
                 AppThemes.FirstOrDefault(x => x.Key == Preferences.Get(Settings.AppTheme, Settings.AppThemeDefault)).IsSelected = true;
                 RaisePropertyChanged(nameof(AppThemes));
+
+                var statusBar = DependencyService.Get<IStatusBar>();
+                statusBar?.SetStatusBarColor(((OSAppTheme)theme.Key));
 
                 HapticFeedback.Perform(HapticFeedbackType.Click);
 

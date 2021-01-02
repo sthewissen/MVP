@@ -10,11 +10,6 @@ namespace MVP.Services
     /// </summary>
     public class LanguageService
     {
-        readonly IAnalyticsService analyticsService;
-
-        public LanguageService(IAnalyticsService analyticsService)
-            => this.analyticsService = analyticsService;
-
         public void SetLanguage(string culture)
         {
             var currentCulture = CultureInfo.DefaultThreadCurrentUICulture?.Name ?? CultureInfo.DefaultThreadCurrentCulture?.Name;
@@ -22,6 +17,7 @@ namespace MVP.Services
             if (currentCulture != culture && culture != null)
             {
                 Preferences.Set(Settings.AppLanguage, culture);
+
                 CultureInfo.DefaultThreadCurrentCulture = new CultureInfo(culture);
                 CultureInfo.DefaultThreadCurrentUICulture = new CultureInfo(culture);
                 CultureInfo.CurrentCulture = new CultureInfo(culture);

@@ -130,13 +130,13 @@
         <value>Create contribution from URL</value>
     </data>
     <data name="setting_contributionfromurl_description" xml:space="preserve">
-        <value>If you have a valid URL on your clipboard while adding a contribution, you will be asked if metadata from that URL should be used to prefill your contribution.</value>
+        <value>If there's a valid URL on the clipboard while adding a contribution, the app will ask if metadata from that URL should be used to prefill the contribution.</value>
     </data>
     <data name="setting_apptheme_title" xml:space="preserve">
         <value>App theme</value>
     </data>
     <data name="setting_apptheme_description" xml:space="preserve">
-        <value>This app can be used in both light and dark mode. By default it will pick whatever your device is set to. If either theme tickles your fancy you can also force a specific theme here.</value>
+        <value>This app can be used in both light and dark mode. By default it will pick whatever the device is set to. If either theme is preferred a specific theme can be chosen here.</value>
     </data>
     <data name="logout" xml:space="preserve">
         <value>Logout</value>
@@ -158,12 +158,6 @@
     </data>
     <data name="contributionform_title_edit" xml:space="preserve">
         <value>Edit contribution</value>
-    </data>
-    <data name="language_english" xml:space="preserve">
-        <value>English</value>
-    </data>
-    <data name="language_dutch" xml:space="preserve">
-        <value>Dutch</value>
     </data>
     <data name="languagepicker_title" xml:space="preserve">
         <value>Language</value>
@@ -202,7 +196,7 @@
         <value>About this app</value>
     </data>
     <data name="about_why_title" xml:space="preserve">
-        <value>Why did you build  this app?</value>
+        <value>Why was this app built?</value>
     </data>
     <data name="about_why_description" xml:space="preserve">
         <value>There has always been a need for Microsoft MVPs to manage their community activities in an easier way. The online portal works fine, but having a similar thing in your pocket to create activities on the fly is really cool. Which is what this project is for!</value>
@@ -289,7 +283,7 @@
         <value>App icon</value>
     </data>
     <data name="setting_appicon_description" xml:space="preserve">
-        <value>Don't like the app icon we picked for you? We have alternative options available. If you have ideas for additional ones, feel free to reach out!</value>
+        <value>Don't like the default app icon? Alternative options are available.</value>
     </data>
     <data name="yes" xml:space="preserve">
         <value>Yes</value>
@@ -310,16 +304,16 @@
         <value>Are you sure you want to delete this contribution? You cannot undo this.</value>
     </data>
     <data name="error_unexpected" xml:space="preserve">
-        <value>Something went wrong that we didn't expect could happen. An error has been logged and we will look into it as soon as possible.</value>
+        <value>Something went wrong. An error has been logged and we will look into it as soon as possible.</value>
     </data>
     <data name="error_badrequest" xml:space="preserve">
-        <value>We managed to do a request that wasn't quite right. Try again later.</value>
+        <value>Couldn't process your request. Try again later.</value>
     </data>
     <data name="error_servererror" xml:space="preserve">
-        <value>The MVP API messed something up. Couldn't process your request. Try again later.</value>
+        <value>Couldn't process your request. Try again later.</value>
     </data>
     <data name="alert_error_unauthorized" xml:space="preserve">
-        <value>Your credentials have expired and we couldn't save the day. Therefore you were logged out. Please log in again to continue.</value>
+        <value>Your credentials have expired and they couldn't be refreshed. Therefore you were logged out. Please log in again to continue.</value>
     </data>
     <data name="clipboard_title" xml:space="preserve">
         <value>That looks cool!</value>
@@ -328,7 +322,7 @@
         <value>We notice a URL on your clipboard. Do you want us to try to pre-fill an activity out of that?</value>
     </data>
     <data name="contributiondetail_notdeleted" xml:space="preserve">
-        <value>Your contribution could not be deleted. Perhaps it was already deleted, or it took place in the previous award period?</value>
+        <value>Contribution could not be deleted. Perhaps it was already deleted, or it took place in the previous award period?</value>
     </data>
     <data name="validation_variablefield" xml:space="preserve">
         <value>{0} is a required field.</value>
@@ -379,22 +373,22 @@
         <value>Ooh...it's empty here!</value>
     </data>
     <data name="empty_state_contributions" xml:space="preserve">
-        <value>We couldn't find any contributions. Add a new contribution or refresh to try and retrieve your existing data.</value>
+        <value>Couldn't find any contributions. Add a new contribution or refresh to try and retrieve your existing data.</value>
     </data>
     <data name="contribution_add" xml:space="preserve">
         <value>Add</value>
     </data>
     <data name="empty_state_contributiontypes" xml:space="preserve">
-        <value>We couldn't find any contribution types. Please try to refresh them.</value>
+        <value>Couldn't find any contribution types. Please try to refresh them.</value>
     </data>
     <data name="empty_state_contributiontechnologies" xml:space="preserve">
-        <value>We couldn't find any contribution areas. Please try to refresh them.</value>
+        <value>Couldn't find any contribution areas. Please try to refresh them.</value>
     </data>
     <data name="empty_state_noresultcontributiontechnologies" xml:space="preserve">
         <value>Your search query returned no results. Please try a different search query.</value>
     </data>
     <data name="empty_state_visibilities" xml:space="preserve">
-        <value>We couldn't find any visibilities. Please try to refresh them.</value>
+        <value>Couldn't find any visibilities. Please try to refresh them.</value>
     </data>
     <data name="error_offline" xml:space="preserve">
         <value>This action cannot be performed without an internet connection. Please try again later.</value>
@@ -431,5 +425,137 @@
     </data>
     <data name="error_couldntrefreshprofile" xml:space="preserve">
         <value>Couldn't refresh your profile information. We're not quite sure why but an error has been logged. Please try again later.</value>
+    </data>
+    <data name="field_number_of_articles" xml:space="preserve">
+        <value>Number of Articles</value>
+    </data>
+    <data name="field_number_of_views" xml:space="preserve">
+        <value>Number of Views</value>
+    </data>
+    <data name="field_number_of_posts" xml:space="preserve">
+        <value>Number of Posts</value>
+    </data>
+    <data name="field_number_of_subscribers" xml:space="preserve">
+        <value>Number of Subscribers</value>
+    </data>
+    <data name="field_annual_unique_visitors" xml:space="preserve">
+        <value>Annual Unique Visitors</value>
+    </data>
+    <data name="field_number_of_books" xml:space="preserve">
+        <value>Number of Books</value>
+    </data>
+    <data name="field_copies_sold" xml:space="preserve">
+        <value>Copies Sold</value>
+    </data>
+    <data name="field_number_of_conferences" xml:space="preserve">
+        <value>Number of Conferences</value>
+    </data>
+    <data name="field_number_of_visitors" xml:space="preserve">
+        <value>Number of Visitors</value>
+    </data>
+    <data name="field_prs_issues_submissions" xml:space="preserve">
+        <value>Pull Requests/Issues/Submissions</value>
+    </data>
+    <data name="field_number_of_threads_moderated" xml:space="preserve">
+        <value>Number of Threads Moderated</value>
+    </data>
+    <data name="field_number_of_answers" xml:space="preserve">
+        <value>Number of Answers</value>
+    </data>
+    <data name="field_views_of_answers" xml:space="preserve">
+        <value>Views of Answers</value>
+    </data>
+    <data name="field_number_of_mentorship_activity" xml:space="preserve">
+        <value>Number of Mentorship Activity</value>
+    </data>
+    <data name="field_number_of_mentees" xml:space="preserve">
+        <value>Number of Mentees</value>
+    </data>
+    <data name="field_number_of_projects" xml:space="preserve">
+        <value>Number of Projects</value>
+    </data>
+    <data name="field_projects" xml:space="preserve">
+        <value>Project(s)</value>
+    </data>
+    <data name="field_contributions" xml:space="preserve">
+        <value>Contributions</value>
+    </data>
+    <data name="field_meetings" xml:space="preserve">
+        <value>Meetings</value>
+    </data>
+    <data name="field_members" xml:space="preserve">
+        <value>Members</value>
+    </data>
+    <data name="field_number_of_attendees" xml:space="preserve">
+        <value>Number of Attendees</value>
+    </data>
+    <data name="field_annual_quantity" xml:space="preserve">
+        <value>Annual Quantity</value>
+    </data>
+    <data name="field_annual_reach" xml:space="preserve">
+        <value>Annual Reach</value>
+    </data>
+    <data name="field_number_of_events_participated" xml:space="preserve">
+        <value>Number of Events Participated</value>
+    </data>
+    <data name="field_number_of_feedbacks_provided" xml:space="preserve">
+        <value>Number of Feedbacks Provided</value>
+    </data>
+    <data name="field_number_of_samples" xml:space="preserve">
+        <value>Number of Samples</value>
+    </data>
+    <data name="field_number_of_downloads" xml:space="preserve">
+        <value>Number of Downloads</value>
+    </data>
+    <data name="field_number_of_sites" xml:space="preserve">
+        <value>Number of Sites</value>
+    </data>
+    <data name="field_number_of_talks" xml:space="preserve">
+        <value>Number of Talks</value>
+    </data>
+    <data name="field_attendees_of_talks" xml:space="preserve">
+        <value>Attendees of Talks</value>
+    </data>
+    <data name="field_number_of_followers" xml:space="preserve">
+        <value>Number of Followers</value>
+    </data>
+    <data name="field_number_of_videos" xml:space="preserve">
+        <value>Number of Videos</value>
+    </data>
+    <data name="field_number_of_events" xml:space="preserve">
+        <value>Number of Events</value>
+    </data>
+    <data name="onboarding_1_title" xml:space="preserve">
+        <value>Simple and effective</value>
+    </data>
+    <data name="onboarding_1_description" xml:space="preserve">
+        <value>Manage all of your community activities from the palm of your hand.</value>
+    </data>
+    <data name="onboarding_3_title" xml:space="preserve">
+        <value>Quick Add</value>
+    </data>
+    <data name="onboarding_3_description" xml:space="preserve">
+        <value>Directly create contributions based on a URL on your clipboard. Pre-filling whatever Can for you allowing you to quickly add new contributions.</value>
+    </data>
+    <data name="acknowledgementtype_translator" xml:space="preserve">
+        <value>Translator</value>
+    </data>
+    <data name="acknowledgementtype_tester" xml:space="preserve">
+        <value>Tester</value>
+    </data>
+    <data name="about_credits_description" xml:space="preserve">
+    <value>Without the awesome people listed below this app would not have been possible. Therefore they have earned a spot in here to celebrate their contributions.</value>
+  </data>
+    <data name="about_credits_title" xml:space="preserve">
+    <value>Credits</value>
+  </data>
+    <data name="sign_in" xml:space="preserve">
+        <value>Sign in</value>
+    </data>
+    <data name="swipe_to_continue" xml:space="preserve">
+        <value>Swipe to continue</value>
+    </data>
+    <data name="try_with_demo_account" xml:space="preserve">
+        <value>Try with a demo account</value>
     </data>
 </root>

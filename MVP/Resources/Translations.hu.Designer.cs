@@ -16,21 +16,21 @@ namespace MVP.Resources {
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "4.0.0.0")]
     [System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    internal class Translations_nl {
+    internal class Translations_hu {
         
         private static System.Resources.ResourceManager resourceMan;
         
         private static System.Globalization.CultureInfo resourceCulture;
         
         [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]
-        internal Translations_nl() {
+        internal Translations_hu() {
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
         internal static System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.Equals(null, resourceMan)) {
-                    System.Resources.ResourceManager temp = new System.Resources.ResourceManager("MVP.Resources.Translations.nl", typeof(Translations_nl).Assembly);
+                    System.Resources.ResourceManager temp = new System.Resources.ResourceManager("MVP.Resources.Translations", typeof(Translations).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;
@@ -131,6 +131,18 @@ namespace MVP.Resources {
             }
         }
         
+        internal static string language_english {
+            get {
+                return ResourceManager.GetString("language_english", resourceCulture);
+            }
+        }
+        
+        internal static string language_dutch {
+            get {
+                return ResourceManager.GetString("language_dutch", resourceCulture);
+            }
+        }
+        
         internal static string languagepicker_title {
             get {
                 return ResourceManager.GetString("languagepicker_title", resourceCulture);
@@ -149,6 +161,12 @@ namespace MVP.Resources {
             }
         }
         
+        internal static string field_url {
+            get {
+                return ResourceManager.GetString("field_url", resourceCulture);
+            }
+        }
+        
         internal static string field_title {
             get {
                 return ResourceManager.GetString("field_title", resourceCulture);
@@ -158,12 +176,6 @@ namespace MVP.Resources {
         internal static string field_primary_contribution_area {
             get {
                 return ResourceManager.GetString("field_primary_contribution_area", resourceCulture);
-            }
-        }
-        
-        internal static string field_url {
-            get {
-                return ResourceManager.GetString("field_url", resourceCulture);
             }
         }
         
@@ -281,21 +293,15 @@ namespace MVP.Resources {
             }
         }
         
-        internal static string additionaltechnologypicker_title {
+        internal static string contributiontypepicker_title {
             get {
-                return ResourceManager.GetString("additionaltechnologypicker_title", resourceCulture);
+                return ResourceManager.GetString("contributiontypepicker_title", resourceCulture);
             }
         }
         
         internal static string contributiontechnologypicker_title {
             get {
                 return ResourceManager.GetString("contributiontechnologypicker_title", resourceCulture);
-            }
-        }
-        
-        internal static string contributiontypepicker_title {
-            get {
-                return ResourceManager.GetString("contributiontypepicker_title", resourceCulture);
             }
         }
         
@@ -485,6 +491,12 @@ namespace MVP.Resources {
             }
         }
         
+        internal static string additionaltechnologypicker_title {
+            get {
+                return ResourceManager.GetString("additionaltechnologypicker_title", resourceCulture);
+            }
+        }
+        
         internal static string error_nomvpaccount {
             get {
                 return ResourceManager.GetString("error_nomvpaccount", resourceCulture);
@@ -524,6 +536,12 @@ namespace MVP.Resources {
         internal static string progress_loading_url_data {
             get {
                 return ResourceManager.GetString("progress_loading_url_data", resourceCulture);
+            }
+        }
+        
+        internal static string contributionform_save {
+            get {
+                return ResourceManager.GetString("contributionform_save", resourceCulture);
             }
         }
         
@@ -584,6 +602,30 @@ namespace MVP.Resources {
         internal static string empty_state_visibilities {
             get {
                 return ResourceManager.GetString("empty_state_visibilities", resourceCulture);
+            }
+        }
+        
+        internal static string error_offline {
+            get {
+                return ResourceManager.GetString("error_offline", resourceCulture);
+            }
+        }
+        
+        internal static string error_offline_title {
+            get {
+                return ResourceManager.GetString("error_offline_title", resourceCulture);
+            }
+        }
+        
+        internal static string error_logoutwhileoffline {
+            get {
+                return ResourceManager.GetString("error_logoutwhileoffline", resourceCulture);
+            }
+        }
+        
+        internal static string offline_contributions {
+            get {
+                return ResourceManager.GetString("offline_contributions", resourceCulture);
             }
         }
         
@@ -833,33 +875,9 @@ namespace MVP.Resources {
             }
         }
         
-        internal static string contributionform_save {
+        internal static string onboarding_1_title {
             get {
-                return ResourceManager.GetString("contributionform_save", resourceCulture);
-            }
-        }
-        
-        internal static string error_logoutwhileoffline {
-            get {
-                return ResourceManager.GetString("error_logoutwhileoffline", resourceCulture);
-            }
-        }
-        
-        internal static string error_offline {
-            get {
-                return ResourceManager.GetString("error_offline", resourceCulture);
-            }
-        }
-        
-        internal static string error_offline_title {
-            get {
-                return ResourceManager.GetString("error_offline_title", resourceCulture);
-            }
-        }
-        
-        internal static string offline_contributions {
-            get {
-                return ResourceManager.GetString("offline_contributions", resourceCulture);
+                return ResourceManager.GetString("onboarding_1_title", resourceCulture);
             }
         }
         
@@ -869,21 +887,15 @@ namespace MVP.Resources {
             }
         }
         
-        internal static string onboarding_1_title {
+        internal static string onboarding_3_title {
             get {
-                return ResourceManager.GetString("onboarding_1_title", resourceCulture);
+                return ResourceManager.GetString("onboarding_3_title", resourceCulture);
             }
         }
         
         internal static string onboarding_3_description {
             get {
                 return ResourceManager.GetString("onboarding_3_description", resourceCulture);
-            }
-        }
-        
-        internal static string onboarding_3_title {
-            get {
-                return ResourceManager.GetString("onboarding_3_title", resourceCulture);
             }
         }
         
@@ -908,24 +920,6 @@ namespace MVP.Resources {
         internal static string about_credits_title {
             get {
                 return ResourceManager.GetString("about_credits_title", resourceCulture);
-            }
-        }
-        
-        internal static string sign_in {
-            get {
-                return ResourceManager.GetString("sign_in", resourceCulture);
-            }
-        }
-        
-        internal static string swipe_to_continue {
-            get {
-                return ResourceManager.GetString("swipe_to_continue", resourceCulture);
-            }
-        }
-        
-        internal static string try_with_demo_account {
-            get {
-                return ResourceManager.GetString("try_with_demo_account", resourceCulture);
             }
         }
     }

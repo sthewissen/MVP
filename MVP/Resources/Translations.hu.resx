@@ -1,0 +1,561 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="contributions_title" xml:space="preserve">
+    <value>Közösségi tevékenységek</value>
+  </data>
+  <data name="search_placeholder" xml:space="preserve">
+    <value>Keresés...</value>
+  </data>
+  <data name="profile_title" xml:space="preserve">
+    <value>Beállítások</value>
+  </data>
+  <data name="setting_contributionfromurl_title" xml:space="preserve">
+    <value>Hozzájárulás hozzáadása URL alapján</value>
+  </data>
+  <data name="setting_contributionfromurl_description" xml:space="preserve">
+    <value>Ha egy érvényes URL van a vágolapodon, amikor új hozzájárulást veszel fel, az alkalmazás meg fogja kérdezni, hogy használja-e az URL-ről beolvasott metaadatokat.</value>
+  </data>
+  <data name="setting_apptheme_title" xml:space="preserve">
+    <value>Szín téma</value>
+  </data>
+  <data name="setting_apptheme_description" xml:space="preserve">
+    <value>Ezt az alkalmazást világos és sötét módban is lehet használni. Alap esetben a készüléked beállítását fogjuk használni. De ha kifejezetten csak az egyiket szeretnéd használni, itt tudod beállítani.</value>
+  </data>
+  <data name="logout" xml:space="preserve">
+    <value>Kijelentkezés</value>
+  </data>
+  <data name="tabs_activities" xml:space="preserve">
+    <value>Tevékenységek</value>
+  </data>
+  <data name="tabs_statistics" xml:space="preserve">
+    <value>Statisztikák</value>
+  </data>
+  <data name="tabs_badges" xml:space="preserve">
+    <value>Kitűzők</value>
+  </data>
+  <data name="tabs_settings" xml:space="preserve">
+    <value>Beállítások</value>
+  </data>
+  <data name="contributionform_title_add" xml:space="preserve">
+    <value>Hozzájárulás hozzáadása</value>
+  </data>
+  <data name="contributionform_title_edit" xml:space="preserve">
+    <value>Hozzájárulás szerkesztése</value>
+  </data>
+  <data name="languagepicker_title" xml:space="preserve">
+    <value>Nyelv</value>
+  </data>
+  <data name="contributiondetails_title" xml:space="preserve">
+    <value>Tevékenység részletei</value>
+  </data>
+  <data name="field_activity_type" xml:space="preserve">
+    <value>Tevékenység típusa</value>
+  </data>
+  <data name="field_url" xml:space="preserve">
+    <value>URL</value>
+  </data>
+  <data name="field_title" xml:space="preserve">
+    <value>Tevékenység címe</value>
+  </data>
+  <data name="field_primary_contribution_area" xml:space="preserve">
+    <value>Fő hozzájárulási rész</value>
+  </data>
+  <data name="field_additional_contribution_areas" xml:space="preserve">
+    <value>Egyéb hozzájárulási rész</value>
+  </data>
+  <data name="field_activity_date" xml:space="preserve">
+    <value>Tevékenység dátuma</value>
+  </data>
+  <data name="field_description" xml:space="preserve">
+    <value>Részletek</value>
+  </data>
+  <data name="field_visibility" xml:space="preserve">
+    <value>Láthatóság</value>
+  </data>
+  <data name="button_delete_contribution" xml:space="preserve">
+    <value>Hozzájárulás törlése</value>
+  </data>
+  <data name="about_title" xml:space="preserve">
+    <value>Erről az app-ról</value>
+  </data>
+  <data name="about_why_title" xml:space="preserve">
+    <value>Miért készült ez az app?</value>
+  </data>
+  <data name="about_why_description" xml:space="preserve">
+    <value>A Microsoft MVPknek mindig is szükségük volt egy egyszerűbb felületre a közösségi aktivitásuk kezeléséhez. Az online portál jól működik, de ha van egy eszköz az ember zsebében, amivel útközben is létrehozhat tartalmat az azért nem hátrány. Erről szól ez a project!</value>
+  </data>
+  <data name="about_opensource_title" xml:space="preserve">
+    <value>Nyílt forráskód</value>
+  </data>
+  <data name="about_opensource_description" xml:space="preserve">
+    <value>Ez az app teljes mértékben nyílt forráskódú. Ha tetszik az alkalmazás, szívesen veszem ha Git sponsorként támogatsz és meghívsz egy csésze kávéra havonta ☕️</value>
+  </data>
+  <data name="becomesponsor" xml:space="preserve">
+    <value>Legyél támogató</value>
+  </data>
+  <data name="contributionform_timeframememo" xml:space="preserve">
+    <value>A júliusi díjazáshoz {0} és {1} közötti közösségi hozzájárulásokat fogadunk el. Minden {1} utáni közösségi tevékenységhez kapcsolódó beadványt későbbi elbírálásra kerül.</value>
+  </data>
+  <data name="contributionform_activitytype_placeholder" xml:space="preserve">
+    <value>Válassz egyet, ami a legjobban körbeírja a tevékenységet.</value>
+  </data>
+  <data name="contributionform_technologyarea_placeholder" xml:space="preserve">
+    <value>Válaszd ki a tevékenység fő technológiai területét.</value>
+  </data>
+  <data name="contributionform_additionaltechnologyarea_placeholder" xml:space="preserve">
+    <value>Válassz max. 2 egyéb technológiai területet, ami ehhez a tevékenységhez kapcsolódik.</value>
+  </data>
+  <data name="contributionform_visibility_placeholder" xml:space="preserve">
+    <value>Válaszd ki a tevékenység láthatósági szintjét.</value>
+  </data>
+  <data name="setting_language_title" xml:space="preserve">
+    <value>Nyelv</value>
+  </data>
+  <data name="setting_language_description" xml:space="preserve">
+    <value>Alapesetben azt a nyelvet látod, amit a készüléken használsz, amennyiben van ehhez a nyelvhez fordításunk. De ha szeretnéd, itt átállíthatod a nyelvet valami másra.</value>
+  </data>
+  <data name="themepicker_title" xml:space="preserve">
+    <value>Szín táma</value>
+  </data>
+  <data name="contributiontypepicker_title" xml:space="preserve">
+    <value>Tevékenység típusa</value>
+  </data>
+  <data name="contributiontechnologypicker_title" xml:space="preserve">
+    <value>Fő hozzájárulási rész</value>
+  </data>
+  <data name="splash_contributionareas" xml:space="preserve">
+    <value>Hozzájárulási részek beolvasása...</value>
+  </data>
+  <data name="splash_contributiontypes" xml:space="preserve">
+    <value>Hozzájárulási típusok szinkronizálása...</value>
+  </data>
+  <data name="splash_visibilities" xml:space="preserve">
+    <value>Láthatóságok beállítása...</value>
+  </data>
+  <data name="splash_gettingready" xml:space="preserve">
+    <value>Egy pillanat, készülünk...</value>
+  </data>
+  <data name="theme_systemdefault" xml:space="preserve">
+    <value>Rendszerbeállítás szerinti</value>
+  </data>
+  <data name="theme_light" xml:space="preserve">
+    <value>Világos</value>
+  </data>
+  <data name="theme_dark" xml:space="preserve">
+    <value>Sötét</value>
+  </data>
+  <data name="visibility_title" xml:space="preserve">
+    <value>Láthatóság</value>
+  </data>
+  <data name="icon_default" xml:space="preserve">
+    <value>Alapértelmezett</value>
+  </data>
+  <data name="icon_darkblue" xml:space="preserve">
+    <value>Sötétkék</value>
+  </data>
+  <data name="icon_black" xml:space="preserve">
+    <value>Vissza</value>
+  </data>
+  <data name="icon_white" xml:space="preserve">
+    <value>Fehér</value>
+  </data>
+  <data name="icon_rainbow" xml:space="preserve">
+    <value>Szivárvány</value>
+  </data>
+  <data name="setting_appicon_title" xml:space="preserve">
+    <value>App ikon</value>
+  </data>
+  <data name="setting_appicon_description" xml:space="preserve">
+    <value>Nem tetszik az alapértelmezett app ikon. Vannak alternatívák!</value>
+  </data>
+  <data name="yes" xml:space="preserve">
+    <value>Igen</value>
+  </data>
+  <data name="no" xml:space="preserve">
+    <value>Nem</value>
+  </data>
+  <data name="ok" xml:space="preserve">
+    <value>Rendben</value>
+  </data>
+  <data name="cancel" xml:space="preserve">
+    <value>Mégsem</value>
+  </data>
+  <data name="warning_title" xml:space="preserve">
+    <value>Egy pillanat...</value>
+  </data>
+  <data name="contributiondetail_deleteconfirmation" xml:space="preserve">
+    <value>Biztos, hogy törölni szeretnéd ezt a hozzájárulást? Nem tudjuk később visszacsinálni.</value>
+  </data>
+  <data name="error_unexpected" xml:space="preserve">
+    <value>Valami hiba történt. Feljegyeztük és amint lehet utánajárunk és megjavítjuk.</value>
+  </data>
+  <data name="error_badrequest" xml:space="preserve">
+    <value>Nem tudtuk feldolgozni a kérést. Próbáld újra később.</value>
+  </data>
+  <data name="error_servererror" xml:space="preserve">
+    <value>Nem tudtuk feldolgozni a kérést. Kérlek próbáld újra.</value>
+  </data>
+  <data name="alert_error_unauthorized" xml:space="preserve">
+    <value>A bejelentkezésed tanusítványa lejárt és így kijelentkeztél. Kérlek lépj be újra, hogy folytasd a munkát.</value>
+  </data>
+  <data name="clipboard_title" xml:space="preserve">
+    <value>Ez jól néz ki!</value>
+  </data>
+  <data name="clipboard_description" xml:space="preserve">
+    <value>Látjuk, hogy van egy URL a vágólapodon. Szeretnéd, ha elkezdenénk felvenni egy tevékenységet ez alapján?</value>
+  </data>
+  <data name="contributiondetail_notdeleted" xml:space="preserve">
+    <value>A hozzájárulást nem tudtuk törölni. Elképzelhető, hogy már törölték vagy egy korábbi díj-időszak alatt történt?</value>
+  </data>
+  <data name="validation_variablefield" xml:space="preserve">
+    <value>A '{0}' egy kötelező mező.</value>
+  </data>
+  <data name="warning_title_activitylocked" xml:space="preserve">
+    <value>Zárolt aktivitás</value>
+  </data>
+  <data name="warning_description_activitylocked" xml:space="preserve">
+    <value>Ezt az akvititást egy másik ablakban rögzítetted így itt nem lehet szerkeszteni vagy törölni.</value>
+  </data>
+  <data name="additionaltechnologypicker_title" xml:space="preserve">
+    <value>Egyéb területen adott segítség</value>
+  </data>
+  <data name="error_nomvpaccount" xml:space="preserve">
+    <value>Nem tudtuk a megadott adatokkal azonosítani. Biztos, hogy a fiókodhoz tartozó MVP ID-t használtad?</value>
+  </data>
+  <data name="progress_saving" xml:space="preserve">
+    <value>Mentés...</value>
+  </data>
+  <data name="licenses_title" xml:space="preserve">
+    <value>Liceszek</value>
+  </data>
+  <data name="about_licenses_title" xml:space="preserve">
+    <value>Licenszek</value>
+  </data>
+  <data name="about_licenses_description" xml:space="preserve">
+    <value>Ez az app olyan könyvtárakra és szellemi termékekre épül, amik nélkül a nem jöhetett volna létre. Ha tudni szeretnéd, hogy kik alkották ezeket olvass utánna a licenszeikben.</value>
+  </data>
+  <data name="view_licenses" xml:space="preserve">
+    <value>Licenszek megtekintése</value>
+  </data>
+  <data name="progress_loading_url_data" xml:space="preserve">
+    <value>URL metaadatok olvasása...</value>
+  </data>
+  <data name="contributionform_save" xml:space="preserve">
+    <value>Mentés</value>
+  </data>
+  <data name="contributiondetails_edit" xml:space="preserve">
+    <value>Szerkesztés</value>
+  </data>
+  <data name="error_title_validationfailed" xml:space="preserve">
+    <value>Beviteli hiba történt</value>
+  </data>
+  <data name="error_description_validationfailed" xml:space="preserve">
+    <value>Nincs minden mező kitöltve. Kérlek töltsd ki a hiányzó mezőket és próbáld újra.</value>
+  </data>
+  <data name="empty_state_title" xml:space="preserve">
+    <value>Oh, hát ez itt üres!</value>
+  </data>
+  <data name="empty_state_contributions" xml:space="preserve">
+    <value>Nem találtunk feljegyzést. Vegyél fel egy új hozzájárulást vagy frissíts létező adat lekéréséért.</value>
+  </data>
+  <data name="contribution_add" xml:space="preserve">
+    <value>Hozzáad</value>
+  </data>
+  <data name="empty_state_contributiontypes" xml:space="preserve">
+    <value>Nem találtuk semmilyen hozzájárulási típust. Próbálj újra frissíteni.</value>
+  </data>
+  <data name="empty_state_contributiontechnologies" xml:space="preserve">
+    <value>Nem találtuk semmilyen hozzájárulási részt. Próbálj újra frissíteni.</value>
+  </data>
+  <data name="empty_state_noresultcontributiontechnologies" xml:space="preserve">
+    <value>A keresésed nem hozott eredményt. Kérlek próbáld meg máshogy.</value>
+  </data>
+  <data name="empty_state_visibilities" xml:space="preserve">
+    <value>Nem találtunk semmilyen látható bejegyzést. Kérlek frissíts.</value>
+  </data>
+  <data name="error_offline" xml:space="preserve">
+    <value>Ezt a műveletet nem tudjuk internet kapcsolat nélkül végrehajtani. Kérlek próbáld újra.</value>
+  </data>
+  <data name="error_offline_title" xml:space="preserve">
+    <value>Nincs internetkapcsolat</value>
+  </data>
+  <data name="error_logoutwhileoffline" xml:space="preserve">
+    <value>Jelenleg nincs internet kapcsolatod. Ez okozhat olyan próblémát, hogy később nem tudsz visszajelentkezni. Biztos vagy benne, hogy folytatod?</value>
+  </data>
+  <data name="offline_contributions" xml:space="preserve">
+    <value>Jelenleg nincs internetkapcsolatod. Emiatt nem tudjuk betölteni a hozzájárulásaidat. Kérlek próbáld újra.</value>
+  </data>
+  <data name="error_couldntchangeicon" xml:space="preserve">
+    <value>Nem tudtuk megváltoztatni az ikont. Kérlek próbáld újra később.</value>
+  </data>
+  <data name="error_couldntchangetheme" xml:space="preserve">
+    <value>Nem tudtuk megváltoztatni a szín témát. Kérlek próbáld újra később.</value>
+  </data>
+  <data name="error_couldntchangelanguage" xml:space="preserve">
+    <value>Nem tudtuk megváltoztatni a nyelvet. Kérlek próbáld újra később.</value>
+  </data>
+  <data name="error_title" xml:space="preserve">
+    <value>Valami hiba történt</value>
+  </data>
+  <data name="error_data_not_loaded" xml:space="preserve">
+    <value>Nem tudtuk betölteni az adatokat. Nem teljesen világos, hogy miért de a hibát feljegyeztük. Kérlek próbáld újra.</value>
+  </data>
+  <data name="error_couldntloadmorecontributions" xml:space="preserve">
+    <value>Sajnos nem tudtunk több bejegyzést betölteni. Nem teljesen világos, hogy miért de a hibát feljegyeztük. Kérlek próbáld újra.</value>
+  </data>
+  <data name="error_couldntsavecontribution" xml:space="preserve">
+    <value>Nem tudtuk elmenteni a bejegyzést. Nem teljesen világos, hogy miért de a hibát feljegyeztük. Kérlek próbáld újra.</value>
+  </data>
+  <data name="error_couldntrefreshprofile" xml:space="preserve">
+    <value>Nem tudtuk frissíteni a profil információkat. Nem teljesen világos, hogy miért de a hibát feljegyeztük. Kérlek próbáld újra.</value>
+  </data>
+  <data name="field_number_of_articles" xml:space="preserve">
+    <value>Cikkel száma</value>
+  </data>
+  <data name="field_number_of_views" xml:space="preserve">
+    <value>Megtekintések száma</value>
+  </data>
+  <data name="field_number_of_posts" xml:space="preserve">
+    <value>Bejegyzések száma</value>
+  </data>
+  <data name="field_number_of_subscribers" xml:space="preserve">
+    <value>Feliratkozók száma</value>
+  </data>
+  <data name="field_annual_unique_visitors" xml:space="preserve">
+    <value>Éves egyedi látogatók</value>
+  </data>
+  <data name="field_number_of_books" xml:space="preserve">
+    <value>Könyvek száma</value>
+  </data>
+  <data name="field_copies_sold" xml:space="preserve">
+    <value>Eladott példányok száma</value>
+  </data>
+  <data name="field_number_of_conferences" xml:space="preserve">
+    <value>Konferenciák száma</value>
+  </data>
+  <data name="field_number_of_visitors" xml:space="preserve">
+    <value>Látogatók száma</value>
+  </data>
+  <data name="field_prs_issues_submissions" xml:space="preserve">
+    <value>Pull Requestek/Hibák/Beküldések</value>
+  </data>
+  <data name="field_number_of_threads_moderated" xml:space="preserve">
+    <value>Moderált témák száma</value>
+  </data>
+  <data name="field_number_of_answers" xml:space="preserve">
+    <value>Válaszok száma</value>
+  </data>
+  <data name="field_views_of_answers" xml:space="preserve">
+    <value>Válaszok megtekintésének száma</value>
+  </data>
+  <data name="field_number_of_mentorship_activity" xml:space="preserve">
+    <value>Mentorálási tevékenységek száma</value>
+  </data>
+  <data name="field_number_of_mentees" xml:space="preserve">
+    <value>Mentoráltak száma</value>
+  </data>
+  <data name="field_number_of_projects" xml:space="preserve">
+    <value>Projektek száma</value>
+  </data>
+  <data name="field_projects" xml:space="preserve">
+    <value>Projekt(ek)</value>
+  </data>
+  <data name="field_contributions" xml:space="preserve">
+    <value>Hozzájárulások</value>
+  </data>
+  <data name="field_meetings" xml:space="preserve">
+    <value>Meetingek</value>
+  </data>
+  <data name="field_members" xml:space="preserve">
+    <value>Tagok</value>
+  </data>
+  <data name="field_number_of_attendees" xml:space="preserve">
+    <value>Résztvevők száma</value>
+  </data>
+  <data name="field_annual_quantity" xml:space="preserve">
+    <value>Éves mennyiség</value>
+  </data>
+  <data name="field_annual_reach" xml:space="preserve">
+    <value>Éves érintettség</value>
+  </data>
+  <data name="field_number_of_events_participated" xml:space="preserve">
+    <value>Eseményeken megjelenések száma</value>
+  </data>
+  <data name="field_number_of_feedbacks_provided" xml:space="preserve">
+    <value>Adott visszajelzések száma</value>
+  </data>
+  <data name="field_number_of_samples" xml:space="preserve">
+    <value>Példák száma</value>
+  </data>
+  <data name="field_number_of_downloads" xml:space="preserve">
+    <value>Letöltések száma</value>
+  </data>
+  <data name="field_number_of_sites" xml:space="preserve">
+    <value>Weblapok száma</value>
+  </data>
+  <data name="field_number_of_talks" xml:space="preserve">
+    <value>Beszédek száma</value>
+  </data>
+  <data name="field_attendees_of_talks" xml:space="preserve">
+    <value>Beszédeken résztvevők</value>
+  </data>
+  <data name="field_number_of_followers" xml:space="preserve">
+    <value>Követők száma</value>
+  </data>
+  <data name="field_number_of_videos" xml:space="preserve">
+    <value>Videók száma</value>
+  </data>
+  <data name="field_number_of_events" xml:space="preserve">
+    <value>Események száma</value>
+  </data>
+  <data name="onboarding_1_title" xml:space="preserve">
+    <value>Egyszerű és hatékony</value>
+  </data>
+  <data name="onboarding_1_description" xml:space="preserve">
+    <value>Intézd az összes közösségi aktivitásodat a tenyeredből.</value>
+  </data>
+  <data name="onboarding_3_title" xml:space="preserve">
+    <value>Gyors felvétel</value>
+  </data>
+  <data name="onboarding_3_description" xml:space="preserve">
+    <value>Készíts bejegyzést egyszerűen a vágolapodon lévő URL-ből: előre kitöltünk mindent, hogy minél egyszerűbben rögzíteni tudjál új hozzájárulásokat.</value>
+  </data>
+  <data name="acknowledgementtype_translator" xml:space="preserve">
+    <value>Fordító</value>
+  </data>
+  <data name="acknowledgementtype_tester" xml:space="preserve">
+    <value>Tesztelő</value>
+  </data>
+  <data name="about_credits_description" xml:space="preserve">
+    <value>A következő szuper emberek nélkül ez az app nem készülhetett volna el. A segítségükkel és hozzájárulásukkal kiérdemelték itt a helyüket.</value>
+  </data>
+  <data name="about_credits_title" xml:space="preserve">
+    <value>Köszönet</value>
+  </data>
+  <data name="sign_in" xml:space="preserve">
+    <value>Bejelentkezés</value>
+  </data>
+  <data name="swipe_to_continue" xml:space="preserve">
+    <value>Legyints a folytatáshoz</value>
+  </data>
+  <data name="try_with_demo_account" xml:space="preserve">
+    <value>Kipróbálom próba fiókkal</value>
+  </data>
+</root>

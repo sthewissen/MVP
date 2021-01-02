@@ -153,6 +153,7 @@
         <Setter Property="FontFamily" Value="{StaticResource font_regular}" />
         <Setter Property="FontSize" Value="{StaticResource fontsize_medium}" />
         <Setter Property="TextColor" Value="{AppThemeBinding Light={StaticResource black}, Dark={StaticResource white}}" />
+        <Setter Property="TextTransform" Value="None" />
     </Style>
 
     <Style TargetType="DatePicker">
@@ -331,6 +332,8 @@
         <Setter Property="FontFamily" Value="{StaticResource font_semibold}"/>
         <Setter Property="HeightRequest" Value="48"/>
         <Setter Property="CornerRadius" Value="24" />
+        <Setter Property="Padding" Value="24,0" />
+        <Setter Property="ContentLayout" Value="Left,16" />
     </Style>
 
     <Style x:Key="secondary_button" BasedOn="{StaticResource primary_button}" TargetType="Button">
