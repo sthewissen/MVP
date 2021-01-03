@@ -13,7 +13,11 @@ using Autofac;
 
 namespace MVP.Droid
 {
-    [Activity(Label = "MVP", Icon = "@mipmap/icon", Theme = "@style/MainTheme", MainLauncher = true,
+    [Activity(
+        Label = "MVP",
+        Icon = "@mipmap/icon",
+        Theme = "@style/MainTheme.Launcher",
+        MainLauncher = true,
         ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.UiMode)]
     public class MainActivity : global::Xamarin.Forms.Platform.Android.FormsAppCompatActivity
     {

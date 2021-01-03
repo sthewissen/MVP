@@ -296,7 +296,7 @@
 
     <Style x:Key="splash_image" TargetType="ff:SvgCachedImage">
         <Setter Property="DownsampleToViewSize" Value="False"/>
-        <Setter Property="HorizontalOptions" Value="Center"/>
+        <Setter Property="HorizontalOptions" Value="FillAndExpand"/>
         <Setter Property="VerticalOptions" Value="Center"/>
         <Setter Property="HeightRequest" Value="148"/>
         <Setter Property="WidthRequest" Value="148"/>
@@ -306,6 +306,7 @@
         <Setter Property="HorizontalTextAlignment" Value="Center"/>
         <Setter Property="TextColor" Value="{StaticResource white}"/>
         <Setter Property="HorizontalOptions" Value="Center"/>
+        <Setter Property="HeightRequest" Value="24" />
     </Style>
 
     <Style x:Key="separator" TargetType="BoxView">

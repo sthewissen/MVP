@@ -4,17 +4,18 @@
                        xmlns:pages="clr-namespace:MVP.Pages"
                        xmlns:vm="clr-namespace:MVP.ViewModels"
                        xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-                       BackgroundColor="{AppThemeBinding Light={StaticResource primary}, Dark={StaticResource black}}"
+                       BackgroundColor="{AppThemeBinding Light={StaticResource primary}, Dark={StaticResource primary}}"
                        x:Class="MVP.Pages.SplashScreenPage"
                        x:DataType="vm:SplashScreenViewModel"
                        x:TypeArguments="vm:SplashScreenViewModel">
 
-    <StackLayout HorizontalOptions="Center"
+    <StackLayout HorizontalOptions="FillAndExpand"
                  Spacing="16"
                  VerticalOptions="Center">
 
-        <ff:SvgCachedImage Source="Resource://mvp_logo.svg"
+        <ff:SvgCachedImage Source="{OnPlatform iOS='Resource://mvp_logo.svg', Android='mvp_logo'}"
                            Style="{StaticResource splash_image}"
+                           Margin="0,40,0,0"
                            x:Name="logo"/>
 
         <Label Style="{StaticResource splash_description}"
