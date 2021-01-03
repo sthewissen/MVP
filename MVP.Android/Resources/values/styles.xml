@@ -35,4 +35,11 @@
     <style name="MainTheme.Launcher">
        <item name="android:windowBackground">@drawable/launch_screen</item>
     </style>
+    <style name="MainTheme.Splash">
+      <item name="android:windowBackground">@drawable/launch_screen</item>
+      <item name="android:windowNoTitle">true</item>
+      <item name="android:windowFullscreen">false</item>
+      <item name="android:windowContentOverlay">@null</item>
+      <item name="android:windowActionBar">true</item>
+    </style>
 </resources>
