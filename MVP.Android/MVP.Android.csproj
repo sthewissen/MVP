@@ -292,6 +292,18 @@
           <SubType></SubType>
           <Generator></Generator>
         </AndroidResource>
+        <AndroidResource Include="Resources\drawable\launch_screen.axml">
+          <SubType></SubType>
+          <Generator></Generator>
+        </AndroidResource>
+        <AndroidResource Include="Resources\values-night\styles.xml">
+          <SubType></SubType>
+          <Generator></Generator>
+        </AndroidResource>
+        <AndroidResource Include="Resources\values\attrs.xml">
+          <SubType></SubType>
+          <Generator></Generator>
+        </AndroidResource>
     </ItemGroup>
     <ItemGroup>
         <ProjectReference Include="..\MVP\MVP.csproj">
@@ -304,6 +316,8 @@
         <Folder Include="Assets\" />
         <Folder Include="Renderers\" />
         <Folder Include="DependencyServices\" />
+        <Folder Include="Resources\drawable\" />
+        <Folder Include="Resources\values-night\" />
     </ItemGroup>
     <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
 </Project>
