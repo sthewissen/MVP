@@ -33,7 +33,6 @@
         <Folder Include="Services\Helpers\" />
         <Folder Include="Styles\" />
         <Folder Include="Extensions\" />
-        <Folder Include="Resources\" />
         <Folder Include="Services\Interfaces\" />
         <Folder Include="Resources\Fonts\" />
         <Folder Include="Converters\" />
@@ -48,6 +47,7 @@
         <Folder Include="Models\Enums\" />
         <Folder Include="Services\Demo\" />
         <Folder Include="Services\Demo\Files\" />
+        <Folder Include="Resources\" />
     </ItemGroup>
     <ItemGroup>
         <None Remove="Resources\mvp_logo.svg" />
@@ -106,8 +106,11 @@
         </EmbeddedResource>
     </ItemGroup>
     <ItemGroup>
+        <Compile Update="Resources\Translations.it.Designer.cs">
+          <DependentUpon>Translations.it.resx</DependentUpon>
+        </Compile>
         <Compile Update="Resources\Translations.es.Designer.cs">
-            <DependentUpon>Translations.es.resx</DependentUpon>
+          <DependentUpon>Translations.es.resx</DependentUpon>
         </Compile>
         <Compile Update="Resources\Translations.Designer.cs">
             <DependentUpon>Translations.resx</DependentUpon>
@@ -129,6 +132,10 @@
         </Compile>
     </ItemGroup>
     <ItemGroup>
+        <EmbeddedResource Update="Resources\Translations.it.resx">
+          <LastGenOutput>Translations.it.Designer.cs</LastGenOutput>
+          <Generator>ResXFileCodeGenerator</Generator>
+        </EmbeddedResource>
         <EmbeddedResource Update="Resources\Translations.resx">
             <Generator>ResXFileCodeGenerator</Generator>
             <LastGenOutput>Translations.Designer.cs</LastGenOutput>
