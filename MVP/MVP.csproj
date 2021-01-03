@@ -3,7 +3,7 @@
     <PropertyGroup>
         <TargetFramework>netstandard2.1</TargetFramework>
         <ProduceReferenceAssembly>true</ProduceReferenceAssembly>
-        <LangVersion>8.0</LangVersion>
+        <LangVersion>9.0</LangVersion>
     </PropertyGroup>
     <ItemGroup>
         <PackageReference Include="Xamarin.Forms" Version="5.0.0.1829-pre6" />
@@ -107,16 +107,16 @@
     </ItemGroup>
     <ItemGroup>
         <Compile Update="Resources\Translations.it.Designer.cs">
-          <DependentUpon>Translations.it.resx</DependentUpon>
+            <DependentUpon>Translations.it.resx</DependentUpon>
         </Compile>
         <Compile Update="Resources\Translations.es.Designer.cs">
-          <DependentUpon>Translations.es.resx</DependentUpon>
+            <DependentUpon>Translations.es.resx</DependentUpon>
         </Compile>
         <Compile Update="Resources\Translations.Designer.cs">
             <DependentUpon>Translations.resx</DependentUpon>
         </Compile>
         <Compile Update="Resources\Translations.hu.Designer.cs">
-          <DependentUpon>Translations.hu.resx</DependentUpon>
+            <DependentUpon>Translations.hu.resx</DependentUpon>
         </Compile>
         <Compile Update="Resources\Translations.nl.Designer.cs">
             <DependentUpon>Translations.nl.resx</DependentUpon>
@@ -127,14 +127,11 @@
         <Compile Update="Resources\Translations.tr.Designer.cs">
             <DependentUpon>Translations.tr.resx</DependentUpon>
         </Compile>
-        <Compile Update="Resources\Translations.no.Designer.cs">
-            <DependentUpon>Translations.no.resx</DependentUpon>
-        </Compile>
     </ItemGroup>
     <ItemGroup>
         <EmbeddedResource Update="Resources\Translations.it.resx">
-          <LastGenOutput>Translations.it.Designer.cs</LastGenOutput>
-          <Generator>ResXFileCodeGenerator</Generator>
+            <LastGenOutput>Translations.it.Designer.cs</LastGenOutput>
+            <Generator>ResXFileCodeGenerator</Generator>
         </EmbeddedResource>
         <EmbeddedResource Update="Resources\Translations.resx">
             <Generator>ResXFileCodeGenerator</Generator>

@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
     <PropertyGroup>
-        <LangVersion>8.0</LangVersion>
+        <LangVersion>9.0</LangVersion>
         <TargetFrameworkVersion>v11.0</TargetFrameworkVersion>
     </PropertyGroup>
     <PropertyGroup>
@@ -118,191 +118,75 @@
         <AndroidResource Include="Resources\mipmap-xhdpi\icon.png" />
         <AndroidResource Include="Resources\mipmap-xxhdpi\icon.png" />
         <AndroidResource Include="Resources\mipmap-xxxhdpi\icon.png" />
-        <AndroidResource Include="Resources\xml\auto_backup_rules.xml">
+        <AndroidResource Include="Resources\xml\auto_backup_rules.xml" />
+        <AndroidResource Include="Resources\drawable-xxxhdpi\onboarding1.png" />
+        <AndroidResource Include="Resources\drawable-xxhdpi\onboarding1.png" />
+        <AndroidResource Include="Resources\drawable-xhdpi\onboarding1.png" />
+        <AndroidResource Include="Resources\drawable-hdpi\onboarding1.png" />
+        <AndroidResource Include="Resources\drawable-mdpi\onboarding1.png" />
+        <AndroidResource Include="Resources\drawable-ldpi\onboarding1.png" />
+        <AndroidResource Include="Resources\drawable-xxxhdpi\onboarding2.png" />
+        <AndroidResource Include="Resources\drawable-xxhdpi\onboarding2.png" />
+        <AndroidResource Include="Resources\drawable-xhdpi\onboarding2.png" />
+        <AndroidResource Include="Resources\drawable-hdpi\onboarding2.png" />
+        <AndroidResource Include="Resources\drawable-mdpi\onboarding2.png" />
+        <AndroidResource Include="Resources\drawable-ldpi\onboarding2.png" />
+        <AndroidResource Include="Resources\drawable-xxxhdpi\onboarding3.png" />
+        <AndroidResource Include="Resources\drawable-xxhdpi\onboarding3.png" />
+        <AndroidResource Include="Resources\drawable-xhdpi\onboarding3.png" />
+        <AndroidResource Include="Resources\drawable-hdpi\onboarding3.png" />
+        <AndroidResource Include="Resources\drawable-mdpi\onboarding3.png" />
+        <AndroidResource Include="Resources\drawable-ldpi\onboarding3.png" />
+        <AndroidResource Include="Resources\drawable-xxxhdpi\mvp_logo.png" />
+        <AndroidResource Include="Resources\drawable-xxhdpi\mvp_logo.png" />
+        <AndroidResource Include="Resources\drawable-xhdpi\mvp_logo.png" />
+        <AndroidResource Include="Resources\drawable-hdpi\mvp_logo.png" />
+        <AndroidResource Include="Resources\drawable-mdpi\mvp_logo.png" />
+        <AndroidResource Include="Resources\drawable-ldpi\mvp_logo.png" />
+        <AndroidResource Include="Resources\drawable-xxxhdpi\shadow.png" />
+        <AndroidResource Include="Resources\drawable-xxhdpi\shadow.png" />
+        <AndroidResource Include="Resources\drawable-xhdpi\shadow.png" />
+        <AndroidResource Include="Resources\drawable-hdpi\shadow.png" />
+        <AndroidResource Include="Resources\drawable-mdpi\shadow.png" />
+        <AndroidResource Include="Resources\drawable-ldpi\shadow.png" />
+        <AndroidResource Include="Resources\drawable\launch_screen.axml" />
+        <AndroidResource Include="Resources\values-night\styles.xml" />
+        <AndroidResource Include="Resources\values\attrs.xml" />
+        <AndroidResource Include="Resources\drawable-xxxhdpi\mvp_placeholder.png">
             <SubType>
             </SubType>
             <Generator>
             </Generator>
         </AndroidResource>
-        <AndroidResource Include="Resources\drawable-xxxhdpi\onboarding1.png">
+        <AndroidResource Include="Resources\drawable-xxhdpi\mvp_placeholder.png">
             <SubType>
             </SubType>
             <Generator>
             </Generator>
         </AndroidResource>
-        <AndroidResource Include="Resources\drawable-xxhdpi\onboarding1.png">
+        <AndroidResource Include="Resources\drawable-xhdpi\mvp_placeholder.png">
             <SubType>
             </SubType>
             <Generator>
             </Generator>
         </AndroidResource>
-        <AndroidResource Include="Resources\drawable-xhdpi\onboarding1.png">
+        <AndroidResource Include="Resources\drawable-hdpi\mvp_placeholder.png">
             <SubType>
             </SubType>
             <Generator>
             </Generator>
         </AndroidResource>
-        <AndroidResource Include="Resources\drawable-hdpi\onboarding1.png">
+        <AndroidResource Include="Resources\drawable-mdpi\mvp_placeholder.png">
             <SubType>
             </SubType>
             <Generator>
             </Generator>
         </AndroidResource>
-        <AndroidResource Include="Resources\drawable-mdpi\onboarding1.png">
+        <AndroidResource Include="Resources\drawable-ldpi\mvp_placeholder.png">
             <SubType>
             </SubType>
             <Generator>
             </Generator>
-        </AndroidResource>
-        <AndroidResource Include="Resources\drawable-ldpi\onboarding1.png">
-            <SubType>
-            </SubType>
-            <Generator>
-            </Generator>
-        </AndroidResource>
-        <AndroidResource Include="Resources\drawable-xxxhdpi\onboarding2.png">
-            <SubType>
-            </SubType>
-            <Generator>
-            </Generator>
-        </AndroidResource>
-        <AndroidResource Include="Resources\drawable-xxhdpi\onboarding2.png">
-            <SubType>
-            </SubType>
-            <Generator>
-            </Generator>
-        </AndroidResource>
-        <AndroidResource Include="Resources\drawable-xhdpi\onboarding2.png">
-            <SubType>
-            </SubType>
-            <Generator>
-            </Generator>
-        </AndroidResource>
-        <AndroidResource Include="Resources\drawable-hdpi\onboarding2.png">
-            <SubType>
-            </SubType>
-            <Generator>
-            </Generator>
-        </AndroidResource>
-        <AndroidResource Include="Resources\drawable-mdpi\onboarding2.png">
-            <SubType>
-            </SubType>
-            <Generator>
-            </Generator>
-        </AndroidResource>
-        <AndroidResource Include="Resources\drawable-ldpi\onboarding2.png">
-            <SubType>
-            </SubType>
-            <Generator>
-            </Generator>
-        </AndroidResource>
-        <AndroidResource Include="Resources\drawable-xxxhdpi\onboarding3.png">
-            <SubType>
-            </SubType>
-            <Generator>
-            </Generator>
-        </AndroidResource>
-        <AndroidResource Include="Resources\drawable-xxhdpi\onboarding3.png">
-            <SubType>
-            </SubType>
-            <Generator>
-            </Generator>
-        </AndroidResource>
-        <AndroidResource Include="Resources\drawable-xhdpi\onboarding3.png">
-            <SubType>
-            </SubType>
-            <Generator>
-            </Generator>
-        </AndroidResource>
-        <AndroidResource Include="Resources\drawable-hdpi\onboarding3.png">
-            <SubType>
-            </SubType>
-            <Generator>
-            </Generator>
-        </AndroidResource>
-        <AndroidResource Include="Resources\drawable-mdpi\onboarding3.png">
-            <SubType>
-            </SubType>
-            <Generator>
-            </Generator>
-        </AndroidResource>
-        <AndroidResource Include="Resources\drawable-ldpi\onboarding3.png">
-            <SubType>
-            </SubType>
-            <Generator>
-            </Generator>
-        </AndroidResource>
-        <AndroidResource Include="Resources\drawable-xxxhdpi\mvp_logo.png">
-            <SubType>
-            </SubType>
-            <Generator>
-            </Generator>
-        </AndroidResource>
-        <AndroidResource Include="Resources\drawable-xxhdpi\mvp_logo.png">
-            <SubType>
-            </SubType>
-            <Generator>
-            </Generator>
-        </AndroidResource>
-        <AndroidResource Include="Resources\drawable-xhdpi\mvp_logo.png">
-            <SubType>
-            </SubType>
-            <Generator>
-            </Generator>
-        </AndroidResource>
-        <AndroidResource Include="Resources\drawable-hdpi\mvp_logo.png">
-            <SubType>
-            </SubType>
-            <Generator>
-            </Generator>
-        </AndroidResource>
-        <AndroidResource Include="Resources\drawable-mdpi\mvp_logo.png">
-            <SubType>
-            </SubType>
-            <Generator>
-            </Generator>
-        </AndroidResource>
-        <AndroidResource Include="Resources\drawable-ldpi\mvp_logo.png">
-            <SubType>
-            </SubType>
-            <Generator>
-            </Generator>
-        </AndroidResource>
-        <AndroidResource Include="Resources\drawable-xxxhdpi\shadow.png">
-          <SubType></SubType>
-          <Generator></Generator>
-        </AndroidResource>
-        <AndroidResource Include="Resources\drawable-xxhdpi\shadow.png">
-          <SubType></SubType>
-          <Generator></Generator>
-        </AndroidResource>
-        <AndroidResource Include="Resources\drawable-xhdpi\shadow.png">
-          <SubType></SubType>
-          <Generator></Generator>
-        </AndroidResource>
-        <AndroidResource Include="Resources\drawable-hdpi\shadow.png">
-          <SubType></SubType>
-          <Generator></Generator>
-        </AndroidResource>
-        <AndroidResource Include="Resources\drawable-mdpi\shadow.png">
-          <SubType></SubType>
-          <Generator></Generator>
-        </AndroidResource>
-        <AndroidResource Include="Resources\drawable-ldpi\shadow.png">
-          <SubType></SubType>
-          <Generator></Generator>
-        </AndroidResource>
-        <AndroidResource Include="Resources\drawable\launch_screen.axml">
-          <SubType></SubType>
-          <Generator></Generator>
-        </AndroidResource>
-        <AndroidResource Include="Resources\values-night\styles.xml">
-          <SubType></SubType>
-          <Generator></Generator>
-        </AndroidResource>
-        <AndroidResource Include="Resources\values\attrs.xml">
-          <SubType></SubType>
-          <Generator></Generator>
         </AndroidResource>
     </ItemGroup>
     <ItemGroup>
@@ -316,8 +200,6 @@
         <Folder Include="Assets\" />
         <Folder Include="Renderers\" />
         <Folder Include="DependencyServices\" />
-        <Folder Include="Resources\drawable\" />
-        <Folder Include="Resources\values-night\" />
     </ItemGroup>
     <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
 </Project>
