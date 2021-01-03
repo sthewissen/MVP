@@ -8,12 +8,12 @@ using MVP.Pages;
 using TinyMvvm.Autofac;
 using TinyMvvm.IoC;
 using TinyMvvm;
-using Xamarin.CommunityToolkit.Helpers;
 using Xamarin.Essentials;
 using MVP.Resources;
 using MVP.Services.Demo;
 using TinyNavigationHelper;
 using MVP.Helpers;
+using Xamarin.CommunityToolkit.Helpers;
 
 namespace MVP
 {
@@ -38,8 +38,7 @@ namespace MVP
             MvpApiService = mvpApiService;
             AuthService = authService;
 
-            LocalizationResourceManager.Current.Init(Translations.ResourceManager);
-            languageService.SetLanguage(Preferences.Get(Settings.AppLanguage, Settings.AppLanguageDefault));
+            languageService.Initialize();
 
             Resolver.SetResolver(new AutofacResolver(ContainerService.Container));
             Akavache.Registrations.Start(Constants.AppName);
