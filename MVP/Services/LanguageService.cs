@@ -1,10 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Globalization;
-using MVP.Helpers;
 using MVP.Services.Interfaces;
 using Xamarin.CommunityToolkit.Helpers;
-//using Xamarin.CommunityToolkit.Helpers;
 using Xamarin.Essentials;
 
 namespace MVP.Services

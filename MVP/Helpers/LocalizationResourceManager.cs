@@ -15,17 +15,10 @@ namespace MVP.Helpers
         public static LocalizationResourceManager Current { get; } = new LocalizationResourceManager();
 
         LocalizationResourceManager()
-        {
-            SetCulture(new CultureInfo(Preferences.Get(languageKey, CurrentCulture.TwoLetterISOLanguageName)));
-        }
+            => SetCulture(new CultureInfo(Preferences.Get(languageKey, CurrentCulture.TwoLetterISOLanguageName)));
 
         public string this[string text]
-        {
-            get
-            {
-                return Translations.ResourceManager.GetString(text, Translations.Culture);
-            }
-        }
+            => Translations.ResourceManager.GetString(text, Translations.Culture);
 
         public void SetCulture(CultureInfo language)
         {
@@ -33,6 +26,7 @@ namespace MVP.Helpers
             CultureInfo.DefaultThreadCurrentUICulture = language;
             CultureInfo.CurrentCulture = language;
             CultureInfo.CurrentUICulture = language;
+            Thread.CurrentThread.CurrentCulture = language;
             Thread.CurrentThread.CurrentUICulture = language;
             Translations.Culture = language;
             Invalidate();
@@ -44,13 +38,12 @@ namespace MVP.Helpers
             return resourceManager.GetString(text, CultureInfo.CurrentCulture);
         }
 
-        public CultureInfo CurrentCulture => Translations.Culture ?? Thread.CurrentThread.CurrentUICulture;
+        public CultureInfo CurrentCulture
+            => Translations.Culture ?? Thread.CurrentThread.CurrentUICulture;
 
         public event PropertyChangedEventHandler PropertyChanged;
 
         public void Invalidate()
-        {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(null));
-        }
+            => PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(null));
     }
 }
