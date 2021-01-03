@@ -106,6 +106,9 @@
         </EmbeddedResource>
     </ItemGroup>
     <ItemGroup>
+        <Compile Update="Resources\Translations.no.Designer.cs">
+            <DependentUpon>Translations.no.resx</DependentUpon>
+        </Compile>
         <Compile Update="Resources\Translations.it.Designer.cs">
             <DependentUpon>Translations.it.resx</DependentUpon>
         </Compile>
