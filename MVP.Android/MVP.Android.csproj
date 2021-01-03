@@ -1,205 +1,202 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-    <PropertyGroup>
-        <LangVersion>9.0</LangVersion>
-        <TargetFrameworkVersion>v11.0</TargetFrameworkVersion>
-    </PropertyGroup>
-    <PropertyGroup>
-        <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
-        <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-        <ProjectGuid>{574BC705-D0F5-4539-9877-B4C5D555A316}</ProjectGuid>
-        <ProjectTypeGuids>{EFBA0AD7-5A72-4C68-AF49-83D382785DCF};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
-        <TemplateGuid>{6968b3a4-1835-46a3-ac5c-1ae33b475983}</TemplateGuid>
-        <OutputType>Library</OutputType>
-        <RootNamespace>MVP.Droid</RootNamespace>
-        <AssemblyName>MVP.Android</AssemblyName>
-        <AndroidApplication>True</AndroidApplication>
-        <AndroidResgenFile>Resources\Resource.designer.cs</AndroidResgenFile>
-        <AndroidResgenClass>Resource</AndroidResgenClass>
-        <AndroidManifest>Properties\AndroidManifest.xml</AndroidManifest>
-        <MonoAndroidResourcePrefix>Resources</MonoAndroidResourcePrefix>
-        <MonoAndroidAssetsPrefix>Assets</MonoAndroidAssetsPrefix>
-        <TargetFrameworkVersion>v11.0</TargetFrameworkVersion>
-        <AndroidEnableSGenConcurrent>true</AndroidEnableSGenConcurrent>
-        <AndroidUseAapt2>true</AndroidUseAapt2>
-        <AndroidHttpClientHandlerType>Xamarin.Android.Net.AndroidClientHandler</AndroidHttpClientHandlerType>
-        <NuGetPackageImportStamp>
-        </NuGetPackageImportStamp>
-    </PropertyGroup>
-    <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-        <DebugSymbols>true</DebugSymbols>
-        <DebugType>portable</DebugType>
-        <Optimize>false</Optimize>
-        <OutputPath>bin\Debug</OutputPath>
-        <DefineConstants>DEBUG;</DefineConstants>
-        <ErrorReport>prompt</ErrorReport>
-        <WarningLevel>4</WarningLevel>
-        <AndroidLinkMode>None</AndroidLinkMode>
-        <AndroidSupportedAbis>armeabi-v7a;x86;arm64-v8a;x86_64</AndroidSupportedAbis>
-    </PropertyGroup>
-    <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-        <DebugSymbols>true</DebugSymbols>
-        <DebugType>portable</DebugType>
-        <Optimize>true</Optimize>
-        <OutputPath>bin\Release</OutputPath>
-        <ErrorReport>prompt</ErrorReport>
-        <WarningLevel>4</WarningLevel>
-        <AndroidManagedSymbols>true</AndroidManagedSymbols>
-        <AndroidUseSharedRuntime>false</AndroidUseSharedRuntime>
-    </PropertyGroup>
-    <ItemGroup>
-        <Reference Include="Mono.Android" />
-        <Reference Include="System" />
-        <Reference Include="System.Core" />
-        <Reference Include="System.Numerics" />
-        <Reference Include="System.Numerics.Vectors" />
-        <Reference Include="System.Xml.Linq" />
-        <Reference Include="System.Xml" />
-    </ItemGroup>
-    <ItemGroup>
-        <PackageReference Include="Xamarin.Forms" Version="5.0.0.1829-pre6" />
-        <PackageReference Include="Xamarin.Android.Support.Core.Utils" Version="28.0.0.3" />
-        <PackageReference Include="Xamarin.Essentials" Version="1.6.0" />
-        <PackageReference Include="Microsoft.Identity.Client">
-            <Version>4.24.0</Version>
-        </PackageReference>
-        <PackageReference Include="Plugin.CurrentActivity">
-            <Version>2.1.0.4</Version>
-        </PackageReference>
-        <PackageReference Include="Xamarin.FFImageLoading.Forms">
-            <Version>2.4.11.982</Version>
-        </PackageReference>
-        <PackageReference Include="Xamarin.FFImageLoading.Transformations">
-            <Version>2.4.11.982</Version>
-        </PackageReference>
-        <PackageReference Include="Acr.UserDialogs">
-            <Version>7.1.0.470</Version>
-        </PackageReference>
-        <PackageReference Include="Microsoft.AppCenter">
-            <Version>4.0.0</Version>
-        </PackageReference>
-        <PackageReference Include="Microsoft.AppCenter.Analytics">
-            <Version>4.0.0</Version>
-        </PackageReference>
-        <PackageReference Include="Microsoft.AppCenter.Crashes">
-            <Version>4.0.0</Version>
-        </PackageReference>
-        <PackageReference Include="akavache">
-            <Version>7.1.1</Version>
-        </PackageReference>
-        <PackageReference Include="Com.Airbnb.Xamarin.Forms.Lottie">
-            <Version>4.0.8</Version>
-        </PackageReference>
-        <PackageReference Include="Xamarin.CommunityToolkit">
-            <Version>1.0.0-preview1120</Version>
-        </PackageReference>
-        <PackageReference Include="Sharpnado.Shadows">
-            <Version>1.2.0</Version>
-        </PackageReference>
-    </ItemGroup>
-    <ItemGroup>
-        <Compile Include="MainActivity.cs" />
-        <Compile Include="Resources\Resource.designer.cs" />
-        <Compile Include="Properties\AssemblyInfo.cs" />
-        <Compile Include="Renderers\BorderlessDatePickerRenderer.cs" />
-        <Compile Include="DependencyServices\StatusBar.cs" />
-    </ItemGroup>
-    <ItemGroup>
-        <None Include="Resources\AboutResources.txt" />
-        <None Include="Properties\AndroidManifest.xml" />
-    </ItemGroup>
-    <ItemGroup>
-        <AndroidResource Include="Resources\layout\Tabbar.xml" />
-        <AndroidResource Include="Resources\layout\Toolbar.xml" />
-        <AndroidResource Include="Resources\values\styles.xml" />
-        <AndroidResource Include="Resources\values\colors.xml" />
-        <AndroidResource Include="Resources\mipmap-hdpi\icon.png" />
-        <AndroidResource Include="Resources\mipmap-mdpi\icon.png" />
-        <AndroidResource Include="Resources\mipmap-xhdpi\icon.png" />
-        <AndroidResource Include="Resources\mipmap-xxhdpi\icon.png" />
-        <AndroidResource Include="Resources\mipmap-xxxhdpi\icon.png" />
-        <AndroidResource Include="Resources\xml\auto_backup_rules.xml" />
-        <AndroidResource Include="Resources\drawable-xxxhdpi\onboarding1.png" />
-        <AndroidResource Include="Resources\drawable-xxhdpi\onboarding1.png" />
-        <AndroidResource Include="Resources\drawable-xhdpi\onboarding1.png" />
-        <AndroidResource Include="Resources\drawable-hdpi\onboarding1.png" />
-        <AndroidResource Include="Resources\drawable-mdpi\onboarding1.png" />
-        <AndroidResource Include="Resources\drawable-ldpi\onboarding1.png" />
-        <AndroidResource Include="Resources\drawable-xxxhdpi\onboarding2.png" />
-        <AndroidResource Include="Resources\drawable-xxhdpi\onboarding2.png" />
-        <AndroidResource Include="Resources\drawable-xhdpi\onboarding2.png" />
-        <AndroidResource Include="Resources\drawable-hdpi\onboarding2.png" />
-        <AndroidResource Include="Resources\drawable-mdpi\onboarding2.png" />
-        <AndroidResource Include="Resources\drawable-ldpi\onboarding2.png" />
-        <AndroidResource Include="Resources\drawable-xxxhdpi\onboarding3.png" />
-        <AndroidResource Include="Resources\drawable-xxhdpi\onboarding3.png" />
-        <AndroidResource Include="Resources\drawable-xhdpi\onboarding3.png" />
-        <AndroidResource Include="Resources\drawable-hdpi\onboarding3.png" />
-        <AndroidResource Include="Resources\drawable-mdpi\onboarding3.png" />
-        <AndroidResource Include="Resources\drawable-ldpi\onboarding3.png" />
-        <AndroidResource Include="Resources\drawable-xxxhdpi\mvp_logo.png" />
-        <AndroidResource Include="Resources\drawable-xxhdpi\mvp_logo.png" />
-        <AndroidResource Include="Resources\drawable-xhdpi\mvp_logo.png" />
-        <AndroidResource Include="Resources\drawable-hdpi\mvp_logo.png" />
-        <AndroidResource Include="Resources\drawable-mdpi\mvp_logo.png" />
-        <AndroidResource Include="Resources\drawable-ldpi\mvp_logo.png" />
-        <AndroidResource Include="Resources\drawable-xxxhdpi\shadow.png" />
-        <AndroidResource Include="Resources\drawable-xxhdpi\shadow.png" />
-        <AndroidResource Include="Resources\drawable-xhdpi\shadow.png" />
-        <AndroidResource Include="Resources\drawable-hdpi\shadow.png" />
-        <AndroidResource Include="Resources\drawable-mdpi\shadow.png" />
-        <AndroidResource Include="Resources\drawable-ldpi\shadow.png" />
-        <AndroidResource Include="Resources\drawable\launch_screen.axml" />
-        <AndroidResource Include="Resources\values-night\styles.xml" />
-        <AndroidResource Include="Resources\values\attrs.xml" />
-        <AndroidResource Include="Resources\drawable-xxxhdpi\mvp_placeholder.png">
-            <SubType>
-            </SubType>
-            <Generator>
-            </Generator>
-        </AndroidResource>
-        <AndroidResource Include="Resources\drawable-xxhdpi\mvp_placeholder.png">
-            <SubType>
-            </SubType>
-            <Generator>
-            </Generator>
-        </AndroidResource>
-        <AndroidResource Include="Resources\drawable-xhdpi\mvp_placeholder.png">
-            <SubType>
-            </SubType>
-            <Generator>
-            </Generator>
-        </AndroidResource>
-        <AndroidResource Include="Resources\drawable-hdpi\mvp_placeholder.png">
-            <SubType>
-            </SubType>
-            <Generator>
-            </Generator>
-        </AndroidResource>
-        <AndroidResource Include="Resources\drawable-mdpi\mvp_placeholder.png">
-            <SubType>
-            </SubType>
-            <Generator>
-            </Generator>
-        </AndroidResource>
-        <AndroidResource Include="Resources\drawable-ldpi\mvp_placeholder.png">
-            <SubType>
-            </SubType>
-            <Generator>
-            </Generator>
-        </AndroidResource>
-    </ItemGroup>
-    <ItemGroup>
-        <ProjectReference Include="..\MVP\MVP.csproj">
-            <Project>{670022BB-F73F-4C87-A92C-D8011E30D658}</Project>
-            <Name>MVP</Name>
-        </ProjectReference>
-    </ItemGroup>
-    <ItemGroup>
-        <Folder Include="Resources\xml\" />
-        <Folder Include="Assets\" />
-        <Folder Include="Renderers\" />
-        <Folder Include="DependencyServices\" />
-    </ItemGroup>
-    <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
+  <PropertyGroup>
+    <LangVersion>9.0</LangVersion>
+    <TargetFrameworkVersion>v11.0</TargetFrameworkVersion>
+  </PropertyGroup>
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{574BC705-D0F5-4539-9877-B4C5D555A316}</ProjectGuid>
+    <ProjectTypeGuids>{EFBA0AD7-5A72-4C68-AF49-83D382785DCF};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <TemplateGuid>{6968b3a4-1835-46a3-ac5c-1ae33b475983}</TemplateGuid>
+    <OutputType>Library</OutputType>
+    <RootNamespace>MVP.Droid</RootNamespace>
+    <AssemblyName>MVP.Android</AssemblyName>
+    <AndroidApplication>True</AndroidApplication>
+    <AndroidResgenFile>Resources\Resource.designer.cs</AndroidResgenFile>
+    <AndroidResgenClass>Resource</AndroidResgenClass>
+    <AndroidManifest>Properties\AndroidManifest.xml</AndroidManifest>
+    <MonoAndroidResourcePrefix>Resources</MonoAndroidResourcePrefix>
+    <MonoAndroidAssetsPrefix>Assets</MonoAndroidAssetsPrefix>
+    <TargetFrameworkVersion>v11.0</TargetFrameworkVersion>
+    <AndroidEnableSGenConcurrent>true</AndroidEnableSGenConcurrent>
+    <AndroidUseAapt2>true</AndroidUseAapt2>
+    <AndroidHttpClientHandlerType>Xamarin.Android.Net.AndroidClientHandler</AndroidHttpClientHandlerType>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>portable</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug</OutputPath>
+    <DefineConstants>DEBUG;</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <AndroidLinkMode>None</AndroidLinkMode>
+    <AndroidSupportedAbis>armeabi-v7a;x86;arm64-v8a;x86_64</AndroidSupportedAbis>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>portable</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release</OutputPath>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <AndroidManagedSymbols>true</AndroidManagedSymbols>
+    <AndroidUseSharedRuntime>false</AndroidUseSharedRuntime>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Mono.Android" />
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Numerics" />
+    <Reference Include="System.Numerics.Vectors" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Xamarin.Forms" Version="5.0.0.1829-pre6" />
+    <PackageReference Include="Xamarin.Android.Support.Core.Utils" Version="28.0.0.3" />
+    <PackageReference Include="Xamarin.Essentials" Version="1.6.0" />
+    <PackageReference Include="Microsoft.Identity.Client">
+      <Version>4.24.0</Version>
+    </PackageReference>
+    <PackageReference Include="Plugin.CurrentActivity">
+      <Version>2.1.0.4</Version>
+    </PackageReference>
+    <PackageReference Include="Xamarin.FFImageLoading.Forms">
+      <Version>2.4.11.982</Version>
+    </PackageReference>
+    <PackageReference Include="Xamarin.FFImageLoading.Transformations">
+      <Version>2.4.11.982</Version>
+    </PackageReference>
+    <PackageReference Include="Acr.UserDialogs">
+      <Version>7.1.0.470</Version>
+    </PackageReference>
+    <PackageReference Include="Microsoft.AppCenter">
+      <Version>4.0.0</Version>
+    </PackageReference>
+    <PackageReference Include="Microsoft.AppCenter.Analytics">
+      <Version>4.0.0</Version>
+    </PackageReference>
+    <PackageReference Include="Microsoft.AppCenter.Crashes">
+      <Version>4.0.0</Version>
+    </PackageReference>
+    <PackageReference Include="akavache">
+      <Version>7.1.1</Version>
+    </PackageReference>
+    <PackageReference Include="Com.Airbnb.Xamarin.Forms.Lottie">
+      <Version>4.0.8</Version>
+    </PackageReference>
+    <PackageReference Include="Xamarin.CommunityToolkit">
+      <Version>1.0.0-preview1120</Version>
+    </PackageReference>
+    <PackageReference Include="Sharpnado.Shadows">
+      <Version>1.2.0</Version>
+    </PackageReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="MainActivity.cs" />
+    <Compile Include="Resources\Resource.designer.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Renderers\BorderlessDatePickerRenderer.cs" />
+    <Compile Include="DependencyServices\StatusBar.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\AboutResources.txt" />
+    <None Include="Properties\AndroidManifest.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\layout\Tabbar.xml" />
+    <AndroidResource Include="Resources\layout\Toolbar.xml" />
+    <AndroidResource Include="Resources\values\styles.xml" />
+    <AndroidResource Include="Resources\values\colors.xml" />
+    <AndroidResource Include="Resources\mipmap-hdpi\icon.png" />
+    <AndroidResource Include="Resources\mipmap-mdpi\icon.png" />
+    <AndroidResource Include="Resources\mipmap-xhdpi\icon.png" />
+    <AndroidResource Include="Resources\mipmap-xxhdpi\icon.png" />
+    <AndroidResource Include="Resources\mipmap-xxxhdpi\icon.png" />
+    <AndroidResource Include="Resources\xml\auto_backup_rules.xml" />
+    <AndroidResource Include="Resources\drawable-xxxhdpi\onboarding1.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\onboarding1.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\onboarding1.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\onboarding1.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\onboarding1.png" />
+    <AndroidResource Include="Resources\drawable-ldpi\onboarding1.png" />
+    <AndroidResource Include="Resources\drawable-xxxhdpi\onboarding2.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\onboarding2.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\onboarding2.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\onboarding2.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\onboarding2.png" />
+    <AndroidResource Include="Resources\drawable-ldpi\onboarding2.png" />
+    <AndroidResource Include="Resources\drawable-xxxhdpi\onboarding3.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\onboarding3.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\onboarding3.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\onboarding3.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\onboarding3.png" />
+    <AndroidResource Include="Resources\drawable-ldpi\onboarding3.png" />
+    <AndroidResource Include="Resources\drawable-xxxhdpi\mvp_logo.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\mvp_logo.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\mvp_logo.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\mvp_logo.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\mvp_logo.png" />
+    <AndroidResource Include="Resources\drawable-ldpi\mvp_logo.png" />
+    <AndroidResource Include="Resources\drawable-xxxhdpi\shadow.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\shadow.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\shadow.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\shadow.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\shadow.png" />
+    <AndroidResource Include="Resources\drawable-ldpi\shadow.png" />
+    <AndroidResource Include="Resources\drawable\launch_screen.axml" />
+    <AndroidResource Include="Resources\values-night\styles.xml" />
+    <AndroidResource Include="Resources\values\attrs.xml" />
+    <AndroidResource Include="Resources\drawable-xxxhdpi\mvp_placeholder.png">
+      <SubType>
+      </SubType>
+      <Generator>
+      </Generator>
+    </AndroidResource>
+    <AndroidResource Include="Resources\drawable-xxhdpi\mvp_placeholder.png">
+      <SubType>
+      </SubType>
+      <Generator>
+      </Generator>
+    </AndroidResource>
+    <AndroidResource Include="Resources\drawable-xhdpi\mvp_placeholder.png">
+      <SubType>
+      </SubType>
+      <Generator>
+      </Generator>
+    </AndroidResource>
+    <AndroidResource Include="Resources\drawable-hdpi\mvp_placeholder.png">
+      <SubType>
+      </SubType>
+      <Generator>
+      </Generator>
+    </AndroidResource>
+    <AndroidResource Include="Resources\drawable-mdpi\mvp_placeholder.png">
+      <SubType>
+      </SubType>
+      <Generator>
+      </Generator>
+    </AndroidResource>
+    <AndroidResource Include="Resources\drawable-ldpi\mvp_placeholder.png">
+      <SubType>
+      </SubType>
+      <Generator>
+      </Generator>
+    </AndroidResource>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\MVP\MVP.csproj">
+      <Project>{670022BB-F73F-4C87-A92C-D8011E30D658}</Project>
+      <Name>MVP</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Assets\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
 </Project>

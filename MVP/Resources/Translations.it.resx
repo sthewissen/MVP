@@ -1,330 +1,456 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <root>
-    <resheader name="resmimetype">
-        <value>text/microsoft-resx</value>
-    </resheader>
-    <resheader name="version">
-        <value>2.0</value>
-    </resheader>
-    <resheader name="reader">
-        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-    </resheader>
-    <resheader name="writer">
-        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-    </resheader>
-    <data name="contributions_title" xml:space="preserve">
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="contributions_title" xml:space="preserve">
     <value>Attività comunitarie</value>
   </data>
-    <data name="search_placeholder" xml:space="preserve">
+  <data name="search_placeholder" xml:space="preserve">
     <value>Ricerca...</value>
   </data>
-    <data name="profile_title" xml:space="preserve">
+  <data name="profile_title" xml:space="preserve">
     <value>Impostazioni</value>
   </data>
-    <data name="setting_contributionfromurl_title" xml:space="preserve">
+  <data name="setting_contributionfromurl_title" xml:space="preserve">
     <value>Crea un contributo dall'URL</value>
   </data>
-    <data name="setting_contributionfromurl_description" xml:space="preserve">
+  <data name="setting_contributionfromurl_description" xml:space="preserve">
     <value>Se hai un URL valido negli appunti mentre aggiungi un contributo, ti verrà chiesto se i metadati di quell'URL devono essere utilizzati per precompilare il tuo contributo.</value>
   </data>
-    <data name="setting_apptheme_title" xml:space="preserve">
+  <data name="setting_apptheme_title" xml:space="preserve">
     <value>Tema dell'applicazione</value>
   </data>
-    <data name="setting_apptheme_description" xml:space="preserve">
+  <data name="setting_apptheme_description" xml:space="preserve">
     <value>Questa applicazione può essere utilizzata sia in modalità "light" che "dark". Come impostazione predefinita verrà scelta quella del dispotitivo. Se uno dei temi stuzzica la tua fantasia, puoi anche forzare un tema specifico qui.</value>
   </data>
-    <data name="logout" xml:space="preserve">
+  <data name="logout" xml:space="preserve">
     <value>Esci</value>
   </data>
-    <data name="tabs_activities" xml:space="preserve">
+  <data name="tabs_activities" xml:space="preserve">
     <value>Attività</value>
   </data>
-    <data name="tabs_statistics" xml:space="preserve">
+  <data name="tabs_statistics" xml:space="preserve">
     <value>Statistiche</value>
   </data>
-    <data name="tabs_badges" xml:space="preserve">
+  <data name="tabs_badges" xml:space="preserve">
     <value>Badges</value>
   </data>
-    <data name="tabs_settings" xml:space="preserve">
+  <data name="tabs_settings" xml:space="preserve">
     <value>Impostazioni</value>
   </data>
-    <data name="contributionform_title_add" xml:space="preserve">
+  <data name="contributionform_title_add" xml:space="preserve">
     <value>Aggiungi contributo</value>
   </data>
-    <data name="contributionform_title_edit" xml:space="preserve">
+  <data name="contributionform_title_edit" xml:space="preserve">
     <value>Modifica contributo</value>
   </data>
-    <data name="language_english" xml:space="preserve">
-    <value>Inglese</value>
-  </data>
-    <data name="language_dutch" xml:space="preserve">
-    <value>Olandese</value>
-  </data>
-    <data name="languagepicker_title" xml:space="preserve">
+  <data name="languagepicker_title" xml:space="preserve">
     <value>Lingua</value>
   </data>
-    <data name="contributiondetails_title" xml:space="preserve">
+  <data name="contributiondetails_title" xml:space="preserve">
     <value>Dettagli dell'attività</value>
   </data>
-    <data name="field_activity_type" xml:space="preserve">
+  <data name="field_activity_type" xml:space="preserve">
     <value>Tipo di attività</value>
   </data>
-    <data name="field_url" xml:space="preserve">
+  <data name="field_url" xml:space="preserve">
     <value>URL</value>
   </data>
-    <data name="field_title" xml:space="preserve">
+  <data name="field_title" xml:space="preserve">
     <value>Titolo dell'attività</value>
   </data>
-    <data name="field_primary_contribution_area" xml:space="preserve">
+  <data name="field_primary_contribution_area" xml:space="preserve">
     <value>Area di contribuzione primaria</value>
   </data>
-    <data name="field_additional_contribution_areas" xml:space="preserve">
+  <data name="field_additional_contribution_areas" xml:space="preserve">
     <value>Aree di contributo aggiuntive</value>
   </data>
-    <data name="field_activity_date" xml:space="preserve">
+  <data name="field_activity_date" xml:space="preserve">
     <value>Data dell'attività</value>
   </data>
-    <data name="field_description" xml:space="preserve">
+  <data name="field_description" xml:space="preserve">
     <value>Descrizione</value>
   </data>
-    <data name="field_visibility" xml:space="preserve">
+  <data name="field_visibility" xml:space="preserve">
     <value>Visibilità</value>
   </data>
-    <data name="button_delete_contribution" xml:space="preserve">
+  <data name="button_delete_contribution" xml:space="preserve">
     <value>Elimina il contributo</value>
   </data>
-    <data name="about_title" xml:space="preserve">
+  <data name="about_title" xml:space="preserve">
     <value>A proposito di questa applicazione</value>
   </data>
-    <data name="about_why_title" xml:space="preserve">
+  <data name="about_why_title" xml:space="preserve">
     <value>Perchè è stata creata questa applicazione?</value>
   </data>
-    <data name="about_why_description" xml:space="preserve">
+  <data name="about_why_description" xml:space="preserve">
     <value>C'è sempre stata la necessità per gli MVP di Microsoft di gestire le attività della comunità in modo più semplice. Il portale online funziona bene, ma avere una cosa simile in tasca per creare attività al volo è davvero fantastico. Ecco a cosa serve questo progetto!</value>
   </data>
-    <data name="about_opensource_title" xml:space="preserve">
+  <data name="about_opensource_title" xml:space="preserve">
     <value>Open source</value>
   </data>
-    <data name="about_opensource_description" xml:space="preserve">
+  <data name="about_opensource_description" xml:space="preserve">
     <value>Questa applicazione è completamente open source. Se ti piace, sentiti libero di diventare uno sponsor di GitHub, acquistandomi una tazza di caffè al mese. ☕️</value>
   </data>
-    <data name="becomesponsor" xml:space="preserve">
+  <data name="becomesponsor" xml:space="preserve">
     <value>Diventa uno sponsor</value>
   </data>
-    <data name="contributionform_timeframememo" xml:space="preserve">
+  <data name="contributionform_timeframememo" xml:space="preserve">
     <value>L'invio del tuo contributo per il ciclo di premiazione di luglio deve essere per attività comunitarie comprese tra il {0} e il {1}. Le attività comunuitarie inviate a partire da {1} e oltre verranno tenute in considerazione in futuro.</value>
   </data>
-    <data name="contributionform_activitytype_placeholder" xml:space="preserve">
-    <value>Seleziona il tipo di attività che meglio la rappresenta</value>
+  <data name="contributionform_activitytype_placeholder" xml:space="preserve">
+    <value>Seleziona il tipo di attività che meglio la rappresenta.</value>
   </data>
-    <data name="contributionform_technologyarea_placeholder" xml:space="preserve">
+  <data name="contributionform_technologyarea_placeholder" xml:space="preserve">
     <value>Seleziona l'area tecnologica che è l'obiettivo principale di questa attività.</value>
   </data>
-    <data name="contributionform_additionaltechnologyarea_placeholder" xml:space="preserve">
+  <data name="contributionform_additionaltechnologyarea_placeholder" xml:space="preserve">
     <value>Seleziona fino a 2 aree tecnologiche aggiuntive che possono essere applicate anche a questa attività.</value>
   </data>
-    <data name="contributionform_visibility_placeholder" xml:space="preserve">
-    <value>Seleziona il livello di visibilità dell'attività</value>
+  <data name="contributionform_visibility_placeholder" xml:space="preserve">
+    <value>Seleziona il livello di visibilità dell'attività.</value>
   </data>
-    <data name="setting_language_title" xml:space="preserve">
+  <data name="setting_language_title" xml:space="preserve">
     <value>Lingua</value>
   </data>
-    <data name="setting_language_description" xml:space="preserve">
+  <data name="setting_language_description" xml:space="preserve">
     <value>Se è presente una traduzione associata alla lingua impostata sul dispositivo, questa viene selezionata automaticamente. Se desideri utilizzare una lingua diversa, puoi selezionarla qui.</value>
   </data>
-    <data name="themepicker_title" xml:space="preserve">
+  <data name="themepicker_title" xml:space="preserve">
     <value>Tema dell'applicazione</value>
   </data>
-    <data name="contributiontypepicker_title" xml:space="preserve">
+  <data name="contributiontypepicker_title" xml:space="preserve">
     <value>Tipo di attività</value>
   </data>
-    <data name="contributiontechnologypicker_title" xml:space="preserve">
+  <data name="contributiontechnologypicker_title" xml:space="preserve">
     <value>Area di contributi primaria</value>
   </data>
-    <data name="splash_contributionareas" xml:space="preserve">
+  <data name="splash_contributionareas" xml:space="preserve">
     <value>Prendi le aree di contributo...</value>
   </data>
-    <data name="splash_contributiontypes" xml:space="preserve">
+  <data name="splash_contributiontypes" xml:space="preserve">
     <value>Sinctonizza i tipi di contributo...</value>
   </data>
-    <data name="splash_visibilities" xml:space="preserve">
+  <data name="splash_visibilities" xml:space="preserve">
     <value>Dai visibilità alle cose...</value>
   </data>
-    <data name="splash_gettingready" xml:space="preserve">
+  <data name="splash_gettingready" xml:space="preserve">
     <value>In preparazione...</value>
   </data>
-    <data name="theme_systemdefault" xml:space="preserve">
+  <data name="theme_systemdefault" xml:space="preserve">
     <value>System Default</value>
   </data>
-    <data name="theme_light" xml:space="preserve">
+  <data name="theme_light" xml:space="preserve">
     <value>Light</value>
   </data>
-    <data name="theme_dark" xml:space="preserve">
+  <data name="theme_dark" xml:space="preserve">
     <value>Dark</value>
   </data>
-    <data name="visibility_title" xml:space="preserve">
+  <data name="visibility_title" xml:space="preserve">
     <value>Visibilità</value>
   </data>
-    <data name="icon_default" xml:space="preserve">
+  <data name="icon_default" xml:space="preserve">
     <value>Default</value>
   </data>
-    <data name="icon_darkblue" xml:space="preserve">
+  <data name="icon_darkblue" xml:space="preserve">
     <value>Nero Blue</value>
   </data>
-    <data name="icon_black" xml:space="preserve">
+  <data name="icon_black" xml:space="preserve">
     <value>Nero</value>
   </data>
-    <data name="icon_white" xml:space="preserve">
+  <data name="icon_white" xml:space="preserve">
     <value>Bianco</value>
   </data>
-    <data name="icon_rainbow" xml:space="preserve">
+  <data name="icon_rainbow" xml:space="preserve">
     <value>Arcobaleno</value>
   </data>
-    <data name="setting_appicon_title" xml:space="preserve">
+  <data name="setting_appicon_title" xml:space="preserve">
     <value>Icona dell'applicazione</value>
   </data>
-    <data name="setting_appicon_description" xml:space="preserve">
-    <value>Non ti piace l'icona dell'applicazione che abbiamo scelto per te? Abbiamo altre opzioni disponibili. Se hai altre idee, non esitare a contattarci!</value>
+  <data name="setting_appicon_description" xml:space="preserve">
+    <value>Non ti piace l'icona dell'applicazione che abbiamo scelto per te? Abbiamo altre opzioni disponibili.</value>
   </data>
-    <data name="yes" xml:space="preserve">
+  <data name="yes" xml:space="preserve">
     <value>Si</value>
   </data>
-    <data name="no" xml:space="preserve">
+  <data name="no" xml:space="preserve">
     <value>No</value>
   </data>
-    <data name="ok" xml:space="preserve">
+  <data name="ok" xml:space="preserve">
     <value>Ok</value>
   </data>
-    <data name="cancel" xml:space="preserve">
+  <data name="cancel" xml:space="preserve">
     <value>Annulla</value>
   </data>
-    <data name="warning_title" xml:space="preserve">
+  <data name="warning_title" xml:space="preserve">
     <value>Resisti...</value>
   </data>
-    <data name="contributiondetail_deleteconfirmation" xml:space="preserve">
-    <value>Sei sicuro di voler eliminare questo contributo? Questa è un'operazione non reucperabile</value>
+  <data name="contributiondetail_deleteconfirmation" xml:space="preserve">
+    <value>Sei sicuro di voler eliminare questo contributo? Questa è un'operazione non reucperabile.</value>
   </data>
-    <data name="error_unexpected" xml:space="preserve">
+  <data name="error_unexpected" xml:space="preserve">
     <value>Qualcosa che pensavamo non potesse accadere è accaduto. E' stato registrato un errore che analizzeremo il prima possibile.</value>
   </data>
-    <data name="error_badrequest" xml:space="preserve">
+  <data name="error_badrequest" xml:space="preserve">
     <value>Abbiamo gestito una richiesta non del tutto corretta. Riprova più tardi.</value>
   </data>
-    <data name="error_servererror" xml:space="preserve">
+  <data name="error_servererror" xml:space="preserve">
     <value>L'API MVP ha creato qualche problema. Impossibile elaborare la tua richiesta. Riprova più tardi.</value>
   </data>
-    <data name="alert_error_unauthorized" xml:space="preserve">
+  <data name="alert_error_unauthorized" xml:space="preserve">
     <value>Le tue credenziali sono scadute e non siamo riusciti a salvare la situazione. Quindi sei stato disconnesso. Accedi di nuovo per continuare.</value>
   </data>
-    <data name="clipboard_title" xml:space="preserve">
-    <value>Sembra fico!!!</value>
+  <data name="clipboard_title" xml:space="preserve">
+    <value>Sembra fico!</value>
   </data>
-    <data name="clipboard_description" xml:space="preserve">
+  <data name="clipboard_description" xml:space="preserve">
     <value>Notiamo un URL nei tuoi appunti. Vuoi che proviamo a precompilare un'attività al di fuori di questo?</value>
   </data>
-    <data name="contributiondetail_notdeleted" xml:space="preserve">
+  <data name="contributiondetail_notdeleted" xml:space="preserve">
     <value>Non è stato possibile eliminare il tuo contributo. Forse era già stato cancellato o è avvenuto nel precedente periodo di aggiudicazione?</value>
   </data>
-    <data name="validation_variablefield" xml:space="preserve">
+  <data name="validation_variablefield" xml:space="preserve">
     <value>{0} è un campo richiesto.</value>
   </data>
-    <data name="warning_title_activitylocked" xml:space="preserve">
+  <data name="warning_title_activitylocked" xml:space="preserve">
     <value>Attività bloccata</value>
   </data>
-    <data name="warning_description_activitylocked" xml:space="preserve">
+  <data name="warning_description_activitylocked" xml:space="preserve">
     <value>Questa attività è stata registrata nella finestra di contribuzione precedente e quindi non può essere modificata o eliminata.</value>
   </data>
-    <data name="additionaltechnologypicker_title" xml:space="preserve">
+  <data name="additionaltechnologypicker_title" xml:space="preserve">
     <value>Aree di contributi aggiuntivi</value>
   </data>
-    <data name="error_nomvpaccount" xml:space="preserve">
+  <data name="error_nomvpaccount" xml:space="preserve">
     <value>Impossibile autenticarti utilizzando le credenziali fornite. Sei sicuro di utilizzare l'account associato al tuo ID MVP?</value>
   </data>
-    <data name="progress_saving" xml:space="preserve">
+  <data name="progress_saving" xml:space="preserve">
     <value>Sto salvando...</value>
   </data>
-    <data name="licenses_title" xml:space="preserve">
+  <data name="licenses_title" xml:space="preserve">
     <value>Licenze</value>
   </data>
-    <data name="about_licenses_title" xml:space="preserve">
+  <data name="about_licenses_title" xml:space="preserve">
     <value>Licenze</value>
   </data>
-    <data name="about_licenses_description" xml:space="preserve">
-    <value>Questa applicazione è sulle spalle di giganti senza i quali la sua creazione non sarebbe possibile. Se vuoi sapere chi sono, guarda le licenze dei loro fantastici pezzetti di software</value>
+  <data name="about_licenses_description" xml:space="preserve">
+    <value>Questa applicazione è sulle spalle di giganti senza i quali la sua creazione non sarebbe possibile. Se vuoi sapere chi sono, guarda le licenze dei loro fantastici pezzetti di software.</value>
   </data>
-    <data name="view_licenses" xml:space="preserve">
+  <data name="view_licenses" xml:space="preserve">
     <value>Visualizza le licenze</value>
   </data>
-    <data name="progress_loading_url_data" xml:space="preserve">
+  <data name="progress_loading_url_data" xml:space="preserve">
     <value>Recupero dei metadati dell'URL ...</value>
   </data>
-    <data name="contributionform_save" xml:space="preserve">
+  <data name="contributionform_save" xml:space="preserve">
     <value>Salva</value>
   </data>
-    <data name="contributiondetails_edit" xml:space="preserve">
+  <data name="contributiondetails_edit" xml:space="preserve">
     <value>Modifica</value>
   </data>
-    <data name="error_title_validationfailed" xml:space="preserve">
+  <data name="error_title_validationfailed" xml:space="preserve">
     <value>Validazione fallita</value>
   </data>
-    <data name="error_description_validationfailed" xml:space="preserve">
+  <data name="error_description_validationfailed" xml:space="preserve">
     <value>Non tutti i campi obbligatori sono stati completati. Completa il modulo e prova a salvare di nuovo.</value>
   </data>
-    <data name="empty_state_title" xml:space="preserve">
+  <data name="empty_state_title" xml:space="preserve">
     <value>Oh.... quì è vuoto!</value>
   </data>
-    <data name="empty_state_contributions" xml:space="preserve">
+  <data name="empty_state_contributions" xml:space="preserve">
     <value>Non abbiamo trovato alcun contributo. Aggiungi un nuovo contributo o aggiorna per provare a recuperare i dati esistenti.</value>
   </data>
-    <data name="contribution_add" xml:space="preserve">
+  <data name="contribution_add" xml:space="preserve">
     <value>Aggiungi</value>
   </data>
-    <data name="empty_state_contributiontypes" xml:space="preserve">
+  <data name="empty_state_contributiontypes" xml:space="preserve">
     <value>Non è stato possibile trovare alcun tipo di contributo. Prova ad aggiornare.</value>
   </data>
-    <data name="empty_state_contributiontechnologies" xml:space="preserve">
+  <data name="empty_state_contributiontechnologies" xml:space="preserve">
     <value>Impossibile trovare aree di contributo. Prova ad aggiornare.</value>
   </data>
-    <data name="empty_state_noresultcontributiontechnologies" xml:space="preserve">
+  <data name="empty_state_noresultcontributiontechnologies" xml:space="preserve">
     <value>La tua query di ricerca non ha prodotto risultati. Prova una query di ricerca diversa.</value>
   </data>
-    <data name="empty_state_visibilities" xml:space="preserve">
+  <data name="empty_state_visibilities" xml:space="preserve">
     <value>Non siamo riusciti a trovare alcuna visibilità. Prova ad aggiornare.</value>
   </data>
-    <data name="error_offline" xml:space="preserve">
+  <data name="error_offline" xml:space="preserve">
     <value>Questa zione non può essere effettuata senza connessione a internet. Riprova più tardi.</value>
   </data>
-    <data name="error_offline_title" xml:space="preserve">
+  <data name="error_offline_title" xml:space="preserve">
     <value>Nessuna connessione a internet</value>
   </data>
-    <data name="error_logoutwhileoffline" xml:space="preserve">
+  <data name="error_logoutwhileoffline" xml:space="preserve">
     <value>Al momento non hai una connessione a Internet. Ciò potrebbe causare l'impossibilità di accedere nuovamente. Sei sicuro di voler continuare?</value>
   </data>
-    <data name="offline_contributions" xml:space="preserve">
+  <data name="offline_contributions" xml:space="preserve">
     <value>Al momento non hai una connessione a Internet. Questo ci impedisce di caricare i tuoi contributi. Per favore riprova più tardi.</value>
   </data>
-    <data name="error_couldntchangeicon" xml:space="preserve">
+  <data name="error_couldntchangeicon" xml:space="preserve">
     <value>La tua icona non può essere cambiata. Riprova più tardi.</value>
   </data>
-    <data name="error_couldntchangetheme" xml:space="preserve">
+  <data name="error_couldntchangetheme" xml:space="preserve">
     <value>Il tuo tema non può essere cambiato. Riprova più tardi.</value>
   </data>
-    <data name="error_couldntchangelanguage" xml:space="preserve">
+  <data name="error_couldntchangelanguage" xml:space="preserve">
     <value>La tua lingua non può essere cambiata. Riprova più tardi.</value>
   </data>
-    <data name="error_title" xml:space="preserve">
+  <data name="error_title" xml:space="preserve">
     <value>Qualcosa è andato storto</value>
   </data>
-    <data name="error_data_not_loaded" xml:space="preserve">
+  <data name="error_data_not_loaded" xml:space="preserve">
     <value>Non è stato possibile caricare i dati. Non siamo abbastanza sicuri del motivo, ma è stato registrato un errore. Puoi provare ad aggiornare o riprovare più tardi.</value>
   </data>
-    <data name="error_couldntloadmorecontributions" xml:space="preserve">
+  <data name="error_couldntloadmorecontributions" xml:space="preserve">
     <value>Impossibile caricare altri contributi. Non siamo abbastanza sicuri del motivo, ma è stato registrato un errore. Per favore riprova più tardi.</value>
   </data>
-    <data name="error_couldntsavecontribution" xml:space="preserve">
+  <data name="error_couldntsavecontribution" xml:space="preserve">
     <value>Impossibile salvare questo contributo. Non siamo abbastanza sicuri del motivo, ma è stato registrato un errore. Per favore riprova più tardi.</value>
   </data>
-    <data name="error_couldntrefreshprofile" xml:space="preserve">
+  <data name="error_couldntrefreshprofile" xml:space="preserve">
     <value>Impossibile aggiornare le informazioni del tuo profilo. Non siamo abbastanza sicuri del motivo, ma è stato registrato un errore. Per favore riprova più tardi.</value>
+  </data>
+  <data name="about_credits_description" xml:space="preserve">
+    <value>Without the awesome people listed below this app would not have been possible. Therefore they have earned a spot in here to celebrate their contributions.</value>
+  </data>
+  <data name="about_credits_title" xml:space="preserve">
+    <value>Credits</value>
+  </data>
+  <data name="acknowledgementtype_tester" xml:space="preserve">
+    <value>Tester</value>
+  </data>
+  <data name="acknowledgementtype_translator" xml:space="preserve">
+    <value>Translator</value>
+  </data>
+  <data name="field_annual_quantity" xml:space="preserve">
+    <value>Annual Quantity</value>
+  </data>
+  <data name="field_annual_unique_visitors" xml:space="preserve">
+    <value>Annual Unique Visitors</value>
+  </data>
+  <data name="field_annual_reach" xml:space="preserve">
+    <value>Annual Reach</value>
+  </data>
+  <data name="field_attendees_of_talks" xml:space="preserve">
+    <value>Attendees of Talks</value>
+  </data>
+  <data name="field_contributions" xml:space="preserve">
+    <value>Contributions</value>
+  </data>
+  <data name="field_copies_sold" xml:space="preserve">
+    <value>Copies Sold</value>
+  </data>
+  <data name="sign_in" xml:space="preserve">
+    <value>Sign in</value>
+  </data>
+  <data name="swipe_to_continue" xml:space="preserve">
+    <value>Swipe to continue</value>
+  </data>
+  <data name="try_with_demo_account" xml:space="preserve">
+    <value>Try with a demo account</value>
+  </data>
+  <data name="onboarding_3_title" xml:space="preserve">
+    <value>Quick Add</value>
+  </data>
+  <data name="onboarding_3_description" xml:space="preserve">
+    <value>Directly create contributions based on a URL on your clipboard. Pre-filling whatever Can for you allowing you to quickly add new contributions.</value>
+  </data>
+  <data name="onboarding_1_title" xml:space="preserve">
+    <value>Simple and effective</value>
+  </data>
+  <data name="onboarding_1_description" xml:space="preserve">
+    <value>Manage all of your community activities from the palm of your hand.</value>
+  </data>
+  <data name="field_meetings" xml:space="preserve">
+    <value>Meetings</value>
+  </data>
+  <data name="field_members" xml:space="preserve">
+    <value>Members</value>
+  </data>
+  <data name="field_number_of_answers" xml:space="preserve">
+    <value>Number of Answers</value>
+  </data>
+  <data name="field_number_of_attendees" xml:space="preserve">
+    <value>Number of Attendees</value>
+  </data>
+  <data name="field_number_of_books" xml:space="preserve">
+    <value>Number of Books</value>
+  </data>
+  <data name="field_number_of_articles" xml:space="preserve">
+    <value>Number of Articles\</value>
+  </data>
+  <data name="field_number_of_conferences" xml:space="preserve">
+    <value>Number of Conferences</value>
+  </data>
+  <data name="field_number_of_downloads" xml:space="preserve">
+    <value>Number of Downloads</value>
+  </data>
+  <data name="field_number_of_events" xml:space="preserve">
+    <value>Number of Events</value>
+  </data>
+  <data name="field_number_of_events_participated" xml:space="preserve">
+    <value>Number of Events Participated</value>
+  </data>
+  <data name="field_number_of_feedbacks_provided" xml:space="preserve">
+    <value>Number of Feedbacks Provided</value>
+  </data>
+  <data name="field_number_of_followers" xml:space="preserve">
+    <value>Number of Followers</value>
+  </data>
+  <data name="field_views_of_answers" xml:space="preserve">
+    <value>Views of Answers</value>
+  </data>
+  <data name="field_number_of_views" xml:space="preserve">
+    <value>Number of Views</value>
+  </data>
+  <data name="field_number_of_threads_moderated" xml:space="preserve">
+    <value>Number of Threads Moderated</value>
+  </data>
+  <data name="field_number_of_subscribers" xml:space="preserve">
+    <value>Number of Subscribers</value>
+  </data>
+  <data name="field_number_of_samples" xml:space="preserve">
+    <value>Number of Samples</value>
+  </data>
+  <data name="field_number_of_posts" xml:space="preserve">
+    <value>Number of Posts</value>
+  </data>
+  <data name="field_number_of_mentorship_activity" xml:space="preserve">
+    <value>Number of Mentorship Activity</value>
+  </data>
+  <data name="field_number_of_mentees" xml:space="preserve">
+    <value>Number of Mentees</value>
+  </data>
+  <data name="field_prs_issues_submissions" xml:space="preserve">
+    <value>Pull Requests/Issues/Submissions</value>
+  </data>
+  <data name="field_projects" xml:space="preserve">
+    <value>Project(s)</value>
+  </data>
+  <data name="field_number_of_visitors" xml:space="preserve">
+    <value>Number of Visitors</value>
+  </data>
+  <data name="field_number_of_videos" xml:space="preserve">
+    <value>Number of Videos</value>
+  </data>
+  <data name="field_number_of_talks" xml:space="preserve">
+    <value>Number of Talks</value>
+  </data>
+  <data name="field_number_of_sites" xml:space="preserve">
+    <value>Number of Sites</value>
+  </data>
+  <data name="field_number_of_projects" xml:space="preserve">
+    <value>Number of Projects</value>
   </data>
 </root>
