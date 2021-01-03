@@ -47,7 +47,6 @@
         <Folder Include="Models\Enums\" />
         <Folder Include="Services\Demo\" />
         <Folder Include="Services\Demo\Files\" />
-        <Folder Include="Resources\" />
     </ItemGroup>
     <ItemGroup>
         <None Remove="Resources\mvp_logo.svg" />
@@ -117,6 +116,8 @@
         </Compile>
         <Compile Update="Resources\Translations.Designer.cs">
             <DependentUpon>Translations.resx</DependentUpon>
+            <DesignTime>True</DesignTime>
+            <AutoGen>True</AutoGen>
         </Compile>
         <Compile Update="Resources\Translations.hu.Designer.cs">
             <DependentUpon>Translations.hu.resx</DependentUpon>
