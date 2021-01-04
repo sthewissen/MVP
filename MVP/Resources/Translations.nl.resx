@@ -54,12 +54,6 @@
   <data name="contributionform_title_edit" xml:space="preserve">
         <value>Activiteit bewerken</value>
     </data>
-  <data name="language_english" xml:space="preserve">
-        <value>Engels</value>
-    </data>
-  <data name="language_dutch" xml:space="preserve">
-        <value>Nederlands</value>
-    </data>
   <data name="languagepicker_title" xml:space="preserve">
         <value>Taal</value>
     </data>
