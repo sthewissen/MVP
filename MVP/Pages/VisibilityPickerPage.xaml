@@ -4,7 +4,7 @@
                        xmlns:pages="clr-namespace:MVP.Pages"
                        xmlns:vm="clr-namespace:MVP.ViewModels"
                        xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-                       xmlns:extensions="clr-namespace:Xamarin.CommunityToolkit.Extensions;assembly=Xamarin.CommunityToolkit"
+                       xmlns:extensions="clr-namespace:MVP.Helpers"
                        x:Class="MVP.Pages.VisibilityPickerPage"
                        x:DataType="vm:VisibilityPickerViewModel"
                        x:TypeArguments="vm:VisibilityPickerViewModel"

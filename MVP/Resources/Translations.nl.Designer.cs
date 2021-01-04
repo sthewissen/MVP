@@ -131,18 +131,6 @@ namespace MVP.Resources {
             }
         }
         
-        internal static string language_english {
-            get {
-                return ResourceManager.GetString("language_english", resourceCulture);
-            }
-        }
-        
-        internal static string language_dutch {
-            get {
-                return ResourceManager.GetString("language_dutch", resourceCulture);
-            }
-        }
-        
         internal static string languagepicker_title {
             get {
                 return ResourceManager.GetString("languagepicker_title", resourceCulture);
@@ -920,6 +908,24 @@ namespace MVP.Resources {
         internal static string about_credits_title {
             get {
                 return ResourceManager.GetString("about_credits_title", resourceCulture);
+            }
+        }
+        
+        internal static string sign_in {
+            get {
+                return ResourceManager.GetString("sign_in", resourceCulture);
+            }
+        }
+        
+        internal static string swipe_to_continue {
+            get {
+                return ResourceManager.GetString("swipe_to_continue", resourceCulture);
+            }
+        }
+        
+        internal static string try_with_demo_account {
+            get {
+                return ResourceManager.GetString("try_with_demo_account", resourceCulture);
             }
         }
     }

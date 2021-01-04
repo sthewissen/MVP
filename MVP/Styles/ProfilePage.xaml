@@ -9,7 +9,7 @@
                        xmlns:views="clr-namespace:Xamarin.CommunityToolkit.UI.Views;assembly=Xamarin.CommunityToolkit"
                        xmlns:effects="clr-namespace:Xamarin.CommunityToolkit.Effects;assembly=Xamarin.CommunityToolkit"
                        xmlns:vm="clr-namespace:MVP.ViewModels"
-                       xmlns:extensions="clr-namespace:Xamarin.CommunityToolkit.Extensions;assembly=Xamarin.CommunityToolkit"
+                       xmlns:extensions="clr-namespace:MVP.Helpers"
                        xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
                        xmlns:sh="clr-namespace:Sharpnado.Shades;assembly=Sharpnado.Shadows"
                        x:Class="MVP.Pages.ProfilePage"
@@ -53,8 +53,8 @@
 
                         <ff:CachedImage HeightRequest="80"
                                         Source="{Binding ProfileImage}"
-                                        ErrorPlaceholder="mvp_logo"
-                                        LoadingPlaceholder="mvp_logo"
+                                        ErrorPlaceholder="mvp_placeholder"
+                                        LoadingPlaceholder="mvp_placeholder"
                                         VerticalOptions="Center"
                                         WidthRequest="80">
                             <ff:CachedImage.Transformations>
@@ -206,7 +206,7 @@
                         <Button Style="{StaticResource destructive_primary_button}"
                                 Margin="24,32"
                                 Command="{Binding LogoutCommand}"
-                                ImageSource="{FontImage FontFamily={StaticResource font_icon}, Color={StaticResource white}, Size=20, Glyph={x:Static icons:Icons.logout}}"
+                                ImageSource="{OnPlatform iOS={FontImage FontFamily={StaticResource font_icon}, Color={StaticResource white}, Size=20, Glyph={x:Static icons:Icons.logout}}}"
                                 Text="{extensions:Translate logout}"/>
                     </sh:Shadows>
                 </StackLayout>

@@ -7,17 +7,17 @@ using Microsoft.Identity.Client;
 using Android.Content;
 using MVP.Services;
 using Plugin.CurrentActivity;
-using FormsToolkit.Droid;
 using Acr.UserDialogs;
 using MVP.Services.Interfaces;
-using MVP.Pages;
-using MVP.ViewModels;
 using Autofac;
-using TouchEffect.Android;
 
 namespace MVP.Droid
 {
-    [Activity(Label = "MVP", Icon = "@mipmap/icon", Theme = "@style/MainTheme", MainLauncher = true, ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.Orientation)]
+    [Activity(
+        Label = "MVP",
+        Icon = "@mipmap/icon",
+        Theme = "@style/MainTheme.Launcher",
+        ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.UiMode)]
     public class MainActivity : global::Xamarin.Forms.Platform.Android.FormsAppCompatActivity
     {
         protected override void OnCreate(Bundle savedInstanceState)
@@ -32,18 +32,16 @@ namespace MVP.Droid
             Xamarin.Essentials.Platform.Init(this, savedInstanceState);
             global::Xamarin.Forms.Forms.Init(this, savedInstanceState);
             FFImageLoading.Forms.Platform.CachedImageRenderer.Init(enableFastRenderer: true);
-            Toolkit.Init();
             UserDialogs.Init(this);
-            TouchEffectPreserver.Preserve();
 
             // Inject analytics service
             using var scope = ContainerService.Container.BeginLifetimeScope();
             var analyticsService = scope.Resolve<IAnalyticsService>();
             var apiService = scope.Resolve<IMvpApiService>();
             var authService = scope.Resolve<IAuthService>();
-            var dialogService = scope.Resolve<IDialogService>();
+            var languageService = scope.Resolve<LanguageService>();
 
-            LoadApplication(new App(analyticsService, apiService, authService, dialogService));
+            LoadApplication(new App(analyticsService, apiService, authService, languageService));
 
             // Set the current activity so the AuthService knows where to start.
             AuthService.ParentWindow = CrossCurrentActivity.Current.Activity;

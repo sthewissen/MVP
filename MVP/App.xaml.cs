@@ -8,11 +8,12 @@ using MVP.Pages;
 using TinyMvvm.Autofac;
 using TinyMvvm.IoC;
 using TinyMvvm;
-using Xamarin.CommunityToolkit.Helpers;
 using Xamarin.Essentials;
 using MVP.Resources;
 using MVP.Services.Demo;
 using TinyNavigationHelper;
+using MVP.Helpers;
+using Xamarin.CommunityToolkit.Helpers;
 
 namespace MVP
 {
@@ -21,6 +22,7 @@ namespace MVP
         public IAnalyticsService AnalyticsService { get; set; }
         public static IMvpApiService MvpApiService { get; set; }
         public static IAuthService AuthService { get; set; }
+        public static INavigationHelper NavigationHelper { get; set; }
 
         public App(IAnalyticsService analyticsService, IMvpApiService mvpApiService, IAuthService authService, LanguageService languageService)
         {
@@ -36,8 +38,7 @@ namespace MVP
             MvpApiService = mvpApiService;
             AuthService = authService;
 
-            LocalizationResourceManager.Current.Init(Translations.ResourceManager);
-            languageService.SetLanguage(Preferences.Get(Settings.AppLanguage, Settings.AppLanguageDefault));
+            languageService.Initialize();
 
             Resolver.SetResolver(new AutofacResolver(ContainerService.Container));
             Akavache.Registrations.Start(Constants.AppName);
@@ -46,11 +47,13 @@ namespace MVP
 
             // Set the theme that the user has picked.
             Current.UserAppTheme = (OSAppTheme)Preferences.Get(Settings.AppTheme, Settings.AppThemeDefault);
+            var statusBar = DependencyService.Get<IStatusBar>();
+            statusBar?.SetStatusBarColor(Current.UserAppTheme);
 
             // Set our start page to the splash screen, as that is what we want
             // everyone to see first. It's glorious.
-            var navHelper = Resolver.Resolve<INavigationHelper>();
-            navHelper.SetRootView(nameof(SplashScreenPage));
+            NavigationHelper = Resolver.Resolve<INavigationHelper>();
+            NavigationHelper.SetRootView(nameof(SplashScreenPage));
         }
 
         /// <summary>

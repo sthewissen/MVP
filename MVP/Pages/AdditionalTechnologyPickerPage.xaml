@@ -4,7 +4,7 @@
                        xmlns:vm="clr-namespace:MVP.ViewModels"
                        xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
                        x:Class="MVP.Pages.AdditionalTechnologyPickerPage"
-                       xmlns:extensions="clr-namespace:Xamarin.CommunityToolkit.Extensions;assembly=Xamarin.CommunityToolkit"
+                       xmlns:extensions="clr-namespace:MVP.Helpers"
                        xmlns:behaviors="clr-namespace:Xamarin.CommunityToolkit.Behaviors;assembly=Xamarin.CommunityToolkit"
                        x:DataType="vm:AdditionalTechnologyPickerViewModel"
                        x:TypeArguments="vm:AdditionalTechnologyPickerViewModel"

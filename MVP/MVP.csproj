@@ -3,7 +3,7 @@
     <PropertyGroup>
         <TargetFramework>netstandard2.1</TargetFramework>
         <ProduceReferenceAssembly>true</ProduceReferenceAssembly>
-        <LangVersion>8.0</LangVersion>
+        <LangVersion>9.0</LangVersion>
     </PropertyGroup>
     <ItemGroup>
         <PackageReference Include="Xamarin.Forms" Version="5.0.0.1829-pre6" />
@@ -26,13 +26,13 @@
         <PackageReference Include="TinyMvvm.Forms" Version="2.4.14" />
         <PackageReference Include="Xamarin.CommunityToolkit" Version="1.0.0-preview1120" />
         <PackageReference Include="Sharpnado.Shadows" Version="1.2.0" />
+        <PackageReference Include="IsoNames.NETStandard" Version="1.2.1" />
     </ItemGroup>
     <ItemGroup>
         <Folder Include="Models\" />
         <Folder Include="Services\Helpers\" />
         <Folder Include="Styles\" />
         <Folder Include="Extensions\" />
-        <Folder Include="Resources\" />
         <Folder Include="Services\Interfaces\" />
         <Folder Include="Resources\Fonts\" />
         <Folder Include="Converters\" />
@@ -47,6 +47,7 @@
         <Folder Include="Models\Enums\" />
         <Folder Include="Services\Demo\" />
         <Folder Include="Services\Demo\Files\" />
+        <Folder Include="Resources\" />
     </ItemGroup>
     <ItemGroup>
         <None Remove="Resources\mvp_logo.svg" />
@@ -105,21 +106,63 @@
         </EmbeddedResource>
     </ItemGroup>
     <ItemGroup>
+        <Compile Update="Resources\Translations.no.Designer.cs">
+            <DependentUpon>Translations.no.resx</DependentUpon>
+        </Compile>
+        <Compile Update="Resources\Translations.it.Designer.cs">
+            <DependentUpon>Translations.it.resx</DependentUpon>
+        </Compile>
+        <Compile Update="Resources\Translations.es.Designer.cs">
+            <DependentUpon>Translations.es.resx</DependentUpon>
+        </Compile>
         <Compile Update="Resources\Translations.Designer.cs">
             <DependentUpon>Translations.resx</DependentUpon>
+        </Compile>
+        <Compile Update="Resources\Translations.hu.Designer.cs">
+            <DependentUpon>Translations.hu.resx</DependentUpon>
         </Compile>
         <Compile Update="Resources\Translations.nl.Designer.cs">
             <DependentUpon>Translations.nl.resx</DependentUpon>
         </Compile>
+        <Compile Update="Resources\Translations.sv.Designer.cs">
+            <DependentUpon>Translations.sv.resx</DependentUpon>
+        </Compile>
+        <Compile Update="Resources\Translations.tr.Designer.cs">
+            <DependentUpon>Translations.tr.resx</DependentUpon>
+        </Compile>
     </ItemGroup>
     <ItemGroup>
+        <EmbeddedResource Update="Resources\Translations.it.resx">
+            <LastGenOutput>Translations.it.Designer.cs</LastGenOutput>
+            <Generator>ResXFileCodeGenerator</Generator>
+        </EmbeddedResource>
         <EmbeddedResource Update="Resources\Translations.resx">
             <Generator>ResXFileCodeGenerator</Generator>
             <LastGenOutput>Translations.Designer.cs</LastGenOutput>
         </EmbeddedResource>
+        <EmbeddedResource Update="Resources\Translations.hu.resx">
+            <Generator>ResXFileCodeGenerator</Generator>
+            <LastGenOutput>Translations.hu.Designer.cs</LastGenOutput>
+        </EmbeddedResource>
         <EmbeddedResource Update="Resources\Translations.nl.resx">
             <Generator>ResXFileCodeGenerator</Generator>
             <LastGenOutput>Translations.nl.Designer.cs</LastGenOutput>
+        </EmbeddedResource>
+        <EmbeddedResource Update="Resources\Translations.es.resx">
+            <Generator>ResXFileCodeGenerator</Generator>
+            <LastGenOutput>Translations.es.Designer.cs</LastGenOutput>
+        </EmbeddedResource>
+        <EmbeddedResource Update="Resources\Translations.sv.resx">
+            <Generator>ResXFileCodeGenerator</Generator>
+            <LastGenOutput>Translations.sv.Designer.cs</LastGenOutput>
+        </EmbeddedResource>
+        <EmbeddedResource Update="Resources\Translations.tr.resx">
+            <Generator>ResXFileCodeGenerator</Generator>
+            <LastGenOutput>Translations.tr.Designer.cs</LastGenOutput>
+        </EmbeddedResource>
+        <EmbeddedResource Update="Resources\Translations.no.resx">
+            <Generator>ResXFileCodeGenerator</Generator>
+            <LastGenOutput>Translations.no.Designer.cs</LastGenOutput>
         </EmbeddedResource>
     </ItemGroup>
 </Project>
