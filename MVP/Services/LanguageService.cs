@@ -15,7 +15,7 @@ namespace MVP.Services
         readonly static WeakEventManager<string?> preferredLanguageChangedEventManager = new();
         readonly IAnalyticsService analyticsService;
 
-        public static List<string> SupportedLanguages = new List<string> { "en", "nl", "es", "tr", "hu", "sv", "no", "it" };
+        public static List<string> SupportedLanguages = new List<string> { "en", "nl", "es", "tr", "hu", "sv", "no", "it", "fr" };
 
         public LanguageService(IAnalyticsService analyticsService)
         {
