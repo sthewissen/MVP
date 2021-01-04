@@ -55,13 +55,13 @@
         <value>Editer une contribution</value>
     </data>
     <data name="language_english" xml:space="preserve">
-        <value>English</value>
+        <value>Anglais</value>
     </data>
     <data name="language_dutch" xml:space="preserve">
-        <value>Dutch</value>
+        <value>Néerlandais</value>
     </data>
     <data name="language_french" xml:space="preserve">
-        <value>French</value>
+        <value>Français</value>
     </data>
     <data name="languagepicker_title" xml:space="preserve">
         <value>Langue</value>
@@ -100,28 +100,28 @@
         <value>A propos</value>
     </data>
     <data name="about_why_title" xml:space="preserve">
-        <value>Pourquoi cet app?</value>
+        <value>Pourquoi cette app ?</value>
     </data>
     <data name="about_why_description" xml:space="preserve">
-        <value>Il y a toujours eu un besoin des Microsoft MVPs pour gérer leurs contribution dans la communauté d'une façon plus facile. Le portail online fonctionne, mais avoir la fonctionalité dans votre appareil pour créer les activités directement est pratique. C'est la raison de ce projet.</value>
+        <value>Le besoin c'est toujours fait sentir pour les Microsoft MVPs de gérer plus simplement les activités de leur communauté. Le portail en ligne fait l'affaire, mais avoir la même chose dans votre poche pour créer des activités à la volée est vraiment cool. C'est pourquoi ce projet existe.</value>
     </data>
     <data name="about_opensource_title" xml:space="preserve">
         <value>Source libre</value>
     </data>
     <data name="about_opensource_description" xml:space="preserve">
-        <value>Cet app est en source livre. Si vous appréciez cette app, vous pouvez devenir un mécène sur Github et me payer une tasse de café par mois ☕️.</value>
+        <value>Cet app est en source libre. Si vous appréciez cette app, vous pouvez devenir un mécène sur Github et me payer une tasse de café par mois ☕️.</value>
     </data>
     <data name="becomesponsor" xml:space="preserve">
         <value>Devenir mécène</value>
     </data>
     <data name="contributionform_timeframememo" xml:space="preserve">
-        <value>Pour participer au cycle des prix de Juillet, les activités communautaires doivent être entre {0} et {1}. Les activités communautaires à partir de {1} seront prises en compte pour une considération future.</value>
+        <value>Pour participer au cycle des récompenses de Juillet, les activités communautaires doivent être faites entre le {0} et le {1}. Les activités communautaires à partir du {1} seront retenues pour examen ultérieur.</value>
     </data>
     <data name="contributionform_activitytype_placeholder" xml:space="preserve">
         <value>Séléctionner le type d'activité le plus adapté.</value>
     </data>
     <data name="contributionform_technologyarea_placeholder" xml:space="preserve">
-        <value>Séléctionner le domaine technologic principal de l'activité.</value>
+        <value>Séléctionner le domaine technologique principal de l'activité.</value>
     </data>
     <data name="contributionform_additionaltechnologyarea_placeholder" xml:space="preserve">
         <value>Séléctionner jusqu'à deux domaines technologiques qui s'appliquent aussi à cette activité.</value>
@@ -208,7 +208,7 @@
         <value>Êtes vous sûr de vouloir effacer cette contribution? Vous ne pouvez pas annuler cette opération.</value>
     </data>
     <data name="error_unexpected" xml:space="preserve">
-        <value>Une erreure est survenue. Nous avons reçu une notice de cette erreure et allons nous y atteler dès que possible.</value>
+        <value>Une erreure est survenue. Une erreur a été rapportée et nous allons la traitée dès que possible.</value>
     </data>
     <data name="error_badrequest" xml:space="preserve">
         <value>Votre requête n'a pas pu être traitée. Veuillez réessayer plus tard.</value>
@@ -217,7 +217,7 @@
         <value>Votre requête n'a pas pu être traitée. Veuillez réessayer plus tard.</value>
     </data>
     <data name="alert_error_unauthorized" xml:space="preserve">
-        <value>Votre accréditation est expirée et n'a pas pu être rafraichie. Vous avez été déconnecté. Veuillez vous reconnecter pour continuer.</value>
+        <value>Vos identifiants ont expirés et n'ont pas pu être actualisé. Ainsi vous avez été déconnecté. Veuillez vous reconnecter pour continuer.</value>
     </data>
     <data name="clipboard_title" xml:space="preserve">
         <value>Ça a l'air génial!</value>
@@ -226,7 +226,7 @@
         <value>Vous avez une URL dans votre presse-papiers. Voulez vous que nous pré-remplisson une activité basée sur cette URL?</value>
     </data>
     <data name="contributiondetail_notdeleted" xml:space="preserve">
-        <value>Cette contribution n'a pas pu être effacée. Peut-être elle a déjà été effacée, ou elle a étée prise en compte dans la période précédente?</value>
+        <value>Cette contribution n'a pas pu être éffacée. Peut-être qu'elle a déjà été éffacée, ou qu'elle a été prise en compte dans la précédente période de récompense ?</value>
     </data>
     <data name="validation_variablefield" xml:space="preserve">
         <value>{0} est un champ requis.</value>
@@ -253,7 +253,7 @@
         <value>Licences</value>
     </data>
     <data name="about_licenses_description" xml:space="preserve">
-        <value>Cet app utilise une série de composants sans lesquels sa création serait impossible. La liste se trouve sous les licences. Découvrez ces super logiciels.</value>
+        <value>Cette App repose sur les épaules de géants sans qui sa création ne pourrait être possible. Si vous voulez savoir qui ils sont, regardez les licenses pour leurs supers logiciels.</value>
     </data>
     <data name="view_licenses" xml:space="preserve">
         <value>Voir les Licences</value>
@@ -295,13 +295,13 @@
         <value>Auncune visibilité trouvée. Veuillez rafraichir.</value>
     </data>
     <data name="error_offline" xml:space="preserve">
-        <value>Cett action ne peut pas être complétée sans connexion à internet. Veuillez réessayer plus tard.</value>
+        <value>Cette action ne peut pas être complétée sans connexion à internet. Veuillez réessayer plus tard.</value>
     </data>
     <data name="error_offline_title" xml:space="preserve">
         <value>Pas de connexion à internet</value>
     </data>
     <data name="error_logoutwhileoffline" xml:space="preserve">
-        <value>Vous n'avez pas de connexion à internet. Ceci peut vous déconnecter. Êtes vous sûr de vouloir continuer?</value>
+        <value>Vous n'avez pas de connexion à internet. Ceci peut vous empêcher de vous reconnecter. Êtes vous sûr de vouloir continuer?</value>
     </data>
     <data name="offline_contributions" xml:space="preserve">
         <value>Vous n'avez pas de connexion à internet. Ceci nous empêche de charger vos contributions. Veuillez réessayer plus tard.</value>
@@ -319,7 +319,7 @@
         <value>Une erreure s'est produite</value>
     </data>
     <data name="error_data_not_loaded" xml:space="preserve">
-        <value>Les données n'one pas pu être chargées. Une erreur a été rapportée. Vous pouvez essayer de rafraichir or réessayer plus tard.</value>
+        <value>Les données n'ont pas pu être chargées. Une erreur a été rapportée. Vous pouvez essayer de rafraichir or réessayer plus tard.</value>
     </data>
     <data name="error_couldntloadmorecontributions" xml:space="preserve">
         <value>Impossible de charger plus de contributions. Une erreur a été rapportée. Vous pouvez réessayer plus tard.</value>
