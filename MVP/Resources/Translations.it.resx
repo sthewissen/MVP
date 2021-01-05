@@ -427,135 +427,135 @@
     <value>Impossibile aggiornare le informazioni del tuo profilo. Non siamo abbastanza sicuri del motivo, ma è stato registrato un errore. Per favore riprova più tardi.</value>
   </data>
   <data name="about_credits_description" xml:space="preserve">
-    <value>Without the awesome people listed below this app would not have been possible. Therefore they have earned a spot in here to celebrate their contributions.</value>
+    <value>Senza le persone fantastiche elencate di seguito questa applicazione non sarebbe stata possibile. Pertanto si sono guadagnati un posto per celebrare il loro contributo.</value>
   </data>
   <data name="about_credits_title" xml:space="preserve">
-    <value>Credits</value>
+    <value>Crediti</value>
   </data>
   <data name="acknowledgementtype_tester" xml:space="preserve">
     <value>Tester</value>
   </data>
   <data name="acknowledgementtype_translator" xml:space="preserve">
-    <value>Translator</value>
+    <value>Traduttore</value>
   </data>
   <data name="field_annual_quantity" xml:space="preserve">
-    <value>Annual Quantity</value>
+    <value>Quantità Annuale</value>
   </data>
   <data name="field_annual_reach" xml:space="preserve">
-    <value>Annual Reach</value>
+    <value>Limite Annuale</value>
   </data>
   <data name="field_annual_unique_visitors" xml:space="preserve">
-    <value>Annual Unique Visitors</value>
+    <value>Visitatori Unici Annuali</value>
   </data>
   <data name="field_attendees_of_talks" xml:space="preserve">
-    <value>Attendees of Talks</value>
+    <value>Partecipanti ai colloqui</value>
   </data>
   <data name="field_contributions" xml:space="preserve">
-    <value>Contributions</value>
+    <value>Contributi</value>
   </data>
   <data name="field_copies_sold" xml:space="preserve">
-    <value>Copies Sold</value>
+    <value>Copie vendute</value>
   </data>
   <data name="field_meetings" xml:space="preserve">
-    <value>Meetings</value>
+    <value>Incontri</value>
   </data>
   <data name="field_members" xml:space="preserve">
-    <value>Members</value>
+    <value>Membri</value>
   </data>
   <data name="field_number_of_answers" xml:space="preserve">
-    <value>Number of Answers</value>
+    <value>Numero di Risposte</value>
   </data>
   <data name="field_number_of_articles" xml:space="preserve">
-    <value>Number of Articles</value>
+    <value>Numero di Articoli</value>
   </data>
   <data name="field_number_of_attendees" xml:space="preserve">
-    <value>Number of Attendees</value>
+    <value>Numero di Partecipanti</value>
   </data>
   <data name="field_number_of_books" xml:space="preserve">
-    <value>Number of Books</value>
+    <value>Numero di Libri</value>
   </data>
   <data name="field_number_of_conferences" xml:space="preserve">
-    <value>Number of Conferences</value>
+    <value>Numero di Conferenze</value>
   </data>
   <data name="field_number_of_downloads" xml:space="preserve">
-    <value>Number of Downloads</value>
+    <value>Numero di Downloads</value>
   </data>
   <data name="field_number_of_events" xml:space="preserve">
-    <value>Number of Events</value>
+    <value>Numero di Eventi</value>
   </data>
   <data name="field_number_of_events_participated" xml:space="preserve">
-    <value>Number of Events Participated</value>
+    <value>Numero di Eventi ai quali hai partecipato</value>
   </data>
   <data name="field_number_of_feedbacks_provided" xml:space="preserve">
-    <value>Number of Feedbacks Provided</value>
+    <value>Numero di Feedbacks forniti</value>
   </data>
   <data name="field_number_of_followers" xml:space="preserve">
-    <value>Number of Followers</value>
+    <value>Numero di Followers</value>
   </data>
   <data name="field_number_of_mentees" xml:space="preserve">
-    <value>Number of Mentees</value>
+    <value>Numero di Allievi</value>
   </data>
   <data name="field_number_of_mentorship_activity" xml:space="preserve">
-    <value>Number of Mentorship Activity</value>
+    <value>Numero di Attività di Menthoring</value>
   </data>
   <data name="field_number_of_posts" xml:space="preserve">
-    <value>Number of Posts</value>
+    <value>Numero di Posts</value>
   </data>
   <data name="field_number_of_projects" xml:space="preserve">
-    <value>Number of Projects</value>
+    <value>Numero di Progetti</value>
   </data>
   <data name="field_number_of_samples" xml:space="preserve">
-    <value>Number of Samples</value>
+    <value>Numero di Esempi</value>
   </data>
   <data name="field_number_of_sites" xml:space="preserve">
-    <value>Number of Sites</value>
+    <value>Numero di Siti</value>
   </data>
   <data name="field_number_of_subscribers" xml:space="preserve">
-    <value>Number of Subscribers</value>
+    <value>Numero di Iscritti</value>
   </data>
   <data name="field_number_of_talks" xml:space="preserve">
-    <value>Number of Talks</value>
+    <value>Numero di Colloqui</value>
   </data>
   <data name="field_number_of_threads_moderated" xml:space="preserve">
-    <value>Number of Threads Moderated</value>
+    <value>Numero di Threads moderati</value>
   </data>
   <data name="field_number_of_videos" xml:space="preserve">
-    <value>Number of Videos</value>
+    <value>Numero di Video</value>
   </data>
   <data name="field_number_of_views" xml:space="preserve">
-    <value>Number of Views</value>
+    <value>Numero di Visualizzazioni</value>
   </data>
   <data name="field_number_of_visitors" xml:space="preserve">
-    <value>Number of Visitors</value>
+    <value>Numero di Visitatori</value>
   </data>
   <data name="field_projects" xml:space="preserve">
-    <value>Project(s)</value>
+    <value>Progetto(i)</value>
   </data>
   <data name="field_prs_issues_submissions" xml:space="preserve">
     <value>Pull Requests/Issues/Submissions</value>
   </data>
   <data name="field_views_of_answers" xml:space="preserve">
-    <value>Views of Answers</value>
+    <value>Visualizzazioni di risposte</value>
   </data>
   <data name="onboarding_1_description" xml:space="preserve">
-    <value>Manage all of your community activities from the palm of your hand.</value>
+    <value>Gestisci tutte le attività della tua community dal palmo della tua mano.</value>
   </data>
   <data name="onboarding_1_title" xml:space="preserve">
-    <value>Simple and effective</value>
+    <value>Semplice ed efficace</value>
   </data>
   <data name="onboarding_3_description" xml:space="preserve">
-    <value>Directly create contributions based on a URL on your clipboard. Pre-filling whatever Can for you allowing you to quickly add new contributions.</value>
+    <value>Crea direttamente contributi basati su un URL negli appunti. Pre-compilare tutto ciò che possiamo in modo da poter aggiungere rapidamente nuovi contributi.</value>
   </data>
   <data name="onboarding_3_title" xml:space="preserve">
-    <value>Quick Add</value>
+    <value>Aggiunta veloce</value>
   </data>
   <data name="sign_in" xml:space="preserve">
     <value>Sign in</value>
   </data>
   <data name="swipe_to_continue" xml:space="preserve">
-    <value>Swipe to continue</value>
+    <value>Swipe per continuare</value>
   </data>
   <data name="try_with_demo_account" xml:space="preserve">
-    <value>Try with a demo account</value>
+    <value>Prova con un account demo</value>
   </data>
 </root>
