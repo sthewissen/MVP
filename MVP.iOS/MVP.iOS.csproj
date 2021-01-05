@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <LangVersion>9.0</LangVersion>
@@ -95,10 +95,10 @@
       <Version>4.24.0</Version>
     </PackageReference>
     <PackageReference Include="Xamarin.FFImageLoading.Forms">
-      <Version>2.4.7.944</Version>
+      <Version>2.4.11.982</Version>
     </PackageReference>
     <PackageReference Include="Xamarin.FFImageLoading.Transformations">
-      <Version>2.4.7.944</Version>
+      <Version>2.4.11.982</Version>
     </PackageReference>
     <PackageReference Include="Acr.UserDialogs">
       <Version>7.1.0.470</Version>
@@ -136,14 +136,8 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Resources\" />
     <ITunesArtwork Include="iTunesArtwork" />
     <ITunesArtwork Include="iTunesArtwork%402x" />
-    <Folder Include="Renderers\" />
-    <Folder Include="Services\" />
-    <Folder Include="Assets.xcassets\splashbg.colorset\" />
-    <Folder Include="Assets.xcassets\.imageset\" />
-    <Folder Include="Assets.xcassets\MVP.imageset\" />
   </ItemGroup>
   <ItemGroup>
     <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Contents.json">
@@ -268,7 +262,10 @@
     </ImageAsset>
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="Assets.xcassets\.imageset\" />
     <Folder Include="Assets.xcassets\AppIcon.imageset\" />
+    <Folder Include="Assets.xcassets\MVP.imageset\" />
+    <Folder Include="Assets.xcassets\splashbg.colorset\" />
   </ItemGroup>
   <ItemGroup>
     <BundleResource Include="Resources\shadow.png" />
