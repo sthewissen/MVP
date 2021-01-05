@@ -19,7 +19,7 @@
     <value>Lizenzen</value>
   </data>
   <data name="about_opensource_description" xml:space="preserve">
-    <value>Diese App ist komplett Open Source. Wenn die App auf gefallen stösst, kannst Du gerne ein GitHub-Sponsor werden und so mir eine digitale Tasse Kaffee pro Monat kaufen. ☕️</value>
+    <value>Diese App ist komplett Open Source. Wenn die App gefällt, kannst Du gerne ein GitHub-Sponsor werden und so mir eine digitale Tasse Kaffee pro Monat kaufen. ☕️</value>
   </data>
   <data name="about_opensource_title" xml:space="preserve">
     <value>Open Source</value>
@@ -28,7 +28,7 @@
     <value>Über diese App</value>
   </data>
   <data name="about_why_description" xml:space="preserve">
-    <value>Es gab schon immer ein Bedürfnis für Microsoft MVPs, ihre Community-Aktivitäten auf einfachere Weise zu verwalten. Das Online-Portal funktioniert gut, aber ein ähnliches Ding in der Tasche zu haben, um Aktivitäten on the fly zu erstellen, ist wirklich cool. Und genau dafür ist dieses Projekt da!</value>
+    <value>Es gab schon immer ein Bedürfnis für Microsoft MVPs, ihre Community-Aktivitäten auf einfachere Weise zu verwalten. Das Online-Portal funktioniert gut, aber etwas vergleichbares in der Tasche zu haben, um Aktivitäten on the fly zu erstellen, ist wirklich cool. Und genau dafür ist dieses Projekt da!</value>
   </data>
   <data name="about_why_title" xml:space="preserve">
     <value>Warum wurde diese App entwickelt?</value>
@@ -79,7 +79,7 @@
     <value>Wähle den Technologiebereich aus, der primär im Fokus dieser Aktivität steht.</value>
   </data>
   <data name="contributionform_timeframememo" xml:space="preserve">
-    <value>Deine Beitrag für den Juli Award-Cycle muss für Communityaktivitäten zwischen {0} und {1} erfolgen. Community-Aktivitäten, die ab dem {1} und darüber hinaus eingereicht werden, werden für eine spätere Berücksichtigung zurückgehalten.</value>
+    <value>Dein Beitrag für den Juli Award-Cycle muss für Communityaktivitäten zwischen {0} und {1} erfolgen. Community-Aktivitäten, die ab dem {1} und darüber hinaus eingereicht werden, werden für eine spätere Berücksichtigung zurückgehalten.</value>
   </data>
   <data name="contributionform_title_add" xml:space="preserve">
     <value>Beitrag hinzufügen</value>
@@ -106,10 +106,10 @@
     <value>Es konnten keine Aktivitäten gefunden werden. Füge eine neue Aktivität hinzu oder aktualisiere die Ansicht, um zu versuchen, Deine vorhandenen Daten abzurufen.</value>
   </data>
   <data name="empty_state_contributiontechnologies" xml:space="preserve">
-    <value>Es konnten keine Aktivitätsbereiche gefunden werden. Bitte versuche sie erneut zu laden.</value>
+    <value>Es konnten keine Aktivitätsbereiche gefunden werden. Bitte versuche, sie erneut zu laden.</value>
   </data>
   <data name="empty_state_contributiontypes" xml:space="preserve">
-    <value>Es konnten keine Aktivitätstypen gefunden werden. Bitte versuche sie erneut zu laden.</value>
+    <value>Es konnten keine Aktivitätstypen gefunden werden. Bitte versuche, sie erneut zu laden.</value>
   </data>
   <data name="empty_state_noresultcontributiontechnologies" xml:space="preserve">
     <value>Deine Suchanfrage ergab keine Ergebnisse. Bitte versuch eine andere Suchanfrage.</value>
@@ -151,7 +151,7 @@
     <value>Derzeit ist keine Internetverbindung vorhanden. Dies könnte dazu führen, dass die Anmeldung nicht klappt. Sicher, dass du fortfahren möchtest?</value>
   </data>
   <data name="error_nomvpaccount" xml:space="preserve">
-    <value>Wir konnten dich mit den angegebenen Anmeldeinformationen nicht authentifizieren. Ganz sicher, dass es das Konto ist, welches mit deiner MVP-ID verknüpft ist?</value>
+    <value>Wir konnten dich mit den angegebenen Anmeldeinformationen nicht authentifizieren. Bist du sicher, dass es das Konto ist, welches mit deiner MVP-ID verknüpft ist?</value>
   </data>
   <data name="error_offline" xml:space="preserve">
     <value>Diese Aktion kann ohne Internetverbindung nicht durchgeführt werden. Bitte versuche es später erneut.</value>
@@ -436,10 +436,10 @@
     <value>Einloggen</value>
   </data>
   <data name="swipe_to_continue" xml:space="preserve">
-    <value>Swipe to continue</value>
+    <value>Wischen zum Fortfahren</value>
   </data>
   <data name="try_with_demo_account" xml:space="preserve">
-    <value>Try with a demo account</value>
+    <value>Mit einem Demokonto ausprobieren</value>
   </data>
   <data name="about_credits_title" xml:space="preserve">
     <value>Credits</value>
