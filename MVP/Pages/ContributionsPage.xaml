@@ -3,7 +3,7 @@
                        xmlns:mvp="clr-namespace:MVP"
                        xmlns:pages="clr-namespace:MVP.Pages"
                        xmlns:converters="clr-namespace:Xamarin.CommunityToolkit.Converters;assembly=Xamarin.CommunityToolkit"
-                       xmlns:extensions="clr-namespace:Xamarin.CommunityToolkit.Extensions;assembly=Xamarin.CommunityToolkit"
+                       xmlns:extensions="clr-namespace:MVP.Helpers"
                        xmlns:vm="clr-namespace:MVP.ViewModels"
                        xmlns:controls="clr-namespace:MVP.Controls"
                        xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"

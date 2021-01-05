@@ -33,7 +33,10 @@ namespace MVP.ViewModels
                 new Acknowledgement { Name = "Miklos Kanyo", Type = AcknowledgementTypes.Translator },
                 new Acknowledgement { Name = "Daniel Sandberg", Type = AcknowledgementTypes.Translator },
                 new Acknowledgement { Name = "Carl Wilke", Type = AcknowledgementTypes.Translator },
-                new Acknowledgement { Name = "Rick van Dijk", Type = AcknowledgementTypes.Translator }
+                new Acknowledgement { Name = "Rick van Dijk", Type = AcknowledgementTypes.Translator },
+                new Acknowledgement { Name = "Alessandro Caliaro", Type = AcknowledgementTypes.Translator },
+                new Acknowledgement { Name = "Eric Winnington", Type = AcknowledgementTypes.Translator },
+                new Acknowledgement { Name = "Laurent Palmont", Type = AcknowledgementTypes.Translator }
             };
         }
 

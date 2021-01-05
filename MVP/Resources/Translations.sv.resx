@@ -205,7 +205,7 @@
     <value>Redigera bidrag</value>
   </data>
   <data name="contributionform_visibility_placeholder" xml:space="preserve">
-    <value>Välj synlighet för denna aktivitet</value>
+    <value>Välj synlighet för denna aktivitet.</value>
   </data>
   <data name="contributions_title" xml:space="preserve">
     <value>Nätverksaktiviteter</value>
@@ -283,7 +283,7 @@
     <value>Något gick fel</value>
   </data>
   <data name="error_title_validationfailed" xml:space="preserve">
-    <value>Validering misslyckades.</value>
+    <value>Validering misslyckades</value>
   </data>
   <data name="error_unexpected" xml:space="preserve">
     <value>Något gick fel. Ett fel har loggats och vi undersöker det snarast.</value>
@@ -430,15 +430,6 @@
   <data name="languagepicker_title" xml:space="preserve">
     <value>Språk</value>
   </data>
-  <data name="language_dutch" xml:space="preserve">
-    <value>Holländska</value>
-  </data>
-  <data name="language_english" xml:space="preserve">
-    <value>Engelska</value>
-  </data>
-  <data name="language_swedish" xml:space="preserve">
-    <value>Svenska</value>
-  </data>
   <data name="licenses_title" xml:space="preserve">
     <value>Licenser</value>
   </data>
@@ -497,7 +488,7 @@
     <value>Skapa bidrag från URL</value>
   </data>
   <data name="setting_language_description" xml:space="preserve">
-    <value>Standardspråket för appen är det du valt i din enhet, om det finns tillgängligt. Om du däremot vill använda ett specifikt språk, kan du välja det här. </value>
+    <value>Standardspråket för appen är det du valt i din enhet, om det finns tillgängligt. Om du däremot vill använda ett specifikt språk, kan du välja det här.</value>
   </data>
   <data name="setting_language_title" xml:space="preserve">
     <value>Språk</value>
@@ -539,7 +530,7 @@
     <value>Systemstandard</value>
   </data>
   <data name="validation_variablefield" xml:space="preserve">
-    <value>Fältet {0} måste anges</value>
+    <value>Fältet {0} måste anges.</value>
   </data>
   <data name="view_licenses" xml:space="preserve">
     <value>Visa licenser</value>
@@ -567,5 +558,5 @@
   </data>
   <data name="try_with_demo_account" xml:space="preserve">
     <value>Prova med ett demokonto</value>
-  </data>  
+  </data>
 </root>

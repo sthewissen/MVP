@@ -2,10 +2,10 @@
 <ResourceDictionary xmlns="http://xamarin.com/schemas/2014/forms"
                     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
                     xmlns:controls="clr-namespace:MVP.Controls"
-                    xmlns:extensions="clr-namespace:Xamarin.CommunityToolkit.Extensions;assembly=Xamarin.CommunityToolkit"
+                    xmlns:extensions="clr-namespace:MVP.Helpers"
                     xmlns:effects="clr-namespace:Xamarin.CommunityToolkit.Effects;assembly=Xamarin.CommunityToolkit"
                     xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
-                    xmlns:mvp="clr-namespace:MVP"                    
+                    xmlns:mvp="clr-namespace:MVP"
                     xmlns:ff="clr-namespace:FFImageLoading.Svg.Forms;assembly=FFImageLoading.Svg.Forms"
                     x:Class="MVP.Styles.StyleGuide"
                     xmlns:sh="clr-namespace:Sharpnado.Shades;assembly=Sharpnado.Shadows">
@@ -296,7 +296,7 @@
 
     <Style x:Key="splash_image" TargetType="ff:SvgCachedImage">
         <Setter Property="DownsampleToViewSize" Value="False"/>
-        <Setter Property="HorizontalOptions" Value="Center"/>
+        <Setter Property="HorizontalOptions" Value="FillAndExpand"/>
         <Setter Property="VerticalOptions" Value="Center"/>
         <Setter Property="HeightRequest" Value="148"/>
         <Setter Property="WidthRequest" Value="148"/>
@@ -306,6 +306,7 @@
         <Setter Property="HorizontalTextAlignment" Value="Center"/>
         <Setter Property="TextColor" Value="{StaticResource white}"/>
         <Setter Property="HorizontalOptions" Value="Center"/>
+        <Setter Property="HeightRequest" Value="24" />
     </Style>
 
     <Style x:Key="separator" TargetType="BoxView">
@@ -509,7 +510,7 @@
     <Style x:Key="search_entry" TargetType="Entry">
         <Setter Property="FontSize" Value="{StaticResource fontsize_medium}"/>
         <Setter Property="IsSpellCheckEnabled" Value="False"/>
-        <Setter Property="Placeholder" Value="{extensions:Translate search_placeholder}"/>
+        <!--<Setter Property="Placeholder" Value="{extensions:Translate search_placeholder}"/>-->
     </Style>
 
     <Style x:Key="emptystate_description" TargetType="Label">

@@ -4,21 +4,20 @@ using System.Linq;
 using MVP.Pages;
 using MVP.Resources;
 using MVP.Services.Interfaces;
-using Xamarin.CommunityToolkit.Helpers;
 using Xamarin.Essentials;
 using TinyNavigationHelper;
 using MVP.Services;
 using System.Threading.Tasks;
 using Xamarin.CommunityToolkit.ObjectModel;
 using MVP.Extensions;
+using System.Globalization;
+using MVP.Helpers;
 
 namespace MVP.ViewModels
 {
     public class LanguagePickerViewModel : BaseViewModel
     {
         readonly LanguageService languageService;
-
-        public List<string> supportedLanguages = new List<string> { "en", "nl", "es", "tr", "hu", "sv", "no", "it" };
 
         public IList<LanguageViewModel> SupportedLanguages { get; set; } = new List<LanguageViewModel>();
         public IAsyncCommand<LanguageViewModel> SetAppLanguageCommand { get; set; }
@@ -27,9 +26,13 @@ namespace MVP.ViewModels
             : base(analyticsService)
         {
             this.languageService = languageService;
-
+            LanguageService.PreferredLanguageChanged += LanguageService_PreferredLanguageChanged;
             SetAppLanguageCommand = new AsyncCommand<LanguageViewModel>((x) => SetAppLanguage(x));
+        }
 
+        public override async Task Initialize()
+        {
+            await base.Initialize();
             LoadLanguages();
         }
 
@@ -44,7 +47,7 @@ namespace MVP.ViewModels
             var languages = new List<LanguageViewModel>();
             var text = LocalizationResourceManager.Current.CurrentCulture.TextInfo;
 
-            foreach (var item in supportedLanguages)
+            foreach (var item in LanguageService.SupportedLanguages)
             {
                 languages.Add(new LanguageViewModel
                 {
@@ -54,7 +57,7 @@ namespace MVP.ViewModels
                 });
             }
 
-            SupportedLanguages = languages;
+            SupportedLanguages = languages.OrderBy(x => x.Description).ToList();
 
             // Set current selection
             var selected = SupportedLanguages.FirstOrDefault(pro => pro.CI == LocalizationResourceManager.Current.CurrentCulture.TwoLetterISOLanguageName);
@@ -73,16 +76,7 @@ namespace MVP.ViewModels
                 foreach (var item in SupportedLanguages)
                     item.IsSelected = false;
 
-                languageService.SetLanguage(language.CI);
-
-                LoadLanguages();
-
-                // Also force the tabs to change
-                (CurrentApp.MainPage as TabbedMainPage)?.SetTitles();
-
-                AnalyticsService.Track("Preferred Language Changed", nameof(language.CI), language.CI ?? "null");
-
-                HapticFeedback.Perform(HapticFeedbackType.Click);
+                languageService.PreferredLanguage = language.CI;
             }
             catch (Exception ex)
             {
@@ -90,6 +84,17 @@ namespace MVP.ViewModels
 
                 AnalyticsService.Report(ex);
             }
+        }
+
+        /// <summary>
+        /// Handles when the language has been changed.
+        /// </summary>
+        void LanguageService_PreferredLanguageChanged(object sender, string e)
+        {
+            LoadLanguages();
+            (CurrentApp.MainPage as TabbedMainPage)?.SetTitles();
+            HapticFeedback.Perform(HapticFeedbackType.Click);
+            MessagingService.Current.SendMessage(MessageKeys.RefreshNeeded);
         }
     }
 }
