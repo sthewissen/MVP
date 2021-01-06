@@ -112,7 +112,7 @@
     <value>Es konnten keine Aktivitätstypen gefunden werden. Bitte versuche, sie erneut zu laden.</value>
   </data>
   <data name="empty_state_noresultcontributiontechnologies" xml:space="preserve">
-    <value>Deine Suchanfrage ergab keine Ergebnisse. Bitte versuch eine andere Suchanfrage.</value>
+    <value>Deine Suchanfrage ergab keine Ergebnisse. Bitte versuche eine andere Suchanfrage.</value>
   </data>
   <data name="empty_state_title" xml:space="preserve">
     <value>Oha.., ganz schön leer hier!</value>
@@ -148,7 +148,7 @@
     <value>Es wurden nicht alle erforderlichen Felder ausgefüllt. Bitte fülle alle nötigen Felder im Formular aus und versuche es erneut zu speichern.</value>
   </data>
   <data name="error_logoutwhileoffline" xml:space="preserve">
-    <value>Derzeit ist keine Internetverbindung vorhanden. Dies könnte dazu führen, dass die Anmeldung nicht klappt. Sicher, dass du fortfahren möchtest?</value>
+    <value>Derzeit ist keine Internetverbindung vorhanden. Dies könnte dazu führen, dass die Anmeldung nicht klappt. Bist du sicher, dass du fortfahren möchtest?</value>
   </data>
   <data name="error_nomvpaccount" xml:space="preserve">
     <value>Wir konnten dich mit den angegebenen Anmeldeinformationen nicht authentifizieren. Bist du sicher, dass es das Konto ist, welches mit deiner MVP-ID verknüpft ist?</value>
