@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <root>
   <resheader name="resmimetype">
     <value>text/microsoft-resx</value>
@@ -109,7 +109,7 @@
     <value>L'invio del tuo contributo per il ciclo di premiazione di luglio deve essere per attività comunitarie comprese tra il {0} e il {1}. Le attività comunuitarie inviate a partire da {1} e oltre verranno tenute in considerazione in futuro.</value>
   </data>
   <data name="contributionform_activitytype_placeholder" xml:space="preserve">
-    <value>Seleziona il tipo di attività che meglio la rappresenta.</value>
+    <value>Seleziona il tipo di attività che meglio la rappresenta</value>
   </data>
   <data name="contributionform_technologyarea_placeholder" xml:space="preserve">
     <value>Seleziona l'area tecnologica che è l'obiettivo principale di questa attività.</value>
@@ -118,7 +118,7 @@
     <value>Seleziona fino a 2 aree tecnologiche aggiuntive che possono essere applicate anche a questa attività.</value>
   </data>
   <data name="contributionform_visibility_placeholder" xml:space="preserve">
-    <value>Seleziona il livello di visibilità dell'attività.</value>
+    <value>Seleziona il livello di visibilità dell'attività</value>
   </data>
   <data name="setting_language_title" xml:space="preserve">
     <value>Lingua</value>
@@ -178,7 +178,7 @@
     <value>Icona dell'applicazione</value>
   </data>
   <data name="setting_appicon_description" xml:space="preserve">
-    <value>Non ti piace l'icona dell'applicazione che abbiamo scelto per te? Abbiamo altre opzioni disponibili.</value>
+    <value>Non ti piace l'icona dell'applicazione che abbiamo scelto per te? Abbiamo altre opzioni disponibili. Se hai altre idee, non esitare a contattarci!</value>
   </data>
   <data name="yes" xml:space="preserve">
     <value>Si</value>
@@ -196,7 +196,7 @@
     <value>Resisti...</value>
   </data>
   <data name="contributiondetail_deleteconfirmation" xml:space="preserve">
-    <value>Sei sicuro di voler eliminare questo contributo? Questa è un'operazione non reucperabile.</value>
+    <value>Sei sicuro di voler eliminare questo contributo? Questa è un'operazione non reucperabile</value>
   </data>
   <data name="error_unexpected" xml:space="preserve">
     <value>Qualcosa che pensavamo non potesse accadere è accaduto. E' stato registrato un errore che analizzeremo il prima possibile.</value>
@@ -211,7 +211,7 @@
     <value>Le tue credenziali sono scadute e non siamo riusciti a salvare la situazione. Quindi sei stato disconnesso. Accedi di nuovo per continuare.</value>
   </data>
   <data name="clipboard_title" xml:space="preserve">
-    <value>Sembra fico!</value>
+    <value>Sembra fico!!!</value>
   </data>
   <data name="clipboard_description" xml:space="preserve">
     <value>Notiamo un URL nei tuoi appunti. Vuoi che proviamo a precompilare un'attività al di fuori di questo?</value>
@@ -244,7 +244,7 @@
     <value>Licenze</value>
   </data>
   <data name="about_licenses_description" xml:space="preserve">
-    <value>Questa applicazione è sulle spalle di giganti senza i quali la sua creazione non sarebbe possibile. Se vuoi sapere chi sono, guarda le licenze dei loro fantastici pezzetti di software.</value>
+    <value>Questa applicazione è sulle spalle di giganti senza i quali la sua creazione non sarebbe possibile. Se vuoi sapere chi sono, guarda le licenze dei loro fantastici pezzetti di software</value>
   </data>
   <data name="view_licenses" xml:space="preserve">
     <value>Visualizza le licenze</value>
@@ -322,135 +322,135 @@
     <value>Impossibile aggiornare le informazioni del tuo profilo. Non siamo abbastanza sicuri del motivo, ma è stato registrato un errore. Per favore riprova più tardi.</value>
   </data>
   <data name="about_credits_description" xml:space="preserve">
-    <value>Without the awesome people listed below this app would not have been possible. Therefore they have earned a spot in here to celebrate their contributions.</value>
+    <value>Senza le persone fantastiche elencate di seguito questa applicazione non sarebbe stata possibile. Pertanto si sono guadagnati un posto per celebrare il loro contributo.</value>
   </data>
   <data name="about_credits_title" xml:space="preserve">
-    <value>Credits</value>
+    <value>Crediti</value>
   </data>
   <data name="acknowledgementtype_tester" xml:space="preserve">
     <value>Tester</value>
   </data>
   <data name="acknowledgementtype_translator" xml:space="preserve">
-    <value>Translator</value>
+    <value>Traduttore</value>
   </data>
   <data name="field_annual_quantity" xml:space="preserve">
-    <value>Annual Quantity</value>
-  </data>
-  <data name="field_annual_unique_visitors" xml:space="preserve">
-    <value>Annual Unique Visitors</value>
+    <value>Quantità Annuale</value>
   </data>
   <data name="field_annual_reach" xml:space="preserve">
-    <value>Annual Reach</value>
+    <value>Limite Annuale</value>
+  </data>
+  <data name="field_annual_unique_visitors" xml:space="preserve">
+    <value>Visitatori Unici Annuali</value>
   </data>
   <data name="field_attendees_of_talks" xml:space="preserve">
-    <value>Attendees of Talks</value>
+    <value>Partecipanti ai colloqui</value>
   </data>
   <data name="field_contributions" xml:space="preserve">
-    <value>Contributions</value>
+    <value>Contributi</value>
   </data>
   <data name="field_copies_sold" xml:space="preserve">
-    <value>Copies Sold</value>
+    <value>Copie vendute</value>
+  </data>
+  <data name="field_meetings" xml:space="preserve">
+    <value>Incontri</value>
+  </data>
+  <data name="field_members" xml:space="preserve">
+    <value>Membri</value>
+  </data>
+  <data name="field_number_of_answers" xml:space="preserve">
+    <value>Numero di Risposte</value>
+  </data>
+  <data name="field_number_of_articles" xml:space="preserve">
+    <value>Numero di Articoli</value>
+  </data>
+  <data name="field_number_of_attendees" xml:space="preserve">
+    <value>Numero di Partecipanti</value>
+  </data>
+  <data name="field_number_of_books" xml:space="preserve">
+    <value>Numero di Libri</value>
+  </data>
+  <data name="field_number_of_conferences" xml:space="preserve">
+    <value>Numero di Conferenze</value>
+  </data>
+  <data name="field_number_of_downloads" xml:space="preserve">
+    <value>Numero di Downloads</value>
+  </data>
+  <data name="field_number_of_events" xml:space="preserve">
+    <value>Numero di Eventi</value>
+  </data>
+  <data name="field_number_of_events_participated" xml:space="preserve">
+    <value>Numero di Eventi ai quali hai partecipato</value>
+  </data>
+  <data name="field_number_of_feedbacks_provided" xml:space="preserve">
+    <value>Numero di Feedbacks forniti</value>
+  </data>
+  <data name="field_number_of_followers" xml:space="preserve">
+    <value>Numero di Followers</value>
+  </data>
+  <data name="field_number_of_mentees" xml:space="preserve">
+    <value>Numero di Allievi</value>
+  </data>
+  <data name="field_number_of_mentorship_activity" xml:space="preserve">
+    <value>Numero di Attività di Menthoring</value>
+  </data>
+  <data name="field_number_of_posts" xml:space="preserve">
+    <value>Numero di Posts</value>
+  </data>
+  <data name="field_number_of_projects" xml:space="preserve">
+    <value>Numero di Progetti</value>
+  </data>
+  <data name="field_number_of_samples" xml:space="preserve">
+    <value>Numero di Esempi</value>
+  </data>
+  <data name="field_number_of_sites" xml:space="preserve">
+    <value>Numero di Siti</value>
+  </data>
+  <data name="field_number_of_subscribers" xml:space="preserve">
+    <value>Numero di Iscritti</value>
+  </data>
+  <data name="field_number_of_talks" xml:space="preserve">
+    <value>Numero di Colloqui</value>
+  </data>
+  <data name="field_number_of_threads_moderated" xml:space="preserve">
+    <value>Numero di Threads moderati</value>
+  </data>
+  <data name="field_number_of_videos" xml:space="preserve">
+    <value>Numero di Video</value>
+  </data>
+  <data name="field_number_of_views" xml:space="preserve">
+    <value>Numero di Visualizzazioni</value>
+  </data>
+  <data name="field_number_of_visitors" xml:space="preserve">
+    <value>Numero di Visitatori</value>
+  </data>
+  <data name="field_projects" xml:space="preserve">
+    <value>Progetto(i)</value>
+  </data>
+  <data name="field_prs_issues_submissions" xml:space="preserve">
+    <value>Pull Requests/Issues/Submissions</value>
+  </data>
+  <data name="field_views_of_answers" xml:space="preserve">
+    <value>Visualizzazioni di risposte</value>
+  </data>
+  <data name="onboarding_1_description" xml:space="preserve">
+    <value>Gestisci tutte le attività della tua community dal palmo della tua mano.</value>
+  </data>
+  <data name="onboarding_1_title" xml:space="preserve">
+    <value>Semplice ed efficace</value>
+  </data>
+  <data name="onboarding_3_description" xml:space="preserve">
+    <value>Crea direttamente contributi basati su un URL negli appunti. Pre-compilare tutto ciò che possiamo in modo da poter aggiungere rapidamente nuovi contributi.</value>
+  </data>
+  <data name="onboarding_3_title" xml:space="preserve">
+    <value>Aggiunta veloce</value>
   </data>
   <data name="sign_in" xml:space="preserve">
     <value>Sign in</value>
   </data>
   <data name="swipe_to_continue" xml:space="preserve">
-    <value>Swipe to continue</value>
+    <value>Swipe per continuare</value>
   </data>
   <data name="try_with_demo_account" xml:space="preserve">
-    <value>Try with a demo account</value>
-  </data>
-  <data name="onboarding_3_title" xml:space="preserve">
-    <value>Quick Add</value>
-  </data>
-  <data name="onboarding_3_description" xml:space="preserve">
-    <value>Directly create contributions based on a URL on your clipboard. Pre-filling whatever Can for you allowing you to quickly add new contributions.</value>
-  </data>
-  <data name="onboarding_1_title" xml:space="preserve">
-    <value>Simple and effective</value>
-  </data>
-  <data name="onboarding_1_description" xml:space="preserve">
-    <value>Manage all of your community activities from the palm of your hand.</value>
-  </data>
-  <data name="field_meetings" xml:space="preserve">
-    <value>Meetings</value>
-  </data>
-  <data name="field_members" xml:space="preserve">
-    <value>Members</value>
-  </data>
-  <data name="field_number_of_answers" xml:space="preserve">
-    <value>Number of Answers</value>
-  </data>
-  <data name="field_number_of_attendees" xml:space="preserve">
-    <value>Number of Attendees</value>
-  </data>
-  <data name="field_number_of_books" xml:space="preserve">
-    <value>Number of Books</value>
-  </data>
-  <data name="field_number_of_articles" xml:space="preserve">
-    <value>Number of Articles\</value>
-  </data>
-  <data name="field_number_of_conferences" xml:space="preserve">
-    <value>Number of Conferences</value>
-  </data>
-  <data name="field_number_of_downloads" xml:space="preserve">
-    <value>Number of Downloads</value>
-  </data>
-  <data name="field_number_of_events" xml:space="preserve">
-    <value>Number of Events</value>
-  </data>
-  <data name="field_number_of_events_participated" xml:space="preserve">
-    <value>Number of Events Participated</value>
-  </data>
-  <data name="field_number_of_feedbacks_provided" xml:space="preserve">
-    <value>Number of Feedbacks Provided</value>
-  </data>
-  <data name="field_number_of_followers" xml:space="preserve">
-    <value>Number of Followers</value>
-  </data>
-  <data name="field_views_of_answers" xml:space="preserve">
-    <value>Views of Answers</value>
-  </data>
-  <data name="field_number_of_views" xml:space="preserve">
-    <value>Number of Views</value>
-  </data>
-  <data name="field_number_of_threads_moderated" xml:space="preserve">
-    <value>Number of Threads Moderated</value>
-  </data>
-  <data name="field_number_of_subscribers" xml:space="preserve">
-    <value>Number of Subscribers</value>
-  </data>
-  <data name="field_number_of_samples" xml:space="preserve">
-    <value>Number of Samples</value>
-  </data>
-  <data name="field_number_of_posts" xml:space="preserve">
-    <value>Number of Posts</value>
-  </data>
-  <data name="field_number_of_mentorship_activity" xml:space="preserve">
-    <value>Number of Mentorship Activity</value>
-  </data>
-  <data name="field_number_of_mentees" xml:space="preserve">
-    <value>Number of Mentees</value>
-  </data>
-  <data name="field_prs_issues_submissions" xml:space="preserve">
-    <value>Pull Requests/Issues/Submissions</value>
-  </data>
-  <data name="field_projects" xml:space="preserve">
-    <value>Project(s)</value>
-  </data>
-  <data name="field_number_of_visitors" xml:space="preserve">
-    <value>Number of Visitors</value>
-  </data>
-  <data name="field_number_of_videos" xml:space="preserve">
-    <value>Number of Videos</value>
-  </data>
-  <data name="field_number_of_talks" xml:space="preserve">
-    <value>Number of Talks</value>
-  </data>
-  <data name="field_number_of_sites" xml:space="preserve">
-    <value>Number of Sites</value>
-  </data>
-  <data name="field_number_of_projects" xml:space="preserve">
-    <value>Number of Projects</value>
+    <value>Prova con un account demo</value>
   </data>
 </root>
