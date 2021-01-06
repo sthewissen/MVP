@@ -34,6 +34,7 @@
         <Folder Include="Styles\" />
         <Folder Include="Extensions\" />
         <Folder Include="Services\Interfaces\" />
+        <Folder Include="Resources\" />
         <Folder Include="Resources\Fonts\" />
         <Folder Include="Converters\" />
         <Folder Include="Templates\" />
