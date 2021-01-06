@@ -360,3 +360,6 @@ MigrationBackup/
 
 # Language generated files
 **/MVP/Resources/*.[Dd]esigner.cs
+
+# Rider IDE
+.idea/
