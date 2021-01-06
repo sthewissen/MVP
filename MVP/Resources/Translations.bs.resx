@@ -1,561 +1,456 @@
 <?xml version="1.0" encoding="utf-8"?>
 <root>
-  <!-- 
-    Microsoft ResX Schema 
-    
-    Version 2.0
-    
-    The primary goals of this format is to allow a simple XML format 
-    that is mostly human readable. The generation and parsing of the 
-    various data types are done through the TypeConverter classes 
-    associated with the data types.
-    
-    Example:
-    
-    ... ado.net/XML headers & schema ...
-    <resheader name="resmimetype">text/microsoft-resx</resheader>
-    <resheader name="version">2.0</resheader>
-    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
-    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
-    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
-    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
-    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
-        <value>[base64 mime encoded serialized .NET Framework object]</value>
-    </data>
-    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
-        <comment>This is a comment</comment>
-    </data>
-                
-    There are any number of "resheader" rows that contain simple 
-    name/value pairs.
-    
-    Each data row contains a name, and value. The row also contains a 
-    type or mimetype. Type corresponds to a .NET class that support 
-    text/value conversion through the TypeConverter architecture. 
-    Classes that don't support this are serialized and stored with the 
-    mimetype set.
-    
-    The mimetype is used for serialized objects, and tells the 
-    ResXResourceReader how to depersist the object. This is currently not 
-    extensible. For a given mimetype the value must be set accordingly:
-    
-    Note - application/x-microsoft.net.object.binary.base64 is the format 
-    that the ResXResourceWriter will generate, however the reader can 
-    read any of the formats listed below.
-    
-    mimetype: application/x-microsoft.net.object.binary.base64
-    value   : The object must be serialized with 
-            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
-            : and then encoded with base64 encoding.
-    
-    mimetype: application/x-microsoft.net.object.soap.base64
-    value   : The object must be serialized with 
-            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
-            : and then encoded with base64 encoding.
-
-    mimetype: application/x-microsoft.net.object.bytearray.base64
-    value   : The object must be serialized into a byte array 
-            : using a System.ComponentModel.TypeConverter
-            : and then encoded with base64 encoding.
-    -->
-  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
-    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
-    <xsd:element name="root" msdata:IsDataSet="true">
-      <xsd:complexType>
-        <xsd:choice maxOccurs="unbounded">
-          <xsd:element name="metadata">
-            <xsd:complexType>
-              <xsd:sequence>
-                <xsd:element name="value" type="xsd:string" minOccurs="0" />
-              </xsd:sequence>
-              <xsd:attribute name="name" use="required" type="xsd:string" />
-              <xsd:attribute name="type" type="xsd:string" />
-              <xsd:attribute name="mimetype" type="xsd:string" />
-              <xsd:attribute ref="xml:space" />
-            </xsd:complexType>
-          </xsd:element>
-          <xsd:element name="assembly">
-            <xsd:complexType>
-              <xsd:attribute name="alias" type="xsd:string" />
-              <xsd:attribute name="name" type="xsd:string" />
-            </xsd:complexType>
-          </xsd:element>
-          <xsd:element name="data">
-            <xsd:complexType>
-              <xsd:sequence>
-                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
-                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
-              </xsd:sequence>
-              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
-              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
-              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
-              <xsd:attribute ref="xml:space" />
-            </xsd:complexType>
-          </xsd:element>
-          <xsd:element name="resheader">
-            <xsd:complexType>
-              <xsd:sequence>
-                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
-              </xsd:sequence>
-              <xsd:attribute name="name" type="xsd:string" use="required" />
-            </xsd:complexType>
-          </xsd:element>
-        </xsd:choice>
-      </xsd:complexType>
-    </xsd:element>
-  </xsd:schema>
-  <resheader name="resmimetype">
-    <value>text/microsoft-resx</value>
-  </resheader>
-  <resheader name="version">
-    <value>2.0</value>
-  </resheader>
-  <resheader name="reader">
-    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </resheader>
-  <resheader name="writer">
-    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </resheader>
-  <data name="about_credits_description" xml:space="preserve">
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>2.0</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <data name="about_credits_description" xml:space="preserve">
     <value>Bez sjajnih ljudi navedenih u nastavku ova aplikacija ne bi bila moguća. Stoga su zaslužili ovo mjesto ovdje da se vidi njihov doprinos.</value>
   </data>
-  <data name="about_credits_title" xml:space="preserve">
+    <data name="about_credits_title" xml:space="preserve">
     <value>Zasluge</value>
   </data>
-  <data name="about_licenses_description" xml:space="preserve">
+    <data name="about_licenses_description" xml:space="preserve">
     <value>Ova aplikacija stoji na ramenima divova bez kojih njeno kreiranje ne bi bilo moguće. Ako želite znati ko su oni, pogledajte licence za njihov nevjerojatan softver.</value>
   </data>
-  <data name="about_licenses_title" xml:space="preserve">
+    <data name="about_licenses_title" xml:space="preserve">
     <value>Licence</value>
   </data>
-  <data name="about_opensource_description" xml:space="preserve">
+    <data name="about_opensource_description" xml:space="preserve">
     <value>Ova je aplikacija potpuno open source. Ako vam se sviđa aplikacija, slobodno postanite sponzor GitHub-a kupujući mi digitalnu šalicu kafe mjesečno ☕️</value>
   </data>
-  <data name="about_opensource_title" xml:space="preserve">
+    <data name="about_opensource_title" xml:space="preserve">
     <value>Open source</value>
   </data>
-  <data name="about_title" xml:space="preserve">
+    <data name="about_title" xml:space="preserve">
     <value>O ovoj aplikaciji</value>
   </data>
-  <data name="about_why_description" xml:space="preserve">
+    <data name="about_why_description" xml:space="preserve">
     <value>Uvijek je postojala potreba Microsoftovih MVP-jeva da lakše upravljaju svojim aktivnostima u zajednici. Internet portal dobro funkcionira, ali imati sličnu stvar u džepu za stvaranje aktivnosti u pokretu je zaista super. A za to upravo služi ovaj projekat!</value>
   </data>
-  <data name="about_why_title" xml:space="preserve">
+    <data name="about_why_title" xml:space="preserve">
     <value>Zašto je kreirana ova aplikacija?</value>
   </data>
-  <data name="acknowledgementtype_tester" xml:space="preserve">
+    <data name="acknowledgementtype_tester" xml:space="preserve">
     <value>Tester</value>
   </data>
-  <data name="acknowledgementtype_translator" xml:space="preserve">
+    <data name="acknowledgementtype_translator" xml:space="preserve">
     <value>Prevoditelj</value>
   </data>
-  <data name="additionaltechnologypicker_title" xml:space="preserve">
+    <data name="additionaltechnologypicker_title" xml:space="preserve">
     <value>Dodatna područja doprinosa</value>
   </data>
-  <data name="alert_error_unauthorized" xml:space="preserve">
+    <data name="alert_error_unauthorized" xml:space="preserve">
     <value>Vaši kredencijali su istekli i ne mogu biti osvježeni. Iz tog razloga ste bili odjavljeni. Molimo vas prijavite se ponovo da biste nastavili.</value>
   </data>
-  <data name="becomesponsor" xml:space="preserve">
+    <data name="becomesponsor" xml:space="preserve">
     <value>Postanite sponzor</value>
   </data>
-  <data name="button_delete_contribution" xml:space="preserve">
+    <data name="button_delete_contribution" xml:space="preserve">
     <value>Izbrišite doprinos</value>
   </data>
-  <data name="cancel" xml:space="preserve">
+    <data name="cancel" xml:space="preserve">
     <value>Otkaži</value>
   </data>
-  <data name="clipboard_description" xml:space="preserve">
+    <data name="clipboard_description" xml:space="preserve">
     <value>Primjećujemo URL na vašem međuspremniku. Želite li da pokušamo unaprijed ispuniti aktivnost iz toga?</value>
   </data>
-  <data name="clipboard_title" xml:space="preserve">
+    <data name="clipboard_title" xml:space="preserve">
     <value>To izgleda odlično!</value>
   </data>
-  <data name="contributiondetails_edit" xml:space="preserve">
+    <data name="contributiondetails_edit" xml:space="preserve">
     <value>Izmjeniti</value>
   </data>
-  <data name="contributiondetails_title" xml:space="preserve">
+    <data name="contributiondetails_title" xml:space="preserve">
     <value>Detalji aktivnosti</value>
   </data>
-  <data name="contributiondetail_deleteconfirmation" xml:space="preserve">
+    <data name="contributiondetail_deleteconfirmation" xml:space="preserve">
     <value>Jeste li sigurni da želite izbrisati ovaj doprinos? Ovo se ne može poništiti.</value>
   </data>
-  <data name="contributiondetail_notdeleted" xml:space="preserve">
+    <data name="contributiondetail_notdeleted" xml:space="preserve">
     <value>Doprinos nije moguće izbrisati. Možda je već izbrisano ili se odnosi na prethodni periodu dodjele nagrade?</value>
   </data>
-  <data name="contributionform_activitytype_placeholder" xml:space="preserve">
+    <data name="contributionform_activitytype_placeholder" xml:space="preserve">
     <value>Odaberite vrstu aktivnosti koja najbolje odgovara ovoj aktivnosti.</value>
   </data>
-  <data name="contributionform_additionaltechnologyarea_placeholder" xml:space="preserve">
+    <data name="contributionform_additionaltechnologyarea_placeholder" xml:space="preserve">
     <value>Odaberite do 2 dodatna tehnološka područja koja se također mogu primijeniti na ovu aktivnost.</value>
   </data>
-  <data name="contributionform_save" xml:space="preserve">
+    <data name="contributionform_save" xml:space="preserve">
     <value>Spremiti</value>
   </data>
-  <data name="contributionform_technologyarea_placeholder" xml:space="preserve">
+    <data name="contributionform_technologyarea_placeholder" xml:space="preserve">
     <value>Odaberite tehnološko područje koje je primarni fokus ove aktivnosti.</value>
   </data>
-  <data name="contributionform_timeframememo" xml:space="preserve">
+    <data name="contributionform_timeframememo" xml:space="preserve">
     <value>Vaša prijava za julski ciklus dodjele mora biti za aktivnosti zajednice između {0} i {1}. Aktivnosti zajednice poslane od {1} i kasnije bit će zadržane za buduće razmatranje.</value>
   </data>
-  <data name="contributionform_title_add" xml:space="preserve">
+    <data name="contributionform_title_add" xml:space="preserve">
     <value>Dodati doprinos</value>
   </data>
-  <data name="contributionform_title_edit" xml:space="preserve">
+    <data name="contributionform_title_edit" xml:space="preserve">
     <value>Izmjeniti doprinos</value>
   </data>
-  <data name="contributionform_visibility_placeholder" xml:space="preserve">
+    <data name="contributionform_visibility_placeholder" xml:space="preserve">
     <value>Odaberite nivo vidljivosti ove aktivnosti.</value>
   </data>
-  <data name="contributions_title" xml:space="preserve">
+    <data name="contributions_title" xml:space="preserve">
     <value>Aktivnosti u zajednici</value>
   </data>
-  <data name="contributiontechnologypicker_title" xml:space="preserve">
+    <data name="contributiontechnologypicker_title" xml:space="preserve">
     <value>Područje primarnog doprinosa</value>
   </data>
-  <data name="contributiontypepicker_title" xml:space="preserve">
+    <data name="contributiontypepicker_title" xml:space="preserve">
     <value>Vrsta aktivnosti</value>
   </data>
-  <data name="contribution_add" xml:space="preserve">
+    <data name="contribution_add" xml:space="preserve">
     <value>Dodati</value>
   </data>
-  <data name="empty_state_contributions" xml:space="preserve">
+    <data name="empty_state_contributions" xml:space="preserve">
     <value>Nije moguće pronaći nijedan doprinos. Dodajte novi doprinos ili osvježite da biste pokušali doći do svojih postojećih podataka.</value>
   </data>
-  <data name="empty_state_contributiontechnologies" xml:space="preserve">
+    <data name="empty_state_contributiontechnologies" xml:space="preserve">
     <value>Nije moguće pronaći nijedno područje doprinosa. Pokušajte ih osvježiti.</value>
   </data>
-  <data name="empty_state_contributiontypes" xml:space="preserve">
+    <data name="empty_state_contributiontypes" xml:space="preserve">
     <value>Nije moguće pronaći nijednu vrstu doprinosa. Pokušajte ih osvježiti.</value>
   </data>
-  <data name="empty_state_noresultcontributiontechnologies" xml:space="preserve">
+    <data name="empty_state_noresultcontributiontechnologies" xml:space="preserve">
     <value>Vaš upit za pretragu nije dao rezultate. Pokušajte s drugim upitom za pretraživanje.</value>
   </data>
-  <data name="empty_state_title" xml:space="preserve">
+    <data name="empty_state_title" xml:space="preserve">
     <value>Ooh ... nema rezultata!</value>
   </data>
-  <data name="empty_state_visibilities" xml:space="preserve">
+    <data name="empty_state_visibilities" xml:space="preserve">
     <value>Nije moguće pronaći vidljivosti. Pokušajte ih osvježiti.</value>
   </data>
-  <data name="error_badrequest" xml:space="preserve">
+    <data name="error_badrequest" xml:space="preserve">
     <value>Obrada vašeg zahtjeva nije uspjela. Pokušajte ponovo kasnije.</value>
   </data>
-  <data name="error_couldntchangeicon" xml:space="preserve">
+    <data name="error_couldntchangeicon" xml:space="preserve">
     <value>Vaša ikona se ne može promijeniti. Pokušajte ponovo kasnije.</value>
   </data>
-  <data name="error_couldntchangelanguage" xml:space="preserve">
+    <data name="error_couldntchangelanguage" xml:space="preserve">
     <value>Vaš jezik nije moguće promijeniti. Pokušajte ponovo kasnije.</value>
   </data>
-  <data name="error_couldntchangetheme" xml:space="preserve">
+    <data name="error_couldntchangetheme" xml:space="preserve">
     <value>Tema se nije mogla promijeniti. Pokušajte ponovo kasnije.</value>
   </data>
-  <data name="error_couldntloadmorecontributions" xml:space="preserve">
+    <data name="error_couldntloadmorecontributions" xml:space="preserve">
     <value>Nije moguće učitati više doprinosa. Nismo sasvim sigurni zašto, ali zabilježena je greška. Pokušajte ponovo kasnije.</value>
   </data>
-  <data name="error_couldntrefreshprofile" xml:space="preserve">
+    <data name="error_couldntrefreshprofile" xml:space="preserve">
     <value>Osvježavanje podataka o profilu nije uspjelo. Nismo sasvim sigurni zašto, ali zabilježena je greška. Pokušajte ponovo kasnije.</value>
   </data>
-  <data name="error_couldntsavecontribution" xml:space="preserve">
+    <data name="error_couldntsavecontribution" xml:space="preserve">
     <value>Nije moguće sačuvati ovaj doprinos. Nismo sasvim sigurni zašto, ali zabilježena je greška. Pokušajte ponovo kasnije.</value>
   </data>
-  <data name="error_data_not_loaded" xml:space="preserve">
+    <data name="error_data_not_loaded" xml:space="preserve">
     <value>Podaci se ne mogu učitati. Nismo sasvim sigurni zašto, ali zabilježena je greška. Možete pokušati osvježiti ili pokušati ponovo kasnije.</value>
   </data>
-  <data name="error_description_validationfailed" xml:space="preserve">
+    <data name="error_description_validationfailed" xml:space="preserve">
     <value>Nisu popunjena sva obavezna polja. Molimo popunite obrazac i pokušajte ponovo spremiti.</value>
   </data>
-  <data name="error_logoutwhileoffline" xml:space="preserve">
+    <data name="error_logoutwhileoffline" xml:space="preserve">
     <value>Trenutno nemate internetsku vezu. To može dovesti do toga da se više nećete moći ponovo prijaviti. Jeste li sigurni da želite nastaviti?</value>
   </data>
-  <data name="error_nomvpaccount" xml:space="preserve">
+    <data name="error_nomvpaccount" xml:space="preserve">
     <value>Nije moguće provjeriti autentičnost pomoću pruženih kredencijala. Jeste li sigurni da koristite račun povezan sa vašim MVP ID-om?</value>
   </data>
-  <data name="error_offline" xml:space="preserve">
+    <data name="error_offline" xml:space="preserve">
     <value>Ova radnja se ne može izvršiti bez internetske veze. Pokušajte ponovo kasnije.</value>
   </data>
-  <data name="error_offline_title" xml:space="preserve">
+    <data name="error_offline_title" xml:space="preserve">
     <value>Nema internetske veze</value>
   </data>
-  <data name="error_servererror" xml:space="preserve">
+    <data name="error_servererror" xml:space="preserve">
     <value>Obrada vašeg zahtjeva nije uspjela. Pokušajte ponovo kasnije.</value>
   </data>
-  <data name="error_title" xml:space="preserve">
+    <data name="error_title" xml:space="preserve">
     <value>Nešto je pošlo po zlu</value>
   </data>
-  <data name="error_title_validationfailed" xml:space="preserve">
+    <data name="error_title_validationfailed" xml:space="preserve">
     <value>Provjera nije uspjela</value>
   </data>
-  <data name="error_unexpected" xml:space="preserve">
+    <data name="error_unexpected" xml:space="preserve">
     <value>Nešto je pošlo po zlu. Greška je zabilježena i mi ćemo je ispitati što je prije moguće.</value>
   </data>
-  <data name="field_activity_date" xml:space="preserve">
+    <data name="field_activity_date" xml:space="preserve">
     <value>Datum aktivnosti</value>
   </data>
-  <data name="field_activity_type" xml:space="preserve">
+    <data name="field_activity_type" xml:space="preserve">
     <value>Vrsta aktivnosti</value>
   </data>
-  <data name="field_additional_contribution_areas" xml:space="preserve">
+    <data name="field_additional_contribution_areas" xml:space="preserve">
     <value>Dodatna područja doprinosa</value>
   </data>
-  <data name="field_annual_quantity" xml:space="preserve">
+    <data name="field_annual_quantity" xml:space="preserve">
     <value>Godišnja količina</value>
   </data>
-  <data name="field_annual_reach" xml:space="preserve">
+    <data name="field_annual_reach" xml:space="preserve">
     <value>Godišnji doseg</value>
   </data>
-  <data name="field_annual_unique_visitors" xml:space="preserve">
+    <data name="field_annual_unique_visitors" xml:space="preserve">
     <value>Jedinstveni godišnji posjetioci</value>
   </data>
-  <data name="field_attendees_of_talks" xml:space="preserve">
+    <data name="field_attendees_of_talks" xml:space="preserve">
     <value>Broj učesnika predavanja</value>
   </data>
-  <data name="field_contributions" xml:space="preserve">
+    <data name="field_contributions" xml:space="preserve">
     <value>Doprinosi</value>
   </data>
-  <data name="field_copies_sold" xml:space="preserve">
+    <data name="field_copies_sold" xml:space="preserve">
     <value>Prodano kopija</value>
   </data>
-  <data name="field_description" xml:space="preserve">
+    <data name="field_description" xml:space="preserve">
     <value>Opis</value>
   </data>
-  <data name="field_meetings" xml:space="preserve">
+    <data name="field_meetings" xml:space="preserve">
     <value>Sastanci</value>
   </data>
-  <data name="field_members" xml:space="preserve">
+    <data name="field_members" xml:space="preserve">
     <value>Članovi</value>
   </data>
-  <data name="field_number_of_answers" xml:space="preserve">
+    <data name="field_number_of_answers" xml:space="preserve">
     <value>Broj odgovora</value>
   </data>
-  <data name="field_number_of_articles" xml:space="preserve">
+    <data name="field_number_of_articles" xml:space="preserve">
     <value>Broj članaka</value>
   </data>
-  <data name="field_number_of_attendees" xml:space="preserve">
+    <data name="field_number_of_attendees" xml:space="preserve">
     <value>Broj učesnika</value>
   </data>
-  <data name="field_number_of_books" xml:space="preserve">
+    <data name="field_number_of_books" xml:space="preserve">
     <value>Broj knjiga</value>
   </data>
-  <data name="field_number_of_conferences" xml:space="preserve">
+    <data name="field_number_of_conferences" xml:space="preserve">
     <value>Broj konferencija</value>
   </data>
-  <data name="field_number_of_downloads" xml:space="preserve">
+    <data name="field_number_of_downloads" xml:space="preserve">
     <value>Broj preuzimanja</value>
   </data>
-  <data name="field_number_of_events" xml:space="preserve">
+    <data name="field_number_of_events" xml:space="preserve">
     <value>Broj događaja</value>
   </data>
-  <data name="field_number_of_events_participated" xml:space="preserve">
+    <data name="field_number_of_events_participated" xml:space="preserve">
     <value>Broj sudjelovanih događaja</value>
   </data>
-  <data name="field_number_of_feedbacks_provided" xml:space="preserve">
+    <data name="field_number_of_feedbacks_provided" xml:space="preserve">
     <value>Broj pruženih povratnih informacija</value>
   </data>
-  <data name="field_number_of_followers" xml:space="preserve">
+    <data name="field_number_of_followers" xml:space="preserve">
     <value>Broj pratioca</value>
   </data>
-  <data name="field_number_of_mentees" xml:space="preserve">
+    <data name="field_number_of_mentees" xml:space="preserve">
     <value>Broj mentoriranih</value>
   </data>
-  <data name="field_number_of_mentorship_activity" xml:space="preserve">
+    <data name="field_number_of_mentorship_activity" xml:space="preserve">
     <value>Broj mentorskih aktivnosti</value>
   </data>
-  <data name="field_number_of_posts" xml:space="preserve">
+    <data name="field_number_of_posts" xml:space="preserve">
     <value>Broj postova</value>
   </data>
-  <data name="field_number_of_projects" xml:space="preserve">
+    <data name="field_number_of_projects" xml:space="preserve">
     <value>Broj projekata</value>
   </data>
-  <data name="field_number_of_samples" xml:space="preserve">
+    <data name="field_number_of_samples" xml:space="preserve">
     <value>Broj primjera</value>
   </data>
-  <data name="field_number_of_sites" xml:space="preserve">
+    <data name="field_number_of_sites" xml:space="preserve">
     <value>Broj stranica</value>
   </data>
-  <data name="field_number_of_subscribers" xml:space="preserve">
+    <data name="field_number_of_subscribers" xml:space="preserve">
     <value>Broj predplatnika</value>
   </data>
-  <data name="field_number_of_talks" xml:space="preserve">
+    <data name="field_number_of_talks" xml:space="preserve">
     <value>Broj predavanja</value>
   </data>
-  <data name="field_number_of_threads_moderated" xml:space="preserve">
+    <data name="field_number_of_threads_moderated" xml:space="preserve">
     <value>Broj tema moderirano</value>
   </data>
-  <data name="field_number_of_videos" xml:space="preserve">
+    <data name="field_number_of_videos" xml:space="preserve">
     <value>Broj videa</value>
   </data>
-  <data name="field_number_of_views" xml:space="preserve">
+    <data name="field_number_of_views" xml:space="preserve">
     <value>Broj pregleda</value>
   </data>
-  <data name="field_number_of_visitors" xml:space="preserve">
+    <data name="field_number_of_visitors" xml:space="preserve">
     <value>Broj posjetioca</value>
   </data>
-  <data name="field_primary_contribution_area" xml:space="preserve">
+    <data name="field_primary_contribution_area" xml:space="preserve">
     <value>Područje primarnog doprinosa</value>
   </data>
-  <data name="field_projects" xml:space="preserve">
+    <data name="field_projects" xml:space="preserve">
     <value>Projekt(i)</value>
   </data>
-  <data name="field_prs_issues_submissions" xml:space="preserve">
+    <data name="field_prs_issues_submissions" xml:space="preserve">
     <value>Pull Requests/Issues/Submissions</value>
   </data>
-  <data name="field_title" xml:space="preserve">
+    <data name="field_title" xml:space="preserve">
     <value>Naslov aktivnosti</value>
   </data>
-  <data name="field_url" xml:space="preserve">
+    <data name="field_url" xml:space="preserve">
     <value>URL</value>
   </data>
-  <data name="field_views_of_answers" xml:space="preserve">
+    <data name="field_views_of_answers" xml:space="preserve">
     <value>Broj pregleda od odgovora</value>
   </data>
-  <data name="field_visibility" xml:space="preserve">
+    <data name="field_visibility" xml:space="preserve">
     <value>Vidljivost</value>
   </data>
-  <data name="icon_black" xml:space="preserve">
+    <data name="icon_black" xml:space="preserve">
     <value>Crna</value>
   </data>
-  <data name="icon_darkblue" xml:space="preserve">
+    <data name="icon_darkblue" xml:space="preserve">
     <value>Tamno plava</value>
   </data>
-  <data name="icon_default" xml:space="preserve">
+    <data name="icon_default" xml:space="preserve">
     <value>Zadana</value>
   </data>
-  <data name="icon_rainbow" xml:space="preserve">
+    <data name="icon_rainbow" xml:space="preserve">
     <value>Duga</value>
   </data>
-  <data name="icon_white" xml:space="preserve">
+    <data name="icon_white" xml:space="preserve">
     <value>Bijela</value>
   </data>
-  <data name="languagepicker_title" xml:space="preserve">
+    <data name="languagepicker_title" xml:space="preserve">
     <value>Jezik</value>
   </data>
-  <data name="licenses_title" xml:space="preserve">
+    <data name="licenses_title" xml:space="preserve">
     <value>Licence</value>
   </data>
-  <data name="logout" xml:space="preserve">
+    <data name="logout" xml:space="preserve">
     <value>Odjaviti se</value>
   </data>
-  <data name="no" xml:space="preserve">
+    <data name="no" xml:space="preserve">
     <value>Ne</value>
   </data>
-  <data name="offline_contributions" xml:space="preserve">
+    <data name="offline_contributions" xml:space="preserve">
     <value>Trenutno nemate internetsku vezu. Ovo nas spreiječava da učitamo vaše doprinose. Pokušajte ponovo kasnije.</value>
   </data>
-  <data name="ok" xml:space="preserve">
+    <data name="ok" xml:space="preserve">
     <value>Uredu</value>
   </data>
-  <data name="onboarding_1_description" xml:space="preserve">
+    <data name="onboarding_1_description" xml:space="preserve">
     <value>Upravljajte svim aktivnostima u zajednici sa dlana vaše ruke.</value>
   </data>
-  <data name="onboarding_1_title" xml:space="preserve">
+    <data name="onboarding_1_title" xml:space="preserve">
     <value>Jednostavno i efikasno</value>
   </data>
-  <data name="onboarding_3_description" xml:space="preserve">
+    <data name="onboarding_3_description" xml:space="preserve">
     <value>Izravno kreirajte doprinose na osnovu URL-a u međuspremniku. Unaprijed ispunite bilo koje polje koja vam omogućava brzo dodavanje novih doprinosa.</value>
   </data>
-  <data name="onboarding_3_title" xml:space="preserve">
+    <data name="onboarding_3_title" xml:space="preserve">
     <value>Brzi unos</value>
   </data>
-  <data name="profile_title" xml:space="preserve">
+    <data name="profile_title" xml:space="preserve">
     <value>Podešavanja</value>
   </data>
-  <data name="progress_loading_url_data" xml:space="preserve">
+    <data name="progress_loading_url_data" xml:space="preserve">
     <value>Dohvaćanje metapodataka URL-a ...</value>
   </data>
-  <data name="progress_saving" xml:space="preserve">
+    <data name="progress_saving" xml:space="preserve">
     <value>Spremanje ...</value>
   </data>
-  <data name="search_placeholder" xml:space="preserve">
+    <data name="search_placeholder" xml:space="preserve">
     <value>Pretraga ...</value>
   </data>
-  <data name="setting_appicon_description" xml:space="preserve">
+    <data name="setting_appicon_description" xml:space="preserve">
     <value>Ne sviđa vam se zadana ikona aplikacije? Dostupne su alternativne opcije.</value>
   </data>
-  <data name="setting_appicon_title" xml:space="preserve">
+    <data name="setting_appicon_title" xml:space="preserve">
     <value>Ikona aplikacije</value>
   </data>
-  <data name="setting_apptheme_description" xml:space="preserve">
+    <data name="setting_apptheme_description" xml:space="preserve">
     <value>Ova se aplikacija može koristiti u svijetlom i tamnom načinu rada. Po defaultu će odabrati ono na što je uređaj postavljen. Ako je bilo koja tema poželjnija, ovdje se može odabrati određena tema.</value>
   </data>
-  <data name="setting_apptheme_title" xml:space="preserve">
+    <data name="setting_apptheme_title" xml:space="preserve">
     <value>Tema aplikacije</value>
   </data>
-  <data name="setting_contributionfromurl_description" xml:space="preserve">
+    <data name="setting_contributionfromurl_description" xml:space="preserve">
     <value>Ako se na međuspremniku nalazi valjani URL tijekom dodavanja doprinosa, aplikacija će pitati trebaju li se metapodaci s tog URL-a koristiti za prethodno ispunjavanje doprinosa.</value>
   </data>
-  <data name="setting_contributionfromurl_title" xml:space="preserve">
+    <data name="setting_contributionfromurl_title" xml:space="preserve">
     <value>Kreirajte doprinos iz URL-a</value>
   </data>
-  <data name="setting_language_description" xml:space="preserve">
+    <data name="setting_language_description" xml:space="preserve">
     <value>Prema zadanim postavkama odabiremo jezik koji koristite na uređaju ako su dostupni prijevodi za njega. Međutim, ako ovu aplikaciju želite koristiti na drugom jeziku, ovdje možete to promjeniti.</value>
   </data>
-  <data name="setting_language_title" xml:space="preserve">
+    <data name="setting_language_title" xml:space="preserve">
     <value>Jezik</value>
   </data>
-  <data name="sign_in" xml:space="preserve">
+    <data name="sign_in" xml:space="preserve">
     <value>Prijavite se</value>
   </data>
-  <data name="splash_contributionareas" xml:space="preserve">
+    <data name="splash_contributionareas" xml:space="preserve">
     <value>Dohvaćanje područja doprinosa ...</value>
   </data>
-  <data name="splash_contributiontypes" xml:space="preserve">
+    <data name="splash_contributiontypes" xml:space="preserve">
     <value>Sinkronizacija vrsta doprinosa ...</value>
   </data>
-  <data name="splash_gettingready" xml:space="preserve">
+    <data name="splash_gettingready" xml:space="preserve">
     <value>Priprema stvari ...</value>
   </data>
-  <data name="splash_visibilities" xml:space="preserve">
+    <data name="splash_visibilities" xml:space="preserve">
     <value>Postavljanje vidljivosti na mjesto ...</value>
   </data>
-  <data name="swipe_to_continue" xml:space="preserve">
+    <data name="swipe_to_continue" xml:space="preserve">
     <value>Prijeđite prstom za nastavak</value>
   </data>
-  <data name="tabs_activities" xml:space="preserve">
+    <data name="tabs_activities" xml:space="preserve">
     <value>Aktivnosti</value>
   </data>
-  <data name="tabs_badges" xml:space="preserve">
+    <data name="tabs_badges" xml:space="preserve">
     <value>Bedževi</value>
   </data>
-  <data name="tabs_settings" xml:space="preserve">
+    <data name="tabs_settings" xml:space="preserve">
     <value>Podešavanja</value>
   </data>
-  <data name="tabs_statistics" xml:space="preserve">
+    <data name="tabs_statistics" xml:space="preserve">
     <value>Statistike</value>
   </data>
-  <data name="themepicker_title" xml:space="preserve">
+    <data name="themepicker_title" xml:space="preserve">
     <value>Tema aplikacije</value>
   </data>
-  <data name="theme_dark" xml:space="preserve">
+    <data name="theme_dark" xml:space="preserve">
     <value>Mračna</value>
   </data>
-  <data name="theme_light" xml:space="preserve">
+    <data name="theme_light" xml:space="preserve">
     <value>Svijetla</value>
   </data>
-  <data name="theme_systemdefault" xml:space="preserve">
+    <data name="theme_systemdefault" xml:space="preserve">
     <value>Zadata od sistema</value>
   </data>
-  <data name="try_with_demo_account" xml:space="preserve">
+    <data name="try_with_demo_account" xml:space="preserve">
     <value>Pokušajte sa demo računom</value>
   </data>
-  <data name="validation_variablefield" xml:space="preserve">
+    <data name="validation_variablefield" xml:space="preserve">
     <value>{0} je obavezno polje za unos.</value>
   </data>
-  <data name="view_licenses" xml:space="preserve">
+    <data name="view_licenses" xml:space="preserve">
     <value>Pogledajte licence</value>
   </data>
-  <data name="visibility_title" xml:space="preserve">
+    <data name="visibility_title" xml:space="preserve">
     <value>Vidljivost</value>
   </data>
-  <data name="warning_description_activitylocked" xml:space="preserve">
+    <data name="warning_description_activitylocked" xml:space="preserve">
     <value>Ova aktivnost je zabilježena u prethodnom prozoru doprinosa i stoga je nije moguće uređivati ili brisati.</value>
   </data>
-  <data name="warning_title" xml:space="preserve">
+    <data name="warning_title" xml:space="preserve">
     <value>Sačekajte ...</value>
   </data>
-  <data name="warning_title_activitylocked" xml:space="preserve">
+    <data name="warning_title_activitylocked" xml:space="preserve">
     <value>Aktivnost je zaključana</value>
   </data>
-  <data name="yes" xml:space="preserve">
+    <data name="yes" xml:space="preserve">
     <value>Da</value>
   </data>
 </root>
