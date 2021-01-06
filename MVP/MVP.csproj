@@ -133,6 +133,9 @@
         <Compile Update="Resources\Translations.fr.Designer.cs">
             <DependentUpon>Translations.fr.resx</DependentUpon>
         </Compile>
+        <Compile Update="Resources\Translations.bs.Designer.cs">
+            <DependentUpon>Translations.bs.resx</DependentUpon>
+        </Compile>
     </ItemGroup>
     <ItemGroup>
         <EmbeddedResource Update="Resources\Translations.it.resx">
@@ -170,6 +173,10 @@
         <EmbeddedResource Update="Resources\Translations.fr.resx">
             <Generator>ResXFileCodeGenerator</Generator>
             <LastGenOutput>Translations.fr.Designer.cs</LastGenOutput>
+        </EmbeddedResource>
+        <EmbeddedResource Update="Resources\Translations.bs.resx">
+            <LastGenOutput>Translations.bs.Designer.cs</LastGenOutput>
+            <Generator>ResXFileCodeGenerator</Generator>
         </EmbeddedResource>
     </ItemGroup>
 </Project>
