@@ -1,10 +1,12 @@
 ﻿using System;
 using System.Threading.Tasks;
 using MVP.Extensions;
+using MVP.Helpers;
 using MVP.Pages;
 using MVP.Services.Interfaces;
 using Xamarin.CommunityToolkit.ObjectModel;
 using Xamarin.Essentials;
+using Xamarin.Forms;
 
 namespace MVP.ViewModels
 {
@@ -77,6 +79,9 @@ namespace MVP.ViewModels
             => MainThread.InvokeOnMainThreadAsync(()
                 =>
             {
+                //var statusBar = DependencyService.Get<IStatusBar>();
+                //statusBar?.SetStatusBarColor(Application.Current.UserAppTheme, Color.Black);
+
                 if (isAuthenticated)
                 {
                     AnalyticsService.Track("Splash Authenticated");

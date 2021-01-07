@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.ObjectModel;
+using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
 using MVP.Extensions;
@@ -37,8 +38,6 @@ namespace MVP.ViewModels
             SecondaryCommand = new AsyncCommand(() => OpenAddContribution());
             RefreshDataCommand = new AsyncCommand(() => RefreshContributions(true));
             LoadMoreCommand = new AsyncCommand(() => LoadMore());
-
-            MessagingService.Current.Subscribe(MessageKeys.RefreshNeeded, HandleRefreshContributionsMessage);
         }
 
         public async override Task Initialize()
@@ -74,6 +73,10 @@ namespace MVP.ViewModels
                 }
 
                 Contributions = new ObservableCollection<Contribution>(contributionsList.Contributions.OrderByDescending(x => x.StartDate).ToList());
+
+                foreach (var item in Contributions)
+                    Debug.WriteLine(item.StartDate.ToString());
+
             }
             catch (Exception ex)
             {

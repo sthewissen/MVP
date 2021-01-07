@@ -14,22 +14,21 @@ namespace MVP.Droid.DependencyServices
         {
         }
 
-        public void SetStatusBarColor(OSAppTheme theme)
+        public void SetStatusBarColor(OSAppTheme theme, Color overrideColor = default)
         {
             // The SetStatusBarcolor is new since API 21
             if (Build.VERSION.SdkInt >= BuildVersionCodes.Lollipop)
             {
-                var color = theme == OSAppTheme.Dark ? (Color)Xamarin.Forms.Application.Current.Resources["black"] : (Color)Xamarin.Forms.Application.Current.Resources["white"];
+                var color = overrideColor == default ? theme == OSAppTheme.Dark ? (Color)Xamarin.Forms.Application.Current.Resources["black"] : (Color)Xamarin.Forms.Application.Current.Resources["white"] : overrideColor;
                 var darkStatusBarTint = theme != OSAppTheme.Dark;
 
-                var androidColor = color.ToAndroid();
                 var window = CrossCurrentActivity.Current.Activity.Window;
                 window.AddFlags(Android.Views.WindowManagerFlags.DrawsSystemBarBackgrounds);
                 window.ClearFlags(Android.Views.WindowManagerFlags.TranslucentStatus);
-                window.SetStatusBarColor(androidColor);
+                window.SetStatusBarColor(color.ToAndroid());
 
                 var flag = (Android.Views.StatusBarVisibility)Android.Views.SystemUiFlags.LightStatusBar;
-                window.DecorView.SystemUiVisibility = darkStatusBarTint ? flag : 0;
+                window.DecorView.SystemUiVisibility = darkStatusBarTint || overrideColor != default ? flag : 0;
             }
         }
     }

@@ -453,4 +453,10 @@
     <data name="about_credits_description" xml:space="preserve">
     <value>Ohne die unten aufgeführten wundervollen Menschen wäre diese App nicht möglich gewesen. Daher haben sie es verdient, hier einen Platz zu bekommen, um ihre Beiträge zu honorieren.</value>
   </data>
+    <data name="appiconpicker_title" xml:space="preserve">
+    <value>App-Symbol</value>
+  </data>
+    <data name="please_reboot_app_language_change" xml:space="preserve">
+    <value>Bitte starte die App neu, damit deine Sprachänderung wirksam wird.</value>
+  </data>
 </root>

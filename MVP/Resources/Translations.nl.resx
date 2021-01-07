@@ -453,4 +453,10 @@
     <data name="try_with_demo_account" xml:space="preserve">
     <value>Probeer de demo</value>
   </data>
+    <data name="appiconpicker_title" xml:space="preserve">
+        <value>Icoon</value>
+    </data>
+    <data name="please_reboot_app_language_change" xml:space="preserve">
+        <value>Herstart de app om jouw nieuwe voorkeurstaal van kracht te laten worden.</value>
+    </data>
 </root>

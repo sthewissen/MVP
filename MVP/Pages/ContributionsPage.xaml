@@ -3,7 +3,7 @@
                        xmlns:mvp="clr-namespace:MVP"
                        xmlns:pages="clr-namespace:MVP.Pages"
                        xmlns:converters="clr-namespace:Xamarin.CommunityToolkit.Converters;assembly=Xamarin.CommunityToolkit"
-                       xmlns:extensions="clr-namespace:MVP.Helpers"
+                       xmlns:resources="clr-namespace:MVP.Resources"
                        xmlns:vm="clr-namespace:MVP.ViewModels"
                        xmlns:controls="clr-namespace:MVP.Controls"
                        xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
@@ -20,9 +20,9 @@
         </converters:MultiConverter>
     </pages:BaseContentPage.Resources>
 
-    <mvp:AppFrame SecondaryButtonText="{extensions:Translate contribution_add}"
+    <mvp:AppFrame SecondaryButtonText="{x:Static resources:Translations.contribution_add}"
                   ShowSecondaryButton="{Binding State, Converter={StaticResource NotLoadingConverter}}"
-                  Title="{extensions:Translate contributions_title}"
+                  Title="{x:Static resources:Translations.contributions_title}"
                   x:Name="appFrame">
         <mvp:AppFrame.Content>
             <Grid views:StateLayout.CurrentState="{Binding State}"
@@ -37,8 +37,8 @@
                     <views:StateView StateKey="Empty"
                                      HorizontalOptions="FillAndExpand"
                                      VerticalOptions="FillAndExpand" >
-                        <controls:EmptyState Title="{extensions:Translate empty_state_title}"
-                                             Description="{extensions:Translate empty_state_contributions}"
+                        <controls:EmptyState Title="{x:Static resources:Translations.empty_state_title}"
+                                             Description="{x:Static resources:Translations.empty_state_contributions}"
                                              ImageSource="Resource://no_contributions.svg"
                                              CommandText="Retry"
                                              Command="{Binding RefreshDataCommand}" />
@@ -47,8 +47,8 @@
                     <views:StateView StateKey="Error"
                                      HorizontalOptions="FillAndExpand"
                                      VerticalOptions="FillAndExpand" >
-                        <controls:EmptyState Title="{extensions:Translate error_title}"
-                                             Description="{extensions:Translate error_data_not_loaded}"
+                        <controls:EmptyState Title="{x:Static resources:Translations.error_title}"
+                                             Description="{x:Static resources:Translations.error_data_not_loaded}"
                                              ImageSource="Resource://error.svg"
                                              CommandText="Retry"
                                              Command="{Binding RefreshDataCommand}" />
@@ -58,8 +58,8 @@
                                      CustomStateKey="{x:Static mvp:StateKeys.Offline}"
                                      HorizontalOptions="FillAndExpand"
                                      VerticalOptions="FillAndExpand" >
-                        <controls:EmptyState Title="{extensions:Translate error_offline_title}"
-                                             Description="{extensions:Translate offline_contributions}"
+                        <controls:EmptyState Title="{x:Static resources:Translations.error_offline_title}"
+                                             Description="{x:Static resources:Translations.offline_contributions}"
                                              ImageSource="Resource://no_contributions.svg"
                                              CommandText="Retry"
                                              Command="{Binding RefreshDataCommand}" />

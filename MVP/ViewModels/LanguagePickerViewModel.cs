@@ -12,6 +12,8 @@ using Xamarin.CommunityToolkit.ObjectModel;
 using MVP.Extensions;
 using System.Globalization;
 using MVP.Helpers;
+using Xamarin.Forms;
+using System.Resources;
 
 namespace MVP.ViewModels
 {
@@ -43,16 +45,27 @@ namespace MVP.ViewModels
         {
             // Not going to translate the top name, as it's the
             // language's native name, which should be the same across all languages.
-
             var languages = new List<LanguageViewModel>();
-            var text = LocalizationResourceManager.Current.CurrentCulture.TextInfo;
+            var text = new CultureInfo(languageService.PreferredLanguage).TextInfo;
 
             foreach (var item in LanguageService.SupportedLanguages)
             {
+                // Fallback.
+                var name = IsoNames.LanguageNames.GetName(new CultureInfo("en"), new CultureInfo(item).TwoLetterISOLanguageName);
+
+                // This lookup will throw an exception if it doesn't exist (e.g. for Norway)
+                try
+                {
+                    name = IsoNames.LanguageNames.GetName(new CultureInfo(languageService.PreferredLanguage), new CultureInfo(item).TwoLetterISOLanguageName);
+                }
+                catch
+                {
+                }
+
                 languages.Add(new LanguageViewModel
                 {
                     Description = text.ToTitleCase(item.GetNativeName()),
-                    CurrentLanguageDescription = text.ToTitleCase(IsoNames.LanguageNames.GetName(LocalizationResourceManager.Current.CurrentCulture, item)),
+                    CurrentLanguageDescription = text.ToTitleCase(name),
                     CI = item
                 });
             }
@@ -60,7 +73,7 @@ namespace MVP.ViewModels
             SupportedLanguages = languages.OrderBy(x => x.Description).ToList();
 
             // Set current selection
-            var selected = SupportedLanguages.FirstOrDefault(pro => pro.CI == LocalizationResourceManager.Current.CurrentCulture.TwoLetterISOLanguageName);
+            var selected = SupportedLanguages.FirstOrDefault(pro => pro.CI == languageService.PreferredLanguage);
 
             if (selected != null)
                 selected.IsSelected = true;
@@ -73,10 +86,10 @@ namespace MVP.ViewModels
         {
             try
             {
-                foreach (var item in SupportedLanguages)
-                    item.IsSelected = false;
-
                 languageService.PreferredLanguage = language.CI;
+
+                if (Device.RuntimePlatform == Device.Android)
+                    await DialogService.AlertAsync(Translations.please_reboot_app_language_change, Translations.warning_title, Translations.ok);
             }
             catch (Exception ex)
             {
@@ -92,9 +105,7 @@ namespace MVP.ViewModels
         void LanguageService_PreferredLanguageChanged(object sender, string e)
         {
             LoadLanguages();
-            (CurrentApp.MainPage as TabbedMainPage)?.SetTitles();
             HapticFeedback.Perform(HapticFeedbackType.Click);
-            MessagingService.Current.SendMessage(MessageKeys.RefreshNeeded);
         }
     }
 }

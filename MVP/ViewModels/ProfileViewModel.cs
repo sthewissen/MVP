@@ -134,7 +134,12 @@ namespace MVP.ViewModels
             => await NavigateAsync(nameof(ThemePickerPage)).ConfigureAwait(false);
 
         async Task OpenLanguagePicker()
-            => await NavigateAsync(nameof(LanguagePickerPage)).ConfigureAwait(false);
+        {
+            if (Device.RuntimePlatform == Device.iOS)
+                AppInfo.ShowSettingsUI();
+            else
+                await NavigateAsync(nameof(LanguagePickerPage)).ConfigureAwait(false);
+        }
 
         async Task OpenIconPicker()
             => await NavigateAsync(nameof(AppIconPickerPage)).ConfigureAwait(false);

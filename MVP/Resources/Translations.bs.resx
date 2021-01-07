@@ -453,4 +453,10 @@
     <data name="yes" xml:space="preserve">
     <value>Da</value>
   </data>
+    <data name="appiconpicker_title" xml:space="preserve">
+        <value>Ikona aplikacije</value>
+    </data>
+    <data name="please_reboot_app_language_change" xml:space="preserve">
+        <value>Ponovo pokrenite aplikaciju da bi vaša promjena jezika stupila na snagu.</value>
+    </data>
 </root>

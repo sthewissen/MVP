@@ -4,7 +4,7 @@
                        xmlns:vm="clr-namespace:MVP.ViewModels"
                        xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
                        x:Class="MVP.Pages.AdditionalTechnologyPickerPage"
-                       xmlns:extensions="clr-namespace:MVP.Helpers"
+                       xmlns:resources="clr-namespace:MVP.Resources"
                        xmlns:behaviors="clr-namespace:Xamarin.CommunityToolkit.Behaviors;assembly=Xamarin.CommunityToolkit"
                        x:DataType="vm:AdditionalTechnologyPickerViewModel"
                        x:TypeArguments="vm:AdditionalTechnologyPickerViewModel"
@@ -14,7 +14,7 @@
                        xmlns:mvp="clr-namespace:MVP">
 
     <mvp:AppFrame ShowBackButton="True"
-                  Title="{extensions:Translate additionaltechnologypicker_title}"
+                  Title="{x:Static resources:Translations.additionaltechnologypicker_title}"
                   x:Name="appFrame">
         <mvp:AppFrame.Content>
             <Grid RowDefinitions="Auto,*"
@@ -29,8 +29,8 @@
                     <views:StateView StateKey="Empty"
                                      HorizontalOptions="FillAndExpand"
                                      VerticalOptions="FillAndExpand" >
-                        <controls:EmptyState Title="{extensions:Translate empty_state_title}"
-                                             Description="{extensions:Translate empty_state_contributiontechnologies}"
+                        <controls:EmptyState Title="{x:Static resources:Translations.empty_state_title}"
+                                             Description="{x:Static resources:Translations.empty_state_contributiontechnologies}"
                                              ImageSource="Resource://no_contributions.svg"
                                              CommandText="Retry"
                                              Command="{Binding RefreshDataCommand}"  />
@@ -39,8 +39,8 @@
                     <views:StateView StateKey="Error"
                                      HorizontalOptions="FillAndExpand"
                                      VerticalOptions="FillAndExpand" >
-                        <controls:EmptyState Title="{extensions:Translate error_title}"
-                                             Description="{extensions:Translate error_data_not_loaded}"
+                        <controls:EmptyState Title="{x:Static resources:Translations.error_title}"
+                                             Description="{x:Static resources:Translations.error_data_not_loaded}"
                                              ImageSource="Resource://error.svg"
                                              CommandText="Retry"
                                              Command="{Binding RefreshDataCommand}"  />
@@ -59,8 +59,8 @@
                         <BoxView HeightRequest="40"/>
                     </CollectionView.Footer>
                     <CollectionView.EmptyView>
-                        <controls:EmptyState Title="{extensions:Translate empty_state_title}"
-                                            Description="{extensions:Translate empty_state_noresultcontributiontechnologies}"
+                        <controls:EmptyState Title="{x:Static resources:Translations.empty_state_title}"
+                                            Description="{x:Static resources:Translations.empty_state_noresultcontributiontechnologies}"
                                             ImageSource="Resource://no_contributions.svg" />
                     </CollectionView.EmptyView>
                 </CollectionView>
