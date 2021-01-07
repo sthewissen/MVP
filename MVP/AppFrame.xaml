@@ -56,7 +56,7 @@
 
     <Button Command="{Binding SecondaryCommand}"
             Grid.Column="2"
-            Margin="{OnPlatform iOS='0,0,24,0'}"
+            Margin="{OnPlatform iOS='0,0,24,0', Android='0,0,16,0'}"
             Style="{StaticResource button_menu_text}"
             HorizontalOptions="Center"
             IsVisible="{Binding Source={x:Reference appFrame}, Path=ShowSecondaryButton}"
@@ -68,6 +68,7 @@
     <Label Grid.Column="0"
            Grid.ColumnSpan="3"
            Grid.Row="0"
+           BackgroundColor="Transparent"
            Style="{StaticResource menu_title}"
            Text="{Binding Path=Title, Source={x:Reference appFrame}}"/>
 

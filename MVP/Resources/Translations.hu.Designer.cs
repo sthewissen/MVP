@@ -30,7 +30,7 @@ namespace MVP.Resources {
         internal static System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.Equals(null, resourceMan)) {
-                    System.Resources.ResourceManager temp = new System.Resources.ResourceManager("MVP.Resources.Translations", typeof(Translations).Assembly);
+                    System.Resources.ResourceManager temp = new System.Resources.ResourceManager("MVP.Resources.Translations.hu", typeof(Translations_hu).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;
@@ -128,18 +128,6 @@ namespace MVP.Resources {
         internal static string contributionform_title_edit {
             get {
                 return ResourceManager.GetString("contributionform_title_edit", resourceCulture);
-            }
-        }
-        
-        internal static string language_english {
-            get {
-                return ResourceManager.GetString("language_english", resourceCulture);
-            }
-        }
-        
-        internal static string language_dutch {
-            get {
-                return ResourceManager.GetString("language_dutch", resourceCulture);
             }
         }
         
@@ -920,6 +908,36 @@ namespace MVP.Resources {
         internal static string about_credits_title {
             get {
                 return ResourceManager.GetString("about_credits_title", resourceCulture);
+            }
+        }
+        
+        internal static string sign_in {
+            get {
+                return ResourceManager.GetString("sign_in", resourceCulture);
+            }
+        }
+        
+        internal static string swipe_to_continue {
+            get {
+                return ResourceManager.GetString("swipe_to_continue", resourceCulture);
+            }
+        }
+        
+        internal static string try_with_demo_account {
+            get {
+                return ResourceManager.GetString("try_with_demo_account", resourceCulture);
+            }
+        }
+        
+        internal static string appiconpicker_title {
+            get {
+                return ResourceManager.GetString("appiconpicker_title", resourceCulture);
+            }
+        }
+        
+        internal static string please_reboot_app_language_change {
+            get {
+                return ResourceManager.GetString("please_reboot_app_language_change", resourceCulture);
             }
         }
     }

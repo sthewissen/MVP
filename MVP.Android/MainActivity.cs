@@ -17,7 +17,7 @@ namespace MVP.Droid
         Label = "MVP",
         Icon = "@mipmap/icon",
         Theme = "@style/MainTheme.Launcher",
-        ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.UiMode)]
+        ConfigurationChanges = ConfigChanges.Locale | ConfigChanges.ScreenSize | ConfigChanges.UiMode)]
     public class MainActivity : global::Xamarin.Forms.Platform.Android.FormsAppCompatActivity
     {
         protected override void OnCreate(Bundle savedInstanceState)

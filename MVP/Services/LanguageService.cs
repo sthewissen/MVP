@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Globalization;
+using System.Threading;
+using MVP.Resources;
 using MVP.Services.Interfaces;
 using Xamarin.CommunityToolkit.Helpers;
 using Xamarin.Essentials;
@@ -39,7 +41,6 @@ namespace MVP.Services
                     throw new Exception($"Can't set language to {value} as it is not a supported language.");
 
                 Preferences.Set(Settings.AppLanguage, value);
-                SetLanguage(value);
             }
         }
 
@@ -53,10 +54,11 @@ namespace MVP.Services
             {
                 var culture = new CultureInfo(ci);
 
-                MVP.Helpers.LocalizationResourceManager.Current.SetCulture(culture);
-                analyticsService.Track("Preferred Language Changed", nameof(ci), ci ?? "null");
+                analyticsService.Track("Preferred Language Set", nameof(ci), ci ?? "null");
 
-                Resources.Translations.Culture = culture;
+                Translations.Culture = culture;
+                Thread.CurrentThread.CurrentCulture = culture;
+                Thread.CurrentThread.CurrentUICulture = culture;
                 CultureInfo.DefaultThreadCurrentCulture = culture;
                 CultureInfo.DefaultThreadCurrentUICulture = culture;
                 CultureInfo.CurrentCulture = culture;

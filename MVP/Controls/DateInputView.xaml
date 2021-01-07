@@ -19,6 +19,7 @@
 
     <Label Margin="32,0"
            Style="{StaticResource field_description}"
+           IsVisible="{Binding Description, Source={x:Reference inputView}, Converter={converters:IsNotNullOrEmptyConverter}}"
            Text="{Binding Description, Source={x:Reference inputView}}"/>
 
     <Frame Style="{StaticResource input_single_frame}"

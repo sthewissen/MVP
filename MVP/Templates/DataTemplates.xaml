@@ -54,7 +54,7 @@
                                   FontSize="{StaticResource fontsize_small}"
                                   Text="{x:Static icons:Icons.calendar}"/>
                             <Span Text="  "/>
-                            <Span Text="{Binding StartDate, StringFormat='{0:D}'}"/>
+                            <Span Text="{Binding StartDate, StringFormat='{0:D}'}" />
                         </FormattedString>
                     </Label.FormattedText>
                 </Label>

@@ -928,5 +928,17 @@ namespace MVP.Resources {
                 return ResourceManager.GetString("try_with_demo_account", resourceCulture);
             }
         }
+        
+        internal static string appiconpicker_title {
+            get {
+                return ResourceManager.GetString("appiconpicker_title", resourceCulture);
+            }
+        }
+        
+        internal static string please_reboot_app_language_change {
+            get {
+                return ResourceManager.GetString("please_reboot_app_language_change", resourceCulture);
+            }
+        }
     }
 }

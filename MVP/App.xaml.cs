@@ -38,7 +38,8 @@ namespace MVP
             MvpApiService = mvpApiService;
             AuthService = authService;
 
-            languageService.Initialize();
+            if (Device.RuntimePlatform == Device.Android)
+                languageService.Initialize();
 
             Resolver.SetResolver(new AutofacResolver(ContainerService.Container));
             Akavache.Registrations.Start(Constants.AppName);
@@ -47,8 +48,8 @@ namespace MVP
 
             // Set the theme that the user has picked.
             Current.UserAppTheme = (OSAppTheme)Preferences.Get(Settings.AppTheme, Settings.AppThemeDefault);
-            var statusBar = DependencyService.Get<IStatusBar>();
-            statusBar?.SetStatusBarColor(Current.UserAppTheme);
+            //var statusBar = DependencyService.Get<IStatusBar>();
+            //statusBar?.SetStatusBarColor(Current.UserAppTheme, Color.Black);
 
             // Set our start page to the splash screen, as that is what we want
             // everyone to see first. It's glorious.

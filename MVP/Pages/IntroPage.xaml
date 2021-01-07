@@ -2,7 +2,7 @@
 <pages:BaseContentPage xmlns="http://xamarin.com/schemas/2014/forms"
                        xmlns:converters="clr-namespace:Xamarin.CommunityToolkit.Converters;assembly=Xamarin.CommunityToolkit"
                        xmlns:effects="clr-namespace:Xamarin.CommunityToolkit.Effects;assembly=Xamarin.CommunityToolkit"
-                       xmlns:extensions="clr-namespace:MVP.Helpers"
+                       xmlns:resources="clr-namespace:MVP.Resources"
                        xmlns:mvp="clr-namespace:MVP"
                        xmlns:models="clr-namespace:MVP.Models"
                        xmlns:pages="clr-namespace:MVP.Pages"
@@ -17,7 +17,7 @@
         <x:Int32 x:Key="LastItemIndex">2</x:Int32>
     </pages:BaseContentPage.Resources>
 
-    <mvp:AppFrame SecondaryButtonText="{extensions:Translate sign_in}"
+    <mvp:AppFrame SecondaryButtonText="{x:Static resources:Translations.sign_in}"
                   ShadowOpacity="0"
                   ShowTabShadow="False"
                   ShowSecondaryButton="True"
@@ -60,7 +60,7 @@
                        HorizontalTextAlignment="Center"
                        InputTransparent="True"
                        IsVisible="{Binding Path=Position, Source={x:Reference carousel}, Converter={converters:NotEqualConverter}, ConverterParameter={StaticResource LastItemIndex}}"
-                       Text="{extensions:Translate swipe_to_continue}"
+                       Text="{x:Static resources:Translations.swipe_to_continue}"
                        VerticalOptions="Center"/>
 
                 <sh:Shadows Style="{StaticResource shade_primary}" 
@@ -69,7 +69,7 @@
                     <Button Command="{Binding SignInAsDemoCommand}"
                             HorizontalOptions="CenterAndExpand"
                             Style="{StaticResource primary_button}"
-                            Text="{extensions:Translate try_with_demo_account}"
+                            Text="{x:Static resources:Translations.try_with_demo_account}"
                             VerticalOptions="Center"/>
                 </sh:Shadows>
 

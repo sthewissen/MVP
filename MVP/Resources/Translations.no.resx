@@ -1,456 +1,462 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <root>
-  <resheader name="resmimetype">
-    <value>text/microsoft-resx</value>
-  </resheader>
-  <resheader name="version">
-    <value>2.0</value>
-  </resheader>
-  <resheader name="reader">
-    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </resheader>
-  <resheader name="writer">
-    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </resheader>
-  <data name="contributions_title" xml:space="preserve">
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>2.0</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <data name="contributions_title" xml:space="preserve">
       <value>Samfunnsactiviteter</value>
     </data>
-  <data name="search_placeholder" xml:space="preserve">
+    <data name="search_placeholder" xml:space="preserve">
         <value>Søk...</value>
     </data>
-  <data name="profile_title" xml:space="preserve">
+    <data name="profile_title" xml:space="preserve">
         <value>Innstillinger</value>
     </data>
-  <data name="setting_contributionfromurl_title" xml:space="preserve">
+    <data name="setting_contributionfromurl_title" xml:space="preserve">
         <value>Lag et bidrag fra URL</value>
     </data>
-  <data name="setting_contributionfromurl_description" xml:space="preserve">
+    <data name="setting_contributionfromurl_description" xml:space="preserve">
         <value>Hvis det finnes en gyldig nettadress på klippetavla mens du legger til et nytt bidrag, appen vil spøre om metadata fra nettadressen skal bli brukt til å fylle ut bidraget.</value>
     </data>
-  <data name="setting_apptheme_title" xml:space="preserve">
+    <data name="setting_apptheme_title" xml:space="preserve">
         <value>App-tema</value>
     </data>
-  <data name="setting_apptheme_description" xml:space="preserve">
+    <data name="setting_apptheme_description" xml:space="preserve">
         <value>Denne appen skal bli brukt i både lys å mørk modus. Som standard velger den hva enheten er satt til. Hvis et av temaene foretrekkes, et bestemmt tema kan velges her.</value>
     </data>
-  <data name="logout" xml:space="preserve">
+    <data name="logout" xml:space="preserve">
         <value>Logg ut</value>
     </data>
-  <data name="tabs_activities" xml:space="preserve">
+    <data name="tabs_activities" xml:space="preserve">
         <value>Aktiviteter</value>
     </data>
-  <data name="tabs_statistics" xml:space="preserve">
+    <data name="tabs_statistics" xml:space="preserve">
         <value>Statistikk</value>
     </data>
-  <data name="tabs_badges" xml:space="preserve">
+    <data name="tabs_badges" xml:space="preserve">
         <value>Merker</value>
     </data>
-  <data name="tabs_settings" xml:space="preserve">
+    <data name="tabs_settings" xml:space="preserve">
         <value>Innstillinger</value>
     </data>
-  <data name="contributionform_title_add" xml:space="preserve">
+    <data name="contributionform_title_add" xml:space="preserve">
         <value>Legg til bidrag</value>
     </data>
-  <data name="contributionform_title_edit" xml:space="preserve">
+    <data name="contributionform_title_edit" xml:space="preserve">
         <value>Rediger bidrag</value>
     </data>
-  <data name="languagepicker_title" xml:space="preserve">
+    <data name="languagepicker_title" xml:space="preserve">
         <value>Språk</value>
     </data>
-  <data name="contributiondetails_title" xml:space="preserve">
+    <data name="contributiondetails_title" xml:space="preserve">
         <value>Aktivitetsdetaljer</value>
     </data>
-  <data name="field_activity_type" xml:space="preserve">
+    <data name="field_activity_type" xml:space="preserve">
         <value>Aktivitetstype</value>
     </data>
-  <data name="field_url" xml:space="preserve">
+    <data name="field_url" xml:space="preserve">
         <value>URL</value>
     </data>
-  <data name="field_title" xml:space="preserve">
+    <data name="field_title" xml:space="preserve">
         <value>Tittel på aktivitet</value>
     </data>
-  <data name="field_primary_contribution_area" xml:space="preserve">
+    <data name="field_primary_contribution_area" xml:space="preserve">
         <value>Primærbidragsområde</value>
     </data>
-  <data name="field_additional_contribution_areas" xml:space="preserve">
+    <data name="field_additional_contribution_areas" xml:space="preserve">
         <value>Ytterlige bidragsområder</value>
     </data>
-  <data name="field_activity_date" xml:space="preserve">
+    <data name="field_activity_date" xml:space="preserve">
         <value>Aktivitetsdato</value>
     </data>
-  <data name="field_description" xml:space="preserve">
+    <data name="field_description" xml:space="preserve">
         <value>Beskrivelse</value>
     </data>
-  <data name="field_visibility" xml:space="preserve">
+    <data name="field_visibility" xml:space="preserve">
         <value>Synlighet</value>
     </data>
-  <data name="button_delete_contribution" xml:space="preserve">
+    <data name="button_delete_contribution" xml:space="preserve">
         <value>Slett bidrag</value>
     </data>
-  <data name="about_title" xml:space="preserve">
+    <data name="about_title" xml:space="preserve">
         <value>Om denne appen</value>
     </data>
-  <data name="about_why_title" xml:space="preserve">
+    <data name="about_why_title" xml:space="preserve">
         <value>Hvorfor ble denne appen bygget?</value>
     </data>
-  <data name="about_why_description" xml:space="preserve">
+    <data name="about_why_description" xml:space="preserve">
         <value>Det har alltid vært et behov for Microsoft MVPs å styre samfunnsaktivitene sine på en enklere måte. Nettportalen fungerer fint, men å ha noen lignende i lomma for å lage aktiviter i farta er helt rått. Som er hva dette prosjektet er for!</value>
     </data>
-  <data name="about_opensource_title" xml:space="preserve">
+    <data name="about_opensource_title" xml:space="preserve">
         <value>Åpen kilde</value>
     </data>
-  <data name="about_opensource_description" xml:space="preserve">
+    <data name="about_opensource_description" xml:space="preserve">
         <value>Denne appen er helt åpen kilde. Om du liker appen, føl deg fri å bli en Github sponsor ved å kjøpe meg en digital kaffe hver måned ☕️</value>
     </data>
-  <data name="becomesponsor" xml:space="preserve">
+    <data name="becomesponsor" xml:space="preserve">
         <value>Bli en sponsor</value>
     </data>
-  <data name="contributionform_timeframememo" xml:space="preserve">
+    <data name="contributionform_timeframememo" xml:space="preserve">
         <value>Bidraget ditt for juli-utdelingssyklusen må sendes inn for samfunnsaktiviter mellom {0} og {1}. Samfunnsaktiviter som er sendt inn fra {1} og utover vil bli holdt for videre behandling.</value>
     </data>
-  <data name="contributionform_activitytype_placeholder" xml:space="preserve">
+    <data name="contributionform_activitytype_placeholder" xml:space="preserve">
         <value>Velg aktivitetstypen som best passer denne aktiveten.</value>
     </data>
-  <data name="contributionform_technologyarea_placeholder" xml:space="preserve">
+    <data name="contributionform_technologyarea_placeholder" xml:space="preserve">
         <value>Velg teknologiområdet som er aktivitetens primærfokus.</value>
     </data>
-  <data name="contributionform_additionaltechnologyarea_placeholder" xml:space="preserve">
+    <data name="contributionform_additionaltechnologyarea_placeholder" xml:space="preserve">
         <value>Velg opptil 2 ytterlige teknologiområder som også kan gjelde for denne aktiviteten.</value>
     </data>
-  <data name="contributionform_visibility_placeholder" xml:space="preserve">
+    <data name="contributionform_visibility_placeholder" xml:space="preserve">
         <value>Velg aktivitetens synlighetsnivået.</value>
     </data>
-  <data name="setting_language_title" xml:space="preserve">
+    <data name="setting_language_title" xml:space="preserve">
         <value>Språk</value>
     </data>
-  <data name="setting_language_description" xml:space="preserve">
+    <data name="setting_language_description" xml:space="preserve">
         <value>Som standard velger vi språket som du bruker på enheten din hvis oversettelser ar tilgjengelig. Hvis du derimot ønsker å bruke denne appen på et annet språk, kan du overstyre det her.</value>
     </data>
-  <data name="themepicker_title" xml:space="preserve">
+    <data name="themepicker_title" xml:space="preserve">
         <value>App-tema</value>
     </data>
-  <data name="contributiontypepicker_title" xml:space="preserve">
+    <data name="contributiontypepicker_title" xml:space="preserve">
         <value>Aktivitetstype</value>
     </data>
-  <data name="contributiontechnologypicker_title" xml:space="preserve">
+    <data name="contributiontechnologypicker_title" xml:space="preserve">
         <value>Primærbidragsområde</value>
     </data>
-  <data name="splash_contributionareas" xml:space="preserve">
+    <data name="splash_contributionareas" xml:space="preserve">
         <value>Tar tak i bidragsområdene...</value>
     </data>
-  <data name="splash_contributiontypes" xml:space="preserve">
+    <data name="splash_contributiontypes" xml:space="preserve">
         <value>Synkroniserer bidragstypene...</value>
     </data>
-  <data name="splash_visibilities" xml:space="preserve">
+    <data name="splash_visibilities" xml:space="preserve">
         <value>Setter synligheter på plass...</value>
     </data>
-  <data name="splash_gettingready" xml:space="preserve">
+    <data name="splash_gettingready" xml:space="preserve">
         <value>Gjør seg klare...</value>
     </data>
-  <data name="theme_systemdefault" xml:space="preserve">
+    <data name="theme_systemdefault" xml:space="preserve">
         <value>System Standard</value>
     </data>
-  <data name="theme_light" xml:space="preserve">
+    <data name="theme_light" xml:space="preserve">
         <value>Lys</value>
     </data>
-  <data name="theme_dark" xml:space="preserve">
+    <data name="theme_dark" xml:space="preserve">
         <value>Mørk</value>
     </data>
-  <data name="visibility_title" xml:space="preserve">
+    <data name="visibility_title" xml:space="preserve">
         <value>Synlighet</value> 
     </data>
-  <data name="icon_default" xml:space="preserve">
+    <data name="icon_default" xml:space="preserve">
         <value>Standard</value>
     </data>
-  <data name="icon_darkblue" xml:space="preserve">
+    <data name="icon_darkblue" xml:space="preserve">
         <value>Mørk Blå</value>
     </data>
-  <data name="icon_black" xml:space="preserve">
+    <data name="icon_black" xml:space="preserve">
         <value>Svart</value>
     </data>
-  <data name="icon_white" xml:space="preserve">
+    <data name="icon_white" xml:space="preserve">
         <value>Hvit</value>
     </data>
-  <data name="icon_rainbow" xml:space="preserve">
+    <data name="icon_rainbow" xml:space="preserve">
         <value>Regnbue</value>
     </data>
-  <data name="setting_appicon_title" xml:space="preserve">
+    <data name="setting_appicon_title" xml:space="preserve">
         <value>App ikon</value>
     </data>
-  <data name="setting_appicon_description" xml:space="preserve">
+    <data name="setting_appicon_description" xml:space="preserve">
         <value>Liker ikke appens standard ikonen? Alternativer er tilgjengelige.</value>
     </data>
-  <data name="yes" xml:space="preserve">
+    <data name="yes" xml:space="preserve">
         <value>Ja</value>
     </data>
-  <data name="no" xml:space="preserve">
+    <data name="no" xml:space="preserve">
         <value>Nei</value>
     </data>
-  <data name="ok" xml:space="preserve">
+    <data name="ok" xml:space="preserve">
         <value>Ok</value>
     </data>
-  <data name="cancel" xml:space="preserve">
+    <data name="cancel" xml:space="preserve">
         <value>Avbryt</value>
     </data>
-  <data name="warning_title" xml:space="preserve">
+    <data name="warning_title" xml:space="preserve">
         <value>Hold på...</value>
     </data>
-  <data name="contributiondetail_deleteconfirmation" xml:space="preserve">
+    <data name="contributiondetail_deleteconfirmation" xml:space="preserve">
         <value>Er du sikkert på at du vil slette bidraget? Du kan ikke angre dette.</value>
     </data>
-  <data name="error_unexpected" xml:space="preserve">
+    <data name="error_unexpected" xml:space="preserve">
         <value>Noe gikk galt. En feil er logget og vi vil se på den så snart som mulig.</value>
     </data>
-  <data name="error_badrequest" xml:space="preserve">
+    <data name="error_badrequest" xml:space="preserve">
         <value>Kunne ikke behandle forespørselen din. Prøv igjen senere.</value>
     </data>
-  <data name="error_servererror" xml:space="preserve">
+    <data name="error_servererror" xml:space="preserve">
         <value>Kunne ikke behandle forespørselen din. Prøv igjen senere.</value>
     </data>
-  <data name="alert_error_unauthorized" xml:space="preserve">
+    <data name="alert_error_unauthorized" xml:space="preserve">
         <value>Legitimasjonen din er utløpt og kunne ikke bli oppdatert. Du er derfor logget ut. Vennligst logg in igjen å fortsette.</value>
     </data>
-  <data name="clipboard_title" xml:space="preserve">
+    <data name="clipboard_title" xml:space="preserve">
         <value>Det ser kult ut!</value>
     </data>
-  <data name="clipboard_description" xml:space="preserve">
+    <data name="clipboard_description" xml:space="preserve">
         <value>Vi merker en URL på klippetavla din. Ønsker du at vi prøver å fylle ut en aktivitet ut av den?</value>
     </data>
-  <data name="contributiondetail_notdeleted" xml:space="preserve">
+    <data name="contributiondetail_notdeleted" xml:space="preserve">
         <value>Bidraget kunne ikke slettes. Kanskje den alrede var slettet, eller fant den sted i forrige tildelingsperiode?</value>
     </data>
-  <data name="validation_variablefield" xml:space="preserve">
+    <data name="validation_variablefield" xml:space="preserve">
         <value>{0} er et obligatorisk felt.</value>
     </data>
-  <data name="warning_title_activitylocked" xml:space="preserve">
+    <data name="warning_title_activitylocked" xml:space="preserve">
         <value>Aktivitet låst</value>
     </data>
-  <data name="warning_description_activitylocked" xml:space="preserve">
+    <data name="warning_description_activitylocked" xml:space="preserve">
         <value>Denne aktiviteten var registrert i forrige bidragsvinduet og kan derfor ikke bli redigert eller slettet.</value>
     </data>
-  <data name="additionaltechnologypicker_title" xml:space="preserve">
+    <data name="additionaltechnologypicker_title" xml:space="preserve">
         <value>Andre bidragsområder</value>
     </data>
-  <data name="error_nomvpaccount" xml:space="preserve">
+    <data name="error_nomvpaccount" xml:space="preserve">
         <value>Kunne ikke godkjenne at du bruker de oppgitte legitimasjonene. Er du sikkert på at du bruker kontoen knyttet til MVP ID-en din?</value>
     </data>
-  <data name="progress_saving" xml:space="preserve">
+    <data name="progress_saving" xml:space="preserve">
         <value>Lagrer...</value>
     </data>
-  <data name="licenses_title" xml:space="preserve">
+    <data name="licenses_title" xml:space="preserve">
         <value>Lisenser</value>
     </data>
-  <data name="about_licenses_title" xml:space="preserve">
+    <data name="about_licenses_title" xml:space="preserve">
         <value>Lisenser</value>
     </data>
-  <data name="about_licenses_description" xml:space="preserve">
+    <data name="about_licenses_description" xml:space="preserve">
         <value>Denne appen står på gigantenes skuldrene uten hvem sin opprettelse ikke hadde vært mulig. Om du vil vite hvem gigantene er, kan du sjekke ut lisensene for deres råeste software.</value>
     </data>
-  <data name="view_licenses" xml:space="preserve">
+    <data name="view_licenses" xml:space="preserve">
         <value>Vis lisenser</value>
     </data>
-  <data name="progress_loading_url_data" xml:space="preserve">
+    <data name="progress_loading_url_data" xml:space="preserve">
         <value>Får URL metadata...</value>
     </data>
-  <data name="contributionform_save" xml:space="preserve">
+    <data name="contributionform_save" xml:space="preserve">
         <value>Lagre</value>
     </data>
-  <data name="contributiondetails_edit" xml:space="preserve">
+    <data name="contributiondetails_edit" xml:space="preserve">
         <value>Rediger</value>
     </data>
-  <data name="error_title_validationfailed" xml:space="preserve">
+    <data name="error_title_validationfailed" xml:space="preserve">
         <value>Godkjenning mislyktes</value>
     </data>
-  <data name="error_description_validationfailed" xml:space="preserve">
+    <data name="error_description_validationfailed" xml:space="preserve">
         <value>Ikke alle obligatoriske felter var fullført. Vennligst fyll ut skjemaet og lagre igjen.</value>
     </data>
-  <data name="empty_state_title" xml:space="preserve">
+    <data name="empty_state_title" xml:space="preserve">
         <value>Uff...det er tomt her!</value>
     </data>
-  <data name="empty_state_contributions" xml:space="preserve">
+    <data name="empty_state_contributions" xml:space="preserve">
         <value>Kunne ikke finne noe bidrag. Legg til et nytt bidrag og oppdater for å prøve å hente dine eksisterende data.</value>
     </data>
-  <data name="contribution_add" xml:space="preserve">
+    <data name="contribution_add" xml:space="preserve">
         <value>Legg til</value>
     </data>
-  <data name="empty_state_contributiontypes" xml:space="preserve">
+    <data name="empty_state_contributiontypes" xml:space="preserve">
         <value>Kunne ikke finne noe bidragstyper. Venlligst prøv å oppdatere.</value>
     </data>
-  <data name="empty_state_contributiontechnologies" xml:space="preserve">
+    <data name="empty_state_contributiontechnologies" xml:space="preserve">
         <value>Kunne ikke finne noe bidragsområder. Venlligst prøv å oppdatere.</value>
     </data>
-  <data name="empty_state_noresultcontributiontechnologies" xml:space="preserve">
+    <data name="empty_state_noresultcontributiontechnologies" xml:space="preserve">
         <value>Søket ditt ga ingen resultater. Vennligst prøv et annet søk.</value>
     </data>
-  <data name="empty_state_visibilities" xml:space="preserve">
+    <data name="empty_state_visibilities" xml:space="preserve">
         <value>Kunne ikke finne noe synligheter. Venlligst prøv å oppdatere.</value>
     </data>
-  <data name="error_offline" xml:space="preserve">
+    <data name="error_offline" xml:space="preserve">
         <value>Denne handlingen kan ikke bli utført uten internett-tilkobling. Vennligst prøv igjen senere.</value>
     </data>
-  <data name="error_offline_title" xml:space="preserve">
+    <data name="error_offline_title" xml:space="preserve">
         <value>Ingen internett-tilkobling</value>
     </data>
-  <data name="error_logoutwhileoffline" xml:space="preserve">
+    <data name="error_logoutwhileoffline" xml:space="preserve">
         <value>Du har for tiden ingen internett-tilkobling. Dette kann gjøre at du ikke kan logge inn igjen. Er du sikker på at du vil fortsette?</value>
     </data>
-  <data name="offline_contributions" xml:space="preserve">
+    <data name="offline_contributions" xml:space="preserve">
         <value>Du har for tiden ingen internett-tilkobling. Dette hindrer oss å laste bidragene dine. Vennligst prøv igjen senere.</value>
     </data>
-  <data name="error_couldntchangeicon" xml:space="preserve">
+    <data name="error_couldntchangeicon" xml:space="preserve">
         <value>Ikonen din kunne ikke endres. Vennligst prøv igjen senere.</value>
     </data>
-  <data name="error_couldntchangetheme" xml:space="preserve">
+    <data name="error_couldntchangetheme" xml:space="preserve">
         <value>Temaet ditt kunne ikke endres. Vennligst prøv igjen senere.</value>
     </data>
-  <data name="error_couldntchangelanguage" xml:space="preserve">
+    <data name="error_couldntchangelanguage" xml:space="preserve">
         <value>Språket ditt kunne ikke endres. Vennligst prøv igjen senere.</value>
     </data>
-  <data name="error_title" xml:space="preserve">
+    <data name="error_title" xml:space="preserve">
         <value>Noe gikk galt</value>
     </data>
-  <data name="error_data_not_loaded" xml:space="preserve">
+    <data name="error_data_not_loaded" xml:space="preserve">
         <value>Dataen kunne ikke lastes. Vi er ikke helt sikker hva årsaken er men en feil er logget. Du kan prøve å oppdatere og prøve igjen senere.</value>
     </data>
-  <data name="error_couldntloadmorecontributions" xml:space="preserve">
+    <data name="error_couldntloadmorecontributions" xml:space="preserve">
         <value>Kunne ikke lastes flere bidrag. Vi er ikke helt sikker hva årsaken er men en feil er logget. Du kan prøve å oppdatere og prøve igjen senere.</value>
     </data>
-  <data name="error_couldntsavecontribution" xml:space="preserve">
+    <data name="error_couldntsavecontribution" xml:space="preserve">
         <value>Kunne ikke lagre dette bidraget. Vi er ikke helt sikker hva årsaken er men en feil er logget. Du kan prøve å oppdatere og prøve igjen senere.</value>
     </data>
-  <data name="error_couldntrefreshprofile" xml:space="preserve">
+    <data name="error_couldntrefreshprofile" xml:space="preserve">
         <value>Kunne ikke oppdatere din profilinformasjon. Vi er ikke helt sikker hva årsaken er men en feil er logget. Du kan prøve å oppdatere og prøve igjen senere.</value>
     </data>
-  <data name="field_number_of_articles" xml:space="preserve">
+    <data name="field_number_of_articles" xml:space="preserve">
         <value>Antall Artikler</value>
     </data>
-  <data name="field_number_of_views" xml:space="preserve">
+    <data name="field_number_of_views" xml:space="preserve">
         <value>Antall Visninger</value>
     </data>
-  <data name="field_number_of_posts" xml:space="preserve">
+    <data name="field_number_of_posts" xml:space="preserve">
         <value>Antall Innlegg</value>
     </data>
-  <data name="field_number_of_subscribers" xml:space="preserve">
+    <data name="field_number_of_subscribers" xml:space="preserve">
         <value>Antall Abonnenter</value>
     </data>
-  <data name="field_annual_unique_visitors" xml:space="preserve">
+    <data name="field_annual_unique_visitors" xml:space="preserve">
         <value>Årlig Unike Besøkende</value>
     </data>
-  <data name="field_number_of_books" xml:space="preserve">
+    <data name="field_number_of_books" xml:space="preserve">
         <value>Antall Bøker</value>
     </data>
-  <data name="field_copies_sold" xml:space="preserve">
+    <data name="field_copies_sold" xml:space="preserve">
         <value>Solgte Eksemplarer</value>
     </data>
-  <data name="field_number_of_conferences" xml:space="preserve">
+    <data name="field_number_of_conferences" xml:space="preserve">
         <value>Antall Konferanser</value>
     </data>
-  <data name="field_number_of_visitors" xml:space="preserve">
+    <data name="field_number_of_visitors" xml:space="preserve">
         <value>Antal Besøkende</value>
     </data>
-  <data name="field_prs_issues_submissions" xml:space="preserve">
+    <data name="field_prs_issues_submissions" xml:space="preserve">
         <value>Pull Requests/Problemer/Innsendinger</value>
     </data>
-  <data name="field_number_of_threads_moderated" xml:space="preserve">
+    <data name="field_number_of_threads_moderated" xml:space="preserve">
         <value>Antall Tråder Moderert</value>
     </data>
-  <data name="field_number_of_answers" xml:space="preserve">
+    <data name="field_number_of_answers" xml:space="preserve">
         <value>Antall Svar</value>
     </data>
-  <data name="field_views_of_answers" xml:space="preserve">
+    <data name="field_views_of_answers" xml:space="preserve">
         <value>Visninger av svarer</value>
     </data>
-  <data name="field_number_of_mentorship_activity" xml:space="preserve">
+    <data name="field_number_of_mentorship_activity" xml:space="preserve">
         <value>Antall mentoraktiviteter</value>
     </data>
-  <data name="field_number_of_mentees" xml:space="preserve">
+    <data name="field_number_of_mentees" xml:space="preserve">
         <value>Antall lærlinger</value>
     </data>
-  <data name="field_number_of_projects" xml:space="preserve">
+    <data name="field_number_of_projects" xml:space="preserve">
         <value>Antall prosjekter</value>
     </data>
-  <data name="field_projects" xml:space="preserve">
+    <data name="field_projects" xml:space="preserve">
         <value>Prosjekt(er)</value>
     </data>
-  <data name="field_contributions" xml:space="preserve">
+    <data name="field_contributions" xml:space="preserve">
         <value>Bidrag</value>
     </data>
-  <data name="field_meetings" xml:space="preserve">
+    <data name="field_meetings" xml:space="preserve">
         <value>Møter</value>
     </data>
-  <data name="field_members" xml:space="preserve">
+    <data name="field_members" xml:space="preserve">
         <value>Medlemmer</value>
     </data>
-  <data name="field_number_of_attendees" xml:space="preserve">
+    <data name="field_number_of_attendees" xml:space="preserve">
         <value>Antall Deltakere</value>
     </data>
-  <data name="field_annual_quantity" xml:space="preserve">
+    <data name="field_annual_quantity" xml:space="preserve">
         <value>Årlig Mengde</value>
     </data>
-  <data name="field_annual_reach" xml:space="preserve">
+    <data name="field_annual_reach" xml:space="preserve">
         <value>Årlig Rekkevidde</value>
     </data>
-  <data name="field_number_of_events_participated" xml:space="preserve">
+    <data name="field_number_of_events_participated" xml:space="preserve">
         <value>Antall Arrangementer bidratt</value>
     </data>
-  <data name="field_number_of_feedbacks_provided" xml:space="preserve">
+    <data name="field_number_of_feedbacks_provided" xml:space="preserve">
         <value>Antall Tilbakemeldinger</value>
     </data>
-  <data name="field_number_of_samples" xml:space="preserve">
+    <data name="field_number_of_samples" xml:space="preserve">
         <value>Antall Prøver</value>
     </data>
-  <data name="field_number_of_downloads" xml:space="preserve">
+    <data name="field_number_of_downloads" xml:space="preserve">
         <value>Antall Nedlastinger</value>
     </data>
-  <data name="field_number_of_sites" xml:space="preserve">
+    <data name="field_number_of_sites" xml:space="preserve">
         <value>Antall Nettsteder</value>
     </data>
-  <data name="field_number_of_talks" xml:space="preserve">
+    <data name="field_number_of_talks" xml:space="preserve">
         <value>Antall Foredrag</value>
     </data>
-  <data name="field_attendees_of_talks" xml:space="preserve">
+    <data name="field_attendees_of_talks" xml:space="preserve">
         <value>Deltakere i Foredrag</value>
     </data>
-  <data name="field_number_of_followers" xml:space="preserve">
+    <data name="field_number_of_followers" xml:space="preserve">
         <value>Antal Følgere</value>
     </data>
-  <data name="field_number_of_videos" xml:space="preserve">
+    <data name="field_number_of_videos" xml:space="preserve">
         <value>Antall Videoer</value>
     </data>
-  <data name="field_number_of_events" xml:space="preserve">
+    <data name="field_number_of_events" xml:space="preserve">
         <value>Antall Arrangementer</value>
     </data>
-  <data name="onboarding_1_title" xml:space="preserve">
+    <data name="onboarding_1_title" xml:space="preserve">
         <value>Enkelt og effektiv</value>
     </data>
-  <data name="onboarding_1_description" xml:space="preserve">
+    <data name="onboarding_1_description" xml:space="preserve">
         <value>Administrer alle samfunnsaktivitetene dine fra håndflaten.</value>
     </data>
-  <data name="onboarding_3_title" xml:space="preserve">
+    <data name="onboarding_3_title" xml:space="preserve">
         <value>Rask Tilsetning</value>
     </data>
-  <data name="onboarding_3_description" xml:space="preserve">
+    <data name="onboarding_3_description" xml:space="preserve">
         <value>Lag direkte bidrag basert på en URL på klippetavla. Fyller ut alt mulig for deg, slik at du raskt kan legge til nye bidrag.</value>
     </data>
-  <data name="acknowledgementtype_translator" xml:space="preserve">
+    <data name="acknowledgementtype_translator" xml:space="preserve">
         <value>Oversetter</value>
     </data>
-  <data name="acknowledgementtype_tester" xml:space="preserve">
+    <data name="acknowledgementtype_tester" xml:space="preserve">
         <value>Tester</value>
     </data>
-  <data name="about_credits_description" xml:space="preserve">
+    <data name="about_credits_description" xml:space="preserve">
         <value>Uten det råeste folket som er oppført nedenfor, denne appen kunne ikke ha vært mulig. Disse har derfor fortjent en plass her å feire deres bidrag.</value>
     </data>
-  <data name="about_credits_title" xml:space="preserve">
+    <data name="about_credits_title" xml:space="preserve">
         <value>Credits</value>
     </data>
-  <data name="sign_in" xml:space="preserve">
+    <data name="sign_in" xml:space="preserve">
         <value>Logg inn</value>
     </data>
-  <data name="swipe_to_continue" xml:space="preserve">
+    <data name="swipe_to_continue" xml:space="preserve">
         <value>Sveip for å fortsette</value>
     </data>
-  <data name="try_with_demo_account" xml:space="preserve">
+    <data name="try_with_demo_account" xml:space="preserve">
         <value>Prøv med demo konto</value>
+    </data>
+    <data name="appiconpicker_title" xml:space="preserve">
+      <value>App ikon</value>
+    </data>
+    <data name="please_reboot_app_language_change" xml:space="preserve">
+      <value>Start programmet på nytt for at språkendringen skal tre i kraft.</value>
     </data>
 </root>

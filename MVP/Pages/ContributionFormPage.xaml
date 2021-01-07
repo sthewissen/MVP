@@ -8,14 +8,14 @@
                        xmlns:views="clr-namespace:Xamarin.CommunityToolkit.UI.Views;assembly=Xamarin.CommunityToolkit"
                        xmlns:vm="clr-namespace:MVP.ViewModels"
                        xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-                       xmlns:extensions="clr-namespace:MVP.Helpers"
+                       xmlns:resources="clr-namespace:MVP.Resources"
                        xmlns:icons="clr-namespace:MVP.Styles"
                        x:Class="MVP.Pages.ContributionFormPage"
                        x:DataType="vm:ContributionFormViewModel"
                        x:TypeArguments="vm:ContributionFormViewModel">
 
     <mvp:AppFrame IsModal="True"
-                  SecondaryButtonText="{extensions:Translate contributionform_save}"
+                  SecondaryButtonText="{x:Static resources:Translations.contributionform_save}"
                   ShadowOpacity="1"
                   ShowBackButton="{Binding State, Converter={converters:NotEqualConverter}, ConverterParameter={x:Static views:LayoutState.Saving}}"
                   ShowSecondaryButton="{Binding State, Converter={converters:NotEqualConverter}, ConverterParameter={x:Static views:LayoutState.Saving}}"
@@ -26,13 +26,13 @@
                          TargetType="mvp:AppFrame"
                          Value="False">
                 <Setter Property="Title"
-                        Value="{extensions:Translate contributionform_title_add}"/>
+                        Value="{x:Static resources:Translations.contributionform_title_add}"/>
             </DataTrigger>
             <DataTrigger Binding="{Binding IsEditing}"
                          TargetType="mvp:AppFrame"
                          Value="True">
                 <Setter Property="Title"
-                        Value="{extensions:Translate contributionform_title_edit}"/>
+                        Value="{x:Static resources:Translations.contributionform_title_edit}"/>
             </DataTrigger>
         </mvp:AppFrame.Triggers>
         <mvp:AppFrame.Content>
@@ -55,11 +55,11 @@
                                        Text="{x:Static icons:Icons.alert_circle}"/>
                                 <Label Grid.Column="1"
                                        Style="{StaticResource error_title}"
-                                       Text="{extensions:Translate error_title_validationfailed}"/>
+                                       Text="{x:Static resources:Translations.error_title_validationfailed}"/>
                                 <Label Grid.ColumnSpan="2"
                                        Grid.Row="1"
                                        Style="{StaticResource error_text}"
-                                       Text="{extensions:Translate error_description_validationfailed}"/>
+                                       Text="{x:Static resources:Translations.error_description_validationfailed}"/>
                             </Grid>
                         </Frame>
 
@@ -76,8 +76,8 @@
                                                   IsRequired="True"
                                                   IsValid="{Binding Contribution.ContributionType.IsValid}"
                                                   PickerCommand="{Binding PickContributionTypeCommand}"
-                                                  Placeholder="{extensions:Translate contributionform_activitytype_placeholder}"
-                                                  Title="{extensions:Translate field_activity_type}"
+                                                  Placeholder="{x:Static resources:Translations.contributionform_activitytype_placeholder}"
+                                                  Title="{x:Static resources:Translations.field_activity_type}"
                                                   Value="{Binding Contribution.ContributionType.Value}"/>
 
                         <BoxView Margin="16,0"
@@ -87,22 +87,22 @@
                                                   IsRequired="True"
                                                   IsValid="{Binding Contribution.ContributionTechnology.IsValid}"
                                                   PickerCommand="{Binding PickContributionTechnologyCommand}"
-                                                  Placeholder="{extensions:Translate contributionform_technologyarea_placeholder}"
-                                                  Title="{extensions:Translate field_primary_contribution_area}"
+                                                  Placeholder="{x:Static resources:Translations.contributionform_technologyarea_placeholder}"
+                                                  Title="{x:Static resources:Translations.field_primary_contribution_area}"
                                                   Value="{Binding Contribution.ContributionTechnology.Value}"/>
                         <BoxView Margin="16,0"
                                  Style="{StaticResource separator}"/>
 
                         <controls:PickerInputView PickerCommand="{Binding PickAdditionalTechnologiesCommand}"
-                                                  Placeholder="{extensions:Translate contributionform_additionaltechnologyarea_placeholder}"
-                                                  Title="{extensions:Translate field_additional_contribution_areas}"
+                                                  Placeholder="{x:Static resources:Translations.contributionform_additionaltechnologyarea_placeholder}"
+                                                  Title="{x:Static resources:Translations.field_additional_contribution_areas}"
                                                   Value="{Binding Contribution.AdditionalTechnologies, Converter={converters:ListToStringConverter Separator=','}}"/>
                         <BoxView Margin="16,0"
                                  Style="{StaticResource separator}"/>
 
                         <controls:DateInputView IsRequired="True"
                                                 MinimumDate="{Binding CurrentAwardPeriodStartDate}"
-                                                Title="{extensions:Translate field_activity_date}"
+                                                Title="{x:Static resources:Translations.field_activity_date}"
                                                 Value="{Binding Contribution.StartDate}"/>
                         <BoxView Margin="16,16,16,0"
                                  Style="{StaticResource separator}"/>
@@ -110,7 +110,7 @@
                         <controls:InputView Errors="{Binding Contribution.Title.Errors, Converter={converters:ListToStringConverter}}"
                                             IsRequired="True"
                                             IsValid="{Binding Contribution.Title.IsValid}"
-                                            Title="{extensions:Translate field_title}"
+                                            Title="{x:Static resources:Translations.field_title}"
                                             Value="{Binding Contribution.Title.Value}"/>
                         <BoxView Margin="16,16,16,0"
                                  Style="{StaticResource separator}"/>
@@ -119,7 +119,7 @@
                                             IsRequired="{Binding Contribution.Requirements.IsUrlRequired}"
                                             IsValid="{Binding Contribution.ReferenceUrl.IsValid}"
                                             Keyboard="Url"
-                                            Title="{extensions:Translate field_url}"
+                                            Title="{x:Static resources:Translations.field_url}"
                                             Value="{Binding Contribution.ReferenceUrl.Value}"/>
 
                         <controls:UrlPreviewView Url="{Binding Contribution.ReferenceUrl.Value}" />
@@ -128,7 +128,7 @@
                                  Style="{StaticResource separator}"/>
 
                         <controls:InputView IsMultiLine="True"
-                                            Title="{extensions:Translate field_description}"
+                                            Title="{x:Static resources:Translations.field_description}"
                                             Value="{Binding Contribution.Description}"/>
                         <BoxView Margin="16,16,16,0"
                                  Style="{StaticResource separator}"/>
@@ -136,8 +136,8 @@
                         <controls:PickerInputView IsRequired="True"
                                                   IsValid="{Binding Contribution.Visibility.IsValid}"
                                                   PickerCommand="{Binding PickVisibilityCommand}"
-                                                  Placeholder="{extensions:Translate contributionform_visibility_placeholder}"
-                                                  Title="{extensions:Translate field_visibility}"
+                                                  Placeholder="{x:Static resources:Translations.contributionform_visibility_placeholder}"
+                                                  Title="{x:Static resources:Translations.field_visibility}"
                                                   Value="{Binding Contribution.Visibility.Value}"/>
 
                         <StackLayout IsVisible="{Binding Contribution.ContributionType.Value, Converter={converters:IsNotNullOrEmptyConverter}}">
@@ -192,7 +192,7 @@
                             <Label HorizontalOptions="Center"
                                    HorizontalTextAlignment="Center"
                                    Margin="0,48,0,0"
-                                   Text="{extensions:Translate progress_loading_url_data}"
+                                   Text="{x:Static resources:Translations.progress_loading_url_data}"
                                    VerticalOptions="Center"/>
                         </Grid>
                     </views:StateView>
@@ -209,7 +209,7 @@
                             <Label HorizontalOptions="Center"
                                    HorizontalTextAlignment="Center"
                                    Margin="0,48,0,0"
-                                   Text="{extensions:Translate progress_saving}"
+                                   Text="{x:Static resources:Translations.progress_saving}"
                                    VerticalOptions="Center"/>
                         </Grid>
                     </views:StateView>

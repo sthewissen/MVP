@@ -1,3 +1,4 @@
+using System.Resources;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -7,3 +8,4 @@ using Xamarin.Forms.Xaml;
 [assembly: ExportFont("SourceSansPro-Light.ttf", Alias = "SourceSansPro-Light")]
 [assembly: ExportFont("SourceSansPro-Bold.ttf", Alias = "SourceSansPro-Bold")]
 [assembly: ExportFont("SourceSansPro-SemiBold.ttf", Alias = "SourceSansPro-SemiBold")]
+[assembly: NeutralResourcesLanguage("en")]

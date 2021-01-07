@@ -7,12 +7,12 @@
                        xmlns:vm="clr-namespace:MVP.ViewModels"
                        xmlns:icons="clr-namespace:MVP.Styles"
                        xmlns:models="clr-namespace:MVP.Models"
-                       xmlns:extensions="clr-namespace:MVP.Helpers"
+                       xmlns:resources="clr-namespace:MVP.Resources"
                        x:TypeArguments="vm:AboutViewModel"
                        xmlns:pages="clr-namespace:MVP.Pages"
                        xmlns:sh="clr-namespace:Sharpnado.Shades;assembly=Sharpnado.Shadows">
 
-    <mvp:AppFrame Title="{extensions:Translate about_title}"
+    <mvp:AppFrame Title="{x:Static resources:Translations.about_title}"
                   ShowBackButton="True"
                   x:Name="appFrame">
         <mvp:AppFrame.Content>
@@ -22,21 +22,21 @@
 
                 <StackLayout>
                     <Label Style="{StaticResource about_title}"
-                           Text="{extensions:Translate about_why_title}" />
+                           Text="{x:Static resources:Translations.about_why_title}" />
                     <Label Style="{StaticResource about_description}"
                            Margin="0,0,0,32"
-                           Text="{extensions:Translate about_why_description}" />
+                           Text="{x:Static resources:Translations.about_why_description}" />
 
                     <Label Style="{StaticResource about_title}"
-                           Text="{extensions:Translate about_opensource_title}"
+                           Text="{x:Static resources:Translations.about_opensource_title}"
                            Margin="0,0,0,8" />
                     <Label Style="{StaticResource about_description}"
                            Margin="0,0,0,24"
-                           Text="{extensions:Translate about_opensource_description}" />
+                           Text="{x:Static resources:Translations.about_opensource_description}" />
 
 
                     <sh:Shadows Style="{StaticResource shade_secondary}">
-                        <Button Text="{extensions:Translate becomesponsor}"
+                        <Button Text="{x:Static resources:Translations.becomesponsor}"
                                 Command="{Binding OpenSponsorCommand}"
                                 Margin="0,0,0,24"
                                 ImageSource="{OnPlatform iOS={AppThemeBinding Light={FontImage FontFamily={StaticResource font_icon}, Color={StaticResource black}, Size=20, Glyph={x:Static icons:Icons.coffee}}, Dark={FontImage FontFamily={StaticResource font_icon}, Color={StaticResource white}, Size=20, Glyph={x:Static icons:Icons.coffee}}}}"
@@ -44,14 +44,14 @@
                     </sh:Shadows>
 
                     <Label Style="{StaticResource about_title}"
-                           Text="{extensions:Translate about_licenses_title}"
+                           Text="{x:Static resources:Translations.about_licenses_title}"
                            Margin="0,0,0,8" />
                     <Label Style="{StaticResource about_description}"
                            Margin="0,0,0,24"
-                           Text="{extensions:Translate about_licenses_description}" />
+                           Text="{x:Static resources:Translations.about_licenses_description}" />
 
                     <sh:Shadows Style="{StaticResource shade_secondary}">
-                        <Button Text="{extensions:Translate view_licenses}"
+                        <Button Text="{x:Static resources:Translations.view_licenses}"
                                 Command="{Binding OpenLicensesCommand}"
                                 Margin="0,0,0,24"
                                 ImageSource="{OnPlatform iOS={AppThemeBinding Light={FontImage FontFamily={StaticResource font_icon}, Color={StaticResource black}, Size=20, Glyph={x:Static icons:Icons.file_text}}, Dark={FontImage FontFamily={StaticResource font_icon}, Color={StaticResource white}, Size=20, Glyph={x:Static icons:Icons.file_text}}}}"
@@ -59,11 +59,11 @@
                     </sh:Shadows>
 
                     <Label Style="{StaticResource about_title}"
-                           Text="{extensions:Translate about_credits_title}"
+                           Text="{x:Static resources:Translations.about_credits_title}"
                            Margin="0,0,0,8" />
                     <Label Style="{StaticResource about_description}"
                            Margin="0,0,0,24"
-                           Text="{extensions:Translate about_credits_description}" />
+                           Text="{x:Static resources:Translations.about_credits_description}" />
                     <StackLayout BindableLayout.ItemsSource="{Binding Acknowledgements}">
                         <BindableLayout.ItemTemplate>
                             <DataTemplate x:DataType="models:Acknowledgement">

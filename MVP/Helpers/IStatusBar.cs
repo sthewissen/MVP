@@ -5,6 +5,6 @@ namespace MVP.Helpers
 {
     public interface IStatusBar
     {
-        void SetStatusBarColor(OSAppTheme theme);
+        void SetStatusBarColor(OSAppTheme theme, Color overrideColor = default);
     }
 }

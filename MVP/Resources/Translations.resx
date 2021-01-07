@@ -558,4 +558,10 @@
     <data name="try_with_demo_account" xml:space="preserve">
         <value>Try with a demo account</value>
     </data>
+    <data name="appiconpicker_title" xml:space="preserve">
+        <value>App icon</value>
+    </data>
+    <data name="please_reboot_app_language_change" xml:space="preserve">
+        <value>Please reboot the application for your language change to take effect.</value>
+    </data>
 </root>

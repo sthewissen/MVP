@@ -9,17 +9,17 @@
                        xmlns:pages="clr-namespace:MVP.Pages"
                        xmlns:vm="clr-namespace:MVP.ViewModels"
                        xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-                       xmlns:extensions="clr-namespace:MVP.Helpers"
+                       xmlns:resources="clr-namespace:MVP.Resources"
                        x:Class="MVP.Pages.ContributionDetailsPage"
                        x:DataType="vm:ContributionDetailsViewModel"
                        x:Name="page"
                        x:TypeArguments="vm:ContributionDetailsViewModel"
                        xmlns:sh="clr-namespace:Sharpnado.Shades;assembly=Sharpnado.Shadows">
 
-    <mvp:AppFrame SecondaryButtonText="{extensions:Translate contributiondetails_edit}"
+    <mvp:AppFrame SecondaryButtonText="{x:Static resources:Translations.contributiondetails_edit}"
                   ShowBackButton="True"
                   ShowSecondaryButton="{Binding CanBeEdited}"
-                  Title="{extensions:Translate contributiondetails_title}"
+                  Title="{x:Static resources:Translations.contributiondetails_title}"
                   x:Name="appFrame">
 
         <mvp:AppFrame.Content>
@@ -41,11 +41,11 @@
                                    Text="{x:Static icons:Icons.locked}"/>
                             <Label Grid.Column="1"
                                    Style="{StaticResource warning_title}"
-                                   Text="{extensions:Translate warning_title_activitylocked}"/>
+                                   Text="{x:Static resources:Translations.warning_title_activitylocked}"/>
                             <Label Grid.ColumnSpan="2"
                                    Grid.Row="1"
                                    Style="{StaticResource warning_text}"
-                                   Text="{extensions:Translate warning_description_activitylocked}"/>
+                                   Text="{x:Static resources:Translations.warning_description_activitylocked}"/>
                         </Grid>
                     </Frame>
 
@@ -68,7 +68,7 @@
                              Style="{StaticResource separator}"/>
 
                     <Label Style="{StaticResource field_title}"
-                           Text="{extensions:Translate field_primary_contribution_area}"/>
+                           Text="{x:Static resources:Translations.field_primary_contribution_area}"/>
 
                     <Label Text="{Binding Contribution.ContributionTechnology.Name}"/>
 
@@ -77,7 +77,7 @@
 
                     <Label IsVisible="{Binding Contribution.AdditionalTechnologies, Converter={converters:ListIsNotNullOrEmptyConverter}}"
                            Style="{StaticResource field_title}"
-                           Text="{extensions:Translate field_additional_contribution_areas}"/>
+                           Text="{x:Static resources:Translations.field_additional_contribution_areas}"/>
 
                     <StackLayout BindableLayout.ItemsSource="{Binding Contribution.AdditionalTechnologies}"
                                  IsVisible="{Binding Contribution.AdditionalTechnologies, Converter={converters:ListIsNotNullOrEmptyConverter}}">
@@ -93,15 +93,15 @@
                              Style="{StaticResource separator}"/>
 
                     <Label Style="{StaticResource field_title}"
-                           Text="{extensions:Translate field_activity_date}"/>
+                           Text="{x:Static resources:Translations.field_activity_date}"/>
 
-                    <Label Text="{Binding Contribution.StartDate, StringFormat='{0:D}'}"/>
+                    <Label Text="{Binding Contribution.StartDate, StringFormat='{0:D}'}" />
 
                     <BoxView Margin="0,16"
                              Style="{StaticResource separator}"/>
 
                     <Label Style="{StaticResource field_title}"
-                           Text="{extensions:Translate field_url}"/>
+                           Text="{x:Static resources:Translations.field_url}"/>
 
                     <controls:UrlPreviewView Url="{Binding Contribution.ReferenceUrl}"
                                              Margin="-24,0"
@@ -114,7 +114,7 @@
 
                     <Label IsVisible="{Binding Contribution.Description, Converter={converters:IsNotNullOrEmptyConverter}}"
                            Style="{StaticResource field_title}"
-                           Text="{extensions:Translate field_description}"/>
+                           Text="{x:Static resources:Translations.field_description}"/>
 
                     <Label IsVisible="{Binding Contribution.Description, Converter={converters:IsNotNullOrEmptyConverter}}"
                            Text="{Binding Contribution.Description}"/>
@@ -157,7 +157,7 @@
                              Style="{StaticResource separator}"/>
 
                     <Label Style="{StaticResource field_title}"
-                           Text="{extensions:Translate field_visibility}"/>
+                           Text="{x:Static resources:Translations.field_visibility}"/>
 
                     <Label Text="{Binding Contribution.Visibility.Description}"/>
 
@@ -169,7 +169,7 @@
                                 ImageSource="{OnPlatform iOS={FontImage FontFamily={StaticResource font_icon}, Color={StaticResource white}, Size=20, Glyph={x:Static icons:Icons.trash2}}}"
                                 IsVisible="{Binding CanBeEdited}"
                                 Style="{StaticResource destructive_primary_button}"
-                                Text="{extensions:Translate button_delete_contribution}"/>
+                                Text="{x:Static resources:Translations.button_delete_contribution}"/>
                     </sh:Shadows>
                 </StackLayout>
             </ScrollView>

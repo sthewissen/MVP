@@ -3,7 +3,7 @@
                        xmlns:mvp="clr-namespace:MVP"
                        xmlns:pages="clr-namespace:MVP.Pages"
                        xmlns:vm="clr-namespace:MVP.ViewModels"
-                       xmlns:extensions="clr-namespace:MVP.Helpers"
+                       xmlns:resources="clr-namespace:MVP.Resources"
                        xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
                        x:Class="MVP.Pages.ContributionTypePickerPage"
                        x:DataType="vm:ContributionTypePickerViewModel"
@@ -12,7 +12,7 @@
                        xmlns:controls="clr-namespace:MVP.Controls">
 
     <mvp:AppFrame ShowBackButton="True"
-                  Title="{extensions:Translate contributiontypepicker_title}"
+                  Title="{x:Static resources:Translations.contributiontypepicker_title}"
                   x:Name="appFrame">
         <mvp:AppFrame.Content>
             <Grid views:StateLayout.CurrentState="{Binding State}"
@@ -26,8 +26,8 @@
                     <views:StateView StateKey="Empty"
                                      HorizontalOptions="FillAndExpand"
                                      VerticalOptions="FillAndExpand" >
-                        <controls:EmptyState Title="{extensions:Translate empty_state_title}"
-                                             Description="{extensions:Translate empty_state_contributiontypes}"
+                        <controls:EmptyState Title="{x:Static resources:Translations.empty_state_title}"
+                                             Description="{x:Static resources:Translations.empty_state_contributiontypes}"
                                              ImageSource="Resource://no_contributions.svg"
                                              CommandText="Retry"
                                              Command="{Binding RefreshDataCommand}" />
@@ -36,8 +36,8 @@
                     <views:StateView StateKey="Error"
                                      HorizontalOptions="FillAndExpand"
                                      VerticalOptions="FillAndExpand" >
-                        <controls:EmptyState Title="{extensions:Translate error_title}"
-                                             Description="{extensions:Translate error_data_not_loaded}"
+                        <controls:EmptyState Title="{x:Static resources:Translations.error_title}"
+                                             Description="{x:Static resources:Translations.error_data_not_loaded}"
                                              ImageSource="Resource://error.svg"
                                              CommandText="Retry"
                                              Command="{Binding RefreshDataCommand}"  />
