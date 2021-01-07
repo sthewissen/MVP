@@ -457,6 +457,6 @@
     <value>App ikon</value>
   </data>
     <data name="please_reboot_app_language_change" xml:space="preserve">
-    <value>Please reboot the application for your language change to take effect.</value>
+    <value>Kérlek, indítsd újra az alkalmazást, hogy a nyelvváltozás életbe lépjen.</value>
   </data>
 </root>
