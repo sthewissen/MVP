@@ -32,7 +32,7 @@
                 <views:StateLayout.StateViews>
                     <views:StateView StateKey="Loading"
                                      RepeatCount="3"
-                                     RepeatTemplate="{StaticResource contribution_item_loading}" />
+                                     Template="{StaticResource contribution_item_loading}" />
 
                     <views:StateView StateKey="Empty"
                                      HorizontalOptions="FillAndExpand"

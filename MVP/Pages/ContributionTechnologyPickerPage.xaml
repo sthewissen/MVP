@@ -24,7 +24,7 @@
                 <views:StateLayout.StateViews>
                     <views:StateView StateKey="Loading"
                                      RepeatCount="2"
-                                     RepeatTemplate="{StaticResource picker_item_loading}" />
+                                     Template="{StaticResource picker_item_loading}" />
 
                     <views:StateView StateKey="Empty"
                                      HorizontalOptions="FillAndExpand"

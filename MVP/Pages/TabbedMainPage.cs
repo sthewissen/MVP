@@ -30,6 +30,7 @@ namespace MVP.Pages
             var fontIcon = (string)Xamarin.Forms.Application.Current.Resources["font_icon"];
 
             On<iOS>().SetTranslucencyMode(TranslucencyMode.Opaque);
+
             On<Android>().SetToolbarPlacement(ToolbarPlacement.Bottom);
 
             navigationMainPage.IconImageSource = new FontImageSource()
