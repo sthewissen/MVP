@@ -31,7 +31,7 @@
                                      VerticalOptions="FillAndExpand" >
                         <controls:EmptyState Title="{x:Static resources:Translations.empty_state_title}"
                                              Description="{x:Static resources:Translations.empty_state_contributiontechnologies}"
-                                             ImageSource="Resource://no_contributions.svg"
+                                             ImageSource="Resource://empty.svg"
                                              CommandText="Retry"
                                              Command="{Binding RefreshDataCommand}"  />
                     </views:StateView>
@@ -61,7 +61,7 @@
                     <CollectionView.EmptyView>
                         <controls:EmptyState Title="{x:Static resources:Translations.empty_state_title}"
                                             Description="{x:Static resources:Translations.empty_state_noresultcontributiontechnologies}"
-                                            ImageSource="Resource://no_contributions.svg" />
+                                            ImageSource="Resource://empty.svg" />
                     </CollectionView.EmptyView>
                 </CollectionView>
 

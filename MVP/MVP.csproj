@@ -64,7 +64,8 @@
         <None Remove="Services\Demo\Files\getcontributionareas.json" />
         <None Remove="Services\Demo\Files\getcontributions.json" />
         <None Remove="Resources\oss.json" />
-        <None Remove="Resources\no_contributions.svg" />
+        <None Remove="Resources\empty.svg" />
+        <None Remove="Resources\error.svg" />
     </ItemGroup>
     <ItemGroup>
         <EmbeddedResource Include="Resources\mvp_logo.svg">
@@ -101,8 +102,11 @@
         <EmbeddedResource Include="Resources\oss.json">
             <LogicalName>oss.json</LogicalName>
         </EmbeddedResource>
-        <EmbeddedResource Include="Resources\no_contributions.svg">
-            <LogicalName>no_contributions.svg</LogicalName>
+        <EmbeddedResource Include="Resources\empty.svg">
+            <LogicalName>empty.svg</LogicalName>
+        </EmbeddedResource>
+        <EmbeddedResource Include="Resources\error.svg">
+            <LogicalName>error.svg</LogicalName>
         </EmbeddedResource>
     </ItemGroup>
     <ItemGroup>
