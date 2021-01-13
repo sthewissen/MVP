@@ -15,11 +15,10 @@
 
         <ff:SvgCachedImage Source="{Binding ImageSource, Source={x:Reference emptyState}}"
                            IsVisible="{Binding ImageSource, Source={x:Reference emptyState}, Converter={converters:IsNotNullOrEmptyConverter}}"
-                           Aspect="AspectFill"
-                           HeightRequest="200"
-                           WidthRequest="200"
-                           HorizontalOptions="Center"
-                           BackgroundColor="Orange"/>
+                           Aspect="AspectFit"
+                           HeightRequest="120"
+                           WidthRequest="120"
+                           HorizontalOptions="Center"/>
 
         <Label Style="{StaticResource emptystate_title}" 
                Text="{Binding Title, Source={x:Reference emptyState}}"/>
@@ -27,7 +26,7 @@
         <Label Style="{StaticResource emptystate_description}" 
                Text="{Binding Description, Source={x:Reference emptyState}}"/>
 
-        <sh:Shadows Style="{StaticResource shade_primary}" >
+        <sh:Shadows Style="{StaticResource shade_primary}" Margin="0,16">
             <Button Text="{Binding CommandText, Source={x:Reference emptyState}}"
                     Command="{Binding Command, Source={x:Reference emptyState}}"
                     Style="{StaticResource primary_button}"

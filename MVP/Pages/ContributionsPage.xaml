@@ -39,7 +39,7 @@
                                      VerticalOptions="FillAndExpand" >
                         <controls:EmptyState Title="{x:Static resources:Translations.empty_state_title}"
                                              Description="{x:Static resources:Translations.empty_state_contributions}"
-                                             ImageSource="Resource://no_contributions.svg"
+                                             ImageSource="Resource://empty.svg"
                                              CommandText="Retry"
                                              Command="{Binding RefreshDataCommand}" />
                     </views:StateView>
@@ -60,7 +60,7 @@
                                      VerticalOptions="FillAndExpand" >
                         <controls:EmptyState Title="{x:Static resources:Translations.error_offline_title}"
                                              Description="{x:Static resources:Translations.offline_contributions}"
-                                             ImageSource="Resource://no_contributions.svg"
+                                             ImageSource="Resource://empty.svg"
                                              CommandText="Retry"
                                              Command="{Binding RefreshDataCommand}" />
                     </views:StateView>
