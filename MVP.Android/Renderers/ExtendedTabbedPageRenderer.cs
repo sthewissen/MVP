@@ -32,7 +32,7 @@ namespace MVP.Droid.Renderers
         {
             var fontFace = Typeface.CreateFromAsset(Context.Assets, "SourceSansPro-Regular.ttf");
 
-            if (!(bottomNavigationView.GetChildAt(0) is BottomNavigationMenuView bottomNavMenuView))
+            if (bottomNavigationView.GetChildAt(0) is not BottomNavigationMenuView bottomNavMenuView)
                 return;
 
             for (var i = 0; i < bottomNavMenuView.ChildCount; i++)
