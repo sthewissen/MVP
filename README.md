@@ -7,7 +7,18 @@ There has always been the need for Microsoft MVPs to manage their community acti
 - Create/edit/delete contributions from your MVP profile
 - Quickly create contributions based on a URL on your clipboard
 - Light/dark mode
-- Multilingual 🇺🇸🇫🇷🇩🇪🇪🇸🇭🇺🇳🇱🇦🇹🇸🇪🇹🇷🇨🇭
+- Multilingual 
+   - 🇺🇸 English
+   - 🇩🇪 German
+   - 🇪🇸 Spanish
+   - 🇭🇺 Hungarian
+   - 🇳🇱 Dutch
+   - 🇸🇪 Swedish
+   - 🇳🇴 Norwegian
+   - 🇧🇦 Bosnian
+   - 🇮🇹 Italian
+   - 🇫🇷 French
+   - 🇹🇷 Turkish
 - iOS and Android
 
 ## I have a great idea for a feature!
