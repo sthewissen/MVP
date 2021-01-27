@@ -44,7 +44,7 @@
                   x:Name="appFrame">
 
         <mvp:AppFrame.ShowSecondaryButton>
-            <MultiBinding Converter="{xct:VariableMultiValueConverter ConditionType=Any}">
+            <MultiBinding Converter="{xct:VariableMultiValueConverter ConditionType=All}">
                 <Binding Path="State" Converter="{xct:NotEqualConverter}" ConverterParameter="{x:Static xct:LayoutState.Loading}" />
                 <Binding Path="CanBeEdited" />
             </MultiBinding>
