@@ -237,6 +237,9 @@
     <data name="progress_saving" xml:space="preserve">
         <value>Bezig met opslaan...</value>
     </data>
+    <data name="progress_deleting" xml:space="preserve">
+        <value>Bezig met verwijderen...</value>
+    </data>
     <data name="licenses_title" xml:space="preserve">
         <value>Licenties</value>
     </data>

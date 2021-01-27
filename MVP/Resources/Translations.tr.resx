@@ -237,6 +237,9 @@
     <data name="progress_saving" xml:space="preserve">
     <value>Kaydediliyor...</value>
   </data>
+    <data name="progress_deleting" xml:space="preserve">
+        <value>Siliniyor...</value>
+    </data>
     <data name="licenses_title" xml:space="preserve">
     <value>Lisanslar</value>
   </data>

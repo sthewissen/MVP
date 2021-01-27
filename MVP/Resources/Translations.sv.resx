@@ -361,6 +361,9 @@
     <data name="progress_saving" xml:space="preserve">
     <value>Sparar...</value>
   </data>
+    <data name="progress_deleting" xml:space="preserve">
+        <value>Radera...</value>
+    </data>
     <data name="search_placeholder" xml:space="preserve">
     <value>Sök...</value>
   </data>

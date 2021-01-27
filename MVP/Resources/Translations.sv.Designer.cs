@@ -743,6 +743,12 @@ namespace MVP.Resources {
             }
         }
         
+        internal static string progress_deleting {
+            get {
+                return ResourceManager.GetString("progress_deleting", resourceCulture);
+            }
+        }
+        
         internal static string search_placeholder {
             get {
                 return ResourceManager.GetString("search_placeholder", resourceCulture);
