@@ -342,6 +342,9 @@
     <data name="progress_saving" xml:space="preserve">
         <value>Saving...</value>
     </data>
+    <data name="progress_deleting" xml:space="preserve">
+        <value>Deleting...</value>
+    </data>
     <data name="licenses_title" xml:space="preserve">
         <value>Licenses</value>
     </data>

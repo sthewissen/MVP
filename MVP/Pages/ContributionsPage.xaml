@@ -2,7 +2,7 @@
 <pages:BaseContentPage xmlns="http://xamarin.com/schemas/2014/forms"                       
                        xmlns:mvp="clr-namespace:MVP"
                        xmlns:pages="clr-namespace:MVP.Pages"
-                       xmlns:converters="clr-namespace:Xamarin.CommunityToolkit.Converters;assembly=Xamarin.CommunityToolkit"
+                       xmlns:xct="http://xamarin.com/schemas/2020/toolkit"
                        xmlns:resources="clr-namespace:MVP.Resources"
                        xmlns:vm="clr-namespace:MVP.ViewModels"
                        xmlns:controls="clr-namespace:MVP.Controls"
@@ -10,14 +10,13 @@
                        x:Class="MVP.Pages.ContributionsPage"
                        x:DataType="vm:ContributionsViewModel"
                        x:Name="page"
-                       x:TypeArguments="vm:ContributionsViewModel"
-                       xmlns:views="clr-namespace:Xamarin.CommunityToolkit.UI.Views;assembly=Xamarin.CommunityToolkit"  >
+                       x:TypeArguments="vm:ContributionsViewModel">
 
     <pages:BaseContentPage.Resources>
-        <converters:MultiConverter x:Key="NotLoadingConverter">
-            <converters:StateToBooleanConverter StateToCompare="Loading" />
-            <converters:InvertedBoolConverter />
-        </converters:MultiConverter>
+        <xct:MultiConverter x:Key="NotLoadingConverter">
+            <xct:StateToBooleanConverter StateToCompare="Loading" />
+            <xct:InvertedBoolConverter />
+        </xct:MultiConverter>
     </pages:BaseContentPage.Resources>
 
     <mvp:AppFrame SecondaryButtonText="{x:Static resources:Translations.contribution_add}"
@@ -25,46 +24,46 @@
                   Title="{x:Static resources:Translations.contributions_title}"
                   x:Name="appFrame">
         <mvp:AppFrame.Content>
-            <Grid views:StateLayout.CurrentState="{Binding State}"
-                  views:StateLayout.AnimateStateChanges="False"
-                  views:StateLayout.CurrentCustomStateKey="{Binding CustomStateKey}">
+            <Grid xct:StateLayout.CurrentState="{Binding State}"
+                  xct:StateLayout.AnimateStateChanges="False"
+                  xct:StateLayout.CurrentCustomStateKey="{Binding CustomStateKey}">
 
-                <views:StateLayout.StateViews>
-                    <views:StateView StateKey="Loading"
-                                     RepeatCount="3"
-                                     Template="{StaticResource contribution_item_loading}" />
+                <xct:StateLayout.StateViews>
+                    <xct:StateView StateKey="Loading"
+                                   RepeatCount="3"
+                                   Template="{StaticResource contribution_item_loading}" />
 
-                    <views:StateView StateKey="Empty"
-                                     HorizontalOptions="FillAndExpand"
-                                     VerticalOptions="FillAndExpand" >
+                    <xct:StateView StateKey="Empty"
+                                   HorizontalOptions="FillAndExpand"
+                                   VerticalOptions="FillAndExpand" >
                         <controls:EmptyState Title="{x:Static resources:Translations.empty_state_title}"
                                              Description="{x:Static resources:Translations.empty_state_contributions}"
                                              ImageSource="Resource://empty.svg"
                                              CommandText="Retry"
                                              Command="{Binding RefreshDataCommand}" />
-                    </views:StateView>
+                    </xct:StateView>
 
-                    <views:StateView StateKey="Error"
-                                     HorizontalOptions="FillAndExpand"
-                                     VerticalOptions="FillAndExpand" >
+                    <xct:StateView StateKey="Error"
+                                   HorizontalOptions="FillAndExpand"
+                                   VerticalOptions="FillAndExpand" >
                         <controls:EmptyState Title="{x:Static resources:Translations.error_title}"
                                              Description="{x:Static resources:Translations.error_data_not_loaded}"
                                              ImageSource="Resource://error.svg"
                                              CommandText="Retry"
                                              Command="{Binding RefreshDataCommand}" />
-                    </views:StateView>
+                    </xct:StateView>
 
-                    <views:StateView StateKey="Custom"
-                                     CustomStateKey="{x:Static mvp:StateKeys.Offline}"
-                                     HorizontalOptions="FillAndExpand"
-                                     VerticalOptions="FillAndExpand" >
+                    <xct:StateView StateKey="Custom"
+                                   CustomStateKey="{x:Static mvp:StateKeys.Offline}"
+                                   HorizontalOptions="FillAndExpand"
+                                   VerticalOptions="FillAndExpand" >
                         <controls:EmptyState Title="{x:Static resources:Translations.error_offline_title}"
                                              Description="{x:Static resources:Translations.offline_contributions}"
                                              ImageSource="Resource://empty.svg"
                                              CommandText="Retry"
                                              Command="{Binding RefreshDataCommand}" />
-                    </views:StateView>
-                </views:StateLayout.StateViews>
+                    </xct:StateView>
+                </xct:StateLayout.StateViews>
 
                 <CollectionView ItemsSource="{Binding Contributions}"
                                 ItemsUpdatingScrollMode="KeepScrollOffset"

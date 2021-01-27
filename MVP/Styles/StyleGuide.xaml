@@ -2,37 +2,52 @@
 <ResourceDictionary xmlns="http://xamarin.com/schemas/2014/forms"
                     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
                     xmlns:controls="clr-namespace:MVP.Controls"
-                    xmlns:resources="clr-namespace:MVP.Resources"
-                    xmlns:effects="clr-namespace:Xamarin.CommunityToolkit.Effects;assembly=Xamarin.CommunityToolkit"
+                    xmlns:xct="http://xamarin.com/schemas/2020/toolkit"
                     xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
                     xmlns:mvp="clr-namespace:MVP"
                     xmlns:ff="clr-namespace:FFImageLoading.Svg.Forms;assembly=FFImageLoading.Svg.Forms"
-                    x:Class="MVP.Styles.StyleGuide"
-                    xmlns:sh="clr-namespace:Sharpnado.Shades;assembly=Sharpnado.Shadows">
+                    x:Class="MVP.Styles.StyleGuide">
 
     <?xaml-comp compile="true" ?>
 
     <!-- Primary colors -->
     <Color x:Key="primary">#0178D4</Color>
-    <Color x:Key="light_primary">#80bcea</Color>
+    <Color x:Key="primary_900">#0048B9</Color>
+    <Color x:Key="primary_800">#015BC3</Color>
+    <Color x:Key="primary_700">#0165C9</Color>
+    <Color x:Key="primary_600">#0170CF</Color>
+    <Color x:Key="primary_400">#278CDA</Color>
+    <Color x:Key="primary_300">#4DA1E1</Color>
+    <Color x:Key="primary_200">#80BCEA</Color>
+    <Color x:Key="primary_100">#B3D7F2</Color>
+    <Color x:Key="primary_50">#E1EFFA</Color>
+
     <Color x:Key="error">#E8484C</Color>
-    <Color x:Key="light_error">#F4A4A6</Color>
-    <Color x:Key="dark_error">#DC7C7C</Color>
+    <Color x:Key="error_200">#F4A4A6</Color>
+    <Color x:Key="error_400">#EB6367</Color>
+
     <Color x:Key="warning">#967132</Color>
-    <Color x:Key="light_warning">#F5EDC6</Color>
-    <Color x:Key="dark_warning">#F8C25B</Color>
+    <Color x:Key="light_warning">#FFD19F</Color>
+    <Color x:Key="dark_warning">#FFB86C</Color>
 
     <!-- Accent colors -->
     <Color x:Key="white">#FFFFFF</Color>
-    <Color x:Key="white_highlight">#E1EFFA</Color>
     <Color x:Key="black">#222222</Color>
-    <Color x:Key="black_highlight">#333333</Color>
 
+    <!-- Highlights -->
+    <Color x:Key="black_highlight">#434343</Color>
+
+    <!-- Greys -->
+    <Color x:Key="neutral_900">#0C0C0C</Color>
+    <Color x:Key="neutral_800">#141414</Color>
+    <Color x:Key="neutral_700">#191919</Color>
+    <Color x:Key="neutral_600">#1E1E1E</Color>
+    <Color x:Key="neutral_400">#434343</Color>
+    <Color x:Key="neutral_300">#646464</Color>
+    <Color x:Key="neutral_200">#919191</Color>
+    <Color x:Key="neutral_100">#BDBDBD</Color>
+    <Color x:Key="neutral_50">#E4E4E4</Color>
     <Color x:Key="neutral_0">#f4f4f5</Color>
-    <Color x:Key="neutral_1">#e3e4e4</Color>
-    <Color x:Key="neutral_2">#a9abad</Color>
-    <Color x:Key="neutral_3">#7a7c80</Color>
-    <Color x:Key="neutral_4">#3f4247</Color>
 
     <!-- Special colors -->
     <Color x:Key="red_light">#E84C3D</Color>
@@ -108,6 +123,8 @@
     <Style TargetType="Grid">
         <Setter Property="ColumnSpacing" Value="0" />
         <Setter Property="RowSpacing" Value="0" />
+        <!--<Setter Property="xct:TouchEffect.PressedBackgroundColor" Value="{AppThemeBinding Light={StaticResource primary_50}, Dark={StaticResource black_highlight}}" />-->
+        <!--<Setter Property="xct:TouchEffect.NormalBackgroundColor" Value="{AppThemeBinding Light={StaticResource white}, Dark={StaticResource black}}" />-->
     </Style>
 
     <Style TargetType="Frame">
@@ -122,7 +139,7 @@
     <!--Overall stylings-->
 
     <Style TargetType="controls:SkeletonView">
-        <Setter Property="BackgroundColor" Value="{AppThemeBinding Light={StaticResource neutral_1}, Dark={StaticResource neutral_4}}"/>
+        <Setter Property="BackgroundColor" Value="{AppThemeBinding Light={StaticResource neutral_50}, Dark={StaticResource neutral_400}}"/>
         <Setter Property="CornerRadius" Value="4" />
     </Style>
 
@@ -139,7 +156,7 @@
 
     <Style TargetType="TabbedPage" ApplyToDerivedTypes="True" CanCascade="True">
         <Setter Property="BarBackgroundColor" Value="{AppThemeBinding Light={StaticResource white}, Dark={StaticResource black}}"/>
-        <Setter Property="SelectedTabColor" Value="{AppThemeBinding Light={StaticResource primary}, Dark={StaticResource light_primary}}"/>
+        <Setter Property="SelectedTabColor" Value="{AppThemeBinding Light={StaticResource primary}, Dark={StaticResource primary_200}}"/>
         <Setter Property="UnselectedTabColor" Value="{AppThemeBinding Light={StaticResource black}, Dark={StaticResource white}}"/>
     </Style>
 
@@ -171,31 +188,31 @@
         <Setter Property="BackgroundColor" Value="Transparent"/>
         <Setter Property="FontFamily" Value="{StaticResource font_regular}" />
         <Setter Property="TextColor" Value="{AppThemeBinding Light={StaticResource black}, Dark={StaticResource white}}" />
-        <Setter Property="PlaceholderColor" Value="{AppThemeBinding Light={StaticResource neutral_3}, Dark={StaticResource neutral_2}}" />
+        <Setter Property="PlaceholderColor" Value="{AppThemeBinding Light={StaticResource neutral_300}, Dark={StaticResource neutral_200}}" />
         <Setter Property="FontSize" Value="{StaticResource fontsize_medium}" />
-        <Setter Property="ios:Entry.CursorColor" Value="{AppThemeBinding Light={StaticResource primary}, Dark={StaticResource light_primary}}"/>
+        <Setter Property="ios:Entry.CursorColor" Value="{AppThemeBinding Light={StaticResource primary}, Dark={StaticResource primary_200}}"/>
     </Style>
 
     <Style TargetType="Entry">
         <Setter Property="BackgroundColor" Value="Transparent"/>
         <Setter Property="FontFamily" Value="{StaticResource font_regular}" />
         <Setter Property="TextColor" Value="{AppThemeBinding Light={StaticResource black}, Dark={StaticResource white}}" />
-        <Setter Property="PlaceholderColor" Value="{AppThemeBinding Light={StaticResource neutral_3}, Dark={StaticResource neutral_2}}" />
+        <Setter Property="PlaceholderColor" Value="{AppThemeBinding Light={StaticResource neutral_300}, Dark={StaticResource neutral_200}}" />
         <Setter Property="FontSize" Value="{StaticResource fontsize_medium}" />
-        <Setter Property="ios:Entry.CursorColor" Value="{AppThemeBinding Light={StaticResource primary}, Dark={StaticResource light_primary}}"/>
+        <Setter Property="ios:Entry.CursorColor" Value="{AppThemeBinding Light={StaticResource primary}, Dark={StaticResource primary_200}}"/>
     </Style>
 
     <Style TargetType="Switch">
-        <Setter Property="OnColor" Value="{AppThemeBinding Light={StaticResource primary}, Dark={StaticResource light_primary}}"/>
+        <Setter Property="OnColor" Value="{AppThemeBinding Light={StaticResource primary}, Dark={StaticResource primary_200}}"/>
     </Style>
 
     <Style TargetType="IndicatorView">
-        <Setter Property="IndicatorColor" Value="{AppThemeBinding Light={StaticResource neutral_1}, Dark={StaticResource neutral_1}}"/>
-        <Setter Property="SelectedIndicatorColor" Value="{AppThemeBinding Light={StaticResource primary}, Dark={StaticResource light_primary}}"/>
+        <Setter Property="IndicatorColor" Value="{AppThemeBinding Light={StaticResource neutral_50}, Dark={StaticResource neutral_50}}"/>
+        <Setter Property="SelectedIndicatorColor" Value="{AppThemeBinding Light={StaticResource primary}, Dark={StaticResource primary_200}}"/>
     </Style>
 
     <Style TargetType="mvp:AppFrame">
-        <Setter Property="effects:SafeAreaEffect.SafeArea" Value="false,true,false,false" />
+        <Setter Property="xct:SafeAreaEffect.SafeArea" Value="false,true,false,false" />
     </Style>
 
     <!--Explicit stylings-->
@@ -210,7 +227,7 @@
     <Style x:Key="contribution_item_date" TargetType="Label">
         <Setter Property="FontFamily" Value="{StaticResource font_regular}" />
         <Setter Property="FontSize" Value="{StaticResource fontsize_small}" />
-        <Setter Property="TextColor" Value="{AppThemeBinding Light={StaticResource neutral_3}, Dark={StaticResource neutral_2}}" />
+        <Setter Property="TextColor" Value="{AppThemeBinding Light={StaticResource neutral_300}, Dark={StaticResource neutral_200}}" />
     </Style>
 
     <Style x:Key="contribution_item_category" TargetType="Frame">
@@ -234,7 +251,7 @@
     </Style>
 
     <Style x:Key="list_item_subtitle_label" TargetType="Label">
-        <Setter Property="TextColor" Value="{AppThemeBinding Light={StaticResource neutral_3}, Dark={StaticResource neutral_2}}" />
+        <Setter Property="TextColor" Value="{AppThemeBinding Light={StaticResource neutral_300}, Dark={StaticResource neutral_200}}" />
         <Setter Property="VerticalOptions" Value="Center" />
         <Setter Property="VerticalTextAlignment" Value="Center" />
         <Setter Property="FontFamily" Value="{StaticResource font_regular}" />
@@ -273,7 +290,7 @@
 
     <Style x:Key="search_icon" TargetType="Label">
         <Setter Property="HorizontalTextAlignment" Value="End"/>
-        <Setter Property="TextColor" Value="{AppThemeBinding Light={StaticResource neutral_3}, Dark={StaticResource neutral_2}}"/>
+        <Setter Property="TextColor" Value="{AppThemeBinding Light={StaticResource neutral_300}, Dark={StaticResource neutral_200}}"/>
         <Setter Property="VerticalTextAlignment" Value="Center"/>
         <Setter Property="FontFamily" Value="{StaticResource font_icon}"/>
         <Setter Property="HorizontalOptions" Value="End"/>
@@ -281,7 +298,7 @@
     </Style>
 
     <Style x:Key="search_text" TargetType="Label">
-        <Setter Property="TextColor" Value="{AppThemeBinding Light={StaticResource neutral_3}, Dark={StaticResource neutral_2}}"/>
+        <Setter Property="TextColor" Value="{AppThemeBinding Light={StaticResource neutral_300}, Dark={StaticResource neutral_200}}"/>
         <Setter Property="FontFamily" Value="{StaticResource font_regular}"/>
         <Setter Property="FontSize" Value="{StaticResource fontsize_medium}"/>
         <Setter Property="VerticalOptions" Value="Center"/>
@@ -290,7 +307,7 @@
 
     <Style x:Key="search_frame" TargetType="Frame">
         <Setter Property="CornerRadius" Value="24"/>
-        <Setter Property="BackgroundColor" Value="{AppThemeBinding Light={StaticResource neutral_0}, Dark={StaticResource neutral_4}}"/>
+        <Setter Property="BackgroundColor" Value="{AppThemeBinding Light={StaticResource neutral_0}, Dark={StaticResource neutral_400}}"/>
         <Setter Property="HeightRequest" Value="48"/>
     </Style>
 
@@ -310,12 +327,12 @@
     </Style>
 
     <Style x:Key="separator" TargetType="BoxView">
-        <Setter Property="BackgroundColor" Value="{AppThemeBinding Light={StaticResource neutral_0}, Dark={StaticResource neutral_4}}"/>
+        <Setter Property="BackgroundColor" Value="{AppThemeBinding Light={StaticResource neutral_50}, Dark={StaticResource neutral_400}}"/>
         <Setter Property="HeightRequest" Value="1"/>
     </Style>
 
     <Style x:Key="field_label" TargetType="Label">
-        <Setter Property="TextColor" Value="{AppThemeBinding Light={StaticResource neutral_3}, Dark={StaticResource neutral_2}}"/>
+        <Setter Property="TextColor" Value="{AppThemeBinding Light={StaticResource neutral_300}, Dark={StaticResource neutral_200}}"/>
         <Setter Property="FontFamily" Value="{StaticResource font_semibold}"/>
         <Setter Property="FontSize" Value="{StaticResource fontsize_small}"/>
     </Style>
@@ -341,7 +358,7 @@
         <Setter Property="BackgroundColor" Value="{AppThemeBinding Light={StaticResource white}, Dark={StaticResource black}}"/>
         <Setter Property="TextColor" Value="{AppThemeBinding Light={StaticResource black}, Dark={StaticResource white}}"/>
         <Setter Property="BorderWidth" Value="1" />
-        <Setter Property="BorderColor" Value="{AppThemeBinding Light={StaticResource neutral_1}, Dark={StaticResource neutral_3}}" />
+        <Setter Property="BorderColor" Value="{AppThemeBinding Light={StaticResource neutral_50}, Dark={StaticResource neutral_300}}" />
     </Style>
 
     <Style x:Key="destructive_primary_button" BasedOn="{StaticResource primary_button}" TargetType="Button">
@@ -355,11 +372,11 @@
     </Style>
 
     <Style x:Key="about_description" TargetType="Label">
-        <Setter Property="TextColor" Value="{AppThemeBinding Light={StaticResource neutral_3}, Dark={StaticResource neutral_2}}"/>
+        <Setter Property="TextColor" Value="{AppThemeBinding Light={StaticResource neutral_300}, Dark={StaticResource neutral_200}}"/>
     </Style>
 
     <Style x:Key="field_description" TargetType="Label">
-        <Setter Property="TextColor" Value="{AppThemeBinding Light={StaticResource neutral_3}, Dark={StaticResource neutral_2}}"/>
+        <Setter Property="TextColor" Value="{AppThemeBinding Light={StaticResource neutral_300}, Dark={StaticResource neutral_200}}"/>
         <Setter Property="FontSize" Value="{StaticResource fontsize_small}"/>
     </Style>
 
@@ -369,7 +386,7 @@
 
     <Style x:Key="profile_subtitle" TargetType="Label">
         <Setter Property="LineBreakMode" Value="TailTruncation"/>
-        <Setter Property="TextColor" Value="{AppThemeBinding Light={StaticResource neutral_3}, Dark={StaticResource neutral_2}}"/>
+        <Setter Property="TextColor" Value="{AppThemeBinding Light={StaticResource neutral_300}, Dark={StaticResource neutral_200}}"/>
         <Setter Property="FontSize" Value="{StaticResource fontsize_small}"/>
         <Setter Property="MaxLines" Value="2"/>
     </Style>
@@ -386,7 +403,7 @@
     </Style>
 
     <Style x:Key="input_picker_placeholder" TargetType="Label">
-        <Setter Property="TextColor" Value="{AppThemeBinding Light={StaticResource neutral_3}, Dark={StaticResource neutral_2}}"/>
+        <Setter Property="TextColor" Value="{AppThemeBinding Light={StaticResource neutral_300}, Dark={StaticResource neutral_200}}"/>
         <Setter Property="FontSize" Value="{StaticResource fontsize_small}"/>
     </Style>
 
@@ -399,7 +416,7 @@
 
     <Style x:Key="input_multi_frame" TargetType="Frame">
         <Setter Property="BackgroundColor" Value="{AppThemeBinding Light={StaticResource white}, Dark={StaticResource black}}" />
-        <Setter Property="BorderColor" Value="{StaticResource neutral_1}"/>
+        <Setter Property="BorderColor" Value="{StaticResource neutral_50}"/>
         <Setter Property="CornerRadius" Value="8"/>
         <Setter Property="Padding" Value="0,8"/>
         <Setter Property="Margin" Value="24,0"/>
@@ -413,14 +430,14 @@
 
     <Style x:Key="input_single_frame" TargetType="Frame">
         <Setter Property="BackgroundColor" Value="{AppThemeBinding Light={StaticResource white}, Dark={StaticResource black}}" />
-        <Setter Property="BorderColor" Value="{StaticResource neutral_1}"/>
+        <Setter Property="BorderColor" Value="{StaticResource neutral_50}"/>
         <Setter Property="CornerRadius" Value="8"/>
         <Setter Property="Margin" Value="24,0"/>
         <Setter Property="HeightRequest" Value="52"/>
     </Style>
 
     <Style x:Key="chevron" TargetType="Label">
-        <Setter Property="TextColor" Value="{AppThemeBinding Light={StaticResource neutral_3}, Dark={StaticResource neutral_2}}"/>
+        <Setter Property="TextColor" Value="{AppThemeBinding Light={StaticResource neutral_300}, Dark={StaticResource neutral_200}}"/>
         <Setter Property="VerticalTextAlignment" Value="Center"/>
         <Setter Property="FontFamily" Value="{StaticResource font_icon}"/>
         <Setter Property="FontSize" Value="{StaticResource fontsize_h1}"/>
@@ -472,11 +489,11 @@
     <Style x:Key="error_frame" TargetType="Frame">
         <Setter Property="Padding" Value="16"/>
         <Setter Property="Margin" Value="0,0,0,16"/>
-        <Setter Property="BackgroundColor" Value="{AppThemeBinding Light={StaticResource light_error}, Dark={StaticResource dark_error}}"/>
+        <Setter Property="BackgroundColor" Value="{AppThemeBinding Light={StaticResource error_200}, Dark={StaticResource error_400}}"/>
     </Style>
 
     <Style x:Key="contributionform_note" TargetType="Label">
-        <Setter Property="TextColor" Value="{AppThemeBinding Light={StaticResource neutral_3}, Dark={StaticResource neutral_2}}"/>
+        <Setter Property="TextColor" Value="{AppThemeBinding Light={StaticResource neutral_300}, Dark={StaticResource neutral_200}}"/>
         <Setter Property="FontSize" Value="{StaticResource fontsize_small}"/>
     </Style>
 
@@ -495,7 +512,7 @@
     </Style>
 
     <Style x:Key="selection_indicator" TargetType="Label">
-        <Setter Property="TextColor" Value="{AppThemeBinding Light={StaticResource primary}, Dark={StaticResource light_primary}}"/>
+        <Setter Property="TextColor" Value="{AppThemeBinding Light={StaticResource primary}, Dark={StaticResource primary_200}}"/>
         <Setter Property="VerticalTextAlignment" Value="Center"/>
         <Setter Property="FontFamily" Value="{StaticResource font_icon}"/>
         <Setter Property="FontSize" Value="{StaticResource fontsize_h2}"/>
@@ -515,7 +532,7 @@
 
     <Style x:Key="emptystate_description" TargetType="Label">
         <Setter Property="HorizontalTextAlignment" Value="Center"/>
-        <Setter Property="TextColor" Value="{AppThemeBinding Light={StaticResource neutral_3}, Dark={StaticResource neutral_1}}"/>
+        <Setter Property="TextColor" Value="{AppThemeBinding Light={StaticResource neutral_300}, Dark={StaticResource neutral_50}}"/>
         <Setter Property="VerticalTextAlignment" Value="Center"/>
         <Setter Property="HorizontalOptions" Value="Center"/>
         <Setter Property="VerticalOptions" Value="Center"/>
@@ -523,26 +540,11 @@
 
     <Style x:Key="emptystate_title" TargetType="Label">
         <Setter Property="HorizontalTextAlignment" Value="Center"/>
-        <Setter Property="TextColor" Value="{AppThemeBinding Light={StaticResource neutral_3}, Dark={StaticResource neutral_1}}"/>
+        <Setter Property="TextColor" Value="{AppThemeBinding Light={StaticResource neutral_300}, Dark={StaticResource neutral_50}}"/>
         <Setter Property="VerticalTextAlignment" Value="Center"/>
         <Setter Property="FontFamily" Value="{StaticResource font_semibold}"/>
         <Setter Property="FontSize" Value="{StaticResource fontsize_h2}"/>
         <Setter Property="HorizontalOptions" Value="Center"/>
         <Setter Property="VerticalOptions" Value="Center"/>
-    </Style>
-
-    <Style x:Key="shade_error" TargetType="sh:Shadows">
-        <Setter Property="CornerRadius" Value="24"/>
-        <Setter Property="Shades" Value="{sh:SingleShade Offset='0, 6', BlurRadius=12, Opacity=0.4, Color={StaticResource error}}"/>
-    </Style>
-
-    <Style x:Key="shade_primary" TargetType="sh:Shadows">
-        <Setter Property="CornerRadius" Value="24"/>
-        <Setter Property="Shades" Value="{sh:SingleShade Offset='0, 6', BlurRadius=12, Opacity=0.4, Color={StaticResource primary}}"/>
-    </Style>
-
-    <Style x:Key="shade_secondary" TargetType="sh:Shadows">
-        <Setter Property="CornerRadius" Value="24"/>
-        <Setter Property="Shades" Value="{AppThemeBinding Light={sh:SingleShade Offset='0, 6', BlurRadius=12, Opacity=0.4, Color={StaticResource neutral_1}}, Dark={sh:SingleShade Offset='0, 6', BlurRadius=12, Opacity=0.4, Color={StaticResource neutral_4}}}"/>
     </Style>
 </ResourceDictionary>

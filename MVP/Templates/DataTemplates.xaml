@@ -32,8 +32,8 @@
                          effects:TouchEffect.Command="{Binding Source={RelativeSource AncestorType={x:Type vm:BaseViewModel}}, Path=OpenContributionCommand}"
                          effects:TouchEffect.CommandParameter="{Binding Source={RelativeSource Self}, Path=BindingContext}"
                          effects:TouchEffect.NormalBackgroundColor="{AppThemeBinding Light={StaticResource white}, Dark={StaticResource black}}"
-                         effects:TouchEffect.PressedBackgroundColor="{AppThemeBinding Light={StaticResource white_highlight}, Dark={StaticResource black_highlight}}">
-                <Frame BackgroundColor="{Binding ContributionType.Id, Converter={StaticResource ContributionTypeConverter}}"
+                         effects:TouchEffect.PressedBackgroundColor="{AppThemeBinding Light={StaticResource primary_50}, Dark={StaticResource black_highlight}}">
+                <Frame BackgroundColor="{AppThemeBinding Light={StaticResource primary_200}, Dark={StaticResource neutral_100}}"
                        Style="{StaticResource contribution_item_category}">
 
                     <Label HorizontalTextAlignment="End"
@@ -41,7 +41,7 @@
                            MaxLines="1"
                            Style="{StaticResource contribution_item_category_label}"
                            Text="{Binding ContributionType.EnglishName, Converter={xctconverters:TextCaseConverter Type=Upper}}"
-                           TextColor="{Binding ContributionType.Id, Converter={StaticResource ContributionTypeTextConverter}}"/>
+                           TextColor="{AppThemeBinding Light={StaticResource white}, Dark={StaticResource black}}"/>
 
                 </Frame>
                 <Label Style="{StaticResource contribution_item_title}"
@@ -131,7 +131,7 @@
                          effects:TouchEffect.Command="{Binding Source={RelativeSource AncestorType={x:Type vm:BaseViewModel}}, Path=SetAppThemeCommand}"
                          effects:TouchEffect.CommandParameter="{Binding Source={RelativeSource Self}, Path=BindingContext}"
                          effects:TouchEffect.NormalBackgroundColor="{AppThemeBinding Light={StaticResource white}, Dark={StaticResource black}}"
-                         effects:TouchEffect.PressedBackgroundColor="{AppThemeBinding Light={StaticResource white_highlight}, Dark={StaticResource black_highlight}}">
+                         effects:TouchEffect.PressedBackgroundColor="{AppThemeBinding Light={StaticResource primary_50}, Dark={StaticResource black_highlight}}">
                 <Label Padding="0,16"
                        Style="{StaticResource list_item_title_label}"
                        Text="{Binding Description}"/>
@@ -153,10 +153,10 @@
                          effects:TouchEffect.Command="{Binding Source={RelativeSource AncestorType={x:Type vm:BaseViewModel}}, Path=OpenLicenseCommand}"
                          effects:TouchEffect.CommandParameter="{Binding Source={RelativeSource Self}, Path=BindingContext}"
                          effects:TouchEffect.NormalBackgroundColor="{AppThemeBinding Light={StaticResource white}, Dark={StaticResource black}}"
-                         effects:TouchEffect.PressedBackgroundColor="{AppThemeBinding Light={StaticResource white_highlight}, Dark={StaticResource black_highlight}}">
+                         effects:TouchEffect.PressedBackgroundColor="{AppThemeBinding Light={StaticResource primary_50}, Dark={StaticResource black_highlight}}">
                 <Label Padding="0,16"
                        Style="{StaticResource list_item_title_label}"
-                       Text="{Binding Title}"/>
+                       Text="{Binding Id}"/>
             </StackLayout>
             <BoxView Margin="16,0"
                      Style="{StaticResource separator}"/>
@@ -172,7 +172,7 @@
                          effects:TouchEffect.Command="{Binding Source={RelativeSource AncestorType={x:Type vm:BaseViewModel}}, Path=SetAppIconCommand}"
                          effects:TouchEffect.CommandParameter="{Binding Source={RelativeSource Self}, Path=BindingContext}"
                          effects:TouchEffect.NormalBackgroundColor="{AppThemeBinding Light={StaticResource white}, Dark={StaticResource black}}"
-                         effects:TouchEffect.PressedBackgroundColor="{AppThemeBinding Light={StaticResource white_highlight}, Dark={StaticResource black_highlight}}">
+                         effects:TouchEffect.PressedBackgroundColor="{AppThemeBinding Light={StaticResource primary_50}, Dark={StaticResource black_highlight}}">
                 <ff:CachedImage HeightRequest="48"
                                 Margin="0,8,16,8"
                                 Source="{Binding ImageUrl}"
@@ -203,7 +203,7 @@
                          effects:TouchEffect.Command="{Binding Source={RelativeSource AncestorType={x:Type vm:BaseViewModel}}, Path=SetAppLanguageCommand}"
                          effects:TouchEffect.CommandParameter="{Binding Source={RelativeSource Self}, Path=BindingContext}"
                          effects:TouchEffect.NormalBackgroundColor="{AppThemeBinding Light={StaticResource white}, Dark={StaticResource black}}"
-                         effects:TouchEffect.PressedBackgroundColor="{AppThemeBinding Light={StaticResource white_highlight}, Dark={StaticResource black_highlight}}">
+                         effects:TouchEffect.PressedBackgroundColor="{AppThemeBinding Light={StaticResource primary_50}, Dark={StaticResource black_highlight}}">
                 <StackLayout Padding="0,16"
                              Spacing="4">
                     <Label Style="{StaticResource list_item_title_label}"
@@ -230,7 +230,7 @@
                          effects:TouchEffect.Command="{Binding Source={RelativeSource AncestorType={x:Type vm:BaseViewModel}}, Path=SelectVisibilityCommand}"
                          effects:TouchEffect.CommandParameter="{Binding Source={RelativeSource Self}, Path=BindingContext}"
                          effects:TouchEffect.NormalBackgroundColor="{AppThemeBinding Light={StaticResource white}, Dark={StaticResource black}}"
-                         effects:TouchEffect.PressedBackgroundColor="{AppThemeBinding Light={StaticResource white_highlight}, Dark={StaticResource black_highlight}}">
+                         effects:TouchEffect.PressedBackgroundColor="{AppThemeBinding Light={StaticResource primary_50}, Dark={StaticResource black_highlight}}">
                 <Label Padding="0,16"
                        Style="{StaticResource list_item_title_label}"
                        Text="{Binding Visibility.Description}"/>
@@ -253,7 +253,7 @@
                          effects:TouchEffect.Command="{Binding Source={RelativeSource AncestorType={x:Type vm:BaseViewModel}}, Path=SelectContributionTypeCommand}"
                          effects:TouchEffect.CommandParameter="{Binding Source={RelativeSource Self}, Path=BindingContext}"
                          effects:TouchEffect.NormalBackgroundColor="{AppThemeBinding Light={StaticResource white}, Dark={StaticResource black}}"
-                         effects:TouchEffect.PressedBackgroundColor="{AppThemeBinding Light={StaticResource white_highlight}, Dark={StaticResource black_highlight}}">
+                         effects:TouchEffect.PressedBackgroundColor="{AppThemeBinding Light={StaticResource primary_50}, Dark={StaticResource black_highlight}}">
                 <Label Padding="0,16"
                        Style="{StaticResource list_item_title_label}"
                        Text="{Binding ContributionType.Name}"/>
@@ -276,7 +276,7 @@
                          effects:TouchEffect.Command="{Binding Source={RelativeSource AncestorType={x:Type vm:BaseViewModel}}, Path=SelectContributionTechnologyCommand}"
                          effects:TouchEffect.CommandParameter="{Binding Source={RelativeSource Self}, Path=BindingContext}"
                          effects:TouchEffect.NormalBackgroundColor="{AppThemeBinding Light={StaticResource white}, Dark={StaticResource black}}"
-                         effects:TouchEffect.PressedBackgroundColor="{AppThemeBinding Light={StaticResource white_highlight}, Dark={StaticResource black_highlight}}">
+                         effects:TouchEffect.PressedBackgroundColor="{AppThemeBinding Light={StaticResource primary_50}, Dark={StaticResource black_highlight}}">
                 <Label Padding="0,16"
                        Style="{StaticResource list_item_title_label}"
                        Text="{Binding ContributionTechnology.Name}"/>

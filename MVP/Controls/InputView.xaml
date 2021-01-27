@@ -1,8 +1,7 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <StackLayout xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:converters="clr-namespace:Xamarin.CommunityToolkit.Converters;assembly=Xamarin.CommunityToolkit"
-             xmlns:effects="clr-namespace:Xamarin.CommunityToolkit.Effects;assembly=Xamarin.CommunityToolkit"
+             xmlns:xct="http://xamarin.com/schemas/2020/toolkit"
              x:Class="MVP.Controls.InputView"
              Spacing="8"
              Padding="0,16,0,0"
@@ -13,18 +12,18 @@
         <Label.FormattedText>
             <FormattedString>
                 <Span Text="{Binding Title, Source={x:Reference inputView}}" />
-                <Span Text="{Binding IsRequired, Source={x:Reference inputView}, Converter={converters:BoolToObjectConverter TrueObject=' *'}}" TextColor="{StaticResource error}" />
+                <Span Text="{Binding IsRequired, Source={x:Reference inputView}, Converter={xct:BoolToObjectConverter TrueObject=' *'}}" TextColor="{StaticResource error}" />
             </FormattedString>
         </Label.FormattedText>
     </Label>
 
     <Label Margin="32,0"
            Style="{StaticResource field_description}"
-           IsVisible="{Binding Description, Source={x:Reference inputView}, Converter={converters:IsNotNullOrEmptyConverter}}"
+           IsVisible="{Binding Description, Source={x:Reference inputView}, Converter={xct:IsNotNullOrEmptyConverter}}"
            Text="{Binding Description, Source={x:Reference inputView}}"/>
 
     <Frame Style="{StaticResource input_single_frame}"
-           IsVisible="{Binding IsMultiLine, Converter={converters:InvertedBoolConverter}, Source={x:Reference inputView}}"
+           IsVisible="{Binding IsMultiLine, Converter={xct:InvertedBoolConverter}, Source={x:Reference inputView}}"
            x:Name="frameEntry">
         <Frame.Triggers>
             <DataTrigger TargetType="Frame"
@@ -41,7 +40,7 @@
                Placeholder="{Binding Placeholder, Source={x:Reference inputView}}"
                Text="{Binding Value, Source={x:Reference inputView}}">
             <Entry.Effects>
-                <effects:RemoveBorderEffect />
+                <xct:RemoveBorderEffect />
             </Entry.Effects>
             <Entry.Triggers>
                 <DataTrigger TargetType="Entry"
@@ -71,7 +70,7 @@
                 Placeholder="{Binding Placeholder, Source={x:Reference inputView}}" 
                 Text="{Binding Value, Source={x:Reference inputView}}">
             <Editor.Effects>
-                <effects:RemoveBorderEffect />
+                <xct:RemoveBorderEffect />
             </Editor.Effects>
             <Editor.Triggers>
                 <DataTrigger TargetType="Editor"
@@ -85,7 +84,7 @@
     </Frame>
 
     <Label Margin="32,0"
-           IsVisible="{Binding Errors, Converter={converters:IsNotNullOrEmptyConverter}, Source={x:Reference inputView}}"
+           IsVisible="{Binding Errors, Converter={xct:IsNotNullOrEmptyConverter}, Source={x:Reference inputView}}"
            Text="{Binding Errors, Source={x:Reference inputView}}"
            TextColor="{StaticResource error}" />
 </StackLayout>

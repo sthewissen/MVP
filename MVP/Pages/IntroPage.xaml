@@ -1,7 +1,6 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <pages:BaseContentPage xmlns="http://xamarin.com/schemas/2014/forms"
-                       xmlns:converters="clr-namespace:Xamarin.CommunityToolkit.Converters;assembly=Xamarin.CommunityToolkit"
-                       xmlns:effects="clr-namespace:Xamarin.CommunityToolkit.Effects;assembly=Xamarin.CommunityToolkit"
+                       xmlns:xct="http://xamarin.com/schemas/2020/toolkit"
                        xmlns:resources="clr-namespace:MVP.Resources"
                        xmlns:mvp="clr-namespace:MVP"
                        xmlns:models="clr-namespace:MVP.Models"
@@ -10,8 +9,7 @@
                        xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
                        x:Class="MVP.Pages.IntroPage"
                        x:DataType="vm:IntroViewModel"
-                       x:TypeArguments="vm:IntroViewModel"
-                       xmlns:sh="clr-namespace:Sharpnado.Shades;assembly=Sharpnado.Shadows">
+                       x:TypeArguments="vm:IntroViewModel">
 
     <pages:BaseContentPage.Resources>
         <x:Int32 x:Key="LastItemIndex">2</x:Int32>
@@ -22,7 +20,7 @@
                   ShowTabShadow="False"
                   ShowSecondaryButton="True"
                   x:Name="appFrame"
-                  effects:SafeAreaEffect.SafeArea="false,true">
+                  xct:SafeAreaEffect.SafeArea="false,true">
         <mvp:AppFrame.Content>
             <Grid RowDefinitions="*, 120, Auto">
 
@@ -59,19 +57,17 @@
                        HorizontalOptions="Center"
                        HorizontalTextAlignment="Center"
                        InputTransparent="True"
-                       IsVisible="{Binding Path=Position, Source={x:Reference carousel}, Converter={converters:NotEqualConverter}, ConverterParameter={StaticResource LastItemIndex}}"
+                       IsVisible="{Binding Path=Position, Source={x:Reference carousel}, Converter={xct:NotEqualConverter}, ConverterParameter={StaticResource LastItemIndex}}"
                        Text="{x:Static resources:Translations.swipe_to_continue}"
                        VerticalOptions="Center"/>
 
-                <sh:Shadows Style="{StaticResource shade_primary}" 
-                            IsVisible="{Binding Path=Position, Source={x:Reference carousel}, Converter={converters:EqualConverter}, ConverterParameter={StaticResource LastItemIndex}}"
-                            Grid.Row="1">
-                    <Button Command="{Binding SignInAsDemoCommand}"
-                            HorizontalOptions="CenterAndExpand"
-                            Style="{StaticResource primary_button}"
-                            Text="{x:Static resources:Translations.try_with_demo_account}"
-                            VerticalOptions="Center"/>
-                </sh:Shadows>
+                <Button Command="{Binding SignInAsDemoCommand}"
+                        IsVisible="{Binding Path=Position, Source={x:Reference carousel}, Converter={xct:EqualConverter}, ConverterParameter={StaticResource LastItemIndex}}"
+                        Grid.Row="1"
+                        HorizontalOptions="CenterAndExpand"
+                        Style="{StaticResource primary_button}"
+                        Text="{x:Static resources:Translations.try_with_demo_account}"
+                        VerticalOptions="Center"/>
 
                 <IndicatorView Grid.Row="2"
                                ItemsSource="{Binding OnboardingItems}"

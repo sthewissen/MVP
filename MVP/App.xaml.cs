@@ -7,12 +7,9 @@ using MVP.Services;
 using MVP.Pages;
 using TinyMvvm.Autofac;
 using TinyMvvm.IoC;
-using TinyMvvm;
-using Xamarin.Essentials;
 using MVP.Resources;
 using MVP.Services.Demo;
 using TinyNavigationHelper;
-using MVP.Helpers;
 using Xamarin.CommunityToolkit.Helpers;
 
 namespace MVP
@@ -44,10 +41,9 @@ namespace MVP
             Resolver.SetResolver(new AutofacResolver(ContainerService.Container));
             Akavache.Registrations.Start(Constants.AppName);
             On<iOS>().SetHandleControlUpdatesOnMainThread(true);
-            Sharpnado.Shades.Initializer.Initialize(loggerEnable: false);
 
             // Set the theme that the user has picked.
-            Current.UserAppTheme = (OSAppTheme)Preferences.Get(Settings.AppTheme, Settings.AppThemeDefault);
+            Current.UserAppTheme = Settings.AppTheme;
             //var statusBar = DependencyService.Get<IStatusBar>();
             //statusBar?.SetStatusBarColor(Current.UserAppTheme, Color.Black);
 

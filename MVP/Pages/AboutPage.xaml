@@ -10,7 +10,7 @@
                        xmlns:resources="clr-namespace:MVP.Resources"
                        x:TypeArguments="vm:AboutViewModel"
                        xmlns:pages="clr-namespace:MVP.Pages"
-                       xmlns:sh="clr-namespace:Sharpnado.Shades;assembly=Sharpnado.Shadows">
+                       xmlns:xct="http://xamarin.com/schemas/2020/toolkit">
 
     <mvp:AppFrame Title="{x:Static resources:Translations.about_title}"
                   ShowBackButton="True"
@@ -28,35 +28,33 @@
                            Text="{x:Static resources:Translations.about_why_description}" />
 
                     <Label Style="{StaticResource about_title}"
-                           Text="{x:Static resources:Translations.about_opensource_title}"
-                           Margin="0,0,0,8" />
-                    <Label Style="{StaticResource about_description}"
-                           Margin="0,0,0,24"
-                           Text="{x:Static resources:Translations.about_opensource_description}" />
-
-
-                    <sh:Shadows Style="{StaticResource shade_secondary}">
-                        <Button Text="{x:Static resources:Translations.becomesponsor}"
-                                Command="{Binding OpenSponsorCommand}"
-                                Margin="0,0,0,24"
-                                ImageSource="{OnPlatform iOS={AppThemeBinding Light={FontImage FontFamily={StaticResource font_icon}, Color={StaticResource black}, Size=20, Glyph={x:Static icons:Icons.coffee}}, Dark={FontImage FontFamily={StaticResource font_icon}, Color={StaticResource white}, Size=20, Glyph={x:Static icons:Icons.coffee}}}}"
-                                Style="{StaticResource secondary_button}" />
-                    </sh:Shadows>
-
-                    <Label Style="{StaticResource about_title}"
                            Text="{x:Static resources:Translations.about_licenses_title}"
                            Margin="0,0,0,8" />
                     <Label Style="{StaticResource about_description}"
                            Margin="0,0,0,24"
                            Text="{x:Static resources:Translations.about_licenses_description}" />
 
-                    <sh:Shadows Style="{StaticResource shade_secondary}">
-                        <Button Text="{x:Static resources:Translations.view_licenses}"
-                                Command="{Binding OpenLicensesCommand}"
-                                Margin="0,0,0,24"
-                                ImageSource="{OnPlatform iOS={AppThemeBinding Light={FontImage FontFamily={StaticResource font_icon}, Color={StaticResource black}, Size=20, Glyph={x:Static icons:Icons.file_text}}, Dark={FontImage FontFamily={StaticResource font_icon}, Color={StaticResource white}, Size=20, Glyph={x:Static icons:Icons.file_text}}}}"
-                                Style="{StaticResource secondary_button}"  />
-                    </sh:Shadows>
+                    <BoxView Style="{StaticResource separator}" 
+                             Margin="-16,0" />
+
+                    <Grid ColumnDefinitions="*, Auto"
+                          ColumnSpacing="24"
+                          Padding="32,16,16,16"
+                          Margin="-32,0"
+                          RowSpacing="8"
+                          xct:TouchEffect.PressedBackgroundColor="{AppThemeBinding Light={StaticResource primary_50}, Dark={StaticResource black_highlight}}"
+                          xct:TouchEffect.NormalBackgroundColor="{AppThemeBinding Light={StaticResource white}, Dark={StaticResource black}}"
+                          xct:TouchEffect.Command="{Binding OpenLicensesCommand}">
+
+                        <Label Style="{StaticResource field_title}"
+                               Text="{x:Static resources:Translations.view_licenses}"/>
+
+                        <Label Style="{StaticResource chevron}"
+                               Grid.Column="1"
+                               Text="{x:Static icons:Icons.chevron_right}" />
+                    </Grid>
+
+                    <BoxView Style="{StaticResource separator}" Margin="-16,0,-16,24"/>
 
                     <Label Style="{StaticResource about_title}"
                            Text="{x:Static resources:Translations.about_credits_title}"

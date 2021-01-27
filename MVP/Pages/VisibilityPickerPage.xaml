@@ -8,7 +8,7 @@
                        x:Class="MVP.Pages.VisibilityPickerPage"
                        x:DataType="vm:VisibilityPickerViewModel"
                        x:TypeArguments="vm:VisibilityPickerViewModel"
-                       xmlns:views="clr-namespace:Xamarin.CommunityToolkit.UI.Views;assembly=Xamarin.CommunityToolkit"
+                       xmlns:xct="http://xamarin.com/schemas/2020/toolkit"
                        xmlns:controls="clr-namespace:MVP.Controls">
 
     <mvp:AppFrame IsModal="False"
@@ -16,15 +16,15 @@
                   Title="{x:Static resources:Translations.visibility_title}"
                   x:Name="appFrame">
         <mvp:AppFrame.Content>
-            <Grid views:StateLayout.CurrentState="{Binding State}"
-                  views:StateLayout.AnimateStateChanges="False">
+            <Grid xct:StateLayout.CurrentState="{Binding State}"
+                  xct:StateLayout.AnimateStateChanges="False">
 
-                <views:StateLayout.StateViews>
-                    <views:StateView StateKey="Loading"
+                <xct:StateLayout.StateViews>
+                    <xct:StateView StateKey="Loading"
                                      RepeatCount="3"
                                      Template="{StaticResource picker_item_loading}" />
 
-                    <views:StateView StateKey="Empty"
+                    <xct:StateView StateKey="Empty"
                                      HorizontalOptions="FillAndExpand"
                                      VerticalOptions="FillAndExpand" >
                         <controls:EmptyState Title="{x:Static resources:Translations.empty_state_title}"
@@ -32,9 +32,9 @@
                                              ImageSource="Resource://empty.svg"
                                              CommandText="Retry"
                                              Command="{Binding RefreshDataCommand}"  />
-                    </views:StateView>
+                    </xct:StateView>
 
-                    <views:StateView StateKey="Error"
+                    <xct:StateView StateKey="Error"
                                      HorizontalOptions="FillAndExpand"
                                      VerticalOptions="FillAndExpand" >
                         <controls:EmptyState Title="{x:Static resources:Translations.error_title}"
@@ -42,8 +42,8 @@
                                              ImageSource="Resource://error.svg"
                                              CommandText="Retry"
                                              Command="{Binding RefreshDataCommand}"  />
-                    </views:StateView>
-                </views:StateLayout.StateViews>
+                    </xct:StateView>
+                </xct:StateLayout.StateViews>
 
                 <CollectionView ItemsSource="{Binding Visibilities}"
                             ItemTemplate="{StaticResource visibility_item}"

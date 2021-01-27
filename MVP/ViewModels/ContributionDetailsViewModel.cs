@@ -7,6 +7,7 @@ using MVP.Resources;
 using MVP.Services;
 using MVP.Services.Interfaces;
 using Xamarin.CommunityToolkit.ObjectModel;
+using Xamarin.CommunityToolkit.UI.Views;
 using Xamarin.Essentials;
 
 namespace MVP.ViewModels
@@ -14,7 +15,7 @@ namespace MVP.ViewModels
     public class ContributionDetailsViewModel : BaseViewModel
     {
         public Contribution Contribution { get; set; }
-        public bool CanBeEdited => Contribution != null && Contribution.StartDate.IsWithinCurrentAwardPeriod();
+        public bool CanBeEdited { get; set; } = true;
 
         public IAsyncCommand DeleteContributionCommand { get; set; }
         public IAsyncCommand OpenUrlCommand { get; set; }
@@ -35,8 +36,8 @@ namespace MVP.ViewModels
             if (NavigationParameter is Contribution contribution)
             {
                 Contribution = contribution;
+                CanBeEdited = Contribution != null && Contribution.StartDate.IsWithinCurrentAwardPeriod();
 
-                RaisePropertyChanged(nameof(CanBeEdited));
                 ((AsyncCommand)SecondaryCommand).RaiseCanExecuteChanged();
 
                 if (contribution.ContributionType.Id.HasValue)
@@ -71,12 +72,13 @@ namespace MVP.ViewModels
 
                 if (!await VerifyInternetConnection())
                     return;
-
                 // Ask for confirmation before deletion.
                 var confirm = await DialogService.ConfirmAsync(Translations.contributiondetail_deleteconfirmation, Translations.warning_title, Translations.ok, Translations.cancel).ConfigureAwait(false);
 
                 if (!confirm)
                     return;
+
+                State = LayoutState.Loading;
 
                 var isDeleted = await MvpApiService.DeleteContributionAsync(Contribution);
 
@@ -97,8 +99,11 @@ namespace MVP.ViewModels
             catch (Exception ex)
             {
                 AnalyticsService.Report(ex);
-
                 await DialogService.AlertAsync(Translations.error_unexpected, Translations.error_title, Translations.ok).ConfigureAwait(false);
+            }
+            finally
+            {
+                State = LayoutState.None;
             }
         }
 

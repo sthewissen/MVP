@@ -6,12 +6,10 @@
                        xmlns:icons="clr-namespace:MVP.Styles"
                        xmlns:mvp="clr-namespace:MVP"
                        xmlns:pages="clr-namespace:MVP.Pages"
-                       xmlns:views="clr-namespace:Xamarin.CommunityToolkit.UI.Views;assembly=Xamarin.CommunityToolkit"
-                       xmlns:effects="clr-namespace:Xamarin.CommunityToolkit.Effects;assembly=Xamarin.CommunityToolkit"
+                       xmlns:xct="http://xamarin.com/schemas/2020/toolkit"
                        xmlns:vm="clr-namespace:MVP.ViewModels"
                        xmlns:resources="clr-namespace:MVP.Resources"
                        xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-                       xmlns:sh="clr-namespace:Sharpnado.Shades;assembly=Sharpnado.Shadows"
                        x:Class="MVP.Pages.ProfilePage"
                        x:DataType="vm:ProfileViewModel"
                        x:TypeArguments="vm:ProfileViewModel">
@@ -24,14 +22,14 @@
                     <Grid ColumnDefinitions="80,*"
                           ColumnSpacing="16"
                           Padding="32,16,32,16"
-                          views:StateLayout.CurrentState="{Binding State}"
-                          views:StateLayout.AnimateStateChanges="False">
+                          xct:StateLayout.CurrentState="{Binding State}"
+                          xct:StateLayout.AnimateStateChanges="False">
                         <Grid.GestureRecognizers>
                             <TapGestureRecognizer Command="{Binding LoadProfileCommand}" />
                         </Grid.GestureRecognizers>
 
-                        <views:StateLayout.StateViews>
-                            <views:StateView StateKey="Loading">
+                        <xct:StateLayout.StateViews>
+                            <xct:StateView StateKey="Loading">
                                 <Grid ColumnDefinitions="80,*"
                                       ColumnSpacing="16"
                                       Grid.ColumnSpan="2">
@@ -48,8 +46,8 @@
                                         <controls:SkeletonView HeightRequest="16" />
                                     </StackLayout>
                                 </Grid>
-                            </views:StateView>
-                        </views:StateLayout.StateViews>
+                            </xct:StateView>
+                        </xct:StateLayout.StateViews>
 
                         <ff:CachedImage HeightRequest="80"
                                         Source="{Binding ProfileImage}"
@@ -82,7 +80,7 @@
                           Padding="32,0"
                           RowDefinitions="Auto, Auto"
                           RowSpacing="8"
-                          effects:TouchEffect.Command="{Binding ToggleUseClipboardUrlsCommand}">
+                          xct:TouchEffect.Command="{Binding ToggleUseClipboardUrlsCommand}">
 
                         <Label Style="{StaticResource field_title}" 
                                Text="{x:Static resources:Translations.setting_contributionfromurl_title}"/>
@@ -104,10 +102,10 @@
                           ColumnSpacing="24"
                           Padding="32,16,16,16"
                           RowDefinitions="Auto, Auto"
-                          RowSpacing="8"
-                          effects:TouchEffect.PressedBackgroundColor="{AppThemeBinding Light={StaticResource white_highlight}, Dark={StaticResource black_highlight}}"
-                          effects:TouchEffect.NormalBackgroundColor="{AppThemeBinding Light={StaticResource white}, Dark={StaticResource black}}"
-                          effects:TouchEffect.Command="{Binding OpenThemePickerCommand}">
+                          RowSpacing="8"                          
+                          xct:TouchEffect.PressedBackgroundColor="{AppThemeBinding Light={StaticResource primary_50}, Dark={StaticResource black_highlight}}"
+                          xct:TouchEffect.NormalBackgroundColor="{AppThemeBinding Light={StaticResource white}, Dark={StaticResource black}}"
+                          xct:TouchEffect.Command="{Binding OpenThemePickerCommand}">
 
                         <Label Style="{StaticResource field_title}" 
                                Text="{x:Static resources:Translations.setting_apptheme_title}"/>
@@ -130,9 +128,9 @@
                           Padding="32,16,16,16"
                           RowDefinitions="Auto, Auto"
                           RowSpacing="8"
-                          effects:TouchEffect.PressedBackgroundColor="{AppThemeBinding Light={StaticResource white_highlight}, Dark={StaticResource black_highlight}}"
-                          effects:TouchEffect.NormalBackgroundColor="{AppThemeBinding Light={StaticResource white}, Dark={StaticResource black}}"
-                          effects:TouchEffect.Command="{Binding OpenLanguagePickerCommand}">
+                          xct:TouchEffect.PressedBackgroundColor="{AppThemeBinding Light={StaticResource primary_50}, Dark={StaticResource black_highlight}}"
+                          xct:TouchEffect.NormalBackgroundColor="{AppThemeBinding Light={StaticResource white}, Dark={StaticResource black}}"
+                          xct:TouchEffect.Command="{Binding OpenLanguagePickerCommand}">
 
                         <Label Style="{StaticResource field_title}" 
                                Text="{x:Static resources:Translations.setting_language_title}"/>
@@ -156,9 +154,9 @@
                           Padding="32,16,16,16"
                           RowDefinitions="Auto, Auto"
                           RowSpacing="8"
-                          effects:TouchEffect.PressedBackgroundColor="{AppThemeBinding Light={StaticResource white_highlight}, Dark={StaticResource black_highlight}}"
-                          effects:TouchEffect.NormalBackgroundColor="{AppThemeBinding Light={StaticResource white}, Dark={StaticResource black}}"
-                          effects:TouchEffect.Command="{Binding OpenIconPickerCommand}">
+                          xct:TouchEffect.PressedBackgroundColor="{AppThemeBinding Light={StaticResource primary_50}, Dark={StaticResource black_highlight}}"
+                          xct:TouchEffect.NormalBackgroundColor="{AppThemeBinding Light={StaticResource white}, Dark={StaticResource black}}"
+                          xct:TouchEffect.Command="{Binding OpenIconPickerCommand}">
 
                         <Label Style="{StaticResource field_title}" 
                                Text="{x:Static resources:Translations.setting_appicon_title}"/>
@@ -183,9 +181,9 @@
                           Padding="32,16,16,16"
                           RowDefinitions="Auto, Auto"
                           RowSpacing="8"
-                          effects:TouchEffect.PressedBackgroundColor="{AppThemeBinding Light={StaticResource white_highlight}, Dark={StaticResource black_highlight}}"
-                          effects:TouchEffect.NormalBackgroundColor="{AppThemeBinding Light={StaticResource white}, Dark={StaticResource black}}"
-                          effects:TouchEffect.Command="{Binding OpenAboutCommand}">
+                          xct:TouchEffect.PressedBackgroundColor="{AppThemeBinding Light={StaticResource primary_50}, Dark={StaticResource black_highlight}}"
+                          xct:TouchEffect.NormalBackgroundColor="{AppThemeBinding Light={StaticResource white}, Dark={StaticResource black}}"
+                          xct:TouchEffect.Command="{Binding OpenAboutCommand}">
 
                         <Label Style="{StaticResource field_title}" 
                                Text="{x:Static resources:Translations.about_title}"/>
@@ -202,13 +200,11 @@
                     <BoxView Margin="16,0"
                              Style="{StaticResource separator}"/>
 
-                    <sh:Shadows Style="{StaticResource shade_error}" >
-                        <Button Style="{StaticResource destructive_primary_button}"
-                                Margin="24,32"
-                                Command="{Binding LogoutCommand}"
-                                ImageSource="{OnPlatform iOS={FontImage FontFamily={StaticResource font_icon}, Color={StaticResource white}, Size=20, Glyph={x:Static icons:Icons.logout}}}"
-                                Text="{x:Static resources:Translations.logout}"/>
-                    </sh:Shadows>
+                    <Button Style="{StaticResource destructive_primary_button}"
+                            Margin="24,32"
+                            Command="{Binding LogoutCommand}"
+                            ImageSource="{OnPlatform iOS={FontImage FontFamily={StaticResource font_icon}, Color={StaticResource white}, Size=20, Glyph={x:Static icons:Icons.logout}}}"
+                            Text="{x:Static resources:Translations.logout}"/>
                 </StackLayout>
             </ScrollView>
         </mvp:AppFrame.Content>

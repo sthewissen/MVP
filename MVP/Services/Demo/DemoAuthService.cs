@@ -12,15 +12,15 @@ namespace MVP.Services.Demo
         }
 
         public Task<bool> SignInSilentAsync()
-            => Task.FromResult(Preferences.Get(Settings.IsUsingDemoAccount, Settings.IsUsingDemoAccountDefault));
+            => Task.FromResult(Settings.IsUsingDemoAccount);
 
         public Task<bool> SignInAsync()
-            => Task.FromResult(Preferences.Get(Settings.IsUsingDemoAccount, Settings.IsUsingDemoAccountDefault));
+            => Task.FromResult(Settings.IsUsingDemoAccount);
 
         public Task<bool> SignOutAsync()
         {
             (Application.Current as App).SwitchDemoMode(false);
-            Preferences.Set(Settings.IsUsingDemoAccount, false);
+            Settings.IsUsingDemoAccount = false;
             return Task.FromResult(true);
         }
     }
