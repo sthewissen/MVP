@@ -84,21 +84,6 @@ namespace MVP.ViewModels
                 {
                     AnalyticsService.Track("Splash Authenticated");
                     NavigationHelper.SetRootView(nameof(TabbedMainPage), false);
-
-#if !DEBUG
-                    if (!Settings.IsUsingDemoAccount)
-                    {
-                        var count = Settings.StartupCount;
-                        count++;
-
-                        if (count == 5)
-                        {
-                            CrossStoreReview.Current.RequestReview();
-                        }
-
-                        Settings.StartupCount = count;
-                    }
-#endif
                 }
                 else
                 {

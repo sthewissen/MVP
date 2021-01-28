@@ -106,7 +106,8 @@ namespace MVP.ViewModels
                     .SelectMany(x => x)
                     .FirstOrDefault(x => x.ContributionTechnology.Id == contribution.ContributionTechnology.Value.Id);
 
-                selected.IsSelected = true;
+                if (selected != null)
+                    selected.IsSelected = true;
             }
             catch (Exception ex)
             {

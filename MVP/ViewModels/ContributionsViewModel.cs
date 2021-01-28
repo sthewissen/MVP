@@ -9,6 +9,7 @@ using MVP.Pages;
 using MVP.Resources;
 using MVP.Services;
 using MVP.Services.Interfaces;
+using Plugin.StoreReview;
 using Xamarin.CommunityToolkit.ObjectModel;
 using Xamarin.CommunityToolkit.UI.Views;
 using Xamarin.Essentials;
@@ -46,6 +47,25 @@ namespace MVP.ViewModels
         {
             await base.Initialize();
             RefreshContributions().SafeFireAndForget();
+
+#if !DEBUG
+            if (!Settings.IsUsingDemoAccount)
+            {
+                var count = Settings.StartupCount;
+                count++;
+
+                if (count == 5)
+                {
+                    MainThread.BeginInvokeOnMainThread(() =>
+                    {
+                        AnalyticsService.Track("Review Requested");
+                        CrossStoreReview.Current.RequestReview();
+                    });
+                }
+
+                Settings.StartupCount = count;
+            }
+#endif
         }
 
         /// <summary>
@@ -75,13 +95,10 @@ namespace MVP.ViewModels
                 }
 
                 Contributions = new ObservableCollection<Contribution>(contributionsList.Contributions.OrderByDescending(x => x.StartDate).ToList());
-
-                foreach (var item in Contributions)
-                    Debug.WriteLine(item.StartDate.ToString());
-
             }
             catch (Exception ex)
             {
+                AnalyticsService.Report(ex);
                 State = LayoutState.Error;
             }
             finally
@@ -139,7 +156,6 @@ namespace MVP.ViewModels
             catch (Exception ex)
             {
                 AnalyticsService.Report(ex);
-
                 await DialogService.AlertAsync(Translations.error_couldntloadmorecontributions, Translations.error_title, Translations.ok).ConfigureAwait(false);
             }
             finally
