@@ -497,6 +497,12 @@ namespace MVP.Resources {
             }
         }
         
+        internal static string progress_deleting {
+            get {
+                return ResourceManager.GetString("progress_deleting", resourceCulture);
+            }
+        }
+        
         internal static string licenses_title {
             get {
                 return ResourceManager.GetString("licenses_title", resourceCulture);

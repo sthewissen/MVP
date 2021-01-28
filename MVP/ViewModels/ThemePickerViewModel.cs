@@ -15,9 +15,9 @@ namespace MVP.ViewModels
     public class ThemePickerViewModel : BaseViewModel
     {
         public IList<AppThemeViewModel> AppThemes { get; set; } = new List<AppThemeViewModel> {
-            new AppThemeViewModel() { Key = (int)OSAppTheme.Unspecified, Description = Resources.Translations.theme_systemdefault },
-            new AppThemeViewModel() { Key = (int)OSAppTheme.Light, Description = Resources.Translations.theme_light  },
-            new AppThemeViewModel() { Key = (int)OSAppTheme.Dark, Description = Resources.Translations.theme_dark  }
+            new AppThemeViewModel() { Key = OSAppTheme.Unspecified, Description = Resources.Translations.theme_systemdefault },
+            new AppThemeViewModel() { Key = OSAppTheme.Light, Description = Resources.Translations.theme_light  },
+            new AppThemeViewModel() { Key = OSAppTheme.Dark, Description = Resources.Translations.theme_dark  }
         };
 
         public IAsyncCommand<AppThemeViewModel> SetAppThemeCommand { get; set; }
@@ -26,7 +26,7 @@ namespace MVP.ViewModels
             : base(analyticsService)
         {
             SetAppThemeCommand = new AsyncCommand<AppThemeViewModel>((x) => SetAppTheme(x));
-            AppThemes.FirstOrDefault(x => x.Key == Preferences.Get(Settings.AppTheme, Settings.AppThemeDefault)).IsSelected = true;
+            AppThemes.FirstOrDefault(x => x.Key == Settings.AppTheme).IsSelected = true;
         }
 
         /// <summary>
@@ -36,13 +36,13 @@ namespace MVP.ViewModels
         {
             try
             {
-                Application.Current.UserAppTheme = (OSAppTheme)theme.Key;
-                Preferences.Set(Settings.AppTheme, theme.Key);
+                Application.Current.UserAppTheme = theme.Key;
+                Settings.AppTheme = theme.Key;
 
                 foreach (var item in AppThemes)
                     item.IsSelected = false;
 
-                AppThemes.FirstOrDefault(x => x.Key == Preferences.Get(Settings.AppTheme, Settings.AppThemeDefault)).IsSelected = true;
+                AppThemes.FirstOrDefault(x => x.Key == Settings.AppTheme).IsSelected = true;
                 RaisePropertyChanged(nameof(AppThemes));
 
                 //var statusBar = DependencyService.Get<IStatusBar>();

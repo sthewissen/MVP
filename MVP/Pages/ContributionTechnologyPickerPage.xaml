@@ -2,14 +2,13 @@
 <pages:BaseContentPage xmlns="http://xamarin.com/schemas/2014/forms"
                        xmlns:icons="clr-namespace:MVP.Styles"
                        xmlns:pages="clr-namespace:MVP.Pages"
-                       xmlns:behaviors="clr-namespace:Xamarin.CommunityToolkit.Behaviors;assembly=Xamarin.CommunityToolkit"
+                       xmlns:xct="http://xamarin.com/schemas/2020/toolkit"
                        xmlns:resources="clr-namespace:MVP.Resources"
                        xmlns:vm="clr-namespace:MVP.ViewModels"
                        xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
                        x:Class="MVP.Pages.ContributionTechnologyPickerPage"
                        x:DataType="vm:ContributionTechnologyPickerViewModel"
                        x:TypeArguments="vm:ContributionTechnologyPickerViewModel"
-                       xmlns:views="clr-namespace:Xamarin.CommunityToolkit.UI.Views;assembly=Xamarin.CommunityToolkit"
                        xmlns:controls="clr-namespace:MVP.Controls"
                        xmlns:mvp="clr-namespace:MVP">
 
@@ -18,15 +17,15 @@
                   x:Name="appFrame">
         <mvp:AppFrame.Content>
             <Grid RowDefinitions="Auto,*"
-                  views:StateLayout.CurrentState="{Binding State}"
-                  views:StateLayout.AnimateStateChanges="False">
+                  xct:StateLayout.CurrentState="{Binding State}"
+                  xct:StateLayout.AnimateStateChanges="False">
 
-                <views:StateLayout.StateViews>
-                    <views:StateView StateKey="Loading"
+                <xct:StateLayout.StateViews>
+                    <xct:StateView StateKey="Loading"
                                      RepeatCount="2"
                                      Template="{StaticResource picker_item_loading}" />
 
-                    <views:StateView StateKey="Empty"
+                    <xct:StateView StateKey="Empty"
                                      HorizontalOptions="FillAndExpand"
                                      VerticalOptions="FillAndExpand" >
                         <controls:EmptyState Title="{x:Static resources:Translations.empty_state_title}"
@@ -34,9 +33,9 @@
                                              ImageSource="Resource://empty.svg"
                                              CommandText="Retry"
                                              Command="{Binding RefreshDataCommand}"  />
-                    </views:StateView>
+                    </xct:StateView>
 
-                    <views:StateView StateKey="Error"
+                    <xct:StateView StateKey="Error"
                                      HorizontalOptions="FillAndExpand"
                                      VerticalOptions="FillAndExpand" >
                         <controls:EmptyState Title="{x:Static resources:Translations.error_title}"
@@ -44,8 +43,8 @@
                                              ImageSource="Resource://error.svg"
                                              CommandText="Retry"
                                              Command="{Binding RefreshDataCommand}"  />
-                    </views:StateView>
-                </views:StateLayout.StateViews>
+                    </xct:StateView>
+                </xct:StateLayout.StateViews>
 
                 <CollectionView Grid.Row="1"
                                 GroupHeaderTemplate="{StaticResource contribution_technology_group}"
@@ -57,11 +56,6 @@
                     <CollectionView.Footer>
                         <BoxView HeightRequest="40"/>
                     </CollectionView.Footer>
-                    <CollectionView.EmptyView>
-                        <controls:EmptyState Title="{x:Static resources:Translations.empty_state_title}"
-                                            Description="{x:Static resources:Translations.empty_state_noresultcontributiontechnologies}"
-                                            ImageSource="Resource://empty.svg" />
-                    </CollectionView.EmptyView>
                 </CollectionView>
 
                 <StackLayout>
@@ -75,9 +69,10 @@
                             <Entry Style="{StaticResource search_entry}"
                                    Text="{Binding SearchText}"
                                    VerticalOptions="Fill"
+                                   IsSpellCheckEnabled="False"
                                    VerticalTextAlignment="Center">
                                 <Entry.Behaviors>
-                                    <behaviors:UserStoppedTypingBehavior Command="{Binding SearchCommand}"
+                                    <xct:UserStoppedTypingBehavior Command="{Binding SearchCommand}"
                                                                          StoppedTypingTimeThreshold="500"
                                                                          ShouldDismissKeyboardAutomatically="false" />
                                 </Entry.Behaviors>
@@ -105,7 +100,7 @@
                         <BindableLayout.ItemTemplate>
                             <DataTemplate>
                                 <StackLayout Margin="4">
-                                    <Frame BackgroundColor="{StaticResource light_primary}"
+                                    <Frame BackgroundColor="{StaticResource primary_200}"
                                            Style="{StaticResource contribution_item_category}">
 
                                         <Label Style="{StaticResource contribution_item_category_label}"

@@ -30,10 +30,10 @@ namespace MVP.ViewModels
 
         public bool UseClipboardUrls
         {
-            get => Preferences.Get(Settings.UseClipboardUrls, true);
+            get => Settings.UseClipboardUrls;
             set
             {
-                Preferences.Set(Settings.UseClipboardUrls, value);
+                Settings.UseClipboardUrls = value;
                 HapticFeedback.Perform(HapticFeedbackType.Click);
             }
         }

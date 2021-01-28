@@ -355,13 +355,16 @@
     <value>Podešavanja</value>
   </data>
     <data name="progress_loading_url_data" xml:space="preserve">
-    <value>Dohvaćanje metapodataka URL-a ...</value>
+    <value>Dohvaćanje metapodataka URL-a...</value>
   </data>
     <data name="progress_saving" xml:space="preserve">
-    <value>Spremanje ...</value>
+    <value>Spremanje...</value>
+  </data>
+    <data name="progress_deleting" xml:space="preserve">
+      <value>Brisanje...</value>
   </data>
     <data name="search_placeholder" xml:space="preserve">
-    <value>Pretraga ...</value>
+    <value>Pretraga...</value>
   </data>
     <data name="setting_appicon_description" xml:space="preserve">
     <value>Ne sviđa vam se zadana ikona aplikacije? Dostupne su alternativne opcije.</value>

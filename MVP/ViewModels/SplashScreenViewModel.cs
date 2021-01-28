@@ -4,6 +4,7 @@ using MVP.Extensions;
 using MVP.Helpers;
 using MVP.Pages;
 using MVP.Services.Interfaces;
+using Plugin.StoreReview;
 using Xamarin.CommunityToolkit.ObjectModel;
 using Xamarin.Essentials;
 using Xamarin.Forms;
@@ -79,13 +80,25 @@ namespace MVP.ViewModels
             => MainThread.InvokeOnMainThreadAsync(()
                 =>
             {
-                //var statusBar = DependencyService.Get<IStatusBar>();
-                //statusBar?.SetStatusBarColor(Application.Current.UserAppTheme, Color.Black);
-
                 if (isAuthenticated)
                 {
                     AnalyticsService.Track("Splash Authenticated");
                     NavigationHelper.SetRootView(nameof(TabbedMainPage), false);
+
+#if !DEBUG
+                    if (!Settings.IsUsingDemoAccount)
+                    {
+                        var count = Settings.StartupCount;
+                        count++;
+
+                        if (count == 5)
+                        {
+                            CrossStoreReview.Current.RequestReview();
+                        }
+
+                        Settings.StartupCount = count;
+                    }
+#endif
                 }
                 else
                 {

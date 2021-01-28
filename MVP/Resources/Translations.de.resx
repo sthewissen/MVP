@@ -345,6 +345,9 @@
     <data name="progress_saving" xml:space="preserve">
     <value>Speichern...</value>
   </data>
+    <data name="progress_deleting" xml:space="preserve">
+        <value>Löschen...</value>
+    </data>
     <data name="search_placeholder" xml:space="preserve">
     <value>Suchen...</value>
   </data>

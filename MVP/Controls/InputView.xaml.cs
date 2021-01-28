@@ -92,22 +92,22 @@ namespace MVP.Controls
         {
             frameEntry.SetAppThemeColor(Frame.BorderColorProperty,
                 (Color)Application.Current.Resources["primary"],
-                (Color)Application.Current.Resources["light_primary"]);
+                (Color)Application.Current.Resources["primary_200"]);
 
             frameEditor.SetAppThemeColor(Frame.BorderColorProperty,
                 (Color)Application.Current.Resources["primary"],
-                (Color)Application.Current.Resources["light_primary"]);
+                (Color)Application.Current.Resources["primary_200"]);
         }
 
         void Entry_Unfocused(object sender, FocusEventArgs e)
         {
             frameEntry.SetAppThemeColor(Frame.BorderColorProperty,
-                (Color)Application.Current.Resources["neutral_1"],
-                (Color)Application.Current.Resources["neutral_3"]);
+                (Color)Application.Current.Resources["neutral_50"],
+                (Color)Application.Current.Resources["neutral_300"]);
 
             frameEditor.SetAppThemeColor(Frame.BorderColorProperty,
-                (Color)Application.Current.Resources["neutral_1"],
-                (Color)Application.Current.Resources["neutral_3"]);
+                (Color)Application.Current.Resources["neutral_50"],
+                (Color)Application.Current.Resources["neutral_300"]);
         }
     }
 }

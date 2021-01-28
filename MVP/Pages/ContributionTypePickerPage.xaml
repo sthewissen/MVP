@@ -8,22 +8,22 @@
                        x:Class="MVP.Pages.ContributionTypePickerPage"
                        x:DataType="vm:ContributionTypePickerViewModel"
                        x:TypeArguments="vm:ContributionTypePickerViewModel"
-                       xmlns:views="clr-namespace:Xamarin.CommunityToolkit.UI.Views;assembly=Xamarin.CommunityToolkit"
+                       xmlns:xct="http://xamarin.com/schemas/2020/toolkit"
                        xmlns:controls="clr-namespace:MVP.Controls">
 
     <mvp:AppFrame ShowBackButton="True"
                   Title="{x:Static resources:Translations.contributiontypepicker_title}"
                   x:Name="appFrame">
         <mvp:AppFrame.Content>
-            <Grid views:StateLayout.CurrentState="{Binding State}"
-                  views:StateLayout.AnimateStateChanges="False">
+            <Grid xct:StateLayout.CurrentState="{Binding State}"
+                  xct:StateLayout.AnimateStateChanges="False">
 
-                <views:StateLayout.StateViews>
-                    <views:StateView StateKey="Loading"
+                <xct:StateLayout.StateViews>
+                    <xct:StateView StateKey="Loading"
                                      RepeatCount="3"
                                      Template="{StaticResource picker_item_loading}" />
 
-                    <views:StateView StateKey="Empty"
+                    <xct:StateView StateKey="Empty"
                                      HorizontalOptions="FillAndExpand"
                                      VerticalOptions="FillAndExpand" >
                         <controls:EmptyState Title="{x:Static resources:Translations.empty_state_title}"
@@ -31,9 +31,9 @@
                                              ImageSource="Resource://empty.svg"
                                              CommandText="Retry"
                                              Command="{Binding RefreshDataCommand}" />
-                    </views:StateView>
+                    </xct:StateView>
 
-                    <views:StateView StateKey="Error"
+                    <xct:StateView StateKey="Error"
                                      HorizontalOptions="FillAndExpand"
                                      VerticalOptions="FillAndExpand" >
                         <controls:EmptyState Title="{x:Static resources:Translations.error_title}"
@@ -41,8 +41,8 @@
                                              ImageSource="Resource://error.svg"
                                              CommandText="Retry"
                                              Command="{Binding RefreshDataCommand}"  />
-                    </views:StateView>
-                </views:StateLayout.StateViews>
+                    </xct:StateView>
+                </xct:StateLayout.StateViews>
 
                 <CollectionView ItemsSource="{Binding ContributionTypes}"
                                 ItemTemplate="{StaticResource contribution_type_item}"
@@ -66,7 +66,7 @@
                             <BindableLayout.ItemTemplate>
                                 <DataTemplate>
                                     <StackLayout Margin="4">
-                                        <Frame BackgroundColor="{StaticResource light_primary}"
+                                        <Frame BackgroundColor="{StaticResource primary_200}"
                                                    Style="{StaticResource contribution_item_category}">
 
                                             <Label Style="{StaticResource contribution_item_category_label}"

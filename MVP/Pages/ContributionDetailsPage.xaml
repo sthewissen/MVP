@@ -1,178 +1,208 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <pages:BaseContentPage xmlns="http://xamarin.com/schemas/2014/forms"
                        xmlns:controls="clr-namespace:MVP.Controls"
-                       xmlns:converters="clr-namespace:Xamarin.CommunityToolkit.Converters;assembly=Xamarin.CommunityToolkit"
-                       xmlns:effects="clr-namespace:Xamarin.CommunityToolkit.Effects;assembly=Xamarin.CommunityToolkit"
                        xmlns:icons="clr-namespace:MVP.Styles"
-                       xmlns:mvp="clr-namespace:MVP"
+                       xmlns:lottie="clr-namespace:Lottie.Forms;assembly=Lottie.Forms"
                        xmlns:models="clr-namespace:MVP.Models"
+                       xmlns:mvp="clr-namespace:MVP"
                        xmlns:pages="clr-namespace:MVP.Pages"
+                       xmlns:resources="clr-namespace:MVP.Resources"
                        xmlns:vm="clr-namespace:MVP.ViewModels"
                        xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-                       xmlns:resources="clr-namespace:MVP.Resources"
+                       xmlns:xct="http://xamarin.com/schemas/2020/toolkit"
                        x:Class="MVP.Pages.ContributionDetailsPage"
                        x:DataType="vm:ContributionDetailsViewModel"
                        x:Name="page"
-                       x:TypeArguments="vm:ContributionDetailsViewModel"
-                       xmlns:sh="clr-namespace:Sharpnado.Shades;assembly=Sharpnado.Shadows">
-
+                       x:TypeArguments="vm:ContributionDetailsViewModel">
+    <pages:BaseContentPage.Resources>
+        <ResourceDictionary>
+            <ControlTemplate x:Key="warning">
+                <Frame Style="{StaticResource warning_frame}">
+                    <Grid ColumnDefinitions="Auto, *"
+                          ColumnSpacing="16"
+                          RowDefinitions="Auto, Auto"
+                          RowSpacing="8">
+                        <Label Style="{StaticResource warning_icon}"
+                               Text="{x:Static icons:Icons.locked}"/>
+                        <Label Grid.Column="1"
+                               Style="{StaticResource warning_title}"
+                               Text="{x:Static resources:Translations.warning_title_activitylocked}"/>
+                        <Label Grid.ColumnSpan="2"
+                               Grid.Row="1"
+                               Style="{StaticResource warning_text}"
+                               Text="{x:Static resources:Translations.warning_description_activitylocked}"/>
+                    </Grid>
+                </Frame>
+            </ControlTemplate>
+        </ResourceDictionary>
+    </pages:BaseContentPage.Resources>
     <mvp:AppFrame SecondaryButtonText="{x:Static resources:Translations.contributiondetails_edit}"
-                  ShowBackButton="True"
-                  ShowSecondaryButton="{Binding CanBeEdited}"
+                  ShowBackButton="{Binding State, Converter={xct:NotEqualConverter}, ConverterParameter={x:Static xct:LayoutState.Loading}}"
                   Title="{x:Static resources:Translations.contributiondetails_title}"
                   x:Name="appFrame">
 
+        <mvp:AppFrame.ShowSecondaryButton>
+            <MultiBinding Converter="{xct:VariableMultiValueConverter ConditionType=All}">
+                <Binding Converter="{xct:NotEqualConverter}"
+                         ConverterParameter="{x:Static xct:LayoutState.Loading}"
+                         Path="State"/>
+                <Binding Path="CanBeEdited"/>
+            </MultiBinding>
+        </mvp:AppFrame.ShowSecondaryButton>
+
         <mvp:AppFrame.Content>
+            <Grid VerticalOptions="CenterAndExpand"
+                  xct:StateLayout.AnimateStateChanges="False"
+                  xct:StateLayout.CurrentState="{Binding State}">
 
-            <ScrollView Grid.Row="1"
-                        Scrolled="ScrollView_Scrolled">
+                <ScrollView Scrolled="ScrollView_Scrolled">
+                    <StackLayout Padding="24"
+                                 Spacing="4">
+                        <ContentView>
+                            <ContentView.Triggers>
+                                <DataTrigger Binding="{Binding CanBeEdited}"
+                                             TargetType="ContentView"
+                                             Value="false">
+                                    <Setter Property="ControlTemplate"
+                                            Value="{DynamicResource warning}"/>
+                                </DataTrigger>
+                            </ContentView.Triggers>
+                        </ContentView>
 
-                <StackLayout Padding="24"
-                             Spacing="4">
+                        <Frame BackgroundColor="{AppThemeBinding Light={StaticResource primary_200}, Dark={StaticResource neutral_100}}"
+                               Margin="0,0,0,8"
+                               Style="{StaticResource contribution_item_category}">
+                            <Label HorizontalTextAlignment="End"
+                                   LineBreakMode="TailTruncation"
+                                   MaxLines="1"
+                                   Style="{StaticResource contribution_item_category_label}"
+                                   Text="{Binding Contribution.ContributionType.EnglishName, Converter={xct:TextCaseConverter Type=Upper}}"
+                                   TextColor="{AppThemeBinding Light={StaticResource white}, Dark={StaticResource black}}"/>
+                        </Frame>
 
-                    <Frame IsVisible="{Binding CanBeEdited, Converter={converters:InvertedBoolConverter}}"
-                           Style="{StaticResource warning_frame}">
+                        <Label Margin="0,0,0,8"
+                               Style="{StaticResource contribution_detail_title}"
+                               Text="{Binding Contribution.Title}"/>
+                        <Label Margin="0,0,0,16"
+                               Style="{StaticResource contribution_item_date}">
+                            <Label.FormattedText>
+                                <FormattedString>
+                                    <Span FontFamily="{StaticResource font_icon}"
+                                          FontSize="{StaticResource fontsize_small}"
+                                          Text="{x:Static icons:Icons.calendar}"/>
+                                    <Span Text="  "/>
+                                    <Span Text="{Binding Contribution.StartDate, StringFormat='{0:D}'}"/>
+                                </FormattedString>
+                            </Label.FormattedText>
+                        </Label>
 
-                        <Grid ColumnDefinitions="Auto, *"
-                              ColumnSpacing="16"
-                              RowDefinitions="Auto, Auto"
-                              RowSpacing="8">
-                            <Label Style="{StaticResource warning_icon}"
-                                   Text="{x:Static icons:Icons.locked}"/>
-                            <Label Grid.Column="1"
-                                   Style="{StaticResource warning_title}"
-                                   Text="{x:Static resources:Translations.warning_title_activitylocked}"/>
-                            <Label Grid.ColumnSpan="2"
-                                   Grid.Row="1"
-                                   Style="{StaticResource warning_text}"
-                                   Text="{x:Static resources:Translations.warning_description_activitylocked}"/>
-                        </Grid>
-                    </Frame>
+                        <BoxView Margin="0,0,0,16"
+                                 Style="{StaticResource separator}"/>
 
-                    <Frame BackgroundColor="{Binding Contribution.ContributionType.Id, Converter={StaticResource ContributionTypeConverter}}"
-                           Margin="0,0,0,8"
-                           Style="{StaticResource contribution_item_category}">
-                        <Label HorizontalTextAlignment="End"
-                               LineBreakMode="TailTruncation"
-                               MaxLines="1"
-                               Style="{StaticResource contribution_item_category_label}"
-                               Text="{Binding Contribution.ContributionType.EnglishName, Converter={converters:TextCaseConverter Type=Upper}}"
-                               TextColor="{Binding Contribution.ContributionType.Id, Converter={StaticResource ContributionTypeTextConverter}}"/>
-                    </Frame>
+                        <Label Style="{StaticResource field_title}"
+                               Text="{x:Static resources:Translations.field_primary_contribution_area}"/>
+                        <Label Text="{Binding Contribution.ContributionTechnology.Name}"/>
+                        <BoxView Margin="0,16"
+                                 Style="{StaticResource separator}"/>
 
-                    <Label Margin="0,0,0,16"
-                           Style="{StaticResource contribution_detail_title}"
-                           Text="{Binding Contribution.Title}"/>
+                        <Label IsVisible="{Binding Contribution.AdditionalTechnologies, Converter={xct:ListIsNotNullOrEmptyConverter}}"
+                               Style="{StaticResource field_title}"
+                               Text="{x:Static resources:Translations.field_additional_contribution_areas}"/>
+                        <StackLayout BindableLayout.ItemsSource="{Binding Contribution.AdditionalTechnologies}"
+                                     IsVisible="{Binding Contribution.AdditionalTechnologies, Converter={xct:ListIsNotNullOrEmptyConverter}}">
+                            <BindableLayout.ItemTemplate>
+                                <DataTemplate x:DataType="models:ContributionTechnology">
+                                    <Label Text="{Binding Name}"/>
+                                </DataTemplate>
+                            </BindableLayout.ItemTemplate>
+                        </StackLayout>
+                        <BoxView IsVisible="{Binding Contribution.AdditionalTechnologies, Converter={xct:ListIsNotNullOrEmptyConverter}}"
+                                 Margin="0,16"
+                                 Style="{StaticResource separator}"/>
 
-                    <BoxView Margin="0,0,0,16"
-                             Style="{StaticResource separator}"/>
+                        <Label IsVisible="{Binding Contribution.Description, Converter={xct:IsNotNullOrEmptyConverter}}"
+                               Style="{StaticResource field_title}"
+                               Text="{x:Static resources:Translations.field_description}"/>
+                        <Label IsVisible="{Binding Contribution.Description, Converter={xct:IsNotNullOrEmptyConverter}}"
+                               Text="{Binding Contribution.Description}"/>
+                        <BoxView IsVisible="{Binding Contribution.Description, Converter={xct:IsNotNullOrEmptyConverter}}"
+                                 Margin="0,16"
+                                 Style="{StaticResource separator}"/>
 
-                    <Label Style="{StaticResource field_title}"
-                           Text="{x:Static resources:Translations.field_primary_contribution_area}"/>
+                        <Label Style="{StaticResource field_title}"
+                               Text="{x:Static resources:Translations.field_url}"/>
+                        <controls:UrlPreviewView Margin="-24,0"
+                                                 Url="{Binding Contribution.ReferenceUrl}"
+                                                 xct:TouchEffect.Command="{Binding OpenUrlCommand}"
+                                                 xct:TouchEffect.NormalBackgroundColor="{AppThemeBinding Light={StaticResource white}, Dark={StaticResource black}}"
+                                                 xct:TouchEffect.PressedBackgroundColor="{AppThemeBinding Light={StaticResource primary_50}, Dark={StaticResource black_highlight}}"/>
+                        <BoxView Margin="0,-4,0,16"
+                                 Style="{StaticResource separator}"/>
 
-                    <Label Text="{Binding Contribution.ContributionTechnology.Name}"/>
+                        <Label IsVisible="{Binding ContributionTypeConfig.AnnualQuantityHeader, Converter={xct:IsNotNullOrEmptyConverter}}"
+                               Style="{StaticResource field_title}"
+                               Text="{Binding ContributionTypeConfig.AnnualQuantityHeader}"/>
+                        <Label IsVisible="{Binding ContributionTypeConfig.AnnualQuantityHeader, Converter={xct:IsNotNullOrEmptyConverter}}"
+                               Text="{Binding Contribution.AnnualQuantity}"/>
+                        <BoxView IsVisible="{Binding ContributionTypeConfig.AnnualQuantityHeader, Converter={xct:IsNotNullOrEmptyConverter}}"
+                                 Margin="0,16"
+                                 Style="{StaticResource separator}"/>
 
-                    <BoxView Margin="0,16"
-                             Style="{StaticResource separator}"/>
+                        <Label IsVisible="{Binding ContributionTypeConfig.SecondAnnualQuantityHeader, Converter={xct:IsNotNullOrEmptyConverter}}"
+                               Style="{StaticResource field_title}"
+                               Text="{Binding ContributionTypeConfig.SecondAnnualQuantityHeader}"/>
+                        <Label IsVisible="{Binding ContributionTypeConfig.SecondAnnualQuantityHeader, Converter={xct:IsNotNullOrEmptyConverter}}"
+                               Text="{Binding Contribution.SecondAnnualQuantity}"/>
+                        <BoxView IsVisible="{Binding ContributionTypeConfig.SecondAnnualQuantityHeader, Converter={xct:IsNotNullOrEmptyConverter}}"
+                                 Margin="0,16"
+                                 Style="{StaticResource separator}"/>
 
-                    <Label IsVisible="{Binding Contribution.AdditionalTechnologies, Converter={converters:ListIsNotNullOrEmptyConverter}}"
-                           Style="{StaticResource field_title}"
-                           Text="{x:Static resources:Translations.field_additional_contribution_areas}"/>
+                        <Label IsVisible="{Binding ContributionTypeConfig.AnnualReachHeader, Converter={xct:IsNotNullOrEmptyConverter}}"
+                               Style="{StaticResource field_title}"
+                               Text="{Binding ContributionTypeConfig.AnnualReachHeader}"/>
+                        <Label IsVisible="{Binding ContributionTypeConfig.AnnualReachHeader, Converter={xct:IsNotNullOrEmptyConverter}}"
+                               Text="{Binding Contribution.AnnualReach}"/>
+                        <BoxView IsVisible="{Binding ContributionTypeConfig.AnnualReachHeader, Converter={xct:IsNotNullOrEmptyConverter}}"
+                                 Margin="0,16"
+                                 Style="{StaticResource separator}"/>
 
-                    <StackLayout BindableLayout.ItemsSource="{Binding Contribution.AdditionalTechnologies}"
-                                 IsVisible="{Binding Contribution.AdditionalTechnologies, Converter={converters:ListIsNotNullOrEmptyConverter}}">
-                        <BindableLayout.ItemTemplate>
-                            <DataTemplate x:DataType="models:ContributionTechnology">
-                                <Label Text="{Binding Name}"/>
-                            </DataTemplate>
-                        </BindableLayout.ItemTemplate>
-                    </StackLayout>
+                        <Label Style="{StaticResource field_title}"
+                               Text="{x:Static resources:Translations.field_visibility}"/>
+                        <Label Margin="0,0,0,16"
+                               Text="{Binding Contribution.Visibility.Description}"/>
 
-                    <BoxView IsVisible="{Binding Contribution.AdditionalTechnologies, Converter={converters:ListIsNotNullOrEmptyConverter}}"
-                             Margin="0,16"
-                             Style="{StaticResource separator}"/>
+                        <BoxView IsVisible="{Binding CanBeEdited}"
+                                 Margin="0,0,0,16"
+                                 Style="{StaticResource separator}"/>
 
-                    <Label Style="{StaticResource field_title}"
-                           Text="{x:Static resources:Translations.field_activity_date}"/>
-
-                    <Label Text="{Binding Contribution.StartDate, StringFormat='{0:D}'}" />
-
-                    <BoxView Margin="0,16"
-                             Style="{StaticResource separator}"/>
-
-                    <Label Style="{StaticResource field_title}"
-                           Text="{x:Static resources:Translations.field_url}"/>
-
-                    <controls:UrlPreviewView Url="{Binding Contribution.ReferenceUrl}"
-                                             Margin="-24,0"
-                                             effects:TouchEffect.Command="{Binding OpenUrlCommand}"
-                                             effects:TouchEffect.NormalBackgroundColor="{AppThemeBinding Light={StaticResource white}, Dark={StaticResource black}}"
-                                             effects:TouchEffect.PressedBackgroundColor="{AppThemeBinding Light={StaticResource white_highlight}, Dark={StaticResource black_highlight}}"/>
-
-                    <BoxView Margin="0,-4,0,16"
-                             Style="{StaticResource separator}"/>
-
-                    <Label IsVisible="{Binding Contribution.Description, Converter={converters:IsNotNullOrEmptyConverter}}"
-                           Style="{StaticResource field_title}"
-                           Text="{x:Static resources:Translations.field_description}"/>
-
-                    <Label IsVisible="{Binding Contribution.Description, Converter={converters:IsNotNullOrEmptyConverter}}"
-                           Text="{Binding Contribution.Description}"/>
-
-                    <BoxView IsVisible="{Binding Contribution.Description, Converter={converters:IsNotNullOrEmptyConverter}}"
-                             Margin="0,16"
-                             Style="{StaticResource separator}"/>
-
-                    <Label IsVisible="{Binding ContributionTypeConfig.AnnualQuantityHeader, Converter={converters:IsNotNullOrEmptyConverter}}"
-                           Style="{StaticResource field_title}"
-                           Text="{Binding ContributionTypeConfig.AnnualQuantityHeader}"/>
-
-                    <Label IsVisible="{Binding ContributionTypeConfig.AnnualQuantityHeader, Converter={converters:IsNotNullOrEmptyConverter}}"
-                           Text="{Binding Contribution.AnnualQuantity}"/>
-
-                    <BoxView IsVisible="{Binding ContributionTypeConfig.AnnualQuantityHeader, Converter={converters:IsNotNullOrEmptyConverter}}"
-                             Margin="0,16"
-                             Style="{StaticResource separator}"/>
-
-                    <Label IsVisible="{Binding ContributionTypeConfig.SecondAnnualQuantityHeader, Converter={converters:IsNotNullOrEmptyConverter}}"
-                           Style="{StaticResource field_title}"
-                           Text="{Binding ContributionTypeConfig.SecondAnnualQuantityHeader}"/>
-
-                    <Label IsVisible="{Binding ContributionTypeConfig.SecondAnnualQuantityHeader, Converter={converters:IsNotNullOrEmptyConverter}}"
-                           Text="{Binding Contribution.SecondAnnualQuantity}"/>
-
-                    <BoxView IsVisible="{Binding ContributionTypeConfig.SecondAnnualQuantityHeader, Converter={converters:IsNotNullOrEmptyConverter}}"
-                             Margin="0,16"
-                             Style="{StaticResource separator}"/>
-
-                    <Label IsVisible="{Binding ContributionTypeConfig.AnnualReachHeader, Converter={converters:IsNotNullOrEmptyConverter}}"
-                           Style="{StaticResource field_title}"
-                           Text="{Binding ContributionTypeConfig.AnnualReachHeader}"/>
-
-                    <Label IsVisible="{Binding ContributionTypeConfig.AnnualReachHeader, Converter={converters:IsNotNullOrEmptyConverter}}"
-                           Text="{Binding Contribution.AnnualReach}"/>
-
-                    <BoxView IsVisible="{Binding ContributionTypeConfig.AnnualReachHeader, Converter={converters:IsNotNullOrEmptyConverter}}"
-                             Margin="0,16"
-                             Style="{StaticResource separator}"/>
-
-                    <Label Style="{StaticResource field_title}"
-                           Text="{x:Static resources:Translations.field_visibility}"/>
-
-                    <Label Text="{Binding Contribution.Visibility.Description}"/>
-
-                    <BoxView Margin="0,16"
-                             Style="{StaticResource separator}"/>
-
-                    <sh:Shadows Style="{StaticResource shade_error}" >
                         <Button Command="{Binding DeleteContributionCommand}"
                                 ImageSource="{OnPlatform iOS={FontImage FontFamily={StaticResource font_icon}, Color={StaticResource white}, Size=20, Glyph={x:Static icons:Icons.trash2}}}"
                                 IsVisible="{Binding CanBeEdited}"
                                 Style="{StaticResource destructive_primary_button}"
                                 Text="{x:Static resources:Translations.button_delete_contribution}"/>
-                    </sh:Shadows>
-                </StackLayout>
-            </ScrollView>
+                    </StackLayout>
+                </ScrollView>
+
+                <xct:StateLayout.StateViews>
+                    <xct:StateView StateKey="Loading">
+                        <Grid Padding="0,0,0,80"
+                              VerticalOptions="CenterAndExpand">
+                            <lottie:AnimationView Animation="{AppThemeBinding Light='resource://loading.json?assembly=MVP', Dark='resource://loading_light.json?assembly=MVP'}"
+                                                  AnimationSource="EmbeddedResource"
+                                                  AutoPlay="True"
+                                                  HeightRequest="240"
+                                                  HorizontalOptions="Fill"
+                                                  RepeatMode="Infinite"
+                                                  VerticalOptions="Center"/>
+                            <Label HorizontalOptions="Center"
+                                   HorizontalTextAlignment="Center"
+                                   Margin="0,48,0,0"
+                                   Text="{x:Static resources:Translations.progress_deleting}"
+                                   VerticalOptions="Center"/>
+                        </Grid>
+                    </xct:StateView>
+                </xct:StateLayout.StateViews>
+            </Grid>
         </mvp:AppFrame.Content>
     </mvp:AppFrame>
 </pages:BaseContentPage>

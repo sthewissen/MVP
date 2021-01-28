@@ -237,6 +237,9 @@
     <data name="progress_saving" xml:space="preserve">
         <value>Enregistrement...</value>
     </data>
+    <data name="progress_deleting" xml:space="preserve">
+        <value>Effacer...</value>
+    </data>
     <data name="licenses_title" xml:space="preserve">
         <value>Licences</value>
     </data>

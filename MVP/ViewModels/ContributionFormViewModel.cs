@@ -79,7 +79,7 @@ namespace MVP.ViewModels
             if (Connectivity.NetworkAccess != NetworkAccess.Internet)
                 return;
 
-            if (!Preferences.Get(Settings.UseClipboardUrls, true))
+            if (!Settings.UseClipboardUrls)
                 return;
 
             var clipboardText = string.Empty;

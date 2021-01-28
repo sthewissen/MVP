@@ -27,7 +27,7 @@ namespace MVP.ViewModels
             base.Initialize();
 
             var items = JsonConvert.DeserializeObject<List<OpenSourceSoftware>>(LocalResourceService.GetFile("oss"));
-            Licenses = items.OrderBy(x => x.Title).ToList();
+            Licenses = items.OrderBy(x => x.Id).ToList();
 
             return Task.FromResult<object>(null);
         }

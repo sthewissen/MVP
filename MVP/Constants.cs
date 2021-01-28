@@ -1,4 +1,8 @@
-﻿namespace MVP
+﻿using MVP.Models.Enums;
+using Xamarin.Essentials;
+using Xamarin.Forms;
+
+namespace MVP
 {
     public class Constants
     {
@@ -39,19 +43,40 @@
 
     public class Settings
     {
-        public const string UseClipboardUrls = "use_clipboard_urls";
-        public const bool UseClipboardUrlsDefault = true;
+        public static bool UseClipboardUrls
+        {
+            get => Preferences.Get(nameof(UseClipboardUrls), true);
+            set => Preferences.Set(nameof(UseClipboardUrls), value);
+        }
 
-        public const string AppTheme = "app_theme";
-        public const int AppThemeDefault = 0;
+        public static OSAppTheme AppTheme
+        {
+            get => (OSAppTheme)Preferences.Get(nameof(AppTheme), 0);
+            set => Preferences.Set(nameof(AppTheme), (int)value);
+        }
 
-        public const string AppLanguage = "app_language";
-        public const string AppLanguageDefault = "en";
+        public static string AppLanguage
+        {
+            get => Preferences.Get(nameof(AppLanguage), "en");
+            set => Preferences.Set(nameof(AppLanguage), value);
+        }
 
-        public const string AppIcon = "app_icon";
-        public const int AppIconDefault = 0;
+        public static AppIcon AppIcon
+        {
+            get => (AppIcon)Preferences.Get(nameof(AppIcon), 0);
+            set => Preferences.Set(nameof(AppIcon), (int)value);
+        }
 
-        public const string IsUsingDemoAccount = "using_demoaccount";
-        public const bool IsUsingDemoAccountDefault = false;
+        public static int StartupCount
+        {
+            get => Preferences.Get(nameof(StartupCount), 0);
+            set => Preferences.Set(nameof(StartupCount), value);
+        }
+
+        public static bool IsUsingDemoAccount
+        {
+            get => Preferences.Get(nameof(IsUsingDemoAccount), false);
+            set => Preferences.Set(nameof(IsUsingDemoAccount), value);
+        }
     }
 }

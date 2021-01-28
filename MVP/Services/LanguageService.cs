@@ -32,7 +32,7 @@ namespace MVP.Services
 
         public string PreferredLanguage
         {
-            get => Preferences.Get(Settings.AppLanguage, Settings.AppLanguageDefault);
+            get => Settings.AppLanguage;
             set
             {
                 if (string.IsNullOrWhiteSpace(value))
@@ -40,7 +40,7 @@ namespace MVP.Services
                 else if (!SupportedLanguages.Contains(value))
                     throw new Exception($"Can't set language to {value} as it is not a supported language.");
 
-                Preferences.Set(Settings.AppLanguage, value);
+                Settings.AppLanguage = value;
             }
         }
 

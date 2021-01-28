@@ -21,13 +21,6 @@
     "LicenseUrl": "https://github.com/jamesmontemagno/CurrentActivityPlugin/blob/master/LICENSE"
   },
   {
-    "Id": "Sharpnado.Shadows",
-    "Title": "Add as many custom shadows (Color, Offset, Blur, Neumorphism) as you like to any Xamarin.Forms view (Android, iOS, UWP, Tizen).",
-    "Description": "Add as many custom shadows as you like to any Xamarin.Forms view (Android, iOS, UWP, Tizen).\r\n\r\n* You can specify each shadow Color, Opacity, Blur, and Offset\r\n* You can add one shadow, 3 shadows, 99 shadows, to any Xamarin.Forms element\r\n* Implement easily Neumorphism\r\n* Animate any of these property and make the shadows dance around your elements\r\n* The only dependency is `Xamarin.Forms`, no `AndroidX`, no `SkiaSharp` (except Tizen) needed!\r\n\r\nPerformance: Implemented with custom draw on Android, CALayer on iOS, SpriteVisual on UWP, SkiaSharp on Tizen.\r\n\r\nMandatory initialization on iOS:\r\n\r\n    Xamarin.Forms.Forms.Init();\r\n    Sharpnado.Shades.iOS.iOSShadowsRenderer.Initialize();\r\n\r\nMandatory initialization on UWP:\r\n\r\n    var rendererAssemblies = new[] { typeof(UWPShadowsRenderer).GetTypeInfo().Assembly };\r\n    Xamarin.Forms.Forms.Init(e, rendererAssemblies);\r\n\r\nMandatory initialization on Tizen:\r\n\r\n    Xamarin.Forms.Forms.Init();\r\n    Sharpnado.Shades.Tizen.TizenShadowsRenderer.Initialize();",
-    "ProjectUrl": "https://github.com/roubachof/Sharpnado.Shadows",
-    "LicenseUrl": "https://github.com/roubachof/Sharpnado.Shadows/blob/master/LICENSE"
-  },
-  {
     "Id": "Xamarin.Android.Support.Core.Utils",
     "Title": "Xamarin Android Support Library - support-core-utils",
     "Description": "Xamarin.Android bindings for Android Support Library - support-core-utils",

@@ -1,17 +1,16 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <StackLayout xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:controls="clr-namespace:MVP.Controls"
-             xmlns:converters="clr-namespace:Xamarin.CommunityToolkit.Converters;assembly=Xamarin.CommunityToolkit"
-             xmlns:views="clr-namespace:Xamarin.CommunityToolkit.UI.Views;assembly=Xamarin.CommunityToolkit"
+             xmlns:xct="http://xamarin.com/schemas/2020/toolkit"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             views:StateLayout.AnimateStateChanges="False"
-             views:StateLayout.CurrentState="{Binding State, Source={x:Reference urlView}}"
+             xct:StateLayout.AnimateStateChanges="False"
+             xct:StateLayout.CurrentState="{Binding State, Source={x:Reference urlView}}"
              x:Class="MVP.Controls.UrlPreviewView"
              x:Name="urlView"
              Padding="24,16">
 
-    <views:StateLayout.StateViews>
-        <views:StateView StateKey="Loading">
+    <xct:StateLayout.StateViews>
+        <xct:StateView StateKey="Loading">
             <Grid ColumnDefinitions="Auto, *"
                   ColumnSpacing="24"
                   RowDefinitions="Auto, Auto"
@@ -30,15 +29,15 @@
                                        Grid.Row="1"
                                        HeightRequest="32"/>
             </Grid>
-        </views:StateView>
-    </views:StateLayout.StateViews>
+        </xct:StateView>
+    </xct:StateLayout.StateViews>
 
     <Grid ColumnDefinitions="Auto, *"
           ColumnSpacing="24"
           RowDefinitions="Auto, Auto">
 
         <Grid.IsVisible>
-            <MultiBinding Converter="{converters:VariableMultiValueConverter ConditionType=All}">
+            <MultiBinding Converter="{xct:VariableMultiValueConverter ConditionType=All}">
                 <Binding Path="HasValidUrl"
                          Source="{x:Reference urlView}"/>
                 <Binding Path="HasMetadata"
@@ -50,7 +49,7 @@
                Grid.RowSpan="2"
                HorizontalOptions="Center"
                IsClippedToBounds="True"
-               IsVisible="{Binding ImageUrl, Converter={converters:IsNotNullOrEmptyConverter}, Source={x:Reference urlView}}"
+               IsVisible="{Binding ImageUrl, Converter={xct:IsNotNullOrEmptyConverter}, Source={x:Reference urlView}}"
                VerticalOptions="Start">
 
             <Image Aspect="AspectFill"

@@ -19,7 +19,6 @@ namespace MVP.iOS
 
             // Init plugins
             FFImageLoading.Forms.Platform.CachedImageRenderer.Init();
-            Sharpnado.Shades.iOS.iOSShadowsRenderer.Initialize();
 
             // Inject our dependencies
             using var scope = ContainerService.Container.BeginLifetimeScope();

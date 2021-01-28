@@ -45,7 +45,7 @@ namespace MVP.ViewModels
 
         async Task SignInAsDemo()
         {
-            Preferences.Set(Settings.IsUsingDemoAccount, true);
+            Settings.IsUsingDemoAccount = true;
             (Application.Current as App).SwitchDemoMode(true);
             await SignIn();
             AnalyticsService.Track("Demo Mode Activated");
