@@ -5,8 +5,7 @@
              x:Class="MVP.Controls.PickerInputView"
              x:Name="inputView"
              xmlns:icons="clr-namespace:MVP.Styles"
-             xct:TouchEffect.PressedBackgroundColor="{AppThemeBinding Light={StaticResource primary_50}, Dark={StaticResource black_highlight}}"
-             xct:TouchEffect.NormalBackgroundColor="{AppThemeBinding Light={StaticResource white}, Dark={StaticResource black}}"
+             Style="{StaticResource tappable_element}"
              xct:TouchEffect.Command="{Binding PickerCommand, Source={x:Reference inputView}}">
 
     <Grid Padding="32,16"

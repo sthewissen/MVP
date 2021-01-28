@@ -134,8 +134,7 @@
                         <controls:UrlPreviewView Margin="-24,0"
                                                  Url="{Binding Contribution.ReferenceUrl}"
                                                  xct:TouchEffect.Command="{Binding OpenUrlCommand}"
-                                                 xct:TouchEffect.NormalBackgroundColor="{AppThemeBinding Light={StaticResource white}, Dark={StaticResource black}}"
-                                                 xct:TouchEffect.PressedBackgroundColor="{AppThemeBinding Light={StaticResource primary_50}, Dark={StaticResource black_highlight}}"/>
+                                                 Style="{StaticResource tappable_element}" />
                         <BoxView Margin="0,-4,0,16"
                                  Style="{StaticResource separator}"/>
 

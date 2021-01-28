@@ -72,6 +72,7 @@
                                    Text="{Binding SearchText}"
                                    VerticalOptions="Fill"
                                    IsSpellCheckEnabled="False"
+                                   IsTextPredictionEnabled="False"
                                    VerticalTextAlignment="Center">
                                 <Entry.Behaviors>
                                     <xct:UserStoppedTypingBehavior Command="{Binding SearchCommand}"

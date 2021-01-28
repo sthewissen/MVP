@@ -7,6 +7,7 @@ using Xamarin.Forms.PlatformConfiguration.AndroidSpecific;
 using MVP.Resources;
 using TinyNavigationHelper.Forms;
 using TinyNavigationHelper.Abstraction;
+using MVP.Services.Interfaces;
 
 namespace MVP.Pages
 {
@@ -16,9 +17,11 @@ namespace MVP.Pages
         readonly Xamarin.Forms.Page profilePage;
         readonly Xamarin.Forms.NavigationPage navigationMainPage;
         readonly Xamarin.Forms.NavigationPage navigationProfilePage;
+        readonly IAnalyticsService analyticsService;
 
-        public TabbedMainPage()
+        public TabbedMainPage(IAnalyticsService analyticsService)
         {
+            this.analyticsService = analyticsService;
             var viewCreator = (TinyMvvmViewCreator)((FormsNavigationHelper)NavigationHelper.Current).ViewCreator;
 
             mainPage = viewCreator.Create(typeof(ContributionsPage));

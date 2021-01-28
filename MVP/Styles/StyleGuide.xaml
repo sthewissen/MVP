@@ -23,19 +23,16 @@
     <Color x:Key="primary_50">#E1EFFA</Color>
 
     <Color x:Key="error">#E8484C</Color>
-    <Color x:Key="error_200">#F4A4A6</Color>
+    <Color x:Key="error_200">#f19194</Color>
     <Color x:Key="error_400">#EB6367</Color>
 
-    <Color x:Key="warning">#967132</Color>
-    <Color x:Key="light_warning">#FFD19F</Color>
-    <Color x:Key="dark_warning">#FFB86C</Color>
+    <Color x:Key="warning">#5b5341</Color>
+    <Color x:Key="light_warning">#ffeab0</Color>
+    <Color x:Key="dark_warning">#FFDB87</Color>
 
     <!-- Accent colors -->
     <Color x:Key="white">#FFFFFF</Color>
     <Color x:Key="black">#222222</Color>
-
-    <!-- Highlights -->
-    <Color x:Key="black_highlight">#434343</Color>
 
     <!-- Greys -->
     <Color x:Key="neutral_900">#0C0C0C</Color>
@@ -123,8 +120,11 @@
     <Style TargetType="Grid">
         <Setter Property="ColumnSpacing" Value="0" />
         <Setter Property="RowSpacing" Value="0" />
-        <!--<Setter Property="xct:TouchEffect.PressedBackgroundColor" Value="{AppThemeBinding Light={StaticResource primary_50}, Dark={StaticResource black_highlight}}" />-->
-        <!--<Setter Property="xct:TouchEffect.NormalBackgroundColor" Value="{AppThemeBinding Light={StaticResource white}, Dark={StaticResource black}}" />-->
+    </Style>
+
+    <Style TargetType="VisualElement" x:Key="tappable_element">
+        <Setter Property="xct:TouchEffect.PressedBackgroundColor" Value="{AppThemeBinding Light={StaticResource primary_50}, Dark={StaticResource neutral_400}}" />
+        <Setter Property="xct:TouchEffect.NormalBackgroundColor" Value="{AppThemeBinding Light={StaticResource white}, Dark={StaticResource black}}" />
     </Style>
 
     <Style TargetType="Frame">

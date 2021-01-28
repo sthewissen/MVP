@@ -102,9 +102,8 @@
                           ColumnSpacing="24"
                           Padding="32,16,16,16"
                           RowDefinitions="Auto, Auto"
-                          RowSpacing="8"                          
-                          xct:TouchEffect.PressedBackgroundColor="{AppThemeBinding Light={StaticResource primary_50}, Dark={StaticResource black_highlight}}"
-                          xct:TouchEffect.NormalBackgroundColor="{AppThemeBinding Light={StaticResource white}, Dark={StaticResource black}}"
+                          RowSpacing="8"
+                          Style="{StaticResource tappable_element}"
                           xct:TouchEffect.Command="{Binding OpenThemePickerCommand}">
 
                         <Label Style="{StaticResource field_title}" 
@@ -128,8 +127,7 @@
                           Padding="32,16,16,16"
                           RowDefinitions="Auto, Auto"
                           RowSpacing="8"
-                          xct:TouchEffect.PressedBackgroundColor="{AppThemeBinding Light={StaticResource primary_50}, Dark={StaticResource black_highlight}}"
-                          xct:TouchEffect.NormalBackgroundColor="{AppThemeBinding Light={StaticResource white}, Dark={StaticResource black}}"
+                          Style="{StaticResource tappable_element}"
                           xct:TouchEffect.Command="{Binding OpenLanguagePickerCommand}">
 
                         <Label Style="{StaticResource field_title}" 
@@ -154,8 +152,7 @@
                           Padding="32,16,16,16"
                           RowDefinitions="Auto, Auto"
                           RowSpacing="8"
-                          xct:TouchEffect.PressedBackgroundColor="{AppThemeBinding Light={StaticResource primary_50}, Dark={StaticResource black_highlight}}"
-                          xct:TouchEffect.NormalBackgroundColor="{AppThemeBinding Light={StaticResource white}, Dark={StaticResource black}}"
+                          Style="{StaticResource tappable_element}"
                           xct:TouchEffect.Command="{Binding OpenIconPickerCommand}">
 
                         <Label Style="{StaticResource field_title}" 
@@ -181,8 +178,7 @@
                           Padding="32,16,16,16"
                           RowDefinitions="Auto, Auto"
                           RowSpacing="8"
-                          xct:TouchEffect.PressedBackgroundColor="{AppThemeBinding Light={StaticResource primary_50}, Dark={StaticResource black_highlight}}"
-                          xct:TouchEffect.NormalBackgroundColor="{AppThemeBinding Light={StaticResource white}, Dark={StaticResource black}}"
+                          Style="{StaticResource tappable_element}"
                           xct:TouchEffect.Command="{Binding OpenAboutCommand}">
 
                         <Label Style="{StaticResource field_title}" 

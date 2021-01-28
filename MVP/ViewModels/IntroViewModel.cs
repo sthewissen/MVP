@@ -55,6 +55,8 @@ namespace MVP.ViewModels
         {
             try
             {
+                Settings.IsUsingDemoAccount = false;
+
                 // Pop a sign in request up for the user.
                 if (await AuthService.SignInAsync().ConfigureAwait(false))
                 {
