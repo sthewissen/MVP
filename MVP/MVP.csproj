@@ -66,6 +66,8 @@
         <None Remove="Resources\oss.json" />
         <None Remove="Resources\empty.svg" />
         <None Remove="Resources\error.svg" />
+        <None Remove="Resources\onboarding1.svg" />
+        <None Remove="Resources\onboarding1d.svg" />
     </ItemGroup>
     <ItemGroup>
         <EmbeddedResource Include="Resources\mvp_logo.svg">
@@ -107,6 +109,12 @@
         </EmbeddedResource>
         <EmbeddedResource Include="Resources\error.svg">
             <LogicalName>error.svg</LogicalName>
+        </EmbeddedResource>
+        <EmbeddedResource Include="Resources\onboarding1.svg">
+            <LogicalName>onboarding1.svg</LogicalName>
+        </EmbeddedResource>
+        <EmbeddedResource Include="Resources\onboarding1d.svg">
+            <LogicalName>onboarding1d.svg</LogicalName>
         </EmbeddedResource>
     </ItemGroup>
     <ItemGroup>

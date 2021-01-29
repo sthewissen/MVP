@@ -188,42 +188,6 @@
     <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\iTunesArtwork%402x-1.png">
       <Visible>false</Visible>
     </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\onboarding1.imageset\onboarding1%403x.png">
-      <Visible>false</Visible>
-    </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\onboarding1.imageset\onboarding1%402x.png">
-      <Visible>false</Visible>
-    </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\onboarding1.imageset\onboarding1.png">
-      <Visible>false</Visible>
-    </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\onboarding1.imageset\Contents.json">
-      <Visible>False</Visible>
-    </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\onboarding2.imageset\onboarding2%403x.png">
-      <Visible>false</Visible>
-    </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\onboarding2.imageset\onboarding2%402x.png">
-      <Visible>false</Visible>
-    </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\onboarding2.imageset\onboarding2.png">
-      <Visible>false</Visible>
-    </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\onboarding2.imageset\Contents.json">
-      <Visible>False</Visible>
-    </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\onboarding3.imageset\onboarding3%403x.png">
-      <Visible>false</Visible>
-    </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\onboarding3.imageset\onboarding3%402x.png">
-      <Visible>false</Visible>
-    </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\onboarding3.imageset\onboarding3.png">
-      <Visible>false</Visible>
-    </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\onboarding3.imageset\Contents.json">
-      <Visible>False</Visible>
-    </ImageAsset>
     <ImageAsset Include="Assets.xcassets\splashbg.colorset\Contents.json">
       <Visible>false</Visible>
     </ImageAsset>

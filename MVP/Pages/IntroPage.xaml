@@ -9,10 +9,11 @@
                        xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
                        x:Class="MVP.Pages.IntroPage"
                        x:DataType="vm:IntroViewModel"
-                       x:TypeArguments="vm:IntroViewModel">
+                       x:TypeArguments="vm:IntroViewModel"
+                       xmlns:ff="clr-namespace:FFImageLoading.Svg.Forms;assembly=FFImageLoading.Svg.Forms">
 
     <pages:BaseContentPage.Resources>
-        <x:Int32 x:Key="LastItemIndex">2</x:Int32>
+        <x:Int32 x:Key="LastItemIndex">1</x:Int32>
     </pages:BaseContentPage.Resources>
 
     <mvp:AppFrame SecondaryButtonText="{x:Static resources:Translations.sign_in}"
@@ -29,25 +30,29 @@
                               IsBounceEnabled="False"
                               ItemsSource="{Binding OnboardingItems}"
                               Loop="False"
-                              Grid.RowSpan="2"
                               VerticalScrollBarVisibility="Never"
                               x:Name="carousel">
                     <CarouselView.ItemTemplate>
                         <DataTemplate x:DataType="models:OnboardingItem">
-                            <Grid Padding="0,0,0,120">
-                                <StackLayout Grid.Row="0"
-                                             Padding="40"
-                                             Spacing="12">
+                            <Grid RowSpacing="12" RowDefinitions="Auto,Auto,*">
 
-                                    <Label FontFamily="{StaticResource font_bold}"
-                                           FontSize="{StaticResource fontsize_h1}"
-                                           HorizontalTextAlignment="Center"
-                                           Text="{Binding Title}"/>
+                                <Label FontFamily="{StaticResource font_bold}"
+                                       FontSize="{StaticResource fontsize_h1}"
+                                       HorizontalTextAlignment="Center"
+                                       Text="{Binding Title}"
+                                       Margin="40,0" />
 
-                                    <Label HorizontalTextAlignment="Center"
-                                           Text="{Binding Description}"/>
+                                <Label HorizontalTextAlignment="Center"
+                                       Text="{Binding Description}"
+                                       Margin="40,0"
+                                       Grid.Row="1"/>
 
-                                </StackLayout>
+                                <ff:SvgCachedImage Grid.Row="2"
+                                                   Source="{Binding ImageName}"
+                                                   Aspect="AspectFit"
+                                                   Margin="40,16"
+                                                   DownsampleToViewSize="False"/>
+
                             </Grid>
                         </DataTemplate>
                     </CarouselView.ItemTemplate>
