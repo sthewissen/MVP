@@ -15,7 +15,7 @@ namespace MVP.ViewModels
     public class IntroViewModel : BaseViewModel
     {
         public IAsyncCommand SignInAsDemoCommand { get; set; }
-        public List<OnboardingItem> OnboardingItems { get; }
+        public List<OnboardingItem> OnboardingItems { get; set; }
 
         public IntroViewModel(IAnalyticsService analyticsService)
             : base(analyticsService)
@@ -23,17 +23,30 @@ namespace MVP.ViewModels
             SecondaryCommand = new AsyncCommand(() => SignIn());
             SignInAsDemoCommand = new AsyncCommand(() => SignInAsDemo());
 
+            SetOnboardingItems();
+        }
+
+        public async override Task OnAppearing()
+        {
+            await base.OnAppearing();
+            Application.Current.RequestedThemeChanged += HandleThemeChanged;
+        }
+
+        public async override Task OnDisappearing()
+        {
+            await base.OnDisappearing();
+            Application.Current.RequestedThemeChanged -= HandleThemeChanged;
+        }
+
+        void HandleThemeChanged(object sender, AppThemeChangedEventArgs e) => SetOnboardingItems();
+
+        void SetOnboardingItems()
+        {
             OnboardingItems = new List<OnboardingItem> {
                 new OnboardingItem {
-                    ImageName="onboarding1",
+                    ImageName = Application.Current.RequestedTheme == OSAppTheme.Light ? "resource://onboarding1.svg" : "resource://onboarding1d.svg",
                     Title = Translations.onboarding_1_title,
                     Description = Translations.onboarding_1_description
-                },
-                // Not sure yet if this is going to make it in.
-                new OnboardingItem {
-                    ImageName="onboarding2",
-                    Title = "Detailed statistics",
-                    Description = "Gather additional insights through your contribution statistics. When were you most active? What type of contributions are you favorite?"
                 },
                 new OnboardingItem {
                     ImageName="onboarding3",
@@ -55,8 +68,6 @@ namespace MVP.ViewModels
         {
             try
             {
-                Settings.IsUsingDemoAccount = false;
-
                 // Pop a sign in request up for the user.
                 if (await AuthService.SignInAsync().ConfigureAwait(false))
                 {

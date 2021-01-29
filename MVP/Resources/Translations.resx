@@ -538,7 +538,7 @@
         <value>Quick Add</value>
     </data>
     <data name="onboarding_3_description" xml:space="preserve">
-        <value>Directly create contributions based on a URL on your clipboard. Pre-filling whatever Can for you allowing you to quickly add new contributions.</value>
+        <value>Directly create contributions based on a URL on your clipboard. Pre-filling whatever we can to allow you to quickly add new contributions.</value>
     </data>
     <data name="acknowledgementtype_translator" xml:space="preserve">
         <value>Translator</value>

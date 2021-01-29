@@ -126,6 +126,7 @@ namespace MVP.ViewModels
                 return;
 
             await MvpApiService.ClearAllLocalData();
+            Settings.IsUsingDemoAccount = false;
             NavigationHelper.SetRootView(nameof(IntroPage));
             AnalyticsService.Track("User Logged Out");
         }

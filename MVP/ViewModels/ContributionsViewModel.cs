@@ -9,7 +9,9 @@ using MVP.Pages;
 using MVP.Resources;
 using MVP.Services;
 using MVP.Services.Interfaces;
+#if !DEBUG
 using Plugin.StoreReview;
+#endif
 using Xamarin.CommunityToolkit.ObjectModel;
 using Xamarin.CommunityToolkit.UI.Views;
 using Xamarin.Essentials;
