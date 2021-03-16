@@ -10,7 +10,8 @@
                        x:DataType="vm:ContributionTechnologyPickerViewModel"
                        x:TypeArguments="vm:ContributionTechnologyPickerViewModel"
                        xmlns:controls="clr-namespace:MVP.Controls"
-                       xmlns:mvp="clr-namespace:MVP">
+                       xmlns:mvp="clr-namespace:MVP"
+                       x:Name="contributionTechnologyPage">
 
     <mvp:AppFrame ShowBackButton="True"
                   Title="{x:Static resources:Translations.contributiontechnologypicker_title}"
@@ -85,33 +86,27 @@
 
                         </Grid>
                     </Frame>
-                    <!--<FlexLayout Direction="Row"
+                    <FlexLayout Direction="Row"
                                 Margin="0,0,0,16"
                                 Padding="24,0"
-                                Wrap="Wrap">
-                        <BindableLayout.ItemsSource>
-                            <x:Array Type="{x:Type x:String}">
-                                <x:String>Azure DevOps</x:String>
-                                <x:String>Python</x:String>
-                                <x:String>Chef/Puppet in Datacenter</x:String>
-                                <x:String>SQL Server, Azure SQL Database and SQL Server on Linux</x:String>
-                                <x:String>Endpoint Manager</x:String>
-                            </x:Array>
-                        </BindableLayout.ItemsSource>
+                                Wrap="Wrap"
+                                BindableLayout.ItemsSource="{Binding Suggestions}">
                         <BindableLayout.ItemTemplate>
-                            <DataTemplate>
+                            <DataTemplate x:DataType="vm:ContributionTechnologyViewModel">
                                 <StackLayout Margin="4">
-                                    <Frame BackgroundColor="{StaticResource primary_200}"
+                                    <Frame BackgroundColor="{StaticResource primary_50}"
+                                           xct:TouchEffect.Command="{Binding Path=BindingContext.SelectContributionTechnologyCommand, Source={x:Reference contributionTechnologyPage}}"
+                                           xct:TouchEffect.CommandParameter="{Binding .}"
                                            Style="{StaticResource contribution_item_category}">
 
                                         <Label Style="{StaticResource contribution_item_category_label}"
-                                               Text="{Binding .}"
+                                               Text="{Binding ContributionTechnology.Name}"
                                                TextColor="{StaticResource primary}"/>
                                     </Frame>
                                 </StackLayout>
                             </DataTemplate>
                         </BindableLayout.ItemTemplate>
-                    </FlexLayout>-->
+                    </FlexLayout>
 
                     <Image x:Name="shadow"
                            Opacity="0"

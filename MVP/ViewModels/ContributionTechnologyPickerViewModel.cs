@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using System.Windows.Input;
 using MVP.Extensions;
 using MVP.Helpers;
+using MVP.Services;
 using MVP.Services.Interfaces;
 using MVP.ViewModels.Data;
 using Xamarin.CommunityToolkit.ObjectModel;
@@ -25,6 +26,7 @@ namespace MVP.ViewModels
         public IAsyncCommand RefreshDataCommand { get; set; }
 
         public IList<Grouping<string, ContributionTechnologyViewModel>> GroupedContributionTechnologies { get; set; } = new List<Grouping<string, ContributionTechnologyViewModel>>();
+        public List<ContributionTechnologyViewModel> Suggestions { get; set; } = new List<ContributionTechnologyViewModel>();
 
         public ContributionTechnologyPickerViewModel(IAnalyticsService analyticsService)
             : base(analyticsService)
@@ -64,6 +66,16 @@ namespace MVP.ViewModels
                 }
 
                 PopulateList();
+
+                // Gather suggestions
+                var suggestions = await SuggestionService.GetContributionTechnologySuggestions();
+                var items = allCategories
+                    .SelectMany(x => x.ContributionAreas)
+                    .SelectMany(y => y.ContributionTechnology)
+                    .Where(x => suggestions.Contains(x.Id ?? Guid.Empty));
+
+                Suggestions = new List<ContributionTechnologyViewModel>(items
+                    .Select(x => new ContributionTechnologyViewModel { ContributionTechnology = x }));
             }
             catch (Exception ex)
             {

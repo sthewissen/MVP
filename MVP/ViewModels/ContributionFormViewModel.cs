@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 using System.Web;
 using MVP.Extensions;
@@ -184,7 +185,7 @@ namespace MVP.ViewModels
                     }
 
                     MainThread.BeginInvokeOnMainThread(() => HapticFeedback.Perform(HapticFeedbackType.LongPress));
-                    AnalyticsService.Track("Contribution Added");
+                    AnalyticsService.Track("Contribution Edited");
                     await CloseModalAsync().ConfigureAwait(false); ;
                     await BackAsync().ConfigureAwait(false);
                     MessagingService.Current.SendMessage(MessageKeys.RefreshNeeded);
@@ -196,11 +197,12 @@ namespace MVP.ViewModels
                     if (result == null)
                     {
                         await DialogService.AlertAsync(Translations.error_couldntsavecontribution, Translations.error_title, Translations.ok).ConfigureAwait(false);
-
                         return;
                     }
 
-                    AnalyticsService.Track("Contribution Edited");
+                    await SaveSuggestions();
+
+                    AnalyticsService.Track("Contribution Added");
                     MainThread.BeginInvokeOnMainThread(() => HapticFeedback.Perform(HapticFeedbackType.LongPress));
                     await CloseModalAsync().ConfigureAwait(false);
                     MessagingService.Current.SendMessage(MessageKeys.RefreshNeeded);
@@ -215,6 +217,26 @@ namespace MVP.ViewModels
             finally
             {
                 State = LayoutState.None;
+            }
+        }
+
+        async Task SaveSuggestions()
+        {
+            try
+            {
+                if (Contribution.ContributionType.Value.Id.HasValue)
+                    await SuggestionService.StoreContributionTypeSuggestionAsync(Contribution.ContributionType.Value.Id.Value);
+
+                if (Contribution.ContributionTechnology.Value.Id.HasValue)
+                    await SuggestionService.StoreContributionTechnologySuggestionAsync(Contribution.ContributionTechnology.Value.Id.Value);
+
+                if (Contribution.AdditionalTechnologies.Any())
+                    await SuggestionService.StoreContributionTechnologySuggestionsAsync(Contribution.AdditionalTechnologies.Select(x => x.Id.Value).ToList());
+            }
+            catch (Exception ex)
+            {
+                // Non-essential so not reporting back to the user.
+                AnalyticsService.Report(ex);
             }
         }
 
