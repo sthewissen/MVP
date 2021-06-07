@@ -9,6 +9,7 @@ using MVP.Helpers;
 using MVP.Models;
 using MVP.Services.Helpers;
 using MVP.Services.Interfaces;
+using Newtonsoft.Json;
 using Refit;
 using Xamarin.Essentials;
 
@@ -269,7 +270,8 @@ namespace MVP.Services
             return await GetFromCacheOrRemote(
                 CacheKeys.ContributionTypes,
                 GetRemoteContributionTypesAsync,
-                DateTimeOffset.Now.AddYears(1)
+                DateTimeOffset.Now.AddYears(1),
+                forceRefresh
             );
         }
 
@@ -301,7 +303,8 @@ namespace MVP.Services
             return await GetFromCacheOrRemote(
                 CacheKeys.ContributionAreas,
                 GetRemoteContributionAreasAsync,
-                DateTimeOffset.Now.AddYears(1)
+                DateTimeOffset.Now.AddYears(1),
+                forceRefresh
             );
         }
 
@@ -310,6 +313,8 @@ namespace MVP.Services
             try
             {
                 return await api.GetContributionAreas();
+                //var j = JsonConvert.DeserializeObject<IReadOnlyList<ContributionCategory>>(data);
+                //return j;
             }
             catch (ApiException e)
             {
@@ -333,7 +338,8 @@ namespace MVP.Services
             return await GetFromCacheOrRemote(
                 CacheKeys.Visibilities,
                 GetRemoteVisibilitiesAsync,
-                DateTimeOffset.Now.AddYears(1)
+                DateTimeOffset.Now.AddYears(1),
+                forceRefresh
             );
         }
 

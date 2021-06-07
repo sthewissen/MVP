@@ -64,7 +64,7 @@
                                              Command="{Binding RefreshDataCommand}" />
                     </xct:StateView>
                 </xct:StateLayout.StateViews>
-
+                
                 <CollectionView ItemsSource="{Binding Contributions}"
                                 ItemsUpdatingScrollMode="KeepScrollOffset"
                                 ItemTemplate="{StaticResource contribution_item}"
@@ -77,12 +77,11 @@
                     <CollectionView.Footer>
                         <!--Want to re-use the template so creating a faux list of items -->
                         <StackLayout IsVisible="{Binding IsLoadingMore}"
-                                     BindableLayout.ItemTemplate="{StaticResource contribution_item_loading}"
-                                     BindableLayout.ItemsSource="{StaticResource faux_list}" />
+                                        BindableLayout.ItemTemplate="{StaticResource contribution_item_loading}"
+                                        BindableLayout.ItemsSource="{StaticResource faux_list}" />
                     </CollectionView.Footer>
 
                 </CollectionView>
-
             </Grid>
         </mvp:AppFrame.Content>
     </mvp:AppFrame>

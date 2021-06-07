@@ -70,8 +70,8 @@ namespace MVP.ViewModels
                 // Gather suggestions
                 var suggestions = await SuggestionService.GetContributionTechnologySuggestions();
                 var items = allCategories
-                    .SelectMany(x => x.ContributionAreas)
-                    .SelectMany(y => y.ContributionTechnology)
+                    .SelectMany(x => x.Contributions)
+                    .SelectMany(y => y.ContributionArea)
                     .Where(x => suggestions.Contains(x.Id ?? Guid.Empty));
 
                 Suggestions = new List<ContributionTechnologyViewModel>(items
@@ -98,9 +98,9 @@ namespace MVP.ViewModels
             {
                 var result = new List<Grouping<string, ContributionTechnologyViewModel>>();
 
-                foreach (var item in allCategories.SelectMany(x => x.ContributionAreas))
+                foreach (var item in allCategories.SelectMany(x => x.Contributions))
                 {
-                    var data = item.ContributionTechnology
+                    var data = item.ContributionArea
                                     .Where(x => x.Name.ToLowerInvariant().Contains(SearchText.ToLowerInvariant()) || string.IsNullOrEmpty(SearchText))
                                     .Select(x => new ContributionTechnologyViewModel() { ContributionTechnology = x });
 

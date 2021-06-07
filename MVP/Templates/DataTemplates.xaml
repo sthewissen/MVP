@@ -31,7 +31,7 @@
                          xct:TouchEffect.Command="{Binding Source={RelativeSource AncestorType={x:Type vm:BaseViewModel}}, Path=OpenContributionCommand}"
                          xct:TouchEffect.CommandParameter="{Binding Source={RelativeSource Self}, Path=BindingContext}"
                          Style="{StaticResource tappable_element}">
-                <Frame BackgroundColor="{AppThemeBinding Light={StaticResource primary_200}, Dark={StaticResource neutral_100}}"
+                <Frame BackgroundColor="{Binding ContributionType.Id, Converter={StaticResource ContributionTypeConverter}}"
                        Style="{StaticResource contribution_item_category}">
 
                     <Label HorizontalTextAlignment="End"
@@ -39,7 +39,7 @@
                            MaxLines="1"
                            Style="{StaticResource contribution_item_category_label}"
                            Text="{Binding ContributionType.EnglishName, Converter={xct:TextCaseConverter Type=Upper}}"
-                           TextColor="{AppThemeBinding Light={StaticResource white}, Dark={StaticResource black}}"/>
+                           TextColor="{Binding ContributionType.Id, Converter={StaticResource ContributionTypeTextConverter}}"/>
 
                 </Frame>
                 <Label Style="{StaticResource contribution_item_title}"

@@ -8,7 +8,6 @@ namespace MVP.Models
         public string AwardCategory { get; set; }
 
         // Oddly named collection, but gotta do with what's given to us.
-        [JsonProperty(PropertyName = "Contributions")]
-        public IReadOnlyList<ContributionArea> ContributionAreas { get; set; }
+        public IReadOnlyList<ContributionAreaWrapper> Contributions { get; set; }
     }
 }
