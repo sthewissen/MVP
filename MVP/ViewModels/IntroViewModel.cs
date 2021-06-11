@@ -49,7 +49,7 @@ namespace MVP.ViewModels
                     Description = Translations.onboarding_1_description
                 },
                 new OnboardingItem {
-                    ImageName="onboarding3",
+                    ImageName = Application.Current.RequestedTheme == OSAppTheme.Light ? "resource://onboarding2.svg" : "resource://onboarding2d.svg",
                     Title = Translations.onboarding_3_title,
                     Description = Translations.onboarding_3_description
                 }

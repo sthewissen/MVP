@@ -68,6 +68,8 @@
         <None Remove="Resources\error.svg" />
         <None Remove="Resources\onboarding1.svg" />
         <None Remove="Resources\onboarding1d.svg" />
+        <None Remove="Resources\onboarding2.svg" />
+        <None Remove="Resources\onboarding2d.svg" />
     </ItemGroup>
     <ItemGroup>
         <EmbeddedResource Include="Resources\mvp_logo.svg">
@@ -115,6 +117,12 @@
         </EmbeddedResource>
         <EmbeddedResource Include="Resources\onboarding1d.svg">
             <LogicalName>onboarding1d.svg</LogicalName>
+        </EmbeddedResource>
+        <EmbeddedResource Include="Resources\onboarding2.svg">
+          <LogicalName>onboarding2.svg</LogicalName>
+        </EmbeddedResource>
+        <EmbeddedResource Include="Resources\onboarding2d.svg">
+          <LogicalName>onboarding2d.svg</LogicalName>
         </EmbeddedResource>
     </ItemGroup>
     <ItemGroup>
