@@ -21,6 +21,7 @@ namespace MVP.Services
                 return items.GroupBy(x => x)
                       .OrderByDescending(g => g.Count())
                       .SelectMany(g => g)
+                      .Distinct()
                       .Take(3)
                       .ToList();
             }
@@ -39,6 +40,7 @@ namespace MVP.Services
                 return items.GroupBy(x => x)
                       .OrderByDescending(g => g.Count())
                       .SelectMany(g => g)
+                      .Distinct()
                       .Take(3)
                       .ToList();
             }

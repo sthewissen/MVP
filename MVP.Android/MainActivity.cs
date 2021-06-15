@@ -15,7 +15,6 @@ namespace MVP.Droid
 {
     [Activity(
         Label = "MVP",
-        Icon = "@mipmap/icon",
         Theme = "@style/MainTheme.Launcher",
         ConfigurationChanges = ConfigChanges.Locale | ConfigChanges.ScreenSize | ConfigChanges.UiMode)]
     public class MainActivity : global::Xamarin.Forms.Platform.Android.FormsAppCompatActivity
