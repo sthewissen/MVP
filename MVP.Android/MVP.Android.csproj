@@ -116,11 +116,6 @@
     <AndroidResource Include="Resources\layout\Toolbar.xml" />
     <AndroidResource Include="Resources\values\styles.xml" />
     <AndroidResource Include="Resources\values\colors.xml" />
-    <AndroidResource Include="Resources\mipmap-hdpi\icon.png" />
-    <AndroidResource Include="Resources\mipmap-mdpi\icon.png" />
-    <AndroidResource Include="Resources\mipmap-xhdpi\icon.png" />
-    <AndroidResource Include="Resources\mipmap-xxhdpi\icon.png" />
-    <AndroidResource Include="Resources\mipmap-xxxhdpi\icon.png" />
     <AndroidResource Include="Resources\xml\auto_backup_rules.xml" />
     <AndroidResource Include="Resources\drawable-xxxhdpi\mvp_logo.png" />
     <AndroidResource Include="Resources\drawable-xxhdpi\mvp_logo.png" />
@@ -137,43 +132,95 @@
     <AndroidResource Include="Resources\drawable\launch_screen.axml" />
     <AndroidResource Include="Resources\values-night\styles.xml" />
     <AndroidResource Include="Resources\values\attrs.xml" />
-    <AndroidResource Include="Resources\drawable-xxxhdpi\mvp_placeholder.png">
-      <SubType>
-      </SubType>
-      <Generator>
-      </Generator>
+    <AndroidResource Include="Resources\drawable-xxxhdpi\mvp_placeholder.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\mvp_placeholder.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\mvp_placeholder.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\mvp_placeholder.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\mvp_placeholder.png" />
+    <AndroidResource Include="Resources\drawable-ldpi\mvp_placeholder.png" />
+    <AndroidResource Include="Resources\values\dimens.xml" />
+    <AndroidResource Include="Resources\values-night\colors.xml" />
+    <AndroidResource Include="Resources\mipmap-anydpi-v26\ic_launcher.xml">
+      <SubType></SubType>
+      <Generator></Generator>
     </AndroidResource>
-    <AndroidResource Include="Resources\drawable-xxhdpi\mvp_placeholder.png">
-      <SubType>
-      </SubType>
-      <Generator>
-      </Generator>
+    <AndroidResource Include="Resources\mipmap-anydpi-v26\ic_launcher_round.xml">
+      <SubType></SubType>
+      <Generator></Generator>
     </AndroidResource>
-    <AndroidResource Include="Resources\drawable-xhdpi\mvp_placeholder.png">
-      <SubType>
-      </SubType>
-      <Generator>
-      </Generator>
+    <AndroidResource Include="Resources\values\ic_launcher_background.xml">
+      <SubType></SubType>
+      <Generator></Generator>
     </AndroidResource>
-    <AndroidResource Include="Resources\drawable-hdpi\mvp_placeholder.png">
-      <SubType>
-      </SubType>
-      <Generator>
-      </Generator>
+    <AndroidResource Include="Resources\mipmap-hdpi\ic_launcher_foreground.png">
+      <SubType></SubType>
+      <Generator></Generator>
     </AndroidResource>
-    <AndroidResource Include="Resources\drawable-mdpi\mvp_placeholder.png">
-      <SubType>
-      </SubType>
-      <Generator>
-      </Generator>
+    <AndroidResource Include="Resources\mipmap-hdpi\ic_launcher.png">
+      <SubType></SubType>
+      <Generator></Generator>
     </AndroidResource>
-    <AndroidResource Include="Resources\drawable-ldpi\mvp_placeholder.png">
-      <SubType>
-      </SubType>
-      <Generator>
-      </Generator>
+    <AndroidResource Include="Resources\mipmap-hdpi\ic_launcher_round.png">
+      <SubType></SubType>
+      <Generator></Generator>
     </AndroidResource>
-    <AndroidResource Include="Resources\values\dimens.xml">
+    <AndroidResource Include="Resources\mipmap-ldpi\icon.png">
+      <SubType></SubType>
+      <Generator></Generator>
+    </AndroidResource>
+    <AndroidResource Include="Resources\mipmap-ldpi\mvp_logo.png">
+      <SubType></SubType>
+      <Generator></Generator>
+    </AndroidResource>
+    <AndroidResource Include="Resources\mipmap-ldpi\ic_launcher.png">
+      <SubType></SubType>
+      <Generator></Generator>
+    </AndroidResource>
+    <AndroidResource Include="Resources\mipmap-mdpi\ic_launcher_foreground.png">
+      <SubType></SubType>
+      <Generator></Generator>
+    </AndroidResource>
+    <AndroidResource Include="Resources\mipmap-mdpi\ic_launcher.png">
+      <SubType></SubType>
+      <Generator></Generator>
+    </AndroidResource>
+    <AndroidResource Include="Resources\mipmap-mdpi\ic_launcher_round.png">
+      <SubType></SubType>
+      <Generator></Generator>
+    </AndroidResource>
+    <AndroidResource Include="Resources\mipmap-xhdpi\ic_launcher_foreground.png">
+      <SubType></SubType>
+      <Generator></Generator>
+    </AndroidResource>
+    <AndroidResource Include="Resources\mipmap-xhdpi\ic_launcher.png">
+      <SubType></SubType>
+      <Generator></Generator>
+    </AndroidResource>
+    <AndroidResource Include="Resources\mipmap-xhdpi\ic_launcher_round.png">
+      <SubType></SubType>
+      <Generator></Generator>
+    </AndroidResource>
+    <AndroidResource Include="Resources\mipmap-xxhdpi\ic_launcher_foreground.png">
+      <SubType></SubType>
+      <Generator></Generator>
+    </AndroidResource>
+    <AndroidResource Include="Resources\mipmap-xxhdpi\ic_launcher.png">
+      <SubType></SubType>
+      <Generator></Generator>
+    </AndroidResource>
+    <AndroidResource Include="Resources\mipmap-xxhdpi\ic_launcher_round.png">
+      <SubType></SubType>
+      <Generator></Generator>
+    </AndroidResource>
+    <AndroidResource Include="Resources\mipmap-xxxhdpi\ic_launcher_foreground.png">
+      <SubType></SubType>
+      <Generator></Generator>
+    </AndroidResource>
+    <AndroidResource Include="Resources\mipmap-xxxhdpi\ic_launcher.png">
+      <SubType></SubType>
+      <Generator></Generator>
+    </AndroidResource>
+    <AndroidResource Include="Resources\mipmap-xxxhdpi\ic_launcher_round.png">
       <SubType></SubType>
       <Generator></Generator>
     </AndroidResource>
@@ -183,9 +230,6 @@
       <Project>{670022BB-F73F-4C87-A92C-D8011E30D658}</Project>
       <Name>MVP</Name>
     </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Assets\" />
   </ItemGroup>
   <ItemGroup>
     <AndroidAsset Include="Assets\SourceSansPro-Regular.ttf" />
