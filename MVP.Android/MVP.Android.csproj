@@ -96,6 +96,9 @@
     <PackageReference Include="Xamarin.CommunityToolkit">
       <Version>1.2.0-pre2</Version>
     </PackageReference>
+    <PackageReference Include="Refit">
+      <Version>6.0.1</Version>
+    </PackageReference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="MainActivity.cs" />
@@ -227,7 +230,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\MVP\MVP.csproj">
-      <Project>{670022BB-F73F-4C87-A92C-D8011E30D658}</Project>
+      <Project>{D8CA1D5B-93F3-4795-82D3-53CCC8504215}</Project>
       <Name>MVP</Name>
     </ProjectReference>
   </ItemGroup>

@@ -23,7 +23,7 @@
 	<key>CFBundleDisplayName</key>
 	<string>MVP</string>
 	<key>CFBundleIdentifier</key>
-	<string>io.thewissen.mvp</string>
+	<string>com.fizolabs.mvp</string>
 	<key>CFBundleVersion</key>
 	<string>1.0.0</string>
 	<key>UILaunchStoryboardName</key>
