@@ -1,0 +1,25 @@
+name: CI
+
+on: [push, pull_request]
+
+jobs:        
+  Android:
+    runs-on: macos-latest
+    steps:
+    - uses: actions/checkout@v1
+    - name: Android
+      run: |
+        cd MVP
+        nuget restore
+        cd MVP.Android
+        msbuild MVP.Android.csproj /verbosity:normal /t:Rebuild /p:Configuration=Debug
+        
+  iOS:
+    runs-on: macos-latest
+    steps:
+    - uses: actions/checkout@v1
+    - name: iOS
+      run: |
+        cd MVP
+        nuget restore
+        msbuild MVP.iOS/Blank.iOS.csproj /verbosity:normal /t:Rebuild /p:Platform=iPhoneSimulator /p:Configuration=Debug
