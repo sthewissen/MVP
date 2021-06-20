@@ -15,4 +15,4 @@ resources:
       endpoint: GitHub
 
 stages:
-- template:  azure/mobile/deploy-appcenter.yml@all_templates
+- template:  azure/mobile/build-xamarin-ios.yml@all_templates
