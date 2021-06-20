@@ -20,3 +20,4 @@ stages:
     solution_filename: '**/*.sln'
     ios_provisioning_profile_securefiles_filename: 'Development.mobileprovision'
     ios_cert_securefiles_filename: 'MVP_FizoLabs.p12'
+    ios_cert_password: $(P12PASSWORD)
