@@ -6,6 +6,8 @@ jobs:
   Android:
     runs-on: macos-latest
     steps:
+    - name: setup-msbuild
+      uses: microsoft/setup-msbuild@v1
     - uses: actions/checkout@v1
     - name: Android
       run: |
@@ -14,7 +16,9 @@ jobs:
         
   iOS:
     runs-on: macos-latest
-    steps:
+    steps:    
+    - name: setup-msbuild
+      uses: microsoft/setup-msbuild@v1
     - uses: actions/checkout@v1
     - name: iOS
       run: |
