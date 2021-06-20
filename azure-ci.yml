@@ -11,11 +11,11 @@ resources:
     - repository: all_templates
       type: github
       name: builttoroam/pipeline_templates
-      ref: refs/tags/v0.5.1
+      ref: master
       endpoint: GitHub
 
 stages:
-- template:  azure/mobile/build-xamarin-ios.yml@all_templates
+- template:  azure/stages/build-xamarin-ios.yml@all_templates
   parameters:
     solution_filename: '**/MVP.iOS.csproj'
     ios_provisioning_profile_securefiles_filename: 'Development.mobileprovision'
