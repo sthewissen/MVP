@@ -17,7 +17,7 @@ resources:
 stages:
 - template:  azure/mobile/build-xamarin-ios.yml@all_templates
   parameters:
-    solution_filename: '**/*.sln'
+    solution_filename: '**/MVP.iOS.csproj'
     ios_provisioning_profile_securefiles_filename: 'Development.mobileprovision'
     ios_cert_securefiles_filename: 'MVP_FizoLabs.p12'
     ios_cert_password: $(P12PASSWORD)
