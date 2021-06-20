@@ -10,8 +10,7 @@ jobs:
     - name: Android
       run: |
         nuget restore
-        cd MVP.Android
-        msbuild MVP.Android.csproj /verbosity:normal /t:Rebuild /p:Configuration=Debug
+        msbuild MVP.Android/MVP.Android.csproj /verbosity:normal /t:Rebuild /p:Configuration=Debug
         
   iOS:
     runs-on: macos-latest
@@ -20,4 +19,4 @@ jobs:
     - name: iOS
       run: |
         nuget restore
-        msbuild MVP.iOS/Blank.iOS.csproj /verbosity:normal /t:Rebuild /p:Platform=iPhoneSimulator /p:Configuration=Debug
+        msbuild MVP.iOS/MVP.iOS.csproj /verbosity:normal /t:Rebuild /p:Platform=iPhoneSimulator /p:Configuration=Debug
