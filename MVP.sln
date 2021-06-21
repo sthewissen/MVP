@@ -5,7 +5,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MVP.Android", "MVP.Android\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MVP.iOS", "MVP.iOS\MVP.iOS.csproj", "{B0744929-C02F-4D75-A714-2A7A39DA318D}"
 EndProject
-Project("{9344BDBB-3E7F-41FC-A0DD-8665D75EE146}") = "MVP", "MVP\MVP.csproj", "{D8CA1D5B-93F3-4795-82D3-53CCC8504215}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MVP", "MVP\MVP.csproj", "{D8CA1D5B-93F3-4795-82D3-53CCC8504215}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

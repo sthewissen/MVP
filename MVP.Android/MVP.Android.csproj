@@ -1,25 +1,26 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
-    <LangVersion>9.0</LangVersion>
-    <TargetFrameworkVersion>v11.0</TargetFrameworkVersion>
-  </PropertyGroup>
-  <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>{574BC705-D0F5-4539-9877-B4C5D555A316}</ProjectGuid>
     <ProjectTypeGuids>{EFBA0AD7-5A72-4C68-AF49-83D382785DCF};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <TemplateGuid>{6968b3a4-1835-46a3-ac5c-1ae33b475983}</TemplateGuid>
     <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>MVP.Droid</RootNamespace>
     <AssemblyName>MVP.Android</AssemblyName>
+    <FileAlignment>512</FileAlignment>
+    <Deterministic>True</Deterministic>
     <AndroidApplication>True</AndroidApplication>
     <AndroidResgenFile>Resources\Resource.designer.cs</AndroidResgenFile>
     <AndroidResgenClass>Resource</AndroidResgenClass>
+    <GenerateSerializationAssemblies>Off</GenerateSerializationAssemblies>
     <AndroidManifest>Properties\AndroidManifest.xml</AndroidManifest>
     <MonoAndroidResourcePrefix>Resources</MonoAndroidResourcePrefix>
     <MonoAndroidAssetsPrefix>Assets</MonoAndroidAssetsPrefix>
-    <TargetFrameworkVersion>v11.0</TargetFrameworkVersion>
     <AndroidEnableSGenConcurrent>true</AndroidEnableSGenConcurrent>
     <AndroidUseAapt2>true</AndroidUseAapt2>
     <AndroidHttpClientHandlerType>Xamarin.Android.Net.AndroidClientHandler</AndroidHttpClientHandlerType>
@@ -27,25 +28,29 @@
     </NuGetPackageImportStamp>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <DebugSymbols>true</DebugSymbols>
+    <DebugSymbols>True</DebugSymbols>
     <DebugType>portable</DebugType>
-    <Optimize>false</Optimize>
-    <OutputPath>bin\Debug</OutputPath>
-    <DefineConstants>DEBUG;</DefineConstants>
+    <Optimize>False</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <AndroidUseSharedRuntime>True</AndroidUseSharedRuntime>
     <AndroidLinkMode>None</AndroidLinkMode>
-    <AndroidSupportedAbis>armeabi-v7a;x86;arm64-v8a;x86_64</AndroidSupportedAbis>
+    <EmbedAssembliesIntoApk>False</EmbedAssembliesIntoApk>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <DebugSymbols>true</DebugSymbols>
+    <DebugSymbols>True</DebugSymbols>
     <DebugType>portable</DebugType>
-    <Optimize>true</Optimize>
-    <OutputPath>bin\Release</OutputPath>
+    <Optimize>True</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <AndroidManagedSymbols>true</AndroidManagedSymbols>
-    <AndroidUseSharedRuntime>false</AndroidUseSharedRuntime>
+    <AndroidUseSharedRuntime>False</AndroidUseSharedRuntime>
+    <AndroidLinkMode>SdkOnly</AndroidLinkMode>
+    <EmbedAssembliesIntoApk>True</EmbedAssembliesIntoApk>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Mono.Android" />
