@@ -22,6 +22,7 @@ steps:
   - task: UseDotNet@2
     displayName: 'Use .NET Core SDK 3.1.x'
     inputs:
+      packageType: 'sdk'
       version: 3.1.x
 
   # - task: pjcollins.azp-utilities-boots.boots.Boots@1
