@@ -44,5 +44,6 @@ steps:
     inputs:
       solutionFile: '**/*.iOS.csproj'
       configuration: 'Release'
-      buildForSimulator: true
       packageApp: false
+      buildForSimulator: true
+      runNugetRestore: true
