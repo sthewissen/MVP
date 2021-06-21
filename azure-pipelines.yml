@@ -7,7 +7,7 @@ trigger:
 - main
 
 pool:
-  vmImage: 'macos-11'
+  vmImage: 'macos-11.4'
 
 steps:
 
