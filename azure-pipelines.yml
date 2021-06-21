@@ -10,23 +10,36 @@ pool:
   vmImage: 'macos-latest'
 
 steps:
-# To manually select a Xamarin SDK version on the Microsoft-hosted macOS agent,
-# configure this task with the *Mono* version that is associated with the
-# Xamarin SDK version that you need, and set the "enabled" property to true.
-# See https://go.microsoft.com/fwlink/?linkid=871629
-- script: sudo $AGENT_HOMEDIRECTORY/scripts/select-xamarin-sdk.sh 5_12_0
-  displayName: 'Select the Xamarin SDK version'
-  enabled: false
 
-- task: NuGetToolInstaller@1
+  - task: NuGetToolInstaller@1
+    displayName: 'NuGet install'
 
-- task: NuGetCommand@2
-  inputs:
-    restoreSolution: '**/*.sln'
+  - task: NuGetCommand@2
+    displayName: 'NuGet restore'
+    inputs:
+      restoreSolution: '**/*.sln'
 
-- task: XamariniOS@2
-  inputs:
-    solutionFile: '**/*.sln'
-    configuration: 'Release'
-    buildForSimulator: true
-    packageApp: false
+  - task: UseDotNet@2
+    displayName: 'Use .NET Core SDK 3.1.x'
+    inputs:
+      version: 3.1.x
+
+  - task: pjcollins.azp-utilities-boots.boots.Boots@1
+    displayName: 'Install Mono'
+    inputs:
+      uri: 'https://download.mono-project.com/archive/6.12.0/macos-10-universal/MonoFramework-MDK-6.12.0.137.macos10.xamarin.universal.pkg'
+        
+  - task: pjcollins.azp-utilities-boots.boots.Boots@1
+    displayName: 'Install iOS'
+    inputs:
+      uri: 'https://download.visualstudio.microsoft.com/download/pr/e12e515d-da12-410b-acac-dd564a090b60/d0df6c6cfb219ebc3584bccc30e25bc5/xamarin.ios-14.16.0.5.pkg'
+      
+  - script: '/bin/bash -c "echo ''##vso[task.setvariable variable=MD_APPLE_SDK_ROOT;]''/Applications/Xcode_$(XcodeVersion).app;sudo xcode-select --switch /Applications/Xcode_$(XcodeVersion).app/Contents/Developer"'
+    displayName: 'Upgrade XCode'
+
+  - task: XamariniOS@2
+    inputs:
+      solutionFile: '**/*.sln'
+      configuration: 'Release'
+      buildForSimulator: true
+      packageApp: false
