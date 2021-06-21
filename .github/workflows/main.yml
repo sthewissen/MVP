@@ -3,21 +3,17 @@ name: CI
 on: [push, pull_request]
 
 jobs:
-        
-  Android:
 
-    runs-on: macos-latest
-    
-    steps:
+    Build_Android:
+      runs-on: macos-latest
 
-    - uses: actions/checkout@v1
-      
-    - name: Android
-      run: |
-        nuget restore
-        cd MVP.Android
-        msbuild MVP.Android.csproj /verbosity:normal /t:Rebuild /t:PackageForAndroid /t:SignAndroidPackage /p:Configuration=Debug 
-    - uses: actions/upload-artifact@v2
-      with:
-        name: Android App
-        path: MVP.Android/bin/Debug/com.fizolabs.mvp-Signed.apk
+      steps:
+      - uses: actions/checkout@v1
+
+      - name: Restore NuGet 
+        run: |
+          nuget restore
+          
+      - name: Build Android App
+        run: |                    
+          mono /Applications/Visual\ studio.app/Contents/Resources/lib/monodevelop/bin/MSBuild/Current/bin/MSBuild.dll ./MVP.Android/MVP.Android.csproj /verbosity:normal /p:Configuration=Release
