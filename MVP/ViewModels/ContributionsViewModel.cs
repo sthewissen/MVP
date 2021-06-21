@@ -61,7 +61,7 @@ namespace MVP.ViewModels
                     MainThread.BeginInvokeOnMainThread(() =>
                     {
                         AnalyticsService.Track("Review Requested");
-                        CrossStoreReview.Current.RequestReview();
+                        CrossStoreReview.Current.RequestReview(false);
                     });
                 }
 
