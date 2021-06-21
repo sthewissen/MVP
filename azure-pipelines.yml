@@ -7,12 +7,14 @@ trigger:
 - main
 
 pool:
-  vmImage: 'macos-11.4'
+  vmImage: 'macos-latest'
 
 steps:
 
   - task: NuGetToolInstaller@1
     displayName: 'NuGet install'
+    inputs:
+      versionSpec: '5.10'
 
   - task: NuGetCommand@2
     displayName: 'NuGet restore'
@@ -22,24 +24,26 @@ steps:
   - task: UseDotNet@2
     displayName: 'Use .NET Core SDK 3.1.x'
     inputs:
+      packageType: 'sdk'
       version: 3.1.x
 
-  - task: pjcollins.azp-utilities-boots.boots.Boots@1
-    displayName: 'Install Mono'
-    inputs:
-      uri: 'https://download.mono-project.com/archive/6.12.0/macos-10-universal/MonoFramework-MDK-6.12.0.137.macos10.xamarin.universal.pkg'
+  # - task: pjcollins.azp-utilities-boots.boots.Boots@1
+  #   displayName: 'Install Mono'
+  #   inputs:
+  #     uri: 'https://download.mono-project.com/archive/6.12.0/macos-10-universal/MonoFramework-MDK-6.12.0.140.macos10.xamarin.universal.pkg'
         
-  - task: pjcollins.azp-utilities-boots.boots.Boots@1
-    displayName: 'Install iOS'
-    inputs:
-      uri: 'https://download.visualstudio.microsoft.com/download/pr/e12e515d-da12-410b-acac-dd564a090b60/d0df6c6cfb219ebc3584bccc30e25bc5/xamarin.ios-14.16.0.5.pkg'
+  # - task: pjcollins.azp-utilities-boots.boots.Boots@1
+  #   displayName: 'Install iOS'
+  #   inputs:
+  #     uri: 'https://download.visualstudio.microsoft.com/download/pr/e12e515d-da12-410b-acac-dd564a090b60/d0df6c6cfb219ebc3584bccc30e25bc5/xamarin.ios-14.16.0.5.pkg'
       
-  - script: '/bin/bash -c "echo ''##vso[task.setvariable variable=MD_APPLE_SDK_ROOT;]''/Applications/Xcode_$(XcodeVersion).app;sudo xcode-select --switch /Applications/Xcode_$(XcodeVersion).app/Contents/Developer"'
-    displayName: 'Upgrade XCode'
+  # - script: '/bin/bash -c "echo ''##vso[task.setvariable variable=MD_APPLE_SDK_ROOT;]''/Applications/Xcode_$(XcodeVersion).app;sudo xcode-select --switch /Applications/Xcode_$(XcodeVersion).app/Contents/Developer"'
+  #   displayName: 'Upgrade XCode'
 
   - task: XamariniOS@2
     inputs:
-      solutionFile: '**/*.sln'
+      solutionFile: '**/*.iOS.csproj'
       configuration: 'Release'
-      buildForSimulator: true
       packageApp: false
+      buildForSimulator: true
+      runNugetRestore: true
