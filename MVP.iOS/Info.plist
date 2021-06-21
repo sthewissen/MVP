@@ -21,27 +21,32 @@
 	<key>MinimumOSVersion</key>
 	<string>13.0</string>
 	<key>CFBundleDisplayName</key>
-	<string>MVP</string>
+	<string>MVPBuzz</string>
 	<key>CFBundleIdentifier</key>
 	<string>com.fizolabs.mvp</string>
 	<key>CFBundleVersion</key>
-	<string>1.0.0</string>
+	<string>1.0.2</string>
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>
 	<key>CFBundleName</key>
-	<string>MVP</string>
+	<string>MVPBuzz</string>
 	<key>CFBundleURLTypes</key>
 	<array>
 		<dict>
 			<key>CFBundleURLSchemes</key>
 			<array>
-				<string>msauth.io.thewissen.mvp://auth</string>
+				<string>msauth.com.fizolabs.mvp</string>
 			</array>
 			<key>CFBundleTypeRole</key>
 			<string>Editor</string>
 			<key>CFBundleURLName</key>
-			<string>io.thewissen.mvp</string>
+			<string>com.fizolabs.mvp</string>
 		</dict>
+	</array>
+	<key>LSApplicationQueriesSchemes</key>
+	<array>
+		<string>msauthv2</string>
+		<string>msauthv3</string>
 	</array>
 	<key>XSAppIconAssets</key>
 	<string>Assets.xcassets/AppIcon.appiconset</string>
@@ -82,7 +87,7 @@
 		</dict>
 	</dict>
 	<key>CFBundleShortVersionString</key>
-	<string>1.0.0</string>
+	<string>1.0.2</string>
 	<key>CFBundleLocalizations</key>
 	<array>
 		<string>en</string>
@@ -97,5 +102,17 @@
 		<string>sv</string>
 		<string>fr</string>
 	</array>
+	<key>NSContactsUsageDescription</key>
+	<string>MVPBuzz does not require your contacts</string>
+	<key>NSCalendarsUsageDescription</key>
+	<string>MVPBuzz does not require your calendar</string>
+	<key>NSMicrophoneUsageDescription </key>
+	<string>MVPBuzz does not require your microphone</string>
+	<key>NSAppleMusicUsageDescription </key>
+	<string>MVPBuzz does not require access to your Apple Music</string>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>MVPBuzz does not require your location</string>
+	<key>NSBluetoothAlwaysUsageDescription</key>
+	<string>MVPBuzz does not require access to your Bluetooth</string>
 </dict>
 </plist>
