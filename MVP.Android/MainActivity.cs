@@ -14,7 +14,7 @@ using Autofac;
 namespace MVP.Droid
 {
     [Activity(
-        Label = "MVP",
+        Label = "MVPBuzz",
         Theme = "@style/MainTheme.Launcher",
         ConfigurationChanges = ConfigChanges.Locale | ConfigChanges.ScreenSize | ConfigChanges.UiMode)]
     public class MainActivity : global::Xamarin.Forms.Platform.Android.FormsAppCompatActivity

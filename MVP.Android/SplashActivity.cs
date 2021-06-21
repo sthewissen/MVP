@@ -14,7 +14,7 @@ using Android.Widget;
 namespace MVP.Droid
 {
     [Activity(
-        Label = "MVP",
+        Label = "MVPBuzz",
         MainLauncher = true,
         Theme = "@style/MainTheme.Splash",
         NoHistory = true)]
