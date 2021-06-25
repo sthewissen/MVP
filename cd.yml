@@ -69,9 +69,21 @@ jobs:
       versionCode: '$(Build.BuildId)'
       printFile: true
 
-  - task: CmdLine@2
+  - task: XamariniOS@2
+    displayName: 'Build iOS Package'
     inputs:
-      script: 'mono /Applications/Visual\ studio.app/Contents/Resources/lib/monodevelop/bin/MSBuild/Current/bin/MSBuild.dll ./MVP.iOS/MVP.iOS.csproj /verbosity:normal /p:Configuration=Release'
+      solutionFile: '**/*.iOS/*.csproj'
+      configuration: 'Release'
+      buildForSimulator: false
+      packageApp: true
+      runNugetRestore: false
+      args: '/p:OutputPath="$(Build.BinariesDirectory)"'
+      signingIdentity: '$(APPLE_CERTIFICATE_SIGNING_IDENTITY)'
+      signingProvisioningProfileID: '$(APPLE_PROV_PROFILE_UUID)'
+
+  # - task: CmdLine@2
+  #   inputs:
+  #     script: 'mono /Applications/Visual\ studio.app/Contents/Resources/lib/monodevelop/bin/MSBuild/Current/bin/MSBuild.dll ./MVP.iOS/MVP.iOS.csproj /verbosity:normal /p:Configuration=Release'
       
   - task: CopyFiles@2
     inputs:
