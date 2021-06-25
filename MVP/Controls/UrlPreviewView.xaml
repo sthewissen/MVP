@@ -7,7 +7,7 @@
              xct:StateLayout.CurrentState="{Binding State, Source={x:Reference urlView}}"
              x:Class="MVP.Controls.UrlPreviewView"
              x:Name="urlView"
-             Padding="24,16">
+             Padding="24,0">
 
     <xct:StateLayout.StateViews>
         <xct:StateView StateKey="Loading">
@@ -31,9 +31,38 @@
             </Grid>
         </xct:StateView>
     </xct:StateLayout.StateViews>
+    
+    <Grid Margin="0,0,0,16">
+        <Grid.IsVisible>
+            <MultiBinding Converter="{xct:VariableMultiValueConverter ConditionType=All}">
+                <Binding Path="HasValidUrl"
+                         Source="{x:Reference urlView}"/>
+                <Binding Path="HasMetadata"                         
+                         Converter="{xct:InvertedBoolConverter}"
+                         Source="{x:Reference urlView}"/>
+            </MultiBinding>
+        </Grid.IsVisible>
+
+        <Label Text="{Binding Url, Source={x:Reference urlView}}" />
+    </Grid>
+    
+    <Grid Margin="0,0,0,16">
+        <Grid.IsVisible>
+            <MultiBinding Converter="{xct:VariableMultiValueConverter ConditionType=All}">
+                <Binding Path="HasValidUrl"
+                         Converter="{xct:InvertedBoolConverter}"
+                         Source="{x:Reference urlView}"/>
+                <Binding Path="HasMetadata"
+                         Source="{x:Reference urlView}"/>
+            </MultiBinding>
+        </Grid.IsVisible>
+
+        <Label Text="{Binding Url, Source={x:Reference urlView}}" />
+    </Grid>
 
     <Grid ColumnDefinitions="Auto, *"
           ColumnSpacing="24"
+          Padding="0,16"
           RowDefinitions="Auto, Auto">
 
         <Grid.IsVisible>

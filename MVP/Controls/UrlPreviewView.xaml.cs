@@ -159,7 +159,7 @@ namespace MVP.Controls
                 Title = string.Empty;
                 Description = string.Empty;
                 ImageUrl = string.Empty;
-                HasValidUrl = false;
+                HasValidUrl = true;
                 HasMetadata = false;
             }
             finally
