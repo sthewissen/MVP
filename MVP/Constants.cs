@@ -29,6 +29,7 @@ namespace MVP
     public class MessageKeys
     {
         public const string RefreshNeeded = "RefreshNeeded";
+        public const string InMemoryUpdate = "InMemoryUpdate";
     }
 
     public class CacheKeys

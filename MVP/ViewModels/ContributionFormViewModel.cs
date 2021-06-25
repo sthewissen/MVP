@@ -141,7 +141,7 @@ namespace MVP.ViewModels
                     : string.Empty;
 
                 if (dateTime.HasValue)
-                    Contribution.StartDate = dateTime.Value;
+                    Contribution.StartDate = new DateTime(dateTime.Value.Year, dateTime.Value.Month, dateTime.Value.Day, 0, 0, 0, DateTimeKind.Utc);
             }
             catch (Exception ex)
             {
@@ -186,8 +186,9 @@ namespace MVP.ViewModels
 
                     MainThread.BeginInvokeOnMainThread(() => HapticFeedback.Perform(HapticFeedbackType.LongPress));
                     AnalyticsService.Track("Contribution Edited");
-                    await CloseModalAsync().ConfigureAwait(false); ;
-                    await BackAsync().ConfigureAwait(false);
+                    await CloseModalAsync().ConfigureAwait(false);
+
+                    MessagingService.Current.SendMessage(MessageKeys.InMemoryUpdate, Contribution.ToContribution());
                     MessagingService.Current.SendMessage(MessageKeys.RefreshNeeded);
                 }
                 else
