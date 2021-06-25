@@ -40,10 +40,14 @@ steps:
   # - script: '/bin/bash -c "echo ''##vso[task.setvariable variable=MD_APPLE_SDK_ROOT;]''/Applications/Xcode_$(XcodeVersion).app;sudo xcode-select --switch /Applications/Xcode_$(XcodeVersion).app/Contents/Developer"'
   #   displayName: 'Upgrade XCode'
 
-  - task: XamariniOS@2
+  # - task: XamariniOS@2
+  #   inputs:
+  #     solutionFile: '**/*.iOS.csproj'
+  #     configuration: 'Release'
+  #     packageApp: false
+  #     buildForSimulator: true
+  #     runNugetRestore: true
+
+  - task: CmdLine@2
     inputs:
-      solutionFile: '**/*.iOS.csproj'
-      configuration: 'Release'
-      packageApp: false
-      buildForSimulator: true
-      runNugetRestore: true
+      script: 'mono /Applications/Visual\ studio.app/Contents/Resources/lib/monodevelop/bin/MSBuild/Current/bin/MSBuild.dll ./MVP.iOS/MVP.iOS.csproj /verbosity:normal /p:Configuration=Release'
