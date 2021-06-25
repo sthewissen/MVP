@@ -63,6 +63,6 @@ jobs:
 
   - task: PublishBuildArtifacts@1
     inputs:
-      PathtoPublish: '$(Build.ArtifactStagingDirectory)'
-      ArtifactName: 'drop'
+      pathToPublish: '$(Build.ArtifactStagingDirectory)'
+      artifactName: 'drop'
       publishLocation: 'Container'
