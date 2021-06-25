@@ -29,6 +29,16 @@ jobs:
     vmImage: 'macos-latest'
   steps:
 
+  - task: InstallAppleCertificate@2
+    inputs:
+      certSecureFile: 'MVP_FizoLabs.p12'
+      certPwd: $(P12PASSWORD)
+      keychain: 'temp'
+  
+  - task: InstallAppleProvisioningProfile@1
+    inputs:
+     provProfileSecureFile: 'AppStore.mobileprovision'
+
   - task: NuGetToolInstaller@1
     displayName: 'NuGet install'
     inputs:
