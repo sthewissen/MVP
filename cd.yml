@@ -83,7 +83,7 @@ jobs:
 
   - task: CmdLine@2
     inputs:
-      script: 'mono /Applications/Visual\ studio.app/Contents/Resources/lib/monodevelop/bin/MSBuild/Current/bin/MSBuild.dll ./MVP.iOS/MVP.iOS.csproj /verbosity:normal /p:Configuration=AppStore /p:Platform=iPhone /p:Platform=iPhone /t:Clean /p:Configuration=Release'
+      script: 'mono /Applications/Visual\ studio.app/Contents/Resources/lib/monodevelop/bin/MSBuild/Current/bin/MSBuild.dll ./MVP.iOS/MVP.iOS.csproj /verbosity:normal /p:Configuration=Release /p:Platform=iPhone /p:BuildIpa=true /p:OutputPath=$(Build.BinariesDirectory) /p:Codesignkey=$(APPLE_CERTIFICATE_SIGNING_IDENTITY) /p:CodesignProvision=$(APPLE_PROV_PROFILE_UUID)'
       
   - task: CopyFiles@2
     inputs:
