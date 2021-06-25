@@ -1,8 +1,8 @@
 jobs:
-  variables:
-    - group: 'Mobile Variables'
     
 # - job: Android
+#   variables:
+#     - group: 'Mobile Variables'
 #   pool:
 #     vmImage: 'macos-latest'
 
@@ -28,6 +28,8 @@ jobs:
 #       script: 'mono /Applications/Visual\ studio.app/Contents/Resources/lib/monodevelop/bin/MSBuild/Current/bin/MSBuild.dll ./MVP.Android/MVP.Android.csproj /verbosity:normal /p:Configuration=Release'
 
 - job: iOS
+  variables:
+    - group: 'Mobile Variables'
   pool:
     vmImage: 'macos-latest'
   steps:
