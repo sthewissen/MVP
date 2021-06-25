@@ -1,3 +1,6 @@
+variables:
+  - group: 'Mobile Variables'
+
 jobs:
 # - job: Android
 #   pool:
