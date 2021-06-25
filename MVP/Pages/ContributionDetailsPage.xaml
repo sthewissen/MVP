@@ -51,7 +51,7 @@
         </mvp:AppFrame.ShowSecondaryButton>
 
         <mvp:AppFrame.Content>
-            <Grid VerticalOptions="CenterAndExpand"
+            <Grid VerticalOptions="FillAndExpand"
                   xct:StateLayout.AnimateStateChanges="False"
                   xct:StateLayout.CurrentState="{Binding State}">
 
