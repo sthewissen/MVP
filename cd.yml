@@ -59,6 +59,10 @@ jobs:
   - task: CopyFiles@2
     inputs:
       Contents: '**/*.ipa'
-      TargetFolder: '$(Build.ArtifactStagingDirectory)''
+      TargetFolder: '$(Build.ArtifactStagingDirectory)'
 
   - task: PublishBuildArtifacts@1
+    inputs:
+      pathToPublish: '$(Build.ArtifactStagingDirectory)'
+      artifactName: 'drop'
+      publishLocation: 'Container'
