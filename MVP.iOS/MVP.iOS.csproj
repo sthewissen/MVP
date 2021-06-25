@@ -76,6 +76,7 @@
     <Compile Include="Renderers\BorderlessDatePickerRenderer.cs" />
     <Compile Include="Renderers\ExtendedTabbedPageRenderer.cs" />
     <Compile Include="Services\IconService.cs" />
+    <Compile Include="Renderers\ExtendedContentPageRenderer.cs" />
   </ItemGroup>
   <ItemGroup>
     <InterfaceDefinition Include="LaunchScreen.storyboard" />
