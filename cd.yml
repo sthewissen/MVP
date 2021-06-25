@@ -1,7 +1,7 @@
-variables:
-  - group: 'Mobile Variables'
-
 jobs:
+  variables:
+    - group: 'Mobile Variables'
+    
 # - job: Android
 #   pool:
 #     vmImage: 'macos-latest'
