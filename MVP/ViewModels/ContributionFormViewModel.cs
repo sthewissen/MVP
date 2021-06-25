@@ -141,7 +141,7 @@ namespace MVP.ViewModels
                     : string.Empty;
 
                 if (dateTime.HasValue)
-                    Contribution.StartDate = dateTime.Value;
+                    Contribution.StartDate = new DateTime(dateTime.Value.Year, dateTime.Value.Month, dateTime.Value.Day, 0, 0, 0, DateTimeKind.Utc);
             }
             catch (Exception ex)
             {

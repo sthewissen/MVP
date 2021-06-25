@@ -52,7 +52,7 @@ namespace MVP.Extensions
                 Description = contribution.Description,
                 ReferenceUrl = contribution.ReferenceUrl.Value,
                 SecondAnnualQuantity = contribution.SecondAnnualQuantity?.Value ?? 0,
-                StartDate = contribution.StartDate,
+                StartDate = contribution.StartDate.ToUniversalTime(),
                 Title = contribution.Title.Value,
                 Visibility = contribution.Visibility.Value,
             };
