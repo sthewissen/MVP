@@ -32,7 +32,7 @@ jobs:
   - task: InstallAppleCertificate@2
     inputs:
       certSecureFile: 'MVP_FizoLabs.p12'
-      certPwd: $(P12PASSWORD)
+      certPwd: $(P12Password)
       keychain: 'temp'
   
   - task: InstallAppleProvisioningProfile@1
@@ -68,8 +68,9 @@ jobs:
       
   - task: CopyFiles@2
     inputs:
-      Contents: '**/*.ipa'
-      TargetFolder: '$(Build.ArtifactStagingDirectory)'
+      contents: '**/*.ipa'
+      sourceFolder: '$(Build.BinariesDirectory)' 
+      targetFolder: '$(Build.ArtifactStagingDirectory)'
 
   - task: PublishBuildArtifacts@1
     inputs:
