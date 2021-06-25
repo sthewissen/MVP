@@ -186,8 +186,9 @@ namespace MVP.ViewModels
 
                     MainThread.BeginInvokeOnMainThread(() => HapticFeedback.Perform(HapticFeedbackType.LongPress));
                     AnalyticsService.Track("Contribution Edited");
-                    await CloseModalAsync().ConfigureAwait(false); ;
-                    await BackAsync().ConfigureAwait(false);
+                    await CloseModalAsync().ConfigureAwait(false);
+
+                    MessagingService.Current.SendMessage(MessageKeys.InMemoryUpdate, Contribution.ToContribution());
                     MessagingService.Current.SendMessage(MessageKeys.RefreshNeeded);
                 }
                 else

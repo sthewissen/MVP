@@ -27,6 +27,8 @@ namespace MVP.ViewModels
             DeleteContributionCommand = new AsyncCommand(() => DeleteContribution());
             SecondaryCommand = new AsyncCommand(() => EditContribution(), (x) => CanBeEdited);
             OpenUrlCommand = new AsyncCommand(() => OpenUrl());
+
+            MessagingService.Current.Subscribe<Contribution>(MessageKeys.InMemoryUpdate, HandleInMemoryUpdateMessage);
         }
 
         public async override Task Initialize()
@@ -105,6 +107,14 @@ namespace MVP.ViewModels
             {
                 State = LayoutState.None;
             }
+        }
+
+        void HandleInMemoryUpdateMessage(MessagingService ms, Contribution contribution)
+        {
+            if (contribution.ContributionId != Contribution.ContributionId)
+                return;
+
+            Contribution = contribution;
         }
 
         async Task OpenUrl()
