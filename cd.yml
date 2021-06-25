@@ -1,0 +1,71 @@
+trigger:
+- main
+
+jobs:
+# - job: Android
+#   pool:
+#     vmImage: 'macos-latest'
+
+#   steps:
+#   - task: NuGetToolInstaller@1
+#     displayName: 'NuGet install'
+#     inputs:
+#       versionSpec: '5.10'
+
+#   - task: NuGetCommand@2
+#     displayName: 'NuGet restore'
+#     inputs:
+#       restoreSolution: '**/*.sln'
+
+#   - task: UseDotNet@2
+#     displayName: 'Use .NET Core SDK 3.1.x'
+#     inputs:
+#       packageType: 'sdk'
+#       version: 3.1.x
+
+#   - task: CmdLine@2
+#     inputs:
+#       script: 'mono /Applications/Visual\ studio.app/Contents/Resources/lib/monodevelop/bin/MSBuild/Current/bin/MSBuild.dll ./MVP.Android/MVP.Android.csproj /verbosity:normal /p:Configuration=Release'
+
+- job: iOS
+  pool:
+    vmImage: 'macos-latest'
+  steps:
+
+  - task: NuGetToolInstaller@1
+    displayName: 'NuGet install'
+    inputs:
+      versionSpec: '5.10'
+
+  - task: NuGetCommand@2
+    displayName: 'NuGet restore'
+    inputs:
+      restoreSolution: '**/*.sln'
+
+  - task: UseDotNet@2
+    displayName: 'Use .NET Core SDK 3.1.x'
+    inputs:
+      packageType: 'sdk'
+      version: 3.1.x
+
+  - task: ios-bundle-version@1
+    inputs:
+      sourcePath: '/MVP.iOS/Info.plist'
+      versionCodeOption: 'buildid'
+      versionCode: '$(Build.BuildId)'
+      printFile: true
+
+  - task: CmdLine@2
+    inputs:
+      script: 'mono /Applications/Visual\ studio.app/Contents/Resources/lib/monodevelop/bin/MSBuild/Current/bin/MSBuild.dll ./MVP.iOS/MVP.iOS.csproj /verbosity:normal /p:Configuration=Release'
+      
+  - task: CopyFiles@2
+    inputs:
+      Contents: '**/*.ipa'
+      TargetFolder: '$(Build.ArtifactStagingDirectory)''
+
+  - task: PublishBuildArtifacts@1
+    inputs:
+      PathtoPublish: '$(Build.ArtifactStagingDirectory)'
+      ArtifactName: 'drop'
+      publishLocation: 'Container'
