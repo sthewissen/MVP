@@ -30,6 +30,7 @@ jobs:
 - job: iOS
   variables:
     - group: 'Mobile Variables'
+    - group: 'Secrets'
   pool:
     vmImage: 'macos-latest'
   steps:
