@@ -20,6 +20,14 @@
         {
           "name": "AppCenterProdAndroidKey",
           "type": "String"
+        },
+        {
+          "name": "AppCenterDeviOSKey",
+          "type": "String"
+        },
+        {
+          "name": "AppCenterDevAndroidKey",
+          "type": "String"
         }
       ]
     }

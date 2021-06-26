@@ -21,7 +21,10 @@ namespace MVP.Services
         {
 #if !DEBUG
             Xamarin.Forms.Device.iOS => MVP.Helpers.Secrets.AppCenterProdiOSKey,
-            Xamarin.Forms.Device.Android => MVP.Helpers.Secrets.AppCenterProdAndroidKey
+            Xamarin.Forms.Device.Android => MVP.Helpers.Secrets.AppCenterProdAndroidKey,
+#else
+            Xamarin.Forms.Device.iOS => MVP.Helpers.Secrets.AppCenterDeviOSKey,
+            Xamarin.Forms.Device.Android => MVP.Helpers.Secrets.AppCenterDevAndroidKey,
 #endif
             _ => throw new NotSupportedException()
         };
