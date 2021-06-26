@@ -35,10 +35,15 @@ jobs:
       versionCodeOption: 'buildid'
       versionCode: '$(Build.BuildId)'
       printFile: true
-      
+    
+  - task: XamarinAndroid@1
+    inputs:
+      projectFile: '**/*.csproj'
+      jdkOption: 'JDKVersion'
+
   - task: CmdLine@2
     inputs:
-      script: 'mono /Applications/Visual\ studio.app/Contents/Resources/lib/monodevelop/bin/MSBuild/Current/bin/MSBuild.dll ./MVP.Android/MVP.Android.csproj /verbosity:normal /p:Configuration=Release /t:PackageForAndroid /p:AndroidPackageFormat=aab' 
+      script: 'mono /Applications/Visual\ studio.app/Contents/Resources/lib/monodevelop/bin/MSBuild/Current/bin/MSBuild.dll ./MVP.Android/MVP.Android.csproj /verbosity:normal /p:Configuration=Release /t:SignAndroidPackage /p:AndroidPackageFormat=aab' 
       # /p:AndroidKeyStore=True /p:AndroidSigningKeyStore=$(KeyStoreFile) /p:AndroidSigningStorePass=$(KeystorePassword) /p:AndroidSigningKeyAlias=$(KeystoreAlias) /p:AndroidSigningKeyPass=$(KeystorePassword)'
     env:
       Secret_AuthClientId: $(AuthClientId)
