@@ -35,10 +35,6 @@ jobs:
       versionCode: '$(Build.BuildId)'
       printFile: true
     
-  - task: XamarinAndroid@1
-    inputs:
-      projectFile: '**/*.csproj'
-      jdkOption: 'JDKVersion'
   - task: DownloadSecureFile@1
     name: keystore
     displayName: 'Download keystore'
