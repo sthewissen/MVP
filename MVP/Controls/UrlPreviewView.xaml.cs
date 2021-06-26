@@ -8,6 +8,7 @@ using MVP.Extensions;
 using MVP.Helpers;
 using MVP.Services;
 using MVP.Services.Interfaces;
+using PropertyChanged;
 using Xamarin.CommunityToolkit.UI.Views;
 using Xamarin.Essentials;
 using Xamarin.Forms;
@@ -93,6 +94,7 @@ namespace MVP.Controls
             InitializeComponent();
         }
 
+        [SuppressPropertyChangedWarnings]
         protected void OnUrlPropertyChanged()
         {
             if (tokenSource != null)

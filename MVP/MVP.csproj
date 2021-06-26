@@ -27,6 +27,7 @@
         <PackageReference Include="IsoNames.NETStandard" Version="1.2.1" />
         <PackageReference Include="Plugin.StoreReview" Version="3.1.0" />
         <PackageReference Include="Xamarin.CommunityToolkit" Version="1.2.0-pre2" />
+        <PackageReference Include="Mobile.BuildTools" Version="2.0.153-pre" />
     </ItemGroup>
     <ItemGroup>
         <Folder Include="Models\" />
@@ -70,6 +71,7 @@
         <None Remove="Resources\onboarding1d.svg" />
         <None Remove="Resources\onboarding2.svg" />
         <None Remove="Resources\onboarding2d.svg" />
+        <None Remove="Mobile.BuildTools" />
     </ItemGroup>
     <ItemGroup>
         <EmbeddedResource Include="Resources\mvp_logo.svg">

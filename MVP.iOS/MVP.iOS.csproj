@@ -132,6 +132,9 @@
     <PackageReference Include="Refit">
       <Version>5.2.4</Version>
     </PackageReference>
+    <PackageReference Include="Mobile.BuildTools">
+      <Version>2.0.153-pre</Version>
+    </PackageReference>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
   <ItemGroup>

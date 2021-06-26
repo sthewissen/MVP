@@ -22,7 +22,7 @@ namespace MVP.Services
             get
             {
                 if (DeviceInfo.Platform == DevicePlatform.Android)
-                    return $"msauth://{AppInfo.PackageName}/{Constants.AuthSignatureHash}";
+                    return $"msauth://{AppInfo.PackageName}/{MVP.Helpers.Secrets.AuthSignatureHash}";
                 else if (DeviceInfo.Platform == DevicePlatform.iOS)
                     return $"msauth.{AppInfo.PackageName}://auth";
 
@@ -37,7 +37,7 @@ namespace MVP.Services
         public AuthService(IAnalyticsService analyticsService)
         {
             this.analyticsService = analyticsService;
-            pca = PublicClientApplicationBuilder.Create(Constants.AuthClientId)
+            pca = PublicClientApplicationBuilder.Create(MVP.Helpers.Secrets.AuthClientId)
                 .WithIosKeychainSecurityGroup(AppInfo.PackageName)
                 .WithRedirectUri(RedirectUri)
                 .WithAuthority("https://login.microsoftonline.com/common")

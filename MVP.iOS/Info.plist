@@ -25,7 +25,7 @@
 	<key>CFBundleIdentifier</key>
 	<string>com.fizolabs.mvp</string>
 	<key>CFBundleVersion</key>
-	<string>1.0.2</string>
+	<string>1.0.0</string>
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>
 	<key>CFBundleName</key>
@@ -87,7 +87,7 @@
 		</dict>
 	</dict>
 	<key>CFBundleShortVersionString</key>
-	<string>1.0.2</string>
+	<string>1.0.0</string>
 	<key>CFBundleLocalizations</key>
 	<array>
 		<string>en</string>

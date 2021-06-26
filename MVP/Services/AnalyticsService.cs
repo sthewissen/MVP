@@ -19,12 +19,9 @@ namespace MVP.Services
 
         string ApiKey => Xamarin.Forms.Device.RuntimePlatform switch
         {
-#if AppStore
-            Xamarin.Forms.Device.iOS => Constants.AppCenterProdiOSKey,
-            Xamarin.Forms.Device.Android => Constants.AppCenterProdAndroidKey,
-#else
-            Xamarin.Forms.Device.iOS => Constants.AppCenterDeviOSKey,
-            Xamarin.Forms.Device.Android => Constants.AppCenterDevAndroidKey,
+#if !DEBUG
+            Xamarin.Forms.Device.iOS => MVP.Helpers.Secrets.AppCenterProdiOSKey,
+            Xamarin.Forms.Device.Android => MVP.Helpers.Secrets.AppCenterProdAndroidKey
 #endif
             _ => throw new NotSupportedException()
         };
