@@ -1,5 +1,11 @@
 trigger:
-- main
+  branches:
+    include:
+      - main  
+  paths:
+    exclude:
+    - ci.yml
+    - cd.yml
 
 jobs:
 - job: Android
