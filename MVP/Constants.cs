@@ -8,7 +8,7 @@ namespace MVP
     {
         public static readonly string[] AuthScopes = { "wl.signin", "wl.emails" };
         public const string AuthType = "Bearer";
-        public const string AppName = "MVPBuzz";
+        public const string AppName = "MVPBuzz Mobile App";
         public const string AccessToken = "AccessToken";
         public const string SponsorUrl = "https://github.com/sponsors/sthewissen";
         public const string ApiUrl = "https://mvpapi.azure-api.net/mvp/api/";
