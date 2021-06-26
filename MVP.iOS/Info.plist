@@ -114,5 +114,7 @@
 	<string>MVPBuzz does not require your location</string>
 	<key>NSBluetoothAlwaysUsageDescription</key>
 	<string>MVPBuzz does not require access to your Bluetooth</string>
+	<key>NSSiriUsageDescription</key>
+	<string>MVPBuzz does not require access to Siri</string>
 </dict>
 </plist>
