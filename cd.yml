@@ -4,32 +4,55 @@ variables:
 
 jobs:
     
-# - job: Android
-#   variables:
-#     - group: 'Mobile Variables'
-#   pool:
-#     vmImage: 'macos-latest'
+- job: Android
+  variables:
+    - group: 'Mobile Variables'
+  pool:
+    vmImage: 'macos-latest'
 
-#   steps:
-#   - task: NuGetToolInstaller@1
-#     displayName: 'NuGet install'
-#     inputs:
-#       versionSpec: '5.10'
+  steps:
+  
 
-#   - task: NuGetCommand@2
-#     displayName: 'NuGet restore'
-#     inputs:
-#       restoreSolution: '**/*.sln'
+  - task: NuGetToolInstaller@1
+    displayName: 'NuGet install'
+    inputs:
+      versionSpec: '5.10'
 
-#   - task: UseDotNet@2
-#     displayName: 'Use .NET Core SDK 3.1.x'
-#     inputs:
-#       packageType: 'sdk'
-#       version: 3.1.x
+  - task: NuGetCommand@2
+    displayName: 'NuGet restore'
+    inputs:
+      restoreSolution: '**/*.sln'
 
-#   - task: CmdLine@2
-#     inputs:
-#       script: 'mono /Applications/Visual\ studio.app/Contents/Resources/lib/monodevelop/bin/MSBuild/Current/bin/MSBuild.dll ./MVP.Android/MVP.Android.csproj /verbosity:normal /p:Configuration=Release'
+  - task: UseDotNet@2
+    displayName: 'Use .NET Core SDK 3.1.x'
+    inputs:
+      packageType: 'sdk'
+      version: 3.1.x
+  
+  - task: android-manifest-version@1
+    inputs:
+      sourcePath: 'MVP.Android/Properties/AndroidManifest.xml'
+      versionCodeOption: 'buildid'
+      versionCode: '$(Build.BuildId)'
+      printFile: true
+      
+  - task: XamarinAndroid@1
+    inputs:
+      projectFile: '**/*.Android.csproj'
+      jdkOption: 'JDKVersion'
+      createAppPackage: true
+      
+  # - task: CmdLine@2
+  #   inputs:
+  #     script: 'mono /Applications/Visual\ studio.app/Contents/Resources/lib/monodevelop/bin/MSBuild/Current/bin/MSBuild.dll ./MVP.Android/MVP.Android.csproj /verbosity:normal /p:Configuration=Release /p:AndroidPackageFormat=aab /p:AndroidKeyStore=True /p:AndroidSigningKeyStore=$(KeyStoreFile) /p:AndroidSigningStorePass=$(KeystorePassword) /p:AndroidSigningKeyAlias=$(KeystoreAlias) /p:AndroidSigningKeyPass=$(KeystorePassword)'
+
+  # - task: AndroidSigning@3
+  #   inputs:
+  #     apkFiles: '**/*.apk'
+  #     apksignerKeystoreFile: 'A'
+  #     apksignerKeystorePassword: 'B'
+  #     apksignerKeystoreAlias: 'C'
+  #     apksignerKeyPassword: 'D'
 
 - job: iOS
   variables:
