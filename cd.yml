@@ -36,23 +36,23 @@ jobs:
       versionCode: '$(Build.BuildId)'
       printFile: true
       
-  - task: XamarinAndroid@1
+  - task: CmdLine@2
     inputs:
-      projectFile: '**/*.Android.csproj'
-      jdkOption: 'JDKVersion'
-      createAppPackage: true
-      
-  # - task: CmdLine@2
-  #   inputs:
-  #     script: 'mono /Applications/Visual\ studio.app/Contents/Resources/lib/monodevelop/bin/MSBuild/Current/bin/MSBuild.dll ./MVP.Android/MVP.Android.csproj /verbosity:normal /p:Configuration=Release /p:AndroidPackageFormat=aab /p:AndroidKeyStore=True /p:AndroidSigningKeyStore=$(KeyStoreFile) /p:AndroidSigningStorePass=$(KeystorePassword) /p:AndroidSigningKeyAlias=$(KeystoreAlias) /p:AndroidSigningKeyPass=$(KeystorePassword)'
+      script: 'mono /Applications/Visual\ studio.app/Contents/Resources/lib/monodevelop/bin/MSBuild/Current/bin/MSBuild.dll ./MVP.Android/MVP.Android.csproj /verbosity:normal /p:Configuration=Release /t:PackageForAndroid /t:SignAndroidPackage /p:AndroidPackageFormat=aab /p:AndroidKeyStore=True /p:AndroidSigningKeyStore=$(KeyStoreFile) /p:AndroidSigningStorePass=$(KeystorePassword) /p:AndroidSigningKeyAlias=$(KeystoreAlias) /p:AndroidSigningKeyPass=$(KeystorePassword)'
 
-  # - task: AndroidSigning@3
-  #   inputs:
-  #     apkFiles: '**/*.apk'
-  #     apksignerKeystoreFile: 'A'
-  #     apksignerKeystorePassword: 'B'
-  #     apksignerKeystoreAlias: 'C'
-  #     apksignerKeyPassword: 'D'
+  - task: CopyFiles@2
+    inputs:
+      contents: |
+        **/*.apk
+        **/*.aab
+      sourceFolder: '$(Build.BinariesDirectory)' 
+      targetFolder: '$(Build.ArtifactStagingDirectory)'
+
+  - task: PublishBuildArtifacts@1
+    inputs:
+      pathToPublish: '$(Build.ArtifactStagingDirectory)'
+      artifactName: 'drop'
+      publishLocation: 'Container'
 
 - job: iOS
   variables:
