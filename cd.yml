@@ -80,6 +80,8 @@ jobs:
       Secret_AuthSignatureHash: $(AuthSignatureHash)
       Secret_AppCenterProdiOSKey: $(AppCenterProdiOSKey)
       Secret_AppCenterProdAndroidKey: $(AppCenterProdAndroidKey)
+      Secret_AppCenterDeviOSKey: $(AppCenterDeviOSKey)
+      Secret_AppCenterDevAndroidKey: $(AppCenterDevAndroidKey)
       
   - task: CopyFiles@2
     inputs:
