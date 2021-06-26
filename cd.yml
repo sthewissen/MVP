@@ -43,7 +43,7 @@ jobs:
     name: keystore
     displayName: 'Download keystore'
     inputs:
-      secureFile: $(KeyStoreFile)
+      secureFile: 'upload.keystore'
 
   - task: CmdLine@2
     inputs:
