@@ -1,3 +1,13 @@
+variables:
+  - name: Secret_AuthClientId
+    value: $(Secret_AuthClientId)
+  - name: Secret_AuthSignatureHash
+    value: $(Secret_AuthSignatureHash)
+  - name: Secret_AppCenterProdAndroidKey
+    value: $(Secret_AppCenterProdAndroidKey)
+  - name: Secret_AppCenterProdiOSKey
+    value: $(Secret_AppCenterProdiOSKey)
+
 jobs:
     
 # - job: Android
