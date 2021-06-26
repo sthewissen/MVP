@@ -1,3 +1,6 @@
+variables:
+  - group: 'Secrets'
+
 jobs:
     
 # - job: Android
@@ -30,7 +33,6 @@ jobs:
 - job: iOS
   variables:
     - group: 'Mobile Variables'
-    - group: 'Secrets'
   pool:
     vmImage: 'macos-latest'
   steps:
@@ -70,21 +72,14 @@ jobs:
       versionCode: '$(Build.BuildId)'
       printFile: true
 
-  # - task: XamariniOS@2
-  #   displayName: 'Build iOS Package'
-  #   inputs:
-  #     solutionFile: '**/*.iOS/*.csproj'
-  #     configuration: 'Release'
-  #     buildForSimulator: false
-  #     packageApp: true
-  #     runNugetRestore: false
-  #     args: '/p:OutputPath="$(Build.BinariesDirectory)"'
-  #     signingIdentity: '$(APPLE_CERTIFICATE_SIGNING_IDENTITY)'
-  #     signingProvisioningProfileID: '$(APPLE_PROV_PROFILE_UUID)'
-
   - task: CmdLine@2
     inputs:
       script: 'mono /Applications/Visual\ studio.app/Contents/Resources/lib/monodevelop/bin/MSBuild/Current/bin/MSBuild.dll ./MVP.iOS/MVP.iOS.csproj /verbosity:normal /p:Configuration=Release /p:Platform=iPhone /p:BuildIpa=true /p:OutputPath=$(Build.BinariesDirectory) /p:Codesignkey="$(APPLE_CERTIFICATE_SIGNING_IDENTITY)" /p:CodesignProvision=$(APPLE_PROV_PROFILE_UUID)'
+    env:
+      Secret_AuthClientId: $(AuthClientId)
+      Secret_AuthSignatureHash: $(AuthSignatureHash)
+      Secret_AppCenterProdiOSKey: $(AppCenterProdiOSKey)
+      Secret_AppCenterProdAndroidKey: $(AppCenterProdAndroidKey)
       
   - task: CopyFiles@2
     inputs:
