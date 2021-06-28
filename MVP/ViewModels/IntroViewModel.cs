@@ -73,12 +73,20 @@ namespace MVP.ViewModels
                 // Pop a sign in request up for the user.
                 if(await AuthService.SignInAsync().ConfigureAwait(false))
                 {
-                    AnalyticsService.Track("User Logged In");
-
-                    MainThread.BeginInvokeOnMainThread(() =>
+                    if (await MvpApiService.GetIsMvpAsync().ConfigureAwait(false))
                     {
-                        NavigationHelper.SetRootView(nameof(TabbedMainPage), false);
-                    });
+                        AnalyticsService.Track("User Logged In");
+
+                        MainThread.BeginInvokeOnMainThread(() =>
+                        {
+                            NavigationHelper.SetRootView(nameof(TabbedMainPage), false);
+                        });
+                    }
+                    else
+                    {
+                        AnalyticsService.Track("Invalid MVP Account Used");
+                        await DialogService.AlertAsync(Resources.Translations.error_nomvpaccount, Resources.Translations.error_title, Resources.Translations.ok);
+                    }
                 }
                 else
                 {

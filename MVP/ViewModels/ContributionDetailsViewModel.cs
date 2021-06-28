@@ -38,7 +38,7 @@ namespace MVP.ViewModels
             if (NavigationParameter is Contribution contribution)
             {
                 Contribution = contribution;
-                CanBeEdited = Contribution != null && Contribution.StartDate.IsWithinCurrentAwardPeriod(); //TODO: One day... Contribution.IsEditable;
+                CanBeEdited = Contribution != null && Contribution.StartDate.IsWithinCurrentAwardPeriod() && Contribution.IsEditable; //TODO: One day... Contribution.IsEditable;
 
                 ((AsyncCommand)SecondaryCommand).RaiseCanExecuteChanged();
 
