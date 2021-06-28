@@ -68,6 +68,36 @@ namespace MVP.ViewModels
         {
             try
             {
+                await AuthService.SignOutAsync();
+
+                // Pop a sign in request up for the user.
+                if(await AuthService.SignInAsync().ConfigureAwait(false))
+                {
+                    AnalyticsService.Track("User Logged In");
+
+                    MainThread.BeginInvokeOnMainThread(() =>
+                    {
+                        NavigationHelper.SetRootView(nameof(TabbedMainPage), false);
+                    });
+                }
+                else
+                {
+                    await OpenModalAsync(nameof(LoginPage), null, true);
+                }
+            }
+            catch (Exception e)
+            {
+                AnalyticsService.Report(e);
+                await DialogService.AlertAsync(Resources.Translations.error_unexpected, Resources.Translations.error_title, Resources.Translations.ok);
+            }
+        }
+
+        async Task SignInMsal()
+        {
+            try
+            {
+                await AuthService.SignOutAsync();
+
                 // Pop a sign in request up for the user.
                 if (await AuthService.SignInAsync().ConfigureAwait(false))
                 {

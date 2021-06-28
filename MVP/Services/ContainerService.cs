@@ -37,7 +37,8 @@ namespace MVP.Services
 
             //Register additional services
             builder.RegisterType<AnalyticsService>().As<IAnalyticsService>().SingleInstance();
-            builder.RegisterType<AuthService>().As<IAuthService>().SingleInstance();
+            // TODO: One day... builder.RegisterType<MsalAuthService>().As<IAuthService>().SingleInstance();
+            builder.RegisterType<LiveAuthService>().As<IAuthService>().SingleInstance();
             builder.RegisterType<MvpApiService>().As<IMvpApiService>().SingleInstance();
             builder.RegisterType<LanguageService>().As<LanguageService>().SingleInstance();
 

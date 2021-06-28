@@ -7,5 +7,6 @@ namespace MVP.Services.Interfaces
         Task<bool> SignInAsync();
         Task<bool> SignInSilentAsync();
         Task<bool> SignOutAsync();
+        Task<string> RequestAuthorizationAsync(string authCode, bool isRefresh = false);
     }
 }

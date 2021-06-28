@@ -43,7 +43,7 @@ namespace MVP.Droid
             LoadApplication(new App(analyticsService, apiService, authService, languageService));
 
             // Set the current activity so the AuthService knows where to start.
-            AuthService.ParentWindow = CrossCurrentActivity.Current.Activity;
+            MsalAuthService.ParentWindow = CrossCurrentActivity.Current.Activity;
         }
 
         protected override void OnActivityResult(int requestCode, Result resultCode, Intent data)
