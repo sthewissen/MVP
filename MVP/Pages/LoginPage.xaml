@@ -11,7 +11,7 @@
     <mvp:AppFrame IsModal="True"
                   ShadowOpacity="1"
                   ShowBackButton="True"
-                  Title="Login"
+                  Title="{x:Static resources:Translations.sign_in}"
                   x:Name="appFrame">
         <mvp:AppFrame.Content>
             <Grid>
