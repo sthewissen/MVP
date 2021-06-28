@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<pages:BaseContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+                       xmlns:mvp="clr-namespace:MVP"
+                       xmlns:pages="clr-namespace:MVP.Pages"
+                       xmlns:vm="clr-namespace:MVP.ViewModels"
+                       x:DataType="vm:LoginViewModel"
+                       x:TypeArguments="vm:LoginViewModel"
+                       xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                       xmlns:xct="http://xamarin.com/schemas/2020/toolkit"
+                       x:Class="MVP.Pages.LoginPage">
+    <mvp:AppFrame IsModal="True"
+                  ShadowOpacity="1"
+                  ShowBackButton="True"
+                  Title="Login"
+                  x:Name="appFrame">
+        <mvp:AppFrame.Content>
+            <Grid>
+                <WebView x:Name="wb" VerticalOptions="FillAndExpand" HorizontalOptions="Fill" Source="{Binding WebSource}">
+                    <WebView.Behaviors>
+                        <xct:EventToCommandBehavior
+                            EventName="Navigated"
+                            Command="{Binding NavigationOccurredCommand}" />
+                    </WebView.Behaviors>
+                </WebView>
+            </Grid>
+        </mvp:AppFrame.Content>
+    </mvp:AppFrame>
+</pages:BaseContentPage >

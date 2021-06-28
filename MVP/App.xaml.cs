@@ -44,8 +44,6 @@ namespace MVP
 
             // Set the theme that the user has picked.
             Current.UserAppTheme = Settings.AppTheme;
-            //var statusBar = DependencyService.Get<IStatusBar>();
-            //statusBar?.SetStatusBarColor(Current.UserAppTheme, Color.Black);
 
             // Set our start page to the splash screen, as that is what we want
             // everyone to see first. It's glorious.
@@ -82,26 +80,26 @@ namespace MVP
             }
         }
 
-        /// <summary>
-        /// Handles expired access tokens.
-        /// </summary>
         async void MvpApiService_AccessTokenExpired(object sender, Services.Helpers.ApiServiceEventArgs e)
         {
-            // If the access token expired, we need to sign in again,
-            // because we might've lost our auth.
-            var result = await AuthService.SignInAsync();
-
-            if (!result)
+            if (e.IsTokenRefreshNeeded)
             {
-                // Show a message that data could not be refreshed. Also forward the user back to getting started
-                // telling the user that a logout has occurred.
-                await DialogService.AlertAsync(Translations.alert_error_unauthorized, Translations.error_title, Translations.ok);
+                // If the access token expired, we need to sign in again,
+                // because we might've lost our auth.
+                var result = await AuthService.SignInAsync();
 
-                // Move the user over to Getting Started.
-                await AuthService.SignOutAsync();
+                if (!result)
+                {
+                    // Show a message that data could not be refreshed. Also forward the user back to getting started
+                    // telling the user that a logout has occurred.
+                    await DialogService.AlertAsync(Translations.alert_error_unauthorized, Translations.error_title, Translations.ok);
 
-                var navHelper = Resolver.Resolve<INavigationHelper>();
-                navHelper.SetRootView(nameof(IntroPage));
+                    // Move the user over to Getting Started.
+                    await AuthService.SignOutAsync();
+
+                    var navHelper = Resolver.Resolve<INavigationHelper>();
+                    navHelper.SetRootView(nameof(IntroPage));
+                }
             }
         }
 

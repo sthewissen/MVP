@@ -23,5 +23,8 @@ namespace MVP.Services.Demo
             Settings.IsUsingDemoAccount = false;
             return Task.FromResult(true);
         }
+
+        public Task<string> RequestAuthorizationAsync(string authCode, bool isRefresh = false)
+            => null;
     }
 }

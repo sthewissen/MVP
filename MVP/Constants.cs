@@ -1,4 +1,5 @@
-﻿using MVP.Models.Enums;
+﻿using System;
+using MVP.Models.Enums;
 using Xamarin.Essentials;
 using Xamarin.Forms;
 
@@ -6,12 +7,20 @@ namespace MVP
 {
     public class Constants
     {
-        public static readonly string[] AuthScopes = { "wl.signin", "wl.emails" };
+        // TODO: Re-enable when we move to MSAL ; public static readonly string[] AuthScopes = { "User.Read" };
+        public static readonly string[] AuthScopes = { "wl.emails", "wl.basic", "wl.offline_access", "wl.signin" };
         public const string AuthType = "Bearer";
-        public const string AppName = "MVPBuzz Mobile App";
+        public const string AppName = "MVPBuzz App";
         public const string AccessToken = "AccessToken";
+        public const string RefreshToken = "RefreshToken";
         public const string SponsorUrl = "https://github.com/sponsors/sthewissen";
         public const string ApiUrl = "https://mvpapi.azure-api.net/mvp/api/";
+
+        // This is needed for "old style" login through Live ID. Unfortunately.
+        public const string RedirectUrl = "https://login.live.com/oauth20_desktop.srf";
+        public const string AccessTokenUrl = "https://login.live.com/oauth20_token.srf";
+        public static Uri SignInUrl = new Uri($"https://login.live.com/oauth20_authorize.srf?client_id={Helpers.Secrets.AuthClientId}&redirect_uri=https:%2F%2Flogin.live.com%2Foauth20_desktop.srf&response_type=code&scope={string.Join("%20", AuthScopes)}");
+        public static Uri SignOutUri = new Uri($"https://login.live.com/oauth20_logout.srf?client_id={Helpers.Secrets.AuthClientId}&redirect_uri=https:%2F%2Flogin.live.com%2Foauth20_desktop.srf");
     }
 
     public static class StateKeys

@@ -10,7 +10,7 @@ namespace MVP.Services
     /// <summary>
     /// Authenticates the user using their Live ID.
     /// </summary>
-    public class AuthService : IAuthService
+    public class MsalAuthService : IAuthService
     {
         readonly IAnalyticsService analyticsService;
         readonly IPublicClientApplication pca;
@@ -34,7 +34,7 @@ namespace MVP.Services
         // the login screen dialog from.
         public static object ParentWindow { get; set; }
 
-        public AuthService(IAnalyticsService analyticsService)
+        public MsalAuthService(IAnalyticsService analyticsService)
         {
             this.analyticsService = analyticsService;
             pca = PublicClientApplicationBuilder.Create(MVP.Helpers.Secrets.AuthClientId)
@@ -50,6 +50,7 @@ namespace MVP.Services
             {
                 var accounts = await pca.GetAccountsAsync();
                 var firstAccount = accounts.FirstOrDefault();
+                
                 var authResult = await pca.AcquireTokenSilent(Constants.AuthScopes, firstAccount).ExecuteAsync();
 
                 // Store the access token securely for later use.
@@ -83,7 +84,7 @@ namespace MVP.Services
                     // This means we need to login again through the MSAL window.
                     var authResult = await pca.AcquireTokenInteractive(Constants.AuthScopes)
                                                 .WithParentActivityOrWindow(ParentWindow)
-                                                .WithUseEmbeddedWebView(true)
+                                                .WithUseEmbeddedWebView(false)
                                                 .ExecuteAsync();
 
                     // Store the access token securely for later use.
@@ -128,5 +129,8 @@ namespace MVP.Services
                 return false;
             }
         }
+
+        public Task<string> RequestAuthorizationAsync(string authCode, bool isRefresh = false)
+            => throw new NotImplementedException();
     }
 }
