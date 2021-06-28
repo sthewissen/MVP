@@ -15,6 +15,9 @@ namespace MVP.iOS.Renderers
             base.ViewDidAppear(animated);
 
             // Ensures the back gesture swipe still works even though we're hiding the native nav bar.
+            if (ViewController.NavigationController == null)
+                return;
+
             ViewController.NavigationController.InteractivePopGestureRecognizer.Enabled = true;
             ViewController.NavigationController.InteractivePopGestureRecognizer.Delegate = new UIGestureRecognizerDelegate();
         }
