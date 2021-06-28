@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Reactive.Linq;
 using System.Threading.Tasks;
+using MVP.Extensions;
 using MVP.Models;
 using MVP.Services.Helpers;
 using MVP.Services.Interfaces;
@@ -132,6 +133,72 @@ namespace MVP.Services.Demo
             await Task.Delay(1000);
 
             return JsonConvert.DeserializeObject<List<Visibility>>(LocalResourceService.GetFile("getvisibilities"));
+        }
+
+        public async Task<bool> GetIsMvpAsync() => true;
+
+        public async Task<ContributionList> GetActiveCycleContributionsAsync(int offset = 0, int limit = 0)
+        {
+            // Let's fake some delay, to see all the fancy loaders!
+            await Task.Delay(3000);
+
+            // Take the local copy, which we sort of cached in this service.
+            if (allContributionList != null)
+                return new ContributionList()
+                {
+                    Contributions = allContributionList.Contributions.Skip(offset).Take(limit == 0 ? allContributionList.Contributions.Count : limit).ToList(),
+                    TotalContributions = allContributionList.Contributions.Count,
+                    PagingIndex = offset + limit > allContributionList.Contributions.Count ? allContributionList.Contributions.Count : offset + limit
+                };
+
+            // Get them from "remote" aka reset the whole thing.
+            var list = JsonConvert.DeserializeObject<List<Contribution>>(LocalResourceService.GetFile("getcontributions"));
+
+            allContributionList = new ContributionList()
+            {
+                Contributions = list.Where(x=>x.StartDate >= DateTime.Now.CurrentAwardPeriodStartDate()).OrderByDescending(x => x.StartDate).ToList(),
+                TotalContributions = list.Count,
+                PagingIndex = 0
+            };
+
+            return new ContributionList()
+            {
+                Contributions = list.Skip(offset).Take(limit == 0 ? allContributionList.Contributions.Count : limit).ToList(),
+                TotalContributions = list.Count,
+                PagingIndex = 0
+            }; ;
+        }
+
+        public async Task<ContributionList> GetHistoricalContributionsAsync(int offset = 0, int limit = 0)
+        {
+            // Let's fake some delay, to see all the fancy loaders!
+            await Task.Delay(3000);
+
+            // Take the local copy, which we sort of cached in this service.
+            if (allContributionList != null)
+                return new ContributionList()
+                {
+                    Contributions = allContributionList.Contributions.Skip(offset).Take(limit == 0 ? allContributionList.Contributions.Count : limit).ToList(),
+                    TotalContributions = allContributionList.Contributions.Count,
+                    PagingIndex = offset + limit > allContributionList.Contributions.Count ? allContributionList.Contributions.Count : offset + limit
+                };
+
+            // Get them from "remote" aka reset the whole thing.
+            var list = JsonConvert.DeserializeObject<List<Contribution>>(LocalResourceService.GetFile("getcontributions"));
+
+            allContributionList = new ContributionList()
+            {
+                Contributions = list.Where(x => x.StartDate < DateTime.Now.CurrentAwardPeriodStartDate()).OrderByDescending(x => x.StartDate).ToList(),
+                TotalContributions = list.Count,
+                PagingIndex = 0
+            };
+
+            return new ContributionList()
+            {
+                Contributions = list.Skip(offset).Take(limit == 0 ? allContributionList.Contributions.Count : limit).ToList(),
+                TotalContributions = list.Count,
+                PagingIndex = 0
+            }; ;
         }
 
         public event EventHandler<ApiServiceEventArgs> AccessTokenExpired;

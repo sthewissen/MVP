@@ -18,5 +18,7 @@ namespace MVP.Models
         public int? SecondAnnualQuantity { get; set; }
         public int? AnnualReach { get; set; }
         public string Description { get; set; }
+
+        public bool IsEditable { get; set; }
     }
 }

@@ -13,11 +13,20 @@ namespace MVP.Services.Interfaces
         [Get("/profile")]
         Task<Profile> GetProfile();
 
+        [Get("/profile/me")]
+        Task<bool> GetIsMVP();
+
         [Get("/profile/photo")]
         Task<string> GetProfileImage();
 
         [Get("/contributions/{offset}/{limit}")]
         Task<ContributionList> GetContributions(int offset, int limit);
+
+        [Get("/contributions/current/{offset}/{limit}")]
+        Task<ContributionList> GetActiveCycleContributions(int offset, int limit);
+
+        [Get("/contributions/historical/{offset}/{limit}")]
+        Task<ContributionList> GetHistoricalContributions(int offset, int limit);
 
         [Post("/contributions")]
         Task<Contribution> AddContribution([Body] Contribution contribution);

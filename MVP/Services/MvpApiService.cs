@@ -78,6 +78,28 @@ namespace MVP.Services
         }
 
         /// <summary>
+        /// Returns if the current user is an MVP.
+        /// </summary>
+        /// <returns></returns>
+        public async Task<bool> GetIsMvpAsync()
+        {
+            try
+            {
+                return await api.GetIsMVP();
+            }
+            catch (ApiException e)
+            {
+                HandleApiException(e);
+                return false;
+            }
+            catch (Exception e)
+            {
+                analyticsService.Report(e);
+                return false;
+            }
+        }
+
+        /// <summary>
         /// Returns the latest profile data from the API.
         /// </summary>
         /// <returns></returns>
@@ -166,6 +188,54 @@ namespace MVP.Services
             try
             {
                 return await api.GetContributions(offset, limit);
+            }
+            catch (ApiException e)
+            {
+                HandleApiException(e);
+                return null;
+            }
+            catch (Exception e)
+            {
+                analyticsService.Report(e);
+                return null;
+            }
+        }
+
+        /// <summary>
+        /// Gets the MVPs activities, depending on the offset (page) and the limit (number of items per-page)
+        /// </summary>
+        /// <param name="offset">page to return</param>
+        /// <param name="limit">number of items for the page</param>
+        /// <param name="forceRefresh">The result is cached in a backing list by default which prevents unnecessary fetches. If you want the cache refreshed, set this to true</param>
+        /// <returns>A list of the MVP's contributions</returns>
+        public async Task<ContributionList> GetActiveCycleContributionsAsync(int offset = 0, int limit = 0)
+        {
+            try
+            {
+                return await api.GetActiveCycleContributions(offset, limit);
+            }
+            catch (ApiException e)
+            {
+                HandleApiException(e);
+                return null;
+            }
+            catch (Exception e)
+            {
+                analyticsService.Report(e);
+                return null;
+            }
+        }
+        /// <summary>
+        /// Gets the MVPs activities, depending on the offset (page) and the limit (number of items per-page)
+        /// </summary>
+        /// <param name="offset">page to return</param>
+        /// <param name="limit">number of items for the page</param>
+        /// <returns>A list of the MVP's historical contributions</returns>
+        public async Task<ContributionList> GetHistoricalContributionsAsync(int offset = 0, int limit = 0)
+        {
+            try
+            {
+                return await api.GetHistoricalContributions(offset, limit);
             }
             catch (ApiException e)
             {
