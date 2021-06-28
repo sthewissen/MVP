@@ -7,6 +7,7 @@
                        x:TypeArguments="vm:LoginViewModel"
                        xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
                        xmlns:xct="http://xamarin.com/schemas/2020/toolkit"
+                       xmlns:resources="clr-namespace:MVP.Resources"
                        x:Class="MVP.Pages.LoginPage">
     <mvp:AppFrame IsModal="True"
                   ShadowOpacity="1"
