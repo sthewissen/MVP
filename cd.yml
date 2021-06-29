@@ -55,9 +55,11 @@ jobs:
   - task: CopyFiles@2
     inputs:
       contents: |
-        **/*.apk
-        **/*.aab
+        **/bin/*.apk
+        **/bin/*.aab
       targetFolder: '$(Build.ArtifactStagingDirectory)'
+      flattenFolders: true
+      cleanTargetFolder: true
 
   - task: PublishBuildArtifacts@1
     inputs:
@@ -120,9 +122,11 @@ jobs:
       
   - task: CopyFiles@2
     inputs:
-      contents: '**/*.ipa'
+      contents: '**/App/*.ipa'
       sourceFolder: '$(Build.BinariesDirectory)' 
       targetFolder: '$(Build.ArtifactStagingDirectory)'
+      flattenFolders: true
+      cleanTargetFolder: true
 
   - task: PublishBuildArtifacts@1
     inputs:
