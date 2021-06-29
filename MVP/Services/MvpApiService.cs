@@ -184,6 +184,7 @@ namespace MVP.Services
         /// <param name="forceRefresh">The result is cached in a backing list by default which prevents unnecessary fetches. If you want the cache refreshed, set this to true</param>
         /// <returns>A list of the MVP's contributions</returns>
         public async Task<ContributionList> GetContributionsAsync(int offset = 0, int limit = 0)
+        public async Task<ContributionList> GetContributionsAsync(int offset = 0, int limit = 0, bool forceRefresh = false)
         {
             try
             {

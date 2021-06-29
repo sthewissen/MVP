@@ -42,7 +42,8 @@ namespace MVP.ViewModels
             RefreshDataCommand = new AsyncCommand(() => RefreshContributions(true));
             LoadMoreCommand = new AsyncCommand(() => LoadMore());
 
-            MessagingService.Current.Subscribe(MessageKeys.RefreshNeeded, HandleRefreshContributionsMessage);
+            MessagingService.Current.Subscribe<Contribution>(MessageKeys.InMemoryAdd, HandleContributionAddMessage);
+            MessagingService.Current.Subscribe<Contribution>(MessageKeys.InMemoryDelete, HandleContributionDeleteMessage);
         }
 
         public async override Task Initialize()
@@ -113,10 +114,27 @@ namespace MVP.ViewModels
         }
 
         /// <summary>
-        /// Handles refreshing after saving/deleting.
+        /// Handles hard refreshing after saving/deleting.
         /// </summary>
         void HandleRefreshContributionsMessage(MessagingService obj)
             => RefreshContributions().SafeFireAndForget();
+
+        /// <summary>
+        /// Handles refreshing after adding.
+        /// </summary>
+        void HandleContributionAddMessage(MessagingService obj, Contribution contribution)
+        {
+            Contributions.Add(contribution);
+            Contributions = new ObservableCollection<Contribution>(Contributions.OrderByDescending(x => x.StartDate).ToList());
+        }
+
+        /// <summary>
+        /// Handles refreshing after adding.
+        /// </summary>
+        void HandleContributionDeleteMessage(MessagingService obj, Contribution contribution)
+        {
+            Contributions.Remove(contribution);
+        }
 
         /// <summary>
         /// Loads more contributions when scrolled to the bottom.
