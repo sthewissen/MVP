@@ -65,7 +65,8 @@
                     </xct:StateView>
                 </xct:StateLayout.StateViews>
 
-                <RefreshView Command="{Binding RefreshDataCommand}">
+                <RefreshView Command="{Binding RefreshDataCommand}"
+                             IsRefreshing="{Binding IsRefreshing, Mode=OneWay}">
                     <CollectionView ItemsSource="{Binding Contributions}"
                                     ItemsUpdatingScrollMode="KeepScrollOffset"
                                     ItemTemplate="{StaticResource contribution_item}"
@@ -81,7 +82,6 @@
                                             BindableLayout.ItemTemplate="{StaticResource contribution_item_loading}"
                                             BindableLayout.ItemsSource="{StaticResource faux_list}" />
                         </CollectionView.Footer>
-
                     </CollectionView>
                 </RefreshView>
             </Grid>
