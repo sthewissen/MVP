@@ -36,7 +36,7 @@ namespace MVP.Services.Demo
             return rawImage ? image : $"data:image/png;base64,{image}";
         }
 
-        public async Task<ContributionList> GetContributionsAsync(int offset = 0, int limit = 0)
+        public async Task<ContributionList> GetContributionsAsync(int offset = 0, int limit = 0, bool forceRefresh = false)
         {
             // Let's fake some delay, to see all the fancy loaders!
             await Task.Delay(3000);

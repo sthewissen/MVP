@@ -189,7 +189,7 @@ namespace MVP.ViewModels
                     await CloseModalAsync().ConfigureAwait(false);
 
                     MessagingService.Current.SendMessage(MessageKeys.InMemoryUpdate, Contribution.ToContribution());
-                    MessagingService.Current.SendMessage(MessageKeys.RefreshNeeded);
+                    //MessagingService.Current.SendMessage(MessageKeys.HardRefreshNeeded);
                 }
                 else
                 {
@@ -206,7 +206,8 @@ namespace MVP.ViewModels
                     AnalyticsService.Track("Contribution Added");
                     MainThread.BeginInvokeOnMainThread(() => HapticFeedback.Perform(HapticFeedbackType.LongPress));
                     await CloseModalAsync().ConfigureAwait(false);
-                    MessagingService.Current.SendMessage(MessageKeys.RefreshNeeded);
+                    MessagingService.Current.SendMessage(MessageKeys.InMemoryAdd, Contribution.ToContribution());
+                    //MessagingService.Current.SendMessage(MessageKeys.HardRefreshNeeded);
                 }
             }
             catch (Exception ex)

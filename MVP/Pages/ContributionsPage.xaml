@@ -64,24 +64,26 @@
                                              Command="{Binding RefreshDataCommand}" />
                     </xct:StateView>
                 </xct:StateLayout.StateViews>
-                
-                <CollectionView ItemsSource="{Binding Contributions}"
-                                ItemsUpdatingScrollMode="KeepScrollOffset"
-                                ItemTemplate="{StaticResource contribution_item}"
-                                Scrolled="CollectionView_Scrolled"
-                                SelectionMode="None"
-                                RemainingItemsThreshold="{Binding ItemThreshold}"
-                                RemainingItemsThresholdReachedCommand="{Binding LoadMoreCommand}"
-                                x:Name="collectionView">
 
-                    <CollectionView.Footer>
-                        <!--Want to re-use the template so creating a faux list of items -->
-                        <StackLayout IsVisible="{Binding IsLoadingMore}"
-                                        BindableLayout.ItemTemplate="{StaticResource contribution_item_loading}"
-                                        BindableLayout.ItemsSource="{StaticResource faux_list}" />
-                    </CollectionView.Footer>
+                <RefreshView Command="{Binding RefreshDataCommand}"
+                             IsRefreshing="{Binding IsRefreshing, Mode=OneWay}">
+                    <CollectionView ItemsSource="{Binding Contributions}"
+                                    ItemsUpdatingScrollMode="KeepScrollOffset"
+                                    ItemTemplate="{StaticResource contribution_item}"
+                                    Scrolled="CollectionView_Scrolled"
+                                    SelectionMode="None"
+                                    RemainingItemsThreshold="{Binding ItemThreshold}"
+                                    RemainingItemsThresholdReachedCommand="{Binding LoadMoreCommand}"
+                                    x:Name="collectionView">
 
-                </CollectionView>
+                        <CollectionView.Footer>
+                            <!--Want to re-use the template so creating a faux list of items -->
+                            <StackLayout IsVisible="{Binding IsLoadingMore}"
+                                            BindableLayout.ItemTemplate="{StaticResource contribution_item_loading}"
+                                            BindableLayout.ItemsSource="{StaticResource faux_list}" />
+                        </CollectionView.Footer>
+                    </CollectionView>
+                </RefreshView>
             </Grid>
         </mvp:AppFrame.Content>
     </mvp:AppFrame>

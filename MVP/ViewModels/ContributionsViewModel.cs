@@ -39,16 +39,18 @@ namespace MVP.ViewModels
         {
             OpenContributionCommand = new AsyncCommand<Contribution>((Contribution c) => OpenContribution(c));
             SecondaryCommand = new AsyncCommand(() => OpenAddContribution());
-            RefreshDataCommand = new AsyncCommand(() => RefreshContributions(true));
+            RefreshDataCommand = new AsyncCommand(RefreshContributions);
             LoadMoreCommand = new AsyncCommand(() => LoadMore());
 
-            MessagingService.Current.Subscribe(MessageKeys.RefreshNeeded, HandleRefreshContributionsMessage);
+            MessagingService.Current.Subscribe<Contribution>(MessageKeys.InMemoryAdd, HandleContributionAddMessage);
+            MessagingService.Current.Subscribe<Contribution>(MessageKeys.InMemoryDelete, HandleContributionDeleteMessage);
+            MessagingService.Current.Subscribe<Contribution>(MessageKeys.InMemoryUpdate, HandleContributionUpdateMessage);
         }
 
         public async override Task Initialize()
         {
             await base.Initialize();
-            RefreshContributions().SafeFireAndForget();
+            LoadContributions().SafeFireAndForget();
 
 #if !DEBUG
             if (!Settings.IsUsingDemoAccount)
@@ -70,10 +72,16 @@ namespace MVP.ViewModels
 #endif
         }
 
+        Task RefreshContributions()
+        {
+            IsRefreshing = true;
+            return LoadContributions(true);
+        }
+
         /// <summary>
         /// Refreshes the list of contributions.
         /// </summary>
-        async Task RefreshContributions(bool refresh = false)
+        async Task LoadContributions(bool refresh = false)
         {
             ItemThreshold = 2;
 
@@ -113,10 +121,48 @@ namespace MVP.ViewModels
         }
 
         /// <summary>
-        /// Handles refreshing after saving/deleting.
+        /// Handles hard refreshing after saving/deleting.
         /// </summary>
         void HandleRefreshContributionsMessage(MessagingService obj)
-            => RefreshContributions().SafeFireAndForget();
+            => LoadContributions().SafeFireAndForget();
+
+        /// <summary>
+        /// Handles refreshing after adding.
+        /// </summary>
+        void HandleContributionAddMessage(MessagingService obj, Contribution contribution)
+        {
+            State = LayoutState.Loading;
+            Contributions.Add(contribution);
+            Contributions = new ObservableCollection<Contribution>(Contributions.OrderByDescending(x => x.StartDate).ToList());
+            State = LayoutState.None;
+        }
+
+        /// <summary>
+        /// Handles refreshing after updating.
+        /// </summary>
+        void HandleContributionUpdateMessage(MessagingService obj, Contribution contribution)
+        {
+            var prev = Contributions.FirstOrDefault(x=>x.ContributionId == contribution.ContributionId);
+
+            if (prev != null)
+            {
+                State = LayoutState.Loading;
+                Contributions.Remove(prev);
+                Contributions.Add(contribution);
+                Contributions = new ObservableCollection<Contribution>(Contributions.OrderByDescending(x => x.StartDate).ToList());
+                State = LayoutState.None;
+            }
+        }
+
+        /// <summary>
+        /// Handles refreshing after adding.
+        /// </summary>
+        void HandleContributionDeleteMessage(MessagingService obj, Contribution contribution)
+        {
+            State = LayoutState.Loading;
+            Contributions.Remove(contribution);
+            State = LayoutState.None;
+        }
 
         /// <summary>
         /// Loads more contributions when scrolled to the bottom.
