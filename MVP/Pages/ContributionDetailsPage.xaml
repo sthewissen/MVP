@@ -129,14 +129,27 @@
                                  Margin="0,16"
                                  Style="{StaticResource separator}"/>
 
-                        <Label Style="{StaticResource field_title}"
-                               Text="{x:Static resources:Translations.field_url}"/>
-                        <controls:UrlPreviewView Margin="-24,0"
-                                                 Url="{Binding Contribution.ReferenceUrl}"
-                                                 xct:TouchEffect.Command="{Binding OpenUrlCommand}"
-                                                 Style="{StaticResource tappable_element}" />
-                        <BoxView Margin="0,-4,0,16"
-                                 Style="{StaticResource separator}"/>
+                        <StackLayout>
+                            <StackLayout.IsVisible>
+                                <MultiBinding Converter="{xct:VariableMultiValueConverter ConditionType=Any}">
+                                    <Binding Path="HasValidUrl"
+                                             Source="{x:Reference urlView}"/>
+                                    <Binding Path="HasMetadata"                       
+                                             Source="{x:Reference urlView}"/>
+                                </MultiBinding>
+                            </StackLayout.IsVisible>
+                            <Label Style="{StaticResource field_title}"
+                                   Text="{x:Static resources:Translations.field_url}"/>
+
+                            <controls:UrlPreviewView Margin="-24,0"
+                                                     x:Name="urlView"
+                                                     Url="{Binding Contribution.ReferenceUrl}"
+                                                     xct:TouchEffect.Command="{Binding OpenUrlCommand}"
+                                                     Style="{StaticResource tappable_element}" />
+
+                            <BoxView Margin="0,-4,0,16"
+                                     Style="{StaticResource separator}"/>
+                        </StackLayout>
 
                         <Label IsVisible="{Binding ContributionTypeConfig.AnnualQuantityHeader, Converter={xct:IsNotNullOrEmptyConverter}}"
                                Style="{StaticResource field_title}"
