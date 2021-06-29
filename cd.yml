@@ -55,8 +55,8 @@ jobs:
   - task: CopyFiles@2
     inputs:
       contents: |
-        **/bin/*.apk
-        **/bin/*.aab
+        **/bin/Release/*.apk
+        **/bin/Release/*.aab
       targetFolder: '$(Build.ArtifactStagingDirectory)'
       flattenFolders: true
       cleanTargetFolder: true
