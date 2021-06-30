@@ -13,10 +13,10 @@ namespace MVP.Extensions
         /// </summary>
         public static DateTime CurrentAwardPeriodStartDate(this DateTime dateTime)
         {
-            var currentYearStart = new DateTime(DateTime.Now.Year, 4, 1);
-            var lastYearStart = new DateTime(DateTime.Now.Year - 1, 4, 1);
+            var currentYearStart = new DateTime(DateTime.Now.Year, 4, 1, 0, 0, 0);
+            var lastYearStart = new DateTime(DateTime.Now.Year - 1, 4, 1, 0, 0, 0);
 
-            return dateTime >= currentYearStart ? currentYearStart : lastYearStart;
+            return dateTime.Date >= currentYearStart.Date ? currentYearStart : lastYearStart;
         }
 
         /// <summary>
@@ -25,7 +25,7 @@ namespace MVP.Extensions
         public static bool IsWithinCurrentAwardPeriod(this DateTime dateTime)
         {
             var periodStart = dateTime.CurrentAwardPeriodStartDate();
-            return dateTime >= periodStart;
+            return dateTime.Date >= periodStart.Date;
         }
 
         /// <summary>
@@ -38,7 +38,7 @@ namespace MVP.Extensions
 
             var periodStart = dateTime.Value.CurrentAwardPeriodStartDate();
 
-            return dateTime >= periodStart;
+            return dateTime.Value.Date >= periodStart.Date;
         }
     }
 }
