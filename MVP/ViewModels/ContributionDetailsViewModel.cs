@@ -93,7 +93,6 @@ namespace MVP.ViewModels
                     await MainThread.InvokeOnMainThreadAsync(() => BackAsync());
 
                     MessagingService.Current.SendMessage(MessageKeys.InMemoryDelete, Contribution);
-                    //MessagingService.Current.SendMessage(MessageKeys.HardRefreshNeeded);
                 }
                 else
                 {
