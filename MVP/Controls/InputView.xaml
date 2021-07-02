@@ -86,5 +86,6 @@
     <Label Margin="32,0"
            IsVisible="{Binding Errors, Converter={xct:IsNotNullOrEmptyConverter}, Source={x:Reference inputView}}"
            Text="{Binding Errors, Source={x:Reference inputView}}"
+           FontSize="{StaticResource fontsize_small}"
            TextColor="{StaticResource error}" />
 </StackLayout>

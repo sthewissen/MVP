@@ -11,15 +11,20 @@
                        x:DataType="vm:IntroViewModel"
                        x:TypeArguments="vm:IntroViewModel"
                        xmlns:ff="clr-namespace:FFImageLoading.Svg.Forms;assembly=FFImageLoading.Svg.Forms">
+    
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="{x:Static resources:Translations.sign_in}"
+                     Order="Primary"
+                     Command="{Binding SecondaryCommand}"
+                     Priority="0" />
+    </ContentPage.ToolbarItems>
 
     <pages:BaseContentPage.Resources>
         <x:Int32 x:Key="LastItemIndex">1</x:Int32>
     </pages:BaseContentPage.Resources>
 
-    <mvp:AppFrame SecondaryButtonText="{x:Static resources:Translations.sign_in}"
-                  ShadowOpacity="0"
+    <mvp:AppFrame ShadowOpacity="0"
                   ShowTabShadow="False"
-                  ShowSecondaryButton="True"
                   x:Name="appFrame"
                   xct:SafeAreaEffect.SafeArea="false,true">
         <mvp:AppFrame.Content>

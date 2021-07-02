@@ -11,11 +11,10 @@
                        xmlns:controls="clr-namespace:MVP.Controls"
                        xmlns:mvp="clr-namespace:MVP"
                        xmlns:xct="http://xamarin.com/schemas/2020/toolkit"
-                       x:Name="additionalContributionTechnologyPage">
+                       x:Name="additionalContributionTechnologyPage"
+                       Title="{x:Static resources:Translations.additionaltechnologypicker_title}">
 
-    <mvp:AppFrame ShowBackButton="True"
-                  ShowTabShadow="False"
-                  Title="{x:Static resources:Translations.additionaltechnologypicker_title}"
+    <mvp:AppFrame ShowTabShadow="False"
                   x:Name="appFrame">
         <mvp:AppFrame.Content>
             <Grid RowDefinitions="Auto,*"

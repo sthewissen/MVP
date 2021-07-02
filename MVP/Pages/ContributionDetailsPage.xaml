@@ -13,7 +13,16 @@
                        x:Class="MVP.Pages.ContributionDetailsPage"
                        x:DataType="vm:ContributionDetailsViewModel"
                        x:Name="page"
-                       x:TypeArguments="vm:ContributionDetailsViewModel">
+                       x:TypeArguments="vm:ContributionDetailsViewModel"
+                       Title="{x:Static resources:Translations.contributiondetails_title}">
+    
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="{x:Static resources:Translations.contributiondetails_edit}"
+                     Order="Primary"
+                     Command="{Binding SecondaryCommand}"
+                     Priority="0" />
+    </ContentPage.ToolbarItems>
+
     <pages:BaseContentPage.Resources>
         <ResourceDictionary>
             <ControlTemplate x:Key="warning">
@@ -36,9 +45,8 @@
             </ControlTemplate>
         </ResourceDictionary>
     </pages:BaseContentPage.Resources>
-    <mvp:AppFrame SecondaryButtonText="{x:Static resources:Translations.contributiondetails_edit}"
-                  ShowBackButton="{Binding State, Converter={xct:NotEqualConverter}, ConverterParameter={x:Static xct:LayoutState.Loading}}"
-                  Title="{x:Static resources:Translations.contributiondetails_title}"
+
+    <mvp:AppFrame ShowBackButton="{Binding State, Converter={xct:NotEqualConverter}, ConverterParameter={x:Static xct:LayoutState.Loading}}"
                   x:Name="appFrame">
 
         <mvp:AppFrame.ShowSecondaryButton>

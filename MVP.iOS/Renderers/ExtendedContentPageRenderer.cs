@@ -1,4 +1,5 @@
-﻿using MVP.iOS.Renderers;
+﻿using System.Collections.Generic;
+using MVP.iOS.Renderers;
 using MVP.Pages;
 using TinyMvvm.Forms;
 using UIKit;
@@ -20,6 +21,33 @@ namespace MVP.iOS.Renderers
 
             ViewController.NavigationController.InteractivePopGestureRecognizer.Enabled = true;
             ViewController.NavigationController.InteractivePopGestureRecognizer.Delegate = new UIGestureRecognizerDelegate();
+
+            var leftNavList = new List<UIBarButtonItem>();
+            var rightNavList = new List<UIBarButtonItem>();
+            var page = Element as ContentPage;
+            var navigationItem = NavigationController.TopViewController.NavigationItem;
+
+            if (page.ToolbarItems.Count != navigationItem.RightBarButtonItems.Length)
+                return;
+
+            for (var i = 0; i < page.ToolbarItems.Count; i++)
+            {
+                var itemPriority = page.ToolbarItems[i].Priority;
+
+                if (itemPriority < 0)
+                {
+                    var leftNavItems = navigationItem.RightBarButtonItems[i];
+                    leftNavList.Add(leftNavItems);
+                }
+                else if (itemPriority == 0)
+                {
+                    var rightNavItems = navigationItem.RightBarButtonItems[i];
+                    rightNavList.Add(rightNavItems);
+                }
+            }
+
+            navigationItem.SetLeftBarButtonItems(leftNavList.ToArray(), false);
+            navigationItem.SetRightBarButtonItems(rightNavList.ToArray(), false);
         }
     }
 }

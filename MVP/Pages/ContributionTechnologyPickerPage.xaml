@@ -11,11 +11,10 @@
                        x:TypeArguments="vm:ContributionTechnologyPickerViewModel"
                        xmlns:controls="clr-namespace:MVP.Controls"
                        xmlns:mvp="clr-namespace:MVP"
-                       x:Name="contributionTechnologyPage">
+                       x:Name="contributionTechnologyPage"
+                       Title="{x:Static resources:Translations.contributiontechnologypicker_title}">
 
-    <mvp:AppFrame ShowBackButton="True"
-                  Title="{x:Static resources:Translations.contributiontechnologypicker_title}"
-                  x:Name="appFrame">
+    <mvp:AppFrame x:Name="appFrame">
         <mvp:AppFrame.Content>
             <Grid RowDefinitions="Auto,*"
                   xct:StateLayout.CurrentState="{Binding State}"

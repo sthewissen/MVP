@@ -10,11 +10,10 @@
                        xmlns:resources="clr-namespace:MVP.Resources"
                        x:TypeArguments="vm:AboutViewModel"
                        xmlns:pages="clr-namespace:MVP.Pages"
-                       xmlns:xct="http://xamarin.com/schemas/2020/toolkit">
+                       xmlns:xct="http://xamarin.com/schemas/2020/toolkit"
+                       Title="{x:Static resources:Translations.about_title}">
 
-    <mvp:AppFrame Title="{x:Static resources:Translations.about_title}"
-                  ShowBackButton="True"
-                  x:Name="appFrame">
+    <mvp:AppFrame x:Name="appFrame">
         <mvp:AppFrame.Content>
 
             <ScrollView Scrolled="ScrollView_Scrolled"

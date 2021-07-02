@@ -146,12 +146,14 @@
     <Style TargetType="ContentPage" ApplyToDerivedTypes="True">
         <Setter Property="BackgroundColor" Value="{AppThemeBinding Light={StaticResource white}, Dark={StaticResource black}}" />
         <Setter Property="ios:Page.ModalPresentationStyle" Value="FormSheet" />
-        <Setter Property="NavigationPage.HasNavigationBar" Value="False" />
+        <Setter Property="NavigationPage.BackButtonTitle" Value="" />
+        <!--<Setter Property="NavigationPage.HasNavigationBar" Value="False" />-->
     </Style>
 
     <Style TargetType="NavigationPage" ApplyToDerivedTypes="True">
         <Setter Property="BarBackgroundColor" Value="{AppThemeBinding Light={StaticResource white}, Dark={StaticResource black}}" />
         <Setter Property="BarTextColor" Value="{AppThemeBinding Light={StaticResource black}, Dark={StaticResource white}}" />
+        <Setter Property="ios:NavigationPage.HideNavigationBarSeparator" Value="true" />
     </Style>
 
     <Style TargetType="TabbedPage" ApplyToDerivedTypes="True" CanCascade="True">
@@ -211,9 +213,9 @@
         <Setter Property="SelectedIndicatorColor" Value="{AppThemeBinding Light={StaticResource primary}, Dark={StaticResource primary_200}}"/>
     </Style>
 
-    <Style TargetType="mvp:AppFrame">
+    <!--<Style TargetType="mvp:AppFrame">
         <Setter Property="xct:SafeAreaEffect.SafeArea" Value="false,true,false,false" />
-    </Style>
+    </Style>-->
 
     <!--Explicit stylings-->
 
@@ -469,27 +471,27 @@
     </Style>
 
     <Style x:Key="error_text" TargetType="Label">
-        <Setter Property="TextColor" Value="{AppThemeBinding Light={StaticResource red_dark}, Dark={StaticResource black}}"/>
+        <Setter Property="TextColor" Value="{AppThemeBinding Light={StaticResource white}, Dark={StaticResource black}}"/>
     </Style>
 
     <Style x:Key="error_title" TargetType="Label">
-        <Setter Property="TextColor" Value="{AppThemeBinding Light={StaticResource red_dark}, Dark={StaticResource black}}"/>
+        <Setter Property="TextColor" Value="{AppThemeBinding Light={StaticResource white}, Dark={StaticResource black}}"/>
         <Setter Property="VerticalTextAlignment" Value="Center"/>
         <Setter Property="FontFamily" Value="{StaticResource font_semibold}"/>
         <Setter Property="VerticalOptions" Value="Center"/>
     </Style>
 
     <Style x:Key="error_icon" TargetType="Label">
-        <Setter Property="TextColor" Value="{AppThemeBinding Light={StaticResource red_dark}, Dark={StaticResource black}}"/>
+        <Setter Property="TextColor" Value="{AppThemeBinding Light={StaticResource white}, Dark={StaticResource black}}"/>
         <Setter Property="FontFamily" Value="{StaticResource font_icon}"/>
         <Setter Property="FontSize" Value="{StaticResource fontsize_h3}"/>
         <Setter Property="VerticalOptions" Value="Center"/>
     </Style>
 
     <Style x:Key="error_frame" TargetType="Frame">
-        <Setter Property="Padding" Value="16"/>
+        <Setter Property="Padding" Value="16,16,16,0"/>
         <Setter Property="Margin" Value="0,0,0,16"/>
-        <Setter Property="BackgroundColor" Value="{AppThemeBinding Light={StaticResource error_200}, Dark={StaticResource error_400}}"/>
+        <Setter Property="BackgroundColor" Value="{AppThemeBinding Light={StaticResource error_400}, Dark={StaticResource error_400}}"/>
     </Style>
 
     <Style x:Key="contributionform_note" TargetType="Label">

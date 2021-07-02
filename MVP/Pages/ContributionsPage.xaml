@@ -10,7 +10,15 @@
                        x:Class="MVP.Pages.ContributionsPage"
                        x:DataType="vm:ContributionsViewModel"
                        x:Name="page"
+                       Title="{x:Static resources:Translations.contributions_title}" 
                        x:TypeArguments="vm:ContributionsViewModel">
+
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="{x:Static resources:Translations.contribution_add}"
+                     Order="Primary"
+                     Command="{Binding SecondaryCommand}"
+                     Priority="0" />
+    </ContentPage.ToolbarItems>
 
     <pages:BaseContentPage.Resources>
         <xct:MultiConverter x:Key="NotLoadingConverter">
@@ -19,9 +27,7 @@
         </xct:MultiConverter>
     </pages:BaseContentPage.Resources>
 
-    <mvp:AppFrame SecondaryButtonText="{x:Static resources:Translations.contribution_add}"
-                  ShowSecondaryButton="{Binding State, Converter={StaticResource NotLoadingConverter}}"
-                  Title="{x:Static resources:Translations.contributions_title}"
+    <mvp:AppFrame ShowSecondaryButton="{Binding State, Converter={StaticResource NotLoadingConverter}}"
                   x:Name="appFrame">
         <mvp:AppFrame.Content>
             <Grid xct:StateLayout.CurrentState="{Binding State}"

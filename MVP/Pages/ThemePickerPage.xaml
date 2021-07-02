@@ -7,11 +7,10 @@
                        xmlns:mvp="clr-namespace:MVP"
                        x:Class="MVP.Pages.ThemePickerPage"
                        x:DataType="vm:ThemePickerViewModel"
-                       x:TypeArguments="vm:ThemePickerViewModel">
+                       x:TypeArguments="vm:ThemePickerViewModel"
+                       Title="{x:Static resources:Translations.themepicker_title}">
 
-    <mvp:AppFrame Title="{x:Static resources:Translations.themepicker_title}"
-                  ShowBackButton="True"
-                  x:Name="appFrame">
+    <mvp:AppFrame x:Name="appFrame">
         <mvp:AppFrame.Content>
             <CollectionView ItemsSource="{Binding AppThemes}"
                             ItemTemplate="{StaticResource app_theme_item}"
