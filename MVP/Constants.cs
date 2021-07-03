@@ -44,6 +44,7 @@ namespace MVP
         public const string Visibilities = "visibilities";
         public const string Profile = "profile";
         public const string Avatar = "avatar";
+        public const string FirstPageContributions = "firstPageContributions";
     }
 
     public class Settings

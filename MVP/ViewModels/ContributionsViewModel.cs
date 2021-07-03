@@ -2,6 +2,8 @@
 using System.Collections.ObjectModel;
 using System.Diagnostics;
 using System.Linq;
+using System.Reactive.Linq;
+using System.Reactive.Threading.Tasks;
 using System.Threading.Tasks;
 using MVP.Extensions;
 using MVP.Models;
@@ -93,32 +95,25 @@ namespace MVP.ViewModels
                 return;
             }
 
-            try
-            {
-                State = LayoutState.Loading;
+            State = LayoutState.Loading;
 
-                var contributionsList = await MvpApiService.GetContributionsAsync(0, pageSize).ConfigureAwait(false);
+            MvpApiService
+                .GetContributionsAsync(0, pageSize)
+                .Subscribe(contributionsList =>
+                    {
+                        if (contributionsList == null)
+                            State = LayoutState.Error;
 
-                if (contributionsList == null)
-                {
-                    State = LayoutState.Error;
-                    return;
-                }
-
-                Contributions = new ObservableCollection<Contribution>(contributionsList.Contributions.OrderByDescending(x => x.StartDate).ToList());
-            }
-            catch (Exception ex)
-            {
-                AnalyticsService.Report(ex);
-                State = LayoutState.Error;
-            }
-            finally
-            {
-                IsRefreshing = false;
-
-                if (State != LayoutState.Error)
-                    State = Contributions.Count > 0 ? LayoutState.None : LayoutState.Empty;
-            }
+                        Contributions = new ObservableCollection<Contribution>(contributionsList.Contributions
+                            .OrderByDescending(x => x.StartDate).ToList());
+                    },
+                    ex =>
+                    {
+                        AnalyticsService.Report(ex);
+                        State = LayoutState.Error;
+                        IsRefreshing = false;
+                    },
+                    () => { IsRefreshing = false; });
         }
 
         /// <summary>
@@ -180,7 +175,7 @@ namespace MVP.ViewModels
             {
                 IsLoadingMore = true;
 
-                var contributionsList = await MvpApiService.GetContributionsAsync(Contributions.Count, pageSize).ConfigureAwait(false);
+                var contributionsList = await MvpApiService.GetContributionsAsync(Contributions.Count, pageSize).ToTask().ConfigureAwait(false);
 
                 if (contributionsList == null)
                 {

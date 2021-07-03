@@ -19,7 +19,7 @@ namespace MVP.Services.Interfaces
         Task<string> GetProfileImageAsync(bool forceRefresh = false, bool rawImage = false);
 
         Task<bool> DeleteContributionAsync(Contribution contribution);
-        Task<ContributionList> GetContributionsAsync(int offset = 0, int limit = 0, bool forceRefresh = false);
+        IObservable<ContributionList> GetContributionsAsync(int offset = 0, int limit = 0, bool forceRefresh = false);
         Task<ContributionList> GetActiveCycleContributionsAsync(int offset = 0, int limit = 0);
         Task<ContributionList> GetHistoricalContributionsAsync(int offset = 0, int limit = 0);
         Task<Contribution> SubmitContributionAsync(Contribution contribution);
