@@ -15,6 +15,7 @@ using Plugin.StoreReview;
 using Xamarin.CommunityToolkit.ObjectModel;
 using Xamarin.CommunityToolkit.UI.Views;
 using Xamarin.Essentials;
+using Xamarin.Forms;
 
 namespace MVP.ViewModels
 {
@@ -213,7 +214,12 @@ namespace MVP.ViewModels
         }
 
         async Task OpenAddContribution(Contribution prefilledData = null)
-            => await OpenModalAsync(nameof(ContributionFormPage), prefilledData, true).ConfigureAwait(false);
+        {
+            if(Device.RuntimePlatform == Device.iOS)
+                await OpenModalAsync(nameof(ContributionFormPage), prefilledData, true).ConfigureAwait(false);
+            else
+                await NavigateAsync(nameof(ContributionFormPage), prefilledData).ConfigureAwait(false);
+        }
 
         async Task OpenContribution(Contribution contribution)
             => await NavigateAsync(nameof(ContributionDetailsPage), contribution).ConfigureAwait(false);

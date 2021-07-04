@@ -42,7 +42,8 @@ namespace MVP.ViewModels
                         else
                         {
                             // Authed
-                            await CloseModalAsync();
+                            await BackAsync();
+
                             AnalyticsService.Track("User Logged In");
 
                             MainThread.BeginInvokeOnMainThread(() =>
@@ -71,6 +72,11 @@ namespace MVP.ViewModels
         // Pop the entire modal stack instead of just going back one screen.
         // This means it's editing mode and there is no way to go back and change activity type.
         public async override Task BackAsync()
-            => await CloseModalAsync().ConfigureAwait(false);
+        {
+            if (Device.RuntimePlatform == Device.iOS)
+                await CloseModalAsync().ConfigureAwait(false);
+            else
+                await base.BackAsync().ConfigureAwait(false);
+        }
     }
 }

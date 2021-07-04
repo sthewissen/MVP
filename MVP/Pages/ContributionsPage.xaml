@@ -9,6 +9,7 @@
                        xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
                        x:Class="MVP.Pages.ContributionsPage"
                        x:DataType="vm:ContributionsViewModel"
+                       xmlns:icons="clr-namespace:MVP.Styles"
                        x:Name="page"
                        Title="{x:Static resources:Translations.contributions_title}" 
                        x:TypeArguments="vm:ContributionsViewModel">

@@ -10,6 +10,8 @@
         <!--We will be using the toolbar so no need to show ActionBar-->
         <item name="windowActionBar">false</item>
 
+        <item name="android:fontFamily">@font/sourcesansprobold</item>
+
         <!-- Set theme colors from https://aka.ms/material-colors -->
         <!-- colorPrimary is used for the default action bar background -->
         <item name="colorPrimary">@color/colorPrimary</item>

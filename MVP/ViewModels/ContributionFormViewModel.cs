@@ -14,6 +14,7 @@ using MVP.ViewModels.Data;
 using Xamarin.CommunityToolkit.ObjectModel;
 using Xamarin.CommunityToolkit.UI.Views;
 using Xamarin.Essentials;
+using Xamarin.Forms;
 
 namespace MVP.ViewModels
 {
@@ -186,7 +187,7 @@ namespace MVP.ViewModels
 
                     MainThread.BeginInvokeOnMainThread(() => HapticFeedback.Perform(HapticFeedbackType.LongPress));
                     AnalyticsService.Track("Contribution Edited");
-                    await CloseModalAsync().ConfigureAwait(false);
+                    await BackAsync().ConfigureAwait(false);
 
                     MessagingService.Current.SendMessage(MessageKeys.InMemoryUpdate, Contribution.ToContribution());
                     //MessagingService.Current.SendMessage(MessageKeys.HardRefreshNeeded);
@@ -205,7 +206,8 @@ namespace MVP.ViewModels
 
                     AnalyticsService.Track("Contribution Added");
                     MainThread.BeginInvokeOnMainThread(() => HapticFeedback.Perform(HapticFeedbackType.LongPress));
-                    await CloseModalAsync().ConfigureAwait(false);
+                    await BackAsync().ConfigureAwait(false);
+
                     MessagingService.Current.SendMessage(MessageKeys.InMemoryAdd, Contribution.ToContribution());
                     //MessagingService.Current.SendMessage(MessageKeys.HardRefreshNeeded);
                 }
@@ -245,7 +247,12 @@ namespace MVP.ViewModels
         // Pop the entire modal stack instead of just going back one screen.
         // This means it's editing mode and there is no way to go back and change activity type.
         public async override Task BackAsync()
-            => await CloseModalAsync().ConfigureAwait(false);
+        {
+            if (Device.RuntimePlatform == Device.iOS)
+                await CloseModalAsync().ConfigureAwait(false);
+            else
+                await base.BackAsync().ConfigureAwait(false);
+        }
 
         async Task PickAdditionalTechnologies()
             => await NavigateAsync(nameof(AdditionalTechnologyPickerPage), Contribution).ConfigureAwait(false);
