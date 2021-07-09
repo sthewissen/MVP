@@ -7,6 +7,7 @@
              xct:StateLayout.CurrentState="{Binding State, Source={x:Reference urlView}}"
              x:Class="MVP.Controls.UrlPreviewView"
              x:Name="urlView"
+             Margin="0,0,0,16"
              Padding="24,0">
 
     <xct:StateLayout.StateViews>
@@ -15,6 +16,7 @@
                   ColumnSpacing="24"
                   RowDefinitions="Auto, Auto"
                   RowSpacing="4"
+                  Margin="0,16,0,0"
                   VerticalOptions="Fill">
 
                 <controls:SkeletonView CornerRadius="8"
@@ -32,7 +34,7 @@
         </xct:StateView>
     </xct:StateLayout.StateViews>
     
-    <Grid Margin="0,0,0,16">
+    <Grid>
         <Grid.IsVisible>
             <MultiBinding Converter="{xct:VariableMultiValueConverter ConditionType=All}">
                 <Binding Path="HasValidUrl"
@@ -46,7 +48,7 @@
         <Label Text="{Binding Url, Source={x:Reference urlView}}" />
     </Grid>
     
-    <Grid Margin="0,0,0,16">
+    <Grid>
         <Grid.IsVisible>
             <MultiBinding Converter="{xct:VariableMultiValueConverter ConditionType=All}">
                 <Binding Path="HasValidUrl"

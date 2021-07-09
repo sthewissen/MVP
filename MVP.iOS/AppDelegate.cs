@@ -1,4 +1,6 @@
-﻿using Autofac;
+﻿using System;
+using System.Text;
+using Autofac;
 using Foundation;
 using Microsoft.Identity.Client;
 using MVP.Services;

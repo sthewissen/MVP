@@ -1,14 +1,10 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <Grid xmlns="http://xamarin.com/schemas/2014/forms"
-      xmlns:icons="clr-namespace:MVP.Styles"
       xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-      ColumnDefinitions="Auto,*,Auto"
-      ColumnSpacing="8"
-      RowDefinitions="56, *"
       x:Class="MVP.AppFrame"
       x:Name="appFrame">
 
-    <Button BackgroundColor="Transparent"
+    <!--<Button BackgroundColor="Transparent"
             Command="{Binding BackCommand}"
             Grid.Column="0"
             Margin="16,0,0,0"
@@ -70,18 +66,14 @@
            Grid.Row="0"
            BackgroundColor="Transparent"
            Style="{StaticResource menu_title}"
-           Text="{Binding Path=Title, Source={x:Reference appFrame}}"/>
+           Text="{Binding Path=Title, Source={x:Reference appFrame}}"/>-->
 
     <ContentView Content="{Binding Path=Content,Source={x:Reference appFrame}}"
-                 Grid.ColumnSpan="3"
-                 Grid.Row="1"
                  HorizontalOptions="FillAndExpand"
                  VerticalOptions="FillAndExpand"
                  x:Name="ContentGrid"/>
 
     <Image Aspect="AspectFill"
-           Grid.ColumnSpan="3"
-           Grid.Row="1"
            BackgroundColor="Transparent"
            Opacity="{Binding ShadowOpacity, Source={x:Reference appFrame}}"
            Source="shadow.png"
@@ -89,8 +81,6 @@
 
     <Image x:Name="tabShadow"
            Aspect="AspectFill"
-           Grid.ColumnSpan="3"
-           Grid.Row="1"
            Rotation="180"
            BackgroundColor="Transparent"
            IsVisible="{Binding ShowTabShadow, Source={x:Reference appFrame}}"

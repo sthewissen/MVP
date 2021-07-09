@@ -8,13 +8,24 @@
                        xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
                        xmlns:xct="http://xamarin.com/schemas/2020/toolkit"
                        xmlns:resources="clr-namespace:MVP.Resources"
-                       x:Class="MVP.Pages.LoginPage">
-    <mvp:AppFrame IsModal="True"
-                  ShadowOpacity="1"
-                  ShowBackButton="True"
-                  Title="{x:Static resources:Translations.sign_in}"
+                       xmlns:icons="clr-namespace:MVP.Styles"
+                       x:Class="MVP.Pages.LoginPage"
+                       Title="{x:Static resources:Translations.sign_in}">
+    
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Order="Primary"
+                     Command="{Binding BackCommand}"
+                     Priority="-1">
+            <ToolbarItem.IconImageSource>
+                <FontImageSource FontFamily="{StaticResource font_icon}" Size="22" Glyph="{x:Static icons:Icons.x}" />
+            </ToolbarItem.IconImageSource>
+        </ToolbarItem>
+    </ContentPage.ToolbarItems>
+
+    <mvp:AppFrame ShadowOpacity="1"
                   x:Name="appFrame">
         <mvp:AppFrame.Content>
+
             <Grid>
                 <WebView x:Name="wb" VerticalOptions="FillAndExpand" HorizontalOptions="Fill" Source="{Binding WebSource}">
                     <WebView.Behaviors>
@@ -24,6 +35,8 @@
                     </WebView.Behaviors>
                 </WebView>
             </Grid>
+
         </mvp:AppFrame.Content>
     </mvp:AppFrame>
+
 </pages:BaseContentPage >

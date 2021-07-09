@@ -68,8 +68,6 @@ namespace MVP.ViewModels
         {
             try
             {
-                await AuthService.SignOutAsync();
-
                 // Pop a sign in request up for the user.
                 if(await AuthService.SignInAsync().ConfigureAwait(false))
                 {
@@ -82,7 +80,10 @@ namespace MVP.ViewModels
                 }
                 else
                 {
-                    await OpenModalAsync(nameof(LoginPage), null, true);
+                    if(Device.RuntimePlatform == Device.iOS)
+                        await OpenModalAsync(nameof(LoginPage), null, true);
+                    else
+                        await NavigateAsync(nameof(LoginPage), null);
                 }
             }
             catch (Exception e)

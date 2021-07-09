@@ -9,6 +9,7 @@ using MVP.Services.Interfaces;
 using Xamarin.CommunityToolkit.ObjectModel;
 using Xamarin.CommunityToolkit.UI.Views;
 using Xamarin.Essentials;
+using Xamarin.Forms;
 
 namespace MVP.ViewModels
 {
@@ -58,7 +59,10 @@ namespace MVP.ViewModels
             if (!CanBeEdited)
                 return;
 
-            await OpenModalAsync(nameof(ContributionFormPage), Contribution, true).ConfigureAwait(false);
+            if(Device.RuntimePlatform == Device.iOS)
+                await OpenModalAsync(nameof(ContributionFormPage), Contribution, true).ConfigureAwait(false);
+            else
+                await NavigateAsync(nameof(ContributionFormPage), Contribution).ConfigureAwait(false);
         }
 
         /// <summary>

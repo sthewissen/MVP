@@ -9,12 +9,10 @@
                        x:DataType="vm:VisibilityPickerViewModel"
                        x:TypeArguments="vm:VisibilityPickerViewModel"
                        xmlns:xct="http://xamarin.com/schemas/2020/toolkit"
-                       xmlns:controls="clr-namespace:MVP.Controls">
+                       xmlns:controls="clr-namespace:MVP.Controls"
+                       Title="{x:Static resources:Translations.visibility_title}">
 
-    <mvp:AppFrame IsModal="False"
-                  ShowBackButton="True"
-                  Title="{x:Static resources:Translations.visibility_title}"
-                  x:Name="appFrame">
+    <mvp:AppFrame x:Name="appFrame">
         <mvp:AppFrame.Content>
             <Grid xct:StateLayout.CurrentState="{Binding State}"
                   xct:StateLayout.AnimateStateChanges="False">

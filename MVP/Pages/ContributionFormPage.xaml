@@ -12,28 +12,83 @@
                        x:Class="MVP.Pages.ContributionFormPage"
                        x:DataType="vm:ContributionFormViewModel"
                        x:TypeArguments="vm:ContributionFormViewModel">
+    
+    <!--<NavigationPage.TitleView>
+        <OnPlatform x:TypeArguments="View">
+            <On Platform="Android">          
+                <StackLayout Orientation="Horizontal"
+                             HorizontalOptions="Fill">
 
-    <mvp:AppFrame IsModal="True"
-                  SecondaryButtonText="{x:Static resources:Translations.contributionform_save}"
-                  ShadowOpacity="1"
+                    <Button BackgroundColor="Red"
+                            Command="{Binding BackCommand}"
+                            HorizontalOptions="Start"
+                            FontFamily="{StaticResource font_icon}"
+                            FontSize="22"
+                            Padding="0"
+                            Margin="0"
+                            VerticalOptions="Center"
+                            Text="{x:Static icons:Icons.x}" />
+
+                    <Label HorizontalOptions="Fill"
+                           BackgroundColor="Orange"
+                           Padding="32,0,0,0"
+                           Style="{StaticResource menu_title}">                        
+
+                        <Label.Triggers>
+                            <DataTrigger Binding="{Binding IsEditing}"
+                                            TargetType="Label"
+                                            Value="False">
+                                <Setter Property="Text"
+                                        Value="{x:Static resources:Translations.contributionform_title_add}"/>
+                            </DataTrigger>
+                            <DataTrigger Binding="{Binding IsEditing}"
+                                            TargetType="Label"
+                                            Value="True">
+                                <Setter Property="Text"
+                                        Value="{x:Static resources:Translations.contributionform_title_edit}"/>
+                            </DataTrigger>
+                        </Label.Triggers>
+
+                    </Label>
+                </StackLayout>
+            </On>
+        </OnPlatform>
+    </NavigationPage.TitleView>-->
+
+    <ContentPage.Triggers>
+        <DataTrigger Binding="{Binding IsEditing}"
+                        TargetType="ContentPage"
+                        Value="False">
+            <Setter Property="Title"
+                    Value="{x:Static resources:Translations.contributionform_title_add}"/>
+        </DataTrigger>
+        <DataTrigger Binding="{Binding IsEditing}"
+                        TargetType="ContentPage"
+                        Value="True">
+            <Setter Property="Title"
+                    Value="{x:Static resources:Translations.contributionform_title_edit}"/>
+        </DataTrigger>
+    </ContentPage.Triggers>
+    
+    <ContentPage.ToolbarItems>              
+        <ToolbarItem Text="{x:Static resources:Translations.contributionform_save}"
+                        Order="Primary"
+                        Command="{Binding SecondaryCommand}"
+                        Priority="0" />
+
+        <ToolbarItem Order="Primary"
+                        Command="{Binding BackCommand}"
+                        Priority="-1">
+            <ToolbarItem.IconImageSource>
+                <FontImageSource FontFamily="{StaticResource font_icon}" Size="22" Glyph="{x:Static icons:Icons.x}" />
+            </ToolbarItem.IconImageSource>
+        </ToolbarItem>
+    </ContentPage.ToolbarItems>
+
+    <mvp:AppFrame ShadowOpacity="1"
                   ShowBackButton="{Binding State, Converter={xct:NotEqualConverter}, ConverterParameter={x:Static xct:LayoutState.Saving}}"
                   ShowSecondaryButton="{Binding State, Converter={xct:NotEqualConverter}, ConverterParameter={x:Static xct:LayoutState.Saving}}"
                   x:Name="appFrame">
-
-        <mvp:AppFrame.Triggers>
-            <DataTrigger Binding="{Binding IsEditing}"
-                         TargetType="mvp:AppFrame"
-                         Value="False">
-                <Setter Property="Title"
-                        Value="{x:Static resources:Translations.contributionform_title_add}"/>
-            </DataTrigger>
-            <DataTrigger Binding="{Binding IsEditing}"
-                         TargetType="mvp:AppFrame"
-                         Value="True">
-                <Setter Property="Title"
-                        Value="{x:Static resources:Translations.contributionform_title_edit}"/>
-            </DataTrigger>
-        </mvp:AppFrame.Triggers>
         <mvp:AppFrame.Content>
             <Grid xct:StateLayout.CurrentState="{Binding State}"
                   xct:StateLayout.AnimateStateChanges="False"

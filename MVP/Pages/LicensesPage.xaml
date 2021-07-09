@@ -7,11 +7,10 @@
                        xmlns:mvp="clr-namespace:MVP"
                        x:Class="MVP.Pages.LicensesPage"
                        x:DataType="vm:LicensesViewModel"
-                       x:TypeArguments="vm:LicensesViewModel">
+                       x:TypeArguments="vm:LicensesViewModel"
+                       Title="{x:Static resources:Translations.licenses_title}">
 
-    <mvp:AppFrame Title="{x:Static resources:Translations.licenses_title}"
-                  ShowBackButton="True"
-                  x:Name="appFrame">
+    <mvp:AppFrame x:Name="appFrame">
         <mvp:AppFrame.Content>
 
             <CollectionView ItemsSource="{Binding Licenses}"
