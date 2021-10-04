@@ -42,7 +42,7 @@ namespace MVP.ViewModels
         {
             OpenContributionCommand = new AsyncCommand<Contribution>((Contribution c) => OpenContribution(c));
             SecondaryCommand = new AsyncCommand(() => OpenAddContribution());
-            RefreshDataCommand = new AsyncCommand(RefreshContributions);
+            RefreshDataCommand = new AsyncCommand(RefreshContributions,() => !IsRefreshing);
             LoadMoreCommand = new AsyncCommand(() => LoadMore());
 
             MessagingService.Current.Subscribe<Contribution>(MessageKeys.InMemoryAdd, HandleContributionAddMessage);
@@ -106,6 +106,7 @@ namespace MVP.ViewModels
 
                         Contributions = new ObservableCollection<Contribution>(contributionsList.Contributions
                             .OrderByDescending(x => x.StartDate).ToList());
+                        State = LayoutState.None;
                     },
                     ex =>
                     {
@@ -113,7 +114,11 @@ namespace MVP.ViewModels
                         State = LayoutState.Error;
                         IsRefreshing = false;
                     },
-                    () => { IsRefreshing = false; });
+                    () =>
+				    {
+						IsRefreshing = false;
+						State = LayoutState.None;
+				    });
         }
 
         /// <summary>
