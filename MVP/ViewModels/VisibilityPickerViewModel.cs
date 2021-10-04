@@ -51,8 +51,11 @@ namespace MVP.ViewModels
 
             vm.IsSelected = true;
 
-            //TODO: Replace by the back navigation version in TinyMvvm 3.0.
-            contribution.Visibility.Value = vm.Visibility;
+            if (contribution != null)
+            {
+                //TODO: Replace by the back navigation version in TinyMvvm 3.0.
+                contribution.Visibility.Value = vm.Visibility;
+            }
 
             AnalyticsService.Track("Visibility Picked", nameof(vm.Visibility), vm.Visibility.Description);
 

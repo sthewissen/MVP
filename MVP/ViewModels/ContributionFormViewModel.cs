@@ -70,7 +70,12 @@ namespace MVP.ViewModels
             Contribution.AddValidationRules();
 
             if (!IsEditing)
+            {
+                if (Settings.Visibility is Visibility visibility)
+                    Contribution.Visibility.Value = visibility;
+
                 await CheckForClipboardUrl();
+            }
         }
 
         /// <summary>

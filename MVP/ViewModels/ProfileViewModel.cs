@@ -7,6 +7,7 @@ using MVP.Pages;
 using MVP.Resources;
 using MVP.Services;
 using MVP.Services.Interfaces;
+using MVP.ViewModels.Data;
 using Xamarin.CommunityToolkit.ObjectModel;
 using Xamarin.CommunityToolkit.UI.Views;
 using Xamarin.Essentials;
@@ -22,11 +23,14 @@ namespace MVP.ViewModels
         public IAsyncCommand OpenIconPickerCommand { get; set; }
         public IAsyncCommand OpenLanguagePickerCommand { get; set; }
         public IAsyncCommand OpenAboutCommand { get; set; }
+        public IAsyncCommand PickVisibilityCommand { get; set; }
         public ICommand ToggleUseClipboardUrlsCommand { get; set; }
 
         public Profile Profile { get; set; }
         public string ProfileImage { get; set; }
         public string AppVersion => $"v{AppInfo.VersionString}";
+
+        public ContributionViewModel Contribution { get; set; } = new ContributionViewModel();
 
         public bool UseClipboardUrls
         {
@@ -48,12 +52,26 @@ namespace MVP.ViewModels
             OpenLanguagePickerCommand = new AsyncCommand(() => OpenLanguagePicker());
             OpenAboutCommand = new AsyncCommand(() => OpenAbout());
             OpenIconPickerCommand = new AsyncCommand(() => OpenIconPicker(), (o) => Device.RuntimePlatform == Device.iOS);
+            PickVisibilityCommand = new AsyncCommand(() => PickVisibility());
         }
 
         public override async Task Initialize()
         {
             await base.Initialize();
             LoadProfile(false).SafeFireAndForget();
+        }
+
+        public override async Task OnAppearing()
+        {
+            await base.OnAppearing();
+            if (Contribution.Visibility.Value != null)
+            {
+                Settings.Visibility = Contribution.Visibility.Value;
+            }
+            else if (Settings.Visibility is Visibility visibility)
+            {
+                Contribution.Visibility.Value = visibility;
+            }
         }
 
         /// <summary>
@@ -147,5 +165,8 @@ namespace MVP.ViewModels
 
         async Task OpenAbout()
             => await NavigateAsync(nameof(AboutPage)).ConfigureAwait(false);
+
+        async Task PickVisibility()
+            => await NavigateAsync(nameof(VisibilityPickerPage), Contribution).ConfigureAwait(false);
     }
 }

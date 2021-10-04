@@ -275,6 +275,12 @@ namespace MVP.Resources {
             }
         }
         
+        internal static string setting_visibility_placeholder {
+            get {
+                return ResourceManager.GetString("setting_visibility_placeholder", resourceCulture);
+            }
+        }
+        
         internal static string themepicker_title {
             get {
                 return ResourceManager.GetString("themepicker_title", resourceCulture);
