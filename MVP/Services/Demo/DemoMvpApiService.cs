@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Reactive.Linq;
 using System.Threading.Tasks;
+using Akavache;
 using MVP.Extensions;
 using MVP.Models;
 using MVP.Services.Helpers;
@@ -38,6 +39,12 @@ namespace MVP.Services.Demo
 
         public IObservable<ContributionList> GetContributionsAsync(int offset = 0, int limit = 0, bool forceRefresh = false) =>
             // Let's fake some delay, to see all the fancy loaders!
+			offset == 0 
+			    // Use cache for the initial page for fast startup
+			    ? BlobCache.LocalMachine.GetAndFetchLatest<ContributionList>(CacheKeys.FirstPageContributions, () => GetContributions(offset, limit, forceRefresh))
+			    :  GetContributions(offset, limit, forceRefresh);
+
+        IObservable<ContributionList> GetContributions(int offset = 0, int limit = 0, bool forceRefresh = false) =>
             Observable.StartAsync(() => Task.Delay(3000))
                 .Select(_ =>
                 {
