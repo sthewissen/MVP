@@ -26,7 +26,7 @@ namespace MVP.ViewModels
             : base(analyticsService)
         {
             DeleteContributionCommand = new AsyncCommand(() => DeleteContribution());
-            SecondaryCommand = new AsyncCommand(() => EditContribution(), (x) => CanBeEdited);
+            SecondaryCommand = new AsyncCommand(() => EditContribution(), _ => ValidateSecondaryCommand());
             OpenUrlCommand = new AsyncCommand(() => OpenUrl());
 
             MessagingService.Current.Subscribe<Contribution>(MessageKeys.InMemoryUpdate, HandleInMemoryUpdateMessage);
@@ -85,6 +85,7 @@ namespace MVP.ViewModels
                     return;
 
                 State = LayoutState.Loading;
+                ((AsyncCommand)SecondaryCommand).RaiseCanExecuteChanged();
 
                 var isDeleted = await MvpApiService.DeleteContributionAsync(Contribution);
 
@@ -111,6 +112,7 @@ namespace MVP.ViewModels
             finally
             {
                 State = LayoutState.None;
+                ((AsyncCommand)SecondaryCommand).RaiseCanExecuteChanged();
             }
         }
 
@@ -124,5 +126,10 @@ namespace MVP.ViewModels
 
         async Task OpenUrl()
             => await Browser.OpenAsync(Contribution.ReferenceUrl, new BrowserLaunchOptions { Flags = BrowserLaunchFlags.PresentAsPageSheet }).ConfigureAwait(false);
+
+        bool ValidateSecondaryCommand()
+        {
+            return (CanBeEdited && State != LayoutState.Loading);
+        }
     }
 }
