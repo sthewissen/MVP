@@ -28,9 +28,8 @@ namespace MVP.ViewModels
 
         public Profile Profile { get; set; }
         public string ProfileImage { get; set; }
+        public Visibility Visibility { get; set; }
         public string AppVersion => $"v{AppInfo.VersionString}";
-
-        public ContributionViewModel Contribution { get; set; } = new ContributionViewModel();
 
         public bool UseClipboardUrls
         {
@@ -64,13 +63,10 @@ namespace MVP.ViewModels
         public override async Task OnAppearing()
         {
             await base.OnAppearing();
-            if (Contribution.Visibility.Value != null)
+
+            if (Settings.Visibility is Visibility visibility)
             {
-                Settings.Visibility = Contribution.Visibility.Value;
-            }
-            else if (Settings.Visibility is Visibility visibility)
-            {
-                Contribution.Visibility.Value = visibility;
+                Visibility = visibility;
             }
         }
 
@@ -167,6 +163,6 @@ namespace MVP.ViewModels
             => await NavigateAsync(nameof(AboutPage)).ConfigureAwait(false);
 
         async Task PickVisibility()
-            => await NavigateAsync(nameof(VisibilityPickerPage), Contribution).ConfigureAwait(false);
+            => await NavigateAsync(nameof(VisibilityPickerPage)).ConfigureAwait(false);
     }
 }

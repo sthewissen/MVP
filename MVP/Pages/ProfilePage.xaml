@@ -100,8 +100,8 @@
 
                     <controls:PickerInputView PickerCommand="{Binding PickVisibilityCommand}"
                                               Placeholder="{x:Static resources:Translations.setting_visibility_placeholder}"
-                                              Title="{x:Static resources:Translations.field_visibility}"
-                                              Value="{Binding Contribution.Visibility.Value}"/>
+                                              Title="{x:Static resources:Translations.setting_visibility_title}"
+                                              Value="{Binding Visibility}"/>
 
                     <BoxView Margin="16,0"
                              Style="{StaticResource separator}"/>

@@ -10,7 +10,15 @@
                        x:TypeArguments="vm:VisibilityPickerViewModel"
                        xmlns:xct="http://xamarin.com/schemas/2020/toolkit"
                        xmlns:controls="clr-namespace:MVP.Controls"
-                       Title="{x:Static resources:Translations.visibility_title}">
+                       Title="{Binding IsVisibilitySettingsPicker, Converter={xct:BoolToObjectConverter FalseObject={x:Static resources:Translations.visibility_title}, TrueObject={x:Static resources:Translations.setting_visibility_title}}}">
+    <!--<pages:BaseContentPage.Triggers>
+        <DataTrigger Binding="{Binding IsVisibilitySettingsPicker}" TargetType="pages:BaseContentPage" Value="True">
+            <Setter Property="Title" Value="{x:Static resources:Translations.visibility_title}"/>            
+        </DataTrigger>
+        <DataTrigger Binding="{Binding IsVisibilitySettingsPicker}" TargetType="pages:BaseContentPage" Value="False">
+            <Setter Property="Title" Value="{x:Static resources:Translations.visibility_title}"/>            
+        </DataTrigger>
+    </pages:BaseContentPage.Triggers>-->
 
     <mvp:AppFrame x:Name="appFrame">
         <mvp:AppFrame.Content>
