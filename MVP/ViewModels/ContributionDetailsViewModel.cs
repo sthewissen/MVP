@@ -95,9 +95,8 @@ namespace MVP.ViewModels
                     MainThread.BeginInvokeOnMainThread(() => HapticFeedback.Perform(HapticFeedbackType.LongPress));
                     AnalyticsService.Track("Contribution Deleted");
                     await MainThread.InvokeOnMainThreadAsync(() => BackAsync());
-
-                    MessagingService.Current.SendMessage(MessageKeys.InMemoryDelete, Contribution);
                     //MessagingService.Current.SendMessage(MessageKeys.HardRefreshNeeded);
+                    MessagingService.Current.SendMessage(MessageKeys.HardRefreshNeeded);
                 }
                 else
                 {
