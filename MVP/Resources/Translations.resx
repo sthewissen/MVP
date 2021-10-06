@@ -231,6 +231,9 @@
     <data name="setting_language_description" xml:space="preserve">
         <value>By default, we select the language that you're using on your device if translations for it are available. However, if you want to use this app in a different language you can override it here.</value>
     </data>
+    <data name="setting_visibility_title" xml:space="preserve">
+        <value>Default visibility</value>
+    </data>
     <data name="setting_visibility_placeholder" xml:space="preserve">
         <value>Select the default visibility level of an activity.</value>
     </data>

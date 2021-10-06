@@ -84,6 +84,12 @@
     <data name="field_visibility" xml:space="preserve">
     <value>Görünürlük</value>
   </data>
+    <data name="setting_visibility_title" xml:space="preserve">
+        <value>Varsayılan görünürlük</value>
+    </data>
+    <data name="setting_visibility_placeholder" xml:space="preserve">
+        <value>Bir etkinliğin varsayılan görünürlük düzeyini seçin.</value>
+    </data>
     <data name="button_delete_contribution" xml:space="preserve">
     <value>Katkıyı sil</value>
   </data>

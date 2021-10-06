@@ -90,6 +90,12 @@
     <data name="contributionform_visibility_placeholder" xml:space="preserve">
     <value>Wähle die Sichtbarkeitsstufe dieser Aktivität.</value>
   </data>
+    <data name="setting_visibility_title" xml:space="preserve">
+        <value>Standard-Sichtbarkeitsstufe</value>
+    </data>
+    <data name="setting_visibility_placeholder" xml:space="preserve">
+        <value>Wählen Sie die Standard-Sichtbarkeitsstufe einer Aktivität aus. </value>
+    </data>
     <data name="contributions_title" xml:space="preserve">
     <value>Aktivitäten</value>
   </data>

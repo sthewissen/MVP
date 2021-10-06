@@ -102,7 +102,13 @@
     <data name="contributionform_visibility_placeholder" xml:space="preserve">
     <value>Odaberite nivo vidljivosti ove aktivnosti.</value>
   </data>
-    <data name="contributions_title" xml:space="preserve">
+  <data name="setting_visibility_title" xml:space="preserve">
+      <value>Zadana vidljivost </value>
+  </data>
+  <data name="setting_visibility_placeholder" xml:space="preserve">
+      <value>Odaberite zadani nivo vidljivosti aktivnosti. </value>
+  </data>
+  <data name="contributions_title" xml:space="preserve">
     <value>Aktivnosti u zajednici</value>
   </data>
     <data name="contributiontechnologypicker_title" xml:space="preserve">

@@ -84,6 +84,12 @@
     <data name="field_visibility" xml:space="preserve">
         <value>Synlighet</value>
     </data>
+    <data name="setting_visibility_title" xml:space="preserve">
+        <value>Standard synlighet</value>
+    </data>
+    <data name="setting_visibility_placeholder" xml:space="preserve">
+        <value>Velg standard synlighetsnivå for en aktivitet.</value>
+    </data>
     <data name="button_delete_contribution" xml:space="preserve">
         <value>Slett bidrag</value>
     </data>

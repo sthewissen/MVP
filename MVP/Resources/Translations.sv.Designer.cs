@@ -635,6 +635,18 @@ namespace MVP.Resources {
             }
         }
         
+        internal static string setting_visibility_title {
+            get {
+                return ResourceManager.GetString("setting_visibility_title", resourceCulture);
+            }
+        }
+        
+        internal static string setting_visibility_placeholder {
+            get {
+                return ResourceManager.GetString("setting_visibility_placeholder", resourceCulture);
+            }
+        }
+        
         internal static string icon_black {
             get {
                 return ResourceManager.GetString("icon_black", resourceCulture);
