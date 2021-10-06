@@ -28,6 +28,12 @@
         <item name="windowActionModeOverlay">true</item>
         <item name="android:datePickerDialogTheme">@style/AppCompatDialogStyle</item>
         <item name="android:colorActivatedHighlight">@android:color/transparent</item>
+
+      <!-- Sets text color for ToolBarItems in Xamarin.Forms -->
+      <item name="android:actionMenuTextColor">@android:color/black</item>
+
+      <!-- Disable all-caps text for buttons and ToolBarItem text -->
+      <item name="android:textAllCaps">false</item>
     </style>
     <style name="AppCompatDialogStyle" parent="Theme.AppCompat.Light.Dialog">
         <item name="colorAccent">@color/colorPrimary</item>
