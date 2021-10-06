@@ -20,11 +20,11 @@ namespace MVP.Extensions
         }
 
         /// <summary>
-        /// Checks whether or not a provided DateTme is within the current award period.
+        /// Checks whether or not a provided DateTime is within the current award period.
         /// </summary>
         public static bool IsWithinCurrentAwardPeriod(this DateTime dateTime)
         {
-            var periodStart = dateTime.CurrentAwardPeriodStartDate();
+            var periodStart = DateTime.UtcNow.CurrentAwardPeriodStartDate();
             return dateTime.Date >= periodStart.Date;
         }
 
@@ -36,7 +36,7 @@ namespace MVP.Extensions
             if (!dateTime.HasValue)
                 return false;
 
-            var periodStart = dateTime.Value.CurrentAwardPeriodStartDate();
+            var periodStart = DateTime.UtcNow.CurrentAwardPeriodStartDate();
 
             return dateTime.Value.Date >= periodStart.Date;
         }
