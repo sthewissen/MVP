@@ -9,7 +9,6 @@ using MVP.Helpers;
 using MVP.Models;
 using MVP.Services.Helpers;
 using MVP.Services.Interfaces;
-using Newtonsoft.Json;
 using Refit;
 using Xamarin.Essentials;
 
@@ -183,11 +182,15 @@ namespace MVP.Services
         /// <param name="limit">number of items for the page</param>
         /// <param name="forceRefresh">The result is cached in a backing list by default which prevents unnecessary fetches. If you want the cache refreshed, set this to true</param>
         /// <returns>A list of the MVP's contributions</returns>
-        public async Task<ContributionList> GetContributionsAsync(int offset = 0, int limit = 0, bool forceRefresh = false)
+        public IObservable<ContributionList> GetContributionsAsync(int offset = 0, int limit = 0, bool forceRefresh = false)
         {
+            Task<ContributionList> GetContributions() => api.GetContributions(offset, limit);
             try
             {
-                return await api.GetContributions(offset, limit);
+                return offset == 0 
+                    // Use cache for the initial page for fast startup
+                    ? BlobCache.LocalMachine.GetAndFetchLatest(CacheKeys.FirstPageContributions, GetContributions) 
+                    : Observable.StartAsync(GetContributions);
             }
             catch (ApiException e)
             {

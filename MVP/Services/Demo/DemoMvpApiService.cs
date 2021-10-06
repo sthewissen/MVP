@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Reactive.Linq;
 using System.Threading.Tasks;
+using Akavache;
 using MVP.Extensions;
 using MVP.Models;
 using MVP.Services.Helpers;
@@ -36,37 +37,43 @@ namespace MVP.Services.Demo
             return rawImage ? image : $"data:image/png;base64,{image}";
         }
 
-        public async Task<ContributionList> GetContributionsAsync(int offset = 0, int limit = 0, bool forceRefresh = false)
-        {
+        public IObservable<ContributionList> GetContributionsAsync(int offset = 0, int limit = 0, bool forceRefresh = false) =>
             // Let's fake some delay, to see all the fancy loaders!
-            await Task.Delay(3000);
+			offset == 0 
+			    // Use cache for the initial page for fast startup
+			    ? BlobCache.LocalMachine.GetAndFetchLatest<ContributionList>(CacheKeys.FirstPageContributions, () => GetContributions(offset, limit, forceRefresh))
+			    :  GetContributions(offset, limit, forceRefresh);
 
-            // Take the local copy, which we sort of cached in this service.
-            if (allContributionList != null)
-                return new ContributionList()
+        IObservable<ContributionList> GetContributions(int offset = 0, int limit = 0, bool forceRefresh = false) =>
+            Observable.StartAsync(() => Task.Delay(3000))
+                .Select(_ =>
                 {
-                    Contributions = allContributionList.Contributions.Skip(offset).Take(limit == 0 ? allContributionList.Contributions.Count : limit).ToList(),
-                    TotalContributions = allContributionList.Contributions.Count,
-                    PagingIndex = offset + limit > allContributionList.Contributions.Count ? allContributionList.Contributions.Count : offset + limit
-                };
+                    // Take the local copy, which we sort of cached in this service.
+                    if (allContributionList != null)
+                        return new ContributionList()
+                        {
+                            Contributions = allContributionList.Contributions.Skip(offset).Take(limit == 0 ? allContributionList.Contributions.Count : limit).ToList(),
+                            TotalContributions = allContributionList.Contributions.Count,
+                            PagingIndex = offset + limit > allContributionList.Contributions.Count ? allContributionList.Contributions.Count : offset + limit
+                        };
 
-            // Get them from "remote" aka reset the whole thing.
-            var list = JsonConvert.DeserializeObject<List<Contribution>>(LocalResourceService.GetFile("getcontributions"));
+                    // Get them from "remote" aka reset the whole thing.
+                    var list = JsonConvert.DeserializeObject<List<Contribution>>(LocalResourceService.GetFile("getcontributions"));
 
-            allContributionList = new ContributionList()
-            {
-                Contributions = list.OrderByDescending(x => x.StartDate).ToList(),
-                TotalContributions = list.Count,
-                PagingIndex = 0
-            };
+                    allContributionList = new ContributionList()
+                    {
+                        Contributions = list.OrderByDescending(x => x.StartDate).ToList(),
+                        TotalContributions = list.Count,
+                        PagingIndex = 0
+                    };
 
-            return new ContributionList()
-            {
-                Contributions = list.Skip(offset).Take(limit == 0 ? allContributionList.Contributions.Count : limit).ToList(),
-                TotalContributions = list.Count,
-                PagingIndex = 0
-            }; ;
-        }
+                    return new ContributionList
+                    {
+                        Contributions = list.Skip(offset).Take(limit == 0 ? allContributionList.Contributions.Count : limit).ToList(),
+                        TotalContributions = list.Count,
+                        PagingIndex = 0
+                    }; ;
+                });
 
         public async Task<Contribution> SubmitContributionAsync(Contribution contribution)
         {
