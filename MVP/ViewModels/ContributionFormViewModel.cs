@@ -132,7 +132,7 @@ namespace MVP.ViewModels
                 if (ogData.Metadata.ContainsKey("article:published_time") &&
                     DateTime.TryParse(ogData.Metadata["article:published_time"].Value(), out var activityDate))
                 {
-                    dateTime = activityDate;
+                    dateTime = activityDate.Date;
                 }
 
                 Contribution.Title = new Validation.ValidatableObject<string> { Value = HttpUtility.HtmlDecode(ogData.Title) };
