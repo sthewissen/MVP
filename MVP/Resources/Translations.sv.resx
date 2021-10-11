@@ -307,6 +307,12 @@
     <data name="field_visibility" xml:space="preserve">
     <value>Synlighet</value>
   </data>
+    <data name="setting_visibility_title" xml:space="preserve">
+        <value>Standard synlighet</value>
+    </data>
+    <data name="setting_visibility_placeholder" xml:space="preserve">
+        <value>Välj standardaktivitetsnivå för en aktivitet.</value>
+    </data>
     <data name="icon_black" xml:space="preserve">
     <value>Svart</value>
   </data>

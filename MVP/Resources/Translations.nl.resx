@@ -84,6 +84,12 @@
     <data name="field_visibility" xml:space="preserve">
         <value>Zichtbaarheid</value>
     </data>
+    <data name="setting_visibility_title" xml:space="preserve">
+        <value>Standaard zichtbaarheid</value>
+    </data>
+    <data name="setting_visibility_placeholder" xml:space="preserve">
+        <value>Selecteer het standaard zichtbaarheidsniveau van een activiteit.</value>
+    </data>
     <data name="button_delete_contribution" xml:space="preserve">
         <value>Verwijder activiteit</value>
     </data>

@@ -16,6 +16,7 @@ namespace MVP.ViewModels
 
         public IAsyncCommand<VisibilityViewModel> SelectVisibilityCommand { get; }
         public IAsyncCommand RefreshDataCommand { get; set; }
+        public bool IsVisibilitySettingsPicker { get; set; } = true;
 
         public IList<VisibilityViewModel> Visibilities { get; set; } = new List<VisibilityViewModel>();
 
@@ -33,6 +34,7 @@ namespace MVP.ViewModels
             if (NavigationParameter is ContributionViewModel contrib)
             {
                 contribution = contrib;
+                IsVisibilitySettingsPicker = false;
             }
 
             LoadVisibilities().SafeFireAndForget();
@@ -51,8 +53,15 @@ namespace MVP.ViewModels
 
             vm.IsSelected = true;
 
-            //TODO: Replace by the back navigation version in TinyMvvm 3.0.
-            contribution.Visibility.Value = vm.Visibility;
+            if (contribution != null)
+            {
+                //TODO: Replace by the back navigation version in TinyMvvm 3.0.
+                contribution.Visibility.Value = vm.Visibility;
+            }
+            else
+            {
+                Settings.Visibility = vm.Visibility;
+            }
 
             AnalyticsService.Track("Visibility Picked", nameof(vm.Visibility), vm.Visibility.Description);
 
@@ -79,9 +88,15 @@ namespace MVP.ViewModels
                 Visibilities = visibilities.Select(x => new VisibilityViewModel() { Visibility = x }).ToList();
 
                 // Editing mode
-                if (contribution.Visibility.Value != null)
+                if (contribution?.Visibility.Value != null)
                 {
                     var selectedVisibility = Visibilities.FirstOrDefault(x => x.Visibility.Id == contribution.Visibility.Value.Id);
+                    selectedVisibility.IsSelected = true;
+                }
+                // Settings mode
+                else if(contribution == null && Settings.Visibility != null)
+                {
+                    var selectedVisibility = Visibilities.FirstOrDefault(x => x.Visibility.Id == Settings.Visibility.Id);
                     selectedVisibility.IsSelected = true;
                 }
             }

@@ -1,7 +1,9 @@
 ﻿using System;
+using MVP.Models;
 using MVP.Models.Enums;
 using Xamarin.Essentials;
 using Xamarin.Forms;
+using Newtonsoft.Json;
 
 namespace MVP
 {
@@ -82,6 +84,24 @@ namespace MVP
         {
             get => Preferences.Get(nameof(IsUsingDemoAccount), false);
             set => Preferences.Set(nameof(IsUsingDemoAccount), value);
+        }
+
+        public static Visibility Visibility
+        {
+            get
+            {
+                var visibilityJson = Preferences.Get(nameof(Visibility), string.Empty);
+
+                if (!string.IsNullOrWhiteSpace(visibilityJson))
+                    return JsonConvert.DeserializeObject<Visibility>(visibilityJson);
+
+                return null;
+            }
+            set
+            {
+                var visibilityJson = JsonConvert.SerializeObject(value);
+                Preferences.Set(nameof(Visibility), visibilityJson);
+            }
         }
     }
 }

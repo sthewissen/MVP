@@ -84,6 +84,12 @@
     <data name="field_visibility" xml:space="preserve">
         <value>Visibilité</value>
     </data>
+    <data name="setting_visibility_title" xml:space="preserve">
+        <value>Visibilité par défaut </value>
+    </data>
+    <data name="setting_visibility_placeholder" xml:space="preserve">
+        <value>Sélectionnez le niveau de visibilité par défaut d'une activité.</value>
+    </data>
     <data name="button_delete_contribution" xml:space="preserve">
         <value>Effacer la contribution</value>
     </data>

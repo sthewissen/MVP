@@ -98,6 +98,14 @@
                     <BoxView Margin="16,16,16,0"
                              Style="{StaticResource separator}"/>
 
+                    <controls:PickerInputView PickerCommand="{Binding PickVisibilityCommand}"
+                                              Placeholder="{x:Static resources:Translations.setting_visibility_placeholder}"
+                                              Title="{x:Static resources:Translations.setting_visibility_title}"
+                                              Value="{Binding Visibility}"/>
+
+                    <BoxView Margin="16,0"
+                             Style="{StaticResource separator}"/>
+
                     <Grid ColumnDefinitions="*, Auto"
                           ColumnSpacing="24"
                           Padding="32,16,16,16"
@@ -171,7 +179,6 @@
                     <BoxView IsVisible="{OnPlatform Default=false, iOS=true}"
                              Margin="16,0"
                              Style="{StaticResource separator}"/>
-
 
                     <Grid ColumnDefinitions="*, Auto"
                           ColumnSpacing="24"

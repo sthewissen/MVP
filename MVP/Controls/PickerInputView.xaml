@@ -8,7 +8,7 @@
              Style="{StaticResource tappable_element}"
              xct:TouchEffect.Command="{Binding PickerCommand, Source={x:Reference inputView}}">
 
-    <Grid Padding="32,16"
+    <Grid Padding="32,16,16,16"
           ColumnDefinitions="*, Auto"
           RowDefinitions="Auto, Auto"
           ColumnSpacing="24"

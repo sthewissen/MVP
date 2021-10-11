@@ -84,6 +84,12 @@
     <data name="field_visibility" xml:space="preserve">
     <value>Láthatóság</value>
   </data>
+    <data name="setting_visibility_title" xml:space="preserve">
+        <value>Alapértelmezett láthatóság </value>
+    </data>
+    <data name="setting_visibility_placeholder" xml:space="preserve">
+        <value>Válassza ki a tevékenység alapértelmezett láthatósági szintjét.</value>
+    </data>
     <data name="button_delete_contribution" xml:space="preserve">
     <value>Hozzájárulás törlése</value>
   </data>

@@ -7,6 +7,7 @@ using MVP.Pages;
 using MVP.Resources;
 using MVP.Services;
 using MVP.Services.Interfaces;
+using MVP.ViewModels.Data;
 using Xamarin.CommunityToolkit.ObjectModel;
 using Xamarin.CommunityToolkit.UI.Views;
 using Xamarin.Essentials;
@@ -22,10 +23,12 @@ namespace MVP.ViewModels
         public IAsyncCommand OpenIconPickerCommand { get; set; }
         public IAsyncCommand OpenLanguagePickerCommand { get; set; }
         public IAsyncCommand OpenAboutCommand { get; set; }
+        public IAsyncCommand PickVisibilityCommand { get; set; }
         public ICommand ToggleUseClipboardUrlsCommand { get; set; }
 
         public Profile Profile { get; set; }
         public string ProfileImage { get; set; }
+        public Visibility Visibility { get; set; }
         public string AppVersion => $"v{AppInfo.VersionString}";
 
         public bool UseClipboardUrls
@@ -48,12 +51,23 @@ namespace MVP.ViewModels
             OpenLanguagePickerCommand = new AsyncCommand(() => OpenLanguagePicker());
             OpenAboutCommand = new AsyncCommand(() => OpenAbout());
             OpenIconPickerCommand = new AsyncCommand(() => OpenIconPicker(), (o) => Device.RuntimePlatform == Device.iOS);
+            PickVisibilityCommand = new AsyncCommand(() => PickVisibility());
         }
 
         public override async Task Initialize()
         {
             await base.Initialize();
             LoadProfile(false).SafeFireAndForget();
+        }
+
+        public override async Task OnAppearing()
+        {
+            await base.OnAppearing();
+
+            if (Settings.Visibility is Visibility visibility)
+            {
+                Visibility = visibility;
+            }
         }
 
         /// <summary>
@@ -147,5 +161,8 @@ namespace MVP.ViewModels
 
         async Task OpenAbout()
             => await NavigateAsync(nameof(AboutPage)).ConfigureAwait(false);
+
+        async Task PickVisibility()
+            => await NavigateAsync(nameof(VisibilityPickerPage)).ConfigureAwait(false);
     }
 }
