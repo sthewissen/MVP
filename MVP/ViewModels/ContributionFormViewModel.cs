@@ -53,7 +53,7 @@ namespace MVP.ViewModels
             PickContributionTypeCommand = new AsyncCommand(() => PickContributionType(), (x) => !IsEditing);
             PickVisibilityCommand = new AsyncCommand(() => PickVisibility());
             PickContributionTechnologyCommand = new AsyncCommand(PickContributionTechnology);
-            SecondaryCommand = new AsyncCommand(() => SaveContribution());
+            SecondaryCommand = new AsyncCommand(() => SaveContribution(), _ => State != LayoutState.Loading && State != LayoutState.Saving);
         }
 
         public async override Task Initialize()
@@ -62,9 +62,15 @@ namespace MVP.ViewModels
 
             if (NavigationParameter is Contribution contribution)
             {
+                State = LayoutState.Loading;
+                ((AsyncCommand)SecondaryCommand).RaiseCanExecuteChanged();
+
                 Contribution = contribution.ToContributionViewModel();
                 IsEditing = contribution.ContributionId.HasValue && contribution.ContributionId.Value > 0;
                 PickContributionTypeCommand.RaiseCanExecuteChanged();
+
+                State = LayoutState.None;
+                ((AsyncCommand)SecondaryCommand).RaiseCanExecuteChanged();
             }
 
             Contribution.AddValidationRules();
@@ -126,6 +132,7 @@ namespace MVP.ViewModels
             try
             {
                 State = LayoutState.Loading;
+                ((AsyncCommand)SecondaryCommand).RaiseCanExecuteChanged();
 
                 var ogData = await OpenGraph.ParseUrlAsync(clipboardText);
 
@@ -157,6 +164,7 @@ namespace MVP.ViewModels
             finally
             {
                 State = LayoutState.None;
+                ((AsyncCommand)SecondaryCommand).RaiseCanExecuteChanged();
             }
         }
 
@@ -179,6 +187,7 @@ namespace MVP.ViewModels
                 IsContributionValid = true;
 
                 State = LayoutState.Saving;
+                ((AsyncCommand)SecondaryCommand).RaiseCanExecuteChanged();
 
                 if (IsEditing)
                 {
@@ -224,6 +233,7 @@ namespace MVP.ViewModels
             finally
             {
                 State = LayoutState.None;
+                ((AsyncCommand)SecondaryCommand).RaiseCanExecuteChanged();
             }
         }
 

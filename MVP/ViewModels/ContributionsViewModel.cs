@@ -39,10 +39,9 @@ namespace MVP.ViewModels
             : base(analyticsService)
         {
             OpenContributionCommand = new AsyncCommand<Contribution>((Contribution c) => OpenContribution(c));
-            SecondaryCommand = new AsyncCommand(() => OpenAddContribution());
+            SecondaryCommand = new AsyncCommand(() => OpenAddContribution(), _ => State != LayoutState.Loading);
             RefreshDataCommand = new AsyncCommand(RefreshContributions);
             LoadMoreCommand = new AsyncCommand(() => LoadMore());
-
         }
 
         public async override Task Initialize()
@@ -93,6 +92,7 @@ namespace MVP.ViewModels
             try
             {
                 State = LayoutState.Loading;
+                ((AsyncCommand)SecondaryCommand).RaiseCanExecuteChanged();
 
                 var contributionsList = await MvpApiService.GetContributionsAsync(0, pageSize).ConfigureAwait(false);
 
@@ -115,6 +115,8 @@ namespace MVP.ViewModels
 
                 if (State != LayoutState.Error)
                     State = Contributions.Count > 0 ? LayoutState.None : LayoutState.Empty;
+
+                ((AsyncCommand)SecondaryCommand).RaiseCanExecuteChanged();
             }
         }
 
@@ -130,9 +132,13 @@ namespace MVP.ViewModels
         void HandleContributionAddMessage(MessagingService obj, Contribution contribution)
         {
             State = LayoutState.Loading;
+            ((AsyncCommand)SecondaryCommand).RaiseCanExecuteChanged();
+
             Contributions.Add(contribution);
             Contributions = new ObservableCollection<Contribution>(Contributions.OrderByDescending(x => x.StartDate).ToList());
+
             State = LayoutState.None;
+            ((AsyncCommand)SecondaryCommand).RaiseCanExecuteChanged();
         }
 
         /// <summary>
@@ -145,10 +151,14 @@ namespace MVP.ViewModels
             if (prev != null)
             {
                 State = LayoutState.Loading;
+                ((AsyncCommand)SecondaryCommand).RaiseCanExecuteChanged();
+
                 Contributions.Remove(prev);
                 Contributions.Add(contribution);
                 Contributions = new ObservableCollection<Contribution>(Contributions.OrderByDescending(x => x.StartDate).ToList());
+
                 State = LayoutState.None;
+                ((AsyncCommand)SecondaryCommand).RaiseCanExecuteChanged();
             }
         }
 
@@ -158,8 +168,12 @@ namespace MVP.ViewModels
         void HandleContributionDeleteMessage(MessagingService obj, Contribution contribution)
         {
             State = LayoutState.Loading;
+            ((AsyncCommand)SecondaryCommand).RaiseCanExecuteChanged();
+
             Contributions.Remove(contribution);
+
             State = LayoutState.None;
+            ((AsyncCommand)SecondaryCommand).RaiseCanExecuteChanged();
         }
 
         /// <summary>
