@@ -363,4 +363,5 @@ MigrationBackup/
 
 # Rider IDE
 .idea/
-secrets.json
+
+**/secrets.json
