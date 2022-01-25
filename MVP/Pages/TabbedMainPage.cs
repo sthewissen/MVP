@@ -5,8 +5,7 @@ using Xamarin.Forms.PlatformConfiguration;
 using Xamarin.Forms.PlatformConfiguration.iOSSpecific;
 using Xamarin.Forms.PlatformConfiguration.AndroidSpecific;
 using MVP.Resources;
-using TinyNavigationHelper.Forms;
-using TinyNavigationHelper.Abstraction;
+using TinyMvvm;
 using MVP.Services.Interfaces;
 
 namespace MVP.Pages

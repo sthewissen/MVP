@@ -59,6 +59,12 @@ namespace MVP.Resources {
             }
         }
         
+        internal static string retry {
+            get {
+                return ResourceManager.GetString("retry", resourceCulture);
+            }
+        }
+        
         internal static string about_licenses_description {
             get {
                 return ResourceManager.GetString("about_licenses_description", resourceCulture);

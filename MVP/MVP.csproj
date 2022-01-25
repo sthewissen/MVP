@@ -18,12 +18,12 @@
         <PackageReference Include="Microsoft.AppCenter" Version="4.5.0" />
         <PackageReference Include="Microsoft.AppCenter.Analytics" Version="4.5.0" />
         <PackageReference Include="Microsoft.AppCenter.Crashes" Version="4.5.0" />
-        <PackageReference Include="Refit" Version="6.1.15" />
+        <PackageReference Include="Refit" Version="5.2.4" />
         <PackageReference Include="HtmlAgilityPack" Version="1.11.40" />
         <PackageReference Include="akavache" Version="8.1.1" />
         <PackageReference Include="Com.Airbnb.Xamarin.Forms.Lottie" Version="4.0.11" />
-        <PackageReference Include="TinyMvvm.Autofac" Version="2.4.14" />
-        <PackageReference Include="TinyMvvm.Forms" Version="2.4.14" />
+        <PackageReference Include="TinyMvvm.Autofac" Version="3.0.1" />
+        <PackageReference Include="TinyMvvm.Forms" Version="3.0.1" />
         <PackageReference Include="IsoNames.NETStandard" Version="1.2.1" />
         <PackageReference Include="Plugin.StoreReview" Version="3.1.0" />
         <PackageReference Include="Xamarin.CommunityToolkit" Version="1.3.2" />

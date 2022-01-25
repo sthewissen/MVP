@@ -53,6 +53,7 @@ namespace MVP.ViewModels
             PickContributionTypeCommand = new AsyncCommand(() => PickContributionType(), (x) => !IsEditing);
             PickVisibilityCommand = new AsyncCommand(() => PickVisibility());
             PickContributionTechnologyCommand = new AsyncCommand(PickContributionTechnology);
+            BackCommand = new AsyncCommand(() => BackAsync(), _ => State != LayoutState.Loading && State != LayoutState.Saving);
             SecondaryCommand = new AsyncCommand(() => SaveContribution(), _ => State != LayoutState.Loading && State != LayoutState.Saving);
         }
 
@@ -63,6 +64,7 @@ namespace MVP.ViewModels
             if (NavigationParameter is Contribution contribution)
             {
                 State = LayoutState.Loading;
+                ((AsyncCommand)BackCommand).RaiseCanExecuteChanged();
                 ((AsyncCommand)SecondaryCommand).RaiseCanExecuteChanged();
 
                 Contribution = contribution.ToContributionViewModel();
@@ -70,6 +72,7 @@ namespace MVP.ViewModels
                 PickContributionTypeCommand.RaiseCanExecuteChanged();
 
                 State = LayoutState.None;
+                ((AsyncCommand)BackCommand).RaiseCanExecuteChanged();
                 ((AsyncCommand)SecondaryCommand).RaiseCanExecuteChanged();
             }
 
@@ -132,6 +135,7 @@ namespace MVP.ViewModels
             try
             {
                 State = LayoutState.Loading;
+                ((AsyncCommand)BackCommand).RaiseCanExecuteChanged();
                 ((AsyncCommand)SecondaryCommand).RaiseCanExecuteChanged();
 
                 var ogData = await OpenGraph.ParseUrlAsync(clipboardText);
@@ -154,7 +158,9 @@ namespace MVP.ViewModels
                     : string.Empty;
 
                 if (dateTime.HasValue)
-                    Contribution.StartDate = dateTime.Value.Date;
+                {
+                    Contribution.StartDate = new DateTime(dateTime.Value.Ticks, DateTimeKind.Unspecified);
+                }
             }
             catch (Exception ex)
             {
@@ -164,6 +170,7 @@ namespace MVP.ViewModels
             finally
             {
                 State = LayoutState.None;
+                ((AsyncCommand)BackCommand).RaiseCanExecuteChanged();
                 ((AsyncCommand)SecondaryCommand).RaiseCanExecuteChanged();
             }
         }
@@ -187,6 +194,7 @@ namespace MVP.ViewModels
                 IsContributionValid = true;
 
                 State = LayoutState.Saving;
+                ((AsyncCommand)BackCommand).RaiseCanExecuteChanged();
                 ((AsyncCommand)SecondaryCommand).RaiseCanExecuteChanged();
 
                 if (IsEditing)
@@ -233,6 +241,7 @@ namespace MVP.ViewModels
             finally
             {
                 State = LayoutState.None;
+                ((AsyncCommand)BackCommand).RaiseCanExecuteChanged();
                 ((AsyncCommand)SecondaryCommand).RaiseCanExecuteChanged();
             }
         }

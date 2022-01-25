@@ -83,12 +83,12 @@ namespace MVP.ViewModels
                 if (isAuthenticated)
                 {
                     AnalyticsService.Track("Splash Authenticated");
-                    NavigationHelper.SetRootView(nameof(TabbedMainPage), false);
+                    Navigation.SetRootView(nameof(TabbedMainPage), false);
                 }
                 else
                 {
                     AnalyticsService.Track("Splash Unauthenticated");
-                    NavigationHelper.SetRootView(nameof(IntroPage));
+                    Navigation.SetRootView(nameof(IntroPage));
                 }
             });
     }

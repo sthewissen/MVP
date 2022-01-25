@@ -15,6 +15,9 @@
     <data name="about_credits_description" xml:space="preserve">
     <value>Bez sjajnih ljudi navedenih u nastavku ova aplikacija ne bi bila moguća. Stoga su zaslužili ovo mjesto ovdje da se vidi njihov doprinos.</value>
   </data>
+  <data name="retry" xml:space="preserve">
+        <value>Pokušajte ponovo</value>
+    </data>  
     <data name="about_credits_title" xml:space="preserve">
     <value>Zasluge</value>
   </data>

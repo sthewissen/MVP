@@ -75,15 +75,18 @@ namespace MVP.ViewModels
 
                     MainThread.BeginInvokeOnMainThread(() =>
                     {
-                        NavigationHelper.SetRootView(nameof(TabbedMainPage), false);
+                        Navigation.SetRootView(nameof(TabbedMainPage), false);
                     });
                 }
                 else
                 {
-                    if(Device.RuntimePlatform == Device.iOS)
-                        await OpenModalAsync(nameof(LoginPage), null, true);
-                    else
-                        await NavigateAsync(nameof(LoginPage), null);
+                    await MainThread.InvokeOnMainThreadAsync(async () =>
+                    {
+                        if (Device.RuntimePlatform == Device.iOS)
+                            await NavigateAsync(nameof(LoginPage), null).ConfigureAwait(false);
+                        else
+                            await NavigateAsync(nameof(LoginPage), null).ConfigureAwait(false);
+                    });
                 }
             }
             catch (Exception e)
@@ -106,13 +109,17 @@ namespace MVP.ViewModels
 
                     MainThread.BeginInvokeOnMainThread(() =>
                     {
-                        NavigationHelper.SetRootView(nameof(TabbedMainPage), false);
+                        Navigation.SetRootView(nameof(TabbedMainPage), false);
                     });
                 }
                 else
                 {
                     AnalyticsService.Track("Invalid MVP Account Used");
-                    await DialogService.AlertAsync(Resources.Translations.error_nomvpaccount, Resources.Translations.error_title, Resources.Translations.ok);
+
+                    await MainThread.InvokeOnMainThreadAsync(async () =>
+                    {
+                        await DialogService.AlertAsync(Resources.Translations.error_nomvpaccount, Resources.Translations.error_title, Resources.Translations.ok);
+                    });
                 }
             }
             catch (Exception e)

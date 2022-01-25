@@ -27,7 +27,7 @@ namespace MVP.Extensions
                 Description = contribution.Description,
                 ReferenceUrl = new ValidatableObject<string> { Value = contribution.ReferenceUrl },
                 SecondAnnualQuantity = new ValidatableObject<int?> { Value = contribution.SecondAnnualQuantity },
-                StartDate = contribution.StartDate ?? DateTime.Now.Date,
+                StartDate = contribution.StartDate ?? new DateTime(DateTime.Now.Ticks, DateTimeKind.Unspecified),
                 Title = new ValidatableObject<string> { Value = contribution.Title },
                 Visibility = new ValidatableObject<Visibility> { Value = contribution.Visibility }
             };

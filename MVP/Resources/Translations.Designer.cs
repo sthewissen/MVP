@@ -413,6 +413,12 @@ namespace MVP.Resources {
             }
         }
         
+        internal static string retry {
+            get {
+                return ResourceManager.GetString("retry", resourceCulture);
+            }
+        }
+        
         internal static string cancel {
             get {
                 return ResourceManager.GetString("cancel", resourceCulture);

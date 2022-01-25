@@ -33,7 +33,7 @@ namespace MVP.ViewModels.Data
 
         public ValidatableObject<ContributionTechnology> ContributionTechnology { get; set; } = new ValidatableObject<ContributionTechnology>();
         public IList<ContributionTechnology> AdditionalTechnologies { get; set; } = new List<ContributionTechnology>();
-        public DateTime StartDate { get; set; } = DateTime.Now;
+        public DateTime StartDate { get; set; } = new DateTime(DateTime.Now.Ticks, DateTimeKind.Unspecified);
         public ValidatableObject<string> Title { get; set; } = new ValidatableObject<string>();
         public ValidatableObject<string> ReferenceUrl { get; set; } = new ValidatableObject<string>();
         public ValidatableObject<Visibility> Visibility { get; set; } = new ValidatableObject<Visibility>();

@@ -96,6 +96,14 @@
 
                 <ScrollView>
                     <StackLayout Padding="0,32">
+                        
+                        <Frame Margin="24,0,24,16"
+                               Style="{StaticResource warning_frame}">
+                            <Grid>
+                                <Label Style="{StaticResource warning_text}"
+                                       Text="{Binding ContributionDeadlineText}"/>
+                            </Grid>
+                        </Frame>
 
                         <Frame Margin="24,0,24,16"
                                IsVisible="{Binding IsContributionValid, Converter={xct:InvertedBoolConverter}}"
@@ -117,10 +125,10 @@
                             </Grid>
                         </Frame>
 
-                        <Label Style="{StaticResource contributionform_note}" 
+                        <!--<Label Style="{StaticResource contributionform_note}" 
                                Padding="32,0"
                                Text="{Binding ContributionDeadlineText}"
-                               x:Name="lbl"/>
+                               x:Name="lbl"/>-->
 
                         <BoxView Margin="16,16,16,0"
                                  Style="{StaticResource separator}"/>
@@ -150,7 +158,7 @@
                         <controls:PickerInputView PickerCommand="{Binding PickAdditionalTechnologiesCommand}"
                                                   Placeholder="{x:Static resources:Translations.contributionform_additionaltechnologyarea_placeholder}"
                                                   Title="{x:Static resources:Translations.field_additional_contribution_areas}"
-                                                  Value="{Binding Contribution.AdditionalTechnologies, Converter={xct:ListToStringConverter Separator=','}}"/>
+                                                  Value="{Binding Contribution.AdditionalTechnologies, Converter={xct:ListToStringConverter Separator=', '}}"/>
                         <BoxView Margin="16,0"
                                  Style="{StaticResource separator}"/>
 

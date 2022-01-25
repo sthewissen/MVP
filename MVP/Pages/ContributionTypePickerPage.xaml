@@ -28,7 +28,7 @@
                         <controls:EmptyState Title="{x:Static resources:Translations.empty_state_title}"
                                              Description="{x:Static resources:Translations.empty_state_contributiontypes}"
                                              ImageSource="Resource://empty.svg"
-                                             CommandText="Retry"
+                                             CommandText="{x:Static resources:Translations.retry}" 
                                              Command="{Binding RefreshDataCommand}" />
                     </xct:StateView>
 
@@ -38,7 +38,7 @@
                         <controls:EmptyState Title="{x:Static resources:Translations.error_title}"
                                              Description="{x:Static resources:Translations.error_data_not_loaded}"
                                              ImageSource="Resource://error.svg"
-                                             CommandText="Retry"
+                                             CommandText="{x:Static resources:Translations.retry}" 
                                              Command="{Binding RefreshDataCommand}"  />
                     </xct:StateView>
                 </xct:StateLayout.StateViews>

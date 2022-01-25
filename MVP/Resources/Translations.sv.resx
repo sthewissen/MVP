@@ -18,6 +18,9 @@
     <data name="about_credits_title" xml:space="preserve">
     <value>Medverkande</value>
   </data>
+  <data name="retry" xml:space="preserve">
+        <value>Försök igen</value>
+    </data>  
     <data name="about_licenses_description" xml:space="preserve">
     <value>Den här appen står på axlarna av de jättar utan vilka dess skapande inte vore möjlig. Om du vill veta vilka de är, kolla på licenserna för deras fantastiska mjukvaror.</value>
   </data>
