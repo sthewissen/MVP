@@ -6,7 +6,6 @@ using System;
 using MVP.Services;
 using MVP.Pages;
 using TinyMvvm.Autofac;
-using TinyMvvm.IoC;
 using MVP.Resources;
 using MVP.Services.Demo;
 using TinyMvvm;

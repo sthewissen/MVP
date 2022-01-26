@@ -161,6 +161,22 @@ namespace MVP.ViewModels
                 {
                     Contribution.StartDate = new DateTime(dateTime.Value.Ticks, DateTimeKind.Unspecified);
                 }
+
+                var localSuggestion = await SuggestionService.GetUrlBasedSuggestion(new Uri(clipboardText).Host).ConfigureAwait(false);
+
+                if (localSuggestion != null)
+                {
+                    var tech = await MvpApiService.GetContributionAreasAsync().ConfigureAwait(false);
+                    var types = await MvpApiService.GetContributionTypesAsync().ConfigureAwait(false);
+
+                    // The type still exists, so prefill.
+                    if(types.Any(x=>x.Id == localSuggestion.ContributionType.Id))
+                        Contribution.ContributionType.Value = localSuggestion.ContributionType;
+
+                    // The tech still exists, so prefill
+                    if (tech.SelectMany(x=>x.Contributions.SelectMany(y=>y.ContributionArea)).Any(x => x.Id == localSuggestion.ContributionTechnology.Id))
+                        Contribution.ContributionTechnology.Value = localSuggestion.ContributionTechnology;
+                }
             }
             catch (Exception ex)
             {
@@ -255,6 +271,9 @@ namespace MVP.ViewModels
 
                 if (Contribution.ContributionTechnology.Value.Id.HasValue)
                     await SuggestionService.StoreContributionTechnologySuggestionAsync(Contribution.ContributionTechnology.Value.Id.Value);
+
+                if (!string.IsNullOrEmpty(Contribution.ReferenceUrl.Value) && Contribution.ContributionType.Value.Id.HasValue && Contribution.ContributionTechnology.Value.Id.HasValue)
+                    await SuggestionService.StoreUrlSuggestions(Contribution.ReferenceUrl.Value, Contribution.ContributionTechnology.Value, Contribution.ContributionType.Value);
 
                 if (Contribution.AdditionalTechnologies.Any())
                     await SuggestionService.StoreContributionTechnologySuggestionsAsync(Contribution.AdditionalTechnologies.Select(x => x.Id.Value).ToList());

@@ -22,12 +22,12 @@
         <PackageReference Include="HtmlAgilityPack" Version="1.11.40" />
         <PackageReference Include="akavache" Version="8.1.1" />
         <PackageReference Include="Com.Airbnb.Xamarin.Forms.Lottie" Version="4.0.11" />
-        <PackageReference Include="TinyMvvm.Autofac" Version="3.0.1" />
-        <PackageReference Include="TinyMvvm.Forms" Version="3.0.1" />
         <PackageReference Include="IsoNames.NETStandard" Version="1.2.1" />
         <PackageReference Include="Plugin.StoreReview" Version="3.1.0" />
         <PackageReference Include="Xamarin.CommunityToolkit" Version="1.3.2" />
         <PackageReference Include="Mobile.BuildTools" Version="2.0.245" />
+        <PackageReference Include="TinyMvvm.Autofac" Version="4.0.1-pre4" />
+        <PackageReference Include="TinyMvvm.Forms" Version="4.0.1-pre4" />
     </ItemGroup>
     <ItemGroup>
         <Folder Include="Models\" />
@@ -72,6 +72,9 @@
         <None Remove="Resources\onboarding2.svg" />
         <None Remove="Resources\onboarding2d.svg" />
         <None Remove="Mobile.BuildTools" />
+        <None Remove="Autofac" />
+        <None Remove="TinyMvvm.Autofac" />
+        <None Remove="TinyMvvm.Forms" />
     </ItemGroup>
     <ItemGroup>
         <EmbeddedResource Include="Resources\mvp_logo.svg">
