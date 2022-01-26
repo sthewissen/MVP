@@ -87,7 +87,7 @@
                         </Grid>
                     </Frame>
 
-                    <FlexLayout Direction="Row"
+                    <!--<FlexLayout Direction="Row"
                                 Margin="0,0,0,16"
                                 Padding="24,0"
                                 Wrap="Wrap"
@@ -107,7 +107,7 @@
                                 </StackLayout>
                             </DataTemplate>
                         </BindableLayout.ItemTemplate>
-                    </FlexLayout>
+                    </FlexLayout>-->
 
                     <Image x:Name="shadow"
                            Opacity="0"
