@@ -300,6 +300,9 @@
     <data name="ok" xml:space="preserve">
         <value>Ok</value>
     </data>
+    <data name="retry" xml:space="preserve">
+        <value>Retry</value>
+    </data>    
     <data name="cancel" xml:space="preserve">
         <value>Cancel</value>
     </data>

@@ -41,7 +41,7 @@ namespace MVP.Helpers
                     var result = await req.Content.ReadAsStringAsync();
 
                     Debug.WriteLine($"{msg} Content:");
-                    Debug.WriteLine($"{msg} {string.Join("", result.Cast<char>().Take(255))}...");
+                    Debug.WriteLine($"{msg} {result}");
 
                 }
             }

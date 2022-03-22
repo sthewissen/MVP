@@ -4,7 +4,6 @@ using MVP.Resources;
 using MVP.Services;
 using MVP.Services.Interfaces;
 using TinyMvvm;
-using TinyNavigationHelper;
 using Xamarin.CommunityToolkit.ObjectModel;
 using Xamarin.CommunityToolkit.UI.Views;
 using Xamarin.Essentials;
@@ -20,7 +19,7 @@ namespace MVP.ViewModels
         protected IMvpApiService MvpApiService => App.MvpApiService;
         protected IAnalyticsService AnalyticsService { get; }
         protected IAuthService AuthService => App.AuthService;
-        protected INavigationHelper NavigationHelper => App.NavigationHelper;
+        //protected INavigationHelper NavigationHelper => App.NavigationHelper;
 
         public virtual IAsyncCommand BackCommand { get; set; }
         public virtual ICommand PrimaryCommand { get; set; }
@@ -53,7 +52,7 @@ namespace MVP.ViewModels
 
             isNavigating = true;
 
-            return NavigationHelper.NavigateToAsync(page, param).ContinueWith((x) => isNavigating = false);
+            return Navigation.NavigateToAsync(page, param).ContinueWith((x) => isNavigating = false);
         }
 
         protected Task OpenModalAsync(string page, object data, bool withNavigation)
@@ -63,7 +62,7 @@ namespace MVP.ViewModels
 
             isNavigating = true;
 
-            return NavigationHelper.OpenModalAsync(page, data, withNavigation).ContinueWith((x) => isNavigating = false);
+            return Navigation.OpenModalAsync(page, data, withNavigation).ContinueWith((x) => isNavigating = false);
         }
 
         protected Task CloseModalAsync()
@@ -73,7 +72,7 @@ namespace MVP.ViewModels
 
             isNavigating = true;
 
-            return NavigationHelper.CloseModalAsync().ContinueWith((x) => isNavigating = false);
+            return Navigation.CloseModalAsync().ContinueWith((x) => isNavigating = false);
         }
 
         public virtual Task BackAsync()
@@ -83,7 +82,7 @@ namespace MVP.ViewModels
 
             isNavigating = true;
 
-            return NavigationHelper.BackAsync().ContinueWith((x) => isNavigating = false);
+            return Navigation.BackAsync().ContinueWith((x) => isNavigating = false);
         }
     }
 }

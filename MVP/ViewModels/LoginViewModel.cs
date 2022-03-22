@@ -48,7 +48,7 @@ namespace MVP.ViewModels
 
                             MainThread.BeginInvokeOnMainThread(() =>
                             {
-                                NavigationHelper.SetRootView(nameof(TabbedMainPage), false);
+                                Navigation.SetRootView(nameof(TabbedMainPage), false);
                             });
                         }
                     }

@@ -18,6 +18,9 @@
     <data name="about_licenses_title" xml:space="preserve">
     <value>Lizenzen</value>
   </data>
+  <data name="retry" xml:space="preserve">
+        <value>Wiederholen</value>
+    </data>  
     <data name="about_opensource_description" xml:space="preserve">
     <value>Diese App ist komplett Open Source. Wenn die App gefällt, kannst Du gerne ein GitHub-Sponsor werden und so mir eine digitale Tasse Kaffee pro Monat kaufen. ☕️</value>
   </data>

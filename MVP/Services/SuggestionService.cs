@@ -4,6 +4,7 @@ using System.Linq;
 using System.Reactive.Linq;
 using System.Threading.Tasks;
 using Akavache;
+using MVP.Models;
 
 namespace MVP.Services
 {
@@ -11,6 +12,7 @@ namespace MVP.Services
     {
         const string typeKey = "type-suggestions";
         const string techKey = "tech-suggestions";
+        const string urlKey = "url-suggestions";
 
         public async static Task<List<Guid>> GetContributionTypeSuggestions()
         {
@@ -28,6 +30,26 @@ namespace MVP.Services
             catch (KeyNotFoundException)
             {
                 return new List<Guid>();
+            }
+        }
+
+        public async static Task<UrlBasedSuggestion> GetUrlBasedSuggestion(string host)
+        {
+            try
+            {
+                var items = await BlobCache.LocalMachine.GetObject<List<UrlBasedSuggestion>>(urlKey);
+
+                return items.Where(x => host == new Uri(x.Url).Host)
+                      .GroupBy(x => new { Host = new Uri(x.Url).Host, ContributionTechnologyId = x.ContributionTechnology.Id, ContributionId = x.ContributionType.Id })
+                      .OrderByDescending(g => g.Count())
+                      .Where(g => g.Count() >= 3)
+                      .SelectMany(g => g)
+                      .Distinct()
+                      .FirstOrDefault();
+            }
+            catch (KeyNotFoundException)
+            {
+                return null;
             }
         }
 
@@ -93,6 +115,22 @@ namespace MVP.Services
                 var items = new List<Guid>();
                 items.AddRange(ids);
                 await BlobCache.LocalMachine.InsertObject(techKey, items);
+            }
+        }
+
+        public async static Task StoreUrlSuggestions(string url, ContributionTechnology tech, ContributionType type)
+        {
+            try
+            {
+                var items = await BlobCache.LocalMachine.GetObject<List<UrlBasedSuggestion>>(urlKey);
+                items.Add(new UrlBasedSuggestion { Url = url, ContributionTechnology = tech, ContributionType = type });
+                await BlobCache.LocalMachine.InsertObject(urlKey, items);
+            }
+            catch (KeyNotFoundException)
+            {
+                var items = new List<UrlBasedSuggestion>();
+                items.Add(new UrlBasedSuggestion { Url = url, ContributionTechnology = tech, ContributionType = type });
+                await BlobCache.LocalMachine.InsertObject(urlKey, items);
             }
         }
     }

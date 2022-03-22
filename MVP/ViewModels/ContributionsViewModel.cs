@@ -42,6 +42,8 @@ namespace MVP.ViewModels
             SecondaryCommand = new AsyncCommand(() => OpenAddContribution(), _ => State != LayoutState.Loading);
             RefreshDataCommand = new AsyncCommand(RefreshContributions);
             LoadMoreCommand = new AsyncCommand(() => LoadMore());
+
+            MessagingService.Current.Subscribe(MessageKeys.HardRefreshNeeded, HandleRefreshContributionsMessage);
         }
 
         public async override Task Initialize()

@@ -18,6 +18,9 @@
     <data name="search_placeholder" xml:space="preserve">
     <value>Ricerca...</value>
   </data>
+  <data name="retry" xml:space="preserve">
+        <value>Riprova</value>
+    </data>  
     <data name="profile_title" xml:space="preserve">
     <value>Impostazioni</value>
   </data>

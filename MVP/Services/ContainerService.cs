@@ -4,8 +4,8 @@ using System.Reflection;
 using Autofac;
 using MVP.Services.Interfaces;
 using MVP.ViewModels;
-using TinyNavigationHelper;
-using TinyNavigationHelper.Forms;
+using TinyMvvm;
+using TinyMvvm.Forms;
 using Xamarin.Forms;
 
 namespace MVP.Services

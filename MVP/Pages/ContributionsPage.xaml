@@ -9,7 +9,6 @@
                        xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
                        x:Class="MVP.Pages.ContributionsPage"
                        x:DataType="vm:ContributionsViewModel"
-                       xmlns:icons="clr-namespace:MVP.Styles"
                        x:Name="page"
                        Title="{x:Static resources:Translations.contributions_title}" 
                        x:TypeArguments="vm:ContributionsViewModel">
@@ -32,48 +31,8 @@
                   x:Name="appFrame">
         <mvp:AppFrame.Content>
             <RefreshView Command="{Binding RefreshDataCommand}"
-                             IsRefreshing="{Binding IsRefreshing, Mode=OneWay}">
-                <Grid xct:StateLayout.CurrentState="{Binding State}"
-                      xct:StateLayout.AnimateStateChanges="False"
-                      xct:StateLayout.CurrentCustomStateKey="{Binding CustomStateKey}">
-
-                    <xct:StateLayout.StateViews>
-                        <xct:StateView StateKey="Loading"
-                                       RepeatCount="3"
-                                       Template="{StaticResource contribution_item_loading}" />
-
-                        <xct:StateView StateKey="Empty"
-                                       HorizontalOptions="FillAndExpand"
-                                       VerticalOptions="FillAndExpand" >
-                            <controls:EmptyState Title="{x:Static resources:Translations.empty_state_title}"
-                                                 Description="{x:Static resources:Translations.empty_state_contributions}"
-                                                 ImageSource="Resource://empty.svg"
-                                                 CommandText="Retry"
-                                                 Command="{Binding RefreshDataCommand}" />
-                        </xct:StateView>
-
-                        <xct:StateView StateKey="Error"
-                                       HorizontalOptions="FillAndExpand"
-                                       VerticalOptions="FillAndExpand" >
-                            <controls:EmptyState Title="{x:Static resources:Translations.error_title}"
-                                                 Description="{x:Static resources:Translations.error_data_not_loaded}"
-                                                 ImageSource="Resource://error.svg"
-                                                 CommandText="Retry"
-                                                 Command="{Binding RefreshDataCommand}" />
-                        </xct:StateView>
-
-                        <xct:StateView StateKey="Custom"
-                                       CustomStateKey="{x:Static mvp:StateKeys.Offline}"
-                                       HorizontalOptions="FillAndExpand"
-                                       VerticalOptions="FillAndExpand" >
-                            <controls:EmptyState Title="{x:Static resources:Translations.error_offline_title}"
-                                                 Description="{x:Static resources:Translations.offline_contributions}"
-                                                 ImageSource="Resource://empty.svg"
-                                                 CommandText="Retry"
-                                                 Command="{Binding RefreshDataCommand}" />
-                        </xct:StateView>
-                    </xct:StateLayout.StateViews>
-
+                         IsRefreshing="{Binding IsRefreshing, Mode=OneWay}" >                
+                <Grid>
                     <CollectionView ItemsSource="{Binding Contributions}"
                                     ItemsUpdatingScrollMode="KeepScrollOffset"
                                     ItemTemplate="{StaticResource contribution_item}"
@@ -84,12 +43,48 @@
                                     x:Name="collectionView">
 
                         <CollectionView.Footer>
-                            <!--Want to re-use the template so creating a faux list of items -->
+                            <!--Want to re-use the template so creating a faux list of items--> 
                             <StackLayout IsVisible="{Binding IsLoadingMore}"
                                             BindableLayout.ItemTemplate="{StaticResource contribution_item_loading}"
                                             BindableLayout.ItemsSource="{StaticResource faux_list}" />
                         </CollectionView.Footer>
                     </CollectionView>
+
+                    <Grid BackgroundColor="{AppThemeBinding Light={StaticResource white}, Dark={StaticResource black}}"
+                          IsVisible="{Binding State, Converter={xct:EqualConverter}, ConverterParameter={x:Static xct:LayoutState.Loading}}">
+                        <controls:LoadingContributionsView />
+                    </Grid>
+                    
+                    <Grid BackgroundColor="{AppThemeBinding Light={StaticResource white}, Dark={StaticResource black}}"
+                          IsVisible="{Binding State, Converter={xct:EqualConverter}, ConverterParameter={x:Static xct:LayoutState.Error}}">
+                        
+                        <controls:EmptyState Title="{x:Static resources:Translations.error_title}"
+                                             Description="{x:Static resources:Translations.error_data_not_loaded}"
+                                             ImageSource="Resource://error.svg"
+                                             CommandText="{x:Static resources:Translations.retry}" 
+                                             Command="{Binding RefreshDataCommand}" />
+                    </Grid>
+                    
+                    <Grid BackgroundColor="{AppThemeBinding Light={StaticResource white}, Dark={StaticResource black}}"
+                          IsVisible="{Binding State, Converter={xct:EqualConverter}, ConverterParameter={x:Static xct:LayoutState.Empty}}">
+                        
+                        <controls:EmptyState Title="{x:Static resources:Translations.empty_state_title}"
+                                             Description="{x:Static resources:Translations.empty_state_contributions}"
+                                             ImageSource="Resource://empty.svg"
+                                             CommandText="{x:Static resources:Translations.retry}" 
+                                             Command="{Binding RefreshDataCommand}" />
+                    </Grid>
+                    
+                    <Grid BackgroundColor="{AppThemeBinding Light={StaticResource white}, Dark={StaticResource black}}"
+                          IsVisible="{Binding CustomStateKey, Converter={xct:EqualConverter}, ConverterParameter={x:Static mvp:StateKeys.Offline}}">
+
+                        <controls:EmptyState Title="{x:Static resources:Translations.error_offline_title}"
+                                             Description="{x:Static resources:Translations.offline_contributions}"
+                                             ImageSource="Resource://empty.svg"
+                                             CommandText="{x:Static resources:Translations.retry}" 
+                                             Command="{Binding RefreshDataCommand}" />
+                    </Grid>
+
                 </Grid>
             </RefreshView>
         </mvp:AppFrame.Content>

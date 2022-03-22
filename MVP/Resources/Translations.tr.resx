@@ -18,6 +18,9 @@
     <data name="search_placeholder" xml:space="preserve">
     <value>Ara...</value>
   </data>
+  <data name="retry" xml:space="preserve">
+        <value>Yeniden dene</value>
+    </data>  
     <data name="profile_title" xml:space="preserve">
     <value>Ayarlar</value>
   </data>

@@ -32,7 +32,7 @@
                         <controls:EmptyState Title="{x:Static resources:Translations.empty_state_title}"
                                              Description="{x:Static resources:Translations.empty_state_contributiontechnologies}"
                                              ImageSource="Resource://empty.svg"
-                                             CommandText="Retry"
+                                             CommandText="{x:Static resources:Translations.retry}" 
                                              Command="{Binding RefreshDataCommand}"  />
                     </xct:StateView>
 
@@ -42,7 +42,7 @@
                         <controls:EmptyState Title="{x:Static resources:Translations.error_title}"
                                              Description="{x:Static resources:Translations.error_data_not_loaded}"
                                              ImageSource="Resource://error.svg"
-                                             CommandText="Retry"
+                                             CommandText="{x:Static resources:Translations.retry}" 
                                              Command="{Binding RefreshDataCommand}"  />
                     </xct:StateView>
                 </xct:StateLayout.StateViews>
@@ -87,7 +87,7 @@
                         </Grid>
                     </Frame>
 
-                    <FlexLayout Direction="Row"
+                    <!--<FlexLayout Direction="Row"
                                 Margin="0,0,0,16"
                                 Padding="24,0"
                                 Wrap="Wrap"
@@ -107,7 +107,7 @@
                                 </StackLayout>
                             </DataTemplate>
                         </BindableLayout.ItemTemplate>
-                    </FlexLayout>
+                    </FlexLayout>-->
 
                     <Image x:Name="shadow"
                            Opacity="0"
