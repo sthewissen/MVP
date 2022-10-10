@@ -1,3 +1,7 @@
+# Repository Archived (PLEASE READ)
+
+Microsoft has deprecated the MVP API near the end of April 2022. This means that this app has no way to interface with the MVP portal anymore, effectively killing its existance. It's been fun working on the app, but with no way to communicate to a backend I'm forced to basically shut up shop. I will the repository here for historical purposes but it is considered archived from here on out. 
+
 ![](mvp.png)
 
 # MVP
